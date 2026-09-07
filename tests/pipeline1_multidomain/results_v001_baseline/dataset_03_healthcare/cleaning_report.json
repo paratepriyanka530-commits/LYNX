@@ -1,0 +1,3877 @@
+{
+  "pipeline_version": "pipeline1_architecture_b_v001",
+  "run_id": "20260906T113505-fb72ab7e",
+  "status": "success",
+  "original_dataset": {
+    "valid": true,
+    "file_name": "dataset_03_healthcare_raw.csv",
+    "file_format": ".csv",
+    "file_size_bytes": 1450504,
+    "rows": 7500,
+    "columns": 24,
+    "duplicate_columns": [],
+    "absolute_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_03_healthcare_raw.csv",
+    "source_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_03_healthcare_raw.csv",
+    "raw_dataset_overwritten": false
+  },
+  "before_profile": {
+    "shape": {
+      "rows": 7500,
+      "columns": 24
+    },
+    "column_names": [
+      "encounter_id",
+      "patient_id",
+      "patient_age",
+      "gender",
+      "visit_date",
+      "visit_type",
+      "hospital_id",
+      "hospital_name",
+      "hospital_city",
+      "department",
+      "doctor_id",
+      "diagnosis_code",
+      "diagnosis_description",
+      "blood_pressure",
+      "pulse_bpm",
+      "temperature_c",
+      "spo2_percent",
+      "admission_datetime",
+      "discharge_datetime",
+      "length_of_stay_days",
+      "insurance_provider",
+      "claim_id",
+      "total_cost_inr",
+      "billing_status"
+    ],
+    "dtype_distribution": {
+      "str": 21,
+      "float64": 3
+    },
+    "missingness": {
+      "total_missing_cells": 21230,
+      "overall_missing_percentage": 11.7944
+    },
+    "duplicates": {
+      "exact_duplicate_rows": 25,
+      "percentage": 0.3333
+    },
+    "column_profiles": [
+      {
+        "column_name": "encounter_id",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7500,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 7455,
+          "unique_ratio": 0.994
+        },
+        "repetition": {
+          "repeated_unique_count": 45,
+          "repeated_occurrences": 90,
+          "repetition_rate": 0.012
+        },
+        "sample_values": [
+          "ENC0004659",
+          "ENC0002315",
+          "ENC0002331",
+          "ENC0005751",
+          "ENC0004460"
+        ]
+      },
+      {
+        "column_name": "patient_id",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7448,
+        "missing": {
+          "count": 52,
+          "percentage": 0.6933
+        },
+        "uniqueness": {
+          "unique_count": 2886,
+          "unique_ratio": 0.387487
+        },
+        "repetition": {
+          "repeated_unique_count": 2149,
+          "repeated_occurrences": 6711,
+          "repetition_rate": 0.901047
+        },
+        "sample_values": [
+          "PAT002435",
+          "PAT002166",
+          "PAT000006",
+          "PAT002695",
+          "PAT001230"
+        ]
+      },
+      {
+        "column_name": "patient_age",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7500,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 94,
+          "unique_ratio": 0.012533
+        },
+        "repetition": {
+          "repeated_unique_count": 94,
+          "repeated_occurrences": 7500,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "85",
+          "79",
+          "39",
+          "1",
+          "23"
+        ]
+      },
+      {
+        "column_name": "gender",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7492,
+        "missing": {
+          "count": 8,
+          "percentage": 0.1067
+        },
+        "uniqueness": {
+          "unique_count": 8,
+          "unique_ratio": 0.001068
+        },
+        "repetition": {
+          "repeated_unique_count": 8,
+          "repeated_occurrences": 7492,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Male",
+          "Female",
+          "Unknown",
+          "Other",
+          "female"
+        ]
+      },
+      {
+        "column_name": "visit_date",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7500,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 794,
+          "unique_ratio": 0.105867
+        },
+        "repetition": {
+          "repeated_unique_count": 627,
+          "repeated_occurrences": 7333,
+          "repetition_rate": 0.977733
+        },
+        "sample_values": [
+          "2026-05-06",
+          "2025-04-08",
+          "2025-01-28",
+          "2025-05-12",
+          "2025-07-19"
+        ]
+      },
+      {
+        "column_name": "visit_type",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7500,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 8,
+          "unique_ratio": 0.001067
+        },
+        "repetition": {
+          "repeated_unique_count": 8,
+          "repeated_occurrences": 7500,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Outpatient",
+          "Emergency",
+          "Teleconsultation",
+          "Inpatient",
+          "OPD"
+        ]
+      },
+      {
+        "column_name": "hospital_id",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7500,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 4,
+          "unique_ratio": 0.000533
+        },
+        "repetition": {
+          "repeated_unique_count": 4,
+          "repeated_occurrences": 7500,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "H04",
+          "H03",
+          "H02",
+          "H01"
+        ]
+      },
+      {
+        "column_name": "hospital_name",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7500,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 4,
+          "unique_ratio": 0.000533
+        },
+        "repetition": {
+          "repeated_unique_count": 4,
+          "repeated_occurrences": 7500,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Riverfront Medical Centre",
+          "Central City Hospital",
+          "Sahyadri Care Centre",
+          "Lotus Multispeciality Hospital"
+        ]
+      },
+      {
+        "column_name": "hospital_city",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7500,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 12,
+          "unique_ratio": 0.0016
+        },
+        "repetition": {
+          "repeated_unique_count": 11,
+          "repeated_occurrences": 7499,
+          "repetition_rate": 0.999867
+        },
+        "sample_values": [
+          "Nashik",
+          "Nagpur",
+          "Pune",
+          "Mumbai",
+          "nashik"
+        ]
+      },
+      {
+        "column_name": "department",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7500,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 22,
+          "unique_ratio": 0.002933
+        },
+        "repetition": {
+          "repeated_unique_count": 17,
+          "repeated_occurrences": 7495,
+          "repetition_rate": 0.999333
+        },
+        "sample_values": [
+          "Gynaecology",
+          "Orthopaedics",
+          "Pulmonology",
+          "General Medicine",
+          "Paediatrics"
+        ]
+      },
+      {
+        "column_name": "doctor_id",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7500,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 120,
+          "unique_ratio": 0.016
+        },
+        "repetition": {
+          "repeated_unique_count": 120,
+          "repeated_occurrences": 7500,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "DR0078",
+          "DR0003",
+          "DR0076",
+          "DR0087",
+          "DR0101"
+        ]
+      },
+      {
+        "column_name": "diagnosis_code",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7493,
+        "missing": {
+          "count": 7,
+          "percentage": 0.0933
+        },
+        "uniqueness": {
+          "unique_count": 27,
+          "unique_ratio": 0.003603
+        },
+        "repetition": {
+          "repeated_unique_count": 24,
+          "repeated_occurrences": 7490,
+          "repetition_rate": 0.9996
+        },
+        "sample_values": [
+          "N92.6",
+          "S52.90",
+          "J18.9",
+          "J06.9",
+          "R07.9"
+        ]
+      },
+      {
+        "column_name": "diagnosis_description",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7498,
+        "missing": {
+          "count": 2,
+          "percentage": 0.0267
+        },
+        "uniqueness": {
+          "unique_count": 36,
+          "unique_ratio": 0.004801
+        },
+        "repetition": {
+          "repeated_unique_count": 26,
+          "repeated_occurrences": 7488,
+          "repetition_rate": 0.998666
+        },
+        "sample_values": [
+          "Irregular menstruation",
+          "Forearm fracture",
+          "Pneumonia",
+          "Acute upper respiratory infection",
+          "Chest pain"
+        ]
+      },
+      {
+        "column_name": "blood_pressure",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7496,
+        "missing": {
+          "count": 4,
+          "percentage": 0.0533
+        },
+        "uniqueness": {
+          "unique_count": 3750,
+          "unique_ratio": 0.500267
+        },
+        "repetition": {
+          "repeated_unique_count": 2219,
+          "repeated_occurrences": 5965,
+          "repetition_rate": 0.795758
+        },
+        "sample_values": [
+          "161/97",
+          "151/59",
+          "99/90",
+          "132/93",
+          "171/73"
+        ]
+      },
+      {
+        "column_name": "pulse_bpm",
+        "physical_dtype": "float64",
+        "row_count": 7500,
+        "non_null_count": 7493,
+        "missing": {
+          "count": 7,
+          "percentage": 0.0933
+        },
+        "uniqueness": {
+          "unique_count": 55,
+          "unique_ratio": 0.00734
+        },
+        "repetition": {
+          "repeated_unique_count": 55,
+          "repeated_occurrences": 7493,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          90.0,
+          94.0,
+          80.0,
+          91.0,
+          95.0
+        ],
+        "numeric_statistics": {
+          "min": 0.0,
+          "max": 250.0,
+          "mean": 84.41078339783799,
+          "median": 84.0,
+          "std": 16.756251706836895,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "temperature_c",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7500,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 39,
+          "unique_ratio": 0.0052
+        },
+        "repetition": {
+          "repeated_unique_count": 39,
+          "repeated_occurrences": 7500,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "36.1",
+          "38.7",
+          "37.2",
+          "38.2",
+          "36.5"
+        ]
+      },
+      {
+        "column_name": "spo2_percent",
+        "physical_dtype": "float64",
+        "row_count": 7500,
+        "non_null_count": 7494,
+        "missing": {
+          "count": 6,
+          "percentage": 0.08
+        },
+        "uniqueness": {
+          "unique_count": 15,
+          "unique_ratio": 0.002002
+        },
+        "repetition": {
+          "repeated_unique_count": 15,
+          "repeated_occurrences": 7494,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          99.0,
+          89.0,
+          90.0,
+          91.0,
+          98.0
+        ],
+        "numeric_statistics": {
+          "min": 45.0,
+          "max": 110.0,
+          "mean": 93.98745663197225,
+          "median": 94.0,
+          "std": 3.9996466700247524,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "admission_datetime",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 1083,
+        "missing": {
+          "count": 6417,
+          "percentage": 85.56
+        },
+        "uniqueness": {
+          "unique_count": 1046,
+          "unique_ratio": 0.965836
+        },
+        "repetition": {
+          "repeated_unique_count": 35,
+          "repeated_occurrences": 72,
+          "repetition_rate": 0.066482
+        },
+        "sample_values": [
+          "2025-09-09 03:00",
+          "2025-10-24 18:00",
+          "2026-01-28 16:00",
+          "2026-03-11 11:00",
+          "2025-01-05 14:00"
+        ]
+      },
+      {
+        "column_name": "discharge_datetime",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 1046,
+        "missing": {
+          "count": 6454,
+          "percentage": 86.0533
+        },
+        "uniqueness": {
+          "unique_count": 997,
+          "unique_ratio": 0.953155
+        },
+        "repetition": {
+          "repeated_unique_count": 45,
+          "repeated_occurrences": 94,
+          "repetition_rate": 0.089866
+        },
+        "sample_values": [
+          "2025-09-16 11:00",
+          "2025-10-27 19:00",
+          "2026-02-11 00:00",
+          "2026-03-12 22:00",
+          "2025-01-14 23:00"
+        ]
+      },
+      {
+        "column_name": "length_of_stay_days",
+        "physical_dtype": "float64",
+        "row_count": 7500,
+        "non_null_count": 1081,
+        "missing": {
+          "count": 6419,
+          "percentage": 85.5867
+        },
+        "uniqueness": {
+          "unique_count": 17,
+          "unique_ratio": 0.015726
+        },
+        "repetition": {
+          "repeated_unique_count": 17,
+          "repeated_occurrences": 1081,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          7.0,
+          3.0,
+          13.0,
+          1.0,
+          9.0
+        ],
+        "numeric_statistics": {
+          "min": -2.0,
+          "max": 365.0,
+          "mean": 10.525439407955597,
+          "median": 8.0,
+          "std": 32.745703003604305,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "insurance_provider",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7500,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 6,
+          "unique_ratio": 0.0008
+        },
+        "repetition": {
+          "repeated_unique_count": 6,
+          "repeated_occurrences": 7500,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Star Health",
+          "HDFC ERGO",
+          "Self-pay",
+          "New India Assurance",
+          "Ayushman Bharat"
+        ]
+      },
+      {
+        "column_name": "claim_id",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 5658,
+        "missing": {
+          "count": 1842,
+          "percentage": 24.56
+        },
+        "uniqueness": {
+          "unique_count": 3614,
+          "unique_ratio": 0.638742
+        },
+        "repetition": {
+          "repeated_unique_count": 1467,
+          "repeated_occurrences": 3511,
+          "repetition_rate": 0.620537
+        },
+        "sample_values": [
+          "CLM002004",
+          "CLM005502",
+          "CLM005650",
+          "CLM005162",
+          "CLM004506"
+        ]
+      },
+      {
+        "column_name": "total_cost_inr",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7494,
+        "missing": {
+          "count": 6,
+          "percentage": 0.08
+        },
+        "uniqueness": {
+          "unique_count": 7426,
+          "unique_ratio": 0.990926
+        },
+        "repetition": {
+          "repeated_unique_count": 56,
+          "repeated_occurrences": 124,
+          "repetition_rate": 0.016547
+        },
+        "sample_values": [
+          "1962.07",
+          "35161.09",
+          "2127.97",
+          "1832.68",
+          "2168.52"
+        ]
+      },
+      {
+        "column_name": "billing_status",
+        "physical_dtype": "str",
+        "row_count": 7500,
+        "non_null_count": 7494,
+        "missing": {
+          "count": 6,
+          "percentage": 0.08
+        },
+        "uniqueness": {
+          "unique_count": 7,
+          "unique_ratio": 0.000934
+        },
+        "repetition": {
+          "repeated_unique_count": 7,
+          "repeated_occurrences": 7494,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Insurance Processing",
+          "Partially Paid",
+          "Pending",
+          "Paid",
+          "In Process"
+        ]
+      }
+    ]
+  },
+  "issues": [
+    {
+      "issue_id": "issue-exact_duplicate_rows-192ec5f83876",
+      "issue_type": "exact_duplicate_rows",
+      "target_columns": [],
+      "affected_count": 25,
+      "affected_percentage": 0.3333,
+      "evidence": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "examples": [
+        1436,
+        1468,
+        2290,
+        2404,
+        2514
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-0db75e58262c",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "patient_id"
+      ],
+      "affected_count": 52,
+      "affected_percentage": 0.6933,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7448
+      },
+      "examples": [
+        44,
+        121,
+        287,
+        444,
+        1004
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-b6f4f412290c",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "gender"
+      ],
+      "affected_count": 8,
+      "affected_percentage": 0.1067,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7492
+      },
+      "examples": [
+        475,
+        702,
+        1567,
+        1703,
+        5335
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-42450581bd0a",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "gender"
+      ],
+      "affected_count": 7247,
+      "affected_percentage": 96.7298,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "female": [
+            "Female",
+            "female"
+          ],
+          "male": [
+            "MALE",
+            "Male"
+          ]
+        }
+      },
+      "examples": [
+        "Male",
+        "Male",
+        "Female",
+        "Male",
+        "Male"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-20a89416c668",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "gender"
+      ],
+      "affected_count": 32,
+      "affected_percentage": 0.4271,
+      "evidence": {
+        "maximum_frequency": 74,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 4
+      },
+      "examples": [
+        "female",
+        "F",
+        "female",
+        "female",
+        "MALE"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-inconsistent_date_format_candidate-67eeaff4192f",
+      "issue_type": "inconsistent_date_format_candidate",
+      "target_columns": [
+        "visit_date"
+      ],
+      "affected_count": 7490,
+      "affected_percentage": 99.8667,
+      "evidence": {
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 0.998667,
+        "method": "strict_shape_recognition"
+      },
+      "examples": [
+        "2026-05-06",
+        "2025-04-08",
+        "2025-01-28",
+        "2025-05-12",
+        "2025-07-19"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-71b347a695b2",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "visit_type"
+      ],
+      "affected_count": 34,
+      "affected_percentage": 0.4533,
+      "evidence": {
+        "maximum_frequency": 75,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 4
+      },
+      "examples": [
+        "OPD",
+        "Tele-consult",
+        "in patient",
+        "in patient",
+        "OPD"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-ef191877bd94",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "hospital_city"
+      ],
+      "affected_count": 5,
+      "affected_percentage": 0.0667,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 5,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "Nagpur ",
+        "Mumbai ",
+        "Nashik ",
+        "Nagpur ",
+        "Mumbai "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-ae084025666e",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "hospital_city"
+      ],
+      "affected_count": 7498,
+      "affected_percentage": 99.9733,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "mumbai": [
+            "Mumbai",
+            "Mumbai ",
+            "mumbai"
+          ],
+          "nagpur": [
+            "Nagpur",
+            "Nagpur ",
+            "nagpur"
+          ],
+          "nashik": [
+            "Nashik",
+            "Nashik ",
+            "nashik"
+          ],
+          "pune": [
+            "Pune",
+            "pune"
+          ]
+        }
+      },
+      "examples": [
+        "Nashik",
+        "Nagpur",
+        "Nashik",
+        "Nashik",
+        "Pune"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-89bda7fb20fd",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "hospital_city"
+      ],
+      "affected_count": 19,
+      "affected_percentage": 0.2533,
+      "evidence": {
+        "maximum_frequency": 75,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 8
+      },
+      "examples": [
+        "nashik",
+        "Nagpur ",
+        "Mumbai ",
+        "pune",
+        "Nashik "
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-ac5a5a16cde5",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "department"
+      ],
+      "affected_count": 14,
+      "affected_percentage": 0.1867,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 14,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "Pulmonology ",
+        "Neurology ",
+        "Orthopaedics ",
+        "General Medicine ",
+        "Orthopaedics "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-7b911c5dc9f9",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "department"
+      ],
+      "affected_count": 6603,
+      "affected_percentage": 88.04,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "cardiology": [
+            "Cardiology",
+            "Cardiology ",
+            "cardiology"
+          ],
+          "general medicine": [
+            "General Medicine",
+            "General Medicine ",
+            "general medicine"
+          ],
+          "gynaecology": [
+            "Gynaecology",
+            "Gynaecology "
+          ],
+          "neurology": [
+            "Neurology",
+            "Neurology ",
+            "neurology"
+          ],
+          "orthopaedics": [
+            "Orthopaedics",
+            "Orthopaedics ",
+            "orthopaedics"
+          ],
+          "paediatrics": [
+            "Paediatrics",
+            "Paediatrics ",
+            "paediatrics"
+          ],
+          "pulmonology": [
+            "Pulmonology",
+            "Pulmonology ",
+            "pulmonology"
+          ]
+        }
+      },
+      "examples": [
+        "Gynaecology",
+        "Orthopaedics",
+        "Pulmonology",
+        "General Medicine",
+        "Paediatrics"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-870a1fbd41a0",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "department"
+      ],
+      "affected_count": 33,
+      "affected_percentage": 0.44,
+      "evidence": {
+        "maximum_frequency": 75,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 14
+      },
+      "examples": [
+        "orthopaedics",
+        "pulmonology",
+        "Pulmonology ",
+        "cardiology",
+        "paediatrics"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-85d2c85a75ac",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "diagnosis_code"
+      ],
+      "affected_count": 7,
+      "affected_percentage": 0.0933,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7493
+      },
+      "examples": [
+        1227,
+        3149,
+        3335,
+        6267,
+        6281
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-cfb39155cd4d",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "diagnosis_code"
+      ],
+      "affected_count": 1918,
+      "affected_percentage": 25.5972,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "i25.10": [
+            "I25.10",
+            "i25.10"
+          ],
+          "j44.9": [
+            "J44.9",
+            "j44.9"
+          ],
+          "j45.9": [
+            "J45.9",
+            "j45.9"
+          ],
+          "n76.0": [
+            "N76.0",
+            "n76.0"
+          ],
+          "r07.9": [
+            "R07.9",
+            "r07.9"
+          ]
+        }
+      },
+      "examples": [
+        "R07.9",
+        "R07.9",
+        "R07.9",
+        "J44.9",
+        "I25.10"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-7d8b08f7456d",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "diagnosis_code"
+      ],
+      "affected_count": 22,
+      "affected_percentage": 0.2936,
+      "evidence": {
+        "maximum_frequency": 74,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 7
+      },
+      "examples": [
+        "n76.0",
+        "j44.9",
+        "I1O",
+        "I1O",
+        "i25.10"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-d57c8cb4adad",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "diagnosis_description"
+      ],
+      "affected_count": 2,
+      "affected_percentage": 0.0267,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7498
+      },
+      "examples": [
+        2046,
+        6675
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-4b28fc08fc66",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "diagnosis_description"
+      ],
+      "affected_count": 7,
+      "affected_percentage": 0.0934,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 7,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "Normal delivery ",
+        "Gastroenteritis ",
+        "Acute upper respiratory infection ",
+        "Unspecified injury ",
+        "Headache "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-e1af35f163e6",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "diagnosis_description"
+      ],
+      "affected_count": 5337,
+      "affected_percentage": 71.179,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "acute upper respiratory infection": [
+            "ACUTE UPPER RESPIRATORY INFECTION",
+            "Acute upper respiratory infection",
+            "Acute upper respiratory infection "
+          ],
+          "chest pain": [
+            "CHEST PAIN",
+            "Chest pain"
+          ],
+          "copd": [
+            "COPD",
+            "COPD "
+          ],
+          "epilepsy": [
+            "EPILEPSY",
+            "Epilepsy"
+          ],
+          "fever": [
+            "FEVER",
+            "Fever"
+          ],
+          "forearm fracture": [
+            "FOREARM FRACTURE",
+            "Forearm fracture"
+          ],
+          "gastroenteritis": [
+            "Gastroenteritis",
+            "Gastroenteritis "
+          ],
+          "headache": [
+            "Headache",
+            "Headache "
+          ],
+          "irregular menstruation": [
+            "IRREGULAR MENSTRUATION",
+            "Irregular menstruation"
+          ],
+          "knee osteoarthritis": [
+            "KNEE OSTEOARTHRITIS",
+            "Knee osteoarthritis"
+          ],
+          "migraine": [
+            "MIGRAINE",
+            "Migraine"
+          ],
+          "normal delivery": [
+            "Normal delivery",
+            "Normal delivery "
+          ],
+          "unspecified injury": [
+            "UNSPECIFIED INJURY",
+            "Unspecified injury",
+            "Unspecified injury "
+          ]
+        }
+      },
+      "examples": [
+        "Irregular menstruation",
+        "Forearm fracture",
+        "Acute upper respiratory infection",
+        "Acute upper respiratory infection",
+        "Chest pain"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-9c1fff7beb0c",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "diagnosis_description"
+      ],
+      "affected_count": 32,
+      "affected_percentage": 0.4268,
+      "evidence": {
+        "maximum_frequency": 74,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 16
+      },
+      "examples": [
+        "FEVER",
+        "IRREGULAR MENSTRUATION",
+        "Normal delivery ",
+        "Unknown diagnosis",
+        "Unknown diagnosis"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-5c795dd1736f",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "blood_pressure"
+      ],
+      "affected_count": 4,
+      "affected_percentage": 0.0533,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7496
+      },
+      "examples": [
+        2027,
+        5531,
+        5942,
+        6409
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-a318fc3dcb9d",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "pulse_bpm"
+      ],
+      "affected_count": 7,
+      "affected_percentage": 0.0933,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7493
+      },
+      "examples": [
+        2403,
+        3045,
+        3169,
+        4762,
+        5147
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-8efb7e28951d",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "temperature_c"
+      ],
+      "affected_count": 22,
+      "affected_percentage": 0.2933,
+      "evidence": {
+        "maximum_frequency": 75,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "48",
+        "98.6 F",
+        "25",
+        "48",
+        "98.6 F"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-363c69f00c1e",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "spo2_percent"
+      ],
+      "affected_count": 6,
+      "affected_percentage": 0.08,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7494
+      },
+      "examples": [
+        979,
+        1212,
+        4070,
+        4890,
+        4937
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-d80966918dcb",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "admission_datetime"
+      ],
+      "affected_count": 6417,
+      "affected_percentage": 85.56,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 1083
+      },
+      "examples": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-inconsistent_date_format_candidate-9b45c0eab49f",
+      "issue_type": "inconsistent_date_format_candidate",
+      "target_columns": [
+        "admission_datetime"
+      ],
+      "affected_count": 1083,
+      "affected_percentage": 100.0,
+      "evidence": {
+        "recognized_formats": [
+          "ISO-datetime",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 1.0,
+        "method": "strict_shape_recognition"
+      },
+      "examples": [
+        "2025-09-09 03:00",
+        "2025-10-24 18:00",
+        "2026-01-28 16:00",
+        "2026-03-11 11:00",
+        "2025-01-05 14:00"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-0cafdf740ca4",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "discharge_datetime"
+      ],
+      "affected_count": 6454,
+      "affected_percentage": 86.0533,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 1046
+      },
+      "examples": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-00c49c484eb0",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "length_of_stay_days"
+      ],
+      "affected_count": 6419,
+      "affected_percentage": 85.5867,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 1081
+      },
+      "examples": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-a2da0f931767",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "claim_id"
+      ],
+      "affected_count": 1842,
+      "affected_percentage": 24.56,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 5658
+      },
+      "examples": [
+        3,
+        6,
+        8,
+        11,
+        22
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-379a00a09e59",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "total_cost_inr"
+      ],
+      "affected_count": 6,
+      "affected_percentage": 0.08,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7494
+      },
+      "examples": [
+        1013,
+        1153,
+        1499,
+        1865,
+        5463
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-b1f7764c41f2",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "billing_status"
+      ],
+      "affected_count": 6,
+      "affected_percentage": 0.08,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7494
+      },
+      "examples": [
+        855,
+        1122,
+        1712,
+        2972,
+        3029
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-888ca0e5bdda",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "billing_status"
+      ],
+      "affected_count": 4072,
+      "affected_percentage": 54.3368,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "paid": [
+            "Paid",
+            "paid"
+          ]
+        }
+      },
+      "examples": [
+        "Paid",
+        "Paid",
+        "Paid",
+        "Paid",
+        "Paid"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-78d7d1af10c3",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "billing_status"
+      ],
+      "affected_count": 13,
+      "affected_percentage": 0.1735,
+      "evidence": {
+        "maximum_frequency": 74,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "In Process",
+        "paid",
+        "paid",
+        "paid",
+        "In Process"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    }
+  ],
+  "quality_summary": {
+    "total_issues_detected": 33,
+    "issues_by_type": {
+      "case_variant_candidate": 6,
+      "exact_duplicate_rows": 1,
+      "inconsistent_date_format_candidate": 2,
+      "missing_values": 13,
+      "rare_category_observation": 8,
+      "whitespace_issue": 3
+    },
+    "issues_by_status": {
+      "candidate": 8,
+      "issue": 17,
+      "observation": 8
+    },
+    "affected_columns": [
+      "admission_datetime",
+      "billing_status",
+      "blood_pressure",
+      "claim_id",
+      "department",
+      "diagnosis_code",
+      "diagnosis_description",
+      "discharge_datetime",
+      "gender",
+      "hospital_city",
+      "length_of_stay_days",
+      "patient_id",
+      "pulse_bpm",
+      "spo2_percent",
+      "temperature_c",
+      "total_cost_inr",
+      "visit_date",
+      "visit_type"
+    ],
+    "dataset_level_issue_count": 1
+  },
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": "encounter",
+      "row_entity_confidence": 0.8,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "encounter_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Unique identifier for each encounter record in the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'encounter_id' and the evidence of its unique values and low repetition rate support it being an identifier."
+      },
+      {
+        "column_name": "patient_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Unique identifier for each patient in the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'patient_id' and the evidence of its unique values and low repetition rate support it being an identifier."
+      },
+      {
+        "column_name": "patient_age",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Age of the patient in years.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'patient_age' and the evidence of its numeric values support it being a measurement."
+      },
+      {
+        "column_name": "gender",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Gender of the patient (Male, Female, Unknown, Other, female).",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'gender' and the evidence of its categorical values support it being a classification."
+      },
+      {
+        "column_name": "visit_date",
+        "semantic_type": "date",
+        "value_function": "temporal",
+        "concept_description": "Date of the patient's visit.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'visit_date' and the evidence of its date values support it being a temporal value."
+      },
+      {
+        "column_name": "visit_type",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Type of visit (Outpatient, Emergency, Teleconsultation, Inpatient, OPD).",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'visit_type' and the evidence of its categorical values support it being a classification."
+      },
+      {
+        "column_name": "hospital_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Unique identifier for each hospital in the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'hospital_id' and the evidence of its unique values and low repetition rate support it being an identifier."
+      },
+      {
+        "column_name": "hospital_name",
+        "semantic_type": "text",
+        "value_function": "descriptive_attribute",
+        "concept_description": "Name of the hospital.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'hospital_name' and the evidence of its textual values support it being a descriptive attribute."
+      },
+      {
+        "column_name": "hospital_city",
+        "semantic_type": "text",
+        "value_function": "descriptive_attribute",
+        "concept_description": "City where the hospital is located.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'hospital_city' and the evidence of its textual values support it being a descriptive attribute."
+      },
+      {
+        "column_name": "department",
+        "semantic_type": "text",
+        "value_function": "descriptive_attribute",
+        "concept_description": "Department in the hospital where the patient was treated.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'department' and the evidence of its textual values support it being a descriptive attribute."
+      },
+      {
+        "column_name": "doctor_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Unique identifier for each doctor in the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'doctor_id' and the evidence of its unique values and low repetition rate support it being an identifier."
+      },
+      {
+        "column_name": "diagnosis_code",
+        "semantic_type": "text",
+        "value_function": "descriptive_attribute",
+        "concept_description": "Medical diagnosis code.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'diagnosis_code' and the evidence of its textual values support it being a descriptive attribute."
+      },
+      {
+        "column_name": "diagnosis_description",
+        "semantic_type": "text",
+        "value_function": "descriptive_attribute",
+        "concept_description": "Medical diagnosis descriptions of patients' conditions or symptoms",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains descriptive text values such as 'Irregular menstruation', 'Forearm fracture', 'Pneumonia', 'Acute upper respiratory infection', 'Chest pain'. These values are indicative of medical diagnoses and symptoms, which are typically described in text format."
+      },
+      {
+        "column_name": "blood_pressure",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Blood pressure measurements in mmHg",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains blood pressure measurements in the format '161/97', '151/59', etc., which are quantitative values representing blood pressure readings in mmHg."
+      },
+      {
+        "column_name": "pulse_bpm",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Pulse rate in beats per minute (bpm)",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains pulse rates in the format '90.0', '94.0', etc., which are quantitative values representing pulse rate in beats per minute."
+      },
+      {
+        "column_name": "temperature_c",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Body temperature in Celsius (°C)",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains body temperature values in the format '36.1', '38.7', etc., which are quantitative values representing body temperature in Celsius."
+      },
+      {
+        "column_name": "spo2_percent",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Oxygen saturation percentage in the blood",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains oxygen saturation values in the format '99.0', '89.0', etc., which are quantitative values representing oxygen saturation percentage in the blood."
+      },
+      {
+        "column_name": "admission_datetime",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Date and time of patient admission",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains date and time values in the format '2025-09-09 03:00', '2025-10-24 18:00', etc., which are temporal values representing the date and time of patient admission. However, the physical dtype is 'str', which does not inherently indicate a temporal value."
+      },
+      {
+        "column_name": "discharge_datetime",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Date and time of patient discharge",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains date and time values in the format '2025-09-16 11:00', '2025-10-27 19:00', etc., which are temporal values representing the date and time of patient discharge. However, the physical dtype is 'str', which does not inherently indicate a temporal value."
+      },
+      {
+        "column_name": "length_of_stay_days",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Number of days the patient was in the hospital",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains numeric values representing the number of days the patient was in the hospital, such as 7.0, 3.0, etc."
+      },
+      {
+        "column_name": "insurance_provider",
+        "semantic_type": "text",
+        "value_function": "descriptive_attribute",
+        "concept_description": "Insurance provider for the patient",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains names of insurance providers such as 'Star Health', 'HDFC ERGO', 'Self-pay', 'New India Assurance', 'Ayushman Bharat'. These values are descriptive text indicating the insurance provider for the patient."
+      },
+      {
+        "column_name": "claim_id",
+        "semantic_type": "text",
+        "value_function": "descriptive_attribute",
+        "concept_description": "Unique identifier for the claim",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains unique identifiers such as 'CLM002004', 'CLM005502', etc., which are descriptive text representing unique identifiers for the claim."
+      },
+      {
+        "column_name": "total_cost_inr",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Total cost of the medical procedure in Indian Rupees (INR)",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains numeric values representing the total cost of the medical procedure in Indian Rupees, such as '1962.07', '35161.09', etc."
+      },
+      {
+        "column_name": "billing_status",
+        "semantic_type": "text",
+        "value_function": "descriptive_attribute",
+        "concept_description": "Status of the billing process",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains statuses such as 'Insurance Processing', 'Partially Paid', 'Pending', 'Paid', 'In Process'. These values are descriptive text indicating the status of the billing process."
+      }
+    ],
+    "warnings": [],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 4,
+      "total_llm_calls": 5,
+      "batch_sizes": [
+        12,
+        12
+      ],
+      "dataset_semantic_runtime_seconds": 45.010946,
+      "batch_runtime_seconds": [
+        197.502575,
+        224.56116
+      ],
+      "rag_runtime_seconds": 0.1839,
+      "batch_failures": 0,
+      "batch_retries": 2,
+      "llm_calls": [
+        {
+          "stage": "dataset_context",
+          "api_wall_duration_seconds": 44.953263,
+          "prompt_eval_count": 2797,
+          "prompt_eval_duration": 41430021000,
+          "eval_count": 21,
+          "eval_duration": 1458188000,
+          "total_duration": 42912689600,
+          "load_duration": 3014800,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "error": "RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)",
+          "api_wall_duration_seconds": 122.102869,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 2,
+          "api_wall_duration_seconds": 75.399588,
+          "prompt_eval_count": 1943,
+          "prompt_eval_duration": 90670000,
+          "eval_count": 1049,
+          "eval_duration": 73199030000,
+          "total_duration": 73309829100,
+          "load_duration": 4253800,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 2,
+          "attempt": 1,
+          "error": "RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)",
+          "api_wall_duration_seconds": 122.066,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 2,
+          "attempt": 2,
+          "api_wall_duration_seconds": 102.494996,
+          "prompt_eval_count": 2461,
+          "prompt_eval_duration": 102172000,
+          "eval_count": 1337,
+          "eval_duration": 100337248000,
+          "total_duration": 100459658800,
+          "load_duration": 3158800,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 467.201481
+    }
+  },
+  "decision_summary": {
+    "total_decisions": 33,
+    "by_decision_type": {
+      "flag_for_review": 2,
+      "no_action": 22,
+      "action": 3,
+      "insufficient_evidence": 6
+    },
+    "by_proposed_action": {
+      "flag_rows": 2,
+      "no_op": 28,
+      "trim_whitespace": 3
+    },
+    "tier1_decisions": 13,
+    "tier2_decisions": 14,
+    "fallback_decisions": 6,
+    "deterministic_runtime_seconds": 0.000477,
+    "tier2_issue_count": 18,
+    "tier2_batch_sizes": [
+      4,
+      4,
+      4,
+      4,
+      2
+    ],
+    "llm_decision_calls": 8,
+    "llm_runtime_seconds": 219.143773,
+    "intended_llm_decision_calls": 5,
+    "retries": 3,
+    "successful_batches": 4,
+    "batch_failures": 1,
+    "llm_calls": [
+      {
+        "batch_index": 1,
+        "attempt": 1,
+        "api_wall_duration_seconds": 28.577927,
+        "prompt_character_length": 3055,
+        "prompt_eval_count": 795,
+        "prompt_eval_duration": 8437056000,
+        "eval_count": 295,
+        "eval_duration": 18003060000,
+        "total_duration": 26500650900,
+        "load_duration": 3805500,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 2,
+        "attempt": 1,
+        "api_wall_duration_seconds": 18.14094,
+        "prompt_character_length": 3321,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 881,
+        "prompt_eval_duration": 9249340000,
+        "eval_count": 107,
+        "eval_duration": 6805231000,
+        "total_duration": 16077947200,
+        "load_duration": 3680000,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 2,
+        "attempt": 2,
+        "api_wall_duration_seconds": 23.315251,
+        "prompt_character_length": 3321,
+        "prompt_eval_count": 881,
+        "prompt_eval_duration": 84423000,
+        "eval_count": 344,
+        "eval_duration": 21165500000,
+        "total_duration": 21260985800,
+        "load_duration": 3199100,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 3,
+        "attempt": 1,
+        "api_wall_duration_seconds": 15.460528,
+        "prompt_character_length": 3545,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 888,
+        "prompt_eval_duration": 9354390000,
+        "eval_count": 63,
+        "eval_duration": 4050919000,
+        "total_duration": 13431882700,
+        "load_duration": 3933400,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 3,
+        "attempt": 2,
+        "api_wall_duration_seconds": 6.304894,
+        "prompt_character_length": 3545,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 888,
+        "prompt_eval_duration": 87048000,
+        "eval_count": 64,
+        "eval_duration": 4115955000,
+        "total_duration": 4214185900,
+        "load_duration": 3169300,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 4,
+        "attempt": 1,
+        "api_wall_duration_seconds": 22.03527,
+        "prompt_character_length": 2828,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 742,
+        "prompt_eval_duration": 7319540000,
+        "eval_count": 207,
+        "eval_duration": 12614085000,
+        "total_duration": 19955132200,
+        "load_duration": 3184000,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 4,
+        "attempt": 2,
+        "api_wall_duration_seconds": 25.942757,
+        "prompt_character_length": 2828,
+        "prompt_eval_count": 742,
+        "prompt_eval_duration": 91241000,
+        "eval_count": 391,
+        "eval_duration": 23778612000,
+        "total_duration": 23880445000,
+        "load_duration": 3155000,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 5,
+        "attempt": 1,
+        "api_wall_duration_seconds": 17.424725,
+        "prompt_character_length": 1802,
+        "prompt_eval_count": 428,
+        "prompt_eval_duration": 3221978000,
+        "eval_count": 206,
+        "eval_duration": 12111933000,
+        "total_duration": 15354094700,
+        "load_duration": 3247400,
+        "done_reason": "stop"
+      }
+    ],
+    "total_runtime_seconds": 157.203737,
+    "execution_routing": {
+      "detected_issue_count": 33,
+      "decision_count": 33,
+      "proposed_action_count": 3,
+      "compiled_instruction_count": 3,
+      "executed_action_count": 3,
+      "executed_trim_whitespace_count": 3,
+      "executed_normalize_categorical_labels_count": 0,
+      "skipped_action_count": 0,
+      "skipped_actions": [],
+      "parse_date_assessments": [],
+      "numeric_coercion_assessments": [],
+      "missing_value_assessments": [
+        {
+          "column": "patient_id",
+          "missing_count": 52,
+          "missing_percentage": 0.6933333333333334,
+          "missingness_risk": "low",
+          "observed_count": 7448,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "gender",
+          "missing_count": 8,
+          "missing_percentage": 0.10666666666666667,
+          "missingness_risk": "low",
+          "observed_count": 7492,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "diagnosis_code",
+          "missing_count": 7,
+          "missing_percentage": 0.09333333333333334,
+          "missingness_risk": "low",
+          "observed_count": 7493,
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute"
+        },
+        {
+          "column": "diagnosis_description",
+          "missing_count": 2,
+          "missing_percentage": 0.02666666666666667,
+          "missingness_risk": "low",
+          "observed_count": 7498,
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute"
+        },
+        {
+          "column": "blood_pressure",
+          "missing_count": 4,
+          "missing_percentage": 0.05333333333333334,
+          "missingness_risk": "low",
+          "observed_count": 7496,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "pulse_bpm",
+          "missing_count": 7,
+          "missing_percentage": 0.09333333333333334,
+          "missingness_risk": "low",
+          "observed_count": 7493,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "spo2_percent",
+          "missing_count": 6,
+          "missing_percentage": 0.08,
+          "missingness_risk": "low",
+          "observed_count": 7494,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "admission_datetime",
+          "missing_count": 6417,
+          "missing_percentage": 85.56,
+          "missingness_risk": "very_high",
+          "observed_count": 1083,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "discharge_datetime",
+          "missing_count": 6454,
+          "missing_percentage": 86.05333333333333,
+          "missingness_risk": "very_high",
+          "observed_count": 1046,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "length_of_stay_days",
+          "missing_count": 6419,
+          "missing_percentage": 85.58666666666667,
+          "missingness_risk": "very_high",
+          "observed_count": 1081,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "claim_id",
+          "missing_count": 1842,
+          "missing_percentage": 24.56,
+          "missingness_risk": "high",
+          "observed_count": 5658,
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute"
+        },
+        {
+          "column": "total_cost_inr",
+          "missing_count": 6,
+          "missing_percentage": 0.08,
+          "missingness_risk": "low",
+          "observed_count": 7494,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "billing_status",
+          "missing_count": 6,
+          "missing_percentage": 0.08,
+          "missingness_risk": "low",
+          "observed_count": 7494,
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute"
+        }
+      ],
+      "impute_missing_proposal_count": 0,
+      "executed_impute_missing_count": 0,
+      "executed_coerce_dtype_count": 0,
+      "executed_parse_dates_count": 0
+    }
+  },
+  "decisions": [
+    {
+      "decision_id": "decision-issue-exact_duplicate_rows-192ec5f83876",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876"
+      ],
+      "target_columns": [],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Exact duplicate records may be legitimate repeated events; deletion is not automatic.",
+      "evidence_summary": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "semantic_basis": {},
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-0db75e58262c",
+      "source_issue_ids": [
+        "issue-missing_values-0db75e58262c"
+      ],
+      "target_columns": [
+        "patient_id"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7448
+      },
+      "semantic_basis": {
+        "patient_id": {
+          "column_name": "patient_id",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "Unique identifier for each patient in the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'patient_id' and the evidence of its unique values and low repetition rate support it being an identifier."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-b6f4f412290c",
+      "source_issue_ids": [
+        "issue-missing_values-b6f4f412290c"
+      ],
+      "target_columns": [
+        "gender"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Column semantics indicate categorical data, no action needed for missing values.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7492
+      },
+      "semantic_basis": {
+        "gender": {
+          "column_name": "gender",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Gender of the patient (Male, Female, Unknown, Other, female).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'gender' and the evidence of its categorical values support it being a classification."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-42450581bd0a",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-42450581bd0a"
+      ],
+      "target_columns": [
+        "gender"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Column semantics indicate categorical data, no action needed for case variant candidate.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "female": [
+            "Female",
+            "female"
+          ],
+          "male": [
+            "MALE",
+            "Male"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "gender": {
+          "column_name": "gender",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Gender of the patient (Male, Female, Unknown, Other, female).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'gender' and the evidence of its categorical values support it being a classification."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-20a89416c668",
+      "source_issue_ids": [
+        "issue-rare_category_observation-20a89416c668"
+      ],
+      "target_columns": [
+        "gender"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 74,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 4
+      },
+      "semantic_basis": {
+        "gender": {
+          "column_name": "gender",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Gender of the patient (Male, Female, Unknown, Other, female).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'gender' and the evidence of its categorical values support it being a classification."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-inconsistent_date_format_candidate-67eeaff4192f",
+      "source_issue_ids": [
+        "issue-inconsistent_date_format_candidate-67eeaff4192f"
+      ],
+      "target_columns": [
+        "visit_date"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Column semantics indicate date data, no action needed for inconsistent date format candidate.",
+      "evidence_summary": {
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 0.998667,
+        "method": "strict_shape_recognition"
+      },
+      "semantic_basis": {
+        "visit_date": {
+          "column_name": "visit_date",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Date of the patient's visit.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'visit_date' and the evidence of its date values support it being a temporal value."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-71b347a695b2",
+      "source_issue_ids": [
+        "issue-rare_category_observation-71b347a695b2"
+      ],
+      "target_columns": [
+        "visit_type"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 75,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 4
+      },
+      "semantic_basis": {
+        "visit_type": {
+          "column_name": "visit_type",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Type of visit (Outpatient, Emergency, Teleconsultation, Inpatient, OPD).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'visit_type' and the evidence of its categorical values support it being a classification."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-ef191877bd94",
+      "source_issue_ids": [
+        "issue-whitespace_issue-ef191877bd94"
+      ],
+      "target_columns": [
+        "hospital_city"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 5,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "hospital_city": {
+          "column_name": "hospital_city",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "City where the hospital is located.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'hospital_city' and the evidence of its textual values support it being a descriptive attribute."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-ae084025666e",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-ae084025666e"
+      ],
+      "target_columns": [
+        "hospital_city"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Column semantics indicate text data, no action needed for case variant candidate.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "mumbai": [
+            "Mumbai",
+            "Mumbai ",
+            "mumbai"
+          ],
+          "nagpur": [
+            "Nagpur",
+            "Nagpur ",
+            "nagpur"
+          ],
+          "nashik": [
+            "Nashik",
+            "Nashik ",
+            "nashik"
+          ],
+          "pune": [
+            "Pune",
+            "pune"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "hospital_city": {
+          "column_name": "hospital_city",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "City where the hospital is located.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'hospital_city' and the evidence of its textual values support it being a descriptive attribute."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-89bda7fb20fd",
+      "source_issue_ids": [
+        "issue-rare_category_observation-89bda7fb20fd"
+      ],
+      "target_columns": [
+        "hospital_city"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 75,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 8
+      },
+      "semantic_basis": {
+        "hospital_city": {
+          "column_name": "hospital_city",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "City where the hospital is located.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'hospital_city' and the evidence of its textual values support it being a descriptive attribute."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-ac5a5a16cde5",
+      "source_issue_ids": [
+        "issue-whitespace_issue-ac5a5a16cde5"
+      ],
+      "target_columns": [
+        "department"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 14,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "department": {
+          "column_name": "department",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Department in the hospital where the patient was treated.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'department' and the evidence of its textual values support it being a descriptive attribute."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-7b911c5dc9f9",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-7b911c5dc9f9"
+      ],
+      "target_columns": [
+        "department"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "No action required as the issue is related to normalization and variant groups, not missing values.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "cardiology": [
+            "Cardiology",
+            "Cardiology ",
+            "cardiology"
+          ],
+          "general medicine": [
+            "General Medicine",
+            "General Medicine ",
+            "general medicine"
+          ],
+          "gynaecology": [
+            "Gynaecology",
+            "Gynaecology "
+          ],
+          "neurology": [
+            "Neurology",
+            "Neurology ",
+            "neurology"
+          ],
+          "orthopaedics": [
+            "Orthopaedics",
+            "Orthopaedics ",
+            "orthopaedics"
+          ],
+          "paediatrics": [
+            "Paediatrics",
+            "Paediatrics ",
+            "paediatrics"
+          ],
+          "pulmonology": [
+            "Pulmonology",
+            "Pulmonology ",
+            "pulmonology"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "department": {
+          "column_name": "department",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Department in the hospital where the patient was treated.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'department' and the evidence of its textual values support it being a descriptive attribute."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-870a1fbd41a0",
+      "source_issue_ids": [
+        "issue-rare_category_observation-870a1fbd41a0"
+      ],
+      "target_columns": [
+        "department"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 75,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 14
+      },
+      "semantic_basis": {
+        "department": {
+          "column_name": "department",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Department in the hospital where the patient was treated.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'department' and the evidence of its textual values support it being a descriptive attribute."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-85d2c85a75ac",
+      "source_issue_ids": [
+        "issue-missing_values-85d2c85a75ac"
+      ],
+      "target_columns": [
+        "diagnosis_code"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "No action required as the issue is related to missing values, and the dataset context suggests that missing values are acceptable.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7493
+      },
+      "semantic_basis": {
+        "diagnosis_code": {
+          "column_name": "diagnosis_code",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Medical diagnosis code.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'diagnosis_code' and the evidence of its textual values support it being a descriptive attribute."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-cfb39155cd4d",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-cfb39155cd4d"
+      ],
+      "target_columns": [
+        "diagnosis_code"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "No action required as the issue is related to normalization and variant groups, not missing values.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "i25.10": [
+            "I25.10",
+            "i25.10"
+          ],
+          "j44.9": [
+            "J44.9",
+            "j44.9"
+          ],
+          "j45.9": [
+            "J45.9",
+            "j45.9"
+          ],
+          "n76.0": [
+            "N76.0",
+            "n76.0"
+          ],
+          "r07.9": [
+            "R07.9",
+            "r07.9"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "diagnosis_code": {
+          "column_name": "diagnosis_code",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Medical diagnosis code.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'diagnosis_code' and the evidence of its textual values support it being a descriptive attribute."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-7d8b08f7456d",
+      "source_issue_ids": [
+        "issue-rare_category_observation-7d8b08f7456d"
+      ],
+      "target_columns": [
+        "diagnosis_code"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 74,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 7
+      },
+      "semantic_basis": {
+        "diagnosis_code": {
+          "column_name": "diagnosis_code",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Medical diagnosis code.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'diagnosis_code' and the evidence of its textual values support it being a descriptive attribute."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-d57c8cb4adad",
+      "source_issue_ids": [
+        "issue-missing_values-d57c8cb4adad"
+      ],
+      "target_columns": [
+        "diagnosis_description"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "No action required as the issue is related to missing values, and the dataset context suggests that missing values are acceptable.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7498
+      },
+      "semantic_basis": {
+        "diagnosis_description": {
+          "column_name": "diagnosis_description",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Medical diagnosis descriptions of patients' conditions or symptoms",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains descriptive text values such as 'Irregular menstruation', 'Forearm fracture', 'Pneumonia', 'Acute upper respiratory infection', 'Chest pain'. These values are indicative of medical diagnoses and symptoms, which are typically described in text format."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-4b28fc08fc66",
+      "source_issue_ids": [
+        "issue-whitespace_issue-4b28fc08fc66"
+      ],
+      "target_columns": [
+        "diagnosis_description"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 7,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "diagnosis_description": {
+          "column_name": "diagnosis_description",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Medical diagnosis descriptions of patients' conditions or symptoms",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains descriptive text values such as 'Irregular menstruation', 'Forearm fracture', 'Pneumonia', 'Acute upper respiratory infection', 'Chest pain'. These values are indicative of medical diagnoses and symptoms, which are typically described in text format."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-e1af35f163e6",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-e1af35f163e6"
+      ],
+      "target_columns": [
+        "diagnosis_description"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "acute upper respiratory infection": [
+            "ACUTE UPPER RESPIRATORY INFECTION",
+            "Acute upper respiratory infection",
+            "Acute upper respiratory infection "
+          ],
+          "chest pain": [
+            "CHEST PAIN",
+            "Chest pain"
+          ],
+          "copd": [
+            "COPD",
+            "COPD "
+          ],
+          "epilepsy": [
+            "EPILEPSY",
+            "Epilepsy"
+          ],
+          "fever": [
+            "FEVER",
+            "Fever"
+          ],
+          "forearm fracture": [
+            "FOREARM FRACTURE",
+            "Forearm fracture"
+          ],
+          "gastroenteritis": [
+            "Gastroenteritis",
+            "Gastroenteritis "
+          ],
+          "headache": [
+            "Headache",
+            "Headache "
+          ],
+          "irregular menstruation": [
+            "IRREGULAR MENSTRUATION",
+            "Irregular menstruation"
+          ],
+          "knee osteoarthritis": [
+            "KNEE OSTEOARTHRITIS",
+            "Knee osteoarthritis"
+          ],
+          "migraine": [
+            "MIGRAINE",
+            "Migraine"
+          ],
+          "normal delivery": [
+            "Normal delivery",
+            "Normal delivery "
+          ],
+          "unspecified injury": [
+            "UNSPECIFIED INJURY",
+            "Unspecified injury",
+            "Unspecified injury "
+          ]
+        }
+      },
+      "semantic_basis": {
+        "diagnosis_description": {
+          "column_name": "diagnosis_description",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Medical diagnosis descriptions of patients' conditions or symptoms",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains descriptive text values such as 'Irregular menstruation', 'Forearm fracture', 'Pneumonia', 'Acute upper respiratory infection', 'Chest pain'. These values are indicative of medical diagnoses and symptoms, which are typically described in text format."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-9c1fff7beb0c",
+      "source_issue_ids": [
+        "issue-rare_category_observation-9c1fff7beb0c"
+      ],
+      "target_columns": [
+        "diagnosis_description"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 74,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 16
+      },
+      "semantic_basis": {
+        "diagnosis_description": {
+          "column_name": "diagnosis_description",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Medical diagnosis descriptions of patients' conditions or symptoms",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains descriptive text values such as 'Irregular menstruation', 'Forearm fracture', 'Pneumonia', 'Acute upper respiratory infection', 'Chest pain'. These values are indicative of medical diagnoses and symptoms, which are typically described in text format."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-5c795dd1736f",
+      "source_issue_ids": [
+        "issue-missing_values-5c795dd1736f"
+      ],
+      "target_columns": [
+        "blood_pressure"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 7496
+      },
+      "semantic_basis": {
+        "blood_pressure": {
+          "column_name": "blood_pressure",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Blood pressure measurements in mmHg",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains blood pressure measurements in the format '161/97', '151/59', etc., which are quantitative values representing blood pressure readings in mmHg."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-a318fc3dcb9d",
+      "source_issue_ids": [
+        "issue-missing_values-a318fc3dcb9d"
+      ],
+      "target_columns": [
+        "pulse_bpm"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 7493
+      },
+      "semantic_basis": {
+        "pulse_bpm": {
+          "column_name": "pulse_bpm",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Pulse rate in beats per minute (bpm)",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains pulse rates in the format '90.0', '94.0', etc., which are quantitative values representing pulse rate in beats per minute."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-8efb7e28951d",
+      "source_issue_ids": [
+        "issue-rare_category_observation-8efb7e28951d"
+      ],
+      "target_columns": [
+        "temperature_c"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 75,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "temperature_c": {
+          "column_name": "temperature_c",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Body temperature in Celsius (°C)",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains body temperature values in the format '36.1', '38.7', etc., which are quantitative values representing body temperature in Celsius."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-363c69f00c1e",
+      "source_issue_ids": [
+        "issue-missing_values-363c69f00c1e"
+      ],
+      "target_columns": [
+        "spo2_percent"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 7494
+      },
+      "semantic_basis": {
+        "spo2_percent": {
+          "column_name": "spo2_percent",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Oxygen saturation percentage in the blood",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains oxygen saturation values in the format '99.0', '89.0', etc., which are quantitative values representing oxygen saturation percentage in the blood."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-d80966918dcb",
+      "source_issue_ids": [
+        "issue-missing_values-d80966918dcb"
+      ],
+      "target_columns": [
+        "admission_datetime"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 1083
+      },
+      "semantic_basis": {
+        "admission_datetime": {
+          "column_name": "admission_datetime",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Date and time of patient admission",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains date and time values in the format '2025-09-09 03:00', '2025-10-24 18:00', etc., which are temporal values representing the date and time of patient admission. However, the physical dtype is 'str', which does not inherently indicate a temporal value."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-inconsistent_date_format_candidate-9b45c0eab49f",
+      "source_issue_ids": [
+        "issue-inconsistent_date_format_candidate-9b45c0eab49f"
+      ],
+      "target_columns": [
+        "admission_datetime"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Preserve the data as the issue is related to inconsistent date formats, which may be acceptable if the data semantics are known and consistent.",
+      "evidence_summary": {
+        "recognized_formats": [
+          "ISO-datetime",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 1.0,
+        "method": "strict_shape_recognition"
+      },
+      "semantic_basis": {
+        "admission_datetime": {
+          "column_name": "admission_datetime",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Date and time of patient admission",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains date and time values in the format '2025-09-09 03:00', '2025-10-24 18:00', etc., which are temporal values representing the date and time of patient admission. However, the physical dtype is 'str', which does not inherently indicate a temporal value."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-0cafdf740ca4",
+      "source_issue_ids": [
+        "issue-missing_values-0cafdf740ca4"
+      ],
+      "target_columns": [
+        "discharge_datetime"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 1046
+      },
+      "semantic_basis": {
+        "discharge_datetime": {
+          "column_name": "discharge_datetime",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Date and time of patient discharge",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains date and time values in the format '2025-09-16 11:00', '2025-10-27 19:00', etc., which are temporal values representing the date and time of patient discharge. However, the physical dtype is 'str', which does not inherently indicate a temporal value."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-00c49c484eb0",
+      "source_issue_ids": [
+        "issue-missing_values-00c49c484eb0"
+      ],
+      "target_columns": [
+        "length_of_stay_days"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Preserve the data as the issue is related to missing values, which may be acceptable if the data semantics are known and the missingness is not extreme.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 1081
+      },
+      "semantic_basis": {
+        "length_of_stay_days": {
+          "column_name": "length_of_stay_days",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Number of days the patient was in the hospital",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains numeric values representing the number of days the patient was in the hospital, such as 7.0, 3.0, etc."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-a2da0f931767",
+      "source_issue_ids": [
+        "issue-missing_values-a2da0f931767"
+      ],
+      "target_columns": [
+        "claim_id"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Preserve the data as the issue is related to missing values, which may be acceptable if the data semantics are known and the missingness is not extreme.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 5658
+      },
+      "semantic_basis": {
+        "claim_id": {
+          "column_name": "claim_id",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Unique identifier for the claim",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains unique identifiers such as 'CLM002004', 'CLM005502', etc., which are descriptive text representing unique identifiers for the claim."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-379a00a09e59",
+      "source_issue_ids": [
+        "issue-missing_values-379a00a09e59"
+      ],
+      "target_columns": [
+        "total_cost_inr"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Preserve the data as the issue is related to missing values, which may be acceptable if the data semantics are known and the missingness is not extreme.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7494
+      },
+      "semantic_basis": {
+        "total_cost_inr": {
+          "column_name": "total_cost_inr",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Total cost of the medical procedure in Indian Rupees (INR)",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains numeric values representing the total cost of the medical procedure in Indian Rupees, such as '1962.07', '35161.09', etc."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-b1f7764c41f2",
+      "source_issue_ids": [
+        "issue-missing_values-b1f7764c41f2"
+      ],
+      "target_columns": [
+        "billing_status"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The issue is related to missing values in the 'billing_status' column, but the policy is to preserve data when uncertain and not to automatically remove missing values.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7494
+      },
+      "semantic_basis": {
+        "billing_status": {
+          "column_name": "billing_status",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Status of the billing process",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains statuses such as 'Insurance Processing', 'Partially Paid', 'Pending', 'Paid', 'In Process'. These values are descriptive text indicating the status of the billing process."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-888ca0e5bdda",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-888ca0e5bdda"
+      ],
+      "target_columns": [
+        "billing_status"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The issue is related to case variant candidates in the 'billing_status' column, but the policy is to preserve data when uncertain and not to automatically remove or flag these cases.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "paid": [
+            "Paid",
+            "paid"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "billing_status": {
+          "column_name": "billing_status",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Status of the billing process",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains statuses such as 'Insurance Processing', 'Partially Paid', 'Pending', 'Paid', 'In Process'. These values are descriptive text indicating the status of the billing process."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-78d7d1af10c3",
+      "source_issue_ids": [
+        "issue-rare_category_observation-78d7d1af10c3"
+      ],
+      "target_columns": [
+        "billing_status"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 74,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "billing_status": {
+          "column_name": "billing_status",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Status of the billing process",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains statuses such as 'Insurance Processing', 'Partially Paid', 'Pending', 'Paid', 'In Process'. These values are descriptive text indicating the status of the billing process."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    }
+  ],
+  "instructions": [
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-ef191877bd94",
+      "source_decision_id": "decision-issue-whitespace_issue-ef191877bd94",
+      "source_issue_ids": [
+        "issue-whitespace_issue-ef191877bd94"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "hospital_city"
+      ],
+      "parameters": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-ac5a5a16cde5",
+      "source_decision_id": "decision-issue-whitespace_issue-ac5a5a16cde5",
+      "source_issue_ids": [
+        "issue-whitespace_issue-ac5a5a16cde5"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "department"
+      ],
+      "parameters": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-4b28fc08fc66",
+      "source_decision_id": "decision-issue-whitespace_issue-4b28fc08fc66",
+      "source_issue_ids": [
+        "issue-whitespace_issue-4b28fc08fc66"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "diagnosis_description"
+      ],
+      "parameters": {}
+    }
+  ],
+  "executions": [
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-ef191877bd94",
+      "source_decision_id": "decision-issue-whitespace_issue-ef191877bd94",
+      "source_issue_ids": [
+        "issue-whitespace_issue-ef191877bd94"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "hospital_city"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 5,
+      "change_examples": [
+        {
+          "row_index": 1518,
+          "column": "hospital_city",
+          "before": "Nagpur ",
+          "after": "Nagpur"
+        },
+        {
+          "row_index": 2570,
+          "column": "hospital_city",
+          "before": "Mumbai ",
+          "after": "Mumbai"
+        },
+        {
+          "row_index": 3067,
+          "column": "hospital_city",
+          "before": "Nashik ",
+          "after": "Nashik"
+        },
+        {
+          "row_index": 3623,
+          "column": "hospital_city",
+          "before": "Nagpur ",
+          "after": "Nagpur"
+        },
+        {
+          "row_index": 5271,
+          "column": "hospital_city",
+          "before": "Mumbai ",
+          "after": "Mumbai"
+        }
+      ],
+      "rows_before": 7500,
+      "rows_after": 7500,
+      "columns_before": 24,
+      "columns_after": 24,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-ac5a5a16cde5",
+      "source_decision_id": "decision-issue-whitespace_issue-ac5a5a16cde5",
+      "source_issue_ids": [
+        "issue-whitespace_issue-ac5a5a16cde5"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "department"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 14,
+      "change_examples": [
+        {
+          "row_index": 595,
+          "column": "department",
+          "before": "Pulmonology ",
+          "after": "Pulmonology"
+        },
+        {
+          "row_index": 1390,
+          "column": "department",
+          "before": "Neurology ",
+          "after": "Neurology"
+        },
+        {
+          "row_index": 1909,
+          "column": "department",
+          "before": "Orthopaedics ",
+          "after": "Orthopaedics"
+        },
+        {
+          "row_index": 1995,
+          "column": "department",
+          "before": "General Medicine ",
+          "after": "General Medicine"
+        },
+        {
+          "row_index": 2875,
+          "column": "department",
+          "before": "Orthopaedics ",
+          "after": "Orthopaedics"
+        }
+      ],
+      "rows_before": 7500,
+      "rows_after": 7500,
+      "columns_before": 24,
+      "columns_after": 24,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-4b28fc08fc66",
+      "source_decision_id": "decision-issue-whitespace_issue-4b28fc08fc66",
+      "source_issue_ids": [
+        "issue-whitespace_issue-4b28fc08fc66"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "diagnosis_description"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 7,
+      "change_examples": [
+        {
+          "row_index": 704,
+          "column": "diagnosis_description",
+          "before": "Normal delivery ",
+          "after": "Normal delivery"
+        },
+        {
+          "row_index": 2468,
+          "column": "diagnosis_description",
+          "before": "Gastroenteritis ",
+          "after": "Gastroenteritis"
+        },
+        {
+          "row_index": 3100,
+          "column": "diagnosis_description",
+          "before": "Acute upper respiratory infection ",
+          "after": "Acute upper respiratory infection"
+        },
+        {
+          "row_index": 4285,
+          "column": "diagnosis_description",
+          "before": "Unspecified injury ",
+          "after": "Unspecified injury"
+        },
+        {
+          "row_index": 5458,
+          "column": "diagnosis_description",
+          "before": "Headache ",
+          "after": "Headache"
+        }
+      ],
+      "rows_before": 7500,
+      "rows_after": 7500,
+      "columns_before": 24,
+      "columns_after": 24,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "no_unexpected_changes": true,
+    "dataframe_equal": false,
+    "row_count_equal": true,
+    "column_count_equal": true,
+    "missingness_equal": true,
+    "duplicate_row_count_equal": true,
+    "physical_dtypes_equal": true,
+    "cardinality_equal": false,
+    "unrelated_columns_equal": true,
+    "targeted_whitespace_improved": true,
+    "targeted_case_variants_improved": true,
+    "only_approved_value_changes": true,
+    "no_unexpected_categories": true,
+    "targeted_date_formats_improved": true,
+    "only_approved_date_changes": true,
+    "expected_dtype_changes_only": true,
+    "only_approved_numeric_changes": true,
+    "null_positions_equal": true,
+    "targeted_mixed_numeric_improved": true,
+    "only_approved_imputation_changes": true,
+    "expected_missingness_changes_only": true,
+    "imputed_cell_count": 0,
+    "imputation_audit": [],
+    "newly_introduced_null_count": 0,
+    "changed_cell_count": 26,
+    "before_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "missing_values": 13,
+        "case_variant_candidate": 6,
+        "rare_category_observation": 8,
+        "inconsistent_date_format_candidate": 2,
+        "whitespace_issue": 3
+      },
+      "whitespace_affected_cells_by_column": {
+        "hospital_city": 5,
+        "department": 14,
+        "diagnosis_description": 7
+      },
+      "case_variant_affected_cells_by_column": {
+        "gender": 7247,
+        "hospital_city": 7498,
+        "department": 6603,
+        "diagnosis_code": 1918,
+        "diagnosis_description": 5337,
+        "billing_status": 4072
+      },
+      "date_format_affected_cells_by_column": {
+        "visit_date": 7490,
+        "admission_datetime": 1083
+      },
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "after_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "missing_values": 13,
+        "case_variant_candidate": 6,
+        "rare_category_observation": 8,
+        "inconsistent_date_format_candidate": 2
+      },
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {
+        "gender": 7247,
+        "hospital_city": 7498,
+        "department": 5647,
+        "diagnosis_code": 1918,
+        "diagnosis_description": 3780,
+        "billing_status": 4072
+      },
+      "date_format_affected_cells_by_column": {
+        "visit_date": 7490,
+        "admission_datetime": 1083
+      },
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "before_summary": {
+      "row_count": 7500,
+      "column_count": 24,
+      "total_missing_cells": 21230,
+      "duplicate_row_count": 25,
+      "physical_dtypes": {
+        "encounter_id": "str",
+        "patient_id": "str",
+        "patient_age": "str",
+        "gender": "str",
+        "visit_date": "str",
+        "visit_type": "str",
+        "hospital_id": "str",
+        "hospital_name": "str",
+        "hospital_city": "str",
+        "department": "str",
+        "doctor_id": "str",
+        "diagnosis_code": "str",
+        "diagnosis_description": "str",
+        "blood_pressure": "str",
+        "pulse_bpm": "float64",
+        "temperature_c": "str",
+        "spo2_percent": "float64",
+        "admission_datetime": "str",
+        "discharge_datetime": "str",
+        "length_of_stay_days": "float64",
+        "insurance_provider": "str",
+        "claim_id": "str",
+        "total_cost_inr": "str",
+        "billing_status": "str"
+      },
+      "cardinality": {
+        "encounter_id": 7455,
+        "patient_id": 2886,
+        "patient_age": 94,
+        "gender": 8,
+        "visit_date": 794,
+        "visit_type": 8,
+        "hospital_id": 4,
+        "hospital_name": 4,
+        "hospital_city": 12,
+        "department": 22,
+        "doctor_id": 120,
+        "diagnosis_code": 27,
+        "diagnosis_description": 36,
+        "blood_pressure": 3750,
+        "pulse_bpm": 55,
+        "temperature_c": 39,
+        "spo2_percent": 15,
+        "admission_datetime": 1046,
+        "discharge_datetime": 997,
+        "length_of_stay_days": 17,
+        "insurance_provider": 6,
+        "claim_id": 3614,
+        "total_cost_inr": 7426,
+        "billing_status": 7
+      }
+    },
+    "after_summary": {
+      "row_count": 7500,
+      "column_count": 24,
+      "total_missing_cells": 21230,
+      "duplicate_row_count": 25,
+      "physical_dtypes": {
+        "encounter_id": "str",
+        "patient_id": "str",
+        "patient_age": "str",
+        "gender": "str",
+        "visit_date": "str",
+        "visit_type": "str",
+        "hospital_id": "str",
+        "hospital_name": "str",
+        "hospital_city": "str",
+        "department": "str",
+        "doctor_id": "str",
+        "diagnosis_code": "str",
+        "diagnosis_description": "str",
+        "blood_pressure": "str",
+        "pulse_bpm": "float64",
+        "temperature_c": "str",
+        "spo2_percent": "float64",
+        "admission_datetime": "str",
+        "discharge_datetime": "str",
+        "length_of_stay_days": "float64",
+        "insurance_provider": "str",
+        "claim_id": "str",
+        "total_cost_inr": "str",
+        "billing_status": "str"
+      },
+      "cardinality": {
+        "encounter_id": 7455,
+        "patient_id": 2886,
+        "patient_age": 94,
+        "gender": 8,
+        "visit_date": 794,
+        "visit_type": 8,
+        "hospital_id": 4,
+        "hospital_name": 4,
+        "hospital_city": 9,
+        "department": 15,
+        "doctor_id": 120,
+        "diagnosis_code": 27,
+        "diagnosis_description": 30,
+        "blood_pressure": 3750,
+        "pulse_bpm": 55,
+        "temperature_c": 39,
+        "spo2_percent": 15,
+        "admission_datetime": 1046,
+        "discharge_datetime": 997,
+        "length_of_stay_days": 17,
+        "insurance_provider": 6,
+        "claim_id": 3614,
+        "total_cost_inr": 7426,
+        "billing_status": 7
+      }
+    },
+    "warnings": []
+  },
+  "warnings": [
+    "Tier 2 decision batch failed after retry: ValueError: Tier 2 decision output does not exactly cover input issue IDs."
+  ],
+  "output_artifacts": {
+    "cleaned_dataset": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\pipeline1_multidomain\\results\\dataset_03_healthcare\\cleaned_dataset.csv",
+    "cleaning_report": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\pipeline1_multidomain\\results\\dataset_03_healthcare\\cleaning_report.json",
+    "cleaned_dataset_format": "csv"
+  }
+}

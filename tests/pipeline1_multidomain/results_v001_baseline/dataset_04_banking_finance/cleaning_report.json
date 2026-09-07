@@ -1,0 +1,3908 @@
+{
+  "pipeline_version": "pipeline1_architecture_b_v001",
+  "run_id": "20260906T114146-c55fa42d",
+  "status": "success",
+  "original_dataset": {
+    "valid": true,
+    "file_name": "dataset_04_banking_finance_raw.csv",
+    "file_format": ".csv",
+    "file_size_bytes": 2351821,
+    "rows": 12000,
+    "columns": 22,
+    "duplicate_columns": [],
+    "absolute_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_04_banking_finance_raw.csv",
+    "source_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_04_banking_finance_raw.csv",
+    "raw_dataset_overwritten": false
+  },
+  "before_profile": {
+    "shape": {
+      "rows": 12000,
+      "columns": 22
+    },
+    "column_names": [
+      "transaction_id",
+      "account_id",
+      "transaction_datetime",
+      "transaction_type",
+      "amount",
+      "currency",
+      "channel",
+      "merchant_id",
+      "merchant_name",
+      "merchant_category",
+      "counterparty_account_id",
+      "branch_code",
+      "transaction_city",
+      "country_code",
+      "device_id",
+      "ip_address",
+      "transaction_status",
+      "balance_before",
+      "balance_after",
+      "fraud_flag",
+      "fraud_review_status",
+      "narration"
+    ],
+    "dtype_distribution": {
+      "str": 21,
+      "float64": 1
+    },
+    "missingness": {
+      "total_missing_cells": 48680,
+      "overall_missing_percentage": 18.4394
+    },
+    "duplicates": {
+      "exact_duplicate_rows": 30,
+      "percentage": 0.25
+    },
+    "column_profiles": [
+      {
+        "column_name": "transaction_id",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 12000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 11945,
+          "unique_ratio": 0.995417
+        },
+        "repetition": {
+          "repeated_unique_count": 55,
+          "repeated_occurrences": 110,
+          "repetition_rate": 0.009167
+        },
+        "sample_values": [
+          "BTX00000466",
+          "BTX00004708",
+          "BTX00006469",
+          "BTX00010875",
+          "BTX00003683"
+        ]
+      },
+      {
+        "column_name": "account_id",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 11989,
+        "missing": {
+          "count": 11,
+          "percentage": 0.0917
+        },
+        "uniqueness": {
+          "unique_count": 3813,
+          "unique_ratio": 0.318042
+        },
+        "repetition": {
+          "repeated_unique_count": 3216,
+          "repeated_occurrences": 11392,
+          "repetition_rate": 0.950204
+        },
+        "sample_values": [
+          "AC00001861",
+          "AC00001809",
+          "AC00003249",
+          "AC00003202",
+          "AC00000306"
+        ]
+      },
+      {
+        "column_name": "transaction_datetime",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 12000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 11926,
+          "unique_ratio": 0.993833
+        },
+        "repetition": {
+          "repeated_unique_count": 58,
+          "repeated_occurrences": 132,
+          "repetition_rate": 0.011
+        },
+        "sample_values": [
+          "2025-06-13 04:24:15",
+          "2025-10-29 17:36:44",
+          "2025-10-10 10:49:06",
+          "2025-01-25 21:02:47",
+          "2026-06-23 20:48:14"
+        ]
+      },
+      {
+        "column_name": "transaction_type",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 12000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 27,
+          "unique_ratio": 0.00225
+        },
+        "repetition": {
+          "repeated_unique_count": 18,
+          "repeated_occurrences": 11991,
+          "repetition_rate": 0.99925
+        },
+        "sample_values": [
+          "Card Purchase",
+          "UPI Transfer",
+          "Bank Transfer",
+          "Salary Credit",
+          "ATM Withdrawal"
+        ]
+      },
+      {
+        "column_name": "amount",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 11994,
+        "missing": {
+          "count": 6,
+          "percentage": 0.05
+        },
+        "uniqueness": {
+          "unique_count": 10735,
+          "unique_ratio": 0.895031
+        },
+        "repetition": {
+          "repeated_unique_count": 65,
+          "repeated_occurrences": 1324,
+          "repetition_rate": 0.110389
+        },
+        "sample_values": [
+          "-18227.95",
+          "-846.33",
+          "-61773.72",
+          "-36836.33",
+          "-10300.10"
+        ]
+      },
+      {
+        "column_name": "currency",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 12000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 4,
+          "unique_ratio": 0.000333
+        },
+        "repetition": {
+          "repeated_unique_count": 4,
+          "repeated_occurrences": 12000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "INR",
+          "Rs",
+          "INR ",
+          "USD"
+        ]
+      },
+      {
+        "column_name": "channel",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 12000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 24,
+          "unique_ratio": 0.002
+        },
+        "repetition": {
+          "repeated_unique_count": 18,
+          "repeated_occurrences": 11994,
+          "repetition_rate": 0.9995
+        },
+        "sample_values": [
+          "E-commerce",
+          "POS",
+          "Mobile App",
+          "Internet Banking",
+          "NEFT"
+        ]
+      },
+      {
+        "column_name": "merchant_id",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 3553,
+        "missing": {
+          "count": 8447,
+          "percentage": 70.3917
+        },
+        "uniqueness": {
+          "unique_count": 10,
+          "unique_ratio": 0.002815
+        },
+        "repetition": {
+          "repeated_unique_count": 10,
+          "repeated_occurrences": 3553,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "M004",
+          "M009",
+          "M006",
+          "M003",
+          "M001"
+        ]
+      },
+      {
+        "column_name": "merchant_name",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 3526,
+        "missing": {
+          "count": 8474,
+          "percentage": 70.6167
+        },
+        "uniqueness": {
+          "unique_count": 10,
+          "unique_ratio": 0.002836
+        },
+        "repetition": {
+          "repeated_unique_count": 10,
+          "repeated_occurrences": 3526,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Swiggy",
+          "DMart",
+          "Apollo Pharmacy",
+          "Amazon India",
+          "Reliance Retail"
+        ]
+      },
+      {
+        "column_name": "merchant_category",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 3553,
+        "missing": {
+          "count": 8447,
+          "percentage": 70.3917
+        },
+        "uniqueness": {
+          "unique_count": 15,
+          "unique_ratio": 0.004222
+        },
+        "repetition": {
+          "repeated_unique_count": 10,
+          "repeated_occurrences": 3548,
+          "repetition_rate": 0.998593
+        },
+        "sample_values": [
+          "Food Delivery",
+          "Groceries",
+          "Healthcare",
+          "E-commerce",
+          "Travel"
+        ]
+      },
+      {
+        "column_name": "counterparty_account_id",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 6307,
+        "missing": {
+          "count": 5693,
+          "percentage": 47.4417
+        },
+        "uniqueness": {
+          "unique_count": 3198,
+          "unique_ratio": 0.507056
+        },
+        "repetition": {
+          "repeated_unique_count": 1842,
+          "repeated_occurrences": 4951,
+          "repetition_rate": 0.785001
+        },
+        "sample_values": [
+          "AC00000855",
+          "AC00000542",
+          "AC00001429",
+          "AC00001799",
+          "AC00001724"
+        ]
+      },
+      {
+        "column_name": "branch_code",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 2401,
+        "missing": {
+          "count": 9599,
+          "percentage": 79.9917
+        },
+        "uniqueness": {
+          "unique_count": 31,
+          "unique_ratio": 0.012911
+        },
+        "repetition": {
+          "repeated_unique_count": 31,
+          "repeated_occurrences": 2401,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "BR0021",
+          "BR0008",
+          "BR0018",
+          "BR0029",
+          "BR0015"
+        ]
+      },
+      {
+        "column_name": "transaction_city",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 12000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 16,
+          "unique_ratio": 0.001333
+        },
+        "repetition": {
+          "repeated_unique_count": 12,
+          "repeated_occurrences": 11996,
+          "repetition_rate": 0.999667
+        },
+        "sample_values": [
+          "Mumbai",
+          "Nagpur",
+          "Delhi",
+          "Nashik",
+          "Hyderabad"
+        ]
+      },
+      {
+        "column_name": "country_code",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 12000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 1,
+          "unique_ratio": 8.3e-05
+        },
+        "repetition": {
+          "repeated_unique_count": 1,
+          "repeated_occurrences": 12000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "IN"
+        ]
+      },
+      {
+        "column_name": "device_id",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 9550,
+        "missing": {
+          "count": 2450,
+          "percentage": 20.4167
+        },
+        "uniqueness": {
+          "unique_count": 4754,
+          "unique_ratio": 0.497801
+        },
+        "repetition": {
+          "repeated_unique_count": 2828,
+          "repeated_occurrences": 7624,
+          "repetition_rate": 0.798325
+        },
+        "sample_values": [
+          "DEV0003416",
+          "DEV0003495",
+          "DEV0005334",
+          "DEV0001083",
+          "DEV0004144"
+        ]
+      },
+      {
+        "column_name": "ip_address",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 6508,
+        "missing": {
+          "count": 5492,
+          "percentage": 45.7667
+        },
+        "uniqueness": {
+          "unique_count": 6459,
+          "unique_ratio": 0.992471
+        },
+        "repetition": {
+          "repeated_unique_count": 34,
+          "repeated_occurrences": 83,
+          "repetition_rate": 0.012754
+        },
+        "sample_values": [
+          "14.245.67.141",
+          "13.0.15.140",
+          "181.79.94.177",
+          "223.53.164.75",
+          "167.214.0.222"
+        ]
+      },
+      {
+        "column_name": "transaction_status",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 11993,
+        "missing": {
+          "count": 7,
+          "percentage": 0.0583
+        },
+        "uniqueness": {
+          "unique_count": 7,
+          "unique_ratio": 0.000584
+        },
+        "repetition": {
+          "repeated_unique_count": 7,
+          "repeated_occurrences": 11993,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Completed",
+          "Reversed",
+          "Declined",
+          "Pending",
+          "Failed"
+        ]
+      },
+      {
+        "column_name": "balance_before",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 11995,
+        "missing": {
+          "count": 5,
+          "percentage": 0.0417
+        },
+        "uniqueness": {
+          "unique_count": 10797,
+          "unique_ratio": 0.900125
+        },
+        "repetition": {
+          "repeated_unique_count": 1079,
+          "repeated_occurrences": 2277,
+          "repetition_rate": 0.189829
+        },
+        "sample_values": [
+          "314720.30",
+          "59267.77",
+          "156817.91",
+          "237792.28",
+          "279202.83"
+        ]
+      },
+      {
+        "column_name": "balance_after",
+        "physical_dtype": "float64",
+        "row_count": 12000,
+        "non_null_count": 12000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 11084,
+          "unique_ratio": 0.923667
+        },
+        "repetition": {
+          "repeated_unique_count": 844,
+          "repeated_occurrences": 1760,
+          "repetition_rate": 0.146667
+        },
+        "sample_values": [
+          296492.35,
+          58421.44,
+          95044.19,
+          200955.95,
+          268902.73
+        ],
+        "numeric_statistics": {
+          "min": -293341.54,
+          "max": 494648.24,
+          "mean": 138434.91942083332,
+          "median": 137114.95500000002,
+          "std": 113373.88034765479,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "fraud_flag",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 11992,
+        "missing": {
+          "count": 8,
+          "percentage": 0.0667
+        },
+        "uniqueness": {
+          "unique_count": 5,
+          "unique_ratio": 0.000417
+        },
+        "repetition": {
+          "repeated_unique_count": 5,
+          "repeated_occurrences": 11992,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "No",
+          "Yes",
+          "TRUE",
+          "Y",
+          "N"
+        ]
+      },
+      {
+        "column_name": "fraud_review_status",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 12000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 4,
+          "unique_ratio": 0.000333
+        },
+        "repetition": {
+          "repeated_unique_count": 4,
+          "repeated_occurrences": 12000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Not Required",
+          "Confirmed Fraud",
+          "Cleared",
+          "Under Review"
+        ]
+      },
+      {
+        "column_name": "narration",
+        "physical_dtype": "str",
+        "row_count": 12000,
+        "non_null_count": 11959,
+        "missing": {
+          "count": 41,
+          "percentage": 0.3417
+        },
+        "uniqueness": {
+          "unique_count": 14,
+          "unique_ratio": 0.001171
+        },
+        "repetition": {
+          "repeated_unique_count": 14,
+          "repeated_occurrences": 11959,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Card Purchase via E-commerce",
+          "Card Purchase via POS",
+          "UPI Transfer via Mobile App",
+          "Bank Transfer via Internet Banking",
+          "Bank Transfer via Mobile App"
+        ]
+      }
+    ]
+  },
+  "issues": [
+    {
+      "issue_id": "issue-exact_duplicate_rows-192ec5f83876",
+      "issue_type": "exact_duplicate_rows",
+      "target_columns": [],
+      "affected_count": 30,
+      "affected_percentage": 0.25,
+      "evidence": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "examples": [
+        764,
+        1156,
+        3081,
+        3629,
+        3865
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-47de1c6c2129",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "account_id"
+      ],
+      "affected_count": 11,
+      "affected_percentage": 0.0917,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 11989
+      },
+      "examples": [
+        878,
+        2392,
+        2559,
+        3438,
+        3572
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-inconsistent_date_format_candidate-fcf86d4ebeea",
+      "issue_type": "inconsistent_date_format_candidate",
+      "target_columns": [
+        "transaction_datetime"
+      ],
+      "affected_count": 11712,
+      "affected_percentage": 97.6,
+      "evidence": {
+        "recognized_formats": [
+          "ISO-datetime",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 0.976,
+        "method": "strict_shape_recognition"
+      },
+      "examples": [
+        "2025-06-13 04:24:15",
+        "2025-10-29 17:36:44",
+        "2025-10-10 10:49:06",
+        "2025-01-25 21:02:47",
+        "2026-06-23 20:48:14"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-107c6fa340e0",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "transaction_type"
+      ],
+      "affected_count": 21,
+      "affected_percentage": 0.175,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 21,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "ATM Withdrawal ",
+        "Salary Credit ",
+        "UPI Transfer ",
+        "UPI Transfer ",
+        "ATM Withdrawal "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-c5ef89606d2f",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "transaction_type"
+      ],
+      "affected_count": 11999,
+      "affected_percentage": 99.9917,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "atm withdrawal": [
+            "ATM Withdrawal",
+            "ATM Withdrawal ",
+            "atm withdrawal"
+          ],
+          "bank transfer": [
+            "Bank Transfer",
+            "Bank Transfer ",
+            "bank transfer"
+          ],
+          "card purchase": [
+            "Card Purchase",
+            "Card Purchase ",
+            "card purchase"
+          ],
+          "cash deposit": [
+            "Cash Deposit",
+            "Cash Deposit "
+          ],
+          "fee": [
+            "Fee",
+            "Fee ",
+            "fee"
+          ],
+          "refund": [
+            "Refund",
+            "Refund ",
+            "refund"
+          ],
+          "reversal": [
+            "Reversal",
+            "Reversal ",
+            "reversal"
+          ],
+          "salary credit": [
+            "Salary Credit",
+            "Salary Credit ",
+            "salary credit"
+          ],
+          "upi transfer": [
+            "UPI Transfer",
+            "UPI Transfer ",
+            "upi transfer"
+          ]
+        }
+      },
+      "examples": [
+        "Card Purchase",
+        "Card Purchase",
+        "UPI Transfer",
+        "UPI Transfer",
+        "Bank Transfer"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-13f49b95c570",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "transaction_type"
+      ],
+      "affected_count": 38,
+      "affected_percentage": 0.3167,
+      "evidence": {
+        "maximum_frequency": 120,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 18
+      },
+      "examples": [
+        "upi transfer",
+        "ATM Withdrawal ",
+        "reversal",
+        "atm withdrawal",
+        "card purchase"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-8aed28515436",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "amount"
+      ],
+      "affected_count": 6,
+      "affected_percentage": 0.05,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 11994
+      },
+      "examples": [
+        2159,
+        2343,
+        4875,
+        5014,
+        7096
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-b3da61e2445a",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "currency"
+      ],
+      "affected_count": 7,
+      "affected_percentage": 0.0583,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 7,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "INR ",
+        "INR ",
+        "INR ",
+        "INR ",
+        "INR "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-e52f8192173a",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "currency"
+      ],
+      "affected_count": 11989,
+      "affected_percentage": 99.9083,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "inr": [
+            "INR",
+            "INR "
+          ]
+        }
+      },
+      "examples": [
+        "INR",
+        "INR",
+        "INR",
+        "INR",
+        "INR"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-0313f168cbe0",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "currency"
+      ],
+      "affected_count": 18,
+      "affected_percentage": 0.15,
+      "evidence": {
+        "maximum_frequency": 120,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "Rs",
+        "INR ",
+        "USD",
+        "USD",
+        "USD"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-adee1a7b422d",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "channel"
+      ],
+      "affected_count": 15,
+      "affected_percentage": 0.125,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 15,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "POS ",
+        "E-commerce ",
+        "Mobile App ",
+        "System ",
+        "E-commerce "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-f82e9ea293d1",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "channel"
+      ],
+      "affected_count": 9700,
+      "affected_percentage": 80.8333,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "branch": [
+            "Branch",
+            "branch"
+          ],
+          "cash deposit machine": [
+            "Cash Deposit Machine",
+            "Cash Deposit Machine "
+          ],
+          "e-commerce": [
+            "E-commerce",
+            "E-commerce ",
+            "e-commerce"
+          ],
+          "internet banking": [
+            "Internet Banking",
+            "Internet Banking ",
+            "internet banking"
+          ],
+          "mobile app": [
+            "Mobile App",
+            "Mobile App ",
+            "mobile app"
+          ],
+          "pos": [
+            "POS",
+            "POS ",
+            "pos"
+          ],
+          "system": [
+            "System",
+            "System ",
+            "system"
+          ]
+        }
+      },
+      "examples": [
+        "E-commerce",
+        "POS",
+        "Mobile App",
+        "Mobile App",
+        "Internet Banking"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-f8d6b455d816",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "channel"
+      ],
+      "affected_count": 27,
+      "affected_percentage": 0.225,
+      "evidence": {
+        "maximum_frequency": 120,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 13
+      },
+      "examples": [
+        "mobile app",
+        "POS ",
+        "E-commerce ",
+        "Mobile App ",
+        "internet banking"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-5b8a5f2f00df",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "merchant_id"
+      ],
+      "affected_count": 8447,
+      "affected_percentage": 70.3917,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 3553
+      },
+      "examples": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-6145e5694c4f",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "merchant_name"
+      ],
+      "affected_count": 8474,
+      "affected_percentage": 70.6167,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 3526
+      },
+      "examples": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-33febbf7ddc9",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "merchant_category"
+      ],
+      "affected_count": 8447,
+      "affected_percentage": 70.3917,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 3553
+      },
+      "examples": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-75507d415db0",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "merchant_category"
+      ],
+      "affected_count": 3,
+      "affected_percentage": 0.0844,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 3,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "Fuel ",
+        "Groceries ",
+        "Transport "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-c761944e1504",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "merchant_category"
+      ],
+      "affected_count": 2145,
+      "affected_percentage": 60.3715,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "fuel": [
+            "Fuel",
+            "Fuel "
+          ],
+          "groceries": [
+            "Groceries",
+            "Groceries "
+          ],
+          "transport": [
+            "Transport",
+            "Transport "
+          ],
+          "travel": [
+            "Travel",
+            "travel"
+          ],
+          "utilities": [
+            "Utilities",
+            "utilities"
+          ]
+        }
+      },
+      "examples": [
+        "Groceries",
+        "Groceries",
+        "Travel",
+        "Utilities",
+        "Groceries"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-79b8bab9259b",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "merchant_category"
+      ],
+      "affected_count": 9,
+      "affected_percentage": 0.2533,
+      "evidence": {
+        "maximum_frequency": 35,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 6
+      },
+      "examples": [
+        "Misc",
+        "Misc",
+        "Fuel ",
+        "travel",
+        "Misc"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-3465333f84ce",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "counterparty_account_id"
+      ],
+      "affected_count": 5693,
+      "affected_percentage": 47.4417,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 6307
+      },
+      "examples": [
+        0,
+        1,
+        8,
+        11,
+        14
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-ea8cc15dbdd8",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "branch_code"
+      ],
+      "affected_count": 9599,
+      "affected_percentage": 79.9917,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 2401
+      },
+      "examples": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-15135386d9a4",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "branch_code"
+      ],
+      "affected_count": 18,
+      "affected_percentage": 0.7497,
+      "evidence": {
+        "maximum_frequency": 24,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "examples": [
+        "BR9999",
+        "BR9999",
+        "BR9999",
+        "BR9999",
+        "BR9999"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-35410e8a29c7",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "transaction_city"
+      ],
+      "affected_count": 4,
+      "affected_percentage": 0.0333,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 4,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "Bengaluru ",
+        "Delhi ",
+        "Hyderabad ",
+        "Mumbai "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-e73e13301e29",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "transaction_city"
+      ],
+      "affected_count": 7427,
+      "affected_percentage": 61.8917,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "bengaluru": [
+            "Bengaluru",
+            "Bengaluru ",
+            "bengaluru"
+          ],
+          "chennai": [
+            "Chennai",
+            "chennai"
+          ],
+          "delhi": [
+            "Delhi",
+            "Delhi ",
+            "delhi"
+          ],
+          "hyderabad": [
+            "Hyderabad",
+            "Hyderabad "
+          ],
+          "mumbai": [
+            "Mumbai",
+            "Mumbai ",
+            "mumbai"
+          ]
+        }
+      },
+      "examples": [
+        "Mumbai",
+        "Delhi",
+        "Hyderabad",
+        "Delhi",
+        "Mumbai"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-d670a8fe597e",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "transaction_city"
+      ],
+      "affected_count": 12,
+      "affected_percentage": 0.1,
+      "evidence": {
+        "maximum_frequency": 120,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 8
+      },
+      "examples": [
+        "bengaluru",
+        "Bengaluru ",
+        "Delhi ",
+        "Hyderabad ",
+        "mumbai"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-33a343ef3ab7",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "device_id"
+      ],
+      "affected_count": 2450,
+      "affected_percentage": 20.4167,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 9550
+      },
+      "examples": [
+        6,
+        12,
+        18,
+        21,
+        27
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-714d1050916d",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "ip_address"
+      ],
+      "affected_count": 5492,
+      "affected_percentage": 45.7667,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 6508
+      },
+      "examples": [
+        1,
+        6,
+        8,
+        11,
+        12
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-6a36ae2fef95",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "transaction_status"
+      ],
+      "affected_count": 7,
+      "affected_percentage": 0.0583,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 11993
+      },
+      "examples": [
+        1015,
+        2839,
+        4232,
+        6225,
+        8707
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-2f4efceae0a9",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "transaction_status"
+      ],
+      "affected_count": 29,
+      "affected_percentage": 0.2418,
+      "evidence": {
+        "maximum_frequency": 119,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "Failed",
+        "Processing",
+        "Failed",
+        "Processing",
+        "Failed"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-3b1dc4e9c83d",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "balance_before"
+      ],
+      "affected_count": 5,
+      "affected_percentage": 0.0417,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 11995
+      },
+      "examples": [
+        406,
+        1896,
+        4881,
+        9163,
+        10507
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-statistical_outlier_candidate-6848792dae8a",
+      "issue_type": "statistical_outlier_candidate",
+      "target_columns": [
+        "balance_after"
+      ],
+      "affected_count": 9,
+      "affected_percentage": 0.075,
+      "evidence": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 50224.28,
+        "q3": 227824.8625,
+        "lower_bound": -216176.59374999997,
+        "upper_bound": 494225.73624999996
+      },
+      "examples": [
+        -217355.65,
+        -222358.58,
+        494648.24,
+        494532.72,
+        -241393.62
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-a1560fc101b2",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "fraud_flag"
+      ],
+      "affected_count": 8,
+      "affected_percentage": 0.0667,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 11992
+      },
+      "examples": [
+        1090,
+        2472,
+        3051,
+        4603,
+        4845
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-1a6e8c23da38",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "fraud_flag"
+      ],
+      "affected_count": 35,
+      "affected_percentage": 0.2919,
+      "evidence": {
+        "maximum_frequency": 119,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "TRUE",
+        "Y",
+        "TRUE",
+        "Y",
+        "Y"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-c1abb70b09ff",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "fraud_review_status"
+      ],
+      "affected_count": 194,
+      "affected_percentage": 1.6167,
+      "evidence": {
+        "maximum_frequency": 120,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "Confirmed Fraud",
+        "Cleared",
+        "Confirmed Fraud",
+        "Cleared",
+        "Confirmed Fraud"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-1b830939c272",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "narration"
+      ],
+      "affected_count": 41,
+      "affected_percentage": 0.3417,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 11959
+      },
+      "examples": [
+        24,
+        597,
+        1161,
+        1636,
+        1836
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    }
+  ],
+  "quality_summary": {
+    "total_issues_detected": 35,
+    "issues_by_type": {
+      "case_variant_candidate": 5,
+      "exact_duplicate_rows": 1,
+      "inconsistent_date_format_candidate": 1,
+      "missing_values": 13,
+      "rare_category_observation": 9,
+      "statistical_outlier_candidate": 1,
+      "whitespace_issue": 5
+    },
+    "issues_by_status": {
+      "candidate": 7,
+      "issue": 19,
+      "observation": 9
+    },
+    "affected_columns": [
+      "account_id",
+      "amount",
+      "balance_after",
+      "balance_before",
+      "branch_code",
+      "channel",
+      "counterparty_account_id",
+      "currency",
+      "device_id",
+      "fraud_flag",
+      "fraud_review_status",
+      "ip_address",
+      "merchant_category",
+      "merchant_id",
+      "merchant_name",
+      "narration",
+      "transaction_city",
+      "transaction_datetime",
+      "transaction_status",
+      "transaction_type"
+    ],
+    "dataset_level_issue_count": 1
+  },
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": "transaction",
+      "row_entity_confidence": 0.8,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "transaction_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Identifies a unique transaction instance within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'transaction_id' and the evidence of its unique values and repetition rate support it being an identifier for transaction instances."
+      },
+      {
+        "column_name": "account_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Identifies a unique account instance within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'account_id' and the evidence of its unique values and repetition rate support it being an identifier for account instances."
+      },
+      {
+        "column_name": "transaction_datetime",
+        "semantic_type": "date",
+        "value_function": "temporal",
+        "concept_description": "Represents the date and time of a transaction event.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'transaction_datetime' and the evidence of its unique values and repetition rate support it being a temporal representation of transaction events."
+      },
+      {
+        "column_name": "transaction_type",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Classifies the type of transaction (e.g., Card Purchase, UPI Transfer, etc.).",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'transaction_type' and the evidence of its unique values and repetition rate support it being a categorical classification of transaction types."
+      },
+      {
+        "column_name": "amount",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Represents the monetary amount of a transaction.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'amount' and the evidence of its unique values and repetition rate support it being a numeric measurement of transaction amounts."
+      },
+      {
+        "column_name": "currency",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Represents the currency used in a transaction (e.g., INR, USD).",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'currency' and the evidence of its unique values and repetition rate support it being a categorical classification of transaction currencies."
+      },
+      {
+        "column_name": "channel",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Represents the channel through which a transaction occurred (e.g., E-commerce, POS, Mobile App).",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'channel' and the evidence of its unique values and repetition rate support it being a categorical classification of transaction channels."
+      },
+      {
+        "column_name": "merchant_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Identifies a unique merchant instance within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'merchant_id' and the evidence of its unique values and repetition rate support it being an identifier for merchant instances."
+      },
+      {
+        "column_name": "merchant_name",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Represents the name of the merchant involved in a transaction.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'merchant_name' and the evidence of its unique values and repetition rate support it being a categorical classification of merchant names."
+      },
+      {
+        "column_name": "merchant_category",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Represents the category of the merchant (e.g., Food Delivery, Groceries, Healthcare).",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'merchant_category' and the evidence of its unique values and repetition rate support it being a categorical classification of merchant categories."
+      },
+      {
+        "column_name": "counterparty_account_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Identifies a unique counterparty account instance within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'counterparty_account_id' and the evidence of its unique values and repetition rate support it being an identifier for counterparty account instances."
+      },
+      {
+        "column_name": "branch_code",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Identifies a unique branch code instance within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'branch_code' and the evidence of its unique values and repetition rate support it being an identifier for branch code instances."
+      },
+      {
+        "column_name": "transaction_city",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Geographic location of the transaction, likely a city or town in India as the sample values are all Indian cities.",
+        "semantic_role": "unknown",
+        "confidence": 0.85,
+        "reasoning_summary": "The column contains values that are likely geographic locations, specifically Indian cities, which aligns with the shared dataset context of a transaction dataset."
+      },
+      {
+        "column_name": "country_code",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Country code representing India (IN).",
+        "semantic_role": "unknown",
+        "confidence": 0.85,
+        "reasoning_summary": "The column contains a single unique value 'IN' which is a country code for India, indicating it likely identifies a particular entity (country)."
+      },
+      {
+        "column_name": "device_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Device identifier, likely a unique identifier for a device.",
+        "semantic_role": "unknown",
+        "confidence": 0.85,
+        "reasoning_summary": "The column contains a unique identifier with no apparent pattern or repetition, suggesting it identifies a particular device instance."
+      },
+      {
+        "column_name": "ip_address",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "IP address of the transaction, likely a unique identifier for a device or user.",
+        "semantic_role": "unknown",
+        "confidence": 0.85,
+        "reasoning_summary": "The column contains a unique identifier with no apparent pattern or repetition, suggesting it identifies a particular device or user instance."
+      },
+      {
+        "column_name": "transaction_status",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Status of the transaction, such as completed, reversed, declined, pending, or failed.",
+        "semantic_role": "unknown",
+        "confidence": 0.85,
+        "reasoning_summary": "The column contains a set of distinct values that likely represent different states or statuses of a transaction."
+      },
+      {
+        "column_name": "balance_before",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Amount of balance before the transaction, likely in currency units.",
+        "semantic_role": "unknown",
+        "confidence": 0.85,
+        "reasoning_summary": "The column contains numeric values that represent a balance amount, which is a quantitative measurement of a financial value."
+      },
+      {
+        "column_name": "balance_after",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Amount of balance after the transaction, likely in currency units.",
+        "semantic_role": "unknown",
+        "confidence": 0.85,
+        "reasoning_summary": "The column contains numeric values that represent a balance amount, which is a quantitative measurement of a financial value."
+      },
+      {
+        "column_name": "fraud_flag",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Flag indicating whether the transaction is fraudulent or not, typically 'No' for non-fraudulent and 'Yes' for fraudulent.",
+        "semantic_role": "unknown",
+        "confidence": 0.85,
+        "reasoning_summary": "The column contains a set of distinct values that likely represent different states or statuses of a transaction, with 'No' and 'Yes' being the primary categories."
+      },
+      {
+        "column_name": "fraud_review_status",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Status of the fraud review process, such as 'Not Required', 'Confirmed Fraud', 'Cleared', or 'Under Review'.",
+        "semantic_role": "unknown",
+        "confidence": 0.85,
+        "reasoning_summary": "The column contains a set of distinct values that likely represent different states or statuses of a transaction review process."
+      },
+      {
+        "column_name": "narration",
+        "semantic_type": "text",
+        "value_function": "descriptive_attribute",
+        "concept_description": "Narrative description of the transaction, such as 'Card Purchase via E-commerce', 'Card Purchase via POS', etc.",
+        "semantic_role": "unknown",
+        "confidence": 0.85,
+        "reasoning_summary": "The column contains text values that describe the nature of the transaction, which is a descriptive attribute."
+      }
+    ],
+    "warnings": [],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 2,
+      "total_llm_calls": 3,
+      "batch_sizes": [
+        12,
+        10
+      ],
+      "dataset_semantic_runtime_seconds": 41.806551,
+      "batch_runtime_seconds": [
+        118.828209,
+        93.512123
+      ],
+      "rag_runtime_seconds": 0.173949,
+      "batch_failures": 0,
+      "batch_retries": 0,
+      "llm_calls": [
+        {
+          "stage": "dataset_context",
+          "api_wall_duration_seconds": 41.748986,
+          "prompt_eval_count": 2507,
+          "prompt_eval_duration": 38074824000,
+          "eval_count": 23,
+          "eval_duration": 1584466000,
+          "total_duration": 39683188400,
+          "load_duration": 2756400,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "api_wall_duration_seconds": 118.828136,
+          "prompt_eval_count": 2291,
+          "prompt_eval_duration": 32944424000,
+          "eval_count": 1156,
+          "eval_duration": 83761421000,
+          "total_duration": 116747987900,
+          "load_duration": 3142800,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 2,
+          "attempt": 1,
+          "api_wall_duration_seconds": 93.512029,
+          "prompt_eval_count": 2050,
+          "prompt_eval_duration": 21348123000,
+          "eval_count": 986,
+          "eval_duration": 70059532000,
+          "total_duration": 91454770500,
+          "load_duration": 3714800,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 254.263827
+    }
+  },
+  "decision_summary": {
+    "total_decisions": 35,
+    "by_decision_type": {
+      "flag_for_review": 9,
+      "no_action": 21,
+      "action": 5
+    },
+    "by_proposed_action": {
+      "flag_rows": 9,
+      "no_op": 21,
+      "trim_whitespace": 5
+    },
+    "tier1_decisions": 22,
+    "tier2_decisions": 13,
+    "fallback_decisions": 0,
+    "deterministic_runtime_seconds": 0.00047,
+    "tier2_issue_count": 13,
+    "tier2_batch_sizes": [
+      4,
+      4,
+      4,
+      1
+    ],
+    "llm_decision_calls": 6,
+    "llm_runtime_seconds": 152.94549,
+    "intended_llm_decision_calls": 4,
+    "retries": 2,
+    "successful_batches": 4,
+    "batch_failures": 0,
+    "llm_calls": [
+      {
+        "batch_index": 1,
+        "attempt": 1,
+        "api_wall_duration_seconds": 18.003649,
+        "prompt_character_length": 3501,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 875,
+        "prompt_eval_duration": 9391924000,
+        "eval_count": 105,
+        "eval_duration": 6503849000,
+        "total_duration": 15933585400,
+        "load_duration": 3304600,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 1,
+        "attempt": 2,
+        "api_wall_duration_seconds": 21.883031,
+        "prompt_character_length": 3501,
+        "prompt_eval_count": 875,
+        "prompt_eval_duration": 95040000,
+        "eval_count": 320,
+        "eval_duration": 19709948000,
+        "total_duration": 19815756400,
+        "load_duration": 3260100,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 2,
+        "attempt": 1,
+        "api_wall_duration_seconds": 32.465163,
+        "prompt_character_length": 3448,
+        "prompt_eval_count": 806,
+        "prompt_eval_duration": 8337556000,
+        "eval_count": 361,
+        "eval_duration": 22045675000,
+        "total_duration": 30406419500,
+        "load_duration": 3525300,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 3,
+        "attempt": 1,
+        "api_wall_duration_seconds": 31.796569,
+        "prompt_character_length": 3156,
+        "prompt_eval_count": 792,
+        "prompt_eval_duration": 8138102000,
+        "eval_count": 353,
+        "eval_duration": 21557103000,
+        "total_duration": 29718866000,
+        "load_duration": 3178800,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 4,
+        "attempt": 1,
+        "api_wall_duration_seconds": 11.052703,
+        "prompt_character_length": 1379,
+        "error": "ValidationError: 1 validation error for CleaningDecision\n  Value error, flag_for_review decisions must propose flag_rows. [type=value_error, input_value={'decision_id': 'decision...on_source': 'llm_tier2'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error",
+        "prompt_eval_count": 332,
+        "prompt_eval_duration": 1845981000,
+        "eval_count": 116,
+        "eval_duration": 7137473000,
+        "total_duration": 9005334500,
+        "load_duration": 3163300,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 4,
+        "attempt": 2,
+        "api_wall_duration_seconds": 8.693341,
+        "prompt_character_length": 1379,
+        "prompt_eval_count": 332,
+        "prompt_eval_duration": 58212000,
+        "eval_count": 110,
+        "eval_duration": 6600096000,
+        "total_duration": 6667552600,
+        "load_duration": 3687600,
+        "done_reason": "stop"
+      }
+    ],
+    "total_runtime_seconds": 123.896984,
+    "execution_routing": {
+      "detected_issue_count": 35,
+      "decision_count": 35,
+      "proposed_action_count": 5,
+      "compiled_instruction_count": 5,
+      "executed_action_count": 5,
+      "executed_trim_whitespace_count": 5,
+      "executed_normalize_categorical_labels_count": 0,
+      "skipped_action_count": 0,
+      "skipped_actions": [],
+      "parse_date_assessments": [],
+      "numeric_coercion_assessments": [],
+      "missing_value_assessments": [
+        {
+          "column": "account_id",
+          "missing_count": 11,
+          "missing_percentage": 0.09166666666666666,
+          "missingness_risk": "low",
+          "observed_count": 11989,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "amount",
+          "missing_count": 6,
+          "missing_percentage": 0.05,
+          "missingness_risk": "low",
+          "observed_count": 11994,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "merchant_id",
+          "missing_count": 8447,
+          "missing_percentage": 70.39166666666667,
+          "missingness_risk": "very_high",
+          "observed_count": 3553,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "merchant_name",
+          "missing_count": 8474,
+          "missing_percentage": 70.61666666666666,
+          "missingness_risk": "very_high",
+          "observed_count": 3526,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "merchant_category",
+          "missing_count": 8447,
+          "missing_percentage": 70.39166666666667,
+          "missingness_risk": "very_high",
+          "observed_count": 3553,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "counterparty_account_id",
+          "missing_count": 5693,
+          "missing_percentage": 47.44166666666667,
+          "missingness_risk": "high",
+          "observed_count": 6307,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "branch_code",
+          "missing_count": 9599,
+          "missing_percentage": 79.99166666666666,
+          "missingness_risk": "very_high",
+          "observed_count": 2401,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "device_id",
+          "missing_count": 2450,
+          "missing_percentage": 20.416666666666668,
+          "missingness_risk": "high",
+          "observed_count": 9550,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "ip_address",
+          "missing_count": 5492,
+          "missing_percentage": 45.766666666666666,
+          "missingness_risk": "high",
+          "observed_count": 6508,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "transaction_status",
+          "missing_count": 7,
+          "missing_percentage": 0.058333333333333334,
+          "missingness_risk": "low",
+          "observed_count": 11993,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "balance_before",
+          "missing_count": 5,
+          "missing_percentage": 0.041666666666666664,
+          "missingness_risk": "low",
+          "observed_count": 11995,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "fraud_flag",
+          "missing_count": 8,
+          "missing_percentage": 0.06666666666666667,
+          "missingness_risk": "low",
+          "observed_count": 11992,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "narration",
+          "missing_count": 41,
+          "missing_percentage": 0.3416666666666667,
+          "missingness_risk": "low",
+          "observed_count": 11959,
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute"
+        }
+      ],
+      "impute_missing_proposal_count": 0,
+      "executed_impute_missing_count": 0,
+      "executed_coerce_dtype_count": 0,
+      "executed_parse_dates_count": 0
+    }
+  },
+  "decisions": [
+    {
+      "decision_id": "decision-issue-exact_duplicate_rows-192ec5f83876",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876"
+      ],
+      "target_columns": [],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Exact duplicate records may be legitimate repeated events; deletion is not automatic.",
+      "evidence_summary": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "semantic_basis": {},
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-47de1c6c2129",
+      "source_issue_ids": [
+        "issue-missing_values-47de1c6c2129"
+      ],
+      "target_columns": [
+        "account_id"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 11989
+      },
+      "semantic_basis": {
+        "account_id": {
+          "column_name": "account_id",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "Identifies a unique account instance within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'account_id' and the evidence of its unique values and repetition rate support it being an identifier for account instances."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-inconsistent_date_format_candidate-fcf86d4ebeea",
+      "source_issue_ids": [
+        "issue-inconsistent_date_format_candidate-fcf86d4ebeea"
+      ],
+      "target_columns": [
+        "transaction_datetime"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Preserve the data as no action is needed for this issue.",
+      "evidence_summary": {
+        "recognized_formats": [
+          "ISO-datetime",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 0.976,
+        "method": "strict_shape_recognition"
+      },
+      "semantic_basis": {
+        "transaction_datetime": {
+          "column_name": "transaction_datetime",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Represents the date and time of a transaction event.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'transaction_datetime' and the evidence of its unique values and repetition rate support it being a temporal representation of transaction events."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-107c6fa340e0",
+      "source_issue_ids": [
+        "issue-whitespace_issue-107c6fa340e0"
+      ],
+      "target_columns": [
+        "transaction_type"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 21,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "transaction_type": {
+          "column_name": "transaction_type",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Classifies the type of transaction (e.g., Card Purchase, UPI Transfer, etc.).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'transaction_type' and the evidence of its unique values and repetition rate support it being a categorical classification of transaction types."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-c5ef89606d2f",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-c5ef89606d2f"
+      ],
+      "target_columns": [
+        "transaction_type"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Preserve the data as no action is needed for this issue.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "atm withdrawal": [
+            "ATM Withdrawal",
+            "ATM Withdrawal ",
+            "atm withdrawal"
+          ],
+          "bank transfer": [
+            "Bank Transfer",
+            "Bank Transfer ",
+            "bank transfer"
+          ],
+          "card purchase": [
+            "Card Purchase",
+            "Card Purchase ",
+            "card purchase"
+          ],
+          "cash deposit": [
+            "Cash Deposit",
+            "Cash Deposit "
+          ],
+          "fee": [
+            "Fee",
+            "Fee ",
+            "fee"
+          ],
+          "refund": [
+            "Refund",
+            "Refund ",
+            "refund"
+          ],
+          "reversal": [
+            "Reversal",
+            "Reversal ",
+            "reversal"
+          ],
+          "salary credit": [
+            "Salary Credit",
+            "Salary Credit ",
+            "salary credit"
+          ],
+          "upi transfer": [
+            "UPI Transfer",
+            "UPI Transfer ",
+            "upi transfer"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "transaction_type": {
+          "column_name": "transaction_type",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Classifies the type of transaction (e.g., Card Purchase, UPI Transfer, etc.).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'transaction_type' and the evidence of its unique values and repetition rate support it being a categorical classification of transaction types."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-13f49b95c570",
+      "source_issue_ids": [
+        "issue-rare_category_observation-13f49b95c570"
+      ],
+      "target_columns": [
+        "transaction_type"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 120,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 18
+      },
+      "semantic_basis": {
+        "transaction_type": {
+          "column_name": "transaction_type",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Classifies the type of transaction (e.g., Card Purchase, UPI Transfer, etc.).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'transaction_type' and the evidence of its unique values and repetition rate support it being a categorical classification of transaction types."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-8aed28515436",
+      "source_issue_ids": [
+        "issue-missing_values-8aed28515436"
+      ],
+      "target_columns": [
+        "amount"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Preserve the data as no action is needed for this issue.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 11994
+      },
+      "semantic_basis": {
+        "amount": {
+          "column_name": "amount",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Represents the monetary amount of a transaction.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'amount' and the evidence of its unique values and repetition rate support it being a numeric measurement of transaction amounts."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-b3da61e2445a",
+      "source_issue_ids": [
+        "issue-whitespace_issue-b3da61e2445a"
+      ],
+      "target_columns": [
+        "currency"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 7,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "currency": {
+          "column_name": "currency",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Represents the currency used in a transaction (e.g., INR, USD).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'currency' and the evidence of its unique values and repetition rate support it being a categorical classification of transaction currencies."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-e52f8192173a",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-e52f8192173a"
+      ],
+      "target_columns": [
+        "currency"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Preserve the data as no action is needed for this issue.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "inr": [
+            "INR",
+            "INR "
+          ]
+        }
+      },
+      "semantic_basis": {
+        "currency": {
+          "column_name": "currency",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Represents the currency used in a transaction (e.g., INR, USD).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'currency' and the evidence of its unique values and repetition rate support it being a categorical classification of transaction currencies."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-0313f168cbe0",
+      "source_issue_ids": [
+        "issue-rare_category_observation-0313f168cbe0"
+      ],
+      "target_columns": [
+        "currency"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 120,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "currency": {
+          "column_name": "currency",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Represents the currency used in a transaction (e.g., INR, USD).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'currency' and the evidence of its unique values and repetition rate support it being a categorical classification of transaction currencies."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-adee1a7b422d",
+      "source_issue_ids": [
+        "issue-whitespace_issue-adee1a7b422d"
+      ],
+      "target_columns": [
+        "channel"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 15,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "channel": {
+          "column_name": "channel",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Represents the channel through which a transaction occurred (e.g., E-commerce, POS, Mobile App).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'channel' and the evidence of its unique values and repetition rate support it being a categorical classification of transaction channels."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-f82e9ea293d1",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-f82e9ea293d1"
+      ],
+      "target_columns": [
+        "channel"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "No action is required as the issue is related to categorical data and the normalization probe is suitable for this type of data.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "branch": [
+            "Branch",
+            "branch"
+          ],
+          "cash deposit machine": [
+            "Cash Deposit Machine",
+            "Cash Deposit Machine "
+          ],
+          "e-commerce": [
+            "E-commerce",
+            "E-commerce ",
+            "e-commerce"
+          ],
+          "internet banking": [
+            "Internet Banking",
+            "Internet Banking ",
+            "internet banking"
+          ],
+          "mobile app": [
+            "Mobile App",
+            "Mobile App ",
+            "mobile app"
+          ],
+          "pos": [
+            "POS",
+            "POS ",
+            "pos"
+          ],
+          "system": [
+            "System",
+            "System ",
+            "system"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "channel": {
+          "column_name": "channel",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Represents the channel through which a transaction occurred (e.g., E-commerce, POS, Mobile App).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'channel' and the evidence of its unique values and repetition rate support it being a categorical classification of transaction channels."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-f8d6b455d816",
+      "source_issue_ids": [
+        "issue-rare_category_observation-f8d6b455d816"
+      ],
+      "target_columns": [
+        "channel"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 120,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 13
+      },
+      "semantic_basis": {
+        "channel": {
+          "column_name": "channel",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Represents the channel through which a transaction occurred (e.g., E-commerce, POS, Mobile App).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'channel' and the evidence of its unique values and repetition rate support it being a categorical classification of transaction channels."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-5b8a5f2f00df",
+      "source_issue_ids": [
+        "issue-missing_values-5b8a5f2f00df"
+      ],
+      "target_columns": [
+        "merchant_id"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 3553
+      },
+      "semantic_basis": {
+        "merchant_id": {
+          "column_name": "merchant_id",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "Identifies a unique merchant instance within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'merchant_id' and the evidence of its unique values and repetition rate support it being an identifier for merchant instances."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-6145e5694c4f",
+      "source_issue_ids": [
+        "issue-missing_values-6145e5694c4f"
+      ],
+      "target_columns": [
+        "merchant_name"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "No action is required as the issue is related to categorical data and the normalization probe is suitable for this type of data.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 3526
+      },
+      "semantic_basis": {
+        "merchant_name": {
+          "column_name": "merchant_name",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Represents the name of the merchant involved in a transaction.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'merchant_name' and the evidence of its unique values and repetition rate support it being a categorical classification of merchant names."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-33febbf7ddc9",
+      "source_issue_ids": [
+        "issue-missing_values-33febbf7ddc9"
+      ],
+      "target_columns": [
+        "merchant_category"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "No action is required as the issue is related to categorical data and the normalization probe is suitable for this type of data.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 3553
+      },
+      "semantic_basis": {
+        "merchant_category": {
+          "column_name": "merchant_category",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Represents the category of the merchant (e.g., Food Delivery, Groceries, Healthcare).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'merchant_category' and the evidence of its unique values and repetition rate support it being a categorical classification of merchant categories."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-75507d415db0",
+      "source_issue_ids": [
+        "issue-whitespace_issue-75507d415db0"
+      ],
+      "target_columns": [
+        "merchant_category"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 3,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "merchant_category": {
+          "column_name": "merchant_category",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Represents the category of the merchant (e.g., Food Delivery, Groceries, Healthcare).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'merchant_category' and the evidence of its unique values and repetition rate support it being a categorical classification of merchant categories."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-c761944e1504",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-c761944e1504"
+      ],
+      "target_columns": [
+        "merchant_category"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "No action is required as the issue is related to categorical data and the normalization probe is suitable for this type of data.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "fuel": [
+            "Fuel",
+            "Fuel "
+          ],
+          "groceries": [
+            "Groceries",
+            "Groceries "
+          ],
+          "transport": [
+            "Transport",
+            "Transport "
+          ],
+          "travel": [
+            "Travel",
+            "travel"
+          ],
+          "utilities": [
+            "Utilities",
+            "utilities"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "merchant_category": {
+          "column_name": "merchant_category",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Represents the category of the merchant (e.g., Food Delivery, Groceries, Healthcare).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'merchant_category' and the evidence of its unique values and repetition rate support it being a categorical classification of merchant categories."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-79b8bab9259b",
+      "source_issue_ids": [
+        "issue-rare_category_observation-79b8bab9259b"
+      ],
+      "target_columns": [
+        "merchant_category"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 35,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 6
+      },
+      "semantic_basis": {
+        "merchant_category": {
+          "column_name": "merchant_category",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Represents the category of the merchant (e.g., Food Delivery, Groceries, Healthcare).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'merchant_category' and the evidence of its unique values and repetition rate support it being a categorical classification of merchant categories."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-3465333f84ce",
+      "source_issue_ids": [
+        "issue-missing_values-3465333f84ce"
+      ],
+      "target_columns": [
+        "counterparty_account_id"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 6307
+      },
+      "semantic_basis": {
+        "counterparty_account_id": {
+          "column_name": "counterparty_account_id",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "Identifies a unique counterparty account instance within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'counterparty_account_id' and the evidence of its unique values and repetition rate support it being an identifier for counterparty account instances."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-ea8cc15dbdd8",
+      "source_issue_ids": [
+        "issue-missing_values-ea8cc15dbdd8"
+      ],
+      "target_columns": [
+        "branch_code"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 2401
+      },
+      "semantic_basis": {
+        "branch_code": {
+          "column_name": "branch_code",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "Identifies a unique branch code instance within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'branch_code' and the evidence of its unique values and repetition rate support it being an identifier for branch code instances."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-15135386d9a4",
+      "source_issue_ids": [
+        "issue-rare_category_observation-15135386d9a4"
+      ],
+      "target_columns": [
+        "branch_code"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 24,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "semantic_basis": {
+        "branch_code": {
+          "column_name": "branch_code",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "Identifies a unique branch code instance within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'branch_code' and the evidence of its unique values and repetition rate support it being an identifier for branch code instances."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-35410e8a29c7",
+      "source_issue_ids": [
+        "issue-whitespace_issue-35410e8a29c7"
+      ],
+      "target_columns": [
+        "transaction_city"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 4,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "transaction_city": {
+          "column_name": "transaction_city",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Geographic location of the transaction, likely a city or town in India as the sample values are all Indian cities.",
+          "semantic_role": "unknown",
+          "confidence": 0.85,
+          "reasoning_summary": "The column contains values that are likely geographic locations, specifically Indian cities, which aligns with the shared dataset context of a transaction dataset."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-e73e13301e29",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-e73e13301e29"
+      ],
+      "target_columns": [
+        "transaction_city"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.85,
+      "rationale": "The issue is related to case variant candidate, which does not require any specific action as per the provided context.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "bengaluru": [
+            "Bengaluru",
+            "Bengaluru ",
+            "bengaluru"
+          ],
+          "chennai": [
+            "Chennai",
+            "chennai"
+          ],
+          "delhi": [
+            "Delhi",
+            "Delhi ",
+            "delhi"
+          ],
+          "hyderabad": [
+            "Hyderabad",
+            "Hyderabad "
+          ],
+          "mumbai": [
+            "Mumbai",
+            "Mumbai ",
+            "mumbai"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "transaction_city": {
+          "column_name": "transaction_city",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Geographic location of the transaction, likely a city or town in India as the sample values are all Indian cities.",
+          "semantic_role": "unknown",
+          "confidence": 0.85,
+          "reasoning_summary": "The column contains values that are likely geographic locations, specifically Indian cities, which aligns with the shared dataset context of a transaction dataset."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-d670a8fe597e",
+      "source_issue_ids": [
+        "issue-rare_category_observation-d670a8fe597e"
+      ],
+      "target_columns": [
+        "transaction_city"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 120,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 8
+      },
+      "semantic_basis": {
+        "transaction_city": {
+          "column_name": "transaction_city",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Geographic location of the transaction, likely a city or town in India as the sample values are all Indian cities.",
+          "semantic_role": "unknown",
+          "confidence": 0.85,
+          "reasoning_summary": "The column contains values that are likely geographic locations, specifically Indian cities, which aligns with the shared dataset context of a transaction dataset."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-33a343ef3ab7",
+      "source_issue_ids": [
+        "issue-missing_values-33a343ef3ab7"
+      ],
+      "target_columns": [
+        "device_id"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 9550
+      },
+      "semantic_basis": {
+        "device_id": {
+          "column_name": "device_id",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "Device identifier, likely a unique identifier for a device.",
+          "semantic_role": "unknown",
+          "confidence": 0.85,
+          "reasoning_summary": "The column contains a unique identifier with no apparent pattern or repetition, suggesting it identifies a particular device instance."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-714d1050916d",
+      "source_issue_ids": [
+        "issue-missing_values-714d1050916d"
+      ],
+      "target_columns": [
+        "ip_address"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 6508
+      },
+      "semantic_basis": {
+        "ip_address": {
+          "column_name": "ip_address",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "IP address of the transaction, likely a unique identifier for a device or user.",
+          "semantic_role": "unknown",
+          "confidence": 0.85,
+          "reasoning_summary": "The column contains a unique identifier with no apparent pattern or repetition, suggesting it identifies a particular device or user instance."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-6a36ae2fef95",
+      "source_issue_ids": [
+        "issue-missing_values-6a36ae2fef95"
+      ],
+      "target_columns": [
+        "transaction_status"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.85,
+      "rationale": "The issue is related to missing values, which does not require any specific action as per the provided context.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 11993
+      },
+      "semantic_basis": {
+        "transaction_status": {
+          "column_name": "transaction_status",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Status of the transaction, such as completed, reversed, declined, pending, or failed.",
+          "semantic_role": "unknown",
+          "confidence": 0.85,
+          "reasoning_summary": "The column contains a set of distinct values that likely represent different states or statuses of a transaction."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-2f4efceae0a9",
+      "source_issue_ids": [
+        "issue-rare_category_observation-2f4efceae0a9"
+      ],
+      "target_columns": [
+        "transaction_status"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 119,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "transaction_status": {
+          "column_name": "transaction_status",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Status of the transaction, such as completed, reversed, declined, pending, or failed.",
+          "semantic_role": "unknown",
+          "confidence": 0.85,
+          "reasoning_summary": "The column contains a set of distinct values that likely represent different states or statuses of a transaction."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-3b1dc4e9c83d",
+      "source_issue_ids": [
+        "issue-missing_values-3b1dc4e9c83d"
+      ],
+      "target_columns": [
+        "balance_before"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.85,
+      "rationale": "The issue is related to missing values, which does not require any specific action as per the provided context.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 11995
+      },
+      "semantic_basis": {
+        "balance_before": {
+          "column_name": "balance_before",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Amount of balance before the transaction, likely in currency units.",
+          "semantic_role": "unknown",
+          "confidence": 0.85,
+          "reasoning_summary": "The column contains numeric values that represent a balance amount, which is a quantitative measurement of a financial value."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-statistical_outlier_candidate-6848792dae8a",
+      "source_issue_ids": [
+        "issue-statistical_outlier_candidate-6848792dae8a"
+      ],
+      "target_columns": [
+        "balance_after"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "A statistical outlier may be valid and must not be clipped or removed automatically.",
+      "evidence_summary": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 50224.28,
+        "q3": 227824.8625,
+        "lower_bound": -216176.59374999997,
+        "upper_bound": 494225.73624999996
+      },
+      "semantic_basis": {
+        "balance_after": {
+          "column_name": "balance_after",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Amount of balance after the transaction, likely in currency units.",
+          "semantic_role": "unknown",
+          "confidence": 0.85,
+          "reasoning_summary": "The column contains numeric values that represent a balance amount, which is a quantitative measurement of a financial value."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-a1560fc101b2",
+      "source_issue_ids": [
+        "issue-missing_values-a1560fc101b2"
+      ],
+      "target_columns": [
+        "fraud_flag"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.85,
+      "rationale": "The issue is related to missing values, which does not require any specific action as per the provided context.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 11992
+      },
+      "semantic_basis": {
+        "fraud_flag": {
+          "column_name": "fraud_flag",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Flag indicating whether the transaction is fraudulent or not, typically 'No' for non-fraudulent and 'Yes' for fraudulent.",
+          "semantic_role": "unknown",
+          "confidence": 0.85,
+          "reasoning_summary": "The column contains a set of distinct values that likely represent different states or statuses of a transaction, with 'No' and 'Yes' being the primary categories."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-1a6e8c23da38",
+      "source_issue_ids": [
+        "issue-rare_category_observation-1a6e8c23da38"
+      ],
+      "target_columns": [
+        "fraud_flag"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 119,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "fraud_flag": {
+          "column_name": "fraud_flag",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Flag indicating whether the transaction is fraudulent or not, typically 'No' for non-fraudulent and 'Yes' for fraudulent.",
+          "semantic_role": "unknown",
+          "confidence": 0.85,
+          "reasoning_summary": "The column contains a set of distinct values that likely represent different states or statuses of a transaction, with 'No' and 'Yes' being the primary categories."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-c1abb70b09ff",
+      "source_issue_ids": [
+        "issue-rare_category_observation-c1abb70b09ff"
+      ],
+      "target_columns": [
+        "fraud_review_status"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 120,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "fraud_review_status": {
+          "column_name": "fraud_review_status",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Status of the fraud review process, such as 'Not Required', 'Confirmed Fraud', 'Cleared', or 'Under Review'.",
+          "semantic_role": "unknown",
+          "confidence": 0.85,
+          "reasoning_summary": "The column contains a set of distinct values that likely represent different states or statuses of a transaction review process."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-1b830939c272",
+      "source_issue_ids": [
+        "issue-missing_values-1b830939c272"
+      ],
+      "target_columns": [
+        "narration"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.85,
+      "rationale": "The narrative column contains missing values, which could be significant for understanding transaction descriptions. Flagging these rows for review ensures that the missing information is not overlooked.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 11959
+      },
+      "semantic_basis": {
+        "narration": {
+          "column_name": "narration",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Narrative description of the transaction, such as 'Card Purchase via E-commerce', 'Card Purchase via POS', etc.",
+          "semantic_role": "unknown",
+          "confidence": 0.85,
+          "reasoning_summary": "The column contains text values that describe the nature of the transaction, which is a descriptive attribute."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "llm_tier2"
+    }
+  ],
+  "instructions": [
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-107c6fa340e0",
+      "source_decision_id": "decision-issue-whitespace_issue-107c6fa340e0",
+      "source_issue_ids": [
+        "issue-whitespace_issue-107c6fa340e0"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "transaction_type"
+      ],
+      "parameters": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-b3da61e2445a",
+      "source_decision_id": "decision-issue-whitespace_issue-b3da61e2445a",
+      "source_issue_ids": [
+        "issue-whitespace_issue-b3da61e2445a"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "currency"
+      ],
+      "parameters": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-adee1a7b422d",
+      "source_decision_id": "decision-issue-whitespace_issue-adee1a7b422d",
+      "source_issue_ids": [
+        "issue-whitespace_issue-adee1a7b422d"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "channel"
+      ],
+      "parameters": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-75507d415db0",
+      "source_decision_id": "decision-issue-whitespace_issue-75507d415db0",
+      "source_issue_ids": [
+        "issue-whitespace_issue-75507d415db0"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "merchant_category"
+      ],
+      "parameters": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-35410e8a29c7",
+      "source_decision_id": "decision-issue-whitespace_issue-35410e8a29c7",
+      "source_issue_ids": [
+        "issue-whitespace_issue-35410e8a29c7"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "transaction_city"
+      ],
+      "parameters": {}
+    }
+  ],
+  "executions": [
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-107c6fa340e0",
+      "source_decision_id": "decision-issue-whitespace_issue-107c6fa340e0",
+      "source_issue_ids": [
+        "issue-whitespace_issue-107c6fa340e0"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "transaction_type"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 21,
+      "change_examples": [
+        {
+          "row_index": 1505,
+          "column": "transaction_type",
+          "before": "ATM Withdrawal ",
+          "after": "ATM Withdrawal"
+        },
+        {
+          "row_index": 3158,
+          "column": "transaction_type",
+          "before": "Salary Credit ",
+          "after": "Salary Credit"
+        },
+        {
+          "row_index": 3511,
+          "column": "transaction_type",
+          "before": "UPI Transfer ",
+          "after": "UPI Transfer"
+        },
+        {
+          "row_index": 4160,
+          "column": "transaction_type",
+          "before": "UPI Transfer ",
+          "after": "UPI Transfer"
+        },
+        {
+          "row_index": 4181,
+          "column": "transaction_type",
+          "before": "ATM Withdrawal ",
+          "after": "ATM Withdrawal"
+        }
+      ],
+      "rows_before": 12000,
+      "rows_after": 12000,
+      "columns_before": 22,
+      "columns_after": 22,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-b3da61e2445a",
+      "source_decision_id": "decision-issue-whitespace_issue-b3da61e2445a",
+      "source_issue_ids": [
+        "issue-whitespace_issue-b3da61e2445a"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "currency"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 7,
+      "change_examples": [
+        {
+          "row_index": 954,
+          "column": "currency",
+          "before": "INR ",
+          "after": "INR"
+        },
+        {
+          "row_index": 4555,
+          "column": "currency",
+          "before": "INR ",
+          "after": "INR"
+        },
+        {
+          "row_index": 6085,
+          "column": "currency",
+          "before": "INR ",
+          "after": "INR"
+        },
+        {
+          "row_index": 6202,
+          "column": "currency",
+          "before": "INR ",
+          "after": "INR"
+        },
+        {
+          "row_index": 7585,
+          "column": "currency",
+          "before": "INR ",
+          "after": "INR"
+        }
+      ],
+      "rows_before": 12000,
+      "rows_after": 12000,
+      "columns_before": 22,
+      "columns_after": 22,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-adee1a7b422d",
+      "source_decision_id": "decision-issue-whitespace_issue-adee1a7b422d",
+      "source_issue_ids": [
+        "issue-whitespace_issue-adee1a7b422d"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "channel"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 15,
+      "change_examples": [
+        {
+          "row_index": 609,
+          "column": "channel",
+          "before": "POS ",
+          "after": "POS"
+        },
+        {
+          "row_index": 680,
+          "column": "channel",
+          "before": "E-commerce ",
+          "after": "E-commerce"
+        },
+        {
+          "row_index": 766,
+          "column": "channel",
+          "before": "Mobile App ",
+          "after": "Mobile App"
+        },
+        {
+          "row_index": 2484,
+          "column": "channel",
+          "before": "System ",
+          "after": "System"
+        },
+        {
+          "row_index": 2938,
+          "column": "channel",
+          "before": "E-commerce ",
+          "after": "E-commerce"
+        }
+      ],
+      "rows_before": 12000,
+      "rows_after": 12000,
+      "columns_before": 22,
+      "columns_after": 22,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-75507d415db0",
+      "source_decision_id": "decision-issue-whitespace_issue-75507d415db0",
+      "source_issue_ids": [
+        "issue-whitespace_issue-75507d415db0"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "merchant_category"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 3,
+      "change_examples": [
+        {
+          "row_index": 5636,
+          "column": "merchant_category",
+          "before": "Fuel ",
+          "after": "Fuel"
+        },
+        {
+          "row_index": 8599,
+          "column": "merchant_category",
+          "before": "Groceries ",
+          "after": "Groceries"
+        },
+        {
+          "row_index": 8845,
+          "column": "merchant_category",
+          "before": "Transport ",
+          "after": "Transport"
+        }
+      ],
+      "rows_before": 12000,
+      "rows_after": 12000,
+      "columns_before": 22,
+      "columns_after": 22,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-35410e8a29c7",
+      "source_decision_id": "decision-issue-whitespace_issue-35410e8a29c7",
+      "source_issue_ids": [
+        "issue-whitespace_issue-35410e8a29c7"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "transaction_city"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 4,
+      "change_examples": [
+        {
+          "row_index": 1252,
+          "column": "transaction_city",
+          "before": "Bengaluru ",
+          "after": "Bengaluru"
+        },
+        {
+          "row_index": 1434,
+          "column": "transaction_city",
+          "before": "Delhi ",
+          "after": "Delhi"
+        },
+        {
+          "row_index": 1555,
+          "column": "transaction_city",
+          "before": "Hyderabad ",
+          "after": "Hyderabad"
+        },
+        {
+          "row_index": 5265,
+          "column": "transaction_city",
+          "before": "Mumbai ",
+          "after": "Mumbai"
+        }
+      ],
+      "rows_before": 12000,
+      "rows_after": 12000,
+      "columns_before": 22,
+      "columns_after": 22,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "no_unexpected_changes": true,
+    "dataframe_equal": false,
+    "row_count_equal": true,
+    "column_count_equal": true,
+    "missingness_equal": true,
+    "duplicate_row_count_equal": true,
+    "physical_dtypes_equal": true,
+    "cardinality_equal": false,
+    "unrelated_columns_equal": true,
+    "targeted_whitespace_improved": true,
+    "targeted_case_variants_improved": true,
+    "only_approved_value_changes": true,
+    "no_unexpected_categories": true,
+    "targeted_date_formats_improved": true,
+    "only_approved_date_changes": true,
+    "expected_dtype_changes_only": true,
+    "only_approved_numeric_changes": true,
+    "null_positions_equal": true,
+    "targeted_mixed_numeric_improved": true,
+    "only_approved_imputation_changes": true,
+    "expected_missingness_changes_only": true,
+    "imputed_cell_count": 0,
+    "imputation_audit": [],
+    "newly_introduced_null_count": 0,
+    "changed_cell_count": 50,
+    "before_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "missing_values": 13,
+        "inconsistent_date_format_candidate": 1,
+        "whitespace_issue": 5,
+        "case_variant_candidate": 5,
+        "rare_category_observation": 9,
+        "statistical_outlier_candidate": 1
+      },
+      "whitespace_affected_cells_by_column": {
+        "transaction_type": 21,
+        "currency": 7,
+        "channel": 15,
+        "merchant_category": 3,
+        "transaction_city": 4
+      },
+      "case_variant_affected_cells_by_column": {
+        "transaction_type": 11999,
+        "currency": 11989,
+        "channel": 9700,
+        "merchant_category": 2145,
+        "transaction_city": 7427
+      },
+      "date_format_affected_cells_by_column": {
+        "transaction_datetime": 11712
+      },
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "after_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "missing_values": 13,
+        "inconsistent_date_format_candidate": 1,
+        "case_variant_candidate": 4,
+        "rare_category_observation": 9,
+        "statistical_outlier_candidate": 1
+      },
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {
+        "transaction_type": 11332,
+        "channel": 9376,
+        "merchant_category": 697,
+        "transaction_city": 5972
+      },
+      "date_format_affected_cells_by_column": {
+        "transaction_datetime": 11712
+      },
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "before_summary": {
+      "row_count": 12000,
+      "column_count": 22,
+      "total_missing_cells": 48680,
+      "duplicate_row_count": 30,
+      "physical_dtypes": {
+        "transaction_id": "str",
+        "account_id": "str",
+        "transaction_datetime": "str",
+        "transaction_type": "str",
+        "amount": "str",
+        "currency": "str",
+        "channel": "str",
+        "merchant_id": "str",
+        "merchant_name": "str",
+        "merchant_category": "str",
+        "counterparty_account_id": "str",
+        "branch_code": "str",
+        "transaction_city": "str",
+        "country_code": "str",
+        "device_id": "str",
+        "ip_address": "str",
+        "transaction_status": "str",
+        "balance_before": "str",
+        "balance_after": "float64",
+        "fraud_flag": "str",
+        "fraud_review_status": "str",
+        "narration": "str"
+      },
+      "cardinality": {
+        "transaction_id": 11945,
+        "account_id": 3813,
+        "transaction_datetime": 11926,
+        "transaction_type": 27,
+        "amount": 10735,
+        "currency": 4,
+        "channel": 24,
+        "merchant_id": 10,
+        "merchant_name": 10,
+        "merchant_category": 15,
+        "counterparty_account_id": 3198,
+        "branch_code": 31,
+        "transaction_city": 16,
+        "country_code": 1,
+        "device_id": 4754,
+        "ip_address": 6459,
+        "transaction_status": 7,
+        "balance_before": 10797,
+        "balance_after": 11084,
+        "fraud_flag": 5,
+        "fraud_review_status": 4,
+        "narration": 14
+      }
+    },
+    "after_summary": {
+      "row_count": 12000,
+      "column_count": 22,
+      "total_missing_cells": 48680,
+      "duplicate_row_count": 30,
+      "physical_dtypes": {
+        "transaction_id": "str",
+        "account_id": "str",
+        "transaction_datetime": "str",
+        "transaction_type": "str",
+        "amount": "str",
+        "currency": "str",
+        "channel": "str",
+        "merchant_id": "str",
+        "merchant_name": "str",
+        "merchant_category": "str",
+        "counterparty_account_id": "str",
+        "branch_code": "str",
+        "transaction_city": "str",
+        "country_code": "str",
+        "device_id": "str",
+        "ip_address": "str",
+        "transaction_status": "str",
+        "balance_before": "str",
+        "balance_after": "float64",
+        "fraud_flag": "str",
+        "fraud_review_status": "str",
+        "narration": "str"
+      },
+      "cardinality": {
+        "transaction_id": 11945,
+        "account_id": 3813,
+        "transaction_datetime": 11926,
+        "transaction_type": 18,
+        "amount": 10735,
+        "currency": 3,
+        "channel": 18,
+        "merchant_id": 10,
+        "merchant_name": 10,
+        "merchant_category": 12,
+        "counterparty_account_id": 3198,
+        "branch_code": 31,
+        "transaction_city": 12,
+        "country_code": 1,
+        "device_id": 4754,
+        "ip_address": 6459,
+        "transaction_status": 7,
+        "balance_before": 10797,
+        "balance_after": 11084,
+        "fraud_flag": 5,
+        "fraud_review_status": 4,
+        "narration": 14
+      }
+    },
+    "warnings": []
+  },
+  "warnings": [],
+  "output_artifacts": {
+    "cleaned_dataset": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\pipeline1_multidomain\\results\\dataset_04_banking_finance\\cleaned_dataset.csv",
+    "cleaning_report": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\pipeline1_multidomain\\results\\dataset_04_banking_finance\\cleaning_report.json",
+    "cleaned_dataset_format": "csv"
+  }
+}

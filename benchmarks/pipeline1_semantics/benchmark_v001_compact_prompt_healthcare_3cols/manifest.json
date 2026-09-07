@@ -1,0 +1,135 @@
+{
+  "benchmark_version": "benchmark_v001_baseline",
+  "benchmark_name": "LYNX Pipeline 1 semantic diagnostic baseline",
+  "started_at": "2026-09-05T09:24:30+00:00",
+  "completed_at": "2026-09-05T09:28:57+00:00",
+  "status": "completed_with_failures",
+  "dataset_directory": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid",
+  "discovered_files": [
+    {
+      "name": "dataset_01_retail_transactions_raw.csv",
+      "path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_01_retail_transactions_raw.csv",
+      "extension": ".csv",
+      "supported": true
+    },
+    {
+      "name": "dataset_02_hr_employees_raw.csv",
+      "path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_02_hr_employees_raw.csv",
+      "extension": ".csv",
+      "supported": true
+    },
+    {
+      "name": "dataset_03_healthcare_raw.csv",
+      "path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_03_healthcare_raw.csv",
+      "extension": ".csv",
+      "supported": true
+    },
+    {
+      "name": "dataset_04_banking_finance_raw.csv",
+      "path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_04_banking_finance_raw.csv",
+      "extension": ".csv",
+      "supported": true
+    },
+    {
+      "name": "dataset_05_education_raw.csv",
+      "path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_05_education_raw.csv",
+      "extension": ".csv",
+      "supported": true
+    },
+    {
+      "name": "dataset_06_cybersecurity_raw.csv",
+      "path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_06_cybersecurity_raw.csv",
+      "extension": ".csv",
+      "supported": true
+    },
+    {
+      "name": "dataset_07_iot_sensor_raw.csv",
+      "path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_07_iot_sensor_raw.csv",
+      "extension": ".csv",
+      "supported": true
+    },
+    {
+      "name": "dataset_08_manufacturing_raw.csv",
+      "path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_08_manufacturing_raw.csv",
+      "extension": ".csv",
+      "supported": true
+    },
+    {
+      "name": "dataset_09_survey_data_raw.csv",
+      "path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_09_survey_data_raw.csv",
+      "extension": ".csv",
+      "supported": true
+    },
+    {
+      "name": "dataset_10_ecommerce_raw.csv",
+      "path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_10_ecommerce_raw.csv",
+      "extension": ".csv",
+      "supported": true
+    },
+    {
+      "name": "dataset_11_scientific_research_raw.csv",
+      "path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_11_scientific_research_raw.csv",
+      "extension": ".csv",
+      "supported": true
+    },
+    {
+      "name": "dataset_12_log_event_data_raw.csv",
+      "path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_12_log_event_data_raw.csv",
+      "extension": ".csv",
+      "supported": true
+    },
+    {
+      "name": "dataset_13_generic_business_data_raw.csv",
+      "path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_13_generic_business_data_raw.csv",
+      "extension": ".csv",
+      "supported": true
+    },
+    {
+      "name": "pizza_sales.csv",
+      "path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\pizza_sales.csv",
+      "extension": ".csv",
+      "supported": true
+    },
+    {
+      "name": "Sales_Data.xlsx",
+      "path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\Sales_Data.xlsx",
+      "extension": ".xlsx",
+      "supported": true
+    }
+  ],
+  "processed_files": [
+    "dataset_03_healthcare_raw.csv"
+  ],
+  "skipped_files": [],
+  "configuration": {
+    "llm_provider": "OllamaProvider",
+    "llm_model": "qwen2.5:3b",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "dataset_rag_top_k": 8,
+    "column_rag_top_k": 6,
+    "role_rag_top_k": 5,
+    "supported_extensions": [
+      ".csv",
+      ".xls",
+      ".xlsx"
+    ],
+    "selected_columns": [
+      "admission_datetime",
+      "diagnosis_code",
+      "patient_id"
+    ],
+    "profile_timing": true,
+    "indexed_chunks": 944,
+    "knowledge_indexing_seconds": 7.843203
+  },
+  "runtime": {
+    "python": "3.14.2",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "semantic_contract": {
+    "column": "semantic_type + value_function + concept_description",
+    "role": "referenced_entity + entity_alignment + semantic_role"
+  },
+  "methodology": "diagnostic benchmark without human ground truth",
+  "elapsed_seconds": 267.258
+}

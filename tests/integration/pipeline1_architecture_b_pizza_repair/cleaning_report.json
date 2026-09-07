@@ -1,0 +1,788 @@
+{
+  "pipeline_version": "pipeline1_architecture_b_v001",
+  "run_id": "20260905T185414-7435bc8b",
+  "status": "success",
+  "original_dataset": {
+    "valid": true,
+    "file_name": "pizza_sales.csv",
+    "file_format": ".csv",
+    "file_size_bytes": 7891408,
+    "rows": 48620,
+    "columns": 12,
+    "duplicate_columns": [],
+    "absolute_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\pizza_sales.csv",
+    "source_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\pizza_sales.csv",
+    "raw_dataset_overwritten": false
+  },
+  "before_profile": {
+    "shape": {
+      "rows": 48620,
+      "columns": 12
+    },
+    "column_names": [
+      "pizza_id",
+      "order_id",
+      "pizza_name_id",
+      "quantity",
+      "order_date",
+      "order_time",
+      "unit_price",
+      "total_price",
+      "pizza_size",
+      "pizza_category",
+      "pizza_ingredients",
+      "pizza_name"
+    ],
+    "dtype_distribution": {
+      "int64": 3,
+      "str": 7,
+      "float64": 2
+    },
+    "missingness": {
+      "total_missing_cells": 0,
+      "overall_missing_percentage": 0.0
+    },
+    "duplicates": {
+      "exact_duplicate_rows": 0,
+      "percentage": 0.0
+    },
+    "column_profiles": [
+      {
+        "column_name": "pizza_id",
+        "physical_dtype": "int64",
+        "row_count": 48620,
+        "non_null_count": 48620,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 48620,
+          "unique_ratio": 1.0
+        },
+        "repetition": {
+          "repeated_unique_count": 0,
+          "repeated_occurrences": 0,
+          "repetition_rate": 0.0
+        },
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "numeric_statistics": {
+          "min": 1,
+          "max": 48620,
+          "mean": 24310.5,
+          "median": 24310.5,
+          "std": 14035.529380824935,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "order_id",
+        "physical_dtype": "int64",
+        "row_count": 48620,
+        "non_null_count": 48620,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 21350,
+          "unique_ratio": 0.43912
+        },
+        "repetition": {
+          "repeated_unique_count": 13149,
+          "repeated_occurrences": 40419,
+          "repetition_rate": 0.831325
+        },
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "numeric_statistics": {
+          "min": 1,
+          "max": 21350,
+          "mean": 10701.479761415056,
+          "median": 10682.5,
+          "std": 6180.119770377651,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "pizza_name_id",
+        "physical_dtype": "str",
+        "row_count": 48620,
+        "non_null_count": 48620,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 91,
+          "unique_ratio": 0.001872
+        },
+        "repetition": {
+          "repeated_unique_count": 91,
+          "repeated_occurrences": 48620,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "hawaiian_m",
+          "classic_dlx_m",
+          "five_cheese_l",
+          "ital_supr_l",
+          "mexicana_m"
+        ]
+      },
+      {
+        "column_name": "quantity",
+        "physical_dtype": "int64",
+        "row_count": 48620,
+        "non_null_count": 48620,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 4,
+          "unique_ratio": 8.2e-05
+        },
+        "repetition": {
+          "repeated_unique_count": 4,
+          "repeated_occurrences": 48620,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "numeric_statistics": {
+          "min": 1,
+          "max": 4,
+          "mean": 1.0196215549156726,
+          "median": 1.0,
+          "std": 0.14307700932472198,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "order_date",
+        "physical_dtype": "str",
+        "row_count": 48620,
+        "non_null_count": 48620,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 358,
+          "unique_ratio": 0.007363
+        },
+        "repetition": {
+          "repeated_unique_count": 358,
+          "repeated_occurrences": 48620,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "01-01-2015",
+          "02-01-2015",
+          "03-01-2015",
+          "04-01-2015",
+          "05-01-2015"
+        ]
+      },
+      {
+        "column_name": "order_time",
+        "physical_dtype": "str",
+        "row_count": 48620,
+        "non_null_count": 48620,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 16382,
+          "unique_ratio": 0.33694
+        },
+        "repetition": {
+          "repeated_unique_count": 11631,
+          "repeated_occurrences": 43869,
+          "repetition_rate": 0.902283
+        },
+        "sample_values": [
+          "11:38:36",
+          "11:57:40",
+          "12:12:28",
+          "12:16:31",
+          "12:21:30"
+        ]
+      },
+      {
+        "column_name": "unit_price",
+        "physical_dtype": "float64",
+        "row_count": 48620,
+        "non_null_count": 48620,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 25,
+          "unique_ratio": 0.000514
+        },
+        "repetition": {
+          "repeated_unique_count": 25,
+          "repeated_occurrences": 48620,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          13.25,
+          16.0,
+          18.5,
+          20.75,
+          16.5
+        ],
+        "numeric_statistics": {
+          "min": 9.75,
+          "max": 35.95,
+          "mean": 16.494132044426163,
+          "median": 16.5,
+          "std": 3.6217891586575446,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "total_price",
+        "physical_dtype": "float64",
+        "row_count": 48620,
+        "non_null_count": 48620,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 56,
+          "unique_ratio": 0.001152
+        },
+        "repetition": {
+          "repeated_unique_count": 52,
+          "repeated_occurrences": 48616,
+          "repetition_rate": 0.999918
+        },
+        "sample_values": [
+          13.25,
+          16.0,
+          18.5,
+          20.75,
+          16.5
+        ],
+        "numeric_statistics": {
+          "min": 9.75,
+          "max": 83.0,
+          "mean": 16.821473673385437,
+          "median": 16.5,
+          "std": 4.4373975811810835,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "pizza_size",
+        "physical_dtype": "str",
+        "row_count": 48620,
+        "non_null_count": 48620,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 5,
+          "unique_ratio": 0.000103
+        },
+        "repetition": {
+          "repeated_unique_count": 5,
+          "repeated_occurrences": 48620,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "M",
+          "L",
+          "S",
+          "XL",
+          "XXL"
+        ]
+      },
+      {
+        "column_name": "pizza_category",
+        "physical_dtype": "str",
+        "row_count": 48620,
+        "non_null_count": 48620,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 4,
+          "unique_ratio": 8.2e-05
+        },
+        "repetition": {
+          "repeated_unique_count": 4,
+          "repeated_occurrences": 48620,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Classic",
+          "Veggie",
+          "Supreme",
+          "Chicken"
+        ]
+      },
+      {
+        "column_name": "pizza_ingredients",
+        "physical_dtype": "str",
+        "row_count": 48620,
+        "non_null_count": 48620,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 32,
+          "unique_ratio": 0.000658
+        },
+        "repetition": {
+          "repeated_unique_count": 32,
+          "repeated_occurrences": 48620,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Sliced Ham, Pineapple, Mozzarella Cheese",
+          "Pepperoni, Mushrooms, Red Onions, Red Peppers, Bacon",
+          "Mozzarella Cheese, Provolone Cheese, Smoked Gouda Cheese, Romano Cheese, Blue Cheese, Garlic",
+          "Calabrese Salami, Capocollo, Tomatoes, Red Onions, Green Olives, Garlic",
+          "Tomatoes, Red Peppers, Jalapeno Peppers, Red Onions, Cilantro, Corn, Chipotle Sauce, Garlic"
+        ]
+      },
+      {
+        "column_name": "pizza_name",
+        "physical_dtype": "str",
+        "row_count": 48620,
+        "non_null_count": 48620,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 32,
+          "unique_ratio": 0.000658
+        },
+        "repetition": {
+          "repeated_unique_count": 32,
+          "repeated_occurrences": 48620,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "The Hawaiian Pizza",
+          "The Classic Deluxe Pizza",
+          "The Five Cheese Pizza",
+          "The Italian Supreme Pizza",
+          "The Mexicana Pizza"
+        ]
+      }
+    ]
+  },
+  "issues": [
+    {
+      "issue_id": "issue-rare_category_observation-d80983839c6f",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "pizza_size"
+      ],
+      "affected_count": 28,
+      "affected_percentage": 0.0576,
+      "evidence": {
+        "maximum_frequency": 486,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "examples": [
+        "XXL",
+        "XXL",
+        "XXL",
+        "XXL",
+        "XXL"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-2ae1ac5be759",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "pizza_ingredients"
+      ],
+      "affected_count": 480,
+      "affected_percentage": 0.9872,
+      "evidence": {
+        "maximum_frequency": 486,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "examples": [
+        "Brie Carre Cheese, Prosciutto, Caramelized Onions, Pears, Thyme, Garlic",
+        "Brie Carre Cheese, Prosciutto, Caramelized Onions, Pears, Thyme, Garlic",
+        "Brie Carre Cheese, Prosciutto, Caramelized Onions, Pears, Thyme, Garlic",
+        "Brie Carre Cheese, Prosciutto, Caramelized Onions, Pears, Thyme, Garlic",
+        "Brie Carre Cheese, Prosciutto, Caramelized Onions, Pears, Thyme, Garlic"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-e5676d66db77",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "pizza_name"
+      ],
+      "affected_count": 480,
+      "affected_percentage": 0.9872,
+      "evidence": {
+        "maximum_frequency": 486,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "examples": [
+        "The Brie Carre Pizza",
+        "The Brie Carre Pizza",
+        "The Brie Carre Pizza",
+        "The Brie Carre Pizza",
+        "The Brie Carre Pizza"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    }
+  ],
+  "quality_summary": {
+    "total_issues_detected": 3,
+    "issues_by_type": {
+      "rare_category_observation": 3
+    },
+    "issues_by_status": {
+      "observation": 3
+    },
+    "affected_columns": [
+      "pizza_ingredients",
+      "pizza_name",
+      "pizza_size"
+    ],
+    "dataset_level_issue_count": 0
+  },
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": "order item",
+      "row_entity_confidence": 0.8,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "pizza_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Identifies a specific pizza order item instance within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'pizza_id' strongly suggests that this column identifies individual instances of pizza order items."
+      },
+      {
+        "column_name": "order_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Identifies a specific order instance within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'order_id' strongly suggests that this column identifies individual instances of orders."
+      },
+      {
+        "column_name": "pizza_name_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Identifies a specific pizza name instance within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'pizza_name_id' strongly suggests that this column identifies individual instances of pizza names."
+      },
+      {
+        "column_name": "quantity",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Represents the quantity of a pizza item ordered.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'quantity' and its numeric dtype suggest that this column represents the quantity of pizza items ordered."
+      },
+      {
+        "column_name": "order_date",
+        "semantic_type": "date",
+        "value_function": "temporal",
+        "concept_description": "Represents the date when an order was placed.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'order_date' and its string dtype suggest that this column represents the date when an order was placed."
+      },
+      {
+        "column_name": "order_time",
+        "semantic_type": "time",
+        "value_function": "temporal",
+        "concept_description": "Represents the time when an order was placed.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'order_time' and its string dtype suggest that this column represents the time when an order was placed."
+      },
+      {
+        "column_name": "unit_price",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Represents the price of a single pizza item.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'unit_price' and its float64 dtype suggest that this column represents the price of a single pizza item."
+      },
+      {
+        "column_name": "total_price",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Represents the total price of a pizza order.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'total_price' and its float64 dtype suggest that this column represents the total price of a pizza order."
+      },
+      {
+        "column_name": "pizza_size",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Represents the size of a pizza (M, L, S, XL, XXL).",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'pizza_size' and its string dtype suggest that this column represents the size of a pizza, which is a categorical attribute."
+      },
+      {
+        "column_name": "pizza_category",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Represents the category of a pizza (Classic, Veggie, Supreme, Chicken).",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'pizza_category' and its string dtype suggest that this column represents the category of a pizza, which is a categorical attribute."
+      },
+      {
+        "column_name": "pizza_ingredients",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Represents the ingredients of a pizza (e.g., Sliced Ham, Pineapple, Mozzarella Cheese).",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'pizza_ingredients' and its string dtype suggest that this column represents the ingredients of a pizza, which is a categorical attribute."
+      },
+      {
+        "column_name": "pizza_name",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Represents the name of a pizza (e.g., The Hawaiian Pizza, The Classic Deluxe Pizza).",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'pizza_name' and its string dtype suggest that this column represents the name of a pizza, which is a categorical attribute."
+      }
+    ],
+    "warnings": [],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 2,
+      "total_llm_calls": 3,
+      "batch_sizes": [
+        12
+      ],
+      "dataset_semantic_runtime_seconds": 55.619402,
+      "batch_runtime_seconds": [
+        242.862889
+      ],
+      "rag_runtime_seconds": 0.161436,
+      "batch_failures": 0,
+      "batch_retries": 1,
+      "llm_calls": [
+        {
+          "stage": "dataset_context",
+          "api_wall_duration_seconds": 55.541246,
+          "prompt_eval_count": 1876,
+          "prompt_eval_duration": 46873109000,
+          "eval_count": 21,
+          "eval_duration": 1855833000,
+          "total_duration": 53466189700,
+          "load_duration": 4706587900,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "error": "RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)",
+          "api_wall_duration_seconds": 122.059463,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 2,
+          "api_wall_duration_seconds": 120.803216,
+          "prompt_eval_count": 2597,
+          "prompt_eval_duration": 291234000,
+          "eval_count": 1130,
+          "eval_duration": 118405165000,
+          "total_duration": 118742368800,
+          "load_duration": 6601700,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 298.56613
+    }
+  },
+  "decisions": [
+    {
+      "decision_id": "decision-no-op",
+      "outcome": "no_action",
+      "action_id": "no_op",
+      "target_columns": [],
+      "parameters": {},
+      "confidence": 1.0,
+      "rationale": "Vertical-slice run: no issue detection or intelligent cleaning has been requested.",
+      "source_issue_ids": []
+    }
+  ],
+  "instructions": [
+    {
+      "instruction_id": "instruction-decision-no-op",
+      "source_decision_id": "decision-no-op",
+      "action_id": "no_op",
+      "target_columns": [],
+      "parameters": {}
+    }
+  ],
+  "executions": [
+    {
+      "instruction_id": "instruction-decision-no-op",
+      "action_id": "no_op",
+      "status": "success",
+      "changed": false,
+      "rows_before": 48620,
+      "rows_after": 48620,
+      "columns_before": 12,
+      "columns_after": 12,
+      "message": "No changes were requested or applied."
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "no_unexpected_changes": true,
+    "dataframe_equal": true,
+    "row_count_equal": true,
+    "column_count_equal": true,
+    "missingness_equal": true,
+    "duplicate_row_count_equal": true,
+    "physical_dtypes_equal": true,
+    "cardinality_equal": true,
+    "before_summary": {
+      "row_count": 48620,
+      "column_count": 12,
+      "total_missing_cells": 0,
+      "duplicate_row_count": 0,
+      "physical_dtypes": {
+        "pizza_id": "int64",
+        "order_id": "int64",
+        "pizza_name_id": "str",
+        "quantity": "int64",
+        "order_date": "str",
+        "order_time": "str",
+        "unit_price": "float64",
+        "total_price": "float64",
+        "pizza_size": "str",
+        "pizza_category": "str",
+        "pizza_ingredients": "str",
+        "pizza_name": "str"
+      },
+      "cardinality": {
+        "pizza_id": 48620,
+        "order_id": 21350,
+        "pizza_name_id": 91,
+        "quantity": 4,
+        "order_date": 358,
+        "order_time": 16382,
+        "unit_price": 25,
+        "total_price": 56,
+        "pizza_size": 5,
+        "pizza_category": 4,
+        "pizza_ingredients": 32,
+        "pizza_name": 32
+      }
+    },
+    "after_summary": {
+      "row_count": 48620,
+      "column_count": 12,
+      "total_missing_cells": 0,
+      "duplicate_row_count": 0,
+      "physical_dtypes": {
+        "pizza_id": "int64",
+        "order_id": "int64",
+        "pizza_name_id": "str",
+        "quantity": "int64",
+        "order_date": "str",
+        "order_time": "str",
+        "unit_price": "float64",
+        "total_price": "float64",
+        "pizza_size": "str",
+        "pizza_category": "str",
+        "pizza_ingredients": "str",
+        "pizza_name": "str"
+      },
+      "cardinality": {
+        "pizza_id": 48620,
+        "order_id": 21350,
+        "pizza_name_id": 91,
+        "quantity": 4,
+        "order_date": 358,
+        "order_time": 16382,
+        "unit_price": 25,
+        "total_price": 56,
+        "pizza_size": 5,
+        "pizza_category": 4,
+        "pizza_ingredients": 32,
+        "pizza_name": 32
+      }
+    },
+    "warnings": []
+  },
+  "warnings": [],
+  "output_artifacts": {
+    "cleaned_dataset": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\integration\\pipeline1_architecture_b_pizza_repair\\cleaned_dataset.csv",
+    "cleaning_report": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\integration\\pipeline1_architecture_b_pizza_repair\\cleaning_report.json",
+    "cleaned_dataset_format": "csv"
+  }
+}

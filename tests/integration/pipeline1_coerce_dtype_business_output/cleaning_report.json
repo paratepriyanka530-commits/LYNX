@@ -1,0 +1,4341 @@
+{
+  "pipeline_version": "pipeline1_architecture_b_v001",
+  "run_id": "20260906T095317-84dcb09c",
+  "status": "success",
+  "original_dataset": {
+    "valid": true,
+    "file_name": "dataset_13_generic_business_data_raw.csv",
+    "file_format": ".csv",
+    "file_size_bytes": 2032933,
+    "rows": 8000,
+    "columns": 25,
+    "duplicate_columns": [],
+    "absolute_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_13_generic_business_data_raw.csv",
+    "source_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_13_generic_business_data_raw.csv",
+    "raw_dataset_overwritten": false
+  },
+  "before_profile": {
+    "shape": {
+      "rows": 8000,
+      "columns": 25
+    },
+    "column_names": [
+      "record_id",
+      "customer_id",
+      "customer_name",
+      "industry",
+      "employee_count",
+      "sales_region",
+      "sales_rep_id",
+      "contact_email",
+      "contact_phone",
+      "opportunity_id",
+      "sales_stage",
+      "product_id",
+      "product_name",
+      "opportunity_created_date",
+      "expected_close_date",
+      "invoice_id",
+      "invoice_date",
+      "payment_terms",
+      "payment_due_date",
+      "revenue_inr",
+      "direct_cost_inr",
+      "gross_profit_inr",
+      "payment_date",
+      "invoice_status",
+      "account_health"
+    ],
+    "dtype_distribution": {
+      "str": 24,
+      "float64": 1
+    },
+    "missingness": {
+      "total_missing_cells": 17213,
+      "overall_missing_percentage": 8.6065
+    },
+    "duplicates": {
+      "exact_duplicate_rows": 14,
+      "percentage": 0.175
+    },
+    "column_profiles": [
+      {
+        "column_name": "record_id",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 7986,
+        "missing": {
+          "count": 14,
+          "percentage": 0.175
+        },
+        "uniqueness": {
+          "unique_count": 7956,
+          "unique_ratio": 0.996243
+        },
+        "repetition": {
+          "repeated_unique_count": 30,
+          "repeated_occurrences": 60,
+          "repetition_rate": 0.007513
+        },
+        "sample_values": [
+          "BUS0007538",
+          "BUS0007130",
+          "BUS0005622",
+          "BUS0004393",
+          "BUS0005186"
+        ]
+      },
+      {
+        "column_name": "customer_id",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 7999,
+        "missing": {
+          "count": 1,
+          "percentage": 0.0125
+        },
+        "uniqueness": {
+          "unique_count": 1780,
+          "unique_ratio": 0.222528
+        },
+        "repetition": {
+          "repeated_unique_count": 1656,
+          "repeated_occurrences": 7875,
+          "repetition_rate": 0.984498
+        },
+        "sample_values": [
+          "ORG000707",
+          "ORG001079",
+          "ORG001003",
+          "ORG000027",
+          "ORG001773"
+        ]
+      },
+      {
+        "column_name": "customer_name",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 7993,
+        "missing": {
+          "count": 7,
+          "percentage": 0.0875
+        },
+        "uniqueness": {
+          "unique_count": 65,
+          "unique_ratio": 0.008132
+        },
+        "repetition": {
+          "repeated_unique_count": 45,
+          "repeated_occurrences": 7973,
+          "repetition_rate": 0.997498
+        },
+        "sample_values": [
+          "Nova Services",
+          "Nova Group",
+          "BlueSky Services",
+          "Crescent Solutions",
+          "Nova Enterprises"
+        ]
+      },
+      {
+        "column_name": "industry",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 8000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 16,
+          "unique_ratio": 0.002
+        },
+        "repetition": {
+          "repeated_unique_count": 12,
+          "repeated_occurrences": 7996,
+          "repetition_rate": 0.9995
+        },
+        "sample_values": [
+          "Logistics",
+          "Retail",
+          "Technology",
+          "Manufacturing",
+          "Education"
+        ]
+      },
+      {
+        "column_name": "employee_count",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 8000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 11,
+          "unique_ratio": 0.001375
+        },
+        "repetition": {
+          "repeated_unique_count": 11,
+          "repeated_occurrences": 8000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "12",
+          "25",
+          "50",
+          "1000",
+          "100"
+        ]
+      },
+      {
+        "column_name": "sales_region",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 8000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 13,
+          "unique_ratio": 0.001625
+        },
+        "repetition": {
+          "repeated_unique_count": 10,
+          "repeated_occurrences": 7997,
+          "repetition_rate": 0.999625
+        },
+        "sample_values": [
+          "South",
+          "North",
+          "West",
+          "Central",
+          "north"
+        ]
+      },
+      {
+        "column_name": "sales_rep_id",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 7992,
+        "missing": {
+          "count": 8,
+          "percentage": 0.1
+        },
+        "uniqueness": {
+          "unique_count": 86,
+          "unique_ratio": 0.010761
+        },
+        "repetition": {
+          "repeated_unique_count": 82,
+          "repeated_occurrences": 7988,
+          "repetition_rate": 0.999499
+        },
+        "sample_values": [
+          "SR0003",
+          "SR0057",
+          "SR0005",
+          "SR0042",
+          "SR0069"
+        ]
+      },
+      {
+        "column_name": "contact_email",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 7988,
+        "missing": {
+          "count": 12,
+          "percentage": 0.15
+        },
+        "uniqueness": {
+          "unique_count": 1209,
+          "unique_ratio": 0.151352
+        },
+        "repetition": {
+          "repeated_unique_count": 1200,
+          "repeated_occurrences": 7979,
+          "repetition_rate": 0.998873
+        },
+        "sample_values": [
+          "contact337@examplebusiness.in",
+          "contact1129@examplebusiness.in",
+          "contact821@examplebusiness.in",
+          "contact792@examplebusiness.in",
+          "contact385@examplebusiness.in"
+        ]
+      },
+      {
+        "column_name": "contact_phone",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 7995,
+        "missing": {
+          "count": 5,
+          "percentage": 0.0625
+        },
+        "uniqueness": {
+          "unique_count": 7961,
+          "unique_ratio": 0.995747
+        },
+        "repetition": {
+          "repeated_unique_count": 31,
+          "repeated_occurrences": 65,
+          "repetition_rate": 0.00813
+        },
+        "sample_values": [
+          "+91-66048-24538",
+          "+91-95878-54584",
+          "+91-99653-60611",
+          "+91-89849-23390",
+          "+91-78474-39956"
+        ]
+      },
+      {
+        "column_name": "opportunity_id",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 7996,
+        "missing": {
+          "count": 4,
+          "percentage": 0.05
+        },
+        "uniqueness": {
+          "unique_count": 4005,
+          "unique_ratio": 0.500875
+        },
+        "repetition": {
+          "repeated_unique_count": 2361,
+          "repeated_occurrences": 6352,
+          "repetition_rate": 0.794397
+        },
+        "sample_values": [
+          "OPP0002590",
+          "OPP0001734",
+          "OPP0003922",
+          "OPP0000997",
+          "OPP0000762"
+        ]
+      },
+      {
+        "column_name": "sales_stage",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 7995,
+        "missing": {
+          "count": 5,
+          "percentage": 0.0625
+        },
+        "uniqueness": {
+          "unique_count": 12,
+          "unique_ratio": 0.001501
+        },
+        "repetition": {
+          "repeated_unique_count": 11,
+          "repeated_occurrences": 7994,
+          "repetition_rate": 0.999875
+        },
+        "sample_values": [
+          "Negotiation",
+          "Lost",
+          "Qualified",
+          "Won",
+          "Proposal"
+        ]
+      },
+      {
+        "column_name": "product_id",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 7995,
+        "missing": {
+          "count": 5,
+          "percentage": 0.0625
+        },
+        "uniqueness": {
+          "unique_count": 11,
+          "unique_ratio": 0.001376
+        },
+        "repetition": {
+          "repeated_unique_count": 11,
+          "repeated_occurrences": 7995,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "SVC-02",
+          "SVC-05",
+          "SVC-01",
+          "SVC-03",
+          "SVC-04"
+        ]
+      },
+      {
+        "column_name": "product_name",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 8000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 5,
+          "unique_ratio": 0.000625
+        },
+        "repetition": {
+          "repeated_unique_count": 5,
+          "repeated_occurrences": 8000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Implementation Services",
+          "Training Programme",
+          "Annual Software Subscription",
+          "Support Contract",
+          "Data Analytics Package"
+        ]
+      },
+      {
+        "column_name": "opportunity_created_date",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 7995,
+        "missing": {
+          "count": 5,
+          "percentage": 0.0625
+        },
+        "uniqueness": {
+          "unique_count": 721,
+          "unique_ratio": 0.090181
+        },
+        "repetition": {
+          "repeated_unique_count": 542,
+          "repeated_occurrences": 7816,
+          "repetition_rate": 0.977611
+        },
+        "sample_values": [
+          "2026-04-03",
+          "2026-08-31",
+          "2026-04-18",
+          "2025-11-25",
+          "2026-01-22"
+        ]
+      },
+      {
+        "column_name": "expected_close_date",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 8000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 816,
+          "unique_ratio": 0.102
+        },
+        "repetition": {
+          "repeated_unique_count": 616,
+          "repeated_occurrences": 7800,
+          "repetition_rate": 0.975
+        },
+        "sample_values": [
+          "2026-04-13",
+          "2026-11-28",
+          "2026-08-08",
+          "2026-02-11",
+          "2026-02-17"
+        ]
+      },
+      {
+        "column_name": "invoice_id",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 3907,
+        "missing": {
+          "count": 4093,
+          "percentage": 51.1625
+        },
+        "uniqueness": {
+          "unique_count": 3000,
+          "unique_ratio": 0.767853
+        },
+        "repetition": {
+          "repeated_unique_count": 753,
+          "repeated_occurrences": 1660,
+          "repetition_rate": 0.424878
+        },
+        "sample_values": [
+          "INV0005217",
+          "INV0006185",
+          "INV0003188",
+          "INV0006663",
+          "INV0006410"
+        ]
+      },
+      {
+        "column_name": "invoice_date",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 3893,
+        "missing": {
+          "count": 4107,
+          "percentage": 51.3375
+        },
+        "uniqueness": {
+          "unique_count": 691,
+          "unique_ratio": 0.177498
+        },
+        "repetition": {
+          "repeated_unique_count": 571,
+          "repeated_occurrences": 3773,
+          "repetition_rate": 0.969175
+        },
+        "sample_values": [
+          "2026-02-17",
+          "2025-11-19",
+          "2026-06-20",
+          "2026-02-02",
+          "2026-09-14"
+        ]
+      },
+      {
+        "column_name": "payment_terms",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 7995,
+        "missing": {
+          "count": 5,
+          "percentage": 0.0625
+        },
+        "uniqueness": {
+          "unique_count": 8,
+          "unique_ratio": 0.001001
+        },
+        "repetition": {
+          "repeated_unique_count": 7,
+          "repeated_occurrences": 7994,
+          "repetition_rate": 0.999875
+        },
+        "sample_values": [
+          "Net 30",
+          "Net 15",
+          "Net 60",
+          "Due on Receipt",
+          "Net 45"
+        ]
+      },
+      {
+        "column_name": "payment_due_date",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 3893,
+        "missing": {
+          "count": 4107,
+          "percentage": 51.3375
+        },
+        "uniqueness": {
+          "unique_count": 715,
+          "unique_ratio": 0.183663
+        },
+        "repetition": {
+          "repeated_unique_count": 586,
+          "repeated_occurrences": 3764,
+          "repetition_rate": 0.966864
+        },
+        "sample_values": [
+          "2026-02-17",
+          "2026-01-18",
+          "2026-08-04",
+          "2026-04-03",
+          "2026-11-13"
+        ]
+      },
+      {
+        "column_name": "revenue_inr",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 7992,
+        "missing": {
+          "count": 8,
+          "percentage": 0.1
+        },
+        "uniqueness": {
+          "unique_count": 3893,
+          "unique_ratio": 0.487112
+        },
+        "repetition": {
+          "repeated_unique_count": 19,
+          "repeated_occurrences": 4118,
+          "repetition_rate": 0.515265
+        },
+        "sample_values": [
+          "0.00",
+          "1319120.64",
+          "1021661.24",
+          "1367370.64",
+          "1177711.09"
+        ]
+      },
+      {
+        "column_name": "direct_cost_inr",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 7992,
+        "missing": {
+          "count": 8,
+          "percentage": 0.1
+        },
+        "uniqueness": {
+          "unique_count": 3889,
+          "unique_ratio": 0.486612
+        },
+        "repetition": {
+          "repeated_unique_count": 19,
+          "repeated_occurrences": 4122,
+          "repetition_rate": 0.515766
+        },
+        "sample_values": [
+          "0.00",
+          "773531.97",
+          "409649.36",
+          "645879.09",
+          "635534.28"
+        ]
+      },
+      {
+        "column_name": "gross_profit_inr",
+        "physical_dtype": "float64",
+        "row_count": 8000,
+        "non_null_count": 8000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 3894,
+          "unique_ratio": 0.48675
+        },
+        "repetition": {
+          "repeated_unique_count": 17,
+          "repeated_occurrences": 4123,
+          "repetition_rate": 0.515375
+        },
+        "sample_values": [
+          0.0,
+          545588.67,
+          612011.88,
+          721491.55,
+          542176.81
+        ],
+        "numeric_statistics": {
+          "min": 0.0,
+          "max": 961495.8,
+          "mean": 160550.70628250003,
+          "median": 0.0,
+          "std": 222656.0923357823,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "payment_date",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 3197,
+        "missing": {
+          "count": 4803,
+          "percentage": 60.0375
+        },
+        "uniqueness": {
+          "unique_count": 686,
+          "unique_ratio": 0.214576
+        },
+        "repetition": {
+          "repeated_unique_count": 560,
+          "repeated_occurrences": 3071,
+          "repetition_rate": 0.960588
+        },
+        "sample_values": [
+          "2026-03-23",
+          "2026-01-07",
+          "2026-07-29",
+          "2026-05-06",
+          "2026-11-17"
+        ]
+      },
+      {
+        "column_name": "invoice_status",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 7991,
+        "missing": {
+          "count": 9,
+          "percentage": 0.1125
+        },
+        "uniqueness": {
+          "unique_count": 7,
+          "unique_ratio": 0.000876
+        },
+        "repetition": {
+          "repeated_unique_count": 7,
+          "repeated_occurrences": 7991,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Not Applicable",
+          "Paid",
+          "Overdue",
+          "Pending",
+          "Open"
+        ]
+      },
+      {
+        "column_name": "account_health",
+        "physical_dtype": "str",
+        "row_count": 8000,
+        "non_null_count": 7993,
+        "missing": {
+          "count": 7,
+          "percentage": 0.0875
+        },
+        "uniqueness": {
+          "unique_count": 7,
+          "unique_ratio": 0.000876
+        },
+        "repetition": {
+          "repeated_unique_count": 7,
+          "repeated_occurrences": 7993,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Prospect",
+          "Watch",
+          "Healthy",
+          "At Risk",
+          "Amber"
+        ]
+      }
+    ]
+  },
+  "issues": [
+    {
+      "issue_id": "issue-exact_duplicate_rows-192ec5f83876",
+      "issue_type": "exact_duplicate_rows",
+      "target_columns": [],
+      "affected_count": 14,
+      "affected_percentage": 0.175,
+      "evidence": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "examples": [
+        2020,
+        3197,
+        4506,
+        4710,
+        4955
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-3b8df4f2ecc8",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "record_id"
+      ],
+      "affected_count": 14,
+      "affected_percentage": 0.175,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7986
+      },
+      "examples": [
+        291,
+        632,
+        859,
+        1400,
+        1425
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-2434cbb43563",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "customer_id"
+      ],
+      "affected_count": 1,
+      "affected_percentage": 0.0125,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7999
+      },
+      "examples": [
+        6009
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-162a6eafdf51",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "customer_name"
+      ],
+      "affected_count": 7,
+      "affected_percentage": 0.0875,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7993
+      },
+      "examples": [
+        956,
+        2356,
+        3654,
+        3950,
+        4877
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-fc4b1fcc1216",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "customer_name"
+      ],
+      "affected_count": 19,
+      "affected_percentage": 0.2377,
+      "evidence": {
+        "leading_count": 12,
+        "trailing_count": 7,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        " Pioneer Group",
+        " Crescent Industries",
+        " Delta Industries",
+        " Crescent Services",
+        " Apex Group"
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-bdc9525ae581",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "industry"
+      ],
+      "affected_count": 9,
+      "affected_percentage": 0.1125,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 9,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "Healthcare ",
+        "Retail ",
+        "Manufacturing ",
+        "Healthcare ",
+        "Manufacturing "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-77f604888fc0",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "industry"
+      ],
+      "affected_count": 7998,
+      "affected_percentage": 99.975,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "education": [
+            "Education",
+            "Education ",
+            "education"
+          ],
+          "healthcare": [
+            "Healthcare",
+            "Healthcare ",
+            "healthcare"
+          ],
+          "logistics": [
+            "Logistics",
+            "Logistics "
+          ],
+          "manufacturing": [
+            "Manufacturing",
+            "Manufacturing "
+          ],
+          "retail": [
+            "Retail",
+            "Retail "
+          ],
+          "technology": [
+            "Technology",
+            "Technology ",
+            "technology"
+          ]
+        }
+      },
+      "examples": [
+        "Logistics",
+        "Retail",
+        "Technology",
+        "Manufacturing",
+        "Logistics"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-2aa84dd9a540",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "industry"
+      ],
+      "affected_count": 18,
+      "affected_percentage": 0.225,
+      "evidence": {
+        "maximum_frequency": 80,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 10
+      },
+      "examples": [
+        "Tech",
+        "Healthcare ",
+        "Retail ",
+        "healthcare",
+        "Manufacturing "
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-ec0e29295357",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "employee_count"
+      ],
+      "affected_count": 22,
+      "affected_percentage": 0.275,
+      "evidence": {
+        "maximum_frequency": 80,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "1,000",
+        "1,000",
+        "1,000",
+        "-5",
+        "-5"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-463dd2d4e15f",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "sales_region"
+      ],
+      "affected_count": 8,
+      "affected_percentage": 0.1,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 8,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "North ",
+        "Central ",
+        "South ",
+        "North ",
+        "South "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-6b149b3d9081",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "sales_region"
+      ],
+      "affected_count": 7997,
+      "affected_percentage": 99.9625,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "central": [
+            "Central",
+            "Central ",
+            "central"
+          ],
+          "north": [
+            "North",
+            "North ",
+            "north"
+          ],
+          "south": [
+            "South",
+            "South ",
+            "south"
+          ],
+          "west": [
+            "West",
+            "West ",
+            "west"
+          ]
+        }
+      },
+      "examples": [
+        "South",
+        "South",
+        "North",
+        "West",
+        "North"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-936fd12c3608",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "sales_region"
+      ],
+      "affected_count": 21,
+      "affected_percentage": 0.2625,
+      "evidence": {
+        "maximum_frequency": 80,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 9
+      },
+      "examples": [
+        "north",
+        "North ",
+        "north",
+        "Central ",
+        "south"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-b7318f74b3fa",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "sales_rep_id"
+      ],
+      "affected_count": 8,
+      "affected_percentage": 0.1,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7992
+      },
+      "examples": [
+        755,
+        2045,
+        2262,
+        2609,
+        5005
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-43b7abd6092b",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "contact_email"
+      ],
+      "affected_count": 12,
+      "affected_percentage": 0.15,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7988
+      },
+      "examples": [
+        1695,
+        2480,
+        2837,
+        3417,
+        3751
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-e73d943a3eb0",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "contact_phone"
+      ],
+      "affected_count": 5,
+      "affected_percentage": 0.0625,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7995
+      },
+      "examples": [
+        297,
+        2387,
+        3273,
+        5277,
+        5754
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-184ea35c32b2",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "opportunity_id"
+      ],
+      "affected_count": 4,
+      "affected_percentage": 0.05,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7996
+      },
+      "examples": [
+        2108,
+        5407,
+        5547,
+        6808
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-991b779a891b",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "sales_stage"
+      ],
+      "affected_count": 5,
+      "affected_percentage": 0.0625,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7995
+      },
+      "examples": [
+        839,
+        2603,
+        3207,
+        5930,
+        6844
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-7dd65caf3ac0",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "sales_stage"
+      ],
+      "affected_count": 6572,
+      "affected_percentage": 82.2014,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "proposal": [
+            "Proposal",
+            "proposal"
+          ],
+          "prospecting": [
+            "Prospecting",
+            "prospecting"
+          ],
+          "qualified": [
+            "Qualified",
+            "qualified"
+          ],
+          "won": [
+            "Won",
+            "won"
+          ]
+        }
+      },
+      "examples": [
+        "Qualified",
+        "Won",
+        "Proposal",
+        "Prospecting",
+        "Proposal"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-2cab447b9425",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "sales_stage"
+      ],
+      "affected_count": 20,
+      "affected_percentage": 0.2502,
+      "evidence": {
+        "maximum_frequency": 79,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 6
+      },
+      "examples": [
+        "Closed Won",
+        "qualified",
+        "prospecting",
+        "Closed Won",
+        "proposal"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-c78bd47d9783",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "product_id"
+      ],
+      "affected_count": 5,
+      "affected_percentage": 0.0625,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7995
+      },
+      "examples": [
+        3162,
+        3318,
+        4428,
+        4848,
+        6287
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-bba903786a88",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "product_id"
+      ],
+      "affected_count": 7988,
+      "affected_percentage": 99.9124,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "svc-01": [
+            "SVC-01",
+            "svc-01"
+          ],
+          "svc-02": [
+            "SVC-02",
+            "svc-02"
+          ],
+          "svc-03": [
+            "SVC-03",
+            "svc-03"
+          ],
+          "svc-04": [
+            "SVC-04",
+            "svc-04"
+          ],
+          "svc-05": [
+            "SVC-05",
+            "svc-05"
+          ]
+        }
+      },
+      "examples": [
+        "SVC-02",
+        "SVC-05",
+        "SVC-01",
+        "SVC-05",
+        "SVC-05"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-02e3485ccf89",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "product_id"
+      ],
+      "affected_count": 17,
+      "affected_percentage": 0.2126,
+      "evidence": {
+        "maximum_frequency": 79,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 6
+      },
+      "examples": [
+        "svc-02",
+        "svc-03",
+        "svc-04",
+        "svc-01",
+        "SVC-99"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-1cd81f59b2d6",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "opportunity_created_date"
+      ],
+      "affected_count": 5,
+      "affected_percentage": 0.0625,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7995
+      },
+      "examples": [
+        569,
+        1694,
+        5039,
+        5480,
+        6165
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-inconsistent_date_format_candidate-2a9b504b4d20",
+      "issue_type": "inconsistent_date_format_candidate",
+      "target_columns": [
+        "opportunity_created_date"
+      ],
+      "affected_count": 7995,
+      "affected_percentage": 100.0,
+      "evidence": {
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 1.0,
+        "method": "strict_shape_recognition"
+      },
+      "examples": [
+        "2026-04-03",
+        "2026-08-31",
+        "2026-04-18",
+        "2025-11-25",
+        "2026-01-22"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-inconsistent_date_format_candidate-502aa54db0af",
+      "issue_type": "inconsistent_date_format_candidate",
+      "target_columns": [
+        "expected_close_date"
+      ],
+      "affected_count": 8000,
+      "affected_percentage": 100.0,
+      "evidence": {
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 1.0,
+        "method": "strict_shape_recognition"
+      },
+      "examples": [
+        "2026-04-13",
+        "2026-11-28",
+        "2026-08-08",
+        "2026-02-11",
+        "2026-02-17"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-df38521d48bc",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "invoice_id"
+      ],
+      "affected_count": 4093,
+      "affected_percentage": 51.1625,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 3907
+      },
+      "examples": [
+        0,
+        1,
+        2,
+        3,
+        5
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-97f49bb170e6",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "invoice_date"
+      ],
+      "affected_count": 4107,
+      "affected_percentage": 51.3375,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 3893
+      },
+      "examples": [
+        0,
+        1,
+        2,
+        3,
+        5
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-inconsistent_date_format_candidate-ab41ad68c9a8",
+      "issue_type": "inconsistent_date_format_candidate",
+      "target_columns": [
+        "invoice_date"
+      ],
+      "affected_count": 3893,
+      "affected_percentage": 100.0,
+      "evidence": {
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 1.0,
+        "method": "strict_shape_recognition"
+      },
+      "examples": [
+        "2026-02-17",
+        "2025-11-19",
+        "2026-06-20",
+        "2026-02-02",
+        "2026-09-14"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-f74a3eaf96a1",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "payment_terms"
+      ],
+      "affected_count": 5,
+      "affected_percentage": 0.0625,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7995
+      },
+      "examples": [
+        8,
+        2491,
+        4236,
+        4952,
+        6236
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-ea4ac3d5e9f8",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "payment_terms"
+      ],
+      "affected_count": 8,
+      "affected_percentage": 0.1001,
+      "evidence": {
+        "maximum_frequency": 79,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "Immediate",
+        "Immediate",
+        "NET30",
+        "Immediate",
+        "NET30"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-295486b32cba",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "payment_due_date"
+      ],
+      "affected_count": 4107,
+      "affected_percentage": 51.3375,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 3893
+      },
+      "examples": [
+        0,
+        1,
+        2,
+        3,
+        5
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-inconsistent_date_format_candidate-9c5a3ccaaf2c",
+      "issue_type": "inconsistent_date_format_candidate",
+      "target_columns": [
+        "payment_due_date"
+      ],
+      "affected_count": 3893,
+      "affected_percentage": 100.0,
+      "evidence": {
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 1.0,
+        "method": "strict_shape_recognition"
+      },
+      "examples": [
+        "2026-02-17",
+        "2026-01-18",
+        "2026-08-04",
+        "2026-04-03",
+        "2026-11-13"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-68ca29662d4c",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "revenue_inr"
+      ],
+      "affected_count": 8,
+      "affected_percentage": 0.1,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7992
+      },
+      "examples": [
+        467,
+        555,
+        2048,
+        3999,
+        4914
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-19c028b34ea8",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "direct_cost_inr"
+      ],
+      "affected_count": 8,
+      "affected_percentage": 0.1,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7992
+      },
+      "examples": [
+        809,
+        1146,
+        2311,
+        2439,
+        4191
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-statistical_outlier_candidate-0b56237234c2",
+      "issue_type": "statistical_outlier_candidate",
+      "target_columns": [
+        "gross_profit_inr"
+      ],
+      "affected_count": 201,
+      "affected_percentage": 2.5125,
+      "evidence": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 0.0,
+        "q3": 292989.3275,
+        "lower_bound": -439483.99125,
+        "upper_bound": 732473.3187500001
+      },
+      "examples": [
+        750953.45,
+        817940.29,
+        744248.26,
+        736691.46,
+        901960.1
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-32f19732a69c",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "payment_date"
+      ],
+      "affected_count": 4803,
+      "affected_percentage": 60.0375,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 3197
+      },
+      "examples": [
+        0,
+        1,
+        2,
+        3,
+        5
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-inconsistent_date_format_candidate-ed88843aad17",
+      "issue_type": "inconsistent_date_format_candidate",
+      "target_columns": [
+        "payment_date"
+      ],
+      "affected_count": 3197,
+      "affected_percentage": 100.0,
+      "evidence": {
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 1.0,
+        "method": "strict_shape_recognition"
+      },
+      "examples": [
+        "2026-03-23",
+        "2026-01-07",
+        "2026-07-29",
+        "2026-05-06",
+        "2026-11-17"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-c39a82937d5c",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "invoice_status"
+      ],
+      "affected_count": 9,
+      "affected_percentage": 0.1125,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7991
+      },
+      "examples": [
+        312,
+        1604,
+        1711,
+        2009,
+        3578
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-6e9a649f76b8",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "invoice_status"
+      ],
+      "affected_count": 3199,
+      "affected_percentage": 40.0325,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "paid": [
+            "Paid",
+            "paid"
+          ]
+        }
+      },
+      "examples": [
+        "Paid",
+        "Paid",
+        "Paid",
+        "Paid",
+        "Paid"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-9f369419de10",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "invoice_status"
+      ],
+      "affected_count": 17,
+      "affected_percentage": 0.2127,
+      "evidence": {
+        "maximum_frequency": 79,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "Open",
+        "paid",
+        "paid",
+        "Past Due",
+        "Past Due"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-ff5390ae7d80",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "account_health"
+      ],
+      "affected_count": 7,
+      "affected_percentage": 0.0875,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7993
+      },
+      "examples": [
+        1050,
+        1443,
+        2550,
+        3335,
+        3741
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-2300406c9c8c",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "account_health"
+      ],
+      "affected_count": 1336,
+      "affected_percentage": 16.7146,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "healthy": [
+            "Healthy",
+            "healthy"
+          ]
+        }
+      },
+      "examples": [
+        "Healthy",
+        "Healthy",
+        "Healthy",
+        "Healthy",
+        "Healthy"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-e4fc33d1d6bb",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "account_health"
+      ],
+      "affected_count": 20,
+      "affected_percentage": 0.2502,
+      "evidence": {
+        "maximum_frequency": 79,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "Amber",
+        "Risk",
+        "healthy",
+        "Amber",
+        "Amber"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    }
+  ],
+  "quality_summary": {
+    "total_issues_detected": 43,
+    "issues_by_type": {
+      "case_variant_candidate": 6,
+      "exact_duplicate_rows": 1,
+      "inconsistent_date_format_candidate": 5,
+      "missing_values": 19,
+      "rare_category_observation": 8,
+      "statistical_outlier_candidate": 1,
+      "whitespace_issue": 3
+    },
+    "issues_by_status": {
+      "candidate": 12,
+      "issue": 23,
+      "observation": 8
+    },
+    "affected_columns": [
+      "account_health",
+      "contact_email",
+      "contact_phone",
+      "customer_id",
+      "customer_name",
+      "direct_cost_inr",
+      "employee_count",
+      "expected_close_date",
+      "gross_profit_inr",
+      "industry",
+      "invoice_date",
+      "invoice_id",
+      "invoice_status",
+      "opportunity_created_date",
+      "opportunity_id",
+      "payment_date",
+      "payment_due_date",
+      "payment_terms",
+      "product_id",
+      "record_id",
+      "revenue_inr",
+      "sales_region",
+      "sales_rep_id",
+      "sales_stage"
+    ],
+    "dataset_level_issue_count": 1
+  },
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": "unknown",
+      "row_entity_confidence": 0.5,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "record_id",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "customer_id",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "customer_name",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "industry",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "employee_count",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "sales_region",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "sales_rep_id",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "contact_email",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "contact_phone",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "opportunity_id",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "sales_stage",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "product_id",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "product_name",
+        "semantic_type": "text",
+        "value_function": "descriptive_attribute",
+        "concept_description": "Names of products or services offered or purchased, typically unique to each record.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column values are unique and descriptive, indicating they represent particular products or services."
+      },
+      {
+        "column_name": "opportunity_created_date",
+        "semantic_type": "date",
+        "value_function": "temporal",
+        "concept_description": "Dates when opportunities were created, representing temporal events.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column values are dates and consistently represent temporal events."
+      },
+      {
+        "column_name": "expected_close_date",
+        "semantic_type": "date",
+        "value_function": "temporal",
+        "concept_description": "Dates when the expected close of opportunities is set, representing temporal events.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column values are dates and consistently represent temporal events."
+      },
+      {
+        "column_name": "invoice_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Unique identifiers for invoices, representing specific instances.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column values are unique and represent specific invoice instances."
+      },
+      {
+        "column_name": "invoice_date",
+        "semantic_type": "date",
+        "value_function": "temporal",
+        "concept_description": "Dates when invoices were issued, representing temporal events.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column values are dates and consistently represent temporal events."
+      },
+      {
+        "column_name": "payment_terms",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Terms for payment, such as 'Net 30', 'Net 15', etc., representing categories of payment terms.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column values are repeated and represent categories of payment terms."
+      },
+      {
+        "column_name": "payment_due_date",
+        "semantic_type": "date",
+        "value_function": "temporal",
+        "concept_description": "Dates when payments are due, representing temporal events.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column values are dates and consistently represent temporal events."
+      },
+      {
+        "column_name": "revenue_inr",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Revenue in Indian Rupees, representing a quantitative financial value.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column values are numeric and represent a financial quantity."
+      },
+      {
+        "column_name": "direct_cost_inr",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Direct costs in Indian Rupees, representing a quantitative financial value.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column values are numeric and represent a financial quantity."
+      },
+      {
+        "column_name": "gross_profit_inr",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Gross profit in Indian Rupees, representing a quantitative financial value.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column values are numeric and represent a financial quantity."
+      },
+      {
+        "column_name": "payment_date",
+        "semantic_type": "date",
+        "value_function": "temporal",
+        "concept_description": "Dates when payments were made, representing temporal events.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column values are dates and consistently represent temporal events."
+      },
+      {
+        "column_name": "invoice_status",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Status of invoices, such as 'Not Applicable', 'Paid', 'Overdue', 'Pending', 'Open', representing categories of invoice status.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column values are repeated and represent categories of invoice status."
+      },
+      {
+        "column_name": "account_health",
+        "semantic_type": "categorical",
+        "value_function": "entity_reference",
+        "concept_description": "The account_health column represents a state or condition of a customer account, identifying specific instances such as Prospect, Watch, Healthy, At Risk, and Amber. These values designate individual customer accounts rather than a general category or class.",
+        "semantic_role": "unknown",
+        "confidence": 0.9555555555555556,
+        "reasoning_summary": "The column contains distinct values that recur within the dataset, indicating that each value refers to a specific instance rather than a general category. The values are not numeric and do not represent a temporal or quantitative attribute, thus they are best interpreted as entity references."
+      }
+    ],
+    "warnings": [
+      "Semantic batch 1 failed after retry; unknown fallback used for ['record_id', 'customer_id', 'customer_name', 'industry', 'employee_count', 'sales_region', 'sales_rep_id', 'contact_email', 'contact_phone', 'opportunity_id', 'sales_stage', 'product_id']: RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)"
+    ],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 5,
+      "total_llm_calls": 6,
+      "batch_sizes": [
+        12,
+        12,
+        1
+      ],
+      "dataset_semantic_runtime_seconds": 89.282736,
+      "batch_runtime_seconds": [
+        244.115464,
+        227.276339,
+        32.130841
+      ],
+      "rag_runtime_seconds": 0.35134,
+      "batch_failures": 1,
+      "batch_retries": 2,
+      "llm_calls": [
+        {
+          "stage": "dataset_context",
+          "api_wall_duration_seconds": 89.198703,
+          "prompt_eval_count": 3051,
+          "prompt_eval_duration": 81048711000,
+          "eval_count": 20,
+          "eval_duration": 2051449999,
+          "total_duration": 87115144900,
+          "load_duration": 3977065500,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "error": "RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)",
+          "api_wall_duration_seconds": 122.061593,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 2,
+          "error": "RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)",
+          "api_wall_duration_seconds": 122.05346,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 2,
+          "attempt": 1,
+          "error": "RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)",
+          "api_wall_duration_seconds": 122.055185,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 2,
+          "attempt": 2,
+          "api_wall_duration_seconds": 105.220961,
+          "prompt_eval_count": 2505,
+          "prompt_eval_duration": 289241000,
+          "eval_count": 994,
+          "eval_duration": 102795573000,
+          "total_duration": 103129890100,
+          "load_duration": 6265600,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 3,
+          "attempt": 1,
+          "api_wall_duration_seconds": 32.130715,
+          "prompt_eval_count": 1204,
+          "prompt_eval_duration": 14993554000,
+          "eval_count": 177,
+          "eval_duration": 14940690000,
+          "total_duration": 30076119900,
+          "load_duration": 6376900,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 593.073734
+    }
+  },
+  "decision_summary": {
+    "total_decisions": 43,
+    "by_decision_type": {
+      "flag_for_review": 4,
+      "insufficient_evidence": 21,
+      "action": 3,
+      "no_action": 15
+    },
+    "by_proposed_action": {
+      "flag_rows": 4,
+      "no_op": 36,
+      "trim_whitespace": 3
+    },
+    "tier1_decisions": 15,
+    "tier2_decisions": 7,
+    "fallback_decisions": 21,
+    "deterministic_runtime_seconds": 0.00144,
+    "tier2_issue_count": 19,
+    "tier2_batch_sizes": [
+      4,
+      4,
+      4,
+      4,
+      3
+    ],
+    "llm_decision_calls": 10,
+    "llm_runtime_seconds": 422.460916,
+    "intended_llm_decision_calls": 5,
+    "retries": 5,
+    "successful_batches": 2,
+    "batch_failures": 3,
+    "llm_calls": [
+      {
+        "batch_index": 1,
+        "attempt": 1,
+        "api_wall_duration_seconds": 29.878659,
+        "prompt_character_length": 3500,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 849,
+        "prompt_eval_duration": 21025587000,
+        "eval_count": 82,
+        "eval_duration": 6710286000,
+        "total_duration": 27817555800,
+        "load_duration": 6260900,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 1,
+        "attempt": 2,
+        "api_wall_duration_seconds": 28.021679,
+        "prompt_character_length": 3500,
+        "prompt_eval_count": 849,
+        "prompt_eval_duration": 261327000,
+        "eval_count": 320,
+        "eval_duration": 25683137000,
+        "total_duration": 25967181200,
+        "load_duration": 6135700,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 2,
+        "attempt": 1,
+        "api_wall_duration_seconds": 29.5305,
+        "prompt_character_length": 3052,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 778,
+        "prompt_eval_duration": 15309268000,
+        "eval_count": 153,
+        "eval_duration": 12138957000,
+        "total_duration": 27496449000,
+        "load_duration": 6096300,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 2,
+        "attempt": 2,
+        "api_wall_duration_seconds": 9.606889,
+        "prompt_character_length": 3052,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 778,
+        "prompt_eval_duration": 246836000,
+        "eval_count": 86,
+        "eval_duration": 7287978000,
+        "total_duration": 7558655000,
+        "load_duration": 6941100,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 3,
+        "attempt": 1,
+        "api_wall_duration_seconds": 24.250359,
+        "prompt_character_length": 3009,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 777,
+        "prompt_eval_duration": 15031775000,
+        "eval_count": 87,
+        "eval_duration": 7109422000,
+        "total_duration": 22185824200,
+        "load_duration": 8720400,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 3,
+        "attempt": 2,
+        "api_wall_duration_seconds": 10.080738,
+        "prompt_character_length": 3009,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 777,
+        "prompt_eval_duration": 268747000,
+        "eval_count": 91,
+        "eval_duration": 7717007000,
+        "total_duration": 8009776600,
+        "load_duration": 6834400,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 4,
+        "attempt": 1,
+        "api_wall_duration_seconds": 36.037579,
+        "prompt_character_length": 2869,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 727,
+        "prompt_eval_duration": 13958082000,
+        "eval_count": 256,
+        "eval_duration": 19977098000,
+        "total_duration": 33981138700,
+        "load_duration": 6436900,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 4,
+        "attempt": 2,
+        "api_wall_duration_seconds": 22.442009,
+        "prompt_character_length": 2869,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 727,
+        "prompt_eval_duration": 247224000,
+        "eval_count": 255,
+        "eval_duration": 20087874000,
+        "total_duration": 20355865100,
+        "load_duration": 5488100,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 5,
+        "attempt": 1,
+        "api_wall_duration_seconds": 22.239565,
+        "prompt_character_length": 2760,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 654,
+        "prompt_eval_duration": 11623062000,
+        "eval_count": 109,
+        "eval_duration": 8473734000,
+        "total_duration": 20154596400,
+        "load_duration": 6035800,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 5,
+        "attempt": 2,
+        "api_wall_duration_seconds": 26.307154,
+        "prompt_character_length": 2760,
+        "prompt_eval_count": 654,
+        "prompt_eval_duration": 266497000,
+        "eval_count": 307,
+        "eval_duration": 23969643000,
+        "total_duration": 24257171800,
+        "load_duration": 5613600,
+        "done_reason": "stop"
+      }
+    ],
+    "total_runtime_seconds": 238.398188,
+    "execution_routing": {
+      "detected_issue_count": 43,
+      "decision_count": 43,
+      "proposed_action_count": 3,
+      "compiled_instruction_count": 3,
+      "executed_action_count": 3,
+      "executed_trim_whitespace_count": 3,
+      "executed_normalize_categorical_labels_count": 0,
+      "skipped_action_count": 0,
+      "skipped_actions": [],
+      "parse_date_assessments": [],
+      "numeric_coercion_assessments": [],
+      "executed_coerce_dtype_count": 0,
+      "executed_parse_dates_count": 0
+    }
+  },
+  "decisions": [
+    {
+      "decision_id": "decision-issue-exact_duplicate_rows-192ec5f83876",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876"
+      ],
+      "target_columns": [],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Exact duplicate records may be legitimate repeated events; deletion is not automatic.",
+      "evidence_summary": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "semantic_basis": {},
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-3b8df4f2ecc8",
+      "source_issue_ids": [
+        "issue-missing_values-3b8df4f2ecc8"
+      ],
+      "target_columns": [
+        "record_id"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7986
+      },
+      "semantic_basis": {
+        "record_id": {
+          "column_name": "record_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-2434cbb43563",
+      "source_issue_ids": [
+        "issue-missing_values-2434cbb43563"
+      ],
+      "target_columns": [
+        "customer_id"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7999
+      },
+      "semantic_basis": {
+        "customer_id": {
+          "column_name": "customer_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-162a6eafdf51",
+      "source_issue_ids": [
+        "issue-missing_values-162a6eafdf51"
+      ],
+      "target_columns": [
+        "customer_name"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7993
+      },
+      "semantic_basis": {
+        "customer_name": {
+          "column_name": "customer_name",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-fc4b1fcc1216",
+      "source_issue_ids": [
+        "issue-whitespace_issue-fc4b1fcc1216"
+      ],
+      "target_columns": [
+        "customer_name"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 12,
+        "trailing_count": 7,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "customer_name": {
+          "column_name": "customer_name",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-bdc9525ae581",
+      "source_issue_ids": [
+        "issue-whitespace_issue-bdc9525ae581"
+      ],
+      "target_columns": [
+        "industry"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 9,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "industry": {
+          "column_name": "industry",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-77f604888fc0",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-77f604888fc0"
+      ],
+      "target_columns": [
+        "industry"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Column semantics indicate semantic analysis is unavailable, so no action is recommended.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "education": [
+            "Education",
+            "Education ",
+            "education"
+          ],
+          "healthcare": [
+            "Healthcare",
+            "Healthcare ",
+            "healthcare"
+          ],
+          "logistics": [
+            "Logistics",
+            "Logistics "
+          ],
+          "manufacturing": [
+            "Manufacturing",
+            "Manufacturing "
+          ],
+          "retail": [
+            "Retail",
+            "Retail "
+          ],
+          "technology": [
+            "Technology",
+            "Technology ",
+            "technology"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "industry": {
+          "column_name": "industry",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-2aa84dd9a540",
+      "source_issue_ids": [
+        "issue-rare_category_observation-2aa84dd9a540"
+      ],
+      "target_columns": [
+        "industry"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 80,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 10
+      },
+      "semantic_basis": {
+        "industry": {
+          "column_name": "industry",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-ec0e29295357",
+      "source_issue_ids": [
+        "issue-rare_category_observation-ec0e29295357"
+      ],
+      "target_columns": [
+        "employee_count"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 80,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "employee_count": {
+          "column_name": "employee_count",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-463dd2d4e15f",
+      "source_issue_ids": [
+        "issue-whitespace_issue-463dd2d4e15f"
+      ],
+      "target_columns": [
+        "sales_region"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 8,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "sales_region": {
+          "column_name": "sales_region",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-6b149b3d9081",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-6b149b3d9081"
+      ],
+      "target_columns": [
+        "sales_region"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Column semantics indicate semantic analysis is unavailable, so no action is recommended.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "central": [
+            "Central",
+            "Central ",
+            "central"
+          ],
+          "north": [
+            "North",
+            "North ",
+            "north"
+          ],
+          "south": [
+            "South",
+            "South ",
+            "south"
+          ],
+          "west": [
+            "West",
+            "West ",
+            "west"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "sales_region": {
+          "column_name": "sales_region",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-936fd12c3608",
+      "source_issue_ids": [
+        "issue-rare_category_observation-936fd12c3608"
+      ],
+      "target_columns": [
+        "sales_region"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 80,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 9
+      },
+      "semantic_basis": {
+        "sales_region": {
+          "column_name": "sales_region",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-b7318f74b3fa",
+      "source_issue_ids": [
+        "issue-missing_values-b7318f74b3fa"
+      ],
+      "target_columns": [
+        "sales_rep_id"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7992
+      },
+      "semantic_basis": {
+        "sales_rep_id": {
+          "column_name": "sales_rep_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-43b7abd6092b",
+      "source_issue_ids": [
+        "issue-missing_values-43b7abd6092b"
+      ],
+      "target_columns": [
+        "contact_email"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7988
+      },
+      "semantic_basis": {
+        "contact_email": {
+          "column_name": "contact_email",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-e73d943a3eb0",
+      "source_issue_ids": [
+        "issue-missing_values-e73d943a3eb0"
+      ],
+      "target_columns": [
+        "contact_phone"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7995
+      },
+      "semantic_basis": {
+        "contact_phone": {
+          "column_name": "contact_phone",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-184ea35c32b2",
+      "source_issue_ids": [
+        "issue-missing_values-184ea35c32b2"
+      ],
+      "target_columns": [
+        "opportunity_id"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7996
+      },
+      "semantic_basis": {
+        "opportunity_id": {
+          "column_name": "opportunity_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-991b779a891b",
+      "source_issue_ids": [
+        "issue-missing_values-991b779a891b"
+      ],
+      "target_columns": [
+        "sales_stage"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7995
+      },
+      "semantic_basis": {
+        "sales_stage": {
+          "column_name": "sales_stage",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-7dd65caf3ac0",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-7dd65caf3ac0"
+      ],
+      "target_columns": [
+        "sales_stage"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Column semantics indicate semantic analysis is unavailable, so no action is recommended.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "proposal": [
+            "Proposal",
+            "proposal"
+          ],
+          "prospecting": [
+            "Prospecting",
+            "prospecting"
+          ],
+          "qualified": [
+            "Qualified",
+            "qualified"
+          ],
+          "won": [
+            "Won",
+            "won"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "sales_stage": {
+          "column_name": "sales_stage",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-2cab447b9425",
+      "source_issue_ids": [
+        "issue-rare_category_observation-2cab447b9425"
+      ],
+      "target_columns": [
+        "sales_stage"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 79,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 6
+      },
+      "semantic_basis": {
+        "sales_stage": {
+          "column_name": "sales_stage",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-c78bd47d9783",
+      "source_issue_ids": [
+        "issue-missing_values-c78bd47d9783"
+      ],
+      "target_columns": [
+        "product_id"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7995
+      },
+      "semantic_basis": {
+        "product_id": {
+          "column_name": "product_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-bba903786a88",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-bba903786a88"
+      ],
+      "target_columns": [
+        "product_id"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Column semantics indicate semantic analysis is unavailable, so no action is recommended.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "svc-01": [
+            "SVC-01",
+            "svc-01"
+          ],
+          "svc-02": [
+            "SVC-02",
+            "svc-02"
+          ],
+          "svc-03": [
+            "SVC-03",
+            "svc-03"
+          ],
+          "svc-04": [
+            "SVC-04",
+            "svc-04"
+          ],
+          "svc-05": [
+            "SVC-05",
+            "svc-05"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "product_id": {
+          "column_name": "product_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-02e3485ccf89",
+      "source_issue_ids": [
+        "issue-rare_category_observation-02e3485ccf89"
+      ],
+      "target_columns": [
+        "product_id"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 79,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 6
+      },
+      "semantic_basis": {
+        "product_id": {
+          "column_name": "product_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-1cd81f59b2d6",
+      "source_issue_ids": [
+        "issue-missing_values-1cd81f59b2d6"
+      ],
+      "target_columns": [
+        "opportunity_created_date"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 7995
+      },
+      "semantic_basis": {
+        "opportunity_created_date": {
+          "column_name": "opportunity_created_date",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Dates when opportunities were created, representing temporal events.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are dates and consistently represent temporal events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-inconsistent_date_format_candidate-2a9b504b4d20",
+      "source_issue_ids": [
+        "issue-inconsistent_date_format_candidate-2a9b504b4d20"
+      ],
+      "target_columns": [
+        "opportunity_created_date"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 1.0,
+        "method": "strict_shape_recognition"
+      },
+      "semantic_basis": {
+        "opportunity_created_date": {
+          "column_name": "opportunity_created_date",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Dates when opportunities were created, representing temporal events.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are dates and consistently represent temporal events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-inconsistent_date_format_candidate-502aa54db0af",
+      "source_issue_ids": [
+        "issue-inconsistent_date_format_candidate-502aa54db0af"
+      ],
+      "target_columns": [
+        "expected_close_date"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 1.0,
+        "method": "strict_shape_recognition"
+      },
+      "semantic_basis": {
+        "expected_close_date": {
+          "column_name": "expected_close_date",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Dates when the expected close of opportunities is set, representing temporal events.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are dates and consistently represent temporal events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-df38521d48bc",
+      "source_issue_ids": [
+        "issue-missing_values-df38521d48bc"
+      ],
+      "target_columns": [
+        "invoice_id"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 3907
+      },
+      "semantic_basis": {
+        "invoice_id": {
+          "column_name": "invoice_id",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "Unique identifiers for invoices, representing specific instances.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are unique and represent specific invoice instances."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-97f49bb170e6",
+      "source_issue_ids": [
+        "issue-missing_values-97f49bb170e6"
+      ],
+      "target_columns": [
+        "invoice_date"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 3893
+      },
+      "semantic_basis": {
+        "invoice_date": {
+          "column_name": "invoice_date",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Dates when invoices were issued, representing temporal events.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are dates and consistently represent temporal events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-inconsistent_date_format_candidate-ab41ad68c9a8",
+      "source_issue_ids": [
+        "issue-inconsistent_date_format_candidate-ab41ad68c9a8"
+      ],
+      "target_columns": [
+        "invoice_date"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 1.0,
+        "method": "strict_shape_recognition"
+      },
+      "semantic_basis": {
+        "invoice_date": {
+          "column_name": "invoice_date",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Dates when invoices were issued, representing temporal events.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are dates and consistently represent temporal events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-f74a3eaf96a1",
+      "source_issue_ids": [
+        "issue-missing_values-f74a3eaf96a1"
+      ],
+      "target_columns": [
+        "payment_terms"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 7995
+      },
+      "semantic_basis": {
+        "payment_terms": {
+          "column_name": "payment_terms",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Terms for payment, such as 'Net 30', 'Net 15', etc., representing categories of payment terms.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are repeated and represent categories of payment terms."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-ea4ac3d5e9f8",
+      "source_issue_ids": [
+        "issue-rare_category_observation-ea4ac3d5e9f8"
+      ],
+      "target_columns": [
+        "payment_terms"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 79,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "payment_terms": {
+          "column_name": "payment_terms",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Terms for payment, such as 'Net 30', 'Net 15', etc., representing categories of payment terms.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are repeated and represent categories of payment terms."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-295486b32cba",
+      "source_issue_ids": [
+        "issue-missing_values-295486b32cba"
+      ],
+      "target_columns": [
+        "payment_due_date"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 3893
+      },
+      "semantic_basis": {
+        "payment_due_date": {
+          "column_name": "payment_due_date",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Dates when payments are due, representing temporal events.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are dates and consistently represent temporal events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-inconsistent_date_format_candidate-9c5a3ccaaf2c",
+      "source_issue_ids": [
+        "issue-inconsistent_date_format_candidate-9c5a3ccaaf2c"
+      ],
+      "target_columns": [
+        "payment_due_date"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 1.0,
+        "method": "strict_shape_recognition"
+      },
+      "semantic_basis": {
+        "payment_due_date": {
+          "column_name": "payment_due_date",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Dates when payments are due, representing temporal events.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are dates and consistently represent temporal events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-68ca29662d4c",
+      "source_issue_ids": [
+        "issue-missing_values-68ca29662d4c"
+      ],
+      "target_columns": [
+        "revenue_inr"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 7992
+      },
+      "semantic_basis": {
+        "revenue_inr": {
+          "column_name": "revenue_inr",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Revenue in Indian Rupees, representing a quantitative financial value.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are numeric and represent a financial quantity."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-19c028b34ea8",
+      "source_issue_ids": [
+        "issue-missing_values-19c028b34ea8"
+      ],
+      "target_columns": [
+        "direct_cost_inr"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 7992
+      },
+      "semantic_basis": {
+        "direct_cost_inr": {
+          "column_name": "direct_cost_inr",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Direct costs in Indian Rupees, representing a quantitative financial value.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are numeric and represent a financial quantity."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-statistical_outlier_candidate-0b56237234c2",
+      "source_issue_ids": [
+        "issue-statistical_outlier_candidate-0b56237234c2"
+      ],
+      "target_columns": [
+        "gross_profit_inr"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "A statistical outlier may be valid and must not be clipped or removed automatically.",
+      "evidence_summary": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 0.0,
+        "q3": 292989.3275,
+        "lower_bound": -439483.99125,
+        "upper_bound": 732473.3187500001
+      },
+      "semantic_basis": {
+        "gross_profit_inr": {
+          "column_name": "gross_profit_inr",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Gross profit in Indian Rupees, representing a quantitative financial value.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are numeric and represent a financial quantity."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-32f19732a69c",
+      "source_issue_ids": [
+        "issue-missing_values-32f19732a69c"
+      ],
+      "target_columns": [
+        "payment_date"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 3197
+      },
+      "semantic_basis": {
+        "payment_date": {
+          "column_name": "payment_date",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Dates when payments were made, representing temporal events.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are dates and consistently represent temporal events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-inconsistent_date_format_candidate-ed88843aad17",
+      "source_issue_ids": [
+        "issue-inconsistent_date_format_candidate-ed88843aad17"
+      ],
+      "target_columns": [
+        "payment_date"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 1.0,
+        "method": "strict_shape_recognition"
+      },
+      "semantic_basis": {
+        "payment_date": {
+          "column_name": "payment_date",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Dates when payments were made, representing temporal events.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are dates and consistently represent temporal events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-c39a82937d5c",
+      "source_issue_ids": [
+        "issue-missing_values-c39a82937d5c"
+      ],
+      "target_columns": [
+        "invoice_status"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 1.0,
+      "rationale": "The issue involves missing values in a categorical column with a low percentage of missing data, and no extreme missingness. The current column semantics and examples suggest that the missing values are not critical to the column's intended",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7991
+      },
+      "semantic_basis": {
+        "invoice_status": {
+          "column_name": "invoice_status",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Status of invoices, such as 'Not Applicable', 'Paid', 'Overdue', 'Pending', 'Open', representing categories of invoice status.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are repeated and represent categories of invoice status."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-6e9a649f76b8",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-6e9a649f76b8"
+      ],
+      "target_columns": [
+        "invoice_status"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 1.0,
+      "rationale": "The issue involves categorical data with a high percentage of variant cases, but the provided examples suggest that the majority of the values are consistent with the expected categories.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "paid": [
+            "Paid",
+            "paid"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "invoice_status": {
+          "column_name": "invoice_status",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Status of invoices, such as 'Not Applicable', 'Paid', 'Overdue', 'Pending', 'Open', representing categories of invoice status.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are repeated and represent categories of invoice status."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-9f369419de10",
+      "source_issue_ids": [
+        "issue-rare_category_observation-9f369419de10"
+      ],
+      "target_columns": [
+        "invoice_status"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 79,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "invoice_status": {
+          "column_name": "invoice_status",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Status of invoices, such as 'Not Applicable', 'Paid', 'Overdue', 'Pending', 'Open', representing categories of invoice status.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "The column values are repeated and represent categories of invoice status."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-ff5390ae7d80",
+      "source_issue_ids": [
+        "issue-missing_values-ff5390ae7d80"
+      ],
+      "target_columns": [
+        "account_health"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7993
+      },
+      "semantic_basis": {
+        "account_health": {
+          "column_name": "account_health",
+          "semantic_type": "categorical",
+          "value_function": "entity_reference",
+          "concept_description": "The account_health column represents a state or condition of a customer account, identifying specific instances such as Prospect, Watch, Healthy, At Risk, and Amber. These values designate individual customer accounts rather than a general category or class.",
+          "semantic_role": "unknown",
+          "confidence": 0.9555555555555556,
+          "reasoning_summary": "The column contains distinct values that recur within the dataset, indicating that each value refers to a specific instance rather than a general category. The values are not numeric and do not represent a temporal or quantitative attribute, thus they are best interpreted as entity references."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-2300406c9c8c",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-2300406c9c8c"
+      ],
+      "target_columns": [
+        "account_health"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9555555555555556,
+      "rationale": "The issue involves categorical data with a high percentage of variant cases, but the provided examples suggest that the majority of the values are consistent with the expected categories.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "healthy": [
+            "Healthy",
+            "healthy"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "account_health": {
+          "column_name": "account_health",
+          "semantic_type": "categorical",
+          "value_function": "entity_reference",
+          "concept_description": "The account_health column represents a state or condition of a customer account, identifying specific instances such as Prospect, Watch, Healthy, At Risk, and Amber. These values designate individual customer accounts rather than a general category or class.",
+          "semantic_role": "unknown",
+          "confidence": 0.9555555555555556,
+          "reasoning_summary": "The column contains distinct values that recur within the dataset, indicating that each value refers to a specific instance rather than a general category. The values are not numeric and do not represent a temporal or quantitative attribute, thus they are best interpreted as entity references."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-e4fc33d1d6bb",
+      "source_issue_ids": [
+        "issue-rare_category_observation-e4fc33d1d6bb"
+      ],
+      "target_columns": [
+        "account_health"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 79,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "account_health": {
+          "column_name": "account_health",
+          "semantic_type": "categorical",
+          "value_function": "entity_reference",
+          "concept_description": "The account_health column represents a state or condition of a customer account, identifying specific instances such as Prospect, Watch, Healthy, At Risk, and Amber. These values designate individual customer accounts rather than a general category or class.",
+          "semantic_role": "unknown",
+          "confidence": 0.9555555555555556,
+          "reasoning_summary": "The column contains distinct values that recur within the dataset, indicating that each value refers to a specific instance rather than a general category. The values are not numeric and do not represent a temporal or quantitative attribute, thus they are best interpreted as entity references."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    }
+  ],
+  "instructions": [
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-fc4b1fcc1216",
+      "source_decision_id": "decision-issue-whitespace_issue-fc4b1fcc1216",
+      "source_issue_ids": [
+        "issue-whitespace_issue-fc4b1fcc1216"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "customer_name"
+      ],
+      "parameters": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-bdc9525ae581",
+      "source_decision_id": "decision-issue-whitespace_issue-bdc9525ae581",
+      "source_issue_ids": [
+        "issue-whitespace_issue-bdc9525ae581"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "industry"
+      ],
+      "parameters": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-463dd2d4e15f",
+      "source_decision_id": "decision-issue-whitespace_issue-463dd2d4e15f",
+      "source_issue_ids": [
+        "issue-whitespace_issue-463dd2d4e15f"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "sales_region"
+      ],
+      "parameters": {}
+    }
+  ],
+  "executions": [
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-fc4b1fcc1216",
+      "source_decision_id": "decision-issue-whitespace_issue-fc4b1fcc1216",
+      "source_issue_ids": [
+        "issue-whitespace_issue-fc4b1fcc1216"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "customer_name"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 19,
+      "change_examples": [
+        {
+          "row_index": 411,
+          "column": "customer_name",
+          "before": " Pioneer Group",
+          "after": "Pioneer Group"
+        },
+        {
+          "row_index": 927,
+          "column": "customer_name",
+          "before": " Crescent Industries",
+          "after": "Crescent Industries"
+        },
+        {
+          "row_index": 1614,
+          "column": "customer_name",
+          "before": " Delta Industries",
+          "after": "Delta Industries"
+        },
+        {
+          "row_index": 1821,
+          "column": "customer_name",
+          "before": " Crescent Services",
+          "after": "Crescent Services"
+        },
+        {
+          "row_index": 1837,
+          "column": "customer_name",
+          "before": " Apex Group",
+          "after": "Apex Group"
+        }
+      ],
+      "rows_before": 8000,
+      "rows_after": 8000,
+      "columns_before": 25,
+      "columns_after": 25,
+      "message": "Instruction executed successfully.",
+      "error": null
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-bdc9525ae581",
+      "source_decision_id": "decision-issue-whitespace_issue-bdc9525ae581",
+      "source_issue_ids": [
+        "issue-whitespace_issue-bdc9525ae581"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "industry"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 9,
+      "change_examples": [
+        {
+          "row_index": 393,
+          "column": "industry",
+          "before": "Healthcare ",
+          "after": "Healthcare"
+        },
+        {
+          "row_index": 719,
+          "column": "industry",
+          "before": "Retail ",
+          "after": "Retail"
+        },
+        {
+          "row_index": 1096,
+          "column": "industry",
+          "before": "Manufacturing ",
+          "after": "Manufacturing"
+        },
+        {
+          "row_index": 1281,
+          "column": "industry",
+          "before": "Healthcare ",
+          "after": "Healthcare"
+        },
+        {
+          "row_index": 2824,
+          "column": "industry",
+          "before": "Manufacturing ",
+          "after": "Manufacturing"
+        }
+      ],
+      "rows_before": 8000,
+      "rows_after": 8000,
+      "columns_before": 25,
+      "columns_after": 25,
+      "message": "Instruction executed successfully.",
+      "error": null
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-463dd2d4e15f",
+      "source_decision_id": "decision-issue-whitespace_issue-463dd2d4e15f",
+      "source_issue_ids": [
+        "issue-whitespace_issue-463dd2d4e15f"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "sales_region"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 8,
+      "change_examples": [
+        {
+          "row_index": 874,
+          "column": "sales_region",
+          "before": "North ",
+          "after": "North"
+        },
+        {
+          "row_index": 940,
+          "column": "sales_region",
+          "before": "Central ",
+          "after": "Central"
+        },
+        {
+          "row_index": 2608,
+          "column": "sales_region",
+          "before": "South ",
+          "after": "South"
+        },
+        {
+          "row_index": 3505,
+          "column": "sales_region",
+          "before": "North ",
+          "after": "North"
+        },
+        {
+          "row_index": 4168,
+          "column": "sales_region",
+          "before": "South ",
+          "after": "South"
+        }
+      ],
+      "rows_before": 8000,
+      "rows_after": 8000,
+      "columns_before": 25,
+      "columns_after": 25,
+      "message": "Instruction executed successfully.",
+      "error": null
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "no_unexpected_changes": true,
+    "dataframe_equal": false,
+    "row_count_equal": true,
+    "column_count_equal": true,
+    "missingness_equal": true,
+    "duplicate_row_count_equal": true,
+    "physical_dtypes_equal": true,
+    "cardinality_equal": false,
+    "unrelated_columns_equal": true,
+    "targeted_whitespace_improved": true,
+    "targeted_case_variants_improved": true,
+    "only_approved_value_changes": true,
+    "no_unexpected_categories": true,
+    "targeted_date_formats_improved": true,
+    "only_approved_date_changes": true,
+    "expected_dtype_changes_only": true,
+    "only_approved_numeric_changes": true,
+    "null_positions_equal": true,
+    "targeted_mixed_numeric_improved": true,
+    "newly_introduced_null_count": 0,
+    "changed_cell_count": 36,
+    "before_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "missing_values": 19,
+        "whitespace_issue": 3,
+        "case_variant_candidate": 6,
+        "rare_category_observation": 8,
+        "inconsistent_date_format_candidate": 5,
+        "statistical_outlier_candidate": 1
+      },
+      "whitespace_affected_cells_by_column": {
+        "customer_name": 19,
+        "industry": 9,
+        "sales_region": 8
+      },
+      "case_variant_affected_cells_by_column": {
+        "industry": 7998,
+        "sales_region": 7997,
+        "sales_stage": 6572,
+        "product_id": 7988,
+        "invoice_status": 3199,
+        "account_health": 1336
+      },
+      "date_format_affected_cells_by_column": {
+        "opportunity_created_date": 7995,
+        "expected_close_date": 8000,
+        "invoice_date": 3893,
+        "payment_due_date": 3893,
+        "payment_date": 3197
+      },
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "after_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "missing_values": 19,
+        "case_variant_candidate": 7,
+        "rare_category_observation": 9,
+        "inconsistent_date_format_candidate": 5,
+        "statistical_outlier_candidate": 1
+      },
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {
+        "customer_name": 1596,
+        "industry": 4017,
+        "sales_region": 7997,
+        "sales_stage": 6572,
+        "product_id": 7988,
+        "invoice_status": 3199,
+        "account_health": 1336
+      },
+      "date_format_affected_cells_by_column": {
+        "opportunity_created_date": 7995,
+        "expected_close_date": 8000,
+        "invoice_date": 3893,
+        "payment_due_date": 3893,
+        "payment_date": 3197
+      },
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "before_summary": {
+      "row_count": 8000,
+      "column_count": 25,
+      "total_missing_cells": 17213,
+      "duplicate_row_count": 14,
+      "physical_dtypes": {
+        "record_id": "str",
+        "customer_id": "str",
+        "customer_name": "str",
+        "industry": "str",
+        "employee_count": "str",
+        "sales_region": "str",
+        "sales_rep_id": "str",
+        "contact_email": "str",
+        "contact_phone": "str",
+        "opportunity_id": "str",
+        "sales_stage": "str",
+        "product_id": "str",
+        "product_name": "str",
+        "opportunity_created_date": "str",
+        "expected_close_date": "str",
+        "invoice_id": "str",
+        "invoice_date": "str",
+        "payment_terms": "str",
+        "payment_due_date": "str",
+        "revenue_inr": "str",
+        "direct_cost_inr": "str",
+        "gross_profit_inr": "float64",
+        "payment_date": "str",
+        "invoice_status": "str",
+        "account_health": "str"
+      },
+      "cardinality": {
+        "record_id": 7956,
+        "customer_id": 1780,
+        "customer_name": 65,
+        "industry": 16,
+        "employee_count": 11,
+        "sales_region": 13,
+        "sales_rep_id": 86,
+        "contact_email": 1209,
+        "contact_phone": 7961,
+        "opportunity_id": 4005,
+        "sales_stage": 12,
+        "product_id": 11,
+        "product_name": 5,
+        "opportunity_created_date": 721,
+        "expected_close_date": 816,
+        "invoice_id": 3000,
+        "invoice_date": 691,
+        "payment_terms": 8,
+        "payment_due_date": 715,
+        "revenue_inr": 3893,
+        "direct_cost_inr": 3889,
+        "gross_profit_inr": 3894,
+        "payment_date": 686,
+        "invoice_status": 7,
+        "account_health": 7
+      }
+    },
+    "after_summary": {
+      "row_count": 8000,
+      "column_count": 25,
+      "total_missing_cells": 17213,
+      "duplicate_row_count": 14,
+      "physical_dtypes": {
+        "record_id": "str",
+        "customer_id": "str",
+        "customer_name": "str",
+        "industry": "str",
+        "employee_count": "str",
+        "sales_region": "str",
+        "sales_rep_id": "str",
+        "contact_email": "str",
+        "contact_phone": "str",
+        "opportunity_id": "str",
+        "sales_stage": "str",
+        "product_id": "str",
+        "product_name": "str",
+        "opportunity_created_date": "str",
+        "expected_close_date": "str",
+        "invoice_id": "str",
+        "invoice_date": "str",
+        "payment_terms": "str",
+        "payment_due_date": "str",
+        "revenue_inr": "str",
+        "direct_cost_inr": "str",
+        "gross_profit_inr": "float64",
+        "payment_date": "str",
+        "invoice_status": "str",
+        "account_health": "str"
+      },
+      "cardinality": {
+        "record_id": 7956,
+        "customer_id": 1780,
+        "customer_name": 48,
+        "industry": 10,
+        "employee_count": 11,
+        "sales_region": 9,
+        "sales_rep_id": 86,
+        "contact_email": 1209,
+        "contact_phone": 7961,
+        "opportunity_id": 4005,
+        "sales_stage": 12,
+        "product_id": 11,
+        "product_name": 5,
+        "opportunity_created_date": 721,
+        "expected_close_date": 816,
+        "invoice_id": 3000,
+        "invoice_date": 691,
+        "payment_terms": 8,
+        "payment_due_date": 715,
+        "revenue_inr": 3893,
+        "direct_cost_inr": 3889,
+        "gross_profit_inr": 3894,
+        "payment_date": 686,
+        "invoice_status": 7,
+        "account_health": 7
+      }
+    },
+    "warnings": []
+  },
+  "warnings": [
+    "Semantic batch 1 failed after retry; unknown fallback used for ['record_id', 'customer_id', 'customer_name', 'industry', 'employee_count', 'sales_region', 'sales_rep_id', 'contact_email', 'contact_phone', 'opportunity_id', 'sales_stage', 'product_id']: RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)",
+    "Tier 2 decision batch failed after retry: ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+    "Tier 2 decision batch failed after retry: ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+    "Tier 2 decision batch failed after retry: ValueError: Tier 2 decision output does not exactly cover input issue IDs."
+  ],
+  "output_artifacts": {
+    "cleaned_dataset": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\integration\\pipeline1_coerce_dtype_business_output\\cleaned_dataset.csv",
+    "cleaning_report": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\integration\\pipeline1_coerce_dtype_business_output\\cleaning_report.json",
+    "cleaned_dataset_format": "csv"
+  }
+}

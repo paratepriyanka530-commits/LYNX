@@ -1,0 +1,201 @@
+{
+  "benchmark_version": "benchmark_v001_baseline",
+  "generated_at": "2026-09-05T17:19:13+00:00",
+  "run": {
+    "datasets_discovered": 15,
+    "datasets_processed": 15,
+    "datasets_successful": 9,
+    "datasets_partial": 6,
+    "datasets_failed": 0,
+    "columns_attempted": 314,
+    "columns_successful": 303,
+    "columns_failed": 11
+  },
+  "dataset_semantics": {
+    "dataset_domain_unknown_count": 15,
+    "row_entity_unknown_count": 1
+  },
+  "column_semantics": {
+    "semantic_type_distribution": {
+      "boolean": 7,
+      "categorical": 38,
+      "contact_information": 3,
+      "currency": 20,
+      "date": 16,
+      "datetime": 12,
+      "identifier": 4,
+      "location": 7,
+      "numeric_measurement": 36,
+      "percentage": 2,
+      "text": 2,
+      "unknown": 156
+    },
+    "semantic_type_unknown_count": 156,
+    "semantic_type_unknown_rate": 0.514851,
+    "value_function_distribution": {
+      "boolean_state": 7,
+      "classification": 73,
+      "contact": 3,
+      "descriptive_attribute": 15,
+      "entity_reference": 110,
+      "measurement": 85,
+      "temporal": 10
+    },
+    "value_function_unknown_count": 0,
+    "value_function_unknown_rate": 0.0,
+    "semantic_role_distribution": {
+      "category": 59,
+      "foreign_identifier": 172,
+      "measurement": 1,
+      "primary_identifier": 58,
+      "timestamp": 4,
+      "transaction_identifier": 9
+    },
+    "semantic_role_unknown_count": 0,
+    "semantic_role_unknown_rate": 0.0,
+    "entity_alignment_distribution": {
+      "different_from_row_entity": 232,
+      "not_applicable": 3,
+      "same_as_row_entity": 68
+    }
+  },
+  "confidence": {
+    "semantic": {
+      "average": 0.974981,
+      "minimum": 0.85,
+      "maximum": 1.0
+    },
+    "role": {
+      "average": 0.972263,
+      "minimum": 0.906672,
+      "maximum": 1.0
+    }
+  },
+  "consistency": {
+    "hard_contradiction_count": 0,
+    "soft_warning_count": 277,
+    "warning_distribution_by_rule": {
+      "classification_identifier_role": 35,
+      "entity_reference_unknown_type": 89,
+      "high_confidence_unknown_semantics": 153
+    }
+  },
+  "runtime": {
+    "total_elapsed_seconds": 27351.57,
+    "average_seconds_per_dataset": 1821.856,
+    "average_seconds_per_column": 82.865,
+    "stage_timings": {
+      "column_evidence_building": {
+        "total_seconds": 0.003787,
+        "observations": 314,
+        "average_seconds": 1.2e-05
+      },
+      "column_understanding_llm_inference": {
+        "total_seconds": 9725.179587,
+        "observations": 314,
+        "average_seconds": 30.97191
+      },
+      "column_understanding_overhead": {
+        "total_seconds": 0.092721,
+        "observations": 314,
+        "average_seconds": 0.000295
+      },
+      "column_understanding_total": {
+        "total_seconds": 9758.78074,
+        "observations": 314,
+        "average_seconds": 31.07892
+      },
+      "consistency_checks": {
+        "total_seconds": 0.00305,
+        "observations": 303,
+        "average_seconds": 1e-05
+      },
+      "dataset_evidence_building": {
+        "total_seconds": 0.00047,
+        "observations": 15,
+        "average_seconds": 3.1e-05
+      },
+      "dataset_loading": {
+        "total_seconds": 3.578447,
+        "observations": 15,
+        "average_seconds": 0.238563
+      },
+      "dataset_rag_retrieval": {
+        "total_seconds": 1.005834,
+        "observations": 15,
+        "average_seconds": 0.067056
+      },
+      "dataset_understanding_llm_inference": {
+        "total_seconds": 770.450387,
+        "observations": 15,
+        "average_seconds": 51.363359
+      },
+      "dataset_understanding_overhead": {
+        "total_seconds": 0.006247,
+        "observations": 15,
+        "average_seconds": 0.000416
+      },
+      "dataset_understanding_total": {
+        "total_seconds": 771.462468,
+        "observations": 15,
+        "average_seconds": 51.430831
+      },
+      "profiling": {
+        "total_seconds": 2.044547,
+        "observations": 15,
+        "average_seconds": 0.136303
+      },
+      "role_resolution": {
+        "total_seconds": 1075.846157,
+        "observations": 11,
+        "average_seconds": 97.804196
+      },
+      "role_resolution_overhead": {
+        "total_seconds": 0.055602,
+        "observations": 303,
+        "average_seconds": 0.000184
+      },
+      "role_resolution_total": {
+        "total_seconds": 15712.60188,
+        "observations": 303,
+        "average_seconds": 51.856772
+      },
+      "role_resolver_llm_inference": {
+        "total_seconds": 16775.037626,
+        "observations": 314,
+        "average_seconds": 53.423687
+      },
+      "role_resolver_rag_retrieval": {
+        "total_seconds": 13.353374,
+        "observations": 314,
+        "average_seconds": 0.042527
+      },
+      "semantic_context_rag_retrieval": {
+        "total_seconds": 21.936105,
+        "observations": 314,
+        "average_seconds": 0.06986
+      },
+      "serialization_write_overhead": {
+        "total_seconds": 1.922841,
+        "observations": 303,
+        "average_seconds": 0.006346
+      },
+      "total_before_output": {
+        "total_seconds": 25106.156919,
+        "observations": 303,
+        "average_seconds": 82.858604
+      },
+      "total_column_elapsed": {
+        "total_seconds": 26549.212843,
+        "observations": 314,
+        "average_seconds": 84.551633
+      },
+      "value_pattern_rag_retrieval": {
+        "total_seconds": 11.572327,
+        "observations": 314,
+        "average_seconds": 0.036855
+      }
+    }
+  },
+  "methodology_note": "Diagnostic coverage and consistency statistics only; no human ground-truth accuracy metrics are reported."
+}

@@ -1,0 +1,2303 @@
+[
+  {
+    "dataset_id": "dataset_05_education",
+    "repeat": 1,
+    "model": "qwen2.5:3b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-321458eb06b8"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "timeout",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-321458eb06b8",
+            "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-321458eb06b8"
+        ],
+        "prompt_character_length": 4003,
+        "raw_qwen_response": null,
+        "time_since_last_call_seconds": null,
+        "pre_call_memory": {
+          "memory_load_percent": 72,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 4.2935028076171875,
+          "total_page_file_gib": 24.182022094726562,
+          "available_page_file_gib": 4.256977081298828
+        },
+        "pre_call_loaded_models": [],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_error": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "ollama_telemetry": {}
+      }
+    ],
+    "cases": [
+      {
+        "column": "attendance_percent",
+        "expected": "action/impute_missing/median",
+        "readiness": {
+          "missing_count": 2,
+          "missing_percentage": 0.03333333333333333,
+          "missingness_band": "low",
+          "observed_count": 5998,
+          "physical_dtype": "float64",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "semantic_confidence": 0.8,
+          "concept_description": "Percentage of attendance for the student.",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "true",
+            "reason_code": "confirmed_quantitative_magnitude"
+          },
+          "median_mechanical_preflight": {
+            "status": "pass",
+            "reason_code": "existing_imputation_contract_passed"
+          }
+        },
+        "first_raw_qwen_response": null,
+        "first_validation": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "accepted_immediately": false,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-321458eb06b8",
+          "source_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "target_columns": [
+            "attendance_percent"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "RuntimeError: Failed to communicate with Ollama: timed out",
+            "null_detection": "pandas.isna",
+            "non_null_count": 5998
+          },
+          "semantic_basis": {
+            "attendance_percent": {
+              "column_name": "attendance_percent",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Percentage of attendance for the student.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'attendance_percent' and the sample values are numeric, indicating a measurement nature."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      }
+    ],
+    "summary": {
+      "total_decisions": 1,
+      "by_decision_type": {
+        "insufficient_evidence": 1
+      },
+      "by_proposed_action": {
+        "no_op": 1
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 0,
+      "fallback_decisions": 1,
+      "deterministic_runtime_seconds": 2.1e-05,
+      "tier2_issue_count": 1,
+      "tier2_batch_sizes": [
+        1
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 1,
+      "llm_runtime_seconds": 124.166508,
+      "intended_llm_decision_calls": 1,
+      "retries": 0,
+      "successful_batches": 0,
+      "batch_failures": 1,
+      "fallback_issue_count": 1,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "accepted_on_first_response": [],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-321458eb06b8"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "timeout",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-321458eb06b8",
+                  "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-321458eb06b8"
+              ]
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4003,
+          "api_wall_duration_seconds": 124.166508,
+          "error": "RuntimeError: Failed to communicate with Ollama: timed out",
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        }
+      ],
+      "total_runtime_seconds": 124.169036
+    },
+    "warnings": [
+      "Tier 2 decision failed for issue issue-missing_values-321458eb06b8: RuntimeError: Failed to communicate with Ollama: timed out"
+    ]
+  },
+  {
+    "dataset_id": "dataset_07_iot_sensor",
+    "repeat": 1,
+    "model": "qwen2.5:3b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-807a4a574212"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "timeout",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-807a4a574212",
+            "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-807a4a574212"
+        ],
+        "prompt_character_length": 4075,
+        "raw_qwen_response": null,
+        "time_since_last_call_seconds": 0.29635300001245923,
+        "pre_call_memory": {
+          "memory_load_percent": 88,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 1.832000732421875,
+          "total_page_file_gib": 24.182022094726562,
+          "available_page_file_gib": 1.0764656066894531
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:02:21.8598587+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_error": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "ollama_telemetry": {}
+      }
+    ],
+    "cases": [
+      {
+        "column": "error_code",
+        "expected": "flag_for_review/flag_rows",
+        "readiness": {
+          "missing_count": 27679,
+          "missing_percentage": 92.26333333333334,
+          "missingness_band": "very_high",
+          "observed_count": 2321,
+          "physical_dtype": "str",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "numeric_meaning": "not_applicable",
+          "semantic_confidence": 0.8,
+          "concept_description": "Error code encountered by the sensor",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "false",
+            "reason_code": "numeric_meaning_not_applicable"
+          },
+          "median_mechanical_preflight": {
+            "status": "fail",
+            "reason_code": "existing_imputation_contract_failed",
+            "reason": "Imputation requires LOW missingness (0–5%); observed very_high."
+          }
+        },
+        "first_raw_qwen_response": null,
+        "first_validation": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "accepted_immediately": false,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-807a4a574212",
+          "source_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "target_columns": [
+            "error_code"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "RuntimeError: Failed to communicate with Ollama: timed out",
+            "null_detection": "pandas.isna",
+            "non_null_count": 2321
+          },
+          "semantic_basis": {
+            "error_code": {
+              "column_name": "error_code",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "not_applicable",
+              "concept_description": "Error code encountered by the sensor",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'error_code' suggests that the values represent different error codes encountered by the sensor, which are reusable categories or labels."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      }
+    ],
+    "summary": {
+      "total_decisions": 1,
+      "by_decision_type": {
+        "insufficient_evidence": 1
+      },
+      "by_proposed_action": {
+        "no_op": 1
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 0,
+      "fallback_decisions": 1,
+      "deterministic_runtime_seconds": 2e-05,
+      "tier2_issue_count": 1,
+      "tier2_batch_sizes": [
+        1
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 1,
+      "llm_runtime_seconds": 124.090596,
+      "intended_llm_decision_calls": 1,
+      "retries": 0,
+      "successful_batches": 0,
+      "batch_failures": 1,
+      "fallback_issue_count": 1,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "accepted_on_first_response": [],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-807a4a574212"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "timeout",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-807a4a574212",
+                  "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-807a4a574212"
+              ]
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4075,
+          "api_wall_duration_seconds": 124.090596,
+          "error": "RuntimeError: Failed to communicate with Ollama: timed out",
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        }
+      ],
+      "total_runtime_seconds": 124.090872
+    },
+    "warnings": [
+      "Tier 2 decision failed for issue issue-missing_values-807a4a574212: RuntimeError: Failed to communicate with Ollama: timed out"
+    ]
+  },
+  {
+    "dataset_id": "dataset_05_education",
+    "repeat": 2,
+    "model": "qwen2.5:3b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-321458eb06b8"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "success",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-321458eb06b8",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-321458eb06b8"
+        ],
+        "coverage": {
+          "missing_issue_ids": [],
+          "duplicate_issue_ids": [],
+          "unexpected_issue_ids": []
+        },
+        "prompt_character_length": 4003,
+        "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-321458eb06b8\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"concept_description\", \"median_semantic_eligibility.status\", \"median_semantic_eligibility.reason_code\", \"median_mechanical_preflight.status\", \"median_mechanical_preflight.reason_code\"],\n      \"confidence\": 0.8,\n      \"rationale\": \"The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks have also confirmed this\"\n    }\n  ]}",
+        "time_since_last_call_seconds": 0.13542090001283213,
+        "pre_call_memory": {
+          "memory_load_percent": 87,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 1.8771209716796875,
+          "total_page_file_gib": 24.182022094726562,
+          "available_page_file_gib": 0.9269027709960938
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:04:26.2399742+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_result": {
+          "decisions": [
+            {
+              "issue_id": "issue-missing_values-321458eb06b8",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "concept_description",
+                "median_semantic_eligibility.status",
+                "median_semantic_eligibility.reason_code",
+                "median_mechanical_preflight.status",
+                "median_mechanical_preflight.reason_code"
+              ],
+              "confidence": 0.8,
+              "rationale": "The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks have also confirmed this"
+            }
+          ]
+        },
+        "ollama_telemetry": {
+          "model": "qwen2.5:3b",
+          "created_at": "2026-09-07T08:29:58.4166582Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 27982908800,
+          "load_duration": 4686200,
+          "prompt_eval_count": 830,
+          "prompt_eval_duration": 218189000,
+          "eval_count": 182,
+          "eval_duration": 27669177000
+        }
+      }
+    ],
+    "cases": [
+      {
+        "column": "attendance_percent",
+        "expected": "action/impute_missing/median",
+        "readiness": {
+          "missing_count": 2,
+          "missing_percentage": 0.03333333333333333,
+          "missingness_band": "low",
+          "observed_count": 5998,
+          "physical_dtype": "float64",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "semantic_confidence": 0.8,
+          "concept_description": "Percentage of attendance for the student.",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "true",
+            "reason_code": "confirmed_quantitative_magnitude"
+          },
+          "median_mechanical_preflight": {
+            "status": "pass",
+            "reason_code": "existing_imputation_contract_passed"
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-321458eb06b8\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"concept_description\", \"median_semantic_eligibility.status\", \"median_semantic_eligibility.reason_code\", \"median_mechanical_preflight.status\", \"median_mechanical_preflight.reason_code\"],\n      \"confidence\": 0.8,\n      \"rationale\": \"The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks have also confirmed this\"\n    }\n  ]}",
+        "first_validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+        "accepted_immediately": false,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-321458eb06b8",
+          "source_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "target_columns": [
+            "attendance_percent"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+            "null_detection": "pandas.isna",
+            "non_null_count": 5998
+          },
+          "semantic_basis": {
+            "attendance_percent": {
+              "column_name": "attendance_percent",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Percentage of attendance for the student.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'attendance_percent' and the sample values are numeric, indicating a measurement nature."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      }
+    ],
+    "summary": {
+      "total_decisions": 1,
+      "by_decision_type": {
+        "insufficient_evidence": 1
+      },
+      "by_proposed_action": {
+        "no_op": 1
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 0,
+      "fallback_decisions": 1,
+      "deterministic_runtime_seconds": 6.1e-05,
+      "tier2_issue_count": 1,
+      "tier2_batch_sizes": [
+        1
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 1,
+      "llm_runtime_seconds": 32.074555,
+      "intended_llm_decision_calls": 1,
+      "retries": 0,
+      "successful_batches": 0,
+      "batch_failures": 1,
+      "fallback_issue_count": 1,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "accepted_on_first_response": [],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-321458eb06b8"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "success",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-321458eb06b8",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-321458eb06b8"
+              ],
+              "coverage": {
+                "missing_issue_ids": [],
+                "duplicate_issue_ids": [],
+                "unexpected_issue_ids": []
+              }
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4003,
+          "api_wall_duration_seconds": 32.074555,
+          "prompt_eval_count": 830,
+          "prompt_eval_duration": 218189000,
+          "eval_count": 182,
+          "eval_duration": 27669177000,
+          "total_duration": 27982908800,
+          "load_duration": 4686200,
+          "done_reason": "stop"
+        }
+      ],
+      "total_runtime_seconds": 32.091154
+    },
+    "warnings": [
+      "Tier 2 decision failed for issue issue-missing_values-321458eb06b8: ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+    ]
+  },
+  {
+    "dataset_id": "dataset_07_iot_sensor",
+    "repeat": 2,
+    "model": "qwen2.5:3b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-807a4a574212"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "timeout",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-807a4a574212",
+            "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-807a4a574212"
+        ],
+        "prompt_character_length": 4075,
+        "raw_qwen_response": null,
+        "time_since_last_call_seconds": 0.20775959998718463,
+        "pre_call_memory": {
+          "memory_load_percent": 86,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 2.0527992248535156,
+          "total_page_file_gib": 24.182022094726562,
+          "available_page_file_gib": 1.0547714233398438
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:04:58.4249597+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_error": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "ollama_telemetry": {}
+      }
+    ],
+    "cases": [
+      {
+        "column": "error_code",
+        "expected": "flag_for_review/flag_rows",
+        "readiness": {
+          "missing_count": 27679,
+          "missing_percentage": 92.26333333333334,
+          "missingness_band": "very_high",
+          "observed_count": 2321,
+          "physical_dtype": "str",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "numeric_meaning": "not_applicable",
+          "semantic_confidence": 0.8,
+          "concept_description": "Error code encountered by the sensor",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "false",
+            "reason_code": "numeric_meaning_not_applicable"
+          },
+          "median_mechanical_preflight": {
+            "status": "fail",
+            "reason_code": "existing_imputation_contract_failed",
+            "reason": "Imputation requires LOW missingness (0–5%); observed very_high."
+          }
+        },
+        "first_raw_qwen_response": null,
+        "first_validation": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "accepted_immediately": false,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-807a4a574212",
+          "source_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "target_columns": [
+            "error_code"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "RuntimeError: Failed to communicate with Ollama: timed out",
+            "null_detection": "pandas.isna",
+            "non_null_count": 2321
+          },
+          "semantic_basis": {
+            "error_code": {
+              "column_name": "error_code",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "not_applicable",
+              "concept_description": "Error code encountered by the sensor",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'error_code' suggests that the values represent different error codes encountered by the sensor, which are reusable categories or labels."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      }
+    ],
+    "summary": {
+      "total_decisions": 1,
+      "by_decision_type": {
+        "insufficient_evidence": 1
+      },
+      "by_proposed_action": {
+        "no_op": 1
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 0,
+      "fallback_decisions": 1,
+      "deterministic_runtime_seconds": 0.000137,
+      "tier2_issue_count": 1,
+      "tier2_batch_sizes": [
+        1
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 1,
+      "llm_runtime_seconds": 124.077818,
+      "intended_llm_decision_calls": 1,
+      "retries": 0,
+      "successful_batches": 0,
+      "batch_failures": 1,
+      "fallback_issue_count": 1,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "accepted_on_first_response": [],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-807a4a574212"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "timeout",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-807a4a574212",
+                  "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-807a4a574212"
+              ]
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4075,
+          "api_wall_duration_seconds": 124.077818,
+          "error": "RuntimeError: Failed to communicate with Ollama: timed out",
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        }
+      ],
+      "total_runtime_seconds": 124.078669
+    },
+    "warnings": [
+      "Tier 2 decision failed for issue issue-missing_values-807a4a574212: RuntimeError: Failed to communicate with Ollama: timed out"
+    ]
+  },
+  {
+    "dataset_id": "dataset_05_education",
+    "repeat": 3,
+    "model": "qwen2.5:3b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-321458eb06b8"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "success",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-321458eb06b8",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-321458eb06b8"
+        ],
+        "coverage": {
+          "missing_issue_ids": [],
+          "duplicate_issue_ids": [],
+          "unexpected_issue_ids": []
+        },
+        "prompt_character_length": 4003,
+        "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-321458eb06b8\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"concept_description\", \"median_semantic_eligibility.status\", \"median_semantic_eligibility.reason_code\", \"median_mechanical_preflight.status\", \"median_mechanical_preflight.reason_code\"],\n      \"confidence\": 0.8,\n      \"rationale\": \"The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks also support this.\"\n    }\n  ]\n}",
+        "time_since_last_call_seconds": 0.0930289999814704,
+        "pre_call_memory": {
+          "memory_load_percent": 82,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 2.673961639404297,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 1.9689598083496094
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:07:02.7057168+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_result": {
+          "decisions": [
+            {
+              "issue_id": "issue-missing_values-321458eb06b8",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "concept_description",
+                "median_semantic_eligibility.status",
+                "median_semantic_eligibility.reason_code",
+                "median_mechanical_preflight.status",
+                "median_mechanical_preflight.reason_code"
+              ],
+              "confidence": 0.8,
+              "rationale": "The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks also support this."
+            }
+          ]
+        },
+        "ollama_telemetry": {
+          "model": "qwen2.5:3b",
+          "created_at": "2026-09-07T08:32:21.4719869Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 14611039800,
+          "load_duration": 5520100,
+          "prompt_eval_count": 830,
+          "prompt_eval_duration": 2829432000,
+          "eval_count": 178,
+          "eval_duration": 11744280000
+        }
+      }
+    ],
+    "cases": [
+      {
+        "column": "attendance_percent",
+        "expected": "action/impute_missing/median",
+        "readiness": {
+          "missing_count": 2,
+          "missing_percentage": 0.03333333333333333,
+          "missingness_band": "low",
+          "observed_count": 5998,
+          "physical_dtype": "float64",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "semantic_confidence": 0.8,
+          "concept_description": "Percentage of attendance for the student.",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "true",
+            "reason_code": "confirmed_quantitative_magnitude"
+          },
+          "median_mechanical_preflight": {
+            "status": "pass",
+            "reason_code": "existing_imputation_contract_passed"
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-321458eb06b8\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"concept_description\", \"median_semantic_eligibility.status\", \"median_semantic_eligibility.reason_code\", \"median_mechanical_preflight.status\", \"median_mechanical_preflight.reason_code\"],\n      \"confidence\": 0.8,\n      \"rationale\": \"The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks also support this.\"\n    }\n  ]\n}",
+        "first_validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+        "accepted_immediately": false,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-321458eb06b8",
+          "source_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "target_columns": [
+            "attendance_percent"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+            "null_detection": "pandas.isna",
+            "non_null_count": 5998
+          },
+          "semantic_basis": {
+            "attendance_percent": {
+              "column_name": "attendance_percent",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Percentage of attendance for the student.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'attendance_percent' and the sample values are numeric, indicating a measurement nature."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      }
+    ],
+    "summary": {
+      "total_decisions": 1,
+      "by_decision_type": {
+        "insufficient_evidence": 1
+      },
+      "by_proposed_action": {
+        "no_op": 1
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 0,
+      "fallback_decisions": 1,
+      "deterministic_runtime_seconds": 4.7e-05,
+      "tier2_issue_count": 1,
+      "tier2_batch_sizes": [
+        1
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 1,
+      "llm_runtime_seconds": 18.689363,
+      "intended_llm_decision_calls": 1,
+      "retries": 0,
+      "successful_batches": 0,
+      "batch_failures": 1,
+      "fallback_issue_count": 1,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "accepted_on_first_response": [],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-321458eb06b8"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "success",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-321458eb06b8",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-321458eb06b8"
+              ],
+              "coverage": {
+                "missing_issue_ids": [],
+                "duplicate_issue_ids": [],
+                "unexpected_issue_ids": []
+              }
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4003,
+          "api_wall_duration_seconds": 18.689363,
+          "prompt_eval_count": 830,
+          "prompt_eval_duration": 2829432000,
+          "eval_count": 178,
+          "eval_duration": 11744280000,
+          "total_duration": 14611039800,
+          "load_duration": 5520100,
+          "done_reason": "stop"
+        }
+      ],
+      "total_runtime_seconds": 18.69755
+    },
+    "warnings": [
+      "Tier 2 decision failed for issue issue-missing_values-321458eb06b8: ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+    ]
+  },
+  {
+    "dataset_id": "dataset_07_iot_sensor",
+    "repeat": 3,
+    "model": "qwen2.5:3b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-807a4a574212"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "timeout",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-807a4a574212",
+            "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-807a4a574212"
+        ],
+        "prompt_character_length": 4075,
+        "raw_qwen_response": null,
+        "time_since_last_call_seconds": 0.10135840001748875,
+        "pre_call_memory": {
+          "memory_load_percent": 81,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 2.8037796020507812,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.206859588623047
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:07:21.4756273+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_error": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "ollama_telemetry": {}
+      }
+    ],
+    "cases": [
+      {
+        "column": "error_code",
+        "expected": "flag_for_review/flag_rows",
+        "readiness": {
+          "missing_count": 27679,
+          "missing_percentage": 92.26333333333334,
+          "missingness_band": "very_high",
+          "observed_count": 2321,
+          "physical_dtype": "str",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "numeric_meaning": "not_applicable",
+          "semantic_confidence": 0.8,
+          "concept_description": "Error code encountered by the sensor",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "false",
+            "reason_code": "numeric_meaning_not_applicable"
+          },
+          "median_mechanical_preflight": {
+            "status": "fail",
+            "reason_code": "existing_imputation_contract_failed",
+            "reason": "Imputation requires LOW missingness (0–5%); observed very_high."
+          }
+        },
+        "first_raw_qwen_response": null,
+        "first_validation": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "accepted_immediately": false,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-807a4a574212",
+          "source_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "target_columns": [
+            "error_code"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "RuntimeError: Failed to communicate with Ollama: timed out",
+            "null_detection": "pandas.isna",
+            "non_null_count": 2321
+          },
+          "semantic_basis": {
+            "error_code": {
+              "column_name": "error_code",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "not_applicable",
+              "concept_description": "Error code encountered by the sensor",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'error_code' suggests that the values represent different error codes encountered by the sensor, which are reusable categories or labels."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      }
+    ],
+    "summary": {
+      "total_decisions": 1,
+      "by_decision_type": {
+        "insufficient_evidence": 1
+      },
+      "by_proposed_action": {
+        "no_op": 1
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 0,
+      "fallback_decisions": 1,
+      "deterministic_runtime_seconds": 9e-06,
+      "tier2_issue_count": 1,
+      "tier2_batch_sizes": [
+        1
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 1,
+      "llm_runtime_seconds": 124.068765,
+      "intended_llm_decision_calls": 1,
+      "retries": 0,
+      "successful_batches": 0,
+      "batch_failures": 1,
+      "fallback_issue_count": 1,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "accepted_on_first_response": [],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-807a4a574212"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "timeout",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-807a4a574212",
+                  "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-807a4a574212"
+              ]
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4075,
+          "api_wall_duration_seconds": 124.068765,
+          "error": "RuntimeError: Failed to communicate with Ollama: timed out",
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        }
+      ],
+      "total_runtime_seconds": 124.069092
+    },
+    "warnings": [
+      "Tier 2 decision failed for issue issue-missing_values-807a4a574212: RuntimeError: Failed to communicate with Ollama: timed out"
+    ]
+  },
+  {
+    "dataset_id": "dataset_05_education",
+    "repeat": 4,
+    "model": "qwen2.5:3b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-321458eb06b8"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "success",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-321458eb06b8",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-321458eb06b8"
+        ],
+        "coverage": {
+          "missing_issue_ids": [],
+          "duplicate_issue_ids": [],
+          "unexpected_issue_ids": []
+        },
+        "prompt_character_length": 4003,
+        "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-321458eb06b8\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"concept_description\", \"median_semantic_eligibility.status\", \"median_semantic_eligibility.reason_code\", \"median_mechanical_preflight.status\", \"median_mechanical_preflight.reason_code\"],\n      \"confidence\": 0.8,\n      \"rationale\": \"The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks also support this.\"\n    }\n  ]\n}",
+        "time_since_last_call_seconds": 0.09667670002090745,
+        "pre_call_memory": {
+          "memory_load_percent": 75,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 3.8307151794433594,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.858715057373047
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:09:25.641716+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_result": {
+          "decisions": [
+            {
+              "issue_id": "issue-missing_values-321458eb06b8",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "concept_description",
+                "median_semantic_eligibility.status",
+                "median_semantic_eligibility.reason_code",
+                "median_mechanical_preflight.status",
+                "median_mechanical_preflight.reason_code"
+              ],
+              "confidence": 0.8,
+              "rationale": "The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks also support this."
+            }
+          ]
+        },
+        "ollama_telemetry": {
+          "model": "qwen2.5:3b",
+          "created_at": "2026-09-07T08:34:44.2343952Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 14436587400,
+          "load_duration": 2632400,
+          "prompt_eval_count": 830,
+          "prompt_eval_duration": 2775583000,
+          "eval_count": 178,
+          "eval_duration": 11621673000
+        }
+      }
+    ],
+    "cases": [
+      {
+        "column": "attendance_percent",
+        "expected": "action/impute_missing/median",
+        "readiness": {
+          "missing_count": 2,
+          "missing_percentage": 0.03333333333333333,
+          "missingness_band": "low",
+          "observed_count": 5998,
+          "physical_dtype": "float64",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "semantic_confidence": 0.8,
+          "concept_description": "Percentage of attendance for the student.",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "true",
+            "reason_code": "confirmed_quantitative_magnitude"
+          },
+          "median_mechanical_preflight": {
+            "status": "pass",
+            "reason_code": "existing_imputation_contract_passed"
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-321458eb06b8\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"concept_description\", \"median_semantic_eligibility.status\", \"median_semantic_eligibility.reason_code\", \"median_mechanical_preflight.status\", \"median_mechanical_preflight.reason_code\"],\n      \"confidence\": 0.8,\n      \"rationale\": \"The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks also support this.\"\n    }\n  ]\n}",
+        "first_validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+        "accepted_immediately": false,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-321458eb06b8",
+          "source_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "target_columns": [
+            "attendance_percent"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+            "null_detection": "pandas.isna",
+            "non_null_count": 5998
+          },
+          "semantic_basis": {
+            "attendance_percent": {
+              "column_name": "attendance_percent",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Percentage of attendance for the student.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'attendance_percent' and the sample values are numeric, indicating a measurement nature."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      }
+    ],
+    "summary": {
+      "total_decisions": 1,
+      "by_decision_type": {
+        "insufficient_evidence": 1
+      },
+      "by_proposed_action": {
+        "no_op": 1
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 0,
+      "fallback_decisions": 1,
+      "deterministic_runtime_seconds": 5.4e-05,
+      "tier2_issue_count": 1,
+      "tier2_batch_sizes": [
+        1
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 1,
+      "llm_runtime_seconds": 18.523976,
+      "intended_llm_decision_calls": 1,
+      "retries": 0,
+      "successful_batches": 0,
+      "batch_failures": 1,
+      "fallback_issue_count": 1,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "accepted_on_first_response": [],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-321458eb06b8"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "success",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-321458eb06b8",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-321458eb06b8"
+              ],
+              "coverage": {
+                "missing_issue_ids": [],
+                "duplicate_issue_ids": [],
+                "unexpected_issue_ids": []
+              }
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4003,
+          "api_wall_duration_seconds": 18.523976,
+          "prompt_eval_count": 830,
+          "prompt_eval_duration": 2775583000,
+          "eval_count": 178,
+          "eval_duration": 11621673000,
+          "total_duration": 14436587400,
+          "load_duration": 2632400,
+          "done_reason": "stop"
+        }
+      ],
+      "total_runtime_seconds": 18.534432
+    },
+    "warnings": [
+      "Tier 2 decision failed for issue issue-missing_values-321458eb06b8: ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+    ]
+  },
+  {
+    "dataset_id": "dataset_07_iot_sensor",
+    "repeat": 4,
+    "model": "qwen2.5:3b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-807a4a574212"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "timeout",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-807a4a574212",
+            "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-807a4a574212"
+        ],
+        "prompt_character_length": 4075,
+        "raw_qwen_response": null,
+        "time_since_last_call_seconds": 0.10241799999494106,
+        "pre_call_memory": {
+          "memory_load_percent": 75,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 3.8067169189453125,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.8256568908691406
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:09:44.2390667+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_error": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "ollama_telemetry": {}
+      }
+    ],
+    "cases": [
+      {
+        "column": "error_code",
+        "expected": "flag_for_review/flag_rows",
+        "readiness": {
+          "missing_count": 27679,
+          "missing_percentage": 92.26333333333334,
+          "missingness_band": "very_high",
+          "observed_count": 2321,
+          "physical_dtype": "str",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "numeric_meaning": "not_applicable",
+          "semantic_confidence": 0.8,
+          "concept_description": "Error code encountered by the sensor",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "false",
+            "reason_code": "numeric_meaning_not_applicable"
+          },
+          "median_mechanical_preflight": {
+            "status": "fail",
+            "reason_code": "existing_imputation_contract_failed",
+            "reason": "Imputation requires LOW missingness (0–5%); observed very_high."
+          }
+        },
+        "first_raw_qwen_response": null,
+        "first_validation": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "accepted_immediately": false,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-807a4a574212",
+          "source_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "target_columns": [
+            "error_code"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "RuntimeError: Failed to communicate with Ollama: timed out",
+            "null_detection": "pandas.isna",
+            "non_null_count": 2321
+          },
+          "semantic_basis": {
+            "error_code": {
+              "column_name": "error_code",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "not_applicable",
+              "concept_description": "Error code encountered by the sensor",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'error_code' suggests that the values represent different error codes encountered by the sensor, which are reusable categories or labels."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      }
+    ],
+    "summary": {
+      "total_decisions": 1,
+      "by_decision_type": {
+        "insufficient_evidence": 1
+      },
+      "by_proposed_action": {
+        "no_op": 1
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 0,
+      "fallback_decisions": 1,
+      "deterministic_runtime_seconds": 1.4e-05,
+      "tier2_issue_count": 1,
+      "tier2_batch_sizes": [
+        1
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 1,
+      "llm_runtime_seconds": 124.069514,
+      "intended_llm_decision_calls": 1,
+      "retries": 0,
+      "successful_batches": 0,
+      "batch_failures": 1,
+      "fallback_issue_count": 1,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "accepted_on_first_response": [],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-807a4a574212"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "timeout",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-807a4a574212",
+                  "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-807a4a574212"
+              ]
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4075,
+          "api_wall_duration_seconds": 124.069514,
+          "error": "RuntimeError: Failed to communicate with Ollama: timed out",
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        }
+      ],
+      "total_runtime_seconds": 124.069738
+    },
+    "warnings": [
+      "Tier 2 decision failed for issue issue-missing_values-807a4a574212: RuntimeError: Failed to communicate with Ollama: timed out"
+    ]
+  },
+  {
+    "dataset_id": "dataset_05_education",
+    "repeat": 5,
+    "model": "qwen2.5:3b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-321458eb06b8"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "success",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-321458eb06b8",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-321458eb06b8"
+        ],
+        "coverage": {
+          "missing_issue_ids": [],
+          "duplicate_issue_ids": [],
+          "unexpected_issue_ids": []
+        },
+        "prompt_character_length": 4003,
+        "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-321458eb06b8\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"concept_description\", \"median_semantic_eligibility.status\", \"median_semantic_eligibility.reason_code\", \"median_mechanical_preflight.status\", \"median_mechanical_preflight.reason_code\"],\n      \"confidence\": 0.8,\n      \"rationale\": \"The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks also support this.\"\n    }\n  ]\n}",
+        "time_since_last_call_seconds": 0.0717300999967847,
+        "pre_call_memory": {
+          "memory_load_percent": 78,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 3.2485504150390625,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.4868125915527344
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:11:48.4069113+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_result": {
+          "decisions": [
+            {
+              "issue_id": "issue-missing_values-321458eb06b8",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "concept_description",
+                "median_semantic_eligibility.status",
+                "median_semantic_eligibility.reason_code",
+                "median_mechanical_preflight.status",
+                "median_mechanical_preflight.reason_code"
+              ],
+              "confidence": 0.8,
+              "rationale": "The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks also support this."
+            }
+          ]
+        },
+        "ollama_telemetry": {
+          "model": "qwen2.5:3b",
+          "created_at": "2026-09-07T08:37:07.1123168Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 14544000800,
+          "load_duration": 8569500,
+          "prompt_eval_count": 830,
+          "prompt_eval_duration": 2815247000,
+          "eval_count": 178,
+          "eval_duration": 11706927000
+        }
+      }
+    ],
+    "cases": [
+      {
+        "column": "attendance_percent",
+        "expected": "action/impute_missing/median",
+        "readiness": {
+          "missing_count": 2,
+          "missing_percentage": 0.03333333333333333,
+          "missingness_band": "low",
+          "observed_count": 5998,
+          "physical_dtype": "float64",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "semantic_confidence": 0.8,
+          "concept_description": "Percentage of attendance for the student.",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "true",
+            "reason_code": "confirmed_quantitative_magnitude"
+          },
+          "median_mechanical_preflight": {
+            "status": "pass",
+            "reason_code": "existing_imputation_contract_passed"
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-321458eb06b8\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"concept_description\", \"median_semantic_eligibility.status\", \"median_semantic_eligibility.reason_code\", \"median_mechanical_preflight.status\", \"median_mechanical_preflight.reason_code\"],\n      \"confidence\": 0.8,\n      \"rationale\": \"The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks also support this.\"\n    }\n  ]\n}",
+        "first_validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+        "accepted_immediately": false,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-321458eb06b8",
+          "source_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "target_columns": [
+            "attendance_percent"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+            "null_detection": "pandas.isna",
+            "non_null_count": 5998
+          },
+          "semantic_basis": {
+            "attendance_percent": {
+              "column_name": "attendance_percent",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Percentage of attendance for the student.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'attendance_percent' and the sample values are numeric, indicating a measurement nature."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      }
+    ],
+    "summary": {
+      "total_decisions": 1,
+      "by_decision_type": {
+        "insufficient_evidence": 1
+      },
+      "by_proposed_action": {
+        "no_op": 1
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 0,
+      "fallback_decisions": 1,
+      "deterministic_runtime_seconds": 5.8e-05,
+      "tier2_issue_count": 1,
+      "tier2_batch_sizes": [
+        1
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 1,
+      "llm_runtime_seconds": 18.652861,
+      "intended_llm_decision_calls": 1,
+      "retries": 0,
+      "successful_batches": 0,
+      "batch_failures": 1,
+      "fallback_issue_count": 1,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "accepted_on_first_response": [],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-321458eb06b8"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "success",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-321458eb06b8",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-321458eb06b8"
+              ],
+              "coverage": {
+                "missing_issue_ids": [],
+                "duplicate_issue_ids": [],
+                "unexpected_issue_ids": []
+              }
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4003,
+          "api_wall_duration_seconds": 18.652861,
+          "prompt_eval_count": 830,
+          "prompt_eval_duration": 2815247000,
+          "eval_count": 178,
+          "eval_duration": 11706927000,
+          "total_duration": 14544000800,
+          "load_duration": 8569500,
+          "done_reason": "stop"
+        }
+      ],
+      "total_runtime_seconds": 18.660687
+    },
+    "warnings": [
+      "Tier 2 decision failed for issue issue-missing_values-321458eb06b8: ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+    ]
+  },
+  {
+    "dataset_id": "dataset_07_iot_sensor",
+    "repeat": 5,
+    "model": "qwen2.5:3b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-807a4a574212"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "timeout",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-807a4a574212",
+            "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-807a4a574212"
+        ],
+        "prompt_character_length": 4075,
+        "raw_qwen_response": null,
+        "time_since_last_call_seconds": 0.10064940000302158,
+        "pre_call_memory": {
+          "memory_load_percent": 77,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 3.5414390563964844,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.740039825439453
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:12:07.116455+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_error": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "ollama_telemetry": {}
+      }
+    ],
+    "cases": [
+      {
+        "column": "error_code",
+        "expected": "flag_for_review/flag_rows",
+        "readiness": {
+          "missing_count": 27679,
+          "missing_percentage": 92.26333333333334,
+          "missingness_band": "very_high",
+          "observed_count": 2321,
+          "physical_dtype": "str",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "numeric_meaning": "not_applicable",
+          "semantic_confidence": 0.8,
+          "concept_description": "Error code encountered by the sensor",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "false",
+            "reason_code": "numeric_meaning_not_applicable"
+          },
+          "median_mechanical_preflight": {
+            "status": "fail",
+            "reason_code": "existing_imputation_contract_failed",
+            "reason": "Imputation requires LOW missingness (0–5%); observed very_high."
+          }
+        },
+        "first_raw_qwen_response": null,
+        "first_validation": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "accepted_immediately": false,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-807a4a574212",
+          "source_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "target_columns": [
+            "error_code"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "RuntimeError: Failed to communicate with Ollama: timed out",
+            "null_detection": "pandas.isna",
+            "non_null_count": 2321
+          },
+          "semantic_basis": {
+            "error_code": {
+              "column_name": "error_code",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "not_applicable",
+              "concept_description": "Error code encountered by the sensor",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'error_code' suggests that the values represent different error codes encountered by the sensor, which are reusable categories or labels."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      }
+    ],
+    "summary": {
+      "total_decisions": 1,
+      "by_decision_type": {
+        "insufficient_evidence": 1
+      },
+      "by_proposed_action": {
+        "no_op": 1
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 0,
+      "fallback_decisions": 1,
+      "deterministic_runtime_seconds": 1.3e-05,
+      "tier2_issue_count": 1,
+      "tier2_batch_sizes": [
+        1
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 1,
+      "llm_runtime_seconds": 124.092095,
+      "intended_llm_decision_calls": 1,
+      "retries": 0,
+      "successful_batches": 0,
+      "batch_failures": 1,
+      "fallback_issue_count": 1,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "accepted_on_first_response": [],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-807a4a574212"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "timeout",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-807a4a574212",
+                  "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-807a4a574212"
+              ]
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4075,
+          "api_wall_duration_seconds": 124.092095,
+          "error": "RuntimeError: Failed to communicate with Ollama: timed out",
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        }
+      ],
+      "total_runtime_seconds": 124.092492
+    },
+    "warnings": [
+      "Tier 2 decision failed for issue issue-missing_values-807a4a574212: RuntimeError: Failed to communicate with Ollama: timed out"
+    ]
+  }
+]

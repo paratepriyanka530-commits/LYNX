@@ -1,0 +1,25 @@
+{
+  "dataset": "dataset_10_ecommerce_raw.csv",
+  "dataset_id": "dataset_10_ecommerce",
+  "status": "success",
+  "run_id": "20260906T124747-37b23be1",
+  "runtime_seconds": 829.532,
+  "rows": null,
+  "columns": null,
+  "issues": 45,
+  "decisions": 45,
+  "executions": 4,
+  "successful_executions": 4,
+  "execution_counts": {
+    "trim_whitespace": 4
+  },
+  "cells_changed": 59,
+  "validation_passed": true,
+  "raw_dataset_overwritten": false,
+  "warnings_count": 3,
+  "warnings": [
+    "Semantic batch 2 failed after retry; unknown fallback used for ['discount_percent', 'tax_amount_inr', 'shipping_fee_inr', 'line_total_inr', 'payment_method', 'payment_status', 'order_status', 'warehouse_id', 'shipping_city', 'promised_delivery_date', 'actual_delivery_date', 'return_status']: RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)",
+    "Tier 2 decision batch failed after retry: ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+    "Tier 2 decision batch failed after retry: ValueError: Tier 2 decision output does not exactly cover input issue IDs."
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "experiment": "LYNX Pipeline 1 Multi-Domain Evaluation",
+  "pipeline_version": "pipeline1_architecture_b_v001",
+  "datasets_attempted": 13,
+  "datasets_successful": 13,
+  "datasets_failed": 0,
+  "total_rows_processed": 189200,
+  "total_columns_processed": 294,
+  "total_issues_detected": 454,
+  "total_decisions": 454,
+  "total_actions_executed": 38,
+  "total_cells_changed": 546,
+  "issues_by_type": {
+    "exact_duplicate_rows": 13,
+    "inconsistent_date_format_candidate": 20,
+    "missing_values": 189,
+    "whitespace_issue": 38,
+    "case_variant_candidate": 73,
+    "rare_category_observation": 112,
+    "statistical_outlier_candidate": 9
+  },
+  "decisions_by_type": {
+    "flag_for_review": 78,
+    "no_action": 219,
+    "action": 38,
+    "insufficient_evidence": 119
+  },
+  "proposed_actions": {
+    "flag_rows": 78,
+    "no_op": 338,
+    "trim_whitespace": 38
+  },
+  "executions_by_action": {
+    "trim_whitespace": 38
+  },
+  "validation_passed": 13,
+  "validation_failed": 0,
+  "raw_files_preserved": 13,
+  "total_runtime_seconds": 7554.615,
+  "total_runtime_minutes": 125.91
+}

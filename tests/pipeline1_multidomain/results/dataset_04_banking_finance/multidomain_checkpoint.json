@@ -1,0 +1,21 @@
+{
+  "dataset": "dataset_04_banking_finance_raw.csv",
+  "dataset_id": "dataset_04_banking_finance",
+  "status": "success",
+  "run_id": "20260906T114146-c55fa42d",
+  "runtime_seconds": 400.603,
+  "rows": null,
+  "columns": null,
+  "issues": 35,
+  "decisions": 35,
+  "executions": 5,
+  "successful_executions": 5,
+  "execution_counts": {
+    "trim_whitespace": 5
+  },
+  "cells_changed": 50,
+  "validation_passed": true,
+  "raw_dataset_overwritten": false,
+  "warnings_count": 0,
+  "warnings": []
+}

@@ -1,0 +1,24 @@
+{
+  "dataset": "dataset_08_manufacturing_raw.csv",
+  "dataset_id": "dataset_08_manufacturing",
+  "status": "success",
+  "run_id": "20260906T122126-4305d16d",
+  "runtime_seconds": 691.243,
+  "rows": null,
+  "columns": null,
+  "issues": 28,
+  "decisions": 28,
+  "executions": 1,
+  "successful_executions": 1,
+  "execution_counts": {
+    "trim_whitespace": 1
+  },
+  "cells_changed": 14,
+  "validation_passed": true,
+  "raw_dataset_overwritten": false,
+  "warnings_count": 2,
+  "warnings": [
+    "Semantic batch 1 failed after retry; unknown fallback used for ['batch_id', 'production_start', 'production_end', 'plant_name', 'line_id', 'machine_id', 'product_id', 'product_name', 'shift', 'operator_id', 'material_lot_id', 'planned_quantity']: RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)",
+    "Tier 2 decision batch failed after retry: ValueError: Tier 2 decision output does not exactly cover input issue IDs."
+  ]
+}

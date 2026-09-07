@@ -1,0 +1,3230 @@
+{
+  "pipeline_version": "pipeline1_architecture_b_v001",
+  "run_id": "20260906T122126-4305d16d",
+  "status": "success",
+  "original_dataset": {
+    "valid": true,
+    "file_name": "dataset_08_manufacturing_raw.csv",
+    "file_format": ".csv",
+    "file_size_bytes": 2742355,
+    "rows": 15000,
+    "columns": 23,
+    "duplicate_columns": [],
+    "absolute_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_08_manufacturing_raw.csv",
+    "source_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_08_manufacturing_raw.csv",
+    "raw_dataset_overwritten": false
+  },
+  "before_profile": {
+    "shape": {
+      "rows": 15000,
+      "columns": 23
+    },
+    "column_names": [
+      "batch_id",
+      "production_start",
+      "production_end",
+      "plant_name",
+      "line_id",
+      "machine_id",
+      "product_id",
+      "product_name",
+      "shift",
+      "operator_id",
+      "material_lot_id",
+      "planned_quantity",
+      "actual_quantity",
+      "good_quantity",
+      "defect_quantity",
+      "cycle_time_seconds",
+      "downtime_minutes",
+      "downtime_reason",
+      "energy_consumption_kwh",
+      "ambient_temperature_c",
+      "humidity_percent",
+      "maintenance_status",
+      "inspection_result"
+    ],
+    "dtype_distribution": {
+      "str": 19,
+      "float64": 3,
+      "int64": 1
+    },
+    "missingness": {
+      "total_missing_cells": 11154,
+      "overall_missing_percentage": 3.233
+    },
+    "duplicates": {
+      "exact_duplicate_rows": 22,
+      "percentage": 0.1467
+    },
+    "column_profiles": [
+      {
+        "column_name": "batch_id",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 14970,
+        "missing": {
+          "count": 30,
+          "percentage": 0.2
+        },
+        "uniqueness": {
+          "unique_count": 14930,
+          "unique_ratio": 0.997328
+        },
+        "repetition": {
+          "repeated_unique_count": 40,
+          "repeated_occurrences": 80,
+          "repetition_rate": 0.005344
+        },
+        "sample_values": [
+          "BATCH0011410",
+          "BATCH0000235",
+          "BATCH0000336",
+          "BATCH0011985",
+          "BATCH0003098"
+        ]
+      },
+      {
+        "column_name": "production_start",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 14991,
+        "missing": {
+          "count": 9,
+          "percentage": 0.06
+        },
+        "uniqueness": {
+          "unique_count": 14655,
+          "unique_ratio": 0.977587
+        },
+        "repetition": {
+          "repeated_unique_count": 313,
+          "repeated_occurrences": 649,
+          "repetition_rate": 0.043293
+        },
+        "sample_values": [
+          "2026-02-27 07:06:00",
+          "2026-07-04 17:11:00",
+          "2026-05-12 03:07:00",
+          "2026-04-19 19:03:00",
+          "2026-03-31 16:44:00"
+        ]
+      },
+      {
+        "column_name": "production_end",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 15000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 14675,
+          "unique_ratio": 0.978333
+        },
+        "repetition": {
+          "repeated_unique_count": 320,
+          "repeated_occurrences": 645,
+          "repetition_rate": 0.043
+        },
+        "sample_values": [
+          "2026-02-27 12:23:00",
+          "2026-07-05 01:51:00",
+          "2026-05-12 04:59:00",
+          "2026-04-20 00:06:00",
+          "2026-03-31 22:55:00"
+        ]
+      },
+      {
+        "column_name": "plant_name",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 15000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 10,
+          "unique_ratio": 0.000667
+        },
+        "repetition": {
+          "repeated_unique_count": 10,
+          "repeated_occurrences": 15000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Nashik Plant",
+          "Aurangabad Plant",
+          "Pune Plant",
+          "aurangabad plant",
+          "nashik plant"
+        ]
+      },
+      {
+        "column_name": "line_id",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 14983,
+        "missing": {
+          "count": 17,
+          "percentage": 0.1133
+        },
+        "uniqueness": {
+          "unique_count": 18,
+          "unique_ratio": 0.001201
+        },
+        "repetition": {
+          "repeated_unique_count": 16,
+          "repeated_occurrences": 14981,
+          "repetition_rate": 0.999867
+        },
+        "sample_values": [
+          "LINE-01",
+          "LINE-03",
+          "LINE-04",
+          "LINE-05",
+          "LINE-06"
+        ]
+      },
+      {
+        "column_name": "machine_id",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 14990,
+        "missing": {
+          "count": 10,
+          "percentage": 0.0667
+        },
+        "uniqueness": {
+          "unique_count": 190,
+          "unique_ratio": 0.012675
+        },
+        "repetition": {
+          "repeated_unique_count": 182,
+          "repeated_occurrences": 14982,
+          "repetition_rate": 0.999466
+        },
+        "sample_values": [
+          "NA-M052",
+          "NA-M022",
+          "AU-M057",
+          "NA-M044",
+          "AU-M054"
+        ]
+      },
+      {
+        "column_name": "product_id",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 14986,
+        "missing": {
+          "count": 14,
+          "percentage": 0.0933
+        },
+        "uniqueness": {
+          "unique_count": 11,
+          "unique_ratio": 0.000734
+        },
+        "repetition": {
+          "repeated_unique_count": 10,
+          "repeated_occurrences": 14985,
+          "repetition_rate": 0.999933
+        },
+        "sample_values": [
+          "PRD-103",
+          "PRD-101",
+          "PRD-105",
+          "PRD-102",
+          "PRD-104"
+        ]
+      },
+      {
+        "column_name": "product_name",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 15000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 5,
+          "unique_ratio": 0.000333
+        },
+        "repetition": {
+          "repeated_unique_count": 5,
+          "repeated_occurrences": 15000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Pump Casing",
+          "Gear Housing",
+          "Valve Body",
+          "Brake Disc",
+          "Motor Shaft"
+        ]
+      },
+      {
+        "column_name": "shift",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 14990,
+        "missing": {
+          "count": 10,
+          "percentage": 0.0667
+        },
+        "uniqueness": {
+          "unique_count": 6,
+          "unique_ratio": 0.0004
+        },
+        "repetition": {
+          "repeated_unique_count": 6,
+          "repeated_occurrences": 14990,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "A",
+          "C",
+          "B",
+          "night",
+          "Shift-A"
+        ]
+      },
+      {
+        "column_name": "operator_id",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 14990,
+        "missing": {
+          "count": 10,
+          "percentage": 0.0667
+        },
+        "uniqueness": {
+          "unique_count": 514,
+          "unique_ratio": 0.03429
+        },
+        "repetition": {
+          "repeated_unique_count": 501,
+          "repeated_occurrences": 14977,
+          "repetition_rate": 0.999133
+        },
+        "sample_values": [
+          "OP00111",
+          "OP00045",
+          "OP00334",
+          "OP00137",
+          "OP00128"
+        ]
+      },
+      {
+        "column_name": "material_lot_id",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 14993,
+        "missing": {
+          "count": 7,
+          "percentage": 0.0467
+        },
+        "uniqueness": {
+          "unique_count": 2985,
+          "unique_ratio": 0.199093
+        },
+        "repetition": {
+          "repeated_unique_count": 2891,
+          "repeated_occurrences": 14899,
+          "repetition_rate": 0.99373
+        },
+        "sample_values": [
+          "LOT002620",
+          "LOT001024",
+          "LOT000456",
+          "LOT001206",
+          "LOT001329"
+        ]
+      },
+      {
+        "column_name": "planned_quantity",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 15000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 1104,
+          "unique_ratio": 0.0736
+        },
+        "repetition": {
+          "repeated_unique_count": 1104,
+          "repeated_occurrences": 15000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "177",
+          "808",
+          "354",
+          "787",
+          "775"
+        ]
+      },
+      {
+        "column_name": "actual_quantity",
+        "physical_dtype": "float64",
+        "row_count": 15000,
+        "non_null_count": 14986,
+        "missing": {
+          "count": 14,
+          "percentage": 0.0933
+        },
+        "uniqueness": {
+          "unique_count": 1105,
+          "unique_ratio": 0.073735
+        },
+        "repetition": {
+          "repeated_unique_count": 1092,
+          "repeated_occurrences": 14973,
+          "repetition_rate": 0.999133
+        },
+        "sample_values": [
+          174.0,
+          773.0,
+          322.0,
+          703.0,
+          766.0
+        ],
+        "numeric_statistics": {
+          "min": -5.0,
+          "max": 1693.0,
+          "mean": 611.8901641532096,
+          "median": 611.0,
+          "std": 299.36351937192313,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "good_quantity",
+        "physical_dtype": "int64",
+        "row_count": 15000,
+        "non_null_count": 15000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 1079,
+          "unique_ratio": 0.071933
+        },
+        "repetition": {
+          "repeated_unique_count": 1061,
+          "repeated_occurrences": 14982,
+          "repetition_rate": 0.9988
+        },
+        "sample_values": [
+          170,
+          744,
+          317,
+          670,
+          746
+        ],
+        "numeric_statistics": {
+          "min": 87,
+          "max": 1184,
+          "mean": 594.5429333333333,
+          "median": 593.0,
+          "std": 289.7374998361729,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "defect_quantity",
+        "physical_dtype": "float64",
+        "row_count": 15000,
+        "non_null_count": 14986,
+        "missing": {
+          "count": 14,
+          "percentage": 0.0933
+        },
+        "uniqueness": {
+          "unique_count": 82,
+          "unique_ratio": 0.005472
+        },
+        "repetition": {
+          "repeated_unique_count": 70,
+          "repeated_occurrences": 14974,
+          "repetition_rate": 0.999199
+        },
+        "sample_values": [
+          4.0,
+          29.0,
+          5.0,
+          33.0,
+          20.0
+        ],
+        "numeric_statistics": {
+          "min": -1.0,
+          "max": 1046.0,
+          "mean": 18.263646069665022,
+          "median": 14.0,
+          "std": 24.044668883704286,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "cycle_time_seconds",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 14983,
+        "missing": {
+          "count": 17,
+          "percentage": 0.1133
+        },
+        "uniqueness": {
+          "unique_count": 4306,
+          "unique_ratio": 0.287392
+        },
+        "repetition": {
+          "repeated_unique_count": 3242,
+          "repeated_occurrences": 13919,
+          "repetition_rate": 0.928986
+        },
+        "sample_values": [
+          "47.35",
+          "40.38",
+          "20.97",
+          "25.91",
+          "29.08"
+        ]
+      },
+      {
+        "column_name": "downtime_minutes",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 15000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 180,
+          "unique_ratio": 0.012
+        },
+        "repetition": {
+          "repeated_unique_count": 180,
+          "repeated_occurrences": 15000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "180",
+          "0",
+          "62",
+          "47",
+          "179"
+        ]
+      },
+      {
+        "column_name": "downtime_reason",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 4032,
+        "missing": {
+          "count": 10968,
+          "percentage": 73.12
+        },
+        "uniqueness": {
+          "unique_count": 6,
+          "unique_ratio": 0.001488
+        },
+        "repetition": {
+          "repeated_unique_count": 6,
+          "repeated_occurrences": 4032,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Quality Hold",
+          "Planned Cleaning",
+          "Power Failure",
+          "Machine Breakdown",
+          "Material Shortage"
+        ]
+      },
+      {
+        "column_name": "energy_consumption_kwh",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 14987,
+        "missing": {
+          "count": 13,
+          "percentage": 0.0867
+        },
+        "uniqueness": {
+          "unique_count": 13328,
+          "unique_ratio": 0.889304
+        },
+        "repetition": {
+          "repeated_unique_count": 1480,
+          "repeated_occurrences": 3139,
+          "repetition_rate": 0.209448
+        },
+        "sample_values": [
+          "110.11",
+          "503.08",
+          "108.69",
+          "529.77",
+          "543.97"
+        ]
+      },
+      {
+        "column_name": "ambient_temperature_c",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 15000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 134,
+          "unique_ratio": 0.008933
+        },
+        "repetition": {
+          "repeated_unique_count": 134,
+          "repeated_occurrences": 15000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "20.4",
+          "31.5",
+          "27.6",
+          "25.1",
+          "30.2"
+        ]
+      },
+      {
+        "column_name": "humidity_percent",
+        "physical_dtype": "float64",
+        "row_count": 15000,
+        "non_null_count": 14992,
+        "missing": {
+          "count": 8,
+          "percentage": 0.0533
+        },
+        "uniqueness": {
+          "unique_count": 403,
+          "unique_ratio": 0.026881
+        },
+        "repetition": {
+          "repeated_unique_count": 403,
+          "repeated_occurrences": 14992,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          44.4,
+          66.9,
+          36.5,
+          68.1,
+          53.2
+        ],
+        "numeric_statistics": {
+          "min": -5.0,
+          "max": 120.0,
+          "mean": 54.846618196371395,
+          "median": 55.0,
+          "std": 11.659215480449022,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "maintenance_status",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 14987,
+        "missing": {
+          "count": 13,
+          "percentage": 0.0867
+        },
+        "uniqueness": {
+          "unique_count": 6,
+          "unique_ratio": 0.0004
+        },
+        "repetition": {
+          "repeated_unique_count": 6,
+          "repeated_occurrences": 14987,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Overdue",
+          "OK",
+          "Normal",
+          "Due Soon",
+          "Past Due"
+        ]
+      },
+      {
+        "column_name": "inspection_result",
+        "physical_dtype": "str",
+        "row_count": 15000,
+        "non_null_count": 15000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 3,
+          "unique_ratio": 0.0002
+        },
+        "repetition": {
+          "repeated_unique_count": 3,
+          "repeated_occurrences": 15000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Pass",
+          "Conditional Pass",
+          "Fail"
+        ]
+      }
+    ]
+  },
+  "issues": [
+    {
+      "issue_id": "issue-exact_duplicate_rows-192ec5f83876",
+      "issue_type": "exact_duplicate_rows",
+      "target_columns": [],
+      "affected_count": 22,
+      "affected_percentage": 0.1467,
+      "evidence": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "examples": [
+        4355,
+        4626,
+        4758,
+        5722,
+        6130
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-f56cbd4b1c29",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "batch_id"
+      ],
+      "affected_count": 30,
+      "affected_percentage": 0.2,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14970
+      },
+      "examples": [
+        774,
+        837,
+        1439,
+        2934,
+        3736
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-448023ec38fd",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "production_start"
+      ],
+      "affected_count": 9,
+      "affected_percentage": 0.06,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14991
+      },
+      "examples": [
+        82,
+        1078,
+        2685,
+        3129,
+        5349
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-inconsistent_date_format_candidate-01dda9251d34",
+      "issue_type": "inconsistent_date_format_candidate",
+      "target_columns": [
+        "production_start"
+      ],
+      "affected_count": 14649,
+      "affected_percentage": 97.7186,
+      "evidence": {
+        "recognized_formats": [
+          "ISO-datetime",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 0.977186,
+        "method": "strict_shape_recognition"
+      },
+      "examples": [
+        "2026-02-27 07:06:00",
+        "2026-07-04 17:11:00",
+        "2026-05-12 03:07:00",
+        "2026-04-19 19:03:00",
+        "2026-03-31 16:44:00"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-c1175c6bae85",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "plant_name"
+      ],
+      "affected_count": 14,
+      "affected_percentage": 0.0933,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 14,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "Pune Plant ",
+        "Pune Plant ",
+        "Aurangabad Plant ",
+        "Aurangabad Plant ",
+        "Aurangabad Plant "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-8a0d57cfa70a",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "plant_name"
+      ],
+      "affected_count": 14994,
+      "affected_percentage": 99.96,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "aurangabad plant": [
+            "Aurangabad Plant",
+            "Aurangabad Plant ",
+            "aurangabad plant"
+          ],
+          "nashik plant": [
+            "Nashik Plant",
+            "Nashik Plant ",
+            "nashik plant"
+          ],
+          "pune plant": [
+            "Pune Plant",
+            "Pune Plant ",
+            "pune plant"
+          ]
+        }
+      },
+      "examples": [
+        "Nashik Plant",
+        "Nashik Plant",
+        "Aurangabad Plant",
+        "Nashik Plant",
+        "Aurangabad Plant"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-dd26d60f068b",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "plant_name"
+      ],
+      "affected_count": 36,
+      "affected_percentage": 0.24,
+      "evidence": {
+        "maximum_frequency": 150,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 7
+      },
+      "examples": [
+        "aurangabad plant",
+        "nashik plant",
+        "Pune Plant ",
+        "aurangabad plant",
+        "pune plant"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-9123b3957410",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "line_id"
+      ],
+      "affected_count": 17,
+      "affected_percentage": 0.1133,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14983
+      },
+      "examples": [
+        972,
+        2148,
+        2170,
+        2640,
+        4628
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-4b2654022f58",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "line_id"
+      ],
+      "affected_count": 14965,
+      "affected_percentage": 99.8799,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "line-01": [
+            "LINE-01",
+            "line-01"
+          ],
+          "line-02": [
+            "LINE-02",
+            "line-02"
+          ],
+          "line-03": [
+            "LINE-03",
+            "line-03"
+          ],
+          "line-04": [
+            "LINE-04",
+            "line-04"
+          ],
+          "line-05": [
+            "LINE-05",
+            "line-05"
+          ],
+          "line-06": [
+            "LINE-06",
+            "line-06"
+          ]
+        }
+      },
+      "examples": [
+        "LINE-01",
+        "LINE-03",
+        "LINE-03",
+        "LINE-04",
+        "LINE-05"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-ff233e15e67f",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "line_id"
+      ],
+      "affected_count": 38,
+      "affected_percentage": 0.2536,
+      "evidence": {
+        "maximum_frequency": 149,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 12
+      },
+      "examples": [
+        "LINE_01",
+        "line-02",
+        "LINE_04",
+        "LINE_04",
+        "line-03"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-2a13bf23da23",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "machine_id"
+      ],
+      "affected_count": 10,
+      "affected_percentage": 0.0667,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14990
+      },
+      "examples": [
+        337,
+        1524,
+        2783,
+        4089,
+        4826
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-c78bd47d9783",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "product_id"
+      ],
+      "affected_count": 14,
+      "affected_percentage": 0.0933,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14986
+      },
+      "examples": [
+        1516,
+        1969,
+        2710,
+        4906,
+        6602
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-bba903786a88",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "product_id"
+      ],
+      "affected_count": 14972,
+      "affected_percentage": 99.9066,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "prd-101": [
+            "PRD-101",
+            "prd-101"
+          ],
+          "prd-102": [
+            "PRD-102",
+            "prd-102"
+          ],
+          "prd-103": [
+            "PRD-103",
+            "prd-103"
+          ],
+          "prd-104": [
+            "PRD-104",
+            "prd-104"
+          ],
+          "prd-105": [
+            "PRD-105",
+            "prd-105"
+          ]
+        }
+      },
+      "examples": [
+        "PRD-103",
+        "PRD-101",
+        "PRD-105",
+        "PRD-102",
+        "PRD-105"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-02e3485ccf89",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "product_id"
+      ],
+      "affected_count": 30,
+      "affected_percentage": 0.2002,
+      "evidence": {
+        "maximum_frequency": 149,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 6
+      },
+      "examples": [
+        "prd-101",
+        "prd-101",
+        "prd-102",
+        "prd-103",
+        "PRD-999"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-67e43b7f1df3",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "shift"
+      ],
+      "affected_count": 10,
+      "affected_percentage": 0.0667,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14990
+      },
+      "examples": [
+        4466,
+        4949,
+        8212,
+        11423,
+        11656
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-9f40b1ffd8a2",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "shift"
+      ],
+      "affected_count": 37,
+      "affected_percentage": 0.2468,
+      "evidence": {
+        "maximum_frequency": 149,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "night",
+        "Shift-A",
+        "night",
+        "Shift-A",
+        "night"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-cb96b369e79e",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "operator_id"
+      ],
+      "affected_count": 10,
+      "affected_percentage": 0.0667,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14990
+      },
+      "examples": [
+        1159,
+        5770,
+        6843,
+        7035,
+        7234
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-562ee045d9d9",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "material_lot_id"
+      ],
+      "affected_count": 7,
+      "affected_percentage": 0.0467,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14993
+      },
+      "examples": [
+        739,
+        1666,
+        1921,
+        5313,
+        5657
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-77946834a5ac",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "actual_quantity"
+      ],
+      "affected_count": 14,
+      "affected_percentage": 0.0933,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14986
+      },
+      "examples": [
+        584,
+        2999,
+        4071,
+        5198,
+        5687
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-statistical_outlier_candidate-4827d73710a0",
+      "issue_type": "statistical_outlier_candidate",
+      "target_columns": [
+        "actual_quantity"
+      ],
+      "affected_count": 1,
+      "affected_percentage": 0.0067,
+      "evidence": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 354.0,
+        "q3": 872.0,
+        "lower_bound": -423.0,
+        "upper_bound": 1649.0
+      },
+      "examples": [
+        1693.0
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-45f43b8e28ce",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "defect_quantity"
+      ],
+      "affected_count": 14,
+      "affected_percentage": 0.0933,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14986
+      },
+      "examples": [
+        828,
+        1282,
+        1380,
+        5498,
+        7617
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-d8a0feeac98d",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "cycle_time_seconds"
+      ],
+      "affected_count": 17,
+      "affected_percentage": 0.1133,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14983
+      },
+      "examples": [
+        488,
+        1275,
+        1729,
+        2867,
+        3061
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-990e5e990e19",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "downtime_reason"
+      ],
+      "affected_count": 10968,
+      "affected_percentage": 73.12,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 4032
+      },
+      "examples": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-bc87defde45f",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "energy_consumption_kwh"
+      ],
+      "affected_count": 13,
+      "affected_percentage": 0.0867,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14987
+      },
+      "examples": [
+        1278,
+        2282,
+        3123,
+        6790,
+        7360
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-844f6de3e32e",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "humidity_percent"
+      ],
+      "affected_count": 8,
+      "affected_percentage": 0.0533,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14992
+      },
+      "examples": [
+        2449,
+        7556,
+        8016,
+        9908,
+        11835
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-cd23c1927485",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "maintenance_status"
+      ],
+      "affected_count": 13,
+      "affected_percentage": 0.0867,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14987
+      },
+      "examples": [
+        67,
+        117,
+        946,
+        1384,
+        2038
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-09b78a95f6b4",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "maintenance_status"
+      ],
+      "affected_count": 4975,
+      "affected_percentage": 33.1954,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "normal": [
+            "Normal",
+            "normal"
+          ]
+        }
+      },
+      "examples": [
+        "Normal",
+        "Normal",
+        "Normal",
+        "Normal",
+        "Normal"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-6e425bd16031",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "maintenance_status"
+      ],
+      "affected_count": 47,
+      "affected_percentage": 0.3136,
+      "evidence": {
+        "maximum_frequency": 149,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "OK",
+        "Past Due",
+        "normal",
+        "OK",
+        "normal"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    }
+  ],
+  "quality_summary": {
+    "total_issues_detected": 28,
+    "issues_by_type": {
+      "case_variant_candidate": 4,
+      "exact_duplicate_rows": 1,
+      "inconsistent_date_format_candidate": 1,
+      "missing_values": 15,
+      "rare_category_observation": 5,
+      "statistical_outlier_candidate": 1,
+      "whitespace_issue": 1
+    },
+    "issues_by_status": {
+      "candidate": 6,
+      "issue": 17,
+      "observation": 5
+    },
+    "affected_columns": [
+      "actual_quantity",
+      "batch_id",
+      "cycle_time_seconds",
+      "defect_quantity",
+      "downtime_reason",
+      "energy_consumption_kwh",
+      "humidity_percent",
+      "line_id",
+      "machine_id",
+      "maintenance_status",
+      "material_lot_id",
+      "operator_id",
+      "plant_name",
+      "product_id",
+      "production_start",
+      "shift"
+    ],
+    "dataset_level_issue_count": 1
+  },
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": "production run",
+      "row_entity_confidence": 0.9,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "batch_id",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "production_start",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "production_end",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "plant_name",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "line_id",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "machine_id",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "product_id",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "product_name",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "shift",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "operator_id",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "material_lot_id",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "planned_quantity",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "actual_quantity",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "The actual quantity produced in a production run",
+        "semantic_role": "unknown",
+        "confidence": 0.9,
+        "reasoning_summary": "The column name 'actual_quantity' and its numeric summary suggest it represents a measured quantity."
+      },
+      {
+        "column_name": "good_quantity",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "The quantity of good items produced in a production run",
+        "semantic_role": "unknown",
+        "confidence": 0.9,
+        "reasoning_summary": "The column name 'good_quantity' and its numeric summary suggest it represents a measured quantity."
+      },
+      {
+        "column_name": "defect_quantity",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "The quantity of defective items produced in a production run",
+        "semantic_role": "unknown",
+        "confidence": 0.9,
+        "reasoning_summary": "The column name 'defect_quantity' and its numeric summary suggest it represents a measured quantity."
+      },
+      {
+        "column_name": "cycle_time_seconds",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "The time taken for a cycle in seconds",
+        "semantic_role": "unknown",
+        "confidence": 0.9,
+        "reasoning_summary": "The column name 'cycle_time_seconds' and its string representation suggest it represents a time duration, but the physical dtype is 'str', indicating it might not be a standard numeric type."
+      },
+      {
+        "column_name": "downtime_minutes",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "The downtime in minutes",
+        "semantic_role": "unknown",
+        "confidence": 0.9,
+        "reasoning_summary": "The column name 'downtime_minutes' and its string representation suggest it represents a time duration, but the physical dtype is 'str', indicating it might not be a standard numeric type."
+      },
+      {
+        "column_name": "downtime_reason",
+        "semantic_type": "text",
+        "value_function": "descriptive_attribute",
+        "concept_description": "The reason for downtime during a production run",
+        "semantic_role": "unknown",
+        "confidence": 0.9,
+        "reasoning_summary": "The column name 'downtime_reason' and its string representation suggest it represents a descriptive text."
+      },
+      {
+        "column_name": "energy_consumption_kwh",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "The energy consumption in kilowatt-hours",
+        "semantic_role": "unknown",
+        "confidence": 0.9,
+        "reasoning_summary": "The column name 'energy_consumption_kwh' and its string representation suggest it represents a quantity, but the physical dtype is 'str', indicating it might not be a standard numeric type."
+      },
+      {
+        "column_name": "ambient_temperature_c",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "The ambient temperature in Celsius",
+        "semantic_role": "unknown",
+        "confidence": 0.9,
+        "reasoning_summary": "The column name 'ambient_temperature_c' and its string representation suggest it represents a quantity, but the physical dtype is 'str', indicating it might not be a standard numeric type."
+      },
+      {
+        "column_name": "humidity_percent",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "The humidity percentage",
+        "semantic_role": "unknown",
+        "confidence": 0.9,
+        "reasoning_summary": "The column name 'humidity_percent' and its numeric summary suggest it represents a measured quantity."
+      },
+      {
+        "column_name": "maintenance_status",
+        "semantic_type": "text",
+        "value_function": "descriptive_attribute",
+        "concept_description": "The status of maintenance during a production run",
+        "semantic_role": "unknown",
+        "confidence": 0.9,
+        "reasoning_summary": "The column name 'maintenance_status' and its string representation suggest it represents a descriptive text."
+      },
+      {
+        "column_name": "inspection_result",
+        "semantic_type": "text",
+        "value_function": "descriptive_attribute",
+        "concept_description": "The result of inspection during a production run",
+        "semantic_role": "unknown",
+        "confidence": 0.9,
+        "reasoning_summary": "The column name 'inspection_result' and its string representation suggest it represents a descriptive text."
+      }
+    ],
+    "warnings": [
+      "Semantic batch 1 failed after retry; unknown fallback used for ['batch_id', 'production_start', 'production_end', 'plant_name', 'line_id', 'machine_id', 'product_id', 'product_name', 'shift', 'operator_id', 'material_lot_id', 'planned_quantity']: RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)"
+    ],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 4,
+      "total_llm_calls": 5,
+      "batch_sizes": [
+        12,
+        11
+      ],
+      "dataset_semantic_runtime_seconds": 72.090761,
+      "batch_runtime_seconds": [
+        244.137449,
+        220.110875
+      ],
+      "rag_runtime_seconds": 0.27773,
+      "batch_failures": 1,
+      "batch_retries": 2,
+      "llm_calls": [
+        {
+          "stage": "dataset_context",
+          "api_wall_duration_seconds": 72.012126,
+          "prompt_eval_count": 2589,
+          "prompt_eval_duration": 67856621000,
+          "eval_count": 21,
+          "eval_duration": 2038230000,
+          "total_duration": 69949495200,
+          "load_duration": 8655100,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "error": "RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)",
+          "api_wall_duration_seconds": 122.064205,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 2,
+          "error": "RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)",
+          "api_wall_duration_seconds": 122.072982,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 2,
+          "attempt": 1,
+          "error": "RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)",
+          "api_wall_duration_seconds": 122.042682,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 2,
+          "attempt": 2,
+          "api_wall_duration_seconds": 98.068021,
+          "prompt_eval_count": 2154,
+          "prompt_eval_duration": 282290000,
+          "eval_count": 993,
+          "eval_duration": 95672095000,
+          "total_duration": 95997755100,
+          "load_duration": 6162500,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 536.539084
+    }
+  },
+  "decision_summary": {
+    "total_decisions": 28,
+    "by_decision_type": {
+      "flag_for_review": 2,
+      "insufficient_evidence": 14,
+      "action": 1,
+      "no_action": 11
+    },
+    "by_proposed_action": {
+      "flag_rows": 2,
+      "no_op": 25,
+      "trim_whitespace": 1
+    },
+    "tier1_decisions": 8,
+    "tier2_decisions": 6,
+    "fallback_decisions": 14,
+    "deterministic_runtime_seconds": 0.000751,
+    "tier2_issue_count": 10,
+    "tier2_batch_sizes": [
+      4,
+      4,
+      2
+    ],
+    "llm_decision_calls": 4,
+    "llm_runtime_seconds": 145.794749,
+    "intended_llm_decision_calls": 3,
+    "retries": 1,
+    "successful_batches": 2,
+    "batch_failures": 1,
+    "llm_calls": [
+      {
+        "batch_index": 1,
+        "attempt": 1,
+        "api_wall_duration_seconds": 31.58275,
+        "prompt_character_length": 3495,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 999,
+        "prompt_eval_duration": 20925532000,
+        "eval_count": 106,
+        "eval_duration": 8522655000,
+        "total_duration": 29531887700,
+        "load_duration": 5609100,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 1,
+        "attempt": 2,
+        "api_wall_duration_seconds": 10.681592,
+        "prompt_character_length": 3495,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 999,
+        "prompt_eval_duration": 252885000,
+        "eval_count": 98,
+        "eval_duration": 8333348000,
+        "total_duration": 8608547900,
+        "load_duration": 5923500,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 2,
+        "attempt": 1,
+        "api_wall_duration_seconds": 38.237704,
+        "prompt_character_length": 2717,
+        "prompt_eval_count": 688,
+        "prompt_eval_duration": 12413404000,
+        "eval_count": 316,
+        "eval_duration": 23737559000,
+        "total_duration": 36193917600,
+        "load_duration": 5808200,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 3,
+        "attempt": 1,
+        "api_wall_duration_seconds": 23.028512,
+        "prompt_character_length": 1876,
+        "prompt_eval_count": 438,
+        "prompt_eval_duration": 6065406000,
+        "eval_count": 205,
+        "eval_duration": 14866265000,
+        "total_duration": 20973704800,
+        "load_duration": 5476600,
+        "done_reason": "stop"
+      }
+    ],
+    "total_runtime_seconds": 103.532384,
+    "execution_routing": {
+      "detected_issue_count": 28,
+      "decision_count": 28,
+      "proposed_action_count": 1,
+      "compiled_instruction_count": 1,
+      "executed_action_count": 1,
+      "executed_trim_whitespace_count": 1,
+      "executed_normalize_categorical_labels_count": 0,
+      "skipped_action_count": 0,
+      "skipped_actions": [],
+      "parse_date_assessments": [],
+      "numeric_coercion_assessments": [],
+      "missing_value_assessments": [
+        {
+          "column": "batch_id",
+          "missing_count": 30,
+          "missing_percentage": 0.2,
+          "missingness_risk": "low",
+          "observed_count": 14970,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "production_start",
+          "missing_count": 9,
+          "missing_percentage": 0.06,
+          "missingness_risk": "low",
+          "observed_count": 14991,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "line_id",
+          "missing_count": 17,
+          "missing_percentage": 0.11333333333333333,
+          "missingness_risk": "low",
+          "observed_count": 14983,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "machine_id",
+          "missing_count": 10,
+          "missing_percentage": 0.06666666666666667,
+          "missingness_risk": "low",
+          "observed_count": 14990,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "product_id",
+          "missing_count": 14,
+          "missing_percentage": 0.09333333333333334,
+          "missingness_risk": "low",
+          "observed_count": 14986,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "shift",
+          "missing_count": 10,
+          "missing_percentage": 0.06666666666666667,
+          "missingness_risk": "low",
+          "observed_count": 14990,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "operator_id",
+          "missing_count": 10,
+          "missing_percentage": 0.06666666666666667,
+          "missingness_risk": "low",
+          "observed_count": 14990,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "material_lot_id",
+          "missing_count": 7,
+          "missing_percentage": 0.04666666666666667,
+          "missingness_risk": "low",
+          "observed_count": 14993,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "actual_quantity",
+          "missing_count": 14,
+          "missing_percentage": 0.09333333333333334,
+          "missingness_risk": "low",
+          "observed_count": 14986,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "defect_quantity",
+          "missing_count": 14,
+          "missing_percentage": 0.09333333333333334,
+          "missingness_risk": "low",
+          "observed_count": 14986,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "cycle_time_seconds",
+          "missing_count": 17,
+          "missing_percentage": 0.11333333333333333,
+          "missingness_risk": "low",
+          "observed_count": 14983,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "downtime_reason",
+          "missing_count": 10968,
+          "missing_percentage": 73.12,
+          "missingness_risk": "very_high",
+          "observed_count": 4032,
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute"
+        },
+        {
+          "column": "energy_consumption_kwh",
+          "missing_count": 13,
+          "missing_percentage": 0.08666666666666667,
+          "missingness_risk": "low",
+          "observed_count": 14987,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "humidity_percent",
+          "missing_count": 8,
+          "missing_percentage": 0.05333333333333334,
+          "missingness_risk": "low",
+          "observed_count": 14992,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "maintenance_status",
+          "missing_count": 13,
+          "missing_percentage": 0.08666666666666667,
+          "missingness_risk": "low",
+          "observed_count": 14987,
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute"
+        }
+      ],
+      "impute_missing_proposal_count": 0,
+      "executed_impute_missing_count": 0,
+      "executed_coerce_dtype_count": 0,
+      "executed_parse_dates_count": 0
+    }
+  },
+  "decisions": [
+    {
+      "decision_id": "decision-issue-exact_duplicate_rows-192ec5f83876",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876"
+      ],
+      "target_columns": [],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Exact duplicate records may be legitimate repeated events; deletion is not automatic.",
+      "evidence_summary": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "semantic_basis": {},
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-f56cbd4b1c29",
+      "source_issue_ids": [
+        "issue-missing_values-f56cbd4b1c29"
+      ],
+      "target_columns": [
+        "batch_id"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14970
+      },
+      "semantic_basis": {
+        "batch_id": {
+          "column_name": "batch_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-448023ec38fd",
+      "source_issue_ids": [
+        "issue-missing_values-448023ec38fd"
+      ],
+      "target_columns": [
+        "production_start"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14991
+      },
+      "semantic_basis": {
+        "production_start": {
+          "column_name": "production_start",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-inconsistent_date_format_candidate-01dda9251d34",
+      "source_issue_ids": [
+        "issue-inconsistent_date_format_candidate-01dda9251d34"
+      ],
+      "target_columns": [
+        "production_start"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "recognized_formats": [
+          "ISO-datetime",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 0.977186,
+        "method": "strict_shape_recognition"
+      },
+      "semantic_basis": {
+        "production_start": {
+          "column_name": "production_start",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-c1175c6bae85",
+      "source_issue_ids": [
+        "issue-whitespace_issue-c1175c6bae85"
+      ],
+      "target_columns": [
+        "plant_name"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 14,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "plant_name": {
+          "column_name": "plant_name",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-8a0d57cfa70a",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-8a0d57cfa70a"
+      ],
+      "target_columns": [
+        "plant_name"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "aurangabad plant": [
+            "Aurangabad Plant",
+            "Aurangabad Plant ",
+            "aurangabad plant"
+          ],
+          "nashik plant": [
+            "Nashik Plant",
+            "Nashik Plant ",
+            "nashik plant"
+          ],
+          "pune plant": [
+            "Pune Plant",
+            "Pune Plant ",
+            "pune plant"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "plant_name": {
+          "column_name": "plant_name",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-dd26d60f068b",
+      "source_issue_ids": [
+        "issue-rare_category_observation-dd26d60f068b"
+      ],
+      "target_columns": [
+        "plant_name"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 150,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 7
+      },
+      "semantic_basis": {
+        "plant_name": {
+          "column_name": "plant_name",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-9123b3957410",
+      "source_issue_ids": [
+        "issue-missing_values-9123b3957410"
+      ],
+      "target_columns": [
+        "line_id"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14983
+      },
+      "semantic_basis": {
+        "line_id": {
+          "column_name": "line_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-4b2654022f58",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-4b2654022f58"
+      ],
+      "target_columns": [
+        "line_id"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "line-01": [
+            "LINE-01",
+            "line-01"
+          ],
+          "line-02": [
+            "LINE-02",
+            "line-02"
+          ],
+          "line-03": [
+            "LINE-03",
+            "line-03"
+          ],
+          "line-04": [
+            "LINE-04",
+            "line-04"
+          ],
+          "line-05": [
+            "LINE-05",
+            "line-05"
+          ],
+          "line-06": [
+            "LINE-06",
+            "line-06"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "line_id": {
+          "column_name": "line_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-ff233e15e67f",
+      "source_issue_ids": [
+        "issue-rare_category_observation-ff233e15e67f"
+      ],
+      "target_columns": [
+        "line_id"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 149,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 12
+      },
+      "semantic_basis": {
+        "line_id": {
+          "column_name": "line_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-2a13bf23da23",
+      "source_issue_ids": [
+        "issue-missing_values-2a13bf23da23"
+      ],
+      "target_columns": [
+        "machine_id"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14990
+      },
+      "semantic_basis": {
+        "machine_id": {
+          "column_name": "machine_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-c78bd47d9783",
+      "source_issue_ids": [
+        "issue-missing_values-c78bd47d9783"
+      ],
+      "target_columns": [
+        "product_id"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14986
+      },
+      "semantic_basis": {
+        "product_id": {
+          "column_name": "product_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-bba903786a88",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-bba903786a88"
+      ],
+      "target_columns": [
+        "product_id"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "prd-101": [
+            "PRD-101",
+            "prd-101"
+          ],
+          "prd-102": [
+            "PRD-102",
+            "prd-102"
+          ],
+          "prd-103": [
+            "PRD-103",
+            "prd-103"
+          ],
+          "prd-104": [
+            "PRD-104",
+            "prd-104"
+          ],
+          "prd-105": [
+            "PRD-105",
+            "prd-105"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "product_id": {
+          "column_name": "product_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-02e3485ccf89",
+      "source_issue_ids": [
+        "issue-rare_category_observation-02e3485ccf89"
+      ],
+      "target_columns": [
+        "product_id"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 149,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 6
+      },
+      "semantic_basis": {
+        "product_id": {
+          "column_name": "product_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-67e43b7f1df3",
+      "source_issue_ids": [
+        "issue-missing_values-67e43b7f1df3"
+      ],
+      "target_columns": [
+        "shift"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14990
+      },
+      "semantic_basis": {
+        "shift": {
+          "column_name": "shift",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-9f40b1ffd8a2",
+      "source_issue_ids": [
+        "issue-rare_category_observation-9f40b1ffd8a2"
+      ],
+      "target_columns": [
+        "shift"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 149,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "shift": {
+          "column_name": "shift",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-cb96b369e79e",
+      "source_issue_ids": [
+        "issue-missing_values-cb96b369e79e"
+      ],
+      "target_columns": [
+        "operator_id"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14990
+      },
+      "semantic_basis": {
+        "operator_id": {
+          "column_name": "operator_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-562ee045d9d9",
+      "source_issue_ids": [
+        "issue-missing_values-562ee045d9d9"
+      ],
+      "target_columns": [
+        "material_lot_id"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14993
+      },
+      "semantic_basis": {
+        "material_lot_id": {
+          "column_name": "material_lot_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-77946834a5ac",
+      "source_issue_ids": [
+        "issue-missing_values-77946834a5ac"
+      ],
+      "target_columns": [
+        "actual_quantity"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "The missing values are already handled by previous steps or are within acceptable limits for numeric measurements.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14986
+      },
+      "semantic_basis": {
+        "actual_quantity": {
+          "column_name": "actual_quantity",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "The actual quantity produced in a production run",
+          "semantic_role": "unknown",
+          "confidence": 0.9,
+          "reasoning_summary": "The column name 'actual_quantity' and its numeric summary suggest it represents a measured quantity."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-statistical_outlier_candidate-4827d73710a0",
+      "source_issue_ids": [
+        "issue-statistical_outlier_candidate-4827d73710a0"
+      ],
+      "target_columns": [
+        "actual_quantity"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "A statistical outlier may be valid and must not be clipped or removed automatically.",
+      "evidence_summary": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 354.0,
+        "q3": 872.0,
+        "lower_bound": -423.0,
+        "upper_bound": 1649.0
+      },
+      "semantic_basis": {
+        "actual_quantity": {
+          "column_name": "actual_quantity",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "The actual quantity produced in a production run",
+          "semantic_role": "unknown",
+          "confidence": 0.9,
+          "reasoning_summary": "The column name 'actual_quantity' and its numeric summary suggest it represents a measured quantity."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-45f43b8e28ce",
+      "source_issue_ids": [
+        "issue-missing_values-45f43b8e28ce"
+      ],
+      "target_columns": [
+        "defect_quantity"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "The missing values are already handled by previous steps or are within acceptable limits for numeric measurements.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14986
+      },
+      "semantic_basis": {
+        "defect_quantity": {
+          "column_name": "defect_quantity",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "The quantity of defective items produced in a production run",
+          "semantic_role": "unknown",
+          "confidence": 0.9,
+          "reasoning_summary": "The column name 'defect_quantity' and its numeric summary suggest it represents a measured quantity."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-d8a0feeac98d",
+      "source_issue_ids": [
+        "issue-missing_values-d8a0feeac98d"
+      ],
+      "target_columns": [
+        "cycle_time_seconds"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14983
+      },
+      "semantic_basis": {
+        "cycle_time_seconds": {
+          "column_name": "cycle_time_seconds",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "The time taken for a cycle in seconds",
+          "semantic_role": "unknown",
+          "confidence": 0.9,
+          "reasoning_summary": "The column name 'cycle_time_seconds' and its string representation suggest it represents a time duration, but the physical dtype is 'str', indicating it might not be a standard numeric type."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-990e5e990e19",
+      "source_issue_ids": [
+        "issue-missing_values-990e5e990e19"
+      ],
+      "target_columns": [
+        "downtime_reason"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "The missing values are already handled by previous steps or are within acceptable limits for text data.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 4032
+      },
+      "semantic_basis": {
+        "downtime_reason": {
+          "column_name": "downtime_reason",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "The reason for downtime during a production run",
+          "semantic_role": "unknown",
+          "confidence": 0.9,
+          "reasoning_summary": "The column name 'downtime_reason' and its string representation suggest it represents a descriptive text."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-bc87defde45f",
+      "source_issue_ids": [
+        "issue-missing_values-bc87defde45f"
+      ],
+      "target_columns": [
+        "energy_consumption_kwh"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14987
+      },
+      "semantic_basis": {
+        "energy_consumption_kwh": {
+          "column_name": "energy_consumption_kwh",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "The energy consumption in kilowatt-hours",
+          "semantic_role": "unknown",
+          "confidence": 0.9,
+          "reasoning_summary": "The column name 'energy_consumption_kwh' and its string representation suggest it represents a quantity, but the physical dtype is 'str', indicating it might not be a standard numeric type."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-844f6de3e32e",
+      "source_issue_ids": [
+        "issue-missing_values-844f6de3e32e"
+      ],
+      "target_columns": [
+        "humidity_percent"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "The missing values are already handled by previous steps or are within acceptable limits for numeric measurements.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14992
+      },
+      "semantic_basis": {
+        "humidity_percent": {
+          "column_name": "humidity_percent",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "The humidity percentage",
+          "semantic_role": "unknown",
+          "confidence": 0.9,
+          "reasoning_summary": "The column name 'humidity_percent' and its numeric summary suggest it represents a measured quantity."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-cd23c1927485",
+      "source_issue_ids": [
+        "issue-missing_values-cd23c1927485"
+      ],
+      "target_columns": [
+        "maintenance_status"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "The missing values are in a text column with a low percentage and the semantics are descriptive, so no action is needed to preserve the integrity of the data.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14987
+      },
+      "semantic_basis": {
+        "maintenance_status": {
+          "column_name": "maintenance_status",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "The status of maintenance during a production run",
+          "semantic_role": "unknown",
+          "confidence": 0.9,
+          "reasoning_summary": "The column name 'maintenance_status' and its string representation suggest it represents a descriptive text."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-09b78a95f6b4",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-09b78a95f6b4"
+      ],
+      "target_columns": [
+        "maintenance_status"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "The variant candidate issue is in a text column with a low percentage and the semantics are descriptive, so no action is needed to preserve the integrity of the data.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "normal": [
+            "Normal",
+            "normal"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "maintenance_status": {
+          "column_name": "maintenance_status",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "The status of maintenance during a production run",
+          "semantic_role": "unknown",
+          "confidence": 0.9,
+          "reasoning_summary": "The column name 'maintenance_status' and its string representation suggest it represents a descriptive text."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-6e425bd16031",
+      "source_issue_ids": [
+        "issue-rare_category_observation-6e425bd16031"
+      ],
+      "target_columns": [
+        "maintenance_status"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 149,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "maintenance_status": {
+          "column_name": "maintenance_status",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "The status of maintenance during a production run",
+          "semantic_role": "unknown",
+          "confidence": 0.9,
+          "reasoning_summary": "The column name 'maintenance_status' and its string representation suggest it represents a descriptive text."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    }
+  ],
+  "instructions": [
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-c1175c6bae85",
+      "source_decision_id": "decision-issue-whitespace_issue-c1175c6bae85",
+      "source_issue_ids": [
+        "issue-whitespace_issue-c1175c6bae85"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "plant_name"
+      ],
+      "parameters": {}
+    }
+  ],
+  "executions": [
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-c1175c6bae85",
+      "source_decision_id": "decision-issue-whitespace_issue-c1175c6bae85",
+      "source_issue_ids": [
+        "issue-whitespace_issue-c1175c6bae85"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "plant_name"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 14,
+      "change_examples": [
+        {
+          "row_index": 1943,
+          "column": "plant_name",
+          "before": "Pune Plant ",
+          "after": "Pune Plant"
+        },
+        {
+          "row_index": 3889,
+          "column": "plant_name",
+          "before": "Pune Plant ",
+          "after": "Pune Plant"
+        },
+        {
+          "row_index": 4934,
+          "column": "plant_name",
+          "before": "Aurangabad Plant ",
+          "after": "Aurangabad Plant"
+        },
+        {
+          "row_index": 5882,
+          "column": "plant_name",
+          "before": "Aurangabad Plant ",
+          "after": "Aurangabad Plant"
+        },
+        {
+          "row_index": 6015,
+          "column": "plant_name",
+          "before": "Aurangabad Plant ",
+          "after": "Aurangabad Plant"
+        }
+      ],
+      "rows_before": 15000,
+      "rows_after": 15000,
+      "columns_before": 23,
+      "columns_after": 23,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "no_unexpected_changes": true,
+    "dataframe_equal": false,
+    "row_count_equal": true,
+    "column_count_equal": true,
+    "missingness_equal": true,
+    "duplicate_row_count_equal": true,
+    "physical_dtypes_equal": true,
+    "cardinality_equal": false,
+    "unrelated_columns_equal": true,
+    "targeted_whitespace_improved": true,
+    "targeted_case_variants_improved": true,
+    "only_approved_value_changes": true,
+    "no_unexpected_categories": true,
+    "targeted_date_formats_improved": true,
+    "only_approved_date_changes": true,
+    "expected_dtype_changes_only": true,
+    "only_approved_numeric_changes": true,
+    "null_positions_equal": true,
+    "targeted_mixed_numeric_improved": true,
+    "only_approved_imputation_changes": true,
+    "expected_missingness_changes_only": true,
+    "imputed_cell_count": 0,
+    "imputation_audit": [],
+    "newly_introduced_null_count": 0,
+    "changed_cell_count": 14,
+    "before_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "missing_values": 15,
+        "inconsistent_date_format_candidate": 1,
+        "whitespace_issue": 1,
+        "case_variant_candidate": 4,
+        "rare_category_observation": 5,
+        "statistical_outlier_candidate": 1
+      },
+      "whitespace_affected_cells_by_column": {
+        "plant_name": 14
+      },
+      "case_variant_affected_cells_by_column": {
+        "plant_name": 14994,
+        "line_id": 14965,
+        "product_id": 14972,
+        "maintenance_status": 4975
+      },
+      "date_format_affected_cells_by_column": {
+        "production_start": 14649
+      },
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "after_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "missing_values": 15,
+        "inconsistent_date_format_candidate": 1,
+        "case_variant_candidate": 4,
+        "rare_category_observation": 5,
+        "statistical_outlier_candidate": 1
+      },
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {
+        "plant_name": 14994,
+        "line_id": 14965,
+        "product_id": 14972,
+        "maintenance_status": 4975
+      },
+      "date_format_affected_cells_by_column": {
+        "production_start": 14649
+      },
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "before_summary": {
+      "row_count": 15000,
+      "column_count": 23,
+      "total_missing_cells": 11154,
+      "duplicate_row_count": 22,
+      "physical_dtypes": {
+        "batch_id": "str",
+        "production_start": "str",
+        "production_end": "str",
+        "plant_name": "str",
+        "line_id": "str",
+        "machine_id": "str",
+        "product_id": "str",
+        "product_name": "str",
+        "shift": "str",
+        "operator_id": "str",
+        "material_lot_id": "str",
+        "planned_quantity": "str",
+        "actual_quantity": "float64",
+        "good_quantity": "int64",
+        "defect_quantity": "float64",
+        "cycle_time_seconds": "str",
+        "downtime_minutes": "str",
+        "downtime_reason": "str",
+        "energy_consumption_kwh": "str",
+        "ambient_temperature_c": "str",
+        "humidity_percent": "float64",
+        "maintenance_status": "str",
+        "inspection_result": "str"
+      },
+      "cardinality": {
+        "batch_id": 14930,
+        "production_start": 14655,
+        "production_end": 14675,
+        "plant_name": 10,
+        "line_id": 18,
+        "machine_id": 190,
+        "product_id": 11,
+        "product_name": 5,
+        "shift": 6,
+        "operator_id": 514,
+        "material_lot_id": 2985,
+        "planned_quantity": 1104,
+        "actual_quantity": 1105,
+        "good_quantity": 1079,
+        "defect_quantity": 82,
+        "cycle_time_seconds": 4306,
+        "downtime_minutes": 180,
+        "downtime_reason": 6,
+        "energy_consumption_kwh": 13328,
+        "ambient_temperature_c": 134,
+        "humidity_percent": 403,
+        "maintenance_status": 6,
+        "inspection_result": 3
+      }
+    },
+    "after_summary": {
+      "row_count": 15000,
+      "column_count": 23,
+      "total_missing_cells": 11154,
+      "duplicate_row_count": 22,
+      "physical_dtypes": {
+        "batch_id": "str",
+        "production_start": "str",
+        "production_end": "str",
+        "plant_name": "str",
+        "line_id": "str",
+        "machine_id": "str",
+        "product_id": "str",
+        "product_name": "str",
+        "shift": "str",
+        "operator_id": "str",
+        "material_lot_id": "str",
+        "planned_quantity": "str",
+        "actual_quantity": "float64",
+        "good_quantity": "int64",
+        "defect_quantity": "float64",
+        "cycle_time_seconds": "str",
+        "downtime_minutes": "str",
+        "downtime_reason": "str",
+        "energy_consumption_kwh": "str",
+        "ambient_temperature_c": "str",
+        "humidity_percent": "float64",
+        "maintenance_status": "str",
+        "inspection_result": "str"
+      },
+      "cardinality": {
+        "batch_id": 14930,
+        "production_start": 14655,
+        "production_end": 14675,
+        "plant_name": 7,
+        "line_id": 18,
+        "machine_id": 190,
+        "product_id": 11,
+        "product_name": 5,
+        "shift": 6,
+        "operator_id": 514,
+        "material_lot_id": 2985,
+        "planned_quantity": 1104,
+        "actual_quantity": 1105,
+        "good_quantity": 1079,
+        "defect_quantity": 82,
+        "cycle_time_seconds": 4306,
+        "downtime_minutes": 180,
+        "downtime_reason": 6,
+        "energy_consumption_kwh": 13328,
+        "ambient_temperature_c": 134,
+        "humidity_percent": 403,
+        "maintenance_status": 6,
+        "inspection_result": 3
+      }
+    },
+    "warnings": []
+  },
+  "warnings": [
+    "Semantic batch 1 failed after retry; unknown fallback used for ['batch_id', 'production_start', 'production_end', 'plant_name', 'line_id', 'machine_id', 'product_id', 'product_name', 'shift', 'operator_id', 'material_lot_id', 'planned_quantity']: RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)",
+    "Tier 2 decision batch failed after retry: ValueError: Tier 2 decision output does not exactly cover input issue IDs."
+  ],
+  "output_artifacts": {
+    "cleaned_dataset": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\pipeline1_multidomain\\results\\dataset_08_manufacturing\\cleaned_dataset.csv",
+    "cleaning_report": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\pipeline1_multidomain\\results\\dataset_08_manufacturing\\cleaning_report.json",
+    "cleaned_dataset_format": "csv"
+  }
+}

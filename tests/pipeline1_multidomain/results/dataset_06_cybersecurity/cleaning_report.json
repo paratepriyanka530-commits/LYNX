@@ -1,0 +1,3596 @@
+{
+  "pipeline_version": "pipeline1_architecture_b_v001",
+  "run_id": "20260906T133700-df66b8e5",
+  "status": "success",
+  "original_dataset": {
+    "valid": true,
+    "file_name": "dataset_06_cybersecurity_raw.csv",
+    "file_format": ".csv",
+    "file_size_bytes": 5140867,
+    "rows": 20000,
+    "columns": 24,
+    "duplicate_columns": [],
+    "absolute_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_06_cybersecurity_raw.csv",
+    "source_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_06_cybersecurity_raw.csv",
+    "raw_dataset_overwritten": false
+  },
+  "before_profile": {
+    "shape": {
+      "rows": 20000,
+      "columns": 24
+    },
+    "column_names": [
+      "event_id",
+      "event_timestamp",
+      "log_source",
+      "event_type",
+      "severity",
+      "source_ip",
+      "destination_ip",
+      "source_port",
+      "destination_port",
+      "protocol",
+      "username",
+      "hostname",
+      "application",
+      "security_action",
+      "event_outcome",
+      "bytes_in",
+      "bytes_out",
+      "rule_id",
+      "alert_id",
+      "mitre_technique",
+      "source_country",
+      "source_city",
+      "investigation_status",
+      "event_message"
+    ],
+    "dtype_distribution": {
+      "str": 23,
+      "float64": 1
+    },
+    "missingness": {
+      "total_missing_cells": 38170,
+      "overall_missing_percentage": 7.9521
+    },
+    "duplicates": {
+      "exact_duplicate_rows": 35,
+      "percentage": 0.175
+    },
+    "column_profiles": [
+      {
+        "column_name": "event_id",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 19956,
+        "missing": {
+          "count": 44,
+          "percentage": 0.22
+        },
+        "uniqueness": {
+          "unique_count": 19891,
+          "unique_ratio": 0.996743
+        },
+        "repetition": {
+          "repeated_unique_count": 64,
+          "repeated_occurrences": 129,
+          "repetition_rate": 0.006464
+        },
+        "sample_values": [
+          "SEC000008957",
+          "SEC000014118",
+          "SEC000019517",
+          "SEC000002787",
+          "SEC000010472"
+        ]
+      },
+      {
+        "column_name": "event_timestamp",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 20000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 19874,
+          "unique_ratio": 0.9937
+        },
+        "repetition": {
+          "repeated_unique_count": 79,
+          "repeated_occurrences": 205,
+          "repetition_rate": 0.01025
+        },
+        "sample_values": [
+          "2026-02-04T22:32:07+05:30",
+          "2026-03-23T12:57:03Z",
+          "2026-01-10T22:04:51Z",
+          "2026-02-14T10:37:31Z",
+          "2026-05-25T18:34:01Z"
+        ]
+      },
+      {
+        "column_name": "log_source",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 20000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 13,
+          "unique_ratio": 0.00065
+        },
+        "repetition": {
+          "repeated_unique_count": 12,
+          "repeated_occurrences": 19999,
+          "repetition_rate": 0.99995
+        },
+        "sample_values": [
+          "Authentication",
+          "Endpoint",
+          "Network",
+          "Application",
+          "Identity"
+        ]
+      },
+      {
+        "column_name": "event_type",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 20000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 23,
+          "unique_ratio": 0.00115
+        },
+        "repetition": {
+          "repeated_unique_count": 21,
+          "repeated_occurrences": 19998,
+          "repetition_rate": 0.9999
+        },
+        "sample_values": [
+          "Failed Login",
+          "Successful Login",
+          "Malware Detected",
+          "Firewall Deny",
+          "Port Scan"
+        ]
+      },
+      {
+        "column_name": "severity",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 19990,
+        "missing": {
+          "count": 10,
+          "percentage": 0.05
+        },
+        "uniqueness": {
+          "unique_count": 8,
+          "unique_ratio": 0.0004
+        },
+        "repetition": {
+          "repeated_unique_count": 8,
+          "repeated_occurrences": 19990,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Low",
+          "Informational",
+          "High",
+          "Medium",
+          "Critical"
+        ]
+      },
+      {
+        "column_name": "source_ip",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 19992,
+        "missing": {
+          "count": 8,
+          "percentage": 0.04
+        },
+        "uniqueness": {
+          "unique_count": 19881,
+          "unique_ratio": 0.994448
+        },
+        "repetition": {
+          "repeated_unique_count": 67,
+          "repeated_occurrences": 178,
+          "repetition_rate": 0.008904
+        },
+        "sample_values": [
+          "45.169.128.132",
+          "182.38.98.130",
+          "100.201.246.204",
+          "27.184.228.70",
+          "83.62.218.168"
+        ]
+      },
+      {
+        "column_name": "destination_ip",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 19987,
+        "missing": {
+          "count": 13,
+          "percentage": 0.065
+        },
+        "uniqueness": {
+          "unique_count": 19886,
+          "unique_ratio": 0.994947
+        },
+        "repetition": {
+          "repeated_unique_count": 78,
+          "repeated_occurrences": 179,
+          "repetition_rate": 0.008956
+        },
+        "sample_values": [
+          "10.254.159.35",
+          "10.147.130.243",
+          "10.39.207.240",
+          "10.236.218.160",
+          "10.100.102.189"
+        ]
+      },
+      {
+        "column_name": "source_port",
+        "physical_dtype": "float64",
+        "row_count": 20000,
+        "non_null_count": 19984,
+        "missing": {
+          "count": 16,
+          "percentage": 0.08
+        },
+        "uniqueness": {
+          "unique_count": 17099,
+          "unique_ratio": 0.855635
+        },
+        "repetition": {
+          "repeated_unique_count": 2561,
+          "repeated_occurrences": 5446,
+          "repetition_rate": 0.272518
+        },
+        "sample_values": [
+          27450.0,
+          31267.0,
+          44607.0,
+          41254.0,
+          41748.0
+        ],
+        "numeric_statistics": {
+          "min": -1.0,
+          "max": 70000.0,
+          "mean": 33253.54553642914,
+          "median": 33352.5,
+          "std": 18676.725195696337,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "destination_port",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 20000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 12,
+          "unique_ratio": 0.0006
+        },
+        "repetition": {
+          "repeated_unique_count": 12,
+          "repeated_occurrences": 20000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "80",
+          "22",
+          "8080",
+          "1433",
+          "445"
+        ]
+      },
+      {
+        "column_name": "protocol",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 19988,
+        "missing": {
+          "count": 12,
+          "percentage": 0.06
+        },
+        "uniqueness": {
+          "unique_count": 5,
+          "unique_ratio": 0.00025
+        },
+        "repetition": {
+          "repeated_unique_count": 5,
+          "repeated_occurrences": 19988,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "TCP",
+          "UDP",
+          "ICMP",
+          "tcp",
+          "Transmission Control Protocol"
+        ]
+      },
+      {
+        "column_name": "username",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 16615,
+        "missing": {
+          "count": 3385,
+          "percentage": 16.925
+        },
+        "uniqueness": {
+          "unique_count": 1529,
+          "unique_ratio": 0.092025
+        },
+        "repetition": {
+          "repeated_unique_count": 1506,
+          "repeated_occurrences": 16592,
+          "repetition_rate": 0.998616
+        },
+        "sample_values": [
+          "user1260",
+          "user0497",
+          "user1320",
+          "user0024",
+          "user1166"
+        ]
+      },
+      {
+        "column_name": "hostname",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 19989,
+        "missing": {
+          "count": 11,
+          "percentage": 0.055
+        },
+        "uniqueness": {
+          "unique_count": 815,
+          "unique_ratio": 0.040772
+        },
+        "repetition": {
+          "repeated_unique_count": 801,
+          "repeated_occurrences": 19975,
+          "repetition_rate": 0.9993
+        },
+        "sample_values": [
+          "HOST-0617",
+          "HOST-0097",
+          "HOST-0465",
+          "HOST-0550",
+          "HOST-0596"
+        ]
+      },
+      {
+        "column_name": "application",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 20000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 7,
+          "unique_ratio": 0.00035
+        },
+        "repetition": {
+          "repeated_unique_count": 7,
+          "repeated_occurrences": 20000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "HRMS",
+          "Microsoft 365",
+          "Git Service",
+          "Payroll Portal",
+          "Customer API"
+        ]
+      },
+      {
+        "column_name": "security_action",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 19981,
+        "missing": {
+          "count": 19,
+          "percentage": 0.095
+        },
+        "uniqueness": {
+          "unique_count": 9,
+          "unique_ratio": 0.00045
+        },
+        "repetition": {
+          "repeated_unique_count": 8,
+          "repeated_occurrences": 19980,
+          "repetition_rate": 0.99995
+        },
+        "sample_values": [
+          "Block",
+          "Allow",
+          "Quarantine",
+          "Monitor",
+          "allow"
+        ]
+      },
+      {
+        "column_name": "event_outcome",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 20000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 5,
+          "unique_ratio": 0.00025
+        },
+        "repetition": {
+          "repeated_unique_count": 5,
+          "repeated_occurrences": 20000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Failed",
+          "Success",
+          "Detected",
+          "Blocked",
+          "Allowed"
+        ]
+      },
+      {
+        "column_name": "bytes_in",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 19984,
+        "missing": {
+          "count": 16,
+          "percentage": 0.08
+        },
+        "uniqueness": {
+          "unique_count": 19647,
+          "unique_ratio": 0.983137
+        },
+        "repetition": {
+          "repeated_unique_count": 306,
+          "repeated_occurrences": 643,
+          "repetition_rate": 0.032176
+        },
+        "sample_values": [
+          "435598",
+          "719857",
+          "767336",
+          "719751",
+          "597774"
+        ]
+      },
+      {
+        "column_name": "bytes_out",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 19986,
+        "missing": {
+          "count": 14,
+          "percentage": 0.07
+        },
+        "uniqueness": {
+          "unique_count": 19492,
+          "unique_ratio": 0.975283
+        },
+        "repetition": {
+          "repeated_unique_count": 449,
+          "repeated_occurrences": 943,
+          "repetition_rate": 0.047183
+        },
+        "sample_values": [
+          "415604",
+          "78665",
+          "473567",
+          "130848",
+          "413330"
+        ]
+      },
+      {
+        "column_name": "rule_id",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 19983,
+        "missing": {
+          "count": 17,
+          "percentage": 0.085
+        },
+        "uniqueness": {
+          "unique_count": 182,
+          "unique_ratio": 0.009108
+        },
+        "repetition": {
+          "repeated_unique_count": 182,
+          "repeated_occurrences": 19983,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "RULE-0079",
+          "RULE-0083",
+          "RULE-0140",
+          "RULE-0073",
+          "RULE-0161"
+        ]
+      },
+      {
+        "column_name": "alert_id",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 7634,
+        "missing": {
+          "count": 12366,
+          "percentage": 61.83
+        },
+        "uniqueness": {
+          "unique_count": 5156,
+          "unique_ratio": 0.6754
+        },
+        "repetition": {
+          "repeated_unique_count": 1857,
+          "repeated_occurrences": 4335,
+          "repetition_rate": 0.567854
+        },
+        "sample_values": [
+          "ALT0002478",
+          "ALT0002496",
+          "ALT0003258",
+          "ALT0001971",
+          "ALT0006865"
+        ]
+      },
+      {
+        "column_name": "mitre_technique",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 2950,
+        "missing": {
+          "count": 17050,
+          "percentage": 85.25
+        },
+        "uniqueness": {
+          "unique_count": 5,
+          "unique_ratio": 0.001695
+        },
+        "repetition": {
+          "repeated_unique_count": 5,
+          "repeated_occurrences": 2950,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "T1190",
+          "T1059.001",
+          "T1078",
+          "T1041",
+          "T1110"
+        ]
+      },
+      {
+        "column_name": "source_country",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 19995,
+        "missing": {
+          "count": 5,
+          "percentage": 0.025
+        },
+        "uniqueness": {
+          "unique_count": 10,
+          "unique_ratio": 0.0005
+        },
+        "repetition": {
+          "repeated_unique_count": 10,
+          "repeated_occurrences": 19995,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "IN",
+          "US",
+          "SG",
+          "DE",
+          "GB"
+        ]
+      },
+      {
+        "column_name": "source_city",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 14867,
+        "missing": {
+          "count": 5133,
+          "percentage": 25.665
+        },
+        "uniqueness": {
+          "unique_count": 6,
+          "unique_ratio": 0.000404
+        },
+        "repetition": {
+          "repeated_unique_count": 6,
+          "repeated_occurrences": 14867,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Delhi",
+          "Pune",
+          "Mumbai",
+          "Hyderabad",
+          "Chennai"
+        ]
+      },
+      {
+        "column_name": "investigation_status",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 20000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 5,
+          "unique_ratio": 0.00025
+        },
+        "repetition": {
+          "repeated_unique_count": 5,
+          "repeated_occurrences": 20000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Closed - Benign",
+          "Closed - False Positive",
+          "Investigating",
+          "Closed - True Positive",
+          "Open"
+        ]
+      },
+      {
+        "column_name": "event_message",
+        "physical_dtype": "str",
+        "row_count": 20000,
+        "non_null_count": 19949,
+        "missing": {
+          "count": 51,
+          "percentage": 0.255
+        },
+        "uniqueness": {
+          "unique_count": 6,
+          "unique_ratio": 0.000301
+        },
+        "repetition": {
+          "repeated_unique_count": 6,
+          "repeated_occurrences": 19949,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Authentication event observed by synthetic SIEM",
+          "Endpoint event observed by synthetic SIEM",
+          "Network event observed by synthetic SIEM",
+          "Application event observed by synthetic SIEM",
+          "Identity event observed by synthetic SIEM"
+        ]
+      }
+    ]
+  },
+  "issues": [
+    {
+      "issue_id": "issue-exact_duplicate_rows-192ec5f83876",
+      "issue_type": "exact_duplicate_rows",
+      "target_columns": [],
+      "affected_count": 35,
+      "affected_percentage": 0.175,
+      "evidence": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "examples": [
+        2993,
+        7602,
+        8118,
+        8200,
+        8798
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-353c1fadb8d4",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "event_id"
+      ],
+      "affected_count": 44,
+      "affected_percentage": 0.22,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19956
+      },
+      "examples": [
+        106,
+        140,
+        278,
+        1356,
+        1644
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-31707ff76c44",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "log_source"
+      ],
+      "affected_count": 21,
+      "affected_percentage": 0.105,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 21,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "Authentication ",
+        "Network ",
+        "Authentication ",
+        "Authentication ",
+        "Authentication "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-4d68740b3cdd",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "log_source"
+      ],
+      "affected_count": 19441,
+      "affected_percentage": 97.205,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "authentication": [
+            "Authentication",
+            "Authentication ",
+            "authentication"
+          ],
+          "endpoint": [
+            "Endpoint",
+            "endpoint"
+          ],
+          "identity": [
+            "Identity",
+            "Identity "
+          ],
+          "network": [
+            "Network",
+            "Network ",
+            "network"
+          ]
+        }
+      },
+      "examples": [
+        "Authentication",
+        "Authentication",
+        "Authentication",
+        "Authentication",
+        "Authentication"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-a4dad7b50cd5",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "log_source"
+      ],
+      "affected_count": 242,
+      "affected_percentage": 1.21,
+      "evidence": {
+        "maximum_frequency": 200,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 8
+      },
+      "examples": [
+        "DLP",
+        "DLP",
+        "Authentication ",
+        "DLP",
+        "EDR"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-a454e92503a2",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "event_type"
+      ],
+      "affected_count": 20,
+      "affected_percentage": 0.1,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 20,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "Failed Login ",
+        "Firewall Deny ",
+        "Failed Login ",
+        "Failed Login ",
+        "Failed Login "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-cc50b7fb5f8e",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "event_type"
+      ],
+      "affected_count": 19571,
+      "affected_percentage": 97.855,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "failed login": [
+            "Failed Login",
+            "Failed Login ",
+            "failed login"
+          ],
+          "firewall deny": [
+            "Firewall Deny",
+            "Firewall Deny ",
+            "firewall deny"
+          ],
+          "malware detected": [
+            "Malware Detected",
+            "malware detected"
+          ],
+          "password reset": [
+            "Password Reset",
+            "password reset"
+          ],
+          "port scan": [
+            "Port Scan",
+            "Port Scan ",
+            "port scan"
+          ],
+          "sql injection attempt": [
+            "SQL Injection Attempt",
+            "sql injection attempt"
+          ],
+          "successful login": [
+            "Successful Login",
+            "Successful Login ",
+            "successful login"
+          ],
+          "suspicious powershell": [
+            "Suspicious PowerShell",
+            "suspicious powershell"
+          ]
+        }
+      },
+      "examples": [
+        "Failed Login",
+        "Successful Login",
+        "Failed Login",
+        "Failed Login",
+        "Failed Login"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-0670ddbc0953",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "event_type"
+      ],
+      "affected_count": 246,
+      "affected_percentage": 1.23,
+      "evidence": {
+        "maximum_frequency": 200,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 14
+      },
+      "examples": [
+        "Data Exfiltration Alert",
+        "Data Exfiltration Alert",
+        "Data Exfiltration Alert",
+        "Data Exfiltration Alert",
+        "Data Exfiltration Alert"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-9adffd6c662e",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "severity"
+      ],
+      "affected_count": 10,
+      "affected_percentage": 0.05,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19990
+      },
+      "examples": [
+        524,
+        672,
+        811,
+        3685,
+        6610
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-06dcdfab25b1",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "severity"
+      ],
+      "affected_count": 431,
+      "affected_percentage": 2.1561,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "critical": [
+            "Critical",
+            "critical"
+          ]
+        }
+      },
+      "examples": [
+        "Critical",
+        "Critical",
+        "Critical",
+        "Critical",
+        "Critical"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-7e3834a4a542",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "severity"
+      ],
+      "affected_count": 48,
+      "affected_percentage": 0.2401,
+      "evidence": {
+        "maximum_frequency": 199,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "Severe",
+        "INFO",
+        "critical",
+        "critical",
+        "Severe"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-7fdef16c99d0",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "source_ip"
+      ],
+      "affected_count": 8,
+      "affected_percentage": 0.04,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19992
+      },
+      "examples": [
+        1171,
+        11670,
+        12386,
+        12429,
+        14630
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-98e025d67d1d",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "destination_ip"
+      ],
+      "affected_count": 13,
+      "affected_percentage": 0.065,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19987
+      },
+      "examples": [
+        6144,
+        6759,
+        7279,
+        10800,
+        12159
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-a984adead289",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "source_port"
+      ],
+      "affected_count": 16,
+      "affected_percentage": 0.08,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19984
+      },
+      "examples": [
+        3437,
+        3438,
+        4869,
+        5014,
+        5545
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-e9223edb014e",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "destination_port"
+      ],
+      "affected_count": 31,
+      "affected_percentage": 0.155,
+      "evidence": {
+        "maximum_frequency": 200,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "-5",
+        "-5",
+        "-5",
+        "65536",
+        "https"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-064bee65d77b",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "protocol"
+      ],
+      "affected_count": 12,
+      "affected_percentage": 0.06,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19988
+      },
+      "examples": [
+        5523,
+        7443,
+        7975,
+        8956,
+        13710
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-bdc9e2d1c924",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "protocol"
+      ],
+      "affected_count": 17726,
+      "affected_percentage": 88.6832,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "tcp": [
+            "TCP",
+            "tcp"
+          ]
+        }
+      },
+      "examples": [
+        "TCP",
+        "TCP",
+        "TCP",
+        "TCP",
+        "TCP"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-eda2d3b68627",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "protocol"
+      ],
+      "affected_count": 26,
+      "affected_percentage": 0.1301,
+      "evidence": {
+        "maximum_frequency": 199,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "ICMP",
+        "tcp",
+        "tcp",
+        "Transmission Control Protocol",
+        "tcp"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-19cc10212388",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "username"
+      ],
+      "affected_count": 3385,
+      "affected_percentage": 16.925,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 16615
+      },
+      "examples": [
+        6,
+        21,
+        38,
+        39,
+        48
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-ae0cb80f386b",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "hostname"
+      ],
+      "affected_count": 11,
+      "affected_percentage": 0.055,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19989
+      },
+      "examples": [
+        3744,
+        3904,
+        7644,
+        7757,
+        9055
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-f6b767891d4c",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "security_action"
+      ],
+      "affected_count": 19,
+      "affected_percentage": 0.095,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19981
+      },
+      "examples": [
+        1226,
+        1331,
+        2587,
+        3751,
+        3810
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-525da7d794d1",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "security_action"
+      ],
+      "affected_count": 19350,
+      "affected_percentage": 96.842,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "allow": [
+            "Allow",
+            "allow"
+          ],
+          "block": [
+            "Block",
+            "block"
+          ],
+          "monitor": [
+            "Monitor",
+            "monitor"
+          ]
+        }
+      },
+      "examples": [
+        "Block",
+        "Allow",
+        "Block",
+        "Block",
+        "Block"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-f4819e6521db",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "security_action"
+      ],
+      "affected_count": 49,
+      "affected_percentage": 0.2452,
+      "evidence": {
+        "maximum_frequency": 199,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 5
+      },
+      "examples": [
+        "allow",
+        "Denied",
+        "block",
+        "Denied",
+        "Denied"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-d8385c61cb2d",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "bytes_in"
+      ],
+      "affected_count": 16,
+      "affected_percentage": 0.08,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19984
+      },
+      "examples": [
+        2696,
+        4045,
+        6182,
+        6196,
+        9495
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-ebb2f7a3000d",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "bytes_out"
+      ],
+      "affected_count": 14,
+      "affected_percentage": 0.07,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19986
+      },
+      "examples": [
+        1396,
+        1964,
+        3043,
+        5078,
+        5872
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-e49ea8fe4296",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "rule_id"
+      ],
+      "affected_count": 17,
+      "affected_percentage": 0.085,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19983
+      },
+      "examples": [
+        1202,
+        1652,
+        4597,
+        5384,
+        6235
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-e321be03f6b3",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "alert_id"
+      ],
+      "affected_count": 12366,
+      "affected_percentage": 61.83,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7634
+      },
+      "examples": [
+        1,
+        4,
+        6,
+        10,
+        13
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-6ae79b73c8d0",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "mitre_technique"
+      ],
+      "affected_count": 17050,
+      "affected_percentage": 85.25,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 2950
+      },
+      "examples": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-a08850c7a7e7",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "source_country"
+      ],
+      "affected_count": 5,
+      "affected_percentage": 0.025,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19995
+      },
+      "examples": [
+        2700,
+        8915,
+        9249,
+        10281,
+        14885
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-c455a09a527f",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "source_country"
+      ],
+      "affected_count": 30,
+      "affected_percentage": 0.15,
+      "evidence": {
+        "maximum_frequency": 199,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "ZZ",
+        "IND",
+        "IND",
+        "India",
+        "India"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-633863c18088",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "source_city"
+      ],
+      "affected_count": 5133,
+      "affected_percentage": 25.665,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14867
+      },
+      "examples": [
+        2,
+        3,
+        8,
+        9,
+        21
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-a39273b09772",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "event_message"
+      ],
+      "affected_count": 51,
+      "affected_percentage": 0.255,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19949
+      },
+      "examples": [
+        224,
+        708,
+        731,
+        1075,
+        1377
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-99d8ce564558",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "event_message"
+      ],
+      "affected_count": 192,
+      "affected_percentage": 0.9625,
+      "evidence": {
+        "maximum_frequency": 199,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "examples": [
+        "DLP event observed by synthetic SIEM",
+        "DLP event observed by synthetic SIEM",
+        "DLP event observed by synthetic SIEM",
+        "DLP event observed by synthetic SIEM",
+        "DLP event observed by synthetic SIEM"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    }
+  ],
+  "quality_summary": {
+    "total_issues_detected": 33,
+    "issues_by_type": {
+      "case_variant_candidate": 5,
+      "exact_duplicate_rows": 1,
+      "missing_values": 17,
+      "rare_category_observation": 8,
+      "whitespace_issue": 2
+    },
+    "issues_by_status": {
+      "candidate": 5,
+      "issue": 20,
+      "observation": 8
+    },
+    "affected_columns": [
+      "alert_id",
+      "bytes_in",
+      "bytes_out",
+      "destination_ip",
+      "destination_port",
+      "event_id",
+      "event_message",
+      "event_type",
+      "hostname",
+      "log_source",
+      "mitre_technique",
+      "protocol",
+      "rule_id",
+      "security_action",
+      "severity",
+      "source_city",
+      "source_country",
+      "source_ip",
+      "source_port",
+      "username"
+    ],
+    "dataset_level_issue_count": 1
+  },
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": "sensor reading",
+      "row_entity_confidence": 0.8,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "event_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "The event_id column identifies particular sensor readings or events with unique identifiers.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'event_id' and the high uniqueness ratio (0.996743) suggest that this column likely identifies particular instances of events or readings."
+      },
+      {
+        "column_name": "event_timestamp",
+        "semantic_type": "datetime",
+        "value_function": "temporal",
+        "concept_description": "The event_timestamp column contains timestamps representing the time of the event.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'event_timestamp' and the presence of date and time values (e.g., '2026-02-04T22:32:07+05:30') indicate that this column likely represents timestamps."
+      },
+      {
+        "column_name": "log_source",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "The log_source column categorizes the source of the log, such as Authentication, Endpoint, Network, Application, or Identity.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'log_source' and the presence of distinct categories (e.g., 'Authentication', 'Endpoint') suggest that this column likely represents categorical data."
+      },
+      {
+        "column_name": "event_type",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "The event_type column categorizes the type of event, such as Failed Login, Successful Login, Malware Detected, Firewall Deny, or Port Scan.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'event_type' and the presence of distinct categories (e.g., 'Failed Login', 'Successful Login') suggest that this column likely represents categorical data."
+      },
+      {
+        "column_name": "severity",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "The severity column categorizes the severity level of the event, such as Low, Informational, High, Medium, or Critical.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'severity' and the presence of distinct categories (e.g., 'Low', 'Informational') suggest that this column likely represents categorical data."
+      },
+      {
+        "column_name": "source_ip",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "The source_ip column identifies the source IP address of the event.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'source_ip' and the high uniqueness ratio (0.994448) suggest that this column likely identifies particular instances of IP addresses."
+      },
+      {
+        "column_name": "destination_ip",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "The destination_ip column identifies the destination IP address of the event.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'destination_ip' and the high uniqueness ratio (0.994947) suggest that this column likely identifies particular instances of IP addresses."
+      },
+      {
+        "column_name": "source_port",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "The source_port column represents the source port number of the event.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'source_port' and the presence of numeric values (e.g., 27450.0) suggest that this column likely represents a numeric measurement."
+      },
+      {
+        "column_name": "destination_port",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "The destination_port column categorizes the destination port number of the event, such as TCP, UDP, ICMP, or TCP.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'destination_port' and the presence of distinct categories (e.g., 'TCP', 'UDP') suggest that this column likely represents categorical data."
+      },
+      {
+        "column_name": "protocol",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "The protocol column categorizes the protocol used in the event, such as TCP, UDP, ICMP, or TCP.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'protocol' and the presence of distinct categories (e.g., 'TCP', 'UDP') suggest that this column likely represents categorical data."
+      },
+      {
+        "column_name": "username",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "The username column identifies the username associated with the event.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'username' and the high uniqueness ratio (0.092025) suggest that this column likely identifies particular instances of usernames."
+      },
+      {
+        "column_name": "hostname",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "The hostname column identifies the hostname associated with the event.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'hostname' and the high uniqueness ratio (0.040772) suggest that this column likely identifies particular instances of hostnames."
+      },
+      {
+        "column_name": "application",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Reusable application names or identifiers",
+        "semantic_role": "unknown",
+        "confidence": 0.8557575757575758,
+        "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of applications rather than a single type of application."
+      },
+      {
+        "column_name": "security_action",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Reusable security actions or states",
+        "semantic_role": "unknown",
+        "confidence": 0.8557575757575758,
+        "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of security actions rather than a single type of action."
+      },
+      {
+        "column_name": "event_outcome",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Reusable event outcomes or states",
+        "semantic_role": "unknown",
+        "confidence": 0.8557575757575758,
+        "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of event outcomes rather than a single type of outcome."
+      },
+      {
+        "column_name": "bytes_in",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Quantitative measurement of incoming data bytes",
+        "semantic_role": "unknown",
+        "confidence": 0.8557575757575758,
+        "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of incoming data bytes rather than a single type of measurement."
+      },
+      {
+        "column_name": "bytes_out",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Quantitative measurement of outgoing data bytes",
+        "semantic_role": "unknown",
+        "confidence": 0.8557575757575758,
+        "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of outgoing data bytes rather than a single type of measurement."
+      },
+      {
+        "column_name": "rule_id",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Reusable rule identifiers",
+        "semantic_role": "unknown",
+        "confidence": 0.8557575757575758,
+        "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of rule identifiers rather than a single type of rule."
+      },
+      {
+        "column_name": "alert_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Unique identifier for alerts",
+        "semantic_role": "unknown",
+        "confidence": 0.8557575757575758,
+        "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of unique alert identifiers rather than a single type of identifier."
+      },
+      {
+        "column_name": "mitre_technique",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Reusable MITRE ATT&CK techniques",
+        "semantic_role": "unknown",
+        "confidence": 0.8557575757575758,
+        "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of MITRE ATT&CK techniques rather than a single type of technique."
+      },
+      {
+        "column_name": "source_country",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Reusable country of source",
+        "semantic_role": "unknown",
+        "confidence": 0.8557575757575758,
+        "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of country of source rather than a single type of country."
+      },
+      {
+        "column_name": "source_city",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Reusable city of source",
+        "semantic_role": "unknown",
+        "confidence": 0.8557575757575758,
+        "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of city of source rather than a single type of city."
+      },
+      {
+        "column_name": "investigation_status",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Reusable investigation statuses",
+        "semantic_role": "unknown",
+        "confidence": 0.8557575757575758,
+        "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of investigation statuses rather than a single type of status."
+      },
+      {
+        "column_name": "event_message",
+        "semantic_type": "text",
+        "value_function": "descriptive_attribute",
+        "concept_description": "Descriptive message for events",
+        "semantic_role": "unknown",
+        "confidence": 0.8557575757575758,
+        "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of event messages rather than a single type of message."
+      }
+    ],
+    "warnings": [],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 2,
+      "total_llm_calls": 3,
+      "batch_sizes": [
+        12,
+        12
+      ],
+      "dataset_semantic_runtime_seconds": 40.534458,
+      "batch_runtime_seconds": [
+        120.044527,
+        111.142252
+      ],
+      "rag_runtime_seconds": 0.142261,
+      "batch_failures": 0,
+      "batch_retries": 0,
+      "llm_calls": [
+        {
+          "stage": "dataset_context",
+          "api_wall_duration_seconds": 40.496989,
+          "prompt_eval_count": 2706,
+          "prompt_eval_duration": 33689761000,
+          "eval_count": 21,
+          "eval_duration": 1599559000,
+          "total_duration": 38405235400,
+          "load_duration": 3099254700,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "api_wall_duration_seconds": 120.044434,
+          "prompt_eval_count": 2226,
+          "prompt_eval_duration": 27530350000,
+          "eval_count": 1304,
+          "eval_duration": 90403731000,
+          "total_duration": 117970266900,
+          "load_duration": 3160100,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 2,
+          "attempt": 1,
+          "api_wall_duration_seconds": 111.142163,
+          "prompt_eval_count": 2170,
+          "prompt_eval_duration": 19914349000,
+          "eval_count": 1271,
+          "eval_duration": 89112413000,
+          "total_duration": 109067643500,
+          "load_duration": 2626600,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 271.826538
+    }
+  },
+  "decision_summary": {
+    "total_decisions": 33,
+    "by_decision_type": {
+      "flag_for_review": 11,
+      "action": 2,
+      "no_action": 20
+    },
+    "by_proposed_action": {
+      "flag_rows": 11,
+      "trim_whitespace": 2,
+      "no_op": 20
+    },
+    "tier1_decisions": 17,
+    "tier2_decisions": 16,
+    "fallback_decisions": 0,
+    "deterministic_runtime_seconds": 0.000394,
+    "tier2_issue_count": 16,
+    "tier2_batch_sizes": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "llm_decision_calls": 5,
+    "llm_runtime_seconds": 181.567589,
+    "intended_llm_decision_calls": 4,
+    "retries": 1,
+    "successful_batches": 4,
+    "batch_failures": 0,
+    "llm_calls": [
+      {
+        "batch_index": 1,
+        "attempt": 1,
+        "api_wall_duration_seconds": 34.765011,
+        "prompt_character_length": 3892,
+        "prompt_eval_count": 864,
+        "prompt_eval_duration": 10031606000,
+        "eval_count": 381,
+        "eval_duration": 22615962000,
+        "total_duration": 32684297300,
+        "load_duration": 2618900,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 2,
+        "attempt": 1,
+        "api_wall_duration_seconds": 30.859721,
+        "prompt_character_length": 2859,
+        "prompt_eval_count": 722,
+        "prompt_eval_duration": 6443496000,
+        "eval_count": 378,
+        "eval_duration": 22312111000,
+        "total_duration": 28775665300,
+        "load_duration": 3210900,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 3,
+        "attempt": 1,
+        "api_wall_duration_seconds": 28.72405,
+        "prompt_character_length": 2831,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 744,
+        "prompt_eval_duration": 6943524000,
+        "eval_count": 334,
+        "eval_duration": 19710494000,
+        "total_duration": 26673329800,
+        "load_duration": 3751400,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 3,
+        "attempt": 2,
+        "api_wall_duration_seconds": 22.761355,
+        "prompt_character_length": 2831,
+        "prompt_eval_count": 744,
+        "prompt_eval_duration": 81576000,
+        "eval_count": 348,
+        "eval_duration": 20606505000,
+        "total_duration": 20698057700,
+        "load_duration": 2869300,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 4,
+        "attempt": 1,
+        "api_wall_duration_seconds": 35.733442,
+        "prompt_character_length": 2669,
+        "prompt_eval_count": 729,
+        "prompt_eval_duration": 6759700000,
+        "eval_count": 452,
+        "eval_duration": 26878542000,
+        "total_duration": 33657691800,
+        "load_duration": 3155500,
+        "done_reason": "stop"
+      }
+    ],
+    "total_runtime_seconds": 152.844875,
+    "execution_routing": {
+      "detected_issue_count": 33,
+      "decision_count": 33,
+      "proposed_action_count": 2,
+      "compiled_instruction_count": 2,
+      "executed_action_count": 2,
+      "executed_trim_whitespace_count": 2,
+      "executed_normalize_categorical_labels_count": 0,
+      "skipped_action_count": 0,
+      "skipped_actions": [],
+      "parse_date_assessments": [],
+      "numeric_coercion_assessments": [],
+      "missing_value_assessments": [
+        {
+          "column": "event_id",
+          "missing_count": 44,
+          "missing_percentage": 0.22,
+          "missingness_risk": "low",
+          "observed_count": 19956,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "severity",
+          "missing_count": 10,
+          "missing_percentage": 0.05,
+          "missingness_risk": "low",
+          "observed_count": 19990,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "source_ip",
+          "missing_count": 8,
+          "missing_percentage": 0.04,
+          "missingness_risk": "low",
+          "observed_count": 19992,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "destination_ip",
+          "missing_count": 13,
+          "missing_percentage": 0.065,
+          "missingness_risk": "low",
+          "observed_count": 19987,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "source_port",
+          "missing_count": 16,
+          "missing_percentage": 0.08,
+          "missingness_risk": "low",
+          "observed_count": 19984,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "protocol",
+          "missing_count": 12,
+          "missing_percentage": 0.06,
+          "missingness_risk": "low",
+          "observed_count": 19988,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "username",
+          "missing_count": 3385,
+          "missing_percentage": 16.925,
+          "missingness_risk": "moderate",
+          "observed_count": 16615,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "hostname",
+          "missing_count": 11,
+          "missing_percentage": 0.055,
+          "missingness_risk": "low",
+          "observed_count": 19989,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "security_action",
+          "missing_count": 19,
+          "missing_percentage": 0.095,
+          "missingness_risk": "low",
+          "observed_count": 19981,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "bytes_in",
+          "missing_count": 16,
+          "missing_percentage": 0.08,
+          "missingness_risk": "low",
+          "observed_count": 19984,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "bytes_out",
+          "missing_count": 14,
+          "missing_percentage": 0.07,
+          "missingness_risk": "low",
+          "observed_count": 19986,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "rule_id",
+          "missing_count": 17,
+          "missing_percentage": 0.085,
+          "missingness_risk": "low",
+          "observed_count": 19983,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "alert_id",
+          "missing_count": 12366,
+          "missing_percentage": 61.83,
+          "missingness_risk": "very_high",
+          "observed_count": 7634,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "mitre_technique",
+          "missing_count": 17050,
+          "missing_percentage": 85.25,
+          "missingness_risk": "very_high",
+          "observed_count": 2950,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "source_country",
+          "missing_count": 5,
+          "missing_percentage": 0.025,
+          "missingness_risk": "low",
+          "observed_count": 19995,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "source_city",
+          "missing_count": 5133,
+          "missing_percentage": 25.665,
+          "missingness_risk": "high",
+          "observed_count": 14867,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "event_message",
+          "missing_count": 51,
+          "missing_percentage": 0.255,
+          "missingness_risk": "low",
+          "observed_count": 19949,
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute"
+        }
+      ],
+      "impute_missing_proposal_count": 0,
+      "executed_impute_missing_count": 0,
+      "executed_coerce_dtype_count": 0,
+      "executed_parse_dates_count": 0
+    }
+  },
+  "decisions": [
+    {
+      "decision_id": "decision-issue-exact_duplicate_rows-192ec5f83876",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876"
+      ],
+      "target_columns": [],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Exact duplicate records may be legitimate repeated events; deletion is not automatic.",
+      "evidence_summary": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "semantic_basis": {},
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-353c1fadb8d4",
+      "source_issue_ids": [
+        "issue-missing_values-353c1fadb8d4"
+      ],
+      "target_columns": [
+        "event_id"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19956
+      },
+      "semantic_basis": {
+        "event_id": {
+          "column_name": "event_id",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "The event_id column identifies particular sensor readings or events with unique identifiers.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'event_id' and the high uniqueness ratio (0.996743) suggest that this column likely identifies particular instances of events or readings."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-31707ff76c44",
+      "source_issue_ids": [
+        "issue-whitespace_issue-31707ff76c44"
+      ],
+      "target_columns": [
+        "log_source"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 21,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "log_source": {
+          "column_name": "log_source",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The log_source column categorizes the source of the log, such as Authentication, Endpoint, Network, Application, or Identity.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'log_source' and the presence of distinct categories (e.g., 'Authentication', 'Endpoint') suggest that this column likely represents categorical data."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-4d68740b3cdd",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-4d68740b3cdd"
+      ],
+      "target_columns": [
+        "log_source"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The issue is related to case variant candidate, and no specific action is required as the column semantics suggest the data is already in a suitable categorical format.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "authentication": [
+            "Authentication",
+            "Authentication ",
+            "authentication"
+          ],
+          "endpoint": [
+            "Endpoint",
+            "endpoint"
+          ],
+          "identity": [
+            "Identity",
+            "Identity "
+          ],
+          "network": [
+            "Network",
+            "Network ",
+            "network"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "log_source": {
+          "column_name": "log_source",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The log_source column categorizes the source of the log, such as Authentication, Endpoint, Network, Application, or Identity.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'log_source' and the presence of distinct categories (e.g., 'Authentication', 'Endpoint') suggest that this column likely represents categorical data."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-a4dad7b50cd5",
+      "source_issue_ids": [
+        "issue-rare_category_observation-a4dad7b50cd5"
+      ],
+      "target_columns": [
+        "log_source"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 200,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 8
+      },
+      "semantic_basis": {
+        "log_source": {
+          "column_name": "log_source",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The log_source column categorizes the source of the log, such as Authentication, Endpoint, Network, Application, or Identity.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'log_source' and the presence of distinct categories (e.g., 'Authentication', 'Endpoint') suggest that this column likely represents categorical data."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-a454e92503a2",
+      "source_issue_ids": [
+        "issue-whitespace_issue-a454e92503a2"
+      ],
+      "target_columns": [
+        "event_type"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 20,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "event_type": {
+          "column_name": "event_type",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The event_type column categorizes the type of event, such as Failed Login, Successful Login, Malware Detected, Firewall Deny, or Port Scan.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'event_type' and the presence of distinct categories (e.g., 'Failed Login', 'Successful Login') suggest that this column likely represents categorical data."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-cc50b7fb5f8e",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-cc50b7fb5f8e"
+      ],
+      "target_columns": [
+        "event_type"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The issue is related to case variant candidate, and no specific action is required as the column semantics suggest the data is already in a suitable categorical format.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "failed login": [
+            "Failed Login",
+            "Failed Login ",
+            "failed login"
+          ],
+          "firewall deny": [
+            "Firewall Deny",
+            "Firewall Deny ",
+            "firewall deny"
+          ],
+          "malware detected": [
+            "Malware Detected",
+            "malware detected"
+          ],
+          "password reset": [
+            "Password Reset",
+            "password reset"
+          ],
+          "port scan": [
+            "Port Scan",
+            "Port Scan ",
+            "port scan"
+          ],
+          "sql injection attempt": [
+            "SQL Injection Attempt",
+            "sql injection attempt"
+          ],
+          "successful login": [
+            "Successful Login",
+            "Successful Login ",
+            "successful login"
+          ],
+          "suspicious powershell": [
+            "Suspicious PowerShell",
+            "suspicious powershell"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "event_type": {
+          "column_name": "event_type",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The event_type column categorizes the type of event, such as Failed Login, Successful Login, Malware Detected, Firewall Deny, or Port Scan.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'event_type' and the presence of distinct categories (e.g., 'Failed Login', 'Successful Login') suggest that this column likely represents categorical data."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-0670ddbc0953",
+      "source_issue_ids": [
+        "issue-rare_category_observation-0670ddbc0953"
+      ],
+      "target_columns": [
+        "event_type"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 200,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 14
+      },
+      "semantic_basis": {
+        "event_type": {
+          "column_name": "event_type",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The event_type column categorizes the type of event, such as Failed Login, Successful Login, Malware Detected, Firewall Deny, or Port Scan.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'event_type' and the presence of distinct categories (e.g., 'Failed Login', 'Successful Login') suggest that this column likely represents categorical data."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-9adffd6c662e",
+      "source_issue_ids": [
+        "issue-missing_values-9adffd6c662e"
+      ],
+      "target_columns": [
+        "severity"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The issue is related to missing values, and no specific action is required as the column semantics suggest the data is already in a suitable categorical format.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19990
+      },
+      "semantic_basis": {
+        "severity": {
+          "column_name": "severity",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The severity column categorizes the severity level of the event, such as Low, Informational, High, Medium, or Critical.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'severity' and the presence of distinct categories (e.g., 'Low', 'Informational') suggest that this column likely represents categorical data."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-06dcdfab25b1",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-06dcdfab25b1"
+      ],
+      "target_columns": [
+        "severity"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The issue is related to case variant candidate, and no specific action is required as the column semantics suggest the data is already in a suitable categorical format.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "critical": [
+            "Critical",
+            "critical"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "severity": {
+          "column_name": "severity",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The severity column categorizes the severity level of the event, such as Low, Informational, High, Medium, or Critical.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'severity' and the presence of distinct categories (e.g., 'Low', 'Informational') suggest that this column likely represents categorical data."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-7e3834a4a542",
+      "source_issue_ids": [
+        "issue-rare_category_observation-7e3834a4a542"
+      ],
+      "target_columns": [
+        "severity"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 199,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "severity": {
+          "column_name": "severity",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The severity column categorizes the severity level of the event, such as Low, Informational, High, Medium, or Critical.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'severity' and the presence of distinct categories (e.g., 'Low', 'Informational') suggest that this column likely represents categorical data."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-7fdef16c99d0",
+      "source_issue_ids": [
+        "issue-missing_values-7fdef16c99d0"
+      ],
+      "target_columns": [
+        "source_ip"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19992
+      },
+      "semantic_basis": {
+        "source_ip": {
+          "column_name": "source_ip",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "The source_ip column identifies the source IP address of the event.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'source_ip' and the high uniqueness ratio (0.994448) suggest that this column likely identifies particular instances of IP addresses."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-98e025d67d1d",
+      "source_issue_ids": [
+        "issue-missing_values-98e025d67d1d"
+      ],
+      "target_columns": [
+        "destination_ip"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19987
+      },
+      "semantic_basis": {
+        "destination_ip": {
+          "column_name": "destination_ip",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "The destination_ip column identifies the destination IP address of the event.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'destination_ip' and the high uniqueness ratio (0.994947) suggest that this column likely identifies particular instances of IP addresses."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-a984adead289",
+      "source_issue_ids": [
+        "issue-missing_values-a984adead289"
+      ],
+      "target_columns": [
+        "source_port"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The issue is related to missing values in the 'source_port' column, which has a numeric semantic type. Given the low percentage of missing values (0.08%), no action is recommended as it does not exceed the threshold for imputation or other,",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19984
+      },
+      "semantic_basis": {
+        "source_port": {
+          "column_name": "source_port",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "The source_port column represents the source port number of the event.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'source_port' and the presence of numeric values (e.g., 27450.0) suggest that this column likely represents a numeric measurement."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-e9223edb014e",
+      "source_issue_ids": [
+        "issue-rare_category_observation-e9223edb014e"
+      ],
+      "target_columns": [
+        "destination_port"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 200,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "destination_port": {
+          "column_name": "destination_port",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The destination_port column categorizes the destination port number of the event, such as TCP, UDP, ICMP, or TCP.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'destination_port' and the presence of distinct categories (e.g., 'TCP', 'UDP') suggest that this column likely represents categorical data."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-064bee65d77b",
+      "source_issue_ids": [
+        "issue-missing_values-064bee65d77b"
+      ],
+      "target_columns": [
+        "protocol"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The issue is related to missing values in the 'protocol' column, which has a categorical semantic type. Given the low percentage of missing values (0.06%), no action is recommended as it does not exceed the threshold for imputation or other",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19988
+      },
+      "semantic_basis": {
+        "protocol": {
+          "column_name": "protocol",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The protocol column categorizes the protocol used in the event, such as TCP, UDP, ICMP, or TCP.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'protocol' and the presence of distinct categories (e.g., 'TCP', 'UDP') suggest that this column likely represents categorical data."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-bdc9e2d1c924",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-bdc9e2d1c924"
+      ],
+      "target_columns": [
+        "protocol"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The issue is related to case variant candidates in the 'protocol' column. Given the high percentage of missing values (88.68%), no action is recommended as it does not exceed the threshold for imputation or other",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "tcp": [
+            "TCP",
+            "tcp"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "protocol": {
+          "column_name": "protocol",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The protocol column categorizes the protocol used in the event, such as TCP, UDP, ICMP, or TCP.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'protocol' and the presence of distinct categories (e.g., 'TCP', 'UDP') suggest that this column likely represents categorical data."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-eda2d3b68627",
+      "source_issue_ids": [
+        "issue-rare_category_observation-eda2d3b68627"
+      ],
+      "target_columns": [
+        "protocol"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 199,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "protocol": {
+          "column_name": "protocol",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The protocol column categorizes the protocol used in the event, such as TCP, UDP, ICMP, or TCP.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'protocol' and the presence of distinct categories (e.g., 'TCP', 'UDP') suggest that this column likely represents categorical data."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-19cc10212388",
+      "source_issue_ids": [
+        "issue-missing_values-19cc10212388"
+      ],
+      "target_columns": [
+        "username"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 16615
+      },
+      "semantic_basis": {
+        "username": {
+          "column_name": "username",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "The username column identifies the username associated with the event.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'username' and the high uniqueness ratio (0.092025) suggest that this column likely identifies particular instances of usernames."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-ae0cb80f386b",
+      "source_issue_ids": [
+        "issue-missing_values-ae0cb80f386b"
+      ],
+      "target_columns": [
+        "hostname"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19989
+      },
+      "semantic_basis": {
+        "hostname": {
+          "column_name": "hostname",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "The hostname column identifies the hostname associated with the event.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'hostname' and the high uniqueness ratio (0.040772) suggest that this column likely identifies particular instances of hostnames."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-f6b767891d4c",
+      "source_issue_ids": [
+        "issue-missing_values-f6b767891d4c"
+      ],
+      "target_columns": [
+        "security_action"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8557575757575758,
+      "rationale": "The issue is related to missing values in the 'security_action' column, which has a categorical semantic type. Given the low percentage of missing values (0.095%), no action is recommended as it does not exceed the threshold for imputation.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19981
+      },
+      "semantic_basis": {
+        "security_action": {
+          "column_name": "security_action",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Reusable security actions or states",
+          "semantic_role": "unknown",
+          "confidence": 0.8557575757575758,
+          "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of security actions rather than a single type of action."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-525da7d794d1",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-525da7d794d1"
+      ],
+      "target_columns": [
+        "security_action"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8557575757575758,
+      "rationale": "The issue is related to categorical data and the current column semantics allow for the normalization of the data without imputation.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "allow": [
+            "Allow",
+            "allow"
+          ],
+          "block": [
+            "Block",
+            "block"
+          ],
+          "monitor": [
+            "Monitor",
+            "monitor"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "security_action": {
+          "column_name": "security_action",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Reusable security actions or states",
+          "semantic_role": "unknown",
+          "confidence": 0.8557575757575758,
+          "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of security actions rather than a single type of action."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-f4819e6521db",
+      "source_issue_ids": [
+        "issue-rare_category_observation-f4819e6521db"
+      ],
+      "target_columns": [
+        "security_action"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 199,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 5
+      },
+      "semantic_basis": {
+        "security_action": {
+          "column_name": "security_action",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Reusable security actions or states",
+          "semantic_role": "unknown",
+          "confidence": 0.8557575757575758,
+          "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of security actions rather than a single type of action."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-d8385c61cb2d",
+      "source_issue_ids": [
+        "issue-missing_values-d8385c61cb2d"
+      ],
+      "target_columns": [
+        "bytes_in"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.08,
+      "rationale": "The column is numeric and the missing values are a small percentage, no action is needed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19984
+      },
+      "semantic_basis": {
+        "bytes_in": {
+          "column_name": "bytes_in",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Quantitative measurement of incoming data bytes",
+          "semantic_role": "unknown",
+          "confidence": 0.8557575757575758,
+          "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of incoming data bytes rather than a single type of measurement."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-ebb2f7a3000d",
+      "source_issue_ids": [
+        "issue-missing_values-ebb2f7a3000d"
+      ],
+      "target_columns": [
+        "bytes_out"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.07,
+      "rationale": "The column is numeric and the missing values are a small percentage, no action is needed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19986
+      },
+      "semantic_basis": {
+        "bytes_out": {
+          "column_name": "bytes_out",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Quantitative measurement of outgoing data bytes",
+          "semantic_role": "unknown",
+          "confidence": 0.8557575757575758,
+          "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of outgoing data bytes rather than a single type of measurement."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-e49ea8fe4296",
+      "source_issue_ids": [
+        "issue-missing_values-e49ea8fe4296"
+      ],
+      "target_columns": [
+        "rule_id"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.085,
+      "rationale": "The column is categorical and the missing values are a small percentage, no action is needed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19983
+      },
+      "semantic_basis": {
+        "rule_id": {
+          "column_name": "rule_id",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Reusable rule identifiers",
+          "semantic_role": "unknown",
+          "confidence": 0.8557575757575758,
+          "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of rule identifiers rather than a single type of rule."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-e321be03f6b3",
+      "source_issue_ids": [
+        "issue-missing_values-e321be03f6b3"
+      ],
+      "target_columns": [
+        "alert_id"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 7634
+      },
+      "semantic_basis": {
+        "alert_id": {
+          "column_name": "alert_id",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "Unique identifier for alerts",
+          "semantic_role": "unknown",
+          "confidence": 0.8557575757575758,
+          "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of unique alert identifiers rather than a single type of identifier."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-6ae79b73c8d0",
+      "source_issue_ids": [
+        "issue-missing_values-6ae79b73c8d0"
+      ],
+      "target_columns": [
+        "mitre_technique"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.8557575757575758,
+      "rationale": "The column semantics indicate categorical data with a moderate confidence, and the missing values are not extreme, so flagging for review is appropriate.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 2950
+      },
+      "semantic_basis": {
+        "mitre_technique": {
+          "column_name": "mitre_technique",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Reusable MITRE ATT&CK techniques",
+          "semantic_role": "unknown",
+          "confidence": 0.8557575757575758,
+          "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of MITRE ATT&CK techniques rather than a single type of technique."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-a08850c7a7e7",
+      "source_issue_ids": [
+        "issue-missing_values-a08850c7a7e7"
+      ],
+      "target_columns": [
+        "source_country"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.8557575757575758,
+      "rationale": "The column semantics indicate categorical data with a moderate confidence, and the missing values are not extreme, so flagging for review is appropriate.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19995
+      },
+      "semantic_basis": {
+        "source_country": {
+          "column_name": "source_country",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Reusable country of source",
+          "semantic_role": "unknown",
+          "confidence": 0.8557575757575758,
+          "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of country of source rather than a single type of country."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-c455a09a527f",
+      "source_issue_ids": [
+        "issue-rare_category_observation-c455a09a527f"
+      ],
+      "target_columns": [
+        "source_country"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 199,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "source_country": {
+          "column_name": "source_country",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Reusable country of source",
+          "semantic_role": "unknown",
+          "confidence": 0.8557575757575758,
+          "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of country of source rather than a single type of country."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-633863c18088",
+      "source_issue_ids": [
+        "issue-missing_values-633863c18088"
+      ],
+      "target_columns": [
+        "source_city"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.8557575757575758,
+      "rationale": "The column semantics indicate categorical data with a moderate confidence, and the missing values are not extreme, so flagging for review is appropriate.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 14867
+      },
+      "semantic_basis": {
+        "source_city": {
+          "column_name": "source_city",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Reusable city of source",
+          "semantic_role": "unknown",
+          "confidence": 0.8557575757575758,
+          "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of city of source rather than a single type of city."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-a39273b09772",
+      "source_issue_ids": [
+        "issue-missing_values-a39273b09772"
+      ],
+      "target_columns": [
+        "event_message"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.8557575757575758,
+      "rationale": "The column semantics indicate text data with a moderate confidence, and the missing values are not extreme, so flagging for review is appropriate.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 19949
+      },
+      "semantic_basis": {
+        "event_message": {
+          "column_name": "event_message",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Descriptive message for events",
+          "semantic_role": "unknown",
+          "confidence": 0.8557575757575758,
+          "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of event messages rather than a single type of message."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-99d8ce564558",
+      "source_issue_ids": [
+        "issue-rare_category_observation-99d8ce564558"
+      ],
+      "target_columns": [
+        "event_message"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 199,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "semantic_basis": {
+        "event_message": {
+          "column_name": "event_message",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Descriptive message for events",
+          "semantic_role": "unknown",
+          "confidence": 0.8557575757575758,
+          "reasoning_summary": "The column values are repeated and have a low unique ratio, suggesting they represent different instances of event messages rather than a single type of message."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    }
+  ],
+  "instructions": [
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-31707ff76c44",
+      "source_decision_id": "decision-issue-whitespace_issue-31707ff76c44",
+      "source_issue_ids": [
+        "issue-whitespace_issue-31707ff76c44"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "log_source"
+      ],
+      "parameters": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-a454e92503a2",
+      "source_decision_id": "decision-issue-whitespace_issue-a454e92503a2",
+      "source_issue_ids": [
+        "issue-whitespace_issue-a454e92503a2"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "event_type"
+      ],
+      "parameters": {}
+    }
+  ],
+  "executions": [
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-31707ff76c44",
+      "source_decision_id": "decision-issue-whitespace_issue-31707ff76c44",
+      "source_issue_ids": [
+        "issue-whitespace_issue-31707ff76c44"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "log_source"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 21,
+      "change_examples": [
+        {
+          "row_index": 76,
+          "column": "log_source",
+          "before": "Authentication ",
+          "after": "Authentication"
+        },
+        {
+          "row_index": 196,
+          "column": "log_source",
+          "before": "Network ",
+          "after": "Network"
+        },
+        {
+          "row_index": 249,
+          "column": "log_source",
+          "before": "Authentication ",
+          "after": "Authentication"
+        },
+        {
+          "row_index": 350,
+          "column": "log_source",
+          "before": "Authentication ",
+          "after": "Authentication"
+        },
+        {
+          "row_index": 1126,
+          "column": "log_source",
+          "before": "Authentication ",
+          "after": "Authentication"
+        }
+      ],
+      "rows_before": 20000,
+      "rows_after": 20000,
+      "columns_before": 24,
+      "columns_after": 24,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-a454e92503a2",
+      "source_decision_id": "decision-issue-whitespace_issue-a454e92503a2",
+      "source_issue_ids": [
+        "issue-whitespace_issue-a454e92503a2"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "event_type"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 20,
+      "change_examples": [
+        {
+          "row_index": 344,
+          "column": "event_type",
+          "before": "Failed Login ",
+          "after": "Failed Login"
+        },
+        {
+          "row_index": 604,
+          "column": "event_type",
+          "before": "Firewall Deny ",
+          "after": "Firewall Deny"
+        },
+        {
+          "row_index": 948,
+          "column": "event_type",
+          "before": "Failed Login ",
+          "after": "Failed Login"
+        },
+        {
+          "row_index": 1501,
+          "column": "event_type",
+          "before": "Failed Login ",
+          "after": "Failed Login"
+        },
+        {
+          "row_index": 1646,
+          "column": "event_type",
+          "before": "Failed Login ",
+          "after": "Failed Login"
+        }
+      ],
+      "rows_before": 20000,
+      "rows_after": 20000,
+      "columns_before": 24,
+      "columns_after": 24,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "no_unexpected_changes": true,
+    "dataframe_equal": false,
+    "row_count_equal": true,
+    "column_count_equal": true,
+    "missingness_equal": true,
+    "duplicate_row_count_equal": true,
+    "physical_dtypes_equal": true,
+    "cardinality_equal": false,
+    "unrelated_columns_equal": true,
+    "targeted_whitespace_improved": true,
+    "targeted_case_variants_improved": true,
+    "only_approved_value_changes": true,
+    "no_unexpected_categories": true,
+    "targeted_date_formats_improved": true,
+    "only_approved_date_changes": true,
+    "expected_dtype_changes_only": true,
+    "only_approved_numeric_changes": true,
+    "null_positions_equal": true,
+    "targeted_mixed_numeric_improved": true,
+    "only_approved_imputation_changes": true,
+    "expected_missingness_changes_only": true,
+    "imputed_cell_count": 0,
+    "imputation_audit": [],
+    "newly_introduced_null_count": 0,
+    "changed_cell_count": 41,
+    "before_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "missing_values": 17,
+        "whitespace_issue": 2,
+        "case_variant_candidate": 5,
+        "rare_category_observation": 8
+      },
+      "whitespace_affected_cells_by_column": {
+        "log_source": 21,
+        "event_type": 20
+      },
+      "case_variant_affected_cells_by_column": {
+        "log_source": 19441,
+        "event_type": 19571,
+        "severity": 431,
+        "protocol": 17726,
+        "security_action": 19350
+      },
+      "date_format_affected_cells_by_column": {},
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "after_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "missing_values": 17,
+        "case_variant_candidate": 5,
+        "rare_category_observation": 8
+      },
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {
+        "log_source": 18438,
+        "event_type": 19571,
+        "severity": 431,
+        "protocol": 17726,
+        "security_action": 19350
+      },
+      "date_format_affected_cells_by_column": {},
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "before_summary": {
+      "row_count": 20000,
+      "column_count": 24,
+      "total_missing_cells": 38170,
+      "duplicate_row_count": 35,
+      "physical_dtypes": {
+        "event_id": "str",
+        "event_timestamp": "str",
+        "log_source": "str",
+        "event_type": "str",
+        "severity": "str",
+        "source_ip": "str",
+        "destination_ip": "str",
+        "source_port": "float64",
+        "destination_port": "str",
+        "protocol": "str",
+        "username": "str",
+        "hostname": "str",
+        "application": "str",
+        "security_action": "str",
+        "event_outcome": "str",
+        "bytes_in": "str",
+        "bytes_out": "str",
+        "rule_id": "str",
+        "alert_id": "str",
+        "mitre_technique": "str",
+        "source_country": "str",
+        "source_city": "str",
+        "investigation_status": "str",
+        "event_message": "str"
+      },
+      "cardinality": {
+        "event_id": 19891,
+        "event_timestamp": 19874,
+        "log_source": 13,
+        "event_type": 23,
+        "severity": 8,
+        "source_ip": 19881,
+        "destination_ip": 19886,
+        "source_port": 17099,
+        "destination_port": 12,
+        "protocol": 5,
+        "username": 1529,
+        "hostname": 815,
+        "application": 7,
+        "security_action": 9,
+        "event_outcome": 5,
+        "bytes_in": 19647,
+        "bytes_out": 19492,
+        "rule_id": 182,
+        "alert_id": 5156,
+        "mitre_technique": 5,
+        "source_country": 10,
+        "source_city": 6,
+        "investigation_status": 5,
+        "event_message": 6
+      }
+    },
+    "after_summary": {
+      "row_count": 20000,
+      "column_count": 24,
+      "total_missing_cells": 38170,
+      "duplicate_row_count": 35,
+      "physical_dtypes": {
+        "event_id": "str",
+        "event_timestamp": "str",
+        "log_source": "str",
+        "event_type": "str",
+        "severity": "str",
+        "source_ip": "str",
+        "destination_ip": "str",
+        "source_port": "float64",
+        "destination_port": "str",
+        "protocol": "str",
+        "username": "str",
+        "hostname": "str",
+        "application": "str",
+        "security_action": "str",
+        "event_outcome": "str",
+        "bytes_in": "str",
+        "bytes_out": "str",
+        "rule_id": "str",
+        "alert_id": "str",
+        "mitre_technique": "str",
+        "source_country": "str",
+        "source_city": "str",
+        "investigation_status": "str",
+        "event_message": "str"
+      },
+      "cardinality": {
+        "event_id": 19891,
+        "event_timestamp": 19874,
+        "log_source": 10,
+        "event_type": 19,
+        "severity": 8,
+        "source_ip": 19881,
+        "destination_ip": 19886,
+        "source_port": 17099,
+        "destination_port": 12,
+        "protocol": 5,
+        "username": 1529,
+        "hostname": 815,
+        "application": 7,
+        "security_action": 9,
+        "event_outcome": 5,
+        "bytes_in": 19647,
+        "bytes_out": 19492,
+        "rule_id": 182,
+        "alert_id": 5156,
+        "mitre_technique": 5,
+        "source_country": 10,
+        "source_city": 6,
+        "investigation_status": 5,
+        "event_message": 6
+      }
+    },
+    "warnings": []
+  },
+  "warnings": [],
+  "output_artifacts": {
+    "cleaned_dataset": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\pipeline1_multidomain\\results\\dataset_06_cybersecurity\\cleaned_dataset.csv",
+    "cleaning_report": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\pipeline1_multidomain\\results\\dataset_06_cybersecurity\\cleaning_report.json",
+    "cleaned_dataset_format": "csv"
+  }
+}

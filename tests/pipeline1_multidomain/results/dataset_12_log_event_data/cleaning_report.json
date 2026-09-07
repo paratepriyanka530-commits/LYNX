@@ -1,0 +1,4259 @@
+{
+  "pipeline_version": "pipeline1_architecture_b_v001",
+  "run_id": "20260906T134649-867667f0",
+  "status": "success",
+  "original_dataset": {
+    "valid": true,
+    "file_name": "dataset_12_log_event_data_raw.csv",
+    "file_format": ".csv",
+    "file_size_bytes": 10119874,
+    "rows": 50000,
+    "columns": 22,
+    "duplicate_columns": [],
+    "absolute_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_12_log_event_data_raw.csv",
+    "source_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_12_log_event_data_raw.csv",
+    "raw_dataset_overwritten": false
+  },
+  "before_profile": {
+    "shape": {
+      "rows": 50000,
+      "columns": 22
+    },
+    "column_names": [
+      "event_id",
+      "event_timestamp",
+      "environment",
+      "service_name",
+      "hostname",
+      "instance_id",
+      "log_level",
+      "event_name",
+      "http_method",
+      "request_path",
+      "http_status_code",
+      "latency_ms",
+      "request_id",
+      "trace_id",
+      "session_id",
+      "user_id",
+      "client_ip",
+      "payload_size_bytes",
+      "exception_type",
+      "error_message",
+      "deployment_version",
+      "cloud_region"
+    ],
+    "dtype_distribution": {
+      "str": 22
+    },
+    "missingness": {
+      "total_missing_cells": 300079,
+      "overall_missing_percentage": 27.2799
+    },
+    "duplicates": {
+      "exact_duplicate_rows": 50,
+      "percentage": 0.1
+    },
+    "column_profiles": [
+      {
+        "column_name": "event_id",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 49930,
+        "missing": {
+          "count": 70,
+          "percentage": 0.14
+        },
+        "uniqueness": {
+          "unique_count": 49840,
+          "unique_ratio": 0.998197
+        },
+        "repetition": {
+          "repeated_unique_count": 90,
+          "repeated_occurrences": 180,
+          "repetition_rate": 0.003605
+        },
+        "sample_values": [
+          "LOG0000042966",
+          "LOG0000015770",
+          "LOG0000045199",
+          "LOG0000009206",
+          "LOG0000029757"
+        ]
+      },
+      {
+        "column_name": "event_timestamp",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 49979,
+        "missing": {
+          "count": 21,
+          "percentage": 0.042
+        },
+        "uniqueness": {
+          "unique_count": 49848,
+          "unique_ratio": 0.997379
+        },
+        "repetition": {
+          "repeated_unique_count": 93,
+          "repeated_occurrences": 224,
+          "repetition_rate": 0.004482
+        },
+        "sample_values": [
+          "2026-08-01T15:37:16.327000Z",
+          "2026-08-09T02:45:37.731000Z",
+          "2026-08-21T03:28:10.373000Z",
+          "2026-08-09T16:28:59.792000Z",
+          "2026-08-07T18:15:34.262000Z"
+        ]
+      },
+      {
+        "column_name": "environment",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 49982,
+        "missing": {
+          "count": 18,
+          "percentage": 0.036
+        },
+        "uniqueness": {
+          "unique_count": 6,
+          "unique_ratio": 0.00012
+        },
+        "repetition": {
+          "repeated_unique_count": 6,
+          "repeated_occurrences": 49982,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "production",
+          "staging",
+          "development",
+          "test",
+          "PROD"
+        ]
+      },
+      {
+        "column_name": "service_name",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 49977,
+        "missing": {
+          "count": 23,
+          "percentage": 0.046
+        },
+        "uniqueness": {
+          "unique_count": 21,
+          "unique_ratio": 0.00042
+        },
+        "repetition": {
+          "repeated_unique_count": 19,
+          "repeated_occurrences": 49975,
+          "repetition_rate": 0.99996
+        },
+        "sample_values": [
+          "catalog-service",
+          "auth-service",
+          "postgres-primary",
+          "order-service",
+          "payment-service"
+        ]
+      },
+      {
+        "column_name": "hostname",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 49974,
+        "missing": {
+          "count": 26,
+          "percentage": 0.052
+        },
+        "uniqueness": {
+          "unique_count": 184,
+          "unique_ratio": 0.003682
+        },
+        "repetition": {
+          "repeated_unique_count": 141,
+          "repeated_occurrences": 49931,
+          "repetition_rate": 0.99914
+        },
+        "sample_values": [
+          "cata-20",
+          "auth-14",
+          "cata-04",
+          "post-03",
+          "orde-18"
+        ]
+      },
+      {
+        "column_name": "instance_id",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 50000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 49910,
+          "unique_ratio": 0.9982
+        },
+        "repetition": {
+          "repeated_unique_count": 90,
+          "repeated_occurrences": 180,
+          "repetition_rate": 0.0036
+        },
+        "sample_values": [
+          "i-b7a368f6",
+          "i-0951897a",
+          "i-9955d2da",
+          "i-08ad017f",
+          "i-fa85ba4c"
+        ]
+      },
+      {
+        "column_name": "log_level",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 49975,
+        "missing": {
+          "count": 25,
+          "percentage": 0.05
+        },
+        "uniqueness": {
+          "unique_count": 8,
+          "unique_ratio": 0.00016
+        },
+        "repetition": {
+          "repeated_unique_count": 8,
+          "repeated_occurrences": 49975,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "INFO",
+          "DEBUG",
+          "ERROR",
+          "WARN",
+          "FATAL"
+        ]
+      },
+      {
+        "column_name": "event_name",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 49961,
+        "missing": {
+          "count": 39,
+          "percentage": 0.078
+        },
+        "uniqueness": {
+          "unique_count": 15,
+          "unique_ratio": 0.0003
+        },
+        "repetition": {
+          "repeated_unique_count": 15,
+          "repeated_occurrences": 49961,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "job_execution",
+          "user_login",
+          "cache_operation",
+          "database_query",
+          "http_request"
+        ]
+      },
+      {
+        "column_name": "http_method",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 10072,
+        "missing": {
+          "count": 39928,
+          "percentage": 79.856
+        },
+        "uniqueness": {
+          "unique_count": 6,
+          "unique_ratio": 0.000596
+        },
+        "repetition": {
+          "repeated_unique_count": 6,
+          "repeated_occurrences": 10072,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "POST",
+          "PUT",
+          "DELETE",
+          "GET",
+          "PATCHED"
+        ]
+      },
+      {
+        "column_name": "request_path",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 10080,
+        "missing": {
+          "count": 39920,
+          "percentage": 79.84
+        },
+        "uniqueness": {
+          "unique_count": 10,
+          "unique_ratio": 0.000992
+        },
+        "repetition": {
+          "repeated_unique_count": 9,
+          "repeated_occurrences": 10079,
+          "repetition_rate": 0.999901
+        },
+        "sample_values": [
+          "/api/orders",
+          "/api/products",
+          "/api/payments",
+          "/api/login",
+          "/health"
+        ]
+      },
+      {
+        "column_name": "http_status_code",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 10075,
+        "missing": {
+          "count": 39925,
+          "percentage": 79.85
+        },
+        "uniqueness": {
+          "unique_count": 14,
+          "unique_ratio": 0.00139
+        },
+        "repetition": {
+          "repeated_unique_count": 14,
+          "repeated_occurrences": 10075,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "400",
+          "200",
+          "502",
+          "401",
+          "201"
+        ]
+      },
+      {
+        "column_name": "latency_ms",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 49975,
+        "missing": {
+          "count": 25,
+          "percentage": 0.05
+        },
+        "uniqueness": {
+          "unique_count": 19182,
+          "unique_ratio": 0.383832
+        },
+        "repetition": {
+          "repeated_unique_count": 11162,
+          "repeated_occurrences": 41955,
+          "repetition_rate": 0.83952
+        },
+        "sample_values": [
+          "38.3",
+          "189.47",
+          "94.95",
+          "49.41",
+          "156.26"
+        ]
+      },
+      {
+        "column_name": "request_id",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 20004,
+        "missing": {
+          "count": 29996,
+          "percentage": 59.992
+        },
+        "uniqueness": {
+          "unique_count": 15226,
+          "unique_ratio": 0.761148
+        },
+        "repetition": {
+          "repeated_unique_count": 3948,
+          "repeated_occurrences": 8726,
+          "repetition_rate": 0.436213
+        },
+        "sample_values": [
+          "REQ000007749",
+          "REQ000024951",
+          "REQ000011305",
+          "REQ000006749",
+          "REQ000011384"
+        ]
+      },
+      {
+        "column_name": "trace_id",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 49981,
+        "missing": {
+          "count": 19,
+          "percentage": 0.038
+        },
+        "uniqueness": {
+          "unique_count": 49871,
+          "unique_ratio": 0.997799
+        },
+        "repetition": {
+          "repeated_unique_count": 91,
+          "repeated_occurrences": 201,
+          "repetition_rate": 0.004022
+        },
+        "sample_values": [
+          "a069ec219c0d2ca7",
+          "3945211b9d7ddf1f",
+          "edc00b1753a2968a",
+          "f7a89f592f90a5fe",
+          "3656a87f5ffd4121"
+        ]
+      },
+      {
+        "column_name": "session_id",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 32485,
+        "missing": {
+          "count": 17515,
+          "percentage": 35.03
+        },
+        "uniqueness": {
+          "unique_count": 11211,
+          "unique_ratio": 0.345113
+        },
+        "repetition": {
+          "repeated_unique_count": 9050,
+          "repeated_occurrences": 30324,
+          "repetition_rate": 0.933477
+        },
+        "sample_values": [
+          "SES00011447",
+          "SES00011268",
+          "SES00004454",
+          "SES00008534",
+          "SES00006069"
+        ]
+      },
+      {
+        "column_name": "user_id",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 36045,
+        "missing": {
+          "count": 13955,
+          "percentage": 27.91
+        },
+        "uniqueness": {
+          "unique_count": 8830,
+          "unique_ratio": 0.244972
+        },
+        "repetition": {
+          "repeated_unique_count": 8152,
+          "repeated_occurrences": 35367,
+          "repetition_rate": 0.98119
+        },
+        "sample_values": [
+          "USR0001776",
+          "USR0002986",
+          "USR0008674",
+          "USR0003896",
+          "USR0003149"
+        ]
+      },
+      {
+        "column_name": "client_ip",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 20066,
+        "missing": {
+          "count": 29934,
+          "percentage": 59.868
+        },
+        "uniqueness": {
+          "unique_count": 19980,
+          "unique_ratio": 0.995714
+        },
+        "repetition": {
+          "repeated_unique_count": 32,
+          "repeated_occurrences": 118,
+          "repetition_rate": 0.005881
+        },
+        "sample_values": [
+          "73.54.57.24",
+          "163.3.9.214",
+          "198.127.126.209",
+          "200.25.120.97",
+          "59.226.144.154"
+        ]
+      },
+      {
+        "column_name": "payload_size_bytes",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 49974,
+        "missing": {
+          "count": 26,
+          "percentage": 0.052
+        },
+        "uniqueness": {
+          "unique_count": 45852,
+          "unique_ratio": 0.917517
+        },
+        "repetition": {
+          "repeated_unique_count": 3826,
+          "repeated_occurrences": 7948,
+          "repetition_rate": 0.159043
+        },
+        "sample_values": [
+          "271415",
+          "204679",
+          "36326",
+          "43238",
+          "233385"
+        ]
+      },
+      {
+        "column_name": "exception_type",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 5721,
+        "missing": {
+          "count": 44279,
+          "percentage": 88.558
+        },
+        "uniqueness": {
+          "unique_count": 4,
+          "unique_ratio": 0.000699
+        },
+        "repetition": {
+          "repeated_unique_count": 4,
+          "repeated_occurrences": 5721,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "TimeoutError",
+          "ConnectionError",
+          "DatabaseError",
+          "ValidationError"
+        ]
+      },
+      {
+        "column_name": "error_message",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 5721,
+        "missing": {
+          "count": 44279,
+          "percentage": 88.558
+        },
+        "uniqueness": {
+          "unique_count": 4,
+          "unique_ratio": 0.000699
+        },
+        "repetition": {
+          "repeated_unique_count": 4,
+          "repeated_occurrences": 5721,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "connection pool exhausted",
+          "request timed out",
+          "unexpected application exception",
+          "upstream service unavailable"
+        ]
+      },
+      {
+        "column_name": "deployment_version",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 49967,
+        "missing": {
+          "count": 33,
+          "percentage": 0.066
+        },
+        "uniqueness": {
+          "unique_count": 5,
+          "unique_ratio": 0.0001
+        },
+        "repetition": {
+          "repeated_unique_count": 5,
+          "repeated_occurrences": 49967,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "2026.08.21",
+          "2026.08.28",
+          "2026.08.14",
+          "latest",
+          "v2026.08.21"
+        ]
+      },
+      {
+        "column_name": "cloud_region",
+        "physical_dtype": "str",
+        "row_count": 50000,
+        "non_null_count": 49977,
+        "missing": {
+          "count": 23,
+          "percentage": 0.046
+        },
+        "uniqueness": {
+          "unique_count": 5,
+          "unique_ratio": 0.0001
+        },
+        "repetition": {
+          "repeated_unique_count": 5,
+          "repeated_occurrences": 49977,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "ap-southeast-1",
+          "ap-south-1",
+          "AP-SOUTH-1",
+          "Mumbai",
+          "unknown"
+        ]
+      }
+    ]
+  },
+  "issues": [
+    {
+      "issue_id": "issue-exact_duplicate_rows-192ec5f83876",
+      "issue_type": "exact_duplicate_rows",
+      "target_columns": [],
+      "affected_count": 50,
+      "affected_percentage": 0.1,
+      "evidence": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "examples": [
+        3350,
+        8417,
+        8584,
+        10706,
+        13644
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-353c1fadb8d4",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "event_id"
+      ],
+      "affected_count": 70,
+      "affected_percentage": 0.14,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49930
+      },
+      "examples": [
+        2047,
+        2155,
+        2796,
+        4269,
+        5980
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-58033743e85e",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "event_timestamp"
+      ],
+      "affected_count": 21,
+      "affected_percentage": 0.042,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49979
+      },
+      "examples": [
+        1495,
+        3400,
+        5257,
+        7881,
+        10848
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-f1e243dcb970",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "environment"
+      ],
+      "affected_count": 18,
+      "affected_percentage": 0.036,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49982
+      },
+      "examples": [
+        9737,
+        10947,
+        16545,
+        18010,
+        18514
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-b9c7f581a0cd",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "environment"
+      ],
+      "affected_count": 28,
+      "affected_percentage": 0.056,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 28,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "Production ",
+        "Production ",
+        "Production ",
+        "Production ",
+        "Production "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-77915763f4bb",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "environment"
+      ],
+      "affected_count": 42572,
+      "affected_percentage": 85.1747,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "production": [
+            "Production ",
+            "production"
+          ]
+        }
+      },
+      "examples": [
+        "production",
+        "production",
+        "production",
+        "production",
+        "production"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-2eed54848f8b",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "environment"
+      ],
+      "affected_count": 87,
+      "affected_percentage": 0.1741,
+      "evidence": {
+        "maximum_frequency": 499,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "test",
+        "PROD",
+        "PROD",
+        "Production ",
+        "Production "
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-63cc94ccc44c",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "service_name"
+      ],
+      "affected_count": 23,
+      "affected_percentage": 0.046,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49977
+      },
+      "examples": [
+        4689,
+        4777,
+        6280,
+        7255,
+        15583
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-6008b73b4035",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "service_name"
+      ],
+      "affected_count": 25,
+      "affected_percentage": 0.05,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 25,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "order-service ",
+        "order-service ",
+        "catalog-service ",
+        "postgres-primary ",
+        "payment-service "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-c43766dd7a57",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "service_name"
+      ],
+      "affected_count": 49960,
+      "affected_percentage": 99.966,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "api-gateway": [
+            "API-GATEWAY",
+            "api-gateway",
+            "api-gateway "
+          ],
+          "auth-service": [
+            "AUTH-SERVICE",
+            "auth-service",
+            "auth-service "
+          ],
+          "catalog-service": [
+            "CATALOG-SERVICE",
+            "catalog-service",
+            "catalog-service "
+          ],
+          "notification-worker": [
+            "NOTIFICATION-WORKER",
+            "notification-worker",
+            "notification-worker "
+          ],
+          "order-service": [
+            "ORDER-SERVICE",
+            "order-service",
+            "order-service "
+          ],
+          "payment-service": [
+            "PAYMENT-SERVICE",
+            "payment-service",
+            "payment-service "
+          ],
+          "postgres-primary": [
+            "postgres-primary",
+            "postgres-primary "
+          ]
+        }
+      },
+      "examples": [
+        "catalog-service",
+        "auth-service",
+        "catalog-service",
+        "postgres-primary",
+        "order-service"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-971fe4bd64e1",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "service_name"
+      ],
+      "affected_count": 66,
+      "affected_percentage": 0.1321,
+      "evidence": {
+        "maximum_frequency": 499,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 14
+      },
+      "examples": [
+        "order-service ",
+        "order-service ",
+        "unknown-service",
+        "NOTIFICATION-WORKER",
+        "NOTIFICATION-WORKER"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-ae0cb80f386b",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "hostname"
+      ],
+      "affected_count": 26,
+      "affected_percentage": 0.052,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49974
+      },
+      "examples": [
+        6142,
+        6164,
+        6368,
+        6749,
+        7150
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-a2abc739de05",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "hostname"
+      ],
+      "affected_count": 28,
+      "affected_percentage": 0.056,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 28,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "api--01 ",
+        "noti-03 ",
+        "orde-20 ",
+        "post-11 ",
+        "paym-04 "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-1f5711b36fd1",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "log_level"
+      ],
+      "affected_count": 25,
+      "affected_percentage": 0.05,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49975
+      },
+      "examples": [
+        74,
+        442,
+        792,
+        1416,
+        4022
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-de719403ee16",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "log_level"
+      ],
+      "affected_count": 34937,
+      "affected_percentage": 69.909,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "info": [
+            "INFO",
+            "info"
+          ]
+        }
+      },
+      "examples": [
+        "INFO",
+        "INFO",
+        "INFO",
+        "INFO",
+        "INFO"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-c48ffc792469",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "log_level"
+      ],
+      "affected_count": 354,
+      "affected_percentage": 0.7084,
+      "evidence": {
+        "maximum_frequency": 499,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 4
+      },
+      "examples": [
+        "FATAL",
+        "FATAL",
+        "FATAL",
+        "FATAL",
+        "ERR"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-6f9c053719f8",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "event_name"
+      ],
+      "affected_count": 39,
+      "affected_percentage": 0.078,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49961
+      },
+      "examples": [
+        153,
+        582,
+        4261,
+        4914,
+        5018
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-6b26d916d992",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "event_name"
+      ],
+      "affected_count": 49921,
+      "affected_percentage": 99.9199,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "cache_operation": [
+            "CACHE_OPERATION",
+            "cache_operation"
+          ],
+          "database_query": [
+            "DATABASE_QUERY",
+            "database_query"
+          ],
+          "http_request": [
+            "HTTP_REQUEST",
+            "http_request"
+          ],
+          "job_execution": [
+            "JOB_EXECUTION",
+            "job_execution"
+          ],
+          "user_login": [
+            "USER_LOGIN",
+            "user_login"
+          ]
+        }
+      },
+      "examples": [
+        "job_execution",
+        "user_login",
+        "user_login",
+        "user_login",
+        "job_execution"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-8e87603159f0",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "event_name"
+      ],
+      "affected_count": 69,
+      "affected_percentage": 0.1381,
+      "evidence": {
+        "maximum_frequency": 499,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 10
+      },
+      "examples": [
+        "CACHE_OPERATION",
+        "CACHE_OPERATION",
+        "job-execution",
+        "user-login",
+        "user-login"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-2445a813dfcd",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "http_method"
+      ],
+      "affected_count": 39928,
+      "affected_percentage": 79.856,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 10072
+      },
+      "examples": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-8bde3ec5c8b9",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "http_method"
+      ],
+      "affected_count": 2478,
+      "affected_percentage": 24.6029,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "get": [
+            "GET",
+            "get"
+          ]
+        }
+      },
+      "examples": [
+        "GET",
+        "GET",
+        "GET",
+        "GET",
+        "GET"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-cc01c3cf94ba",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "http_method"
+      ],
+      "affected_count": 12,
+      "affected_percentage": 0.1191,
+      "evidence": {
+        "maximum_frequency": 100,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 2
+      },
+      "examples": [
+        "PATCHED",
+        "PATCHED",
+        "get",
+        "PATCHED",
+        "get"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-fd93f1f9927f",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "request_path"
+      ],
+      "affected_count": 39920,
+      "affected_percentage": 79.84,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 10080
+      },
+      "examples": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-857c1c2f4a53",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "request_path"
+      ],
+      "affected_count": 4,
+      "affected_percentage": 0.0397,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 4,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "/api/login ",
+        "/api/login ",
+        "/api/orders ",
+        "/api/login "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-1fc6f0bd1dfa",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "request_path"
+      ],
+      "affected_count": 3399,
+      "affected_percentage": 33.7202,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "/api/login": [
+            "/api/login",
+            "/api/login "
+          ],
+          "/api/orders": [
+            "/api/orders",
+            "/api/orders "
+          ]
+        }
+      },
+      "examples": [
+        "/api/orders",
+        "/api/login",
+        "/api/login",
+        "/api/orders",
+        "/api/orders"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-34d6e169570c",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "request_path"
+      ],
+      "affected_count": 14,
+      "affected_percentage": 0.1389,
+      "evidence": {
+        "maximum_frequency": 100,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 4
+      },
+      "examples": [
+        "/api/login ",
+        "UNKNOWN",
+        "UNKNOWN",
+        "api/orders",
+        "/api/login "
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-f0194b93a789",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "http_status_code"
+      ],
+      "affected_count": 39925,
+      "affected_percentage": 79.85,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 10075
+      },
+      "examples": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-2772862f3076",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "http_status_code"
+      ],
+      "affected_count": 24,
+      "affected_percentage": 0.2382,
+      "evidence": {
+        "maximum_frequency": 100,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "700",
+        "OK",
+        "OK",
+        "OK",
+        "OK"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-65f3206c49bb",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "latency_ms"
+      ],
+      "affected_count": 25,
+      "affected_percentage": 0.05,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49975
+      },
+      "examples": [
+        123,
+        458,
+        8653,
+        10504,
+        13147
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-2c4af7c3d0d8",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "request_id"
+      ],
+      "affected_count": 29996,
+      "affected_percentage": 59.992,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 20004
+      },
+      "examples": [
+        0,
+        4,
+        5,
+        6,
+        7
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-f17974154d16",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "trace_id"
+      ],
+      "affected_count": 19,
+      "affected_percentage": 0.038,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49981
+      },
+      "examples": [
+        3114,
+        4346,
+        5272,
+        11204,
+        14086
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-91b7d074a2f3",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "session_id"
+      ],
+      "affected_count": 17515,
+      "affected_percentage": 35.03,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 32485
+      },
+      "examples": [
+        0,
+        4,
+        5,
+        9,
+        10
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-92c365c5b14a",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "user_id"
+      ],
+      "affected_count": 13955,
+      "affected_percentage": 27.91,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 36045
+      },
+      "examples": [
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-93737474689f",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "client_ip"
+      ],
+      "affected_count": 29934,
+      "affected_percentage": 59.868,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 20066
+      },
+      "examples": [
+        0,
+        4,
+        5,
+        6,
+        7
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-218f12b0e523",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "payload_size_bytes"
+      ],
+      "affected_count": 26,
+      "affected_percentage": 0.052,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49974
+      },
+      "examples": [
+        3143,
+        4733,
+        4747,
+        5441,
+        5641
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-7c784a1ba634",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "exception_type"
+      ],
+      "affected_count": 44279,
+      "affected_percentage": 88.558,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 5721
+      },
+      "examples": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-7e124fd392e3",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "error_message"
+      ],
+      "affected_count": 44279,
+      "affected_percentage": 88.558,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 5721
+      },
+      "examples": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-3873ff94ba85",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "deployment_version"
+      ],
+      "affected_count": 33,
+      "affected_percentage": 0.066,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49967
+      },
+      "examples": [
+        1297,
+        8302,
+        8653,
+        8737,
+        9180
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-fd6e26aa8af4",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "deployment_version"
+      ],
+      "affected_count": 52,
+      "affected_percentage": 0.1041,
+      "evidence": {
+        "maximum_frequency": 499,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 2
+      },
+      "examples": [
+        "latest",
+        "latest",
+        "latest",
+        "latest",
+        "latest"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-da38b83ecb91",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "cloud_region"
+      ],
+      "affected_count": 23,
+      "affected_percentage": 0.046,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49977
+      },
+      "examples": [
+        915,
+        3930,
+        8558,
+        11541,
+        12098
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-be168e154d4f",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "cloud_region"
+      ],
+      "affected_count": 24973,
+      "affected_percentage": 49.969,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "ap-south-1": [
+            "AP-SOUTH-1",
+            "ap-south-1"
+          ]
+        }
+      },
+      "examples": [
+        "ap-south-1",
+        "ap-south-1",
+        "ap-south-1",
+        "ap-south-1",
+        "ap-south-1"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-830b3a68ac14",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "cloud_region"
+      ],
+      "affected_count": 62,
+      "affected_percentage": 0.1241,
+      "evidence": {
+        "maximum_frequency": 499,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "AP-SOUTH-1",
+        "AP-SOUTH-1",
+        "Mumbai",
+        "AP-SOUTH-1",
+        "AP-SOUTH-1"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    }
+  ],
+  "quality_summary": {
+    "total_issues_detected": 42,
+    "issues_by_type": {
+      "case_variant_candidate": 7,
+      "exact_duplicate_rows": 1,
+      "missing_values": 21,
+      "rare_category_observation": 9,
+      "whitespace_issue": 4
+    },
+    "issues_by_status": {
+      "candidate": 7,
+      "issue": 26,
+      "observation": 9
+    },
+    "affected_columns": [
+      "client_ip",
+      "cloud_region",
+      "deployment_version",
+      "environment",
+      "error_message",
+      "event_id",
+      "event_name",
+      "event_timestamp",
+      "exception_type",
+      "hostname",
+      "http_method",
+      "http_status_code",
+      "latency_ms",
+      "log_level",
+      "payload_size_bytes",
+      "request_id",
+      "request_path",
+      "service_name",
+      "session_id",
+      "trace_id",
+      "user_id"
+    ],
+    "dataset_level_issue_count": 1
+  },
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": "event",
+      "row_entity_confidence": 0.95,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "event_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "The event_id column identifies particular instances of events with unique identifiers.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'event_id' and the high uniqueness ratio (99.8197%) strongly suggest that this column identifies particular entities or records."
+      },
+      {
+        "column_name": "event_timestamp",
+        "semantic_type": "datetime",
+        "value_function": "temporal",
+        "concept_description": "The event_timestamp column represents dates and times of events.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'event_timestamp' and the temporal nature of the sample values (dates and times) indicate that this column captures temporal information."
+      },
+      {
+        "column_name": "environment",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "The environment column categorizes the operational environment of the events (production, staging, development, test, PROD).",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'environment' and the presence of distinct categories (production, staging, development, test, PROD) suggest that this column classifies the operational environment of the events."
+      },
+      {
+        "column_name": "service_name",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "The service_name column categorizes the service names involved in the events (catalog-service, auth-service, postgres-primary, order-service, payment-service).",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'service_name' and the presence of distinct categories (catalog-service, auth-service, postgres-primary, order-service, payment-service) indicate that this column classifies the service names involved in the events."
+      },
+      {
+        "column_name": "hostname",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "The hostname column categorizes the hostnames of the instances involved in the events (cata-20, auth-14, cata-04, post-03, ororde-18).",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'hostname' and the presence of distinct categories (cata-20, auth-14, cata-04, post-03, ororde-18) suggest that this column classifies the hostnames of the instances involved in the events."
+      },
+      {
+        "column_name": "instance_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "The instance_id column identifies particular instances of instances with unique identifiers.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'instance_id' and the high uniqueness ratio (99.82%) indicate that this column identifies particular instances with unique identifiers."
+      },
+      {
+        "column_name": "log_level",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "The log_level column categorizes the log levels of the events (INFO, DEBUG, ERROR, WARN, FATAL).",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'log_level' and the presence of distinct categories (INFO, DEBUG, ERROR, WARN, FATAL) suggest that this column classifies the log levels of the events."
+      },
+      {
+        "column_name": "event_name",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "The event_name column categorizes the names of the events (job_execution, user_login, cache_operation, database_query, http_request).",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'event_name' and the presence of distinct categories (job_execution, user_login, cache_operation, database_query, http_request) indicate that this column classifies the names of the events."
+      },
+      {
+        "column_name": "http_method",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "The http_method column categorizes the HTTP methods used in the events (POST, PUT, DELETE, GET, PATCHED).",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'http_method' and the presence of distinct categories (POST, PUT, DELETE, GET, PATCHED) suggest that this column classifies the HTTP methods used in the events."
+      },
+      {
+        "column_name": "request_path",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "The request_path column categorizes the paths of the HTTP requests (api/orders, api/products, api/payments, api/login, health).",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'request_path' and the presence of distinct categories (api/orders, api/products, api/payments, api/login, health) indicate that this column classifies the paths of the HTTP requests."
+      },
+      {
+        "column_name": "http_status_code",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "The http_status_code column categorizes the HTTP status codes of the events (400, 200, 502, 401, 201).",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'http_status_code' and the presence of distinct categories (400, 200, 502, 401, 201) suggest that this column classifies the HTTP status codes of the events."
+      },
+      {
+        "column_name": "latency_ms",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "The latency_ms column represents the latency in milliseconds of the events.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'latency_ms' and the presence of numeric values (38.3, 189.47, 94.95, 49.41, 156.26) suggest that this column represents the latency in milliseconds of the events."
+      },
+      {
+        "column_name": "request_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "The request_id column likely identifies unique requests or transactions within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'request_id' strongly suggests it is an identifier for unique requests or transactions, supported by the high confidence of the shared dataset context."
+      },
+      {
+        "column_name": "trace_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "The trace_id column likely identifies unique traces or sessions within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'trace_id' strongly suggests it is an identifier for unique traces or sessions, supported by the high confidence of the shared dataset context."
+      },
+      {
+        "column_name": "session_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "The session_id column likely identifies unique sessions within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'session_id' strongly suggests it is an identifier for unique sessions, supported by the high confidence of the shared dataset context."
+      },
+      {
+        "column_name": "user_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "The user_id column likely identifies unique users within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'user_id' strongly suggests it is an identifier for unique users, supported by the high confidence of the shared dataset context."
+      },
+      {
+        "column_name": "client_ip",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "The client_ip column likely identifies unique client IP addresses within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'client_ip' strongly suggests it is an identifier for unique client IP addresses, supported by the high confidence of the shared dataset context."
+      },
+      {
+        "column_name": "payload_size_bytes",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "The payload_size_bytes column likely represents the size of payloads in bytes within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'payload_size_bytes' strongly suggests it is a measurement of payload sizes, supported by the high confidence of the shared dataset context."
+      },
+      {
+        "column_name": "exception_type",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "The exception_type column likely categorizes the type of exceptions within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'exception_type' strongly suggests it is a categorical column for exception types, supported by the high confidence of the shared dataset context."
+      },
+      {
+        "column_name": "error_message",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "The error_message column likely categorizes error messages within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'error_message' strongly suggests it is a categorical column for error messages, supported by the high confidence of the shared dataset context."
+      },
+      {
+        "column_name": "deployment_version",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "The deployment_version column likely identifies unique deployment versions within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'deployment_version' strongly suggests it is an identifier for unique deployment versions, supported by the high confidence of the shared dataset context."
+      },
+      {
+        "column_name": "cloud_region",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "The cloud_region column likely identifies unique cloud regions within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'cloud_region' strongly suggests it is an identifier for unique cloud regions, supported by the high confidence of the shared dataset context."
+      }
+    ],
+    "warnings": [],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 3,
+      "total_llm_calls": 4,
+      "batch_sizes": [
+        12,
+        10
+      ],
+      "dataset_semantic_runtime_seconds": 44.128683,
+      "batch_runtime_seconds": [
+        228.791534,
+        92.274747
+      ],
+      "rag_runtime_seconds": 0.156815,
+      "batch_failures": 0,
+      "batch_retries": 1,
+      "llm_calls": [
+        {
+          "stage": "dataset_context",
+          "api_wall_duration_seconds": 44.079897,
+          "prompt_eval_count": 2646,
+          "prompt_eval_duration": 40462521000,
+          "eval_count": 21,
+          "eval_duration": 1545278000,
+          "total_duration": 42034869500,
+          "load_duration": 2613900,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "error": "RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)",
+          "api_wall_duration_seconds": 122.052931,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 2,
+          "api_wall_duration_seconds": 106.738343,
+          "prompt_eval_count": 2061,
+          "prompt_eval_duration": 89918000,
+          "eval_count": 1482,
+          "eval_duration": 104549950000,
+          "total_duration": 104657630500,
+          "load_duration": 2632000,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 2,
+          "attempt": 1,
+          "api_wall_duration_seconds": 92.27466,
+          "prompt_eval_count": 2068,
+          "prompt_eval_duration": 20871058000,
+          "eval_count": 1000,
+          "eval_duration": 69283178000,
+          "total_duration": 90195087200,
+          "load_duration": 3188700,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 365.303632
+    }
+  },
+  "decision_summary": {
+    "total_decisions": 42,
+    "by_decision_type": {
+      "flag_for_review": 13,
+      "insufficient_evidence": 12,
+      "action": 4,
+      "no_action": 13
+    },
+    "by_proposed_action": {
+      "flag_rows": 13,
+      "no_op": 25,
+      "trim_whitespace": 4
+    },
+    "tier1_decisions": 22,
+    "tier2_decisions": 8,
+    "fallback_decisions": 12,
+    "deterministic_runtime_seconds": 0.000641,
+    "tier2_issue_count": 20,
+    "tier2_batch_sizes": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "llm_decision_calls": 8,
+    "llm_runtime_seconds": 237.591097,
+    "intended_llm_decision_calls": 5,
+    "retries": 3,
+    "successful_batches": 2,
+    "batch_failures": 3,
+    "llm_calls": [
+      {
+        "batch_index": 1,
+        "attempt": 1,
+        "api_wall_duration_seconds": 16.493545,
+        "prompt_character_length": 3062,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 741,
+        "prompt_eval_duration": 9315126000,
+        "eval_count": 84,
+        "eval_duration": 5092214000,
+        "total_duration": 14437923700,
+        "load_duration": 3179300,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 1,
+        "attempt": 2,
+        "api_wall_duration_seconds": 15.693511,
+        "prompt_character_length": 3062,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 741,
+        "prompt_eval_duration": 83247000,
+        "eval_count": 229,
+        "eval_duration": 13522373000,
+        "total_duration": 13607573800,
+        "load_duration": 3706400,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 2,
+        "attempt": 1,
+        "api_wall_duration_seconds": 32.303668,
+        "prompt_character_length": 3573,
+        "prompt_eval_count": 865,
+        "prompt_eval_duration": 8752854000,
+        "eval_count": 358,
+        "eval_duration": 21456646000,
+        "total_duration": 30232941400,
+        "load_duration": 3184200,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 3,
+        "attempt": 1,
+        "api_wall_duration_seconds": 31.013541,
+        "prompt_character_length": 3313,
+        "prompt_eval_count": 798,
+        "prompt_eval_duration": 8067822000,
+        "eval_count": 348,
+        "eval_duration": 20875925000,
+        "total_duration": 28964659800,
+        "load_duration": 3280900,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 4,
+        "attempt": 1,
+        "api_wall_duration_seconds": 15.066847,
+        "prompt_character_length": 3066,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 778,
+        "prompt_eval_duration": 7879314000,
+        "eval_count": 80,
+        "eval_duration": 5101895000,
+        "total_duration": 13001054600,
+        "load_duration": 3149900,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 4,
+        "attempt": 2,
+        "api_wall_duration_seconds": 16.721896,
+        "prompt_character_length": 3066,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 778,
+        "prompt_eval_duration": 88448000,
+        "eval_count": 245,
+        "eval_duration": 14548002000,
+        "total_duration": 14646702500,
+        "load_duration": 3711800,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 5,
+        "attempt": 1,
+        "api_wall_duration_seconds": 15.088556,
+        "prompt_character_length": 2950,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 727,
+        "prompt_eval_duration": 7049248000,
+        "eval_count": 99,
+        "eval_duration": 5935475000,
+        "total_duration": 13008715200,
+        "load_duration": 8962500,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 5,
+        "attempt": 2,
+        "api_wall_duration_seconds": 8.072697,
+        "prompt_character_length": 2950,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 727,
+        "prompt_eval_duration": 89350000,
+        "eval_count": 99,
+        "eval_duration": 5893044000,
+        "total_duration": 5992888900,
+        "load_duration": 3448700,
+        "done_reason": "stop"
+      }
+    ],
+    "total_runtime_seconds": 150.455815,
+    "execution_routing": {
+      "detected_issue_count": 42,
+      "decision_count": 42,
+      "proposed_action_count": 4,
+      "compiled_instruction_count": 4,
+      "executed_action_count": 4,
+      "executed_trim_whitespace_count": 4,
+      "executed_normalize_categorical_labels_count": 0,
+      "skipped_action_count": 0,
+      "skipped_actions": [],
+      "parse_date_assessments": [],
+      "numeric_coercion_assessments": [],
+      "missing_value_assessments": [
+        {
+          "column": "event_id",
+          "missing_count": 70,
+          "missing_percentage": 0.14,
+          "missingness_risk": "low",
+          "observed_count": 49930,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "event_timestamp",
+          "missing_count": 21,
+          "missing_percentage": 0.042,
+          "missingness_risk": "low",
+          "observed_count": 49979,
+          "semantic_type": "datetime",
+          "value_function": "temporal"
+        },
+        {
+          "column": "environment",
+          "missing_count": 18,
+          "missing_percentage": 0.036,
+          "missingness_risk": "low",
+          "observed_count": 49982,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "service_name",
+          "missing_count": 23,
+          "missing_percentage": 0.046,
+          "missingness_risk": "low",
+          "observed_count": 49977,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "hostname",
+          "missing_count": 26,
+          "missing_percentage": 0.052,
+          "missingness_risk": "low",
+          "observed_count": 49974,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "log_level",
+          "missing_count": 25,
+          "missing_percentage": 0.05,
+          "missingness_risk": "low",
+          "observed_count": 49975,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "event_name",
+          "missing_count": 39,
+          "missing_percentage": 0.078,
+          "missingness_risk": "low",
+          "observed_count": 49961,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "http_method",
+          "missing_count": 39928,
+          "missing_percentage": 79.856,
+          "missingness_risk": "very_high",
+          "observed_count": 10072,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "request_path",
+          "missing_count": 39920,
+          "missing_percentage": 79.84,
+          "missingness_risk": "very_high",
+          "observed_count": 10080,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "http_status_code",
+          "missing_count": 39925,
+          "missing_percentage": 79.85,
+          "missingness_risk": "very_high",
+          "observed_count": 10075,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "latency_ms",
+          "missing_count": 25,
+          "missing_percentage": 0.05,
+          "missingness_risk": "low",
+          "observed_count": 49975,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "request_id",
+          "missing_count": 29996,
+          "missing_percentage": 59.992,
+          "missingness_risk": "very_high",
+          "observed_count": 20004,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "trace_id",
+          "missing_count": 19,
+          "missing_percentage": 0.038,
+          "missingness_risk": "low",
+          "observed_count": 49981,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "session_id",
+          "missing_count": 17515,
+          "missing_percentage": 35.03,
+          "missingness_risk": "high",
+          "observed_count": 32485,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "user_id",
+          "missing_count": 13955,
+          "missing_percentage": 27.91,
+          "missingness_risk": "high",
+          "observed_count": 36045,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "client_ip",
+          "missing_count": 29934,
+          "missing_percentage": 59.868,
+          "missingness_risk": "very_high",
+          "observed_count": 20066,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "payload_size_bytes",
+          "missing_count": 26,
+          "missing_percentage": 0.052,
+          "missingness_risk": "low",
+          "observed_count": 49974,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "exception_type",
+          "missing_count": 44279,
+          "missing_percentage": 88.558,
+          "missingness_risk": "very_high",
+          "observed_count": 5721,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "error_message",
+          "missing_count": 44279,
+          "missing_percentage": 88.558,
+          "missingness_risk": "very_high",
+          "observed_count": 5721,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "deployment_version",
+          "missing_count": 33,
+          "missing_percentage": 0.066,
+          "missingness_risk": "low",
+          "observed_count": 49967,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "cloud_region",
+          "missing_count": 23,
+          "missing_percentage": 0.046,
+          "missingness_risk": "low",
+          "observed_count": 49977,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        }
+      ],
+      "impute_missing_proposal_count": 0,
+      "executed_impute_missing_count": 0,
+      "executed_coerce_dtype_count": 0,
+      "executed_parse_dates_count": 0
+    }
+  },
+  "decisions": [
+    {
+      "decision_id": "decision-issue-exact_duplicate_rows-192ec5f83876",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876"
+      ],
+      "target_columns": [],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Exact duplicate records may be legitimate repeated events; deletion is not automatic.",
+      "evidence_summary": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "semantic_basis": {},
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-353c1fadb8d4",
+      "source_issue_ids": [
+        "issue-missing_values-353c1fadb8d4"
+      ],
+      "target_columns": [
+        "event_id"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49930
+      },
+      "semantic_basis": {
+        "event_id": {
+          "column_name": "event_id",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "The event_id column identifies particular instances of events with unique identifiers.",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'event_id' and the high uniqueness ratio (99.8197%) strongly suggest that this column identifies particular entities or records."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-58033743e85e",
+      "source_issue_ids": [
+        "issue-missing_values-58033743e85e"
+      ],
+      "target_columns": [
+        "event_timestamp"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 49979
+      },
+      "semantic_basis": {
+        "event_timestamp": {
+          "column_name": "event_timestamp",
+          "semantic_type": "datetime",
+          "value_function": "temporal",
+          "concept_description": "The event_timestamp column represents dates and times of events.",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'event_timestamp' and the temporal nature of the sample values (dates and times) indicate that this column captures temporal information."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-f1e243dcb970",
+      "source_issue_ids": [
+        "issue-missing_values-f1e243dcb970"
+      ],
+      "target_columns": [
+        "environment"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 49982
+      },
+      "semantic_basis": {
+        "environment": {
+          "column_name": "environment",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The environment column categorizes the operational environment of the events (production, staging, development, test, PROD).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'environment' and the presence of distinct categories (production, staging, development, test, PROD) suggest that this column classifies the operational environment of the events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-b9c7f581a0cd",
+      "source_issue_ids": [
+        "issue-whitespace_issue-b9c7f581a0cd"
+      ],
+      "target_columns": [
+        "environment"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 28,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "environment": {
+          "column_name": "environment",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The environment column categorizes the operational environment of the events (production, staging, development, test, PROD).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'environment' and the presence of distinct categories (production, staging, development, test, PROD) suggest that this column classifies the operational environment of the events."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-77915763f4bb",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-77915763f4bb"
+      ],
+      "target_columns": [
+        "environment"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "production": [
+            "Production ",
+            "production"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "environment": {
+          "column_name": "environment",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The environment column categorizes the operational environment of the events (production, staging, development, test, PROD).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'environment' and the presence of distinct categories (production, staging, development, test, PROD) suggest that this column classifies the operational environment of the events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-2eed54848f8b",
+      "source_issue_ids": [
+        "issue-rare_category_observation-2eed54848f8b"
+      ],
+      "target_columns": [
+        "environment"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 499,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "environment": {
+          "column_name": "environment",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The environment column categorizes the operational environment of the events (production, staging, development, test, PROD).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'environment' and the presence of distinct categories (production, staging, development, test, PROD) suggest that this column classifies the operational environment of the events."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-63cc94ccc44c",
+      "source_issue_ids": [
+        "issue-missing_values-63cc94ccc44c"
+      ],
+      "target_columns": [
+        "service_name"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 49977
+      },
+      "semantic_basis": {
+        "service_name": {
+          "column_name": "service_name",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The service_name column categorizes the service names involved in the events (catalog-service, auth-service, postgres-primary, order-service, payment-service).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'service_name' and the presence of distinct categories (catalog-service, auth-service, postgres-primary, order-service, payment-service) indicate that this column classifies the service names involved in the events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-6008b73b4035",
+      "source_issue_ids": [
+        "issue-whitespace_issue-6008b73b4035"
+      ],
+      "target_columns": [
+        "service_name"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 25,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "service_name": {
+          "column_name": "service_name",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The service_name column categorizes the service names involved in the events (catalog-service, auth-service, postgres-primary, order-service, payment-service).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'service_name' and the presence of distinct categories (catalog-service, auth-service, postgres-primary, order-service, payment-service) indicate that this column classifies the service names involved in the events."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-c43766dd7a57",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-c43766dd7a57"
+      ],
+      "target_columns": [
+        "service_name"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "The service_name column is already categorical and the issue is about variant groups, which is handled by the normalization_probe.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "api-gateway": [
+            "API-GATEWAY",
+            "api-gateway",
+            "api-gateway "
+          ],
+          "auth-service": [
+            "AUTH-SERVICE",
+            "auth-service",
+            "auth-service "
+          ],
+          "catalog-service": [
+            "CATALOG-SERVICE",
+            "catalog-service",
+            "catalog-service "
+          ],
+          "notification-worker": [
+            "NOTIFICATION-WORKER",
+            "notification-worker",
+            "notification-worker "
+          ],
+          "order-service": [
+            "ORDER-SERVICE",
+            "order-service",
+            "order-service "
+          ],
+          "payment-service": [
+            "PAYMENT-SERVICE",
+            "payment-service",
+            "payment-service "
+          ],
+          "postgres-primary": [
+            "postgres-primary",
+            "postgres-primary "
+          ]
+        }
+      },
+      "semantic_basis": {
+        "service_name": {
+          "column_name": "service_name",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The service_name column categorizes the service names involved in the events (catalog-service, auth-service, postgres-primary, order-service, payment-service).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'service_name' and the presence of distinct categories (catalog-service, auth-service, postgres-primary, order-service, payment-service) indicate that this column classifies the service names involved in the events."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-971fe4bd64e1",
+      "source_issue_ids": [
+        "issue-rare_category_observation-971fe4bd64e1"
+      ],
+      "target_columns": [
+        "service_name"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 499,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 14
+      },
+      "semantic_basis": {
+        "service_name": {
+          "column_name": "service_name",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The service_name column categorizes the service names involved in the events (catalog-service, auth-service, postgres-primary, order-service, payment-service).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'service_name' and the presence of distinct categories (catalog-service, auth-service, postgres-primary, order-service, payment-service) indicate that this column classifies the service names involved in the events."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-ae0cb80f386b",
+      "source_issue_ids": [
+        "issue-missing_values-ae0cb80f386b"
+      ],
+      "target_columns": [
+        "hostname"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "The hostname column is already categorical and the issue is about missing values, which is handled by the null_detection.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49974
+      },
+      "semantic_basis": {
+        "hostname": {
+          "column_name": "hostname",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The hostname column categorizes the hostnames of the instances involved in the events (cata-20, auth-14, cata-04, post-03, ororde-18).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'hostname' and the presence of distinct categories (cata-20, auth-14, cata-04, post-03, ororde-18) suggest that this column classifies the hostnames of the instances involved in the events."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-a2abc739de05",
+      "source_issue_ids": [
+        "issue-whitespace_issue-a2abc739de05"
+      ],
+      "target_columns": [
+        "hostname"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 28,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "hostname": {
+          "column_name": "hostname",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The hostname column categorizes the hostnames of the instances involved in the events (cata-20, auth-14, cata-04, post-03, ororde-18).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'hostname' and the presence of distinct categories (cata-20, auth-14, cata-04, post-03, ororde-18) suggest that this column classifies the hostnames of the instances involved in the events."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-1f5711b36fd1",
+      "source_issue_ids": [
+        "issue-missing_values-1f5711b36fd1"
+      ],
+      "target_columns": [
+        "log_level"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "The log_level column is already categorical and the issue is about missing values, which is handled by the null_detection.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49975
+      },
+      "semantic_basis": {
+        "log_level": {
+          "column_name": "log_level",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The log_level column categorizes the log levels of the events (INFO, DEBUG, ERROR, WARN, FATAL).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'log_level' and the presence of distinct categories (INFO, DEBUG, ERROR, WARN, FATAL) suggest that this column classifies the log levels of the events."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-de719403ee16",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-de719403ee16"
+      ],
+      "target_columns": [
+        "log_level"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "The log_level column is already categorical and the issue is about variant groups, which is handled by the normalization_probe.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "info": [
+            "INFO",
+            "info"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "log_level": {
+          "column_name": "log_level",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The log_level column categorizes the log levels of the events (INFO, DEBUG, ERROR, WARN, FATAL).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'log_level' and the presence of distinct categories (INFO, DEBUG, ERROR, WARN, FATAL) suggest that this column classifies the log levels of the events."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-c48ffc792469",
+      "source_issue_ids": [
+        "issue-rare_category_observation-c48ffc792469"
+      ],
+      "target_columns": [
+        "log_level"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 499,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 4
+      },
+      "semantic_basis": {
+        "log_level": {
+          "column_name": "log_level",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The log_level column categorizes the log levels of the events (INFO, DEBUG, ERROR, WARN, FATAL).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'log_level' and the presence of distinct categories (INFO, DEBUG, ERROR, WARN, FATAL) suggest that this column classifies the log levels of the events."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-6f9c053719f8",
+      "source_issue_ids": [
+        "issue-missing_values-6f9c053719f8"
+      ],
+      "target_columns": [
+        "event_name"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "The event_name column contains a significant number of missing values, which could affect the analysis.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49961
+      },
+      "semantic_basis": {
+        "event_name": {
+          "column_name": "event_name",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The event_name column categorizes the names of the events (job_execution, user_login, cache_operation, database_query, http_request).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'event_name' and the presence of distinct categories (job_execution, user_login, cache_operation, database_query, http_request) indicate that this column classifies the names of the events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-6b26d916d992",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-6b26d916d992"
+      ],
+      "target_columns": [
+        "event_name"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "The event_name column contains a high percentage of variant values, which could affect the analysis.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "cache_operation": [
+            "CACHE_OPERATION",
+            "cache_operation"
+          ],
+          "database_query": [
+            "DATABASE_QUERY",
+            "database_query"
+          ],
+          "http_request": [
+            "HTTP_REQUEST",
+            "http_request"
+          ],
+          "job_execution": [
+            "JOB_EXECUTION",
+            "job_execution"
+          ],
+          "user_login": [
+            "USER_LOGIN",
+            "user_login"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "event_name": {
+          "column_name": "event_name",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The event_name column categorizes the names of the events (job_execution, user_login, cache_operation, database_query, http_request).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'event_name' and the presence of distinct categories (job_execution, user_login, cache_operation, database_query, http_request) indicate that this column classifies the names of the events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-8e87603159f0",
+      "source_issue_ids": [
+        "issue-rare_category_observation-8e87603159f0"
+      ],
+      "target_columns": [
+        "event_name"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 499,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 10
+      },
+      "semantic_basis": {
+        "event_name": {
+          "column_name": "event_name",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The event_name column categorizes the names of the events (job_execution, user_login, cache_operation, database_query, http_request).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'event_name' and the presence of distinct categories (job_execution, user_login, cache_operation, database_query, http_request) indicate that this column classifies the names of the events."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-2445a813dfcd",
+      "source_issue_ids": [
+        "issue-missing_values-2445a813dfcd"
+      ],
+      "target_columns": [
+        "http_method"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "The http_method column contains a significant number of missing values, which could affect the analysis.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 10072
+      },
+      "semantic_basis": {
+        "http_method": {
+          "column_name": "http_method",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The http_method column categorizes the HTTP methods used in the events (POST, PUT, DELETE, GET, PATCHED).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'http_method' and the presence of distinct categories (POST, PUT, DELETE, GET, PATCHED) suggest that this column classifies the HTTP methods used in the events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-8bde3ec5c8b9",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-8bde3ec5c8b9"
+      ],
+      "target_columns": [
+        "http_method"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "The http_method column contains a high percentage of variant values, which could affect the analysis.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "get": [
+            "GET",
+            "get"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "http_method": {
+          "column_name": "http_method",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The http_method column categorizes the HTTP methods used in the events (POST, PUT, DELETE, GET, PATCHED).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'http_method' and the presence of distinct categories (POST, PUT, DELETE, GET, PATCHED) suggest that this column classifies the HTTP methods used in the events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-cc01c3cf94ba",
+      "source_issue_ids": [
+        "issue-rare_category_observation-cc01c3cf94ba"
+      ],
+      "target_columns": [
+        "http_method"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 100,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 2
+      },
+      "semantic_basis": {
+        "http_method": {
+          "column_name": "http_method",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The http_method column categorizes the HTTP methods used in the events (POST, PUT, DELETE, GET, PATCHED).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'http_method' and the presence of distinct categories (POST, PUT, DELETE, GET, PATCHED) suggest that this column classifies the HTTP methods used in the events."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-fd93f1f9927f",
+      "source_issue_ids": [
+        "issue-missing_values-fd93f1f9927f"
+      ],
+      "target_columns": [
+        "request_path"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 10080
+      },
+      "semantic_basis": {
+        "request_path": {
+          "column_name": "request_path",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The request_path column categorizes the paths of the HTTP requests (api/orders, api/products, api/payments, api/login, health).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'request_path' and the presence of distinct categories (api/orders, api/products, api/payments, api/login, health) indicate that this column classifies the paths of the HTTP requests."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-857c1c2f4a53",
+      "source_issue_ids": [
+        "issue-whitespace_issue-857c1c2f4a53"
+      ],
+      "target_columns": [
+        "request_path"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 4,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "request_path": {
+          "column_name": "request_path",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The request_path column categorizes the paths of the HTTP requests (api/orders, api/products, api/payments, api/login, health).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'request_path' and the presence of distinct categories (api/orders, api/products, api/payments, api/login, health) indicate that this column classifies the paths of the HTTP requests."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-1fc6f0bd1dfa",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-1fc6f0bd1dfa"
+      ],
+      "target_columns": [
+        "request_path"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "/api/login": [
+            "/api/login",
+            "/api/login "
+          ],
+          "/api/orders": [
+            "/api/orders",
+            "/api/orders "
+          ]
+        }
+      },
+      "semantic_basis": {
+        "request_path": {
+          "column_name": "request_path",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The request_path column categorizes the paths of the HTTP requests (api/orders, api/products, api/payments, api/login, health).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'request_path' and the presence of distinct categories (api/orders, api/products, api/payments, api/login, health) indicate that this column classifies the paths of the HTTP requests."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-34d6e169570c",
+      "source_issue_ids": [
+        "issue-rare_category_observation-34d6e169570c"
+      ],
+      "target_columns": [
+        "request_path"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 100,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 4
+      },
+      "semantic_basis": {
+        "request_path": {
+          "column_name": "request_path",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The request_path column categorizes the paths of the HTTP requests (api/orders, api/products, api/payments, api/login, health).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'request_path' and the presence of distinct categories (api/orders, api/products, api/payments, api/login, health) indicate that this column classifies the paths of the HTTP requests."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-f0194b93a789",
+      "source_issue_ids": [
+        "issue-missing_values-f0194b93a789"
+      ],
+      "target_columns": [
+        "http_status_code"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 10075
+      },
+      "semantic_basis": {
+        "http_status_code": {
+          "column_name": "http_status_code",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The http_status_code column categorizes the HTTP status codes of the events (400, 200, 502, 401, 201).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'http_status_code' and the presence of distinct categories (400, 200, 502, 401, 201) suggest that this column classifies the HTTP status codes of the events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-2772862f3076",
+      "source_issue_ids": [
+        "issue-rare_category_observation-2772862f3076"
+      ],
+      "target_columns": [
+        "http_status_code"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 100,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "http_status_code": {
+          "column_name": "http_status_code",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The http_status_code column categorizes the HTTP status codes of the events (400, 200, 502, 401, 201).",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'http_status_code' and the presence of distinct categories (400, 200, 502, 401, 201) suggest that this column classifies the HTTP status codes of the events."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-65f3206c49bb",
+      "source_issue_ids": [
+        "issue-missing_values-65f3206c49bb"
+      ],
+      "target_columns": [
+        "latency_ms"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 49975
+      },
+      "semantic_basis": {
+        "latency_ms": {
+          "column_name": "latency_ms",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "The latency_ms column represents the latency in milliseconds of the events.",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'latency_ms' and the presence of numeric values (38.3, 189.47, 94.95, 49.41, 156.26) suggest that this column represents the latency in milliseconds of the events."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-2c4af7c3d0d8",
+      "source_issue_ids": [
+        "issue-missing_values-2c4af7c3d0d8"
+      ],
+      "target_columns": [
+        "request_id"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 20004
+      },
+      "semantic_basis": {
+        "request_id": {
+          "column_name": "request_id",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "The request_id column likely identifies unique requests or transactions within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'request_id' strongly suggests it is an identifier for unique requests or transactions, supported by the high confidence of the shared dataset context."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-f17974154d16",
+      "source_issue_ids": [
+        "issue-missing_values-f17974154d16"
+      ],
+      "target_columns": [
+        "trace_id"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49981
+      },
+      "semantic_basis": {
+        "trace_id": {
+          "column_name": "trace_id",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "The trace_id column likely identifies unique traces or sessions within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'trace_id' strongly suggests it is an identifier for unique traces or sessions, supported by the high confidence of the shared dataset context."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-91b7d074a2f3",
+      "source_issue_ids": [
+        "issue-missing_values-91b7d074a2f3"
+      ],
+      "target_columns": [
+        "session_id"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 32485
+      },
+      "semantic_basis": {
+        "session_id": {
+          "column_name": "session_id",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "The session_id column likely identifies unique sessions within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'session_id' strongly suggests it is an identifier for unique sessions, supported by the high confidence of the shared dataset context."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-92c365c5b14a",
+      "source_issue_ids": [
+        "issue-missing_values-92c365c5b14a"
+      ],
+      "target_columns": [
+        "user_id"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 36045
+      },
+      "semantic_basis": {
+        "user_id": {
+          "column_name": "user_id",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "The user_id column likely identifies unique users within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'user_id' strongly suggests it is an identifier for unique users, supported by the high confidence of the shared dataset context."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-93737474689f",
+      "source_issue_ids": [
+        "issue-missing_values-93737474689f"
+      ],
+      "target_columns": [
+        "client_ip"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 20066
+      },
+      "semantic_basis": {
+        "client_ip": {
+          "column_name": "client_ip",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "The client_ip column likely identifies unique client IP addresses within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'client_ip' strongly suggests it is an identifier for unique client IP addresses, supported by the high confidence of the shared dataset context."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-218f12b0e523",
+      "source_issue_ids": [
+        "issue-missing_values-218f12b0e523"
+      ],
+      "target_columns": [
+        "payload_size_bytes"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 49974
+      },
+      "semantic_basis": {
+        "payload_size_bytes": {
+          "column_name": "payload_size_bytes",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "The payload_size_bytes column likely represents the size of payloads in bytes within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'payload_size_bytes' strongly suggests it is a measurement of payload sizes, supported by the high confidence of the shared dataset context."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-7c784a1ba634",
+      "source_issue_ids": [
+        "issue-missing_values-7c784a1ba634"
+      ],
+      "target_columns": [
+        "exception_type"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 5721
+      },
+      "semantic_basis": {
+        "exception_type": {
+          "column_name": "exception_type",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The exception_type column likely categorizes the type of exceptions within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'exception_type' strongly suggests it is a categorical column for exception types, supported by the high confidence of the shared dataset context."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-7e124fd392e3",
+      "source_issue_ids": [
+        "issue-missing_values-7e124fd392e3"
+      ],
+      "target_columns": [
+        "error_message"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 5721
+      },
+      "semantic_basis": {
+        "error_message": {
+          "column_name": "error_message",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "The error_message column likely categorizes error messages within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'error_message' strongly suggests it is a categorical column for error messages, supported by the high confidence of the shared dataset context."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-3873ff94ba85",
+      "source_issue_ids": [
+        "issue-missing_values-3873ff94ba85"
+      ],
+      "target_columns": [
+        "deployment_version"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49967
+      },
+      "semantic_basis": {
+        "deployment_version": {
+          "column_name": "deployment_version",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "The deployment_version column likely identifies unique deployment versions within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'deployment_version' strongly suggests it is an identifier for unique deployment versions, supported by the high confidence of the shared dataset context."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-fd6e26aa8af4",
+      "source_issue_ids": [
+        "issue-rare_category_observation-fd6e26aa8af4"
+      ],
+      "target_columns": [
+        "deployment_version"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 499,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 2
+      },
+      "semantic_basis": {
+        "deployment_version": {
+          "column_name": "deployment_version",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "The deployment_version column likely identifies unique deployment versions within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'deployment_version' strongly suggests it is an identifier for unique deployment versions, supported by the high confidence of the shared dataset context."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-da38b83ecb91",
+      "source_issue_ids": [
+        "issue-missing_values-da38b83ecb91"
+      ],
+      "target_columns": [
+        "cloud_region"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 49977
+      },
+      "semantic_basis": {
+        "cloud_region": {
+          "column_name": "cloud_region",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "The cloud_region column likely identifies unique cloud regions within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'cloud_region' strongly suggests it is an identifier for unique cloud regions, supported by the high confidence of the shared dataset context."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-be168e154d4f",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-be168e154d4f"
+      ],
+      "target_columns": [
+        "cloud_region"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "ap-south-1": [
+            "AP-SOUTH-1",
+            "ap-south-1"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "cloud_region": {
+          "column_name": "cloud_region",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "The cloud_region column likely identifies unique cloud regions within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'cloud_region' strongly suggests it is an identifier for unique cloud regions, supported by the high confidence of the shared dataset context."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-830b3a68ac14",
+      "source_issue_ids": [
+        "issue-rare_category_observation-830b3a68ac14"
+      ],
+      "target_columns": [
+        "cloud_region"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 499,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "cloud_region": {
+          "column_name": "cloud_region",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "The cloud_region column likely identifies unique cloud regions within the dataset.",
+          "semantic_role": "unknown",
+          "confidence": 0.95,
+          "reasoning_summary": "The column name 'cloud_region' strongly suggests it is an identifier for unique cloud regions, supported by the high confidence of the shared dataset context."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    }
+  ],
+  "instructions": [
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-b9c7f581a0cd",
+      "source_decision_id": "decision-issue-whitespace_issue-b9c7f581a0cd",
+      "source_issue_ids": [
+        "issue-whitespace_issue-b9c7f581a0cd"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "environment"
+      ],
+      "parameters": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-6008b73b4035",
+      "source_decision_id": "decision-issue-whitespace_issue-6008b73b4035",
+      "source_issue_ids": [
+        "issue-whitespace_issue-6008b73b4035"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "service_name"
+      ],
+      "parameters": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-a2abc739de05",
+      "source_decision_id": "decision-issue-whitespace_issue-a2abc739de05",
+      "source_issue_ids": [
+        "issue-whitespace_issue-a2abc739de05"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "hostname"
+      ],
+      "parameters": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-857c1c2f4a53",
+      "source_decision_id": "decision-issue-whitespace_issue-857c1c2f4a53",
+      "source_issue_ids": [
+        "issue-whitespace_issue-857c1c2f4a53"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "request_path"
+      ],
+      "parameters": {}
+    }
+  ],
+  "executions": [
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-b9c7f581a0cd",
+      "source_decision_id": "decision-issue-whitespace_issue-b9c7f581a0cd",
+      "source_issue_ids": [
+        "issue-whitespace_issue-b9c7f581a0cd"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "environment"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 28,
+      "change_examples": [
+        {
+          "row_index": 4133,
+          "column": "environment",
+          "before": "Production ",
+          "after": "Production"
+        },
+        {
+          "row_index": 6737,
+          "column": "environment",
+          "before": "Production ",
+          "after": "Production"
+        },
+        {
+          "row_index": 7704,
+          "column": "environment",
+          "before": "Production ",
+          "after": "Production"
+        },
+        {
+          "row_index": 9464,
+          "column": "environment",
+          "before": "Production ",
+          "after": "Production"
+        },
+        {
+          "row_index": 9858,
+          "column": "environment",
+          "before": "Production ",
+          "after": "Production"
+        }
+      ],
+      "rows_before": 50000,
+      "rows_after": 50000,
+      "columns_before": 22,
+      "columns_after": 22,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-6008b73b4035",
+      "source_decision_id": "decision-issue-whitespace_issue-6008b73b4035",
+      "source_issue_ids": [
+        "issue-whitespace_issue-6008b73b4035"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "service_name"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 25,
+      "change_examples": [
+        {
+          "row_index": 112,
+          "column": "service_name",
+          "before": "order-service ",
+          "after": "order-service"
+        },
+        {
+          "row_index": 1713,
+          "column": "service_name",
+          "before": "order-service ",
+          "after": "order-service"
+        },
+        {
+          "row_index": 5582,
+          "column": "service_name",
+          "before": "catalog-service ",
+          "after": "catalog-service"
+        },
+        {
+          "row_index": 5639,
+          "column": "service_name",
+          "before": "postgres-primary ",
+          "after": "postgres-primary"
+        },
+        {
+          "row_index": 6292,
+          "column": "service_name",
+          "before": "payment-service ",
+          "after": "payment-service"
+        }
+      ],
+      "rows_before": 50000,
+      "rows_after": 50000,
+      "columns_before": 22,
+      "columns_after": 22,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-a2abc739de05",
+      "source_decision_id": "decision-issue-whitespace_issue-a2abc739de05",
+      "source_issue_ids": [
+        "issue-whitespace_issue-a2abc739de05"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "hostname"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 28,
+      "change_examples": [
+        {
+          "row_index": 5515,
+          "column": "hostname",
+          "before": "api--01 ",
+          "after": "api--01"
+        },
+        {
+          "row_index": 6558,
+          "column": "hostname",
+          "before": "noti-03 ",
+          "after": "noti-03"
+        },
+        {
+          "row_index": 7188,
+          "column": "hostname",
+          "before": "orde-20 ",
+          "after": "orde-20"
+        },
+        {
+          "row_index": 11151,
+          "column": "hostname",
+          "before": "post-11 ",
+          "after": "post-11"
+        },
+        {
+          "row_index": 12089,
+          "column": "hostname",
+          "before": "paym-04 ",
+          "after": "paym-04"
+        }
+      ],
+      "rows_before": 50000,
+      "rows_after": 50000,
+      "columns_before": 22,
+      "columns_after": 22,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-857c1c2f4a53",
+      "source_decision_id": "decision-issue-whitespace_issue-857c1c2f4a53",
+      "source_issue_ids": [
+        "issue-whitespace_issue-857c1c2f4a53"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "request_path"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 4,
+      "change_examples": [
+        {
+          "row_index": 6500,
+          "column": "request_path",
+          "before": "/api/login ",
+          "after": "/api/login"
+        },
+        {
+          "row_index": 22802,
+          "column": "request_path",
+          "before": "/api/login ",
+          "after": "/api/login"
+        },
+        {
+          "row_index": 29527,
+          "column": "request_path",
+          "before": "/api/orders ",
+          "after": "/api/orders"
+        },
+        {
+          "row_index": 42434,
+          "column": "request_path",
+          "before": "/api/login ",
+          "after": "/api/login"
+        }
+      ],
+      "rows_before": 50000,
+      "rows_after": 50000,
+      "columns_before": 22,
+      "columns_after": 22,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "no_unexpected_changes": true,
+    "dataframe_equal": false,
+    "row_count_equal": true,
+    "column_count_equal": true,
+    "missingness_equal": true,
+    "duplicate_row_count_equal": true,
+    "physical_dtypes_equal": true,
+    "cardinality_equal": false,
+    "unrelated_columns_equal": true,
+    "targeted_whitespace_improved": true,
+    "targeted_case_variants_improved": true,
+    "only_approved_value_changes": true,
+    "no_unexpected_categories": true,
+    "targeted_date_formats_improved": true,
+    "only_approved_date_changes": true,
+    "expected_dtype_changes_only": true,
+    "only_approved_numeric_changes": true,
+    "null_positions_equal": true,
+    "targeted_mixed_numeric_improved": true,
+    "only_approved_imputation_changes": true,
+    "expected_missingness_changes_only": true,
+    "imputed_cell_count": 0,
+    "imputation_audit": [],
+    "newly_introduced_null_count": 0,
+    "changed_cell_count": 85,
+    "before_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "missing_values": 21,
+        "whitespace_issue": 4,
+        "case_variant_candidate": 7,
+        "rare_category_observation": 9
+      },
+      "whitespace_affected_cells_by_column": {
+        "environment": 28,
+        "service_name": 25,
+        "hostname": 28,
+        "request_path": 4
+      },
+      "case_variant_affected_cells_by_column": {
+        "environment": 42572,
+        "service_name": 49960,
+        "log_level": 34937,
+        "event_name": 49921,
+        "http_method": 2478,
+        "request_path": 3399,
+        "cloud_region": 24973
+      },
+      "date_format_affected_cells_by_column": {},
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "after_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "missing_values": 21,
+        "case_variant_candidate": 6,
+        "rare_category_observation": 9
+      },
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {
+        "environment": 42572,
+        "service_name": 42789,
+        "log_level": 34937,
+        "event_name": 49921,
+        "http_method": 2478,
+        "cloud_region": 24973
+      },
+      "date_format_affected_cells_by_column": {},
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "before_summary": {
+      "row_count": 50000,
+      "column_count": 22,
+      "total_missing_cells": 300079,
+      "duplicate_row_count": 50,
+      "physical_dtypes": {
+        "event_id": "str",
+        "event_timestamp": "str",
+        "environment": "str",
+        "service_name": "str",
+        "hostname": "str",
+        "instance_id": "str",
+        "log_level": "str",
+        "event_name": "str",
+        "http_method": "str",
+        "request_path": "str",
+        "http_status_code": "str",
+        "latency_ms": "str",
+        "request_id": "str",
+        "trace_id": "str",
+        "session_id": "str",
+        "user_id": "str",
+        "client_ip": "str",
+        "payload_size_bytes": "str",
+        "exception_type": "str",
+        "error_message": "str",
+        "deployment_version": "str",
+        "cloud_region": "str"
+      },
+      "cardinality": {
+        "event_id": 49840,
+        "event_timestamp": 49848,
+        "environment": 6,
+        "service_name": 21,
+        "hostname": 184,
+        "instance_id": 49910,
+        "log_level": 8,
+        "event_name": 15,
+        "http_method": 6,
+        "request_path": 10,
+        "http_status_code": 14,
+        "latency_ms": 19182,
+        "request_id": 15226,
+        "trace_id": 49871,
+        "session_id": 11211,
+        "user_id": 8830,
+        "client_ip": 19980,
+        "payload_size_bytes": 45852,
+        "exception_type": 4,
+        "error_message": 4,
+        "deployment_version": 5,
+        "cloud_region": 5
+      }
+    },
+    "after_summary": {
+      "row_count": 50000,
+      "column_count": 22,
+      "total_missing_cells": 300079,
+      "duplicate_row_count": 50,
+      "physical_dtypes": {
+        "event_id": "str",
+        "event_timestamp": "str",
+        "environment": "str",
+        "service_name": "str",
+        "hostname": "str",
+        "instance_id": "str",
+        "log_level": "str",
+        "event_name": "str",
+        "http_method": "str",
+        "request_path": "str",
+        "http_status_code": "str",
+        "latency_ms": "str",
+        "request_id": "str",
+        "trace_id": "str",
+        "session_id": "str",
+        "user_id": "str",
+        "client_ip": "str",
+        "payload_size_bytes": "str",
+        "exception_type": "str",
+        "error_message": "str",
+        "deployment_version": "str",
+        "cloud_region": "str"
+      },
+      "cardinality": {
+        "event_id": 49840,
+        "event_timestamp": 49848,
+        "environment": 6,
+        "service_name": 14,
+        "hostname": 156,
+        "instance_id": 49910,
+        "log_level": 8,
+        "event_name": 15,
+        "http_method": 6,
+        "request_path": 8,
+        "http_status_code": 14,
+        "latency_ms": 19182,
+        "request_id": 15226,
+        "trace_id": 49871,
+        "session_id": 11211,
+        "user_id": 8830,
+        "client_ip": 19980,
+        "payload_size_bytes": 45852,
+        "exception_type": 4,
+        "error_message": 4,
+        "deployment_version": 5,
+        "cloud_region": 5
+      }
+    },
+    "warnings": []
+  },
+  "warnings": [
+    "Tier 2 decision batch failed after retry: ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+    "Tier 2 decision batch failed after retry: ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+    "Tier 2 decision batch failed after retry: ValueError: Tier 2 decision output does not exactly cover input issue IDs."
+  ],
+  "output_artifacts": {
+    "cleaned_dataset": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\pipeline1_multidomain\\results\\dataset_12_log_event_data\\cleaned_dataset.csv",
+    "cleaning_report": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\pipeline1_multidomain\\results\\dataset_12_log_event_data\\cleaning_report.json",
+    "cleaned_dataset_format": "csv"
+  }
+}

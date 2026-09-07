@@ -1,0 +1,23 @@
+{
+  "dataset": "dataset_07_iot_sensor_raw.csv",
+  "dataset_id": "dataset_07_iot_sensor",
+  "status": "success",
+  "run_id": "20260906T120954-01662179",
+  "runtime_seconds": 501.175,
+  "rows": null,
+  "columns": null,
+  "issues": 26,
+  "decisions": 26,
+  "executions": 2,
+  "successful_executions": 2,
+  "execution_counts": {
+    "trim_whitespace": 2
+  },
+  "cells_changed": 57,
+  "validation_passed": true,
+  "raw_dataset_overwritten": false,
+  "warnings_count": 1,
+  "warnings": [
+    "Semantic batch 1 failed after retry; unknown fallback used for ['reading_id', 'device_id', 'recorded_at', 'site_name', 'device_type', 'temperature', 'temperature_unit', 'humidity_percent', 'pressure_kpa', 'vibration_mm_s', 'battery_percent', 'signal_strength_dbm']: RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)"
+  ]
+}

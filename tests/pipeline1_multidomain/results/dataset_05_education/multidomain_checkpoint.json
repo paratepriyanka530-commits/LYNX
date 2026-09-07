@@ -1,0 +1,24 @@
+{
+  "dataset": "dataset_05_education_raw.csv",
+  "dataset_id": "dataset_05_education",
+  "status": "success",
+  "run_id": "20260906T114917-dffd891a",
+  "runtime_seconds": 451.625,
+  "rows": null,
+  "columns": null,
+  "issues": 36,
+  "decisions": 36,
+  "executions": 3,
+  "successful_executions": 3,
+  "execution_counts": {
+    "trim_whitespace": 3
+  },
+  "cells_changed": 53,
+  "validation_passed": true,
+  "raw_dataset_overwritten": false,
+  "warnings_count": 2,
+  "warnings": [
+    "Tier 2 decision batch failed after retry: ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+    "Tier 2 decision batch failed after retry: ValueError: Tier 2 decision output does not exactly cover input issue IDs."
+  ]
+}

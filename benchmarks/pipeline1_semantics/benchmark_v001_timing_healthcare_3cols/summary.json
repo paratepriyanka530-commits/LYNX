@@ -1,0 +1,176 @@
+{
+  "benchmark_version": "benchmark_v001_baseline",
+  "generated_at": "2026-09-05T08:50:24+00:00",
+  "run": {
+    "datasets_discovered": 1,
+    "datasets_processed": 1,
+    "datasets_successful": 0,
+    "datasets_partial": 1,
+    "datasets_failed": 0,
+    "columns_attempted": 3,
+    "columns_successful": 1,
+    "columns_failed": 2
+  },
+  "dataset_semantics": {
+    "dataset_domain_unknown_count": 1,
+    "row_entity_unknown_count": 0
+  },
+  "column_semantics": {
+    "semantic_type_distribution": {
+      "unknown": 1
+    },
+    "semantic_type_unknown_count": 1,
+    "semantic_type_unknown_rate": 1.0,
+    "value_function_distribution": {
+      "entity_reference": 1
+    },
+    "value_function_unknown_count": 0,
+    "value_function_unknown_rate": 0.0,
+    "semantic_role_distribution": {
+      "primary_identifier": 1
+    },
+    "semantic_role_unknown_count": 0,
+    "semantic_role_unknown_rate": 0.0,
+    "entity_alignment_distribution": {
+      "same_as_row_entity": 1
+    }
+  },
+  "confidence": {
+    "semantic": {
+      "average": 0.901047,
+      "minimum": 0.901047,
+      "maximum": 0.901047
+    },
+    "role": {
+      "average": 0.95,
+      "minimum": 0.95,
+      "maximum": 0.95
+    }
+  },
+  "consistency": {
+    "hard_contradiction_count": 0,
+    "soft_warning_count": 2,
+    "warning_distribution_by_rule": {
+      "entity_reference_unknown_type": 1,
+      "high_confidence_unknown_semantics": 1
+    }
+  },
+  "runtime": {
+    "total_elapsed_seconds": 235.72,
+    "average_seconds_per_dataset": 210.593,
+    "average_seconds_per_column": 63.046,
+    "stage_timings": {
+      "column_evidence_building": {
+        "total_seconds": 2.6e-05,
+        "observations": 3,
+        "average_seconds": 9e-06
+      },
+      "column_understanding_llm_inference": {
+        "total_seconds": 80.652425,
+        "observations": 3,
+        "average_seconds": 26.884142
+      },
+      "column_understanding_overhead": {
+        "total_seconds": 0.001024,
+        "observations": 3,
+        "average_seconds": 0.000341
+      },
+      "column_understanding_total": {
+        "total_seconds": 80.875744,
+        "observations": 3,
+        "average_seconds": 26.958581
+      },
+      "consistency_checks": {
+        "total_seconds": 1.3e-05,
+        "observations": 1,
+        "average_seconds": 1.3e-05
+      },
+      "dataset_evidence_building": {
+        "total_seconds": 1.5e-05,
+        "observations": 1,
+        "average_seconds": 1.5e-05
+      },
+      "dataset_loading": {
+        "total_seconds": 0.055347,
+        "observations": 1,
+        "average_seconds": 0.055347
+      },
+      "dataset_rag_retrieval": {
+        "total_seconds": 0.031739,
+        "observations": 1,
+        "average_seconds": 0.031739
+      },
+      "dataset_understanding_llm_inference": {
+        "total_seconds": 39.223726,
+        "observations": 1,
+        "average_seconds": 39.223726
+      },
+      "dataset_understanding_overhead": {
+        "total_seconds": 0.000841,
+        "observations": 1,
+        "average_seconds": 0.000841
+      },
+      "dataset_understanding_total": {
+        "total_seconds": 39.256306,
+        "observations": 1,
+        "average_seconds": 39.256306
+      },
+      "profiling": {
+        "total_seconds": 0.077526,
+        "observations": 1,
+        "average_seconds": 0.077526
+      },
+      "role_resolution": {
+        "total_seconds": 58.699858,
+        "observations": 2,
+        "average_seconds": 29.349929
+      },
+      "role_resolution_overhead": {
+        "total_seconds": 0.00014,
+        "observations": 1,
+        "average_seconds": 0.00014
+      },
+      "role_resolution_total": {
+        "total_seconds": 31.602352,
+        "observations": 1,
+        "average_seconds": 31.602352
+      },
+      "role_resolver_llm_inference": {
+        "total_seconds": 90.221448,
+        "observations": 3,
+        "average_seconds": 30.073816
+      },
+      "role_resolver_rag_retrieval": {
+        "total_seconds": 0.080443,
+        "observations": 3,
+        "average_seconds": 0.026814
+      },
+      "semantic_context_rag_retrieval": {
+        "total_seconds": 0.139487,
+        "observations": 3,
+        "average_seconds": 0.046496
+      },
+      "serialization_write_overhead": {
+        "total_seconds": 0.001489,
+        "observations": 1,
+        "average_seconds": 0.001489
+      },
+      "total_before_output": {
+        "total_seconds": 63.044526,
+        "observations": 1,
+        "average_seconds": 63.044526
+      },
+      "total_column_elapsed": {
+        "total_seconds": 171.179797,
+        "observations": 3,
+        "average_seconds": 57.059932
+      },
+      "value_pattern_rag_retrieval": {
+        "total_seconds": 0.082808,
+        "observations": 3,
+        "average_seconds": 0.027603
+      }
+    }
+  },
+  "methodology_note": "Diagnostic coverage and consistency statistics only; no human ground-truth accuracy metrics are reported."
+}

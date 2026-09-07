@@ -1,0 +1,77 @@
+{
+  "benchmark_version": "benchmark_v001_baseline",
+  "generated_at": "2026-09-05T07:35:02+00:00",
+  "run": {
+    "datasets_discovered": 1,
+    "datasets_processed": 1,
+    "datasets_successful": 0,
+    "datasets_partial": 1,
+    "datasets_failed": 0,
+    "columns_attempted": 24,
+    "columns_successful": 22,
+    "columns_failed": 2
+  },
+  "dataset_semantics": {
+    "dataset_domain_unknown_count": 1,
+    "row_entity_unknown_count": 0
+  },
+  "column_semantics": {
+    "semantic_type_distribution": {
+      "currency": 1,
+      "date": 1,
+      "datetime": 1,
+      "location": 1,
+      "numeric_measurement": 5,
+      "text": 1,
+      "unknown": 12
+    },
+    "semantic_type_unknown_count": 12,
+    "semantic_type_unknown_rate": 0.545455,
+    "value_function_distribution": {
+      "classification": 4,
+      "descriptive_attribute": 1,
+      "entity_reference": 8,
+      "measurement": 9
+    },
+    "value_function_unknown_count": 0,
+    "value_function_unknown_rate": 0.0,
+    "semantic_role_distribution": {
+      "category": 2,
+      "foreign_identifier": 13,
+      "primary_identifier": 7
+    },
+    "semantic_role_unknown_count": 0,
+    "semantic_role_unknown_rate": 0.0,
+    "entity_alignment_distribution": {
+      "different_from_row_entity": 15,
+      "same_as_row_entity": 7
+    }
+  },
+  "confidence": {
+    "semantic": {
+      "average": 0.962652,
+      "minimum": 0.901047,
+      "maximum": 1.0
+    },
+    "role": {
+      "average": 0.971713,
+      "minimum": 0.95,
+      "maximum": 0.9999999999999999
+    }
+  },
+  "consistency": {
+    "hard_contradiction_count": 0,
+    "soft_warning_count": 22,
+    "warning_distribution_by_rule": {
+      "classification_identifier_role": 3,
+      "entity_reference_unknown_type": 7,
+      "high_confidence_unknown_semantics": 12
+    }
+  },
+  "runtime": {
+    "total_elapsed_seconds": 2505.524,
+    "average_seconds_per_dataset": 2453.232,
+    "average_seconds_per_column": 98.861
+  },
+  "methodology_note": "Diagnostic coverage and consistency statistics only; no human ground-truth accuracy metrics are reported."
+}

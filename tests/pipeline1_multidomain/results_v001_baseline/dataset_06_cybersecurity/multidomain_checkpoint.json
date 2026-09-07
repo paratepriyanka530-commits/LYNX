@@ -1,0 +1,21 @@
+{
+  "dataset": "dataset_06_cybersecurity_raw.csv",
+  "dataset_id": "dataset_06_cybersecurity",
+  "status": "success",
+  "run_id": "20260906T133700-df66b8e5",
+  "runtime_seconds": 445.97,
+  "rows": null,
+  "columns": null,
+  "issues": 33,
+  "decisions": 33,
+  "executions": 2,
+  "successful_executions": 2,
+  "execution_counts": {
+    "trim_whitespace": 2
+  },
+  "cells_changed": 41,
+  "validation_passed": true,
+  "raw_dataset_overwritten": false,
+  "warnings_count": 0,
+  "warnings": []
+}

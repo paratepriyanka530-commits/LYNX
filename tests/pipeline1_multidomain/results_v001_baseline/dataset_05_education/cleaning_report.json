@@ -1,0 +1,3841 @@
+{
+  "pipeline_version": "pipeline1_architecture_b_v001",
+  "run_id": "20260906T114917-dffd891a",
+  "status": "success",
+  "original_dataset": {
+    "valid": true,
+    "file_name": "dataset_05_education_raw.csv",
+    "file_format": ".csv",
+    "file_size_bytes": 1136898,
+    "rows": 6000,
+    "columns": 22,
+    "duplicate_columns": [],
+    "absolute_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_05_education_raw.csv",
+    "source_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_05_education_raw.csv",
+    "raw_dataset_overwritten": false
+  },
+  "before_profile": {
+    "shape": {
+      "rows": 6000,
+      "columns": 22
+    },
+    "column_names": [
+      "enrollment_id",
+      "student_id",
+      "student_name",
+      "date_of_birth",
+      "gender",
+      "program",
+      "department",
+      "semester",
+      "academic_year",
+      "course_code",
+      "course_name",
+      "course_credits",
+      "enrollment_date",
+      "enrollment_status",
+      "internal_marks",
+      "external_marks",
+      "total_marks",
+      "grade",
+      "attendance_percent",
+      "scholarship_status",
+      "fee_paid_inr",
+      "result_date"
+    ],
+    "dtype_distribution": {
+      "str": 17,
+      "int64": 1,
+      "float64": 4
+    },
+    "missingness": {
+      "total_missing_cells": 11783,
+      "overall_missing_percentage": 8.9265
+    },
+    "duplicates": {
+      "exact_duplicate_rows": 14,
+      "percentage": 0.2333
+    },
+    "column_profiles": [
+      {
+        "column_name": "enrollment_id",
+        "physical_dtype": "str",
+        "row_count": 6000,
+        "non_null_count": 6000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 5968,
+          "unique_ratio": 0.994667
+        },
+        "repetition": {
+          "repeated_unique_count": 32,
+          "repeated_occurrences": 64,
+          "repetition_rate": 0.010667
+        },
+        "sample_values": [
+          "ENR0003384",
+          "ENR0003042",
+          "ENR0004633",
+          "ENR0005116",
+          "ENR0001151"
+        ]
+      },
+      {
+        "column_name": "student_id",
+        "physical_dtype": "str",
+        "row_count": 6000,
+        "non_null_count": 5996,
+        "missing": {
+          "count": 4,
+          "percentage": 0.0667
+        },
+        "uniqueness": {
+          "unique_count": 2052,
+          "unique_ratio": 0.342228
+        },
+        "repetition": {
+          "repeated_unique_count": 1652,
+          "repeated_occurrences": 5596,
+          "repetition_rate": 0.933289
+        },
+        "sample_values": [
+          "STU001974",
+          "STU000631",
+          "STU001643",
+          "STU000483",
+          "STU001790"
+        ]
+      },
+      {
+        "column_name": "student_name",
+        "physical_dtype": "str",
+        "row_count": 6000,
+        "non_null_count": 6000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 432,
+          "unique_ratio": 0.072
+        },
+        "repetition": {
+          "repeated_unique_count": 394,
+          "repeated_occurrences": 5962,
+          "repetition_rate": 0.993667
+        },
+        "sample_values": [
+          "Kabir Reddy",
+          "Kavya Shah",
+          "Sneha Khan",
+          "Varun Rao",
+          "Neha Nair"
+        ]
+      },
+      {
+        "column_name": "date_of_birth",
+        "physical_dtype": "str",
+        "row_count": 6000,
+        "non_null_count": 6000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 1645,
+          "unique_ratio": 0.274167
+        },
+        "repetition": {
+          "repeated_unique_count": 1290,
+          "repeated_occurrences": 5645,
+          "repetition_rate": 0.940833
+        },
+        "sample_values": [
+          "2001-06-26",
+          "1999-11-13",
+          "2004-09-15",
+          "2004-08-14",
+          "2001-11-05"
+        ]
+      },
+      {
+        "column_name": "gender",
+        "physical_dtype": "str",
+        "row_count": 6000,
+        "non_null_count": 5996,
+        "missing": {
+          "count": 4,
+          "percentage": 0.0667
+        },
+        "uniqueness": {
+          "unique_count": 7,
+          "unique_ratio": 0.001167
+        },
+        "repetition": {
+          "repeated_unique_count": 7,
+          "repeated_occurrences": 5996,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Male",
+          "Female",
+          "Other",
+          "MALE",
+          "female"
+        ]
+      },
+      {
+        "column_name": "program",
+        "physical_dtype": "str",
+        "row_count": 6000,
+        "non_null_count": 6000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 12,
+          "unique_ratio": 0.002
+        },
+        "repetition": {
+          "repeated_unique_count": 10,
+          "repeated_occurrences": 5998,
+          "repetition_rate": 0.999667
+        },
+        "sample_values": [
+          "B.Tech Computer Engineering",
+          "B.Tech Electronics",
+          "B.Tech AI & DS",
+          "MBA",
+          "MBA "
+        ]
+      },
+      {
+        "column_name": "department",
+        "physical_dtype": "str",
+        "row_count": 6000,
+        "non_null_count": 6000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 12,
+          "unique_ratio": 0.002
+        },
+        "repetition": {
+          "repeated_unique_count": 10,
+          "repeated_occurrences": 5998,
+          "repetition_rate": 0.999667
+        },
+        "sample_values": [
+          "Computer Engineering",
+          "Electronics Engineering",
+          "Artificial Intelligence and Data Science",
+          "Management Studies",
+          "electronics engineering"
+        ]
+      },
+      {
+        "column_name": "semester",
+        "physical_dtype": "str",
+        "row_count": 6000,
+        "non_null_count": 6000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 11,
+          "unique_ratio": 0.001833
+        },
+        "repetition": {
+          "repeated_unique_count": 11,
+          "repeated_occurrences": 6000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "6",
+          "8",
+          "5",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "column_name": "academic_year",
+        "physical_dtype": "str",
+        "row_count": 6000,
+        "non_null_count": 5998,
+        "missing": {
+          "count": 2,
+          "percentage": 0.0333
+        },
+        "uniqueness": {
+          "unique_count": 4,
+          "unique_ratio": 0.000667
+        },
+        "repetition": {
+          "repeated_unique_count": 3,
+          "repeated_occurrences": 5997,
+          "repetition_rate": 0.999833
+        },
+        "sample_values": [
+          "2025-26",
+          "2024-26",
+          "25-26",
+          "2025/2026"
+        ]
+      },
+      {
+        "column_name": "course_code",
+        "physical_dtype": "str",
+        "row_count": 6000,
+        "non_null_count": 5994,
+        "missing": {
+          "count": 6,
+          "percentage": 0.1
+        },
+        "uniqueness": {
+          "unique_count": 21,
+          "unique_ratio": 0.003504
+        },
+        "repetition": {
+          "repeated_unique_count": 16,
+          "repeated_occurrences": 5989,
+          "repetition_rate": 0.999166
+        },
+        "sample_values": [
+          "CE304",
+          "ET301",
+          "CE302",
+          "AIDS301",
+          "ET302"
+        ]
+      },
+      {
+        "column_name": "course_name",
+        "physical_dtype": "str",
+        "row_count": 6000,
+        "non_null_count": 6000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 14,
+          "unique_ratio": 0.002333
+        },
+        "repetition": {
+          "repeated_unique_count": 14,
+          "repeated_occurrences": 6000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Software Engineering",
+          "Digital Signal Processing",
+          "Operating Systems",
+          "Machine Learning",
+          "Microcontrollers"
+        ]
+      },
+      {
+        "column_name": "course_credits",
+        "physical_dtype": "int64",
+        "row_count": 6000,
+        "non_null_count": 6000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 5,
+          "unique_ratio": 0.000833
+        },
+        "repetition": {
+          "repeated_unique_count": 5,
+          "repeated_occurrences": 6000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          3,
+          4,
+          0,
+          12,
+          -3
+        ],
+        "numeric_statistics": {
+          "min": -3,
+          "max": 12,
+          "mean": 3.4313333333333333,
+          "median": 3.0,
+          "std": 0.6167238281994086,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "enrollment_date",
+        "physical_dtype": "str",
+        "row_count": 6000,
+        "non_null_count": 5999,
+        "missing": {
+          "count": 1,
+          "percentage": 0.0167
+        },
+        "uniqueness": {
+          "unique_count": 149,
+          "unique_ratio": 0.024837
+        },
+        "repetition": {
+          "repeated_unique_count": 102,
+          "repeated_occurrences": 5952,
+          "repetition_rate": 0.992165
+        },
+        "sample_values": [
+          "2025-08-28",
+          "2025-08-14",
+          "2025-07-28",
+          "2025-07-21",
+          "2025-07-05"
+        ]
+      },
+      {
+        "column_name": "enrollment_status",
+        "physical_dtype": "str",
+        "row_count": 6000,
+        "non_null_count": 5996,
+        "missing": {
+          "count": 4,
+          "percentage": 0.0667
+        },
+        "uniqueness": {
+          "unique_count": 7,
+          "unique_ratio": 0.001167
+        },
+        "repetition": {
+          "repeated_unique_count": 7,
+          "repeated_occurrences": 5996,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Enrolled",
+          "Completed",
+          "On Hold",
+          "Withdrawn",
+          "In progress"
+        ]
+      },
+      {
+        "column_name": "internal_marks",
+        "physical_dtype": "float64",
+        "row_count": 6000,
+        "non_null_count": 4440,
+        "missing": {
+          "count": 1560,
+          "percentage": 26.0
+        },
+        "uniqueness": {
+          "unique_count": 21,
+          "unique_ratio": 0.00473
+        },
+        "repetition": {
+          "repeated_unique_count": 21,
+          "repeated_occurrences": 4440,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          12.0,
+          27.0,
+          26.0,
+          25.0,
+          21.0
+        ],
+        "numeric_statistics": {
+          "min": 10.0,
+          "max": 30.0,
+          "mean": 20.13738738738739,
+          "median": 20.0,
+          "std": 6.119155379438757,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "external_marks",
+        "physical_dtype": "float64",
+        "row_count": 6000,
+        "non_null_count": 4463,
+        "missing": {
+          "count": 1537,
+          "percentage": 25.6167
+        },
+        "uniqueness": {
+          "unique_count": 56,
+          "unique_ratio": 0.012548
+        },
+        "repetition": {
+          "repeated_unique_count": 56,
+          "repeated_occurrences": 4463,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          57.0,
+          23.0,
+          31.0,
+          47.0,
+          34.0
+        ],
+        "numeric_statistics": {
+          "min": -4.0,
+          "max": 101.0,
+          "mean": 44.0398834864441,
+          "median": 44.0,
+          "std": 15.824302162735787,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "total_marks",
+        "physical_dtype": "float64",
+        "row_count": 6000,
+        "non_null_count": 4463,
+        "missing": {
+          "count": 1537,
+          "percentage": 25.6167
+        },
+        "uniqueness": {
+          "unique_count": 74,
+          "unique_ratio": 0.016581
+        },
+        "repetition": {
+          "repeated_unique_count": 73,
+          "repeated_occurrences": 4462,
+          "repetition_rate": 0.999776
+        },
+        "sample_values": [
+          69.0,
+          50.0,
+          57.0,
+          48.0,
+          68.0
+        ],
+        "numeric_statistics": {
+          "min": 25.0,
+          "max": 100.0,
+          "mean": 64.00851445216222,
+          "median": 64.0,
+          "std": 16.62699977660515,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "grade",
+        "physical_dtype": "str",
+        "row_count": 6000,
+        "non_null_count": 4465,
+        "missing": {
+          "count": 1535,
+          "percentage": 25.5833
+        },
+        "uniqueness": {
+          "unique_count": 7,
+          "unique_ratio": 0.001568
+        },
+        "repetition": {
+          "repeated_unique_count": 7,
+          "repeated_occurrences": 4465,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "B+",
+          "B",
+          "C",
+          "A",
+          "O"
+        ]
+      },
+      {
+        "column_name": "attendance_percent",
+        "physical_dtype": "float64",
+        "row_count": 6000,
+        "non_null_count": 5998,
+        "missing": {
+          "count": 2,
+          "percentage": 0.0333
+        },
+        "uniqueness": {
+          "unique_count": 555,
+          "unique_ratio": 0.092531
+        },
+        "repetition": {
+          "repeated_unique_count": 554,
+          "repeated_occurrences": 5997,
+          "repetition_rate": 0.999833
+        },
+        "sample_values": [
+          47.5,
+          97.8,
+          68.6,
+          68.4,
+          77.4
+        ],
+        "numeric_statistics": {
+          "min": -10.0,
+          "max": 150.0,
+          "mean": 71.92770923641214,
+          "median": 71.8,
+          "std": 16.14434407804603,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "scholarship_status",
+        "physical_dtype": "str",
+        "row_count": 6000,
+        "non_null_count": 1944,
+        "missing": {
+          "count": 4056,
+          "percentage": 67.6
+        },
+        "uniqueness": {
+          "unique_count": 6,
+          "unique_ratio": 0.003086
+        },
+        "repetition": {
+          "repeated_unique_count": 6,
+          "repeated_occurrences": 1944,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Merit",
+          "Government",
+          "Need-based",
+          "none",
+          "Govt"
+        ]
+      },
+      {
+        "column_name": "fee_paid_inr",
+        "physical_dtype": "str",
+        "row_count": 6000,
+        "non_null_count": 5996,
+        "missing": {
+          "count": 4,
+          "percentage": 0.0667
+        },
+        "uniqueness": {
+          "unique_count": 10,
+          "unique_ratio": 0.001668
+        },
+        "repetition": {
+          "repeated_unique_count": 8,
+          "repeated_occurrences": 5994,
+          "repetition_rate": 0.999666
+        },
+        "sample_values": [
+          "35000",
+          "25000",
+          "48000",
+          "65000",
+          "0"
+        ]
+      },
+      {
+        "column_name": "result_date",
+        "physical_dtype": "str",
+        "row_count": 6000,
+        "non_null_count": 4469,
+        "missing": {
+          "count": 1531,
+          "percentage": 25.5167
+        },
+        "uniqueness": {
+          "unique_count": 79,
+          "unique_ratio": 0.017677
+        },
+        "repetition": {
+          "repeated_unique_count": 65,
+          "repeated_occurrences": 4455,
+          "repetition_rate": 0.996867
+        },
+        "sample_values": [
+          "2026-01-01",
+          "2025-12-16",
+          "2026-01-04",
+          "2026-01-12",
+          "2026-01-03"
+        ]
+      }
+    ]
+  },
+  "issues": [
+    {
+      "issue_id": "issue-exact_duplicate_rows-192ec5f83876",
+      "issue_type": "exact_duplicate_rows",
+      "target_columns": [],
+      "affected_count": 14,
+      "affected_percentage": 0.2333,
+      "evidence": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "examples": [
+        1245,
+        2279,
+        2804,
+        2890,
+        3502
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-e77e7bcd82d7",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "student_id"
+      ],
+      "affected_count": 4,
+      "affected_percentage": 0.0667,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 5996
+      },
+      "examples": [
+        262,
+        2018,
+        4016,
+        5480
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-dd7fbce59d53",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "student_name"
+      ],
+      "affected_count": 31,
+      "affected_percentage": 0.5167,
+      "evidence": {
+        "leading_count": 14,
+        "trailing_count": 17,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        " Riya Joshi",
+        " Rohan Patil",
+        " Rahul Kulkarni",
+        " Aarav Kulkarni",
+        "Ananya Verma "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-inconsistent_date_format_candidate-391fba1c8ab1",
+      "issue_type": "inconsistent_date_format_candidate",
+      "target_columns": [
+        "date_of_birth"
+      ],
+      "affected_count": 5992,
+      "affected_percentage": 99.8667,
+      "evidence": {
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 0.998667,
+        "method": "strict_shape_recognition"
+      },
+      "examples": [
+        "2001-06-26",
+        "1999-11-13",
+        "2004-09-15",
+        "2004-08-14",
+        "2001-11-05"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-b6f4f412290c",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "gender"
+      ],
+      "affected_count": 4,
+      "affected_percentage": 0.0667,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 5996
+      },
+      "examples": [
+        4234,
+        4376,
+        4498,
+        5642
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-42450581bd0a",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "gender"
+      ],
+      "affected_count": 5924,
+      "affected_percentage": 98.7992,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "female": [
+            "Female",
+            "female"
+          ],
+          "male": [
+            "MALE",
+            "Male"
+          ]
+        }
+      },
+      "examples": [
+        "Male",
+        "Female",
+        "Female",
+        "Female",
+        "Male"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-20a89416c668",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "gender"
+      ],
+      "affected_count": 24,
+      "affected_percentage": 0.4003,
+      "evidence": {
+        "maximum_frequency": 59,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 4
+      },
+      "examples": [
+        "MALE",
+        "female",
+        "female",
+        "M",
+        "F"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-51cebe06f42f",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "program"
+      ],
+      "affected_count": 12,
+      "affected_percentage": 0.2,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 12,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "MBA ",
+        "MBA ",
+        "B.Tech Computer Engineering ",
+        "B.Tech Computer Engineering ",
+        "B.Tech Computer Engineering "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-50af484b9e60",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "program"
+      ],
+      "affected_count": 5998,
+      "affected_percentage": 99.9667,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "b.tech ai & ds": [
+            "B.Tech AI & DS",
+            "B.Tech AI & DS "
+          ],
+          "b.tech computer engineering": [
+            "B.Tech Computer Engineering",
+            "B.Tech Computer Engineering ",
+            "b.tech computer engineering"
+          ],
+          "b.tech electronics": [
+            "B.Tech Electronics",
+            "B.Tech Electronics ",
+            "b.tech electronics"
+          ],
+          "mba": [
+            "MBA",
+            "MBA ",
+            "mba"
+          ]
+        }
+      },
+      "examples": [
+        "B.Tech Computer Engineering",
+        "B.Tech Electronics",
+        "B.Tech Computer Engineering",
+        "B.Tech AI & DS",
+        "B.Tech Electronics"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-87371bb9392d",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "program"
+      ],
+      "affected_count": 21,
+      "affected_percentage": 0.35,
+      "evidence": {
+        "maximum_frequency": 60,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 8
+      },
+      "examples": [
+        "MBA ",
+        "b.tech electronics",
+        "MBA ",
+        "B.Tech Computer Engineering ",
+        "B.Tech Computer Engineering "
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-ac5a5a16cde5",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "department"
+      ],
+      "affected_count": 10,
+      "affected_percentage": 0.1667,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 10,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "Artificial Intelligence and Data Science ",
+        "Computer Engineering ",
+        "Electronics Engineering ",
+        "Electronics Engineering ",
+        "Management Studies "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-7b911c5dc9f9",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "department"
+      ],
+      "affected_count": 5998,
+      "affected_percentage": 99.9667,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "artificial intelligence and data science": [
+            "Artificial Intelligence and Data Science",
+            "Artificial Intelligence and Data Science ",
+            "artificial intelligence and data science"
+          ],
+          "computer engineering": [
+            "Computer Engineering",
+            "Computer Engineering "
+          ],
+          "electronics engineering": [
+            "Electronics Engineering",
+            "Electronics Engineering ",
+            "electronics engineering"
+          ],
+          "management studies": [
+            "Management Studies",
+            "Management Studies ",
+            "management studies"
+          ]
+        }
+      },
+      "examples": [
+        "Computer Engineering",
+        "Electronics Engineering",
+        "Computer Engineering",
+        "Artificial Intelligence and Data Science",
+        "Electronics Engineering"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-870a1fbd41a0",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "department"
+      ],
+      "affected_count": 19,
+      "affected_percentage": 0.3167,
+      "evidence": {
+        "maximum_frequency": 60,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 8
+      },
+      "examples": [
+        "electronics engineering",
+        "management studies",
+        "Artificial Intelligence and Data Science ",
+        "Computer Engineering ",
+        "artificial intelligence and data science"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-a7be781a4ee0",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "semester"
+      ],
+      "affected_count": 16,
+      "affected_percentage": 0.2667,
+      "evidence": {
+        "maximum_frequency": 60,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "Third"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-ee6a43bd68a4",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "academic_year"
+      ],
+      "affected_count": 2,
+      "affected_percentage": 0.0333,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 5998
+      },
+      "examples": [
+        857,
+        1847
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-c268a127bf46",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "academic_year"
+      ],
+      "affected_count": 7,
+      "affected_percentage": 0.1167,
+      "evidence": {
+        "maximum_frequency": 59,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "2024-26",
+        "2024-26",
+        "25-26",
+        "25-26",
+        "2024-26"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-f21d87a0c66d",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "course_code"
+      ],
+      "affected_count": 6,
+      "affected_percentage": 0.1,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 5994
+      },
+      "examples": [
+        1267,
+        2067,
+        2276,
+        2691,
+        3612
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-84758b5708a1",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "course_code"
+      ],
+      "affected_count": 2159,
+      "affected_percentage": 36.0194,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "aids303": [
+            "AIDS303",
+            "aids303"
+          ],
+          "aids304": [
+            "AIDS304",
+            "aids304"
+          ],
+          "ce303": [
+            "CE303",
+            "ce303"
+          ],
+          "et302": [
+            "ET302",
+            "et302"
+          ],
+          "mba203": [
+            "MBA203",
+            "mba203"
+          ]
+        }
+      },
+      "examples": [
+        "ET302",
+        "MBA203",
+        "AIDS304",
+        "AIDS304",
+        "ET302"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-f124933ef771",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "course_code"
+      ],
+      "affected_count": 13,
+      "affected_percentage": 0.2169,
+      "evidence": {
+        "maximum_frequency": 59,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 7
+      },
+      "examples": [
+        "et302",
+        "UNKNOWN",
+        "aids303",
+        "AID3O1",
+        "UNKNOWN"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-25a5855b3d7c",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "enrollment_date"
+      ],
+      "affected_count": 1,
+      "affected_percentage": 0.0167,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 5999
+      },
+      "examples": [
+        4662
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-inconsistent_date_format_candidate-54ea6f00c92e",
+      "issue_type": "inconsistent_date_format_candidate",
+      "target_columns": [
+        "enrollment_date"
+      ],
+      "affected_count": 5999,
+      "affected_percentage": 100.0,
+      "evidence": {
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 1.0,
+        "method": "strict_shape_recognition"
+      },
+      "examples": [
+        "2025-08-28",
+        "2025-08-14",
+        "2025-07-28",
+        "2025-07-21",
+        "2025-07-05"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-0c3b85b05150",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "enrollment_status"
+      ],
+      "affected_count": 4,
+      "affected_percentage": 0.0667,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 5996
+      },
+      "examples": [
+        2674,
+        3203,
+        3309,
+        5229
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-565b3c1f7cce",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "enrollment_status"
+      ],
+      "affected_count": 16,
+      "affected_percentage": 0.2668,
+      "evidence": {
+        "maximum_frequency": 59,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "In progress",
+        "complete",
+        "complete",
+        "Dropout",
+        "complete"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-fa7758fbb271",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "internal_marks"
+      ],
+      "affected_count": 1560,
+      "affected_percentage": 26.0,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 4440
+      },
+      "examples": [
+        0,
+        5,
+        6,
+        7,
+        8
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-9c3b6d170f76",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "external_marks"
+      ],
+      "affected_count": 1537,
+      "affected_percentage": 25.6167,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 4463
+      },
+      "examples": [
+        0,
+        5,
+        6,
+        7,
+        8
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-7f30c0a4ce32",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "total_marks"
+      ],
+      "affected_count": 1537,
+      "affected_percentage": 25.6167,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 4463
+      },
+      "examples": [
+        0,
+        5,
+        6,
+        7,
+        8
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-6c6c4d5aa083",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "grade"
+      ],
+      "affected_count": 1535,
+      "affected_percentage": 25.5833,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 4465
+      },
+      "examples": [
+        0,
+        5,
+        6,
+        7,
+        8
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-321458eb06b8",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "attendance_percent"
+      ],
+      "affected_count": 2,
+      "affected_percentage": 0.0333,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 5998
+      },
+      "examples": [
+        200,
+        3391
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-statistical_outlier_candidate-fb24462cf537",
+      "issue_type": "statistical_outlier_candidate",
+      "target_columns": [
+        "attendance_percent"
+      ],
+      "affected_count": 8,
+      "affected_percentage": 0.1334,
+      "evidence": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 58.1,
+        "q3": 85.5,
+        "lower_bound": 17.000000000000007,
+        "upper_bound": 126.6
+      },
+      "examples": [
+        -10.0,
+        150.0,
+        150.0,
+        150.0,
+        150.0
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-0d65446558e9",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "scholarship_status"
+      ],
+      "affected_count": 4056,
+      "affected_percentage": 67.6,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 1944
+      },
+      "examples": [
+        0,
+        1,
+        2,
+        5,
+        7
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-61c331046d70",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "scholarship_status"
+      ],
+      "affected_count": 686,
+      "affected_percentage": 35.2881,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "merit": [
+            "MERIT",
+            "Merit"
+          ]
+        }
+      },
+      "examples": [
+        "Merit",
+        "Merit",
+        "Merit",
+        "Merit",
+        "Merit"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-20581559172d",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "scholarship_status"
+      ],
+      "affected_count": 11,
+      "affected_percentage": 0.5658,
+      "evidence": {
+        "maximum_frequency": 19,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "none",
+        "none",
+        "Govt",
+        "none",
+        "Govt"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-dae637cb400c",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "fee_paid_inr"
+      ],
+      "affected_count": 4,
+      "affected_percentage": 0.0667,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 5996
+      },
+      "examples": [
+        355,
+        2124,
+        4122,
+        5738
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-af6f9ff1207f",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "fee_paid_inr"
+      ],
+      "affected_count": 9,
+      "affected_percentage": 0.1501,
+      "evidence": {
+        "maximum_frequency": 59,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 4
+      },
+      "examples": [
+        "₹25000",
+        "-500",
+        "-500",
+        "-500",
+        "₹35000"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-144f95dc87fe",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "result_date"
+      ],
+      "affected_count": 1531,
+      "affected_percentage": 25.5167,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 4469
+      },
+      "examples": [
+        0,
+        5,
+        6,
+        7,
+        8
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-inconsistent_date_format_candidate-69081ec9cae2",
+      "issue_type": "inconsistent_date_format_candidate",
+      "target_columns": [
+        "result_date"
+      ],
+      "affected_count": 4469,
+      "affected_percentage": 100.0,
+      "evidence": {
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 1.0,
+        "method": "strict_shape_recognition"
+      },
+      "examples": [
+        "2026-01-01",
+        "2025-12-16",
+        "2026-01-04",
+        "2026-01-12",
+        "2026-01-03"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    }
+  ],
+  "quality_summary": {
+    "total_issues_detected": 36,
+    "issues_by_type": {
+      "case_variant_candidate": 5,
+      "exact_duplicate_rows": 1,
+      "inconsistent_date_format_candidate": 3,
+      "missing_values": 14,
+      "rare_category_observation": 9,
+      "statistical_outlier_candidate": 1,
+      "whitespace_issue": 3
+    },
+    "issues_by_status": {
+      "candidate": 9,
+      "issue": 18,
+      "observation": 9
+    },
+    "affected_columns": [
+      "academic_year",
+      "attendance_percent",
+      "course_code",
+      "date_of_birth",
+      "department",
+      "enrollment_date",
+      "enrollment_status",
+      "external_marks",
+      "fee_paid_inr",
+      "gender",
+      "grade",
+      "internal_marks",
+      "program",
+      "result_date",
+      "scholarship_status",
+      "semester",
+      "student_id",
+      "student_name",
+      "total_marks"
+    ],
+    "dataset_level_issue_count": 1
+  },
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": "student",
+      "row_entity_confidence": 0.8,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "enrollment_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Identifies a unique student enrollment record.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'enrollment_id' is evidence of an identifier, and the sample values are unique and consistent with a student enrollment record identifier."
+      },
+      {
+        "column_name": "student_id",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "concept_description": "Identifies a unique student record.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'student_id' is evidence of an identifier, and the sample values are unique and consistent with a student record identifier."
+      },
+      {
+        "column_name": "student_name",
+        "semantic_type": "text",
+        "value_function": "descriptive_attribute",
+        "concept_description": "Describes the name of a student.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'student_name' is evidence of a descriptive attribute, and the sample values are unique and consistent with a student's name."
+      },
+      {
+        "column_name": "date_of_birth",
+        "semantic_type": "date",
+        "value_function": "temporal",
+        "concept_description": "Represents the date of birth of a student.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'date_of_birth' is evidence of a temporal attribute, and the sample values are unique and consistent with a student's date of birth."
+      },
+      {
+        "column_name": "gender",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Classifies the gender of a student.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'gender' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's gender classification."
+      },
+      {
+        "column_name": "program",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Classifies the academic program of a student.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'program' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's academic program classification."
+      },
+      {
+        "column_name": "department",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Classifies the department of a student.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'department' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's department classification."
+      },
+      {
+        "column_name": "semester",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Classifies the semester of a student.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'semester' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's semester classification."
+      },
+      {
+        "column_name": "academic_year",
+        "semantic_type": "date",
+        "value_function": "temporal",
+        "concept_description": "Represents the academic year of a student.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'academic_year' is evidence of a temporal attribute, and the sample values are unique and consistent with a student's academic year."
+      },
+      {
+        "column_name": "course_code",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Classifies the course code of a student.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'course_code' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's course code classification."
+      },
+      {
+        "column_name": "course_name",
+        "semantic_type": "text",
+        "value_function": "descriptive_attribute",
+        "concept_description": "Describes the name of a course.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'course_name' is evidence of a descriptive attribute, and the sample values are unique and consistent with a student's course name."
+      },
+      {
+        "column_name": "course_credits",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Represents the number of credits for a course.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'course_credits' is evidence of a numeric measurement, and the sample values are unique and consistent with a student's course credits."
+      },
+      {
+        "column_name": "enrollment_date",
+        "semantic_type": "date",
+        "value_function": "temporal",
+        "concept_description": "Dates of student enrollment in the academic year.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'enrollment_date' and the sample values are dates, indicating a temporal nature."
+      },
+      {
+        "column_name": "enrollment_status",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Status of student enrollment (e.g., Enrolled, Completed, On Hold, Withdrawn, In progress).",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'enrollment_status' and the sample values are categorical labels, indicating a classification nature."
+      },
+      {
+        "column_name": "internal_marks",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Internal marks scored by the student.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'internal_marks' and the sample values are numeric, indicating a measurement nature."
+      },
+      {
+        "column_name": "external_marks",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "External marks scored by the student.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'external_marks' and the sample values are numeric, indicating a measurement nature."
+      },
+      {
+        "column_name": "total_marks",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Total marks scored by the student.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'total_marks' and the sample values are numeric, indicating a measurement nature."
+      },
+      {
+        "column_name": "grade",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Grade assigned to the student based on their marks.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'grade' and the sample values are categorical labels, indicating a classification nature."
+      },
+      {
+        "column_name": "attendance_percent",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Percentage of attendance for the student.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'attendance_percent' and the sample values are numeric, indicating a measurement nature."
+      },
+      {
+        "column_name": "scholarship_status",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Status of the student's scholarship (e.g., Merit, Government, Need-based, none, Govt).",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'scholarship_status' and the sample values are categorical labels, indicating a classification nature."
+      },
+      {
+        "column_name": "fee_paid_inr",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Amount of fee paid by the student in Indian Rupees (INR).",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'fee_paid_inr' and the sample values are categorical labels, indicating a classification nature."
+      },
+      {
+        "column_name": "result_date",
+        "semantic_type": "date",
+        "value_function": "temporal",
+        "concept_description": "Date when the student's result was recorded.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'result_date' and the sample values are dates, indicating a temporal nature."
+      }
+    ],
+    "warnings": [],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 2,
+      "total_llm_calls": 3,
+      "batch_sizes": [
+        12,
+        10
+      ],
+      "dataset_semantic_runtime_seconds": 41.814496,
+      "batch_runtime_seconds": [
+        114.761586,
+        92.362369
+      ],
+      "rag_runtime_seconds": 0.166824,
+      "batch_failures": 0,
+      "batch_retries": 0,
+      "llm_calls": [
+        {
+          "stage": "dataset_context",
+          "api_wall_duration_seconds": 41.763019,
+          "prompt_eval_count": 2487,
+          "prompt_eval_duration": 38301831000,
+          "eval_count": 20,
+          "eval_duration": 1379907000,
+          "total_duration": 39703564800,
+          "load_duration": 3080300,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "api_wall_duration_seconds": 114.76149,
+          "prompt_eval_count": 2254,
+          "prompt_eval_duration": 31882775000,
+          "eval_count": 1120,
+          "eval_duration": 80772395000,
+          "total_duration": 112701863200,
+          "load_duration": 3669900,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 2,
+          "attempt": 1,
+          "api_wall_duration_seconds": 92.362287,
+          "prompt_eval_count": 2365,
+          "prompt_eval_duration": 26533671000,
+          "eval_count": 884,
+          "eval_duration": 63680346000,
+          "total_duration": 90268212900,
+          "load_duration": 3161100,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 249.054349
+    }
+  },
+  "decision_summary": {
+    "total_decisions": 36,
+    "by_decision_type": {
+      "flag_for_review": 8,
+      "action": 3,
+      "no_action": 17,
+      "insufficient_evidence": 8
+    },
+    "by_proposed_action": {
+      "flag_rows": 8,
+      "trim_whitespace": 3,
+      "no_op": 25
+    },
+    "tier1_decisions": 15,
+    "tier2_decisions": 13,
+    "fallback_decisions": 8,
+    "deterministic_runtime_seconds": 0.000559,
+    "tier2_issue_count": 21,
+    "tier2_batch_sizes": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      1
+    ],
+    "llm_decision_calls": 8,
+    "llm_runtime_seconds": 240.236654,
+    "intended_llm_decision_calls": 6,
+    "retries": 2,
+    "successful_batches": 4,
+    "batch_failures": 2,
+    "llm_calls": [
+      {
+        "batch_index": 1,
+        "attempt": 1,
+        "api_wall_duration_seconds": 33.756484,
+        "prompt_character_length": 3228,
+        "prompt_eval_count": 810,
+        "prompt_eval_duration": 8629159000,
+        "eval_count": 377,
+        "eval_duration": 23027759000,
+        "total_duration": 31702228600,
+        "load_duration": 3740700,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 2,
+        "attempt": 1,
+        "api_wall_duration_seconds": 32.753196,
+        "prompt_character_length": 3342,
+        "prompt_eval_count": 822,
+        "prompt_eval_duration": 8573014999,
+        "eval_count": 362,
+        "eval_duration": 22137072000,
+        "total_duration": 30733860000,
+        "load_duration": 3312400,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 3,
+        "attempt": 1,
+        "api_wall_duration_seconds": 22.062454,
+        "prompt_character_length": 2842,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 727,
+        "prompt_eval_duration": 7647375000,
+        "eval_count": 198,
+        "eval_duration": 12334768000,
+        "total_duration": 20006304900,
+        "load_duration": 3172700,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 3,
+        "attempt": 2,
+        "api_wall_duration_seconds": 9.486434,
+        "prompt_character_length": 2842,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 727,
+        "prompt_eval_duration": 250308000,
+        "eval_count": 92,
+        "eval_duration": 7151564000,
+        "total_duration": 7426052000,
+        "load_duration": 6466100,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 4,
+        "attempt": 1,
+        "api_wall_duration_seconds": 35.79772,
+        "prompt_character_length": 2651,
+        "prompt_eval_count": 658,
+        "prompt_eval_duration": 11583798000,
+        "eval_count": 296,
+        "eval_duration": 22098668000,
+        "total_duration": 33727815800,
+        "load_duration": 5316400,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 5,
+        "attempt": 1,
+        "api_wall_duration_seconds": 21.418946,
+        "prompt_character_length": 2826,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 719,
+        "prompt_eval_duration": 13244952000,
+        "eval_count": 76,
+        "eval_duration": 6047410000,
+        "total_duration": 19359090400,
+        "load_duration": 8034600,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 5,
+        "attempt": 2,
+        "api_wall_duration_seconds": 9.087686,
+        "prompt_character_length": 2826,
+        "error": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "prompt_eval_count": 719,
+        "prompt_eval_duration": 235302000,
+        "eval_count": 86,
+        "eval_duration": 6783635000,
+        "total_duration": 7040193500,
+        "load_duration": 6268400,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 6,
+        "attempt": 1,
+        "api_wall_duration_seconds": 13.818455,
+        "prompt_character_length": 1435,
+        "prompt_eval_count": 352,
+        "prompt_eval_duration": 4090777000,
+        "eval_count": 105,
+        "eval_duration": 7622530000,
+        "total_duration": 11747007700,
+        "load_duration": 5700000,
+        "done_reason": "stop"
+      }
+    ],
+    "total_runtime_seconds": 178.183567,
+    "execution_routing": {
+      "detected_issue_count": 36,
+      "decision_count": 36,
+      "proposed_action_count": 3,
+      "compiled_instruction_count": 3,
+      "executed_action_count": 3,
+      "executed_trim_whitespace_count": 3,
+      "executed_normalize_categorical_labels_count": 0,
+      "skipped_action_count": 0,
+      "skipped_actions": [],
+      "parse_date_assessments": [],
+      "numeric_coercion_assessments": [],
+      "missing_value_assessments": [
+        {
+          "column": "student_id",
+          "missing_count": 4,
+          "missing_percentage": 0.06666666666666667,
+          "missingness_risk": "low",
+          "observed_count": 5996,
+          "semantic_type": "identifier",
+          "value_function": "entity_reference"
+        },
+        {
+          "column": "gender",
+          "missing_count": 4,
+          "missing_percentage": 0.06666666666666667,
+          "missingness_risk": "low",
+          "observed_count": 5996,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "academic_year",
+          "missing_count": 2,
+          "missing_percentage": 0.03333333333333333,
+          "missingness_risk": "low",
+          "observed_count": 5998,
+          "semantic_type": "date",
+          "value_function": "temporal"
+        },
+        {
+          "column": "course_code",
+          "missing_count": 6,
+          "missing_percentage": 0.1,
+          "missingness_risk": "low",
+          "observed_count": 5994,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "enrollment_date",
+          "missing_count": 1,
+          "missing_percentage": 0.016666666666666666,
+          "missingness_risk": "low",
+          "observed_count": 5999,
+          "semantic_type": "date",
+          "value_function": "temporal"
+        },
+        {
+          "column": "enrollment_status",
+          "missing_count": 4,
+          "missing_percentage": 0.06666666666666667,
+          "missingness_risk": "low",
+          "observed_count": 5996,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "internal_marks",
+          "missing_count": 1560,
+          "missing_percentage": 26.0,
+          "missingness_risk": "high",
+          "observed_count": 4440,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "external_marks",
+          "missing_count": 1537,
+          "missing_percentage": 25.616666666666667,
+          "missingness_risk": "high",
+          "observed_count": 4463,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "total_marks",
+          "missing_count": 1537,
+          "missing_percentage": 25.616666666666667,
+          "missingness_risk": "high",
+          "observed_count": 4463,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "grade",
+          "missing_count": 1535,
+          "missing_percentage": 25.583333333333332,
+          "missingness_risk": "high",
+          "observed_count": 4465,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "attendance_percent",
+          "missing_count": 2,
+          "missing_percentage": 0.03333333333333333,
+          "missingness_risk": "low",
+          "observed_count": 5998,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "scholarship_status",
+          "missing_count": 4056,
+          "missing_percentage": 67.6,
+          "missingness_risk": "very_high",
+          "observed_count": 1944,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "fee_paid_inr",
+          "missing_count": 4,
+          "missing_percentage": 0.06666666666666667,
+          "missingness_risk": "low",
+          "observed_count": 5996,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "result_date",
+          "missing_count": 1531,
+          "missing_percentage": 25.516666666666666,
+          "missingness_risk": "high",
+          "observed_count": 4469,
+          "semantic_type": "date",
+          "value_function": "temporal"
+        }
+      ],
+      "impute_missing_proposal_count": 0,
+      "executed_impute_missing_count": 0,
+      "executed_coerce_dtype_count": 0,
+      "executed_parse_dates_count": 0
+    }
+  },
+  "decisions": [
+    {
+      "decision_id": "decision-issue-exact_duplicate_rows-192ec5f83876",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876"
+      ],
+      "target_columns": [],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Exact duplicate records may be legitimate repeated events; deletion is not automatic.",
+      "evidence_summary": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "semantic_basis": {},
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-e77e7bcd82d7",
+      "source_issue_ids": [
+        "issue-missing_values-e77e7bcd82d7"
+      ],
+      "target_columns": [
+        "student_id"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.95,
+      "rationale": "Missing entity references must not be fabricated or automatically imputed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 5996
+      },
+      "semantic_basis": {
+        "student_id": {
+          "column_name": "student_id",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "concept_description": "Identifies a unique student record.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'student_id' is evidence of an identifier, and the sample values are unique and consistent with a student record identifier."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-dd7fbce59d53",
+      "source_issue_ids": [
+        "issue-whitespace_issue-dd7fbce59d53"
+      ],
+      "target_columns": [
+        "student_name"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 14,
+        "trailing_count": 17,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "student_name": {
+          "column_name": "student_name",
+          "semantic_type": "text",
+          "value_function": "descriptive_attribute",
+          "concept_description": "Describes the name of a student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'student_name' is evidence of a descriptive attribute, and the sample values are unique and consistent with a student's name."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-inconsistent_date_format_candidate-391fba1c8ab1",
+      "source_issue_ids": [
+        "issue-inconsistent_date_format_candidate-391fba1c8ab1"
+      ],
+      "target_columns": [
+        "date_of_birth"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Preserve the data as the issue is related to inconsistent date formats which may be due to various reasons and should not be automatically corrected.",
+      "evidence_summary": {
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 0.998667,
+        "method": "strict_shape_recognition"
+      },
+      "semantic_basis": {
+        "date_of_birth": {
+          "column_name": "date_of_birth",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Represents the date of birth of a student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'date_of_birth' is evidence of a temporal attribute, and the sample values are unique and consistent with a student's date of birth."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-b6f4f412290c",
+      "source_issue_ids": [
+        "issue-missing_values-b6f4f412290c"
+      ],
+      "target_columns": [
+        "gender"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Preserve the data as the issue is related to missing values which may be due to various reasons and should not be automatically filled.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 5996
+      },
+      "semantic_basis": {
+        "gender": {
+          "column_name": "gender",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Classifies the gender of a student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'gender' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's gender classification."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-42450581bd0a",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-42450581bd0a"
+      ],
+      "target_columns": [
+        "gender"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Preserve the data as the issue is related to case variant candidate which may be due to various reasons and should not be automatically corrected.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "female": [
+            "Female",
+            "female"
+          ],
+          "male": [
+            "MALE",
+            "Male"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "gender": {
+          "column_name": "gender",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Classifies the gender of a student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'gender' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's gender classification."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-20a89416c668",
+      "source_issue_ids": [
+        "issue-rare_category_observation-20a89416c668"
+      ],
+      "target_columns": [
+        "gender"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 59,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 4
+      },
+      "semantic_basis": {
+        "gender": {
+          "column_name": "gender",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Classifies the gender of a student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'gender' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's gender classification."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-51cebe06f42f",
+      "source_issue_ids": [
+        "issue-whitespace_issue-51cebe06f42f"
+      ],
+      "target_columns": [
+        "program"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 12,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "program": {
+          "column_name": "program",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Classifies the academic program of a student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'program' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's academic program classification."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-50af484b9e60",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-50af484b9e60"
+      ],
+      "target_columns": [
+        "program"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Preserve the data as the issue is related to case variant candidate which may be due to various reasons and should not be automatically corrected.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "b.tech ai & ds": [
+            "B.Tech AI & DS",
+            "B.Tech AI & DS "
+          ],
+          "b.tech computer engineering": [
+            "B.Tech Computer Engineering",
+            "B.Tech Computer Engineering ",
+            "b.tech computer engineering"
+          ],
+          "b.tech electronics": [
+            "B.Tech Electronics",
+            "B.Tech Electronics ",
+            "b.tech electronics"
+          ],
+          "mba": [
+            "MBA",
+            "MBA ",
+            "mba"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "program": {
+          "column_name": "program",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Classifies the academic program of a student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'program' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's academic program classification."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-87371bb9392d",
+      "source_issue_ids": [
+        "issue-rare_category_observation-87371bb9392d"
+      ],
+      "target_columns": [
+        "program"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 60,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 8
+      },
+      "semantic_basis": {
+        "program": {
+          "column_name": "program",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Classifies the academic program of a student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'program' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's academic program classification."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-ac5a5a16cde5",
+      "source_issue_ids": [
+        "issue-whitespace_issue-ac5a5a16cde5"
+      ],
+      "target_columns": [
+        "department"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 10,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "department": {
+          "column_name": "department",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Classifies the department of a student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'department' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's department classification."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-7b911c5dc9f9",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-7b911c5dc9f9"
+      ],
+      "target_columns": [
+        "department"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The column semantics indicate the department is categorical, and the observed evidence shows a high percentage of case variant candidates.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "artificial intelligence and data science": [
+            "Artificial Intelligence and Data Science",
+            "Artificial Intelligence and Data Science ",
+            "artificial intelligence and data science"
+          ],
+          "computer engineering": [
+            "Computer Engineering",
+            "Computer Engineering "
+          ],
+          "electronics engineering": [
+            "Electronics Engineering",
+            "Electronics Engineering ",
+            "electronics engineering"
+          ],
+          "management studies": [
+            "Management Studies",
+            "Management Studies ",
+            "management studies"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "department": {
+          "column_name": "department",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Classifies the department of a student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'department' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's department classification."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-870a1fbd41a0",
+      "source_issue_ids": [
+        "issue-rare_category_observation-870a1fbd41a0"
+      ],
+      "target_columns": [
+        "department"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 60,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 8
+      },
+      "semantic_basis": {
+        "department": {
+          "column_name": "department",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Classifies the department of a student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'department' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's department classification."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-a7be781a4ee0",
+      "source_issue_ids": [
+        "issue-rare_category_observation-a7be781a4ee0"
+      ],
+      "target_columns": [
+        "semester"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 60,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "semester": {
+          "column_name": "semester",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Classifies the semester of a student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'semester' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's semester classification."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-ee6a43bd68a4",
+      "source_issue_ids": [
+        "issue-missing_values-ee6a43bd68a4"
+      ],
+      "target_columns": [
+        "academic_year"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The column semantics indicate the academic year is a date, and the observed evidence shows a small percentage of missing values.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 5998
+      },
+      "semantic_basis": {
+        "academic_year": {
+          "column_name": "academic_year",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Represents the academic year of a student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'academic_year' is evidence of a temporal attribute, and the sample values are unique and consistent with a student's academic year."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-c268a127bf46",
+      "source_issue_ids": [
+        "issue-rare_category_observation-c268a127bf46"
+      ],
+      "target_columns": [
+        "academic_year"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 59,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "academic_year": {
+          "column_name": "academic_year",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Represents the academic year of a student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'academic_year' is evidence of a temporal attribute, and the sample values are unique and consistent with a student's academic year."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-f21d87a0c66d",
+      "source_issue_ids": [
+        "issue-missing_values-f21d87a0c66d"
+      ],
+      "target_columns": [
+        "course_code"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The column semantics indicate the course code is categorical, and the observed evidence shows a small percentage of missing values.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 5994
+      },
+      "semantic_basis": {
+        "course_code": {
+          "column_name": "course_code",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Classifies the course code of a student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'course_code' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's course code classification."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-84758b5708a1",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-84758b5708a1"
+      ],
+      "target_columns": [
+        "course_code"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The column semantics indicate the course code is categorical, and the observed evidence shows a high percentage of case variant candidates.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "aids303": [
+            "AIDS303",
+            "aids303"
+          ],
+          "aids304": [
+            "AIDS304",
+            "aids304"
+          ],
+          "ce303": [
+            "CE303",
+            "ce303"
+          ],
+          "et302": [
+            "ET302",
+            "et302"
+          ],
+          "mba203": [
+            "MBA203",
+            "mba203"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "course_code": {
+          "column_name": "course_code",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Classifies the course code of a student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'course_code' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's course code classification."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-f124933ef771",
+      "source_issue_ids": [
+        "issue-rare_category_observation-f124933ef771"
+      ],
+      "target_columns": [
+        "course_code"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 59,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 7
+      },
+      "semantic_basis": {
+        "course_code": {
+          "column_name": "course_code",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Classifies the course code of a student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'course_code' is evidence of a categorical attribute, and the sample values are unique and consistent with a student's course code classification."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-25a5855b3d7c",
+      "source_issue_ids": [
+        "issue-missing_values-25a5855b3d7c"
+      ],
+      "target_columns": [
+        "enrollment_date"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 5999
+      },
+      "semantic_basis": {
+        "enrollment_date": {
+          "column_name": "enrollment_date",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Dates of student enrollment in the academic year.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'enrollment_date' and the sample values are dates, indicating a temporal nature."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-inconsistent_date_format_candidate-54ea6f00c92e",
+      "source_issue_ids": [
+        "issue-inconsistent_date_format_candidate-54ea6f00c92e"
+      ],
+      "target_columns": [
+        "enrollment_date"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 1.0,
+        "method": "strict_shape_recognition"
+      },
+      "semantic_basis": {
+        "enrollment_date": {
+          "column_name": "enrollment_date",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Dates of student enrollment in the academic year.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'enrollment_date' and the sample values are dates, indicating a temporal nature."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-0c3b85b05150",
+      "source_issue_ids": [
+        "issue-missing_values-0c3b85b05150"
+      ],
+      "target_columns": [
+        "enrollment_status"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 5996
+      },
+      "semantic_basis": {
+        "enrollment_status": {
+          "column_name": "enrollment_status",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Status of student enrollment (e.g., Enrolled, Completed, On Hold, Withdrawn, In progress).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'enrollment_status' and the sample values are categorical labels, indicating a classification nature."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-565b3c1f7cce",
+      "source_issue_ids": [
+        "issue-rare_category_observation-565b3c1f7cce"
+      ],
+      "target_columns": [
+        "enrollment_status"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 59,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "enrollment_status": {
+          "column_name": "enrollment_status",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Status of student enrollment (e.g., Enrolled, Completed, On Hold, Withdrawn, In progress).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'enrollment_status' and the sample values are categorical labels, indicating a classification nature."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-fa7758fbb271",
+      "source_issue_ids": [
+        "issue-missing_values-fa7758fbb271"
+      ],
+      "target_columns": [
+        "internal_marks"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 4440
+      },
+      "semantic_basis": {
+        "internal_marks": {
+          "column_name": "internal_marks",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Internal marks scored by the student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'internal_marks' and the sample values are numeric, indicating a measurement nature."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-9c3b6d170f76",
+      "source_issue_ids": [
+        "issue-missing_values-9c3b6d170f76"
+      ],
+      "target_columns": [
+        "external_marks"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Imputation requires extreme missingness, and current missingness is moderate.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 4463
+      },
+      "semantic_basis": {
+        "external_marks": {
+          "column_name": "external_marks",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "External marks scored by the student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'external_marks' and the sample values are numeric, indicating a measurement nature."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-7f30c0a4ce32",
+      "source_issue_ids": [
+        "issue-missing_values-7f30c0a4ce32"
+      ],
+      "target_columns": [
+        "total_marks"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Imputation requires extreme missingness, and current missingness is moderate.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 4463
+      },
+      "semantic_basis": {
+        "total_marks": {
+          "column_name": "total_marks",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Total marks scored by the student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'total_marks' and the sample values are numeric, indicating a measurement nature."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-6c6c4d5aa083",
+      "source_issue_ids": [
+        "issue-missing_values-6c6c4d5aa083"
+      ],
+      "target_columns": [
+        "grade"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Imputation requires extreme missingness, and current missingness is moderate.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 4465
+      },
+      "semantic_basis": {
+        "grade": {
+          "column_name": "grade",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Grade assigned to the student based on their marks.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'grade' and the sample values are categorical labels, indicating a classification nature."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-321458eb06b8",
+      "source_issue_ids": [
+        "issue-missing_values-321458eb06b8"
+      ],
+      "target_columns": [
+        "attendance_percent"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Imputation requires extreme missingness, and current missingness is moderate.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 5998
+      },
+      "semantic_basis": {
+        "attendance_percent": {
+          "column_name": "attendance_percent",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Percentage of attendance for the student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'attendance_percent' and the sample values are numeric, indicating a measurement nature."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-statistical_outlier_candidate-fb24462cf537",
+      "source_issue_ids": [
+        "issue-statistical_outlier_candidate-fb24462cf537"
+      ],
+      "target_columns": [
+        "attendance_percent"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "A statistical outlier may be valid and must not be clipped or removed automatically.",
+      "evidence_summary": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 58.1,
+        "q3": 85.5,
+        "lower_bound": 17.000000000000007,
+        "upper_bound": 126.6
+      },
+      "semantic_basis": {
+        "attendance_percent": {
+          "column_name": "attendance_percent",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Percentage of attendance for the student.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'attendance_percent' and the sample values are numeric, indicating a measurement nature."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-0d65446558e9",
+      "source_issue_ids": [
+        "issue-missing_values-0d65446558e9"
+      ],
+      "target_columns": [
+        "scholarship_status"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 1944
+      },
+      "semantic_basis": {
+        "scholarship_status": {
+          "column_name": "scholarship_status",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Status of the student's scholarship (e.g., Merit, Government, Need-based, none, Govt).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'scholarship_status' and the sample values are categorical labels, indicating a classification nature."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-61c331046d70",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-61c331046d70"
+      ],
+      "target_columns": [
+        "scholarship_status"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "merit": [
+            "MERIT",
+            "Merit"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "scholarship_status": {
+          "column_name": "scholarship_status",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Status of the student's scholarship (e.g., Merit, Government, Need-based, none, Govt).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'scholarship_status' and the sample values are categorical labels, indicating a classification nature."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-20581559172d",
+      "source_issue_ids": [
+        "issue-rare_category_observation-20581559172d"
+      ],
+      "target_columns": [
+        "scholarship_status"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 19,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "scholarship_status": {
+          "column_name": "scholarship_status",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Status of the student's scholarship (e.g., Merit, Government, Need-based, none, Govt).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'scholarship_status' and the sample values are categorical labels, indicating a classification nature."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-dae637cb400c",
+      "source_issue_ids": [
+        "issue-missing_values-dae637cb400c"
+      ],
+      "target_columns": [
+        "fee_paid_inr"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 5996
+      },
+      "semantic_basis": {
+        "fee_paid_inr": {
+          "column_name": "fee_paid_inr",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Amount of fee paid by the student in Indian Rupees (INR).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'fee_paid_inr' and the sample values are categorical labels, indicating a classification nature."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-af6f9ff1207f",
+      "source_issue_ids": [
+        "issue-rare_category_observation-af6f9ff1207f"
+      ],
+      "target_columns": [
+        "fee_paid_inr"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 59,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 4
+      },
+      "semantic_basis": {
+        "fee_paid_inr": {
+          "column_name": "fee_paid_inr",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Amount of fee paid by the student in Indian Rupees (INR).",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'fee_paid_inr' and the sample values are categorical labels, indicating a classification nature."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-144f95dc87fe",
+      "source_issue_ids": [
+        "issue-missing_values-144f95dc87fe"
+      ],
+      "target_columns": [
+        "result_date"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Tier 2 decision inference failed; data is preserved.",
+      "evidence_summary": {
+        "fallback_reason": "ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+        "null_detection": "pandas.isna",
+        "non_null_count": 4469
+      },
+      "semantic_basis": {
+        "result_date": {
+          "column_name": "result_date",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Date when the student's result was recorded.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'result_date' and the sample values are dates, indicating a temporal nature."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-inconsistent_date_format_candidate-69081ec9cae2",
+      "source_issue_ids": [
+        "issue-inconsistent_date_format_candidate-69081ec9cae2"
+      ],
+      "target_columns": [
+        "result_date"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The date format is inconsistent and the column semantics indicate a date, requiring review to determine the correct format and handle missing or incorrect entries appropriately.",
+      "evidence_summary": {
+        "recognized_formats": [
+          "NN-NN-YYYY",
+          "NN/NN/YYYY",
+          "YYYY-MM-DD"
+        ],
+        "date_like_fraction": 1.0,
+        "method": "strict_shape_recognition"
+      },
+      "semantic_basis": {
+        "result_date": {
+          "column_name": "result_date",
+          "semantic_type": "date",
+          "value_function": "temporal",
+          "concept_description": "Date when the student's result was recorded.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'result_date' and the sample values are dates, indicating a temporal nature."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "llm_tier2"
+    }
+  ],
+  "instructions": [
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-dd7fbce59d53",
+      "source_decision_id": "decision-issue-whitespace_issue-dd7fbce59d53",
+      "source_issue_ids": [
+        "issue-whitespace_issue-dd7fbce59d53"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "student_name"
+      ],
+      "parameters": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-51cebe06f42f",
+      "source_decision_id": "decision-issue-whitespace_issue-51cebe06f42f",
+      "source_issue_ids": [
+        "issue-whitespace_issue-51cebe06f42f"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "program"
+      ],
+      "parameters": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-ac5a5a16cde5",
+      "source_decision_id": "decision-issue-whitespace_issue-ac5a5a16cde5",
+      "source_issue_ids": [
+        "issue-whitespace_issue-ac5a5a16cde5"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "department"
+      ],
+      "parameters": {}
+    }
+  ],
+  "executions": [
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-dd7fbce59d53",
+      "source_decision_id": "decision-issue-whitespace_issue-dd7fbce59d53",
+      "source_issue_ids": [
+        "issue-whitespace_issue-dd7fbce59d53"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "student_name"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 31,
+      "change_examples": [
+        {
+          "row_index": 13,
+          "column": "student_name",
+          "before": " Riya Joshi",
+          "after": "Riya Joshi"
+        },
+        {
+          "row_index": 509,
+          "column": "student_name",
+          "before": " Rohan Patil",
+          "after": "Rohan Patil"
+        },
+        {
+          "row_index": 655,
+          "column": "student_name",
+          "before": " Rahul Kulkarni",
+          "after": "Rahul Kulkarni"
+        },
+        {
+          "row_index": 782,
+          "column": "student_name",
+          "before": " Aarav Kulkarni",
+          "after": "Aarav Kulkarni"
+        },
+        {
+          "row_index": 853,
+          "column": "student_name",
+          "before": "Ananya Verma ",
+          "after": "Ananya Verma"
+        }
+      ],
+      "rows_before": 6000,
+      "rows_after": 6000,
+      "columns_before": 22,
+      "columns_after": 22,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-51cebe06f42f",
+      "source_decision_id": "decision-issue-whitespace_issue-51cebe06f42f",
+      "source_issue_ids": [
+        "issue-whitespace_issue-51cebe06f42f"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "program"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 12,
+      "change_examples": [
+        {
+          "row_index": 441,
+          "column": "program",
+          "before": "MBA ",
+          "after": "MBA"
+        },
+        {
+          "row_index": 1900,
+          "column": "program",
+          "before": "MBA ",
+          "after": "MBA"
+        },
+        {
+          "row_index": 1943,
+          "column": "program",
+          "before": "B.Tech Computer Engineering ",
+          "after": "B.Tech Computer Engineering"
+        },
+        {
+          "row_index": 2059,
+          "column": "program",
+          "before": "B.Tech Computer Engineering ",
+          "after": "B.Tech Computer Engineering"
+        },
+        {
+          "row_index": 2251,
+          "column": "program",
+          "before": "B.Tech Computer Engineering ",
+          "after": "B.Tech Computer Engineering"
+        }
+      ],
+      "rows_before": 6000,
+      "rows_after": 6000,
+      "columns_before": 22,
+      "columns_after": 22,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-ac5a5a16cde5",
+      "source_decision_id": "decision-issue-whitespace_issue-ac5a5a16cde5",
+      "source_issue_ids": [
+        "issue-whitespace_issue-ac5a5a16cde5"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "department"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 10,
+      "change_examples": [
+        {
+          "row_index": 229,
+          "column": "department",
+          "before": "Artificial Intelligence and Data Science ",
+          "after": "Artificial Intelligence and Data Science"
+        },
+        {
+          "row_index": 744,
+          "column": "department",
+          "before": "Computer Engineering ",
+          "after": "Computer Engineering"
+        },
+        {
+          "row_index": 2234,
+          "column": "department",
+          "before": "Electronics Engineering ",
+          "after": "Electronics Engineering"
+        },
+        {
+          "row_index": 2248,
+          "column": "department",
+          "before": "Electronics Engineering ",
+          "after": "Electronics Engineering"
+        },
+        {
+          "row_index": 2613,
+          "column": "department",
+          "before": "Management Studies ",
+          "after": "Management Studies"
+        }
+      ],
+      "rows_before": 6000,
+      "rows_after": 6000,
+      "columns_before": 22,
+      "columns_after": 22,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "no_unexpected_changes": true,
+    "dataframe_equal": false,
+    "row_count_equal": true,
+    "column_count_equal": true,
+    "missingness_equal": true,
+    "duplicate_row_count_equal": true,
+    "physical_dtypes_equal": true,
+    "cardinality_equal": false,
+    "unrelated_columns_equal": true,
+    "targeted_whitespace_improved": true,
+    "targeted_case_variants_improved": true,
+    "only_approved_value_changes": true,
+    "no_unexpected_categories": true,
+    "targeted_date_formats_improved": true,
+    "only_approved_date_changes": true,
+    "expected_dtype_changes_only": true,
+    "only_approved_numeric_changes": true,
+    "null_positions_equal": true,
+    "targeted_mixed_numeric_improved": true,
+    "only_approved_imputation_changes": true,
+    "expected_missingness_changes_only": true,
+    "imputed_cell_count": 0,
+    "imputation_audit": [],
+    "newly_introduced_null_count": 0,
+    "changed_cell_count": 53,
+    "before_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "missing_values": 14,
+        "whitespace_issue": 3,
+        "inconsistent_date_format_candidate": 3,
+        "case_variant_candidate": 5,
+        "rare_category_observation": 9,
+        "statistical_outlier_candidate": 1
+      },
+      "whitespace_affected_cells_by_column": {
+        "student_name": 31,
+        "program": 12,
+        "department": 10
+      },
+      "case_variant_affected_cells_by_column": {
+        "gender": 5924,
+        "program": 5998,
+        "department": 5998,
+        "course_code": 2159,
+        "scholarship_status": 686
+      },
+      "date_format_affected_cells_by_column": {
+        "date_of_birth": 5992,
+        "enrollment_date": 5999,
+        "result_date": 4469
+      },
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "after_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "missing_values": 14,
+        "inconsistent_date_format_candidate": 3,
+        "case_variant_candidate": 5,
+        "rare_category_observation": 9,
+        "statistical_outlier_candidate": 1
+      },
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {
+        "gender": 5924,
+        "program": 4493,
+        "department": 4384,
+        "course_code": 2159,
+        "scholarship_status": 686
+      },
+      "date_format_affected_cells_by_column": {
+        "date_of_birth": 5992,
+        "enrollment_date": 5999,
+        "result_date": 4469
+      },
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "before_summary": {
+      "row_count": 6000,
+      "column_count": 22,
+      "total_missing_cells": 11783,
+      "duplicate_row_count": 14,
+      "physical_dtypes": {
+        "enrollment_id": "str",
+        "student_id": "str",
+        "student_name": "str",
+        "date_of_birth": "str",
+        "gender": "str",
+        "program": "str",
+        "department": "str",
+        "semester": "str",
+        "academic_year": "str",
+        "course_code": "str",
+        "course_name": "str",
+        "course_credits": "int64",
+        "enrollment_date": "str",
+        "enrollment_status": "str",
+        "internal_marks": "float64",
+        "external_marks": "float64",
+        "total_marks": "float64",
+        "grade": "str",
+        "attendance_percent": "float64",
+        "scholarship_status": "str",
+        "fee_paid_inr": "str",
+        "result_date": "str"
+      },
+      "cardinality": {
+        "enrollment_id": 5968,
+        "student_id": 2052,
+        "student_name": 432,
+        "date_of_birth": 1645,
+        "gender": 7,
+        "program": 12,
+        "department": 12,
+        "semester": 11,
+        "academic_year": 4,
+        "course_code": 21,
+        "course_name": 14,
+        "course_credits": 5,
+        "enrollment_date": 149,
+        "enrollment_status": 7,
+        "internal_marks": 21,
+        "external_marks": 56,
+        "total_marks": 74,
+        "grade": 7,
+        "attendance_percent": 555,
+        "scholarship_status": 6,
+        "fee_paid_inr": 10,
+        "result_date": 79
+      }
+    },
+    "after_summary": {
+      "row_count": 6000,
+      "column_count": 22,
+      "total_missing_cells": 11783,
+      "duplicate_row_count": 14,
+      "physical_dtypes": {
+        "enrollment_id": "str",
+        "student_id": "str",
+        "student_name": "str",
+        "date_of_birth": "str",
+        "gender": "str",
+        "program": "str",
+        "department": "str",
+        "semester": "str",
+        "academic_year": "str",
+        "course_code": "str",
+        "course_name": "str",
+        "course_credits": "int64",
+        "enrollment_date": "str",
+        "enrollment_status": "str",
+        "internal_marks": "float64",
+        "external_marks": "float64",
+        "total_marks": "float64",
+        "grade": "str",
+        "attendance_percent": "float64",
+        "scholarship_status": "str",
+        "fee_paid_inr": "str",
+        "result_date": "str"
+      },
+      "cardinality": {
+        "enrollment_id": 5968,
+        "student_id": 2052,
+        "student_name": 402,
+        "date_of_birth": 1645,
+        "gender": 7,
+        "program": 8,
+        "department": 8,
+        "semester": 11,
+        "academic_year": 4,
+        "course_code": 21,
+        "course_name": 14,
+        "course_credits": 5,
+        "enrollment_date": 149,
+        "enrollment_status": 7,
+        "internal_marks": 21,
+        "external_marks": 56,
+        "total_marks": 74,
+        "grade": 7,
+        "attendance_percent": 555,
+        "scholarship_status": 6,
+        "fee_paid_inr": 10,
+        "result_date": 79
+      }
+    },
+    "warnings": []
+  },
+  "warnings": [
+    "Tier 2 decision batch failed after retry: ValueError: Tier 2 decision output does not exactly cover input issue IDs.",
+    "Tier 2 decision batch failed after retry: ValueError: Tier 2 decision output does not exactly cover input issue IDs."
+  ],
+  "output_artifacts": {
+    "cleaned_dataset": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\pipeline1_multidomain\\results\\dataset_05_education\\cleaned_dataset.csv",
+    "cleaning_report": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\pipeline1_multidomain\\results\\dataset_05_education\\cleaning_report.json",
+    "cleaned_dataset_format": "csv"
+  }
+}

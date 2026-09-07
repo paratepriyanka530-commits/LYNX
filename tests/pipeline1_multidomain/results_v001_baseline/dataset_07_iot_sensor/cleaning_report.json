@@ -1,0 +1,2881 @@
+{
+  "pipeline_version": "pipeline1_architecture_b_v001",
+  "run_id": "20260906T120954-01662179",
+  "status": "success",
+  "original_dataset": {
+    "valid": true,
+    "file_name": "dataset_07_iot_sensor_raw.csv",
+    "file_format": ".csv",
+    "file_size_bytes": 3811619,
+    "rows": 30000,
+    "columns": 18,
+    "duplicate_columns": [],
+    "absolute_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_07_iot_sensor_raw.csv",
+    "source_path": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\datasets\\valid\\dataset_07_iot_sensor_raw.csv",
+    "raw_dataset_overwritten": false
+  },
+  "before_profile": {
+    "shape": {
+      "rows": 30000,
+      "columns": 18
+    },
+    "column_names": [
+      "reading_id",
+      "device_id",
+      "recorded_at",
+      "site_name",
+      "device_type",
+      "temperature",
+      "temperature_unit",
+      "humidity_percent",
+      "pressure_kpa",
+      "vibration_mm_s",
+      "battery_percent",
+      "signal_strength_dbm",
+      "power_consumption_kw",
+      "operating_state",
+      "firmware_version",
+      "data_quality",
+      "maintenance_required",
+      "error_code"
+    ],
+    "dtype_distribution": {
+      "str": 15,
+      "float64": 3
+    },
+    "missingness": {
+      "total_missing_cells": 27960,
+      "overall_missing_percentage": 5.1778
+    },
+    "duplicates": {
+      "exact_duplicate_rows": 35,
+      "percentage": 0.1167
+    },
+    "column_profiles": [
+      {
+        "column_name": "reading_id",
+        "physical_dtype": "str",
+        "row_count": 30000,
+        "non_null_count": 29950,
+        "missing": {
+          "count": 50,
+          "percentage": 0.1667
+        },
+        "uniqueness": {
+          "unique_count": 29891,
+          "unique_ratio": 0.99803
+        },
+        "repetition": {
+          "repeated_unique_count": 59,
+          "repeated_occurrences": 118,
+          "repetition_rate": 0.00394
+        },
+        "sample_values": [
+          "RDG000025072",
+          "RDG000009337",
+          "RDG000026142",
+          "RDG000013899",
+          "RDG000006471"
+        ]
+      },
+      {
+        "column_name": "device_id",
+        "physical_dtype": "str",
+        "row_count": 30000,
+        "non_null_count": 29974,
+        "missing": {
+          "count": 26,
+          "percentage": 0.0867
+        },
+        "uniqueness": {
+          "unique_count": 319,
+          "unique_ratio": 0.010643
+        },
+        "repetition": {
+          "repeated_unique_count": 301,
+          "repeated_occurrences": 29956,
+          "repetition_rate": 0.999399
+        },
+        "sample_values": [
+          "IOT-00009",
+          "IOT-00280",
+          "IOT-00214",
+          "IOT-00154",
+          "IOT-00243"
+        ]
+      },
+      {
+        "column_name": "recorded_at",
+        "physical_dtype": "str",
+        "row_count": 30000,
+        "non_null_count": 30000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 29814,
+          "unique_ratio": 0.9938
+        },
+        "repetition": {
+          "repeated_unique_count": 133,
+          "repeated_occurrences": 319,
+          "repetition_rate": 0.010633
+        },
+        "sample_values": [
+          "2026-07-04T09:23:18Z",
+          "2026-07-25T08:22:35Z",
+          "2026-07-21T23:56:04Z",
+          "2026-07-22T16:53:48Z",
+          "2026-07-28T08:34:36Z"
+        ]
+      },
+      {
+        "column_name": "site_name",
+        "physical_dtype": "str",
+        "row_count": 30000,
+        "non_null_count": 30000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 13,
+          "unique_ratio": 0.000433
+        },
+        "repetition": {
+          "repeated_unique_count": 13,
+          "repeated_occurrences": 30000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Plant-A",
+          "Plant-B",
+          "Warehouse-1",
+          "Office-Tower",
+          "Plant-A "
+        ]
+      },
+      {
+        "column_name": "device_type",
+        "physical_dtype": "str",
+        "row_count": 30000,
+        "non_null_count": 30000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 16,
+          "unique_ratio": 0.000533
+        },
+        "repetition": {
+          "repeated_unique_count": 16,
+          "repeated_occurrences": 30000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Motor",
+          "Cold Storage",
+          "Air Quality",
+          "Pump",
+          "HVAC"
+        ]
+      },
+      {
+        "column_name": "temperature",
+        "physical_dtype": "float64",
+        "row_count": 30000,
+        "non_null_count": 29970,
+        "missing": {
+          "count": 30,
+          "percentage": 0.1
+        },
+        "uniqueness": {
+          "unique_count": 2099,
+          "unique_ratio": 0.070037
+        },
+        "repetition": {
+          "repeated_unique_count": 1854,
+          "repeated_occurrences": 29725,
+          "repetition_rate": 0.991825
+        },
+        "sample_values": [
+          25.51,
+          5.06,
+          17.21,
+          3.73,
+          26.81
+        ],
+        "numeric_statistics": {
+          "min": -80.0,
+          "max": 150.0,
+          "mean": 19.631005672339004,
+          "median": 22.46,
+          "std": 10.882799836423384,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "temperature_unit",
+        "physical_dtype": "str",
+        "row_count": 30000,
+        "non_null_count": 29974,
+        "missing": {
+          "count": 26,
+          "percentage": 0.0867
+        },
+        "uniqueness": {
+          "unique_count": 4,
+          "unique_ratio": 0.000133
+        },
+        "repetition": {
+          "repeated_unique_count": 4,
+          "repeated_occurrences": 29974,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "C",
+          "F",
+          "celsius",
+          "°C"
+        ]
+      },
+      {
+        "column_name": "humidity_percent",
+        "physical_dtype": "str",
+        "row_count": 30000,
+        "non_null_count": 30000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 4302,
+          "unique_ratio": 0.1434
+        },
+        "repetition": {
+          "repeated_unique_count": 4279,
+          "repeated_occurrences": 29977,
+          "repetition_rate": 0.999233
+        },
+        "sample_values": [
+          "59.44",
+          "53.67",
+          "39.84",
+          "70.74",
+          "42.16"
+        ]
+      },
+      {
+        "column_name": "pressure_kpa",
+        "physical_dtype": "str",
+        "row_count": 30000,
+        "non_null_count": 30000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 711,
+          "unique_ratio": 0.0237
+        },
+        "repetition": {
+          "repeated_unique_count": 640,
+          "repeated_occurrences": 29929,
+          "repetition_rate": 0.997633
+        },
+        "sample_values": [
+          "101.35",
+          "101.9",
+          "102.49",
+          "100.69",
+          "101.84"
+        ]
+      },
+      {
+        "column_name": "vibration_mm_s",
+        "physical_dtype": "float64",
+        "row_count": 30000,
+        "non_null_count": 29977,
+        "missing": {
+          "count": 23,
+          "percentage": 0.0767
+        },
+        "uniqueness": {
+          "unique_count": 1883,
+          "unique_ratio": 0.062815
+        },
+        "repetition": {
+          "repeated_unique_count": 1682,
+          "repeated_occurrences": 29776,
+          "repetition_rate": 0.993295
+        },
+        "sample_values": [
+          1.665,
+          0.09,
+          0.145,
+          0.131,
+          0.293
+        ],
+        "numeric_statistics": {
+          "min": -1.0,
+          "max": 99.0,
+          "mean": 0.5064812689728793,
+          "median": 0.123,
+          "std": 3.252904951396932,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "battery_percent",
+        "physical_dtype": "float64",
+        "row_count": 30000,
+        "non_null_count": 29962,
+        "missing": {
+          "count": 38,
+          "percentage": 0.1267
+        },
+        "uniqueness": {
+          "unique_count": 823,
+          "unique_ratio": 0.027468
+        },
+        "repetition": {
+          "repeated_unique_count": 823,
+          "repeated_occurrences": 29962,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          46.4,
+          30.5,
+          63.5,
+          52.1,
+          23.4
+        ],
+        "numeric_statistics": {
+          "min": -10.0,
+          "max": 125.0,
+          "mean": 58.68235097790535,
+          "median": 58.7,
+          "std": 23.700255166629667,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "signal_strength_dbm",
+        "physical_dtype": "str",
+        "row_count": 30000,
+        "non_null_count": 30000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 64,
+          "unique_ratio": 0.002133
+        },
+        "repetition": {
+          "repeated_unique_count": 64,
+          "repeated_occurrences": 30000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "-35",
+          "-89",
+          "-40",
+          "-44",
+          "-77"
+        ]
+      },
+      {
+        "column_name": "power_consumption_kw",
+        "physical_dtype": "str",
+        "row_count": 30000,
+        "non_null_count": 29982,
+        "missing": {
+          "count": 18,
+          "percentage": 0.06
+        },
+        "uniqueness": {
+          "unique_count": 1783,
+          "unique_ratio": 0.059469
+        },
+        "repetition": {
+          "repeated_unique_count": 1783,
+          "repeated_occurrences": 29982,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "8.78",
+          "2.27",
+          "2.31",
+          "8.34",
+          "13.14"
+        ]
+      },
+      {
+        "column_name": "operating_state",
+        "physical_dtype": "str",
+        "row_count": 30000,
+        "non_null_count": 29978,
+        "missing": {
+          "count": 22,
+          "percentage": 0.0733
+        },
+        "uniqueness": {
+          "unique_count": 7,
+          "unique_ratio": 0.000234
+        },
+        "repetition": {
+          "repeated_unique_count": 7,
+          "repeated_occurrences": 29978,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Running",
+          "Idle",
+          "Offline",
+          "Maintenance",
+          "running"
+        ]
+      },
+      {
+        "column_name": "firmware_version",
+        "physical_dtype": "str",
+        "row_count": 30000,
+        "non_null_count": 29981,
+        "missing": {
+          "count": 19,
+          "percentage": 0.0633
+        },
+        "uniqueness": {
+          "unique_count": 6,
+          "unique_ratio": 0.0002
+        },
+        "repetition": {
+          "repeated_unique_count": 6,
+          "repeated_occurrences": 29981,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "1.8.2",
+          "1.9.0",
+          "2.0.1",
+          "unknown",
+          "1.9"
+        ]
+      },
+      {
+        "column_name": "data_quality",
+        "physical_dtype": "str",
+        "row_count": 30000,
+        "non_null_count": 29971,
+        "missing": {
+          "count": 29,
+          "percentage": 0.0967
+        },
+        "uniqueness": {
+          "unique_count": 5,
+          "unique_ratio": 0.000167
+        },
+        "repetition": {
+          "repeated_unique_count": 5,
+          "repeated_occurrences": 29971,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Good",
+          "Fair",
+          "Poor",
+          "BAD",
+          "good"
+        ]
+      },
+      {
+        "column_name": "maintenance_required",
+        "physical_dtype": "str",
+        "row_count": 30000,
+        "non_null_count": 30000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 6.7e-05
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 30000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "No",
+          "Yes"
+        ]
+      },
+      {
+        "column_name": "error_code",
+        "physical_dtype": "str",
+        "row_count": 30000,
+        "non_null_count": 2321,
+        "missing": {
+          "count": 27679,
+          "percentage": 92.2633
+        },
+        "uniqueness": {
+          "unique_count": 3,
+          "unique_ratio": 0.001293
+        },
+        "repetition": {
+          "repeated_unique_count": 3,
+          "repeated_occurrences": 2321,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "E_POWER",
+          "E_TIMEOUT",
+          "E_CONN"
+        ]
+      }
+    ]
+  },
+  "issues": [
+    {
+      "issue_id": "issue-exact_duplicate_rows-192ec5f83876",
+      "issue_type": "exact_duplicate_rows",
+      "target_columns": [],
+      "affected_count": 35,
+      "affected_percentage": 0.1167,
+      "evidence": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "examples": [
+        3250,
+        8665,
+        9202,
+        9665,
+        11778
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-c861b22cb109",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "reading_id"
+      ],
+      "affected_count": 50,
+      "affected_percentage": 0.1667,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29950
+      },
+      "examples": [
+        785,
+        1047,
+        2532,
+        2714,
+        3036
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-33a343ef3ab7",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "device_id"
+      ],
+      "affected_count": 26,
+      "affected_percentage": 0.0867,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29974
+      },
+      "examples": [
+        3926,
+        4779,
+        4885,
+        7856,
+        7939
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-8cf81e206c28",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "site_name"
+      ],
+      "affected_count": 28,
+      "affected_percentage": 0.0933,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 28,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "Plant-A ",
+        "Plant-A ",
+        "Plant-B ",
+        "Warehouse-1 ",
+        "Warehouse-1 "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-7d9fcee7cbe3",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "site_name"
+      ],
+      "affected_count": 29994,
+      "affected_percentage": 99.98,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "office-tower": [
+            "Office-Tower",
+            "Office-Tower ",
+            "office-tower"
+          ],
+          "plant-a": [
+            "Plant-A",
+            "Plant-A ",
+            "plant-a"
+          ],
+          "plant-b": [
+            "Plant-B",
+            "Plant-B ",
+            "plant-b"
+          ],
+          "warehouse-1": [
+            "Warehouse-1",
+            "Warehouse-1 ",
+            "warehouse-1"
+          ]
+        }
+      },
+      "examples": [
+        "Plant-A",
+        "Plant-B",
+        "Plant-A",
+        "Warehouse-1",
+        "Warehouse-1"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-a00f57280fc4",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "site_name"
+      ],
+      "affected_count": 67,
+      "affected_percentage": 0.2233,
+      "evidence": {
+        "maximum_frequency": 300,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 9
+      },
+      "examples": [
+        "Plant-A ",
+        "office-tower",
+        "Plant-A ",
+        "Plant-B ",
+        "Warehouse-1 "
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-whitespace_issue-4eac86f86e04",
+      "issue_type": "whitespace_issue",
+      "target_columns": [
+        "device_type"
+      ],
+      "affected_count": 29,
+      "affected_percentage": 0.0967,
+      "evidence": {
+        "leading_count": 0,
+        "trailing_count": 29,
+        "whitespace_only_count": 0
+      },
+      "examples": [
+        "Motor ",
+        "Cold Storage ",
+        "HVAC ",
+        "Cold Storage ",
+        "Cold Storage "
+      ],
+      "status": "issue",
+      "risk_hint": "low",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-3c3b7eb9a9ca",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "device_type"
+      ],
+      "affected_count": 29997,
+      "affected_percentage": 99.99,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "air quality": [
+            "Air Quality",
+            "Air Quality ",
+            "air quality"
+          ],
+          "cold storage": [
+            "Cold Storage",
+            "Cold Storage ",
+            "cold storage"
+          ],
+          "hvac": [
+            "HVAC",
+            "HVAC ",
+            "hvac"
+          ],
+          "motor": [
+            "Motor",
+            "Motor ",
+            "motor"
+          ],
+          "pump": [
+            "Pump",
+            "Pump ",
+            "pump"
+          ]
+        }
+      },
+      "examples": [
+        "Motor",
+        "Cold Storage",
+        "Air Quality",
+        "Cold Storage",
+        "Pump"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-4c66ab545a8d",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "device_type"
+      ],
+      "affected_count": 62,
+      "affected_percentage": 0.2067,
+      "evidence": {
+        "maximum_frequency": 300,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 11
+      },
+      "examples": [
+        "air quality",
+        "Motor ",
+        "pump",
+        "Cold Storage ",
+        "HVAC "
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-0f5d8601e783",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "temperature"
+      ],
+      "affected_count": 30,
+      "affected_percentage": 0.1,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29970
+      },
+      "examples": [
+        1428,
+        1803,
+        2433,
+        3913,
+        4091
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-statistical_outlier_candidate-fa33b474a373",
+      "issue_type": "statistical_outlier_candidate",
+      "target_columns": [
+        "temperature"
+      ],
+      "affected_count": 6761,
+      "affected_percentage": 22.5592,
+      "evidence": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 18.762500000000003,
+        "q3": 26.0,
+        "lower_bound": 7.906250000000007,
+        "upper_bound": 36.856249999999996
+      },
+      "examples": [
+        5.06,
+        3.73,
+        2.74,
+        2.55,
+        2.31
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-efca73f59819",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "temperature_unit"
+      ],
+      "affected_count": 26,
+      "affected_percentage": 0.0867,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29974
+      },
+      "examples": [
+        4729,
+        5282,
+        7040,
+        8655,
+        10108
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-e00ca2fd5c4a",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "temperature_unit"
+      ],
+      "affected_count": 154,
+      "affected_percentage": 0.5138,
+      "evidence": {
+        "maximum_frequency": 299,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "F",
+        "F",
+        "celsius",
+        "celsius",
+        "F"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-1d298936bd64",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "vibration_mm_s"
+      ],
+      "affected_count": 23,
+      "affected_percentage": 0.0767,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29977
+      },
+      "examples": [
+        1002,
+        1385,
+        3826,
+        4331,
+        4467
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-statistical_outlier_candidate-2c2591e26488",
+      "issue_type": "statistical_outlier_candidate",
+      "target_columns": [
+        "vibration_mm_s"
+      ],
+      "affected_count": 364,
+      "affected_percentage": 1.2143,
+      "evidence": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 0.072,
+        "q3": 0.722,
+        "lower_bound": -0.9030000000000001,
+        "upper_bound": 1.697
+      },
+      "examples": [
+        1.747,
+        99.0,
+        1.962,
+        1.718,
+        1.797
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-61a39fa6b1bd",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "battery_percent"
+      ],
+      "affected_count": 38,
+      "affected_percentage": 0.1267,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29962
+      },
+      "examples": [
+        6732,
+        6806,
+        7447,
+        7758,
+        7911
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-8286b43b13ae",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "power_consumption_kw"
+      ],
+      "affected_count": 18,
+      "affected_percentage": 0.06,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29982
+      },
+      "examples": [
+        71,
+        1227,
+        6604,
+        12644,
+        14064
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-e259bc2168cc",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "operating_state"
+      ],
+      "affected_count": 22,
+      "affected_percentage": 0.0733,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29978
+      },
+      "examples": [
+        4341,
+        5851,
+        5861,
+        6042,
+        7814
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-1f5e4ef5dd6d",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "operating_state"
+      ],
+      "affected_count": 20989,
+      "affected_percentage": 70.0147,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "running": [
+            "Running",
+            "running"
+          ]
+        }
+      },
+      "examples": [
+        "Running",
+        "Running",
+        "Running",
+        "Running",
+        "Running"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-edd19748fd41",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "operating_state"
+      ],
+      "affected_count": 56,
+      "affected_percentage": 0.1868,
+      "evidence": {
+        "maximum_frequency": 299,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "running",
+        "running",
+        "Off-line",
+        "ON",
+        "ON"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-35ae38cdb71a",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "firmware_version"
+      ],
+      "affected_count": 19,
+      "affected_percentage": 0.0633,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29981
+      },
+      "examples": [
+        1727,
+        2049,
+        3988,
+        5586,
+        8409
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-42bd7ea197a1",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "firmware_version"
+      ],
+      "affected_count": 48,
+      "affected_percentage": 0.1601,
+      "evidence": {
+        "maximum_frequency": 299,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "unknown",
+        "unknown",
+        "1.9",
+        "v2.0.1",
+        "unknown"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-cf4160e9a43d",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "data_quality"
+      ],
+      "affected_count": 29,
+      "affected_percentage": 0.0967,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29971
+      },
+      "examples": [
+        2600,
+        4539,
+        4636,
+        4812,
+        5014
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-case_variant_candidate-c5b27527163a",
+      "issue_type": "case_variant_candidate",
+      "target_columns": [
+        "data_quality"
+      ],
+      "affected_count": 27521,
+      "affected_percentage": 91.8254,
+      "evidence": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "good": [
+            "Good",
+            "good"
+          ]
+        }
+      },
+      "examples": [
+        "Good",
+        "Good",
+        "Good",
+        "Good",
+        "Good"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-6a4cb68e46c8",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "data_quality"
+      ],
+      "affected_count": 29,
+      "affected_percentage": 0.0968,
+      "evidence": {
+        "maximum_frequency": 299,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 2
+      },
+      "examples": [
+        "BAD",
+        "BAD",
+        "good",
+        "good",
+        "BAD"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-missing_values-807a4a574212",
+      "issue_type": "missing_values",
+      "target_columns": [
+        "error_code"
+      ],
+      "affected_count": 27679,
+      "affected_percentage": 92.2633,
+      "evidence": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 2321
+      },
+      "examples": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    }
+  ],
+  "quality_summary": {
+    "total_issues_detected": 26,
+    "issues_by_type": {
+      "case_variant_candidate": 4,
+      "exact_duplicate_rows": 1,
+      "missing_values": 11,
+      "rare_category_observation": 6,
+      "statistical_outlier_candidate": 2,
+      "whitespace_issue": 2
+    },
+    "issues_by_status": {
+      "candidate": 6,
+      "issue": 14,
+      "observation": 6
+    },
+    "affected_columns": [
+      "battery_percent",
+      "data_quality",
+      "device_id",
+      "device_type",
+      "error_code",
+      "firmware_version",
+      "operating_state",
+      "power_consumption_kw",
+      "reading_id",
+      "site_name",
+      "temperature",
+      "temperature_unit",
+      "vibration_mm_s"
+    ],
+    "dataset_level_issue_count": 1
+  },
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": "sensor reading",
+      "row_entity_confidence": 0.8,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "reading_id",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "device_id",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "recorded_at",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "site_name",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "device_type",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "temperature",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "temperature_unit",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "humidity_percent",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "pressure_kpa",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "vibration_mm_s",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "battery_percent",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "signal_strength_dbm",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "power_consumption_kw",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "concept_description": "Electric power consumption in kilowatts",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'power_consumption_kw' indicates that the values represent electric power consumption in kilowatts, which is a numeric measurement."
+      },
+      {
+        "column_name": "operating_state",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Current operational state of the sensor",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'operating_state' suggests that the values represent different operational states of the sensor, which are reusable categories or labels."
+      },
+      {
+        "column_name": "firmware_version",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Version of the firmware installed on the sensor",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'firmware_version' indicates that the values represent different versions of the firmware installed on the sensor, which are reusable categories or labels."
+      },
+      {
+        "column_name": "data_quality",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Quality level of the sensor data",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'data_quality' suggests that the values represent different quality levels of the sensor data, which are reusable categories or labels."
+      },
+      {
+        "column_name": "maintenance_required",
+        "semantic_type": "boolean",
+        "value_function": "boolean_state",
+        "concept_description": "Whether maintenance is required for the sensor",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'maintenance_required' indicates that the values represent whether maintenance is required for the sensor, which is a binary logical state."
+      },
+      {
+        "column_name": "error_code",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "concept_description": "Error code encountered by the sensor",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'error_code' suggests that the values represent different error codes encountered by the sensor, which are reusable categories or labels."
+      }
+    ],
+    "warnings": [
+      "Semantic batch 1 failed after retry; unknown fallback used for ['reading_id', 'device_id', 'recorded_at', 'site_name', 'device_type', 'temperature', 'temperature_unit', 'humidity_percent', 'pressure_kpa', 'vibration_mm_s', 'battery_percent', 'signal_strength_dbm']: RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)"
+    ],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 3,
+      "total_llm_calls": 4,
+      "batch_sizes": [
+        12,
+        6
+      ],
+      "dataset_semantic_runtime_seconds": 56.936258,
+      "batch_runtime_seconds": [
+        244.106661,
+        68.901648
+      ],
+      "rag_runtime_seconds": 0.336658,
+      "batch_failures": 1,
+      "batch_retries": 1,
+      "llm_calls": [
+        {
+          "stage": "dataset_context",
+          "api_wall_duration_seconds": 56.839822,
+          "prompt_eval_count": 2026,
+          "prompt_eval_duration": 52907602000,
+          "eval_count": 21,
+          "eval_duration": 1822886000,
+          "total_duration": 54772457700,
+          "load_duration": 5494600,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "error": "RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)",
+          "api_wall_duration_seconds": 122.046932,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 2,
+          "error": "RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)",
+          "api_wall_duration_seconds": 122.059455,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 2,
+          "attempt": 1,
+          "api_wall_duration_seconds": 68.901526,
+          "prompt_eval_count": 1363,
+          "prompt_eval_duration": 19943940000,
+          "eval_count": 557,
+          "eval_duration": 46795495000,
+          "total_duration": 66860855000,
+          "load_duration": 7443500,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 370.185546
+    }
+  },
+  "decision_summary": {
+    "total_decisions": 26,
+    "by_decision_type": {
+      "flag_for_review": 4,
+      "insufficient_evidence": 6,
+      "action": 2,
+      "no_action": 14
+    },
+    "by_proposed_action": {
+      "flag_rows": 4,
+      "no_op": 20,
+      "trim_whitespace": 2
+    },
+    "tier1_decisions": 11,
+    "tier2_decisions": 9,
+    "fallback_decisions": 6,
+    "deterministic_runtime_seconds": 0.00085,
+    "tier2_issue_count": 9,
+    "tier2_batch_sizes": [
+      4,
+      4,
+      1
+    ],
+    "llm_decision_calls": 3,
+    "llm_runtime_seconds": 96.137397,
+    "intended_llm_decision_calls": 3,
+    "retries": 0,
+    "successful_batches": 3,
+    "batch_failures": 0,
+    "llm_calls": [
+      {
+        "batch_index": 1,
+        "attempt": 1,
+        "api_wall_duration_seconds": 41.55269,
+        "prompt_character_length": 3190,
+        "prompt_eval_count": 779,
+        "prompt_eval_duration": 14895207000,
+        "eval_count": 319,
+        "eval_duration": 24531017000,
+        "total_duration": 39509855200,
+        "load_duration": 6083700,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 2,
+        "attempt": 1,
+        "api_wall_duration_seconds": 42.141209,
+        "prompt_character_length": 2807,
+        "prompt_eval_count": 685,
+        "prompt_eval_duration": 12216402000,
+        "eval_count": 372,
+        "eval_duration": 27830442000,
+        "total_duration": 40089731100,
+        "load_duration": 5586400,
+        "done_reason": "stop"
+      },
+      {
+        "batch_index": 3,
+        "attempt": 1,
+        "api_wall_duration_seconds": 12.443498,
+        "prompt_character_length": 1305,
+        "prompt_eval_count": 309,
+        "prompt_eval_duration": 2985051000,
+        "eval_count": 100,
+        "eval_duration": 7320962000,
+        "total_duration": 10356399100,
+        "load_duration": 12033800,
+        "done_reason": "stop"
+      }
+    ],
+    "total_runtime_seconds": 96.139087,
+    "execution_routing": {
+      "detected_issue_count": 26,
+      "decision_count": 26,
+      "proposed_action_count": 2,
+      "compiled_instruction_count": 2,
+      "executed_action_count": 2,
+      "executed_trim_whitespace_count": 2,
+      "executed_normalize_categorical_labels_count": 0,
+      "skipped_action_count": 0,
+      "skipped_actions": [],
+      "parse_date_assessments": [],
+      "numeric_coercion_assessments": [],
+      "missing_value_assessments": [
+        {
+          "column": "reading_id",
+          "missing_count": 50,
+          "missing_percentage": 0.16666666666666666,
+          "missingness_risk": "low",
+          "observed_count": 29950,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "device_id",
+          "missing_count": 26,
+          "missing_percentage": 0.08666666666666667,
+          "missingness_risk": "low",
+          "observed_count": 29974,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "temperature",
+          "missing_count": 30,
+          "missing_percentage": 0.1,
+          "missingness_risk": "low",
+          "observed_count": 29970,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "temperature_unit",
+          "missing_count": 26,
+          "missing_percentage": 0.08666666666666667,
+          "missingness_risk": "low",
+          "observed_count": 29974,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "vibration_mm_s",
+          "missing_count": 23,
+          "missing_percentage": 0.07666666666666666,
+          "missingness_risk": "low",
+          "observed_count": 29977,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "battery_percent",
+          "missing_count": 38,
+          "missing_percentage": 0.12666666666666668,
+          "missingness_risk": "low",
+          "observed_count": 29962,
+          "semantic_type": "unknown",
+          "value_function": "unknown"
+        },
+        {
+          "column": "power_consumption_kw",
+          "missing_count": 18,
+          "missing_percentage": 0.06,
+          "missingness_risk": "low",
+          "observed_count": 29982,
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement"
+        },
+        {
+          "column": "operating_state",
+          "missing_count": 22,
+          "missing_percentage": 0.07333333333333333,
+          "missingness_risk": "low",
+          "observed_count": 29978,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "firmware_version",
+          "missing_count": 19,
+          "missing_percentage": 0.06333333333333334,
+          "missingness_risk": "low",
+          "observed_count": 29981,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "data_quality",
+          "missing_count": 29,
+          "missing_percentage": 0.09666666666666666,
+          "missingness_risk": "low",
+          "observed_count": 29971,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        },
+        {
+          "column": "error_code",
+          "missing_count": 27679,
+          "missing_percentage": 92.26333333333334,
+          "missingness_risk": "very_high",
+          "observed_count": 2321,
+          "semantic_type": "categorical",
+          "value_function": "classification"
+        }
+      ],
+      "impute_missing_proposal_count": 0,
+      "executed_impute_missing_count": 0,
+      "executed_coerce_dtype_count": 0,
+      "executed_parse_dates_count": 0
+    }
+  },
+  "decisions": [
+    {
+      "decision_id": "decision-issue-exact_duplicate_rows-192ec5f83876",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876"
+      ],
+      "target_columns": [],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Exact duplicate records may be legitimate repeated events; deletion is not automatic.",
+      "evidence_summary": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "semantic_basis": {},
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-c861b22cb109",
+      "source_issue_ids": [
+        "issue-missing_values-c861b22cb109"
+      ],
+      "target_columns": [
+        "reading_id"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29950
+      },
+      "semantic_basis": {
+        "reading_id": {
+          "column_name": "reading_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-33a343ef3ab7",
+      "source_issue_ids": [
+        "issue-missing_values-33a343ef3ab7"
+      ],
+      "target_columns": [
+        "device_id"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29974
+      },
+      "semantic_basis": {
+        "device_id": {
+          "column_name": "device_id",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-8cf81e206c28",
+      "source_issue_ids": [
+        "issue-whitespace_issue-8cf81e206c28"
+      ],
+      "target_columns": [
+        "site_name"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 28,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "site_name": {
+          "column_name": "site_name",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-7d9fcee7cbe3",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-7d9fcee7cbe3"
+      ],
+      "target_columns": [
+        "site_name"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Column semantics indicate semantic analysis is unavailable, so no action is needed.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "office-tower": [
+            "Office-Tower",
+            "Office-Tower ",
+            "office-tower"
+          ],
+          "plant-a": [
+            "Plant-A",
+            "Plant-A ",
+            "plant-a"
+          ],
+          "plant-b": [
+            "Plant-B",
+            "Plant-B ",
+            "plant-b"
+          ],
+          "warehouse-1": [
+            "Warehouse-1",
+            "Warehouse-1 ",
+            "warehouse-1"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "site_name": {
+          "column_name": "site_name",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-a00f57280fc4",
+      "source_issue_ids": [
+        "issue-rare_category_observation-a00f57280fc4"
+      ],
+      "target_columns": [
+        "site_name"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 300,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 9
+      },
+      "semantic_basis": {
+        "site_name": {
+          "column_name": "site_name",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-whitespace_issue-4eac86f86e04",
+      "source_issue_ids": [
+        "issue-whitespace_issue-4eac86f86e04"
+      ],
+      "target_columns": [
+        "device_type"
+      ],
+      "decision_type": "action",
+      "proposed_action": "trim_whitespace",
+      "parameters": {},
+      "confidence": 0.98,
+      "rationale": "Observed leading, trailing, or whitespace-only values can be trimmed deterministically.",
+      "evidence_summary": {
+        "leading_count": 0,
+        "trailing_count": 29,
+        "whitespace_only_count": 0
+      },
+      "semantic_basis": {
+        "device_type": {
+          "column_name": "device_type",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-3c3b7eb9a9ca",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-3c3b7eb9a9ca"
+      ],
+      "target_columns": [
+        "device_type"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "Column semantics indicate semantic analysis is unavailable, so no action is needed.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "air quality": [
+            "Air Quality",
+            "Air Quality ",
+            "air quality"
+          ],
+          "cold storage": [
+            "Cold Storage",
+            "Cold Storage ",
+            "cold storage"
+          ],
+          "hvac": [
+            "HVAC",
+            "HVAC ",
+            "hvac"
+          ],
+          "motor": [
+            "Motor",
+            "Motor ",
+            "motor"
+          ],
+          "pump": [
+            "Pump",
+            "Pump ",
+            "pump"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "device_type": {
+          "column_name": "device_type",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-4c66ab545a8d",
+      "source_issue_ids": [
+        "issue-rare_category_observation-4c66ab545a8d"
+      ],
+      "target_columns": [
+        "device_type"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 300,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 11
+      },
+      "semantic_basis": {
+        "device_type": {
+          "column_name": "device_type",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-0f5d8601e783",
+      "source_issue_ids": [
+        "issue-missing_values-0f5d8601e783"
+      ],
+      "target_columns": [
+        "temperature"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29970
+      },
+      "semantic_basis": {
+        "temperature": {
+          "column_name": "temperature",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-statistical_outlier_candidate-fa33b474a373",
+      "source_issue_ids": [
+        "issue-statistical_outlier_candidate-fa33b474a373"
+      ],
+      "target_columns": [
+        "temperature"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "A statistical outlier may be valid and must not be clipped or removed automatically.",
+      "evidence_summary": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 18.762500000000003,
+        "q3": 26.0,
+        "lower_bound": 7.906250000000007,
+        "upper_bound": 36.856249999999996
+      },
+      "semantic_basis": {
+        "temperature": {
+          "column_name": "temperature",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-efca73f59819",
+      "source_issue_ids": [
+        "issue-missing_values-efca73f59819"
+      ],
+      "target_columns": [
+        "temperature_unit"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29974
+      },
+      "semantic_basis": {
+        "temperature_unit": {
+          "column_name": "temperature_unit",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-e00ca2fd5c4a",
+      "source_issue_ids": [
+        "issue-rare_category_observation-e00ca2fd5c4a"
+      ],
+      "target_columns": [
+        "temperature_unit"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 299,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "temperature_unit": {
+          "column_name": "temperature_unit",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-1d298936bd64",
+      "source_issue_ids": [
+        "issue-missing_values-1d298936bd64"
+      ],
+      "target_columns": [
+        "vibration_mm_s"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29977
+      },
+      "semantic_basis": {
+        "vibration_mm_s": {
+          "column_name": "vibration_mm_s",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-statistical_outlier_candidate-2c2591e26488",
+      "source_issue_ids": [
+        "issue-statistical_outlier_candidate-2c2591e26488"
+      ],
+      "target_columns": [
+        "vibration_mm_s"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "A statistical outlier may be valid and must not be clipped or removed automatically.",
+      "evidence_summary": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 0.072,
+        "q3": 0.722,
+        "lower_bound": -0.9030000000000001,
+        "upper_bound": 1.697
+      },
+      "semantic_basis": {
+        "vibration_mm_s": {
+          "column_name": "vibration_mm_s",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-61a39fa6b1bd",
+      "source_issue_ids": [
+        "issue-missing_values-61a39fa6b1bd"
+      ],
+      "target_columns": [
+        "battery_percent"
+      ],
+      "decision_type": "insufficient_evidence",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.9,
+      "rationale": "Semantic meaning is insufficient to select a safe missing-value action.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29962
+      },
+      "semantic_basis": {
+        "battery_percent": {
+          "column_name": "battery_percent",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "fallback"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-8286b43b13ae",
+      "source_issue_ids": [
+        "issue-missing_values-8286b43b13ae"
+      ],
+      "target_columns": [
+        "power_consumption_kw"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Column semantics indicate the data is numeric measurement, so no action is needed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29982
+      },
+      "semantic_basis": {
+        "power_consumption_kw": {
+          "column_name": "power_consumption_kw",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "concept_description": "Electric power consumption in kilowatts",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'power_consumption_kw' indicates that the values represent electric power consumption in kilowatts, which is a numeric measurement."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-e259bc2168cc",
+      "source_issue_ids": [
+        "issue-missing_values-e259bc2168cc"
+      ],
+      "target_columns": [
+        "operating_state"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Column semantics indicate the data is categorical, so no action is needed.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29978
+      },
+      "semantic_basis": {
+        "operating_state": {
+          "column_name": "operating_state",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Current operational state of the sensor",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'operating_state' suggests that the values represent different operational states of the sensor, which are reusable categories or labels."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-1f5e4ef5dd6d",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-1f5e4ef5dd6d"
+      ],
+      "target_columns": [
+        "operating_state"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The issue is related to a categorical column with a high percentage of missing values, and no specific action is required as per the policy.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "running": [
+            "Running",
+            "running"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "operating_state": {
+          "column_name": "operating_state",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Current operational state of the sensor",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'operating_state' suggests that the values represent different operational states of the sensor, which are reusable categories or labels."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-edd19748fd41",
+      "source_issue_ids": [
+        "issue-rare_category_observation-edd19748fd41"
+      ],
+      "target_columns": [
+        "operating_state"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 299,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "operating_state": {
+          "column_name": "operating_state",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Current operational state of the sensor",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'operating_state' suggests that the values represent different operational states of the sensor, which are reusable categories or labels."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-35ae38cdb71a",
+      "source_issue_ids": [
+        "issue-missing_values-35ae38cdb71a"
+      ],
+      "target_columns": [
+        "firmware_version"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The issue is related to a categorical column with a low percentage of missing values, and no specific action is required as per the policy.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29981
+      },
+      "semantic_basis": {
+        "firmware_version": {
+          "column_name": "firmware_version",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Version of the firmware installed on the sensor",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'firmware_version' indicates that the values represent different versions of the firmware installed on the sensor, which are reusable categories or labels."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-42bd7ea197a1",
+      "source_issue_ids": [
+        "issue-rare_category_observation-42bd7ea197a1"
+      ],
+      "target_columns": [
+        "firmware_version"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 299,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "firmware_version": {
+          "column_name": "firmware_version",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Version of the firmware installed on the sensor",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'firmware_version' indicates that the values represent different versions of the firmware installed on the sensor, which are reusable categories or labels."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-cf4160e9a43d",
+      "source_issue_ids": [
+        "issue-missing_values-cf4160e9a43d"
+      ],
+      "target_columns": [
+        "data_quality"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The issue is related to a categorical column with a low percentage of missing values, and no specific action is required as per the policy.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 29971
+      },
+      "semantic_basis": {
+        "data_quality": {
+          "column_name": "data_quality",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Quality level of the sensor data",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'data_quality' suggests that the values represent different quality levels of the sensor data, which are reusable categories or labels."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-case_variant_candidate-c5b27527163a",
+      "source_issue_ids": [
+        "issue-case_variant_candidate-c5b27527163a"
+      ],
+      "target_columns": [
+        "data_quality"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "The issue is related to a categorical column with a high percentage of missing values, and no specific action is required as per the policy.",
+      "evidence_summary": {
+        "normalization_probe": "strip_then_casefold",
+        "variant_groups": {
+          "good": [
+            "Good",
+            "good"
+          ]
+        }
+      },
+      "semantic_basis": {
+        "data_quality": {
+          "column_name": "data_quality",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Quality level of the sensor data",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'data_quality' suggests that the values represent different quality levels of the sensor data, which are reusable categories or labels."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-6a4cb68e46c8",
+      "source_issue_ids": [
+        "issue-rare_category_observation-6a4cb68e46c8"
+      ],
+      "target_columns": [
+        "data_quality"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 299,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 2
+      },
+      "semantic_basis": {
+        "data_quality": {
+          "column_name": "data_quality",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Quality level of the sensor data",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'data_quality' suggests that the values represent different quality levels of the sensor data, which are reusable categories or labels."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-missing_values-807a4a574212",
+      "source_issue_ids": [
+        "issue-missing_values-807a4a574212"
+      ],
+      "target_columns": [
+        "error_code"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.8,
+      "rationale": "Flag rows with missing error_code values for review due to its categorical nature and high percentage of missingness.",
+      "evidence_summary": {
+        "null_detection": "pandas.isna",
+        "non_null_count": 2321
+      },
+      "semantic_basis": {
+        "error_code": {
+          "column_name": "error_code",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "concept_description": "Error code encountered by the sensor",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'error_code' suggests that the values represent different error codes encountered by the sensor, which are reusable categories or labels."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "llm_tier2"
+    }
+  ],
+  "instructions": [
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-8cf81e206c28",
+      "source_decision_id": "decision-issue-whitespace_issue-8cf81e206c28",
+      "source_issue_ids": [
+        "issue-whitespace_issue-8cf81e206c28"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "site_name"
+      ],
+      "parameters": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-4eac86f86e04",
+      "source_decision_id": "decision-issue-whitespace_issue-4eac86f86e04",
+      "source_issue_ids": [
+        "issue-whitespace_issue-4eac86f86e04"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "device_type"
+      ],
+      "parameters": {}
+    }
+  ],
+  "executions": [
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-8cf81e206c28",
+      "source_decision_id": "decision-issue-whitespace_issue-8cf81e206c28",
+      "source_issue_ids": [
+        "issue-whitespace_issue-8cf81e206c28"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "site_name"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 28,
+      "change_examples": [
+        {
+          "row_index": 194,
+          "column": "site_name",
+          "before": "Plant-A ",
+          "after": "Plant-A"
+        },
+        {
+          "row_index": 1343,
+          "column": "site_name",
+          "before": "Plant-A ",
+          "after": "Plant-A"
+        },
+        {
+          "row_index": 1551,
+          "column": "site_name",
+          "before": "Plant-B ",
+          "after": "Plant-B"
+        },
+        {
+          "row_index": 1849,
+          "column": "site_name",
+          "before": "Warehouse-1 ",
+          "after": "Warehouse-1"
+        },
+        {
+          "row_index": 2185,
+          "column": "site_name",
+          "before": "Warehouse-1 ",
+          "after": "Warehouse-1"
+        }
+      ],
+      "rows_before": 30000,
+      "rows_after": 30000,
+      "columns_before": 18,
+      "columns_after": 18,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    },
+    {
+      "instruction_id": "instruction-decision-issue-whitespace_issue-4eac86f86e04",
+      "source_decision_id": "decision-issue-whitespace_issue-4eac86f86e04",
+      "source_issue_ids": [
+        "issue-whitespace_issue-4eac86f86e04"
+      ],
+      "action_id": "trim_whitespace",
+      "target_columns": [
+        "device_type"
+      ],
+      "status": "success",
+      "changed": true,
+      "changed_cell_count": 29,
+      "change_examples": [
+        {
+          "row_index": 183,
+          "column": "device_type",
+          "before": "Motor ",
+          "after": "Motor"
+        },
+        {
+          "row_index": 653,
+          "column": "device_type",
+          "before": "Cold Storage ",
+          "after": "Cold Storage"
+        },
+        {
+          "row_index": 1679,
+          "column": "device_type",
+          "before": "HVAC ",
+          "after": "HVAC"
+        },
+        {
+          "row_index": 2721,
+          "column": "device_type",
+          "before": "Cold Storage ",
+          "after": "Cold Storage"
+        },
+        {
+          "row_index": 2845,
+          "column": "device_type",
+          "before": "Cold Storage ",
+          "after": "Cold Storage"
+        }
+      ],
+      "rows_before": 30000,
+      "rows_after": 30000,
+      "columns_before": 18,
+      "columns_after": 18,
+      "message": "Instruction executed successfully.",
+      "error": null,
+      "audit_metadata": {}
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "no_unexpected_changes": true,
+    "dataframe_equal": false,
+    "row_count_equal": true,
+    "column_count_equal": true,
+    "missingness_equal": true,
+    "duplicate_row_count_equal": true,
+    "physical_dtypes_equal": true,
+    "cardinality_equal": false,
+    "unrelated_columns_equal": true,
+    "targeted_whitespace_improved": true,
+    "targeted_case_variants_improved": true,
+    "only_approved_value_changes": true,
+    "no_unexpected_categories": true,
+    "targeted_date_formats_improved": true,
+    "only_approved_date_changes": true,
+    "expected_dtype_changes_only": true,
+    "only_approved_numeric_changes": true,
+    "null_positions_equal": true,
+    "targeted_mixed_numeric_improved": true,
+    "only_approved_imputation_changes": true,
+    "expected_missingness_changes_only": true,
+    "imputed_cell_count": 0,
+    "imputation_audit": [],
+    "newly_introduced_null_count": 0,
+    "changed_cell_count": 57,
+    "before_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "missing_values": 11,
+        "whitespace_issue": 2,
+        "case_variant_candidate": 4,
+        "rare_category_observation": 6,
+        "statistical_outlier_candidate": 2
+      },
+      "whitespace_affected_cells_by_column": {
+        "site_name": 28,
+        "device_type": 29
+      },
+      "case_variant_affected_cells_by_column": {
+        "site_name": 29994,
+        "device_type": 29997,
+        "operating_state": 20989,
+        "data_quality": 27521
+      },
+      "date_format_affected_cells_by_column": {},
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "after_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "missing_values": 11,
+        "case_variant_candidate": 4,
+        "rare_category_observation": 6,
+        "statistical_outlier_candidate": 2
+      },
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {
+        "site_name": 29994,
+        "device_type": 29997,
+        "operating_state": 20989,
+        "data_quality": 27521
+      },
+      "date_format_affected_cells_by_column": {},
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "before_summary": {
+      "row_count": 30000,
+      "column_count": 18,
+      "total_missing_cells": 27960,
+      "duplicate_row_count": 35,
+      "physical_dtypes": {
+        "reading_id": "str",
+        "device_id": "str",
+        "recorded_at": "str",
+        "site_name": "str",
+        "device_type": "str",
+        "temperature": "float64",
+        "temperature_unit": "str",
+        "humidity_percent": "str",
+        "pressure_kpa": "str",
+        "vibration_mm_s": "float64",
+        "battery_percent": "float64",
+        "signal_strength_dbm": "str",
+        "power_consumption_kw": "str",
+        "operating_state": "str",
+        "firmware_version": "str",
+        "data_quality": "str",
+        "maintenance_required": "str",
+        "error_code": "str"
+      },
+      "cardinality": {
+        "reading_id": 29891,
+        "device_id": 319,
+        "recorded_at": 29814,
+        "site_name": 13,
+        "device_type": 16,
+        "temperature": 2099,
+        "temperature_unit": 4,
+        "humidity_percent": 4302,
+        "pressure_kpa": 711,
+        "vibration_mm_s": 1883,
+        "battery_percent": 823,
+        "signal_strength_dbm": 64,
+        "power_consumption_kw": 1783,
+        "operating_state": 7,
+        "firmware_version": 6,
+        "data_quality": 5,
+        "maintenance_required": 2,
+        "error_code": 3
+      }
+    },
+    "after_summary": {
+      "row_count": 30000,
+      "column_count": 18,
+      "total_missing_cells": 27960,
+      "duplicate_row_count": 35,
+      "physical_dtypes": {
+        "reading_id": "str",
+        "device_id": "str",
+        "recorded_at": "str",
+        "site_name": "str",
+        "device_type": "str",
+        "temperature": "float64",
+        "temperature_unit": "str",
+        "humidity_percent": "str",
+        "pressure_kpa": "str",
+        "vibration_mm_s": "float64",
+        "battery_percent": "float64",
+        "signal_strength_dbm": "str",
+        "power_consumption_kw": "str",
+        "operating_state": "str",
+        "firmware_version": "str",
+        "data_quality": "str",
+        "maintenance_required": "str",
+        "error_code": "str"
+      },
+      "cardinality": {
+        "reading_id": 29891,
+        "device_id": 319,
+        "recorded_at": 29814,
+        "site_name": 9,
+        "device_type": 11,
+        "temperature": 2099,
+        "temperature_unit": 4,
+        "humidity_percent": 4302,
+        "pressure_kpa": 711,
+        "vibration_mm_s": 1883,
+        "battery_percent": 823,
+        "signal_strength_dbm": 64,
+        "power_consumption_kw": 1783,
+        "operating_state": 7,
+        "firmware_version": 6,
+        "data_quality": 5,
+        "maintenance_required": 2,
+        "error_code": 3
+      }
+    },
+    "warnings": []
+  },
+  "warnings": [
+    "Semantic batch 1 failed after retry; unknown fallback used for ['reading_id', 'device_id', 'recorded_at', 'site_name', 'device_type', 'temperature', 'temperature_unit', 'humidity_percent', 'pressure_kpa', 'vibration_mm_s', 'battery_percent', 'signal_strength_dbm']: RuntimeError: Failed to communicate with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)"
+  ],
+  "output_artifacts": {
+    "cleaned_dataset": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\pipeline1_multidomain\\results\\dataset_07_iot_sensor\\cleaned_dataset.csv",
+    "cleaning_report": "C:\\Users\\parat\\OneDrive\\Documents\\LYNX\\tests\\pipeline1_multidomain\\results\\dataset_07_iot_sensor\\cleaning_report.json",
+    "cleaned_dataset_format": "csv"
+  }
+}

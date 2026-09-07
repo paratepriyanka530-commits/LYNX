@@ -1,0 +1,48 @@
+---
+knowledge_id: DOM-005
+category: domain
+topic: education
+version: 1.0
+status: active
+---
+
+# Education
+
+## Definition
+Students, courses, enrollment, attendance, assessments, grades and institutions.
+
+## Semantic Indicators
+Common concepts: Student/course IDs, marks, grade, semester, attendance, enrollment/completion dates.
+
+## Important Distinctions
+Possible row grain: Rows may represent students, enrollments, assessment attempts, attendance events or course records. Domain indicators are supporting evidence, not keyword rules.
+
+## Quality Expectations
+Values should be internally coherent, semantically plausible, consistently represented, and compatible with relevant cross-column relationships.
+
+## Possible Data Quality Problems
+Missingness, invalid values, implausible values, sentinel values, inconsistent representations, typographical errors, parsing errors, mixed units, and cross-column contradictions may occur.
+
+## Diagnostic Evidence
+Check distributions, frequencies, samples, pattern consistency, domain context, related columns, repeated occurrences, units, and whether an apparent anomaly is reproducible.
+
+## Cross-Column Relationships
+Scores should align with assessment scales; enrollment/completion ordering and course/student references may validate.
+
+## Cleaning Decision Guidance
+Use domain knowledge to generate candidate semantic interpretations and constraints. Never override observed dataset evidence or assume all listed concepts are present.
+
+## When NOT to Clean
+Do not modify unusual but plausible values, meaningful missingness, rare categories, valid alternate representations, or values whose intended correction cannot be supported.
+
+## Evidence Required Before Modification
+Destructive or value-changing actions require strong evidence. Weak evidence should lead to no_action, flag_for_review, or needs_additional_context.
+
+## Reasoning Principles
+- Physical dtype is not semantic meaning.
+- Statistical outlier does not automatically mean error.
+- Missing does not automatically mean impute.
+- Never invent a replacement value.
+- Prefer deterministic validation when possible.
+- Preserve uncertainty and information.
+- no_action is valid.

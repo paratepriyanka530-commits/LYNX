@@ -1,0 +1,2551 @@
+[
+  {
+    "dataset_id": "dataset_01_retail_transactions",
+    "repeat": 1,
+    "model": "qwen2.5:3b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-fd5dfd5a3538",
+          "issue-missing_values-2434cbb43563",
+          "issue-missing_values-5838a931658b"
+        ],
+        "retry_batch_size": 3,
+        "provider_status": "success",
+        "accepted_issue_ids": [
+          "issue-missing_values-fd5dfd5a3538"
+        ],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-2434cbb43563",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          },
+          {
+            "issue_id": "issue-missing_values-5838a931658b",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-2434cbb43563",
+          "issue-missing_values-5838a931658b"
+        ],
+        "coverage": {
+          "missing_issue_ids": [],
+          "duplicate_issue_ids": [],
+          "unexpected_issue_ids": []
+        },
+        "prompt_character_length": 5732,
+        "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-fd5dfd5a3538\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.8,\n      \"rationale\": \"The missingness is low (0.5%) and the semantic type is numeric measurement, which is semantically appropriate for median imputation.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-2434cbb43563\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"supplied_consequence_evidence\"],\n      \"confidence\": 0.8555555555555556,\n      \"rationale\": \"The affirmative preservation evidence is provided and confirms that the missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-5838a931658b\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"supplied_consequence_evidence\"],\n      \"confidence\": 0.8555555555555556,\n      \"rationale\": \"The affirmative preservation evidence is provided and confirms that the missing state should be preserved.\"\n    }\n  ]}",
+        "time_since_last_call_seconds": null,
+        "pre_call_memory": {
+          "memory_load_percent": 78,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 3.3213844299316406,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.4712791442871094
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:29:47.9180259+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_result": {
+          "decisions": [
+            {
+              "issue_id": "issue-missing_values-fd5dfd5a3538",
+              "decision_type": "action",
+              "proposed_action": "impute_missing",
+              "parameters": {
+                "strategy": "median"
+              },
+              "recommendation_basis": "semantically_appropriate_imputation",
+              "confidence": 0.8,
+              "rationale": "The missingness is low (0.5%) and the semantic type is numeric measurement, which is semantically appropriate for median imputation."
+            },
+            {
+              "issue_id": "issue-missing_values-2434cbb43563",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "supplied_consequence_evidence"
+              ],
+              "confidence": 0.8555555555555556,
+              "rationale": "The affirmative preservation evidence is provided and confirms that the missing state should be preserved."
+            },
+            {
+              "issue_id": "issue-missing_values-5838a931658b",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "supplied_consequence_evidence"
+              ],
+              "confidence": 0.8555555555555556,
+              "rationale": "The affirmative preservation evidence is provided and confirms that the missing state should be preserved."
+            }
+          ]
+        },
+        "ollama_telemetry": {
+          "model": "qwen2.5:3b",
+          "created_at": "2026-09-07T08:55:38.2911496Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 37116789000,
+          "load_duration": 2651400,
+          "prompt_eval_count": 1241,
+          "prompt_eval_duration": 8395407999,
+          "eval_count": 392,
+          "eval_duration": 28702875000
+        }
+      },
+      {
+        "stage": "retry",
+        "issue_ids": [
+          "issue-missing_values-2434cbb43563",
+          "issue-missing_values-5838a931658b"
+        ],
+        "retry_batch_size": 2,
+        "provider_status": "timeout",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-2434cbb43563",
+            "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+          },
+          {
+            "issue_id": "issue-missing_values-5838a931658b",
+            "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-2434cbb43563",
+          "issue-missing_values-5838a931658b"
+        ],
+        "prompt_character_length": 4940,
+        "raw_qwen_response": null,
+        "time_since_last_call_seconds": 0.057287000003270805,
+        "pre_call_memory": {
+          "memory_load_percent": 78,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 3.2637977600097656,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.474517822265625
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:30:38.2974101+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_error": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "ollama_telemetry": {}
+      },
+      {
+        "stage": "singleton_retry",
+        "issue_ids": [
+          "issue-missing_values-2434cbb43563"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "success",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-2434cbb43563",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-2434cbb43563"
+        ],
+        "coverage": {
+          "missing_issue_ids": [],
+          "duplicate_issue_ids": [],
+          "unexpected_issue_ids": []
+        },
+        "prompt_character_length": 4082,
+        "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-2434cbb43563\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"identifier_or_entity_reference_protected\"],\n      \"confidence\": 0.8555555555555556,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    }\n  ]\n}",
+        "time_since_last_call_seconds": 0.013443200004985556,
+        "pre_call_memory": {
+          "memory_load_percent": 81,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 2.8534622192382812,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.513599395751953
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:32:42.4510438+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_result": {
+          "decisions": [
+            {
+              "issue_id": "issue-missing_values-2434cbb43563",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "identifier_or_entity_reference_protected"
+              ],
+              "confidence": 0.8555555555555556,
+              "rationale": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved."
+            }
+          ]
+        },
+        "ollama_telemetry": {
+          "model": "qwen2.5:3b",
+          "created_at": "2026-09-07T08:57:58.8877843Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 12348636700,
+          "load_duration": 7395200,
+          "prompt_eval_count": 851,
+          "prompt_eval_duration": 507254000,
+          "eval_count": 139,
+          "eval_duration": 11737658000
+        }
+      },
+      {
+        "stage": "singleton_retry",
+        "issue_ids": [
+          "issue-missing_values-5838a931658b"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "timeout",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-5838a931658b",
+            "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-5838a931658b"
+        ],
+        "prompt_character_length": 4084,
+        "raw_qwen_response": null,
+        "time_since_last_call_seconds": 0.052790099987760186,
+        "pre_call_memory": {
+          "memory_load_percent": 80,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 2.9534988403320312,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.4293670654296875
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:32:58.8959229+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_error": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "ollama_telemetry": {}
+      }
+    ],
+    "cases": [
+      {
+        "column": "total_amount",
+        "expected": "action/impute_missing/median",
+        "readiness": {
+          "missing_count": 50,
+          "missing_percentage": 0.5,
+          "missingness_band": "low",
+          "observed_count": 9950,
+          "physical_dtype": "float64",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "semantic_confidence": 0.8,
+          "concept_description": "Represents the total amount of a transaction, measured in monetary units.",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "true",
+            "reason_code": "confirmed_quantitative_magnitude"
+          },
+          "median_mechanical_preflight": {
+            "status": "pass",
+            "reason_code": "existing_imputation_contract_passed"
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-fd5dfd5a3538\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.8,\n      \"rationale\": \"The missingness is low (0.5%) and the semantic type is numeric measurement, which is semantically appropriate for median imputation.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-2434cbb43563\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"supplied_consequence_evidence\"],\n      \"confidence\": 0.8555555555555556,\n      \"rationale\": \"The affirmative preservation evidence is provided and confirms that the missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-5838a931658b\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"supplied_consequence_evidence\"],\n      \"confidence\": 0.8555555555555556,\n      \"rationale\": \"The affirmative preservation evidence is provided and confirms that the missing state should be preserved.\"\n    }\n  ]}",
+        "first_validation": "accepted",
+        "accepted_immediately": true,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-fd5dfd5a3538",
+          "source_issue_ids": [
+            "issue-missing_values-fd5dfd5a3538"
+          ],
+          "target_columns": [
+            "total_amount"
+          ],
+          "decision_type": "action",
+          "proposed_action": "impute_missing",
+          "parameters": {
+            "strategy": "median"
+          },
+          "confidence": 0.8,
+          "rationale": "The missingness is low (0.5%) and the semantic type is numeric measurement, which is semantically appropriate for median imputation.",
+          "evidence_summary": {
+            "null_detection": "pandas.isna",
+            "non_null_count": 9950
+          },
+          "semantic_basis": {
+            "total_amount": {
+              "column_name": "total_amount",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Represents the total amount of a transaction, measured in monetary units.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column 'total_amount' contains numeric values such as 61.2, 284.0, 45.0, 72.0, and 80.75, indicating that it likely represents the monetary value of a transaction with measurement semantics."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "llm_tier2"
+        },
+        "fallback": false
+      },
+      {
+        "column": "customer_id",
+        "expected": "flag_for_review/flag_rows",
+        "readiness": {
+          "missing_count": 1793,
+          "missing_percentage": 17.93,
+          "missingness_band": "moderate",
+          "observed_count": 8207,
+          "physical_dtype": "str",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "numeric_meaning": "identifier",
+          "semantic_confidence": 0.8555555555555556,
+          "concept_description": "Identifies the customer who made the transaction.",
+          "identifier_or_entity_reference_protected": true,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "false",
+            "reason_code": "identifier_or_entity_reference"
+          },
+          "median_mechanical_preflight": {
+            "status": "fail",
+            "reason_code": "existing_imputation_contract_failed",
+            "reason": "Imputation requires LOW missingness (0–5%); observed moderate."
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-fd5dfd5a3538\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.8,\n      \"rationale\": \"The missingness is low (0.5%) and the semantic type is numeric measurement, which is semantically appropriate for median imputation.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-2434cbb43563\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"supplied_consequence_evidence\"],\n      \"confidence\": 0.8555555555555556,\n      \"rationale\": \"The affirmative preservation evidence is provided and confirms that the missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-5838a931658b\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"supplied_consequence_evidence\"],\n      \"confidence\": 0.8555555555555556,\n      \"rationale\": \"The affirmative preservation evidence is provided and confirms that the missing state should be preserved.\"\n    }\n  ]}",
+        "first_validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+        "accepted_immediately": false,
+        "retried": true,
+        "retry_attempts": [
+          {
+            "stage": "retry",
+            "retry_batch_size": 2,
+            "raw_qwen_response": null,
+            "validation": "RuntimeError: Failed to communicate with Ollama: timed out"
+          },
+          {
+            "stage": "singleton_retry",
+            "retry_batch_size": 1,
+            "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-2434cbb43563\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"identifier_or_entity_reference_protected\"],\n      \"confidence\": 0.8555555555555556,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    }\n  ]\n}",
+            "validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-2434cbb43563",
+          "source_issue_ids": [
+            "issue-missing_values-2434cbb43563"
+          ],
+          "target_columns": [
+            "customer_id"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+            "null_detection": "pandas.isna",
+            "non_null_count": 8207
+          },
+          "semantic_basis": {
+            "customer_id": {
+              "column_name": "customer_id",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Identifies the customer who made the transaction.",
+              "semantic_role": "unknown",
+              "confidence": 0.8555555555555556,
+              "reasoning_summary": "The column name 'customer_id' and the high uniqueness ratio (0.304009) suggest that each value represents a unique customer instance."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      },
+      {
+        "column": "transaction_time",
+        "expected": "flag_for_review/flag_rows",
+        "readiness": {
+          "missing_count": 3,
+          "missing_percentage": 0.03,
+          "missingness_band": "low",
+          "observed_count": 9997,
+          "physical_dtype": "str",
+          "semantic_type": "time",
+          "value_function": "temporal",
+          "numeric_meaning": "not_applicable",
+          "semantic_confidence": 0.8555555555555556,
+          "concept_description": "Represents the time of the transaction.",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "false",
+            "reason_code": "numeric_meaning_not_applicable"
+          },
+          "median_mechanical_preflight": {
+            "status": "fail",
+            "reason_code": "existing_imputation_contract_failed",
+            "reason": "Median requires an already numeric physical dtype; identifier-like text is not coerced."
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-fd5dfd5a3538\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.8,\n      \"rationale\": \"The missingness is low (0.5%) and the semantic type is numeric measurement, which is semantically appropriate for median imputation.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-2434cbb43563\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"supplied_consequence_evidence\"],\n      \"confidence\": 0.8555555555555556,\n      \"rationale\": \"The affirmative preservation evidence is provided and confirms that the missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-5838a931658b\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"supplied_consequence_evidence\"],\n      \"confidence\": 0.8555555555555556,\n      \"rationale\": \"The affirmative preservation evidence is provided and confirms that the missing state should be preserved.\"\n    }\n  ]}",
+        "first_validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+        "accepted_immediately": false,
+        "retried": true,
+        "retry_attempts": [
+          {
+            "stage": "retry",
+            "retry_batch_size": 2,
+            "raw_qwen_response": null,
+            "validation": "RuntimeError: Failed to communicate with Ollama: timed out"
+          },
+          {
+            "stage": "singleton_retry",
+            "retry_batch_size": 1,
+            "raw_qwen_response": null,
+            "validation": "RuntimeError: Failed to communicate with Ollama: timed out"
+          }
+        ],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-5838a931658b",
+          "source_issue_ids": [
+            "issue-missing_values-5838a931658b"
+          ],
+          "target_columns": [
+            "transaction_time"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "RuntimeError: Failed to communicate with Ollama: timed out",
+            "null_detection": "pandas.isna",
+            "non_null_count": 9997
+          },
+          "semantic_basis": {
+            "transaction_time": {
+              "column_name": "transaction_time",
+              "semantic_type": "time",
+              "value_function": "temporal",
+              "numeric_meaning": "not_applicable",
+              "concept_description": "Represents the time of the transaction.",
+              "semantic_role": "unknown",
+              "confidence": 0.8555555555555556,
+              "reasoning_summary": "The column name 'transaction_time' and the presence of time values in the sample suggest that this column represents the time of the transaction."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      }
+    ],
+    "summary": {
+      "total_decisions": 3,
+      "by_decision_type": {
+        "action": 1,
+        "insufficient_evidence": 2
+      },
+      "by_proposed_action": {
+        "impute_missing": 1,
+        "no_op": 2
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 1,
+      "fallback_decisions": 2,
+      "deterministic_runtime_seconds": 2.5e-05,
+      "tier2_issue_count": 3,
+      "tier2_batch_sizes": [
+        3
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 4,
+      "llm_runtime_seconds": 306.030254,
+      "intended_llm_decision_calls": 1,
+      "retries": 3,
+      "successful_batches": 0,
+      "batch_failures": 1,
+      "fallback_issue_count": 2,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-fd5dfd5a3538",
+            "issue-missing_values-2434cbb43563",
+            "issue-missing_values-5838a931658b"
+          ],
+          "accepted_on_first_response": [
+            "issue-missing_values-fd5dfd5a3538"
+          ],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [
+            "issue-missing_values-2434cbb43563",
+            "issue-missing_values-5838a931658b"
+          ],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-fd5dfd5a3538",
+                "issue-missing_values-2434cbb43563",
+                "issue-missing_values-5838a931658b"
+              ],
+              "retry_batch_size": 3,
+              "provider_status": "success",
+              "accepted_issue_ids": [
+                "issue-missing_values-fd5dfd5a3538"
+              ],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-2434cbb43563",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                },
+                {
+                  "issue_id": "issue-missing_values-5838a931658b",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-2434cbb43563",
+                "issue-missing_values-5838a931658b"
+              ],
+              "coverage": {
+                "missing_issue_ids": [],
+                "duplicate_issue_ids": [],
+                "unexpected_issue_ids": []
+              }
+            },
+            {
+              "stage": "retry",
+              "issue_ids": [
+                "issue-missing_values-2434cbb43563",
+                "issue-missing_values-5838a931658b"
+              ],
+              "retry_batch_size": 2,
+              "provider_status": "timeout",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-2434cbb43563",
+                  "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+                },
+                {
+                  "issue_id": "issue-missing_values-5838a931658b",
+                  "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-2434cbb43563",
+                "issue-missing_values-5838a931658b"
+              ]
+            },
+            {
+              "stage": "singleton_retry",
+              "issue_ids": [
+                "issue-missing_values-2434cbb43563"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "success",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-2434cbb43563",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-2434cbb43563"
+              ],
+              "coverage": {
+                "missing_issue_ids": [],
+                "duplicate_issue_ids": [],
+                "unexpected_issue_ids": []
+              }
+            },
+            {
+              "stage": "singleton_retry",
+              "issue_ids": [
+                "issue-missing_values-5838a931658b"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "timeout",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-5838a931658b",
+                  "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-5838a931658b"
+              ]
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-fd5dfd5a3538",
+            "issue-missing_values-2434cbb43563",
+            "issue-missing_values-5838a931658b"
+          ],
+          "retry_batch_size": 3,
+          "prompt_character_length": 5732,
+          "api_wall_duration_seconds": 41.290516,
+          "prompt_eval_count": 1241,
+          "prompt_eval_duration": 8395407999,
+          "eval_count": 392,
+          "eval_duration": 28702875000,
+          "total_duration": 37116789000,
+          "load_duration": 2651400,
+          "done_reason": "stop"
+        },
+        {
+          "batch_index": 1,
+          "attempt": 2,
+          "recovery_stage": "retry",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-2434cbb43563",
+            "issue-missing_values-5838a931658b"
+          ],
+          "retry_batch_size": 2,
+          "prompt_character_length": 4940,
+          "api_wall_duration_seconds": 124.117737,
+          "error": "RuntimeError: Failed to communicate with Ollama: timed out",
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "batch_index": 1,
+          "attempt": 3,
+          "recovery_stage": "singleton_retry",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-2434cbb43563"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4082,
+          "api_wall_duration_seconds": 16.446065,
+          "prompt_eval_count": 851,
+          "prompt_eval_duration": 507254000,
+          "eval_count": 139,
+          "eval_duration": 11737658000,
+          "total_duration": 12348636700,
+          "load_duration": 7395200,
+          "done_reason": "stop"
+        },
+        {
+          "batch_index": 1,
+          "attempt": 4,
+          "recovery_stage": "singleton_retry",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-5838a931658b"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4084,
+          "api_wall_duration_seconds": 124.175936,
+          "error": "RuntimeError: Failed to communicate with Ollama: timed out",
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        }
+      ],
+      "total_runtime_seconds": 306.089918
+    },
+    "warnings": [
+      "Tier 2 decision failed for issue issue-missing_values-2434cbb43563: ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "Tier 2 decision failed for issue issue-missing_values-5838a931658b: RuntimeError: Failed to communicate with Ollama: timed out"
+    ]
+  },
+  {
+    "dataset_id": "dataset_05_education",
+    "repeat": 1,
+    "model": "qwen2.5:3b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-321458eb06b8"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "timeout",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-321458eb06b8",
+            "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-321458eb06b8"
+        ],
+        "prompt_character_length": 4003,
+        "raw_qwen_response": null,
+        "time_since_last_call_seconds": 0.10631060000741854,
+        "pre_call_memory": {
+          "memory_load_percent": 81,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 2.8481063842773438,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.4482460021972656
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:35:03.0967527+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_error": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "ollama_telemetry": {}
+      },
+      {
+        "stage": "retry",
+        "issue_ids": [
+          "issue-missing_values-321458eb06b8"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "timeout",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-321458eb06b8",
+            "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-321458eb06b8"
+        ],
+        "prompt_character_length": 4003,
+        "raw_qwen_response": null,
+        "time_since_last_call_seconds": 0.0217527000058908,
+        "pre_call_memory": {
+          "memory_load_percent": 81,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 2.8430252075195312,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.5390892028808594
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:37:07.3222959+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_error": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "ollama_telemetry": {}
+      }
+    ],
+    "cases": [
+      {
+        "column": "attendance_percent",
+        "expected": "action/impute_missing/median",
+        "readiness": {
+          "missing_count": 2,
+          "missing_percentage": 0.03333333333333333,
+          "missingness_band": "low",
+          "observed_count": 5998,
+          "physical_dtype": "float64",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "semantic_confidence": 0.8,
+          "concept_description": "Percentage of attendance for the student.",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "true",
+            "reason_code": "confirmed_quantitative_magnitude"
+          },
+          "median_mechanical_preflight": {
+            "status": "pass",
+            "reason_code": "existing_imputation_contract_passed"
+          }
+        },
+        "first_raw_qwen_response": null,
+        "first_validation": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "accepted_immediately": false,
+        "retried": true,
+        "retry_attempts": [
+          {
+            "stage": "retry",
+            "retry_batch_size": 1,
+            "raw_qwen_response": null,
+            "validation": "RuntimeError: Failed to communicate with Ollama: timed out"
+          }
+        ],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-321458eb06b8",
+          "source_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "target_columns": [
+            "attendance_percent"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "RuntimeError: Failed to communicate with Ollama: timed out",
+            "null_detection": "pandas.isna",
+            "non_null_count": 5998
+          },
+          "semantic_basis": {
+            "attendance_percent": {
+              "column_name": "attendance_percent",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Percentage of attendance for the student.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'attendance_percent' and the sample values are numeric, indicating a measurement nature."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      }
+    ],
+    "summary": {
+      "total_decisions": 1,
+      "by_decision_type": {
+        "insufficient_evidence": 1
+      },
+      "by_proposed_action": {
+        "no_op": 1
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 0,
+      "fallback_decisions": 1,
+      "deterministic_runtime_seconds": 3.2e-05,
+      "tier2_issue_count": 1,
+      "tier2_batch_sizes": [
+        1
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 2,
+      "llm_runtime_seconds": 248.248593,
+      "intended_llm_decision_calls": 1,
+      "retries": 1,
+      "successful_batches": 0,
+      "batch_failures": 1,
+      "fallback_issue_count": 1,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "accepted_on_first_response": [],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-321458eb06b8"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "timeout",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-321458eb06b8",
+                  "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-321458eb06b8"
+              ]
+            },
+            {
+              "stage": "retry",
+              "issue_ids": [
+                "issue-missing_values-321458eb06b8"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "timeout",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-321458eb06b8",
+                  "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-321458eb06b8"
+              ]
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4003,
+          "api_wall_duration_seconds": 124.139821,
+          "error": "RuntimeError: Failed to communicate with Ollama: timed out",
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "batch_index": 1,
+          "attempt": 2,
+          "recovery_stage": "retry",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4003,
+          "api_wall_duration_seconds": 124.108772,
+          "error": "RuntimeError: Failed to communicate with Ollama: timed out",
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        }
+      ],
+      "total_runtime_seconds": 248.249188
+    },
+    "warnings": [
+      "Tier 2 decision failed for issue issue-missing_values-321458eb06b8: RuntimeError: Failed to communicate with Ollama: timed out"
+    ]
+  },
+  {
+    "dataset_id": "dataset_06_cybersecurity",
+    "repeat": 1,
+    "model": "qwen2.5:3b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-a984adead289"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "timeout",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-a984adead289",
+            "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-a984adead289"
+        ],
+        "prompt_character_length": 4154,
+        "raw_qwen_response": null,
+        "time_since_last_call_seconds": 0.44851420001941733,
+        "pre_call_memory": {
+          "memory_load_percent": 80,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 2.933643341064453,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.5320587158203125
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:39:11.4309974+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_error": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "ollama_telemetry": {}
+      },
+      {
+        "stage": "retry",
+        "issue_ids": [
+          "issue-missing_values-a984adead289"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "timeout",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-a984adead289",
+            "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-a984adead289"
+        ],
+        "prompt_character_length": 4154,
+        "raw_qwen_response": null,
+        "time_since_last_call_seconds": 0.07083609999972396,
+        "pre_call_memory": {
+          "memory_load_percent": 79,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 3.0819244384765625,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.6182899475097656
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:41:15.9851659+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_error": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "ollama_telemetry": {}
+      }
+    ],
+    "cases": [
+      {
+        "column": "source_port",
+        "expected": "insufficient_evidence/no_op",
+        "readiness": {
+          "missing_count": 16,
+          "missing_percentage": 0.08,
+          "missingness_band": "low",
+          "observed_count": 19984,
+          "physical_dtype": "float64",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "semantic_confidence": 0.8,
+          "concept_description": "The source_port column represents the source port number of the event.",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "unknown",
+            "reason_code": "high_cardinality_integral_label_risk"
+          },
+          "median_mechanical_preflight": {
+            "status": "pass",
+            "reason_code": "existing_imputation_contract_passed"
+          },
+          "numeric_label_risk_evidence": {
+            "integral_fraction": 1.0,
+            "unique_ratio": 0.8556345076060848,
+            "repetition_rate": 0.27251801441152923
+          }
+        },
+        "first_raw_qwen_response": null,
+        "first_validation": "RuntimeError: Failed to communicate with Ollama: timed out",
+        "accepted_immediately": false,
+        "retried": true,
+        "retry_attempts": [
+          {
+            "stage": "retry",
+            "retry_batch_size": 1,
+            "raw_qwen_response": null,
+            "validation": "RuntimeError: Failed to communicate with Ollama: timed out"
+          }
+        ],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-a984adead289",
+          "source_issue_ids": [
+            "issue-missing_values-a984adead289"
+          ],
+          "target_columns": [
+            "source_port"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "RuntimeError: Failed to communicate with Ollama: timed out",
+            "null_detection": "pandas.isna",
+            "non_null_count": 19984
+          },
+          "semantic_basis": {
+            "source_port": {
+              "column_name": "source_port",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The source_port column represents the source port number of the event.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'source_port' and the presence of numeric values (e.g., 27450.0) suggest that this column likely represents a numeric measurement."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      }
+    ],
+    "summary": {
+      "total_decisions": 1,
+      "by_decision_type": {
+        "insufficient_evidence": 1
+      },
+      "by_proposed_action": {
+        "no_op": 1
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 0,
+      "fallback_decisions": 1,
+      "deterministic_runtime_seconds": 3e-05,
+      "tier2_issue_count": 1,
+      "tier2_batch_sizes": [
+        1
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 2,
+      "llm_runtime_seconds": 248.320703,
+      "intended_llm_decision_calls": 1,
+      "retries": 1,
+      "successful_batches": 0,
+      "batch_failures": 1,
+      "fallback_issue_count": 1,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-a984adead289"
+          ],
+          "accepted_on_first_response": [],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [
+            "issue-missing_values-a984adead289"
+          ],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-a984adead289"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "timeout",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-a984adead289",
+                  "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-a984adead289"
+              ]
+            },
+            {
+              "stage": "retry",
+              "issue_ids": [
+                "issue-missing_values-a984adead289"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "timeout",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-a984adead289",
+                  "reason": "RuntimeError: Failed to communicate with Ollama: timed out"
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-a984adead289"
+              ]
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-a984adead289"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4154,
+          "api_wall_duration_seconds": 124.154572,
+          "error": "RuntimeError: Failed to communicate with Ollama: timed out",
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "batch_index": 1,
+          "attempt": 2,
+          "recovery_stage": "retry",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-a984adead289"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4154,
+          "api_wall_duration_seconds": 124.16613,
+          "error": "RuntimeError: Failed to communicate with Ollama: timed out",
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        }
+      ],
+      "total_runtime_seconds": 248.321172
+    },
+    "warnings": [
+      "Tier 2 decision failed for issue issue-missing_values-a984adead289: RuntimeError: Failed to communicate with Ollama: timed out"
+    ]
+  },
+  {
+    "dataset_id": "dataset_07_iot_sensor",
+    "repeat": 1,
+    "model": "qwen2.5:3b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-807a4a574212"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "success",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-807a4a574212",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-807a4a574212"
+        ],
+        "coverage": {
+          "missing_issue_ids": [],
+          "duplicate_issue_ids": [],
+          "unexpected_issue_ids": []
+        },
+        "prompt_character_length": 4075,
+        "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-807a4a574212\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"supplied_consequence_evidence\"],\n      \"confidence\": 0.8,\n      \"rationale\": \"The affirmative preservation evidence is null, and there is no supplied consequence evidence to support review.\"\n    }\n  ]\n}",
+        "time_since_last_call_seconds": 0.2336877000052482,
+        "pre_call_memory": {
+          "memory_load_percent": 82,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 2.7103195190429688,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.1459732055664062
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:43:20.1511993+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_result": {
+          "decisions": [
+            {
+              "issue_id": "issue-missing_values-807a4a574212",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "supplied_consequence_evidence"
+              ],
+              "confidence": 0.8,
+              "rationale": "The affirmative preservation evidence is null, and there is no supplied consequence evidence to support review."
+            }
+          ]
+        },
+        "ollama_telemetry": {
+          "model": "qwen2.5:3b",
+          "created_at": "2026-09-07T09:08:35.6999434Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 11233322600,
+          "load_duration": 6734100,
+          "prompt_eval_count": 854,
+          "prompt_eval_duration": 274015000,
+          "eval_count": 127,
+          "eval_duration": 10878507000
+        }
+      },
+      {
+        "stage": "retry",
+        "issue_ids": [
+          "issue-missing_values-807a4a574212"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "success",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-807a4a574212",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-807a4a574212"
+        ],
+        "coverage": {
+          "missing_issue_ids": [],
+          "duplicate_issue_ids": [],
+          "unexpected_issue_ids": []
+        },
+        "prompt_character_length": 4075,
+        "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-807a4a574212\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"supplied_consequence_evidence\"],\n      \"confidence\": 0.8,\n      \"rationale\": \"The affirmative preservation evidence is null, and there is no supplied consequence evidence to support review.\"\n    }\n  ]\n}",
+        "time_since_last_call_seconds": 0.028730399993946776,
+        "pre_call_memory": {
+          "memory_load_percent": 81,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 2.79437255859375,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.3007049560546875
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:43:35.7070649+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_result": {
+          "decisions": [
+            {
+              "issue_id": "issue-missing_values-807a4a574212",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "supplied_consequence_evidence"
+              ],
+              "confidence": 0.8,
+              "rationale": "The affirmative preservation evidence is null, and there is no supplied consequence evidence to support review."
+            }
+          ]
+        },
+        "ollama_telemetry": {
+          "model": "qwen2.5:3b",
+          "created_at": "2026-09-07T09:08:50.8369976Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 11023645700,
+          "load_duration": 7474200,
+          "prompt_eval_count": 854,
+          "prompt_eval_duration": 264302000,
+          "eval_count": 127,
+          "eval_duration": 10721718000
+        }
+      }
+    ],
+    "cases": [
+      {
+        "column": "error_code",
+        "expected": "flag_for_review/flag_rows",
+        "readiness": {
+          "missing_count": 27679,
+          "missing_percentage": 92.26333333333334,
+          "missingness_band": "very_high",
+          "observed_count": 2321,
+          "physical_dtype": "str",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "numeric_meaning": "not_applicable",
+          "semantic_confidence": 0.8,
+          "concept_description": "Error code encountered by the sensor",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "false",
+            "reason_code": "numeric_meaning_not_applicable"
+          },
+          "median_mechanical_preflight": {
+            "status": "fail",
+            "reason_code": "existing_imputation_contract_failed",
+            "reason": "Imputation requires LOW missingness (0–5%); observed very_high."
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-807a4a574212\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"supplied_consequence_evidence\"],\n      \"confidence\": 0.8,\n      \"rationale\": \"The affirmative preservation evidence is null, and there is no supplied consequence evidence to support review.\"\n    }\n  ]\n}",
+        "first_validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+        "accepted_immediately": false,
+        "retried": true,
+        "retry_attempts": [
+          {
+            "stage": "retry",
+            "retry_batch_size": 1,
+            "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-807a4a574212\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"supplied_consequence_evidence\"],\n      \"confidence\": 0.8,\n      \"rationale\": \"The affirmative preservation evidence is null, and there is no supplied consequence evidence to support review.\"\n    }\n  ]\n}",
+            "validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-807a4a574212",
+          "source_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "target_columns": [
+            "error_code"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+            "null_detection": "pandas.isna",
+            "non_null_count": 2321
+          },
+          "semantic_basis": {
+            "error_code": {
+              "column_name": "error_code",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "not_applicable",
+              "concept_description": "Error code encountered by the sensor",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'error_code' suggests that the values represent different error codes encountered by the sensor, which are reusable categories or labels."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      }
+    ],
+    "summary": {
+      "total_decisions": 1,
+      "by_decision_type": {
+        "insufficient_evidence": 1
+      },
+      "by_proposed_action": {
+        "no_op": 1
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 0,
+      "fallback_decisions": 1,
+      "deterministic_runtime_seconds": 2.5e-05,
+      "tier2_issue_count": 1,
+      "tier2_batch_sizes": [
+        1
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 2,
+      "llm_runtime_seconds": 30.456912,
+      "intended_llm_decision_calls": 1,
+      "retries": 1,
+      "successful_batches": 0,
+      "batch_failures": 1,
+      "fallback_issue_count": 1,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "accepted_on_first_response": [],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-807a4a574212"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "success",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-807a4a574212",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-807a4a574212"
+              ],
+              "coverage": {
+                "missing_issue_ids": [],
+                "duplicate_issue_ids": [],
+                "unexpected_issue_ids": []
+              }
+            },
+            {
+              "stage": "retry",
+              "issue_ids": [
+                "issue-missing_values-807a4a574212"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "success",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-807a4a574212",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-807a4a574212"
+              ],
+              "coverage": {
+                "missing_issue_ids": [],
+                "duplicate_issue_ids": [],
+                "unexpected_issue_ids": []
+              }
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4075,
+          "api_wall_duration_seconds": 15.333318,
+          "prompt_eval_count": 854,
+          "prompt_eval_duration": 274015000,
+          "eval_count": 127,
+          "eval_duration": 10878507000,
+          "total_duration": 11233322600,
+          "load_duration": 6734100,
+          "done_reason": "stop"
+        },
+        {
+          "batch_index": 1,
+          "attempt": 2,
+          "recovery_stage": "retry",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4075,
+          "api_wall_duration_seconds": 15.123594,
+          "prompt_eval_count": 854,
+          "prompt_eval_duration": 264302000,
+          "eval_count": 127,
+          "eval_duration": 10721718000,
+          "total_duration": 11023645700,
+          "load_duration": 7474200,
+          "done_reason": "stop"
+        }
+      ],
+      "total_runtime_seconds": 30.484279
+    },
+    "warnings": [
+      "Tier 2 decision failed for issue issue-missing_values-807a4a574212: ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+    ]
+  },
+  {
+    "dataset_id": "dataset_08_manufacturing",
+    "repeat": 1,
+    "model": "qwen2.5:3b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-77946834a5ac",
+          "issue-missing_values-45f43b8e28ce",
+          "issue-missing_values-844f6de3e32e"
+        ],
+        "retry_batch_size": 3,
+        "provider_status": "success",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-77946834a5ac",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          },
+          {
+            "issue_id": "issue-missing_values-45f43b8e28ce",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          },
+          {
+            "issue_id": "issue-missing_values-844f6de3e32e",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-77946834a5ac",
+          "issue-missing_values-45f43b8e28ce",
+          "issue-missing_values-844f6de3e32e"
+        ],
+        "coverage": {
+          "missing_issue_ids": [],
+          "duplicate_issue_ids": [],
+          "unexpected_issue_ids": []
+        },
+        "prompt_character_length": 5577,
+        "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-77946834a5ac\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-45f43b8e28ce\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-844f6de3e32e\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    }\n  ]}",
+        "time_since_last_call_seconds": 0.4435140000132378,
+        "pre_call_memory": {
+          "memory_load_percent": 82,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 2.6827239990234375,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.1953582763671875
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:43:50.8452057+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_result": {
+          "decisions": [
+            {
+              "issue_id": "issue-missing_values-77946834a5ac",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "median_semantic_eligibility",
+                "median_mechanical_preflight"
+              ],
+              "confidence": 0.9,
+              "rationale": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved."
+            },
+            {
+              "issue_id": "issue-missing_values-45f43b8e28ce",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "median_semantic_eligibility",
+                "median_mechanical_preflight"
+              ],
+              "confidence": 0.9,
+              "rationale": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved."
+            },
+            {
+              "issue_id": "issue-missing_values-844f6de3e32e",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "median_semantic_eligibility",
+                "median_mechanical_preflight"
+              ],
+              "confidence": 0.9,
+              "rationale": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved."
+            }
+          ]
+        },
+        "ollama_telemetry": {
+          "model": "qwen2.5:3b",
+          "created_at": "2026-09-07T09:09:43.874679Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 48481666400,
+          "load_duration": 7045600,
+          "prompt_eval_count": 1218,
+          "prompt_eval_duration": 15083086000,
+          "eval_count": 383,
+          "eval_duration": 33338525999
+        }
+      },
+      {
+        "stage": "retry",
+        "issue_ids": [
+          "issue-missing_values-77946834a5ac",
+          "issue-missing_values-45f43b8e28ce"
+        ],
+        "retry_batch_size": 2,
+        "provider_status": "success",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-77946834a5ac",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          },
+          {
+            "issue_id": "issue-missing_values-45f43b8e28ce",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-77946834a5ac",
+          "issue-missing_values-45f43b8e28ce"
+        ],
+        "coverage": {
+          "missing_issue_ids": [],
+          "duplicate_issue_ids": [],
+          "unexpected_issue_ids": []
+        },
+        "prompt_character_length": 4815,
+        "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-77946834a5ac\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-45f43b8e28ce\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    }\n  ]}",
+        "time_since_last_call_seconds": 0.22147670001140796,
+        "pre_call_memory": {
+          "memory_load_percent": 81,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 2.8204307556152344,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.258514404296875
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:44:43.886035+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_result": {
+          "decisions": [
+            {
+              "issue_id": "issue-missing_values-77946834a5ac",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "median_semantic_eligibility",
+                "median_mechanical_preflight"
+              ],
+              "confidence": 0.9,
+              "rationale": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved."
+            },
+            {
+              "issue_id": "issue-missing_values-45f43b8e28ce",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "median_semantic_eligibility",
+                "median_mechanical_preflight"
+              ],
+              "confidence": 0.9,
+              "rationale": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved."
+            }
+          ]
+        },
+        "ollama_telemetry": {
+          "model": "qwen2.5:3b",
+          "created_at": "2026-09-07T09:10:11.4056152Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 23213878000,
+          "load_duration": 7908100,
+          "prompt_eval_count": 1031,
+          "prompt_eval_duration": 542404000,
+          "eval_count": 259,
+          "eval_duration": 22631373000
+        }
+      },
+      {
+        "stage": "retry",
+        "issue_ids": [
+          "issue-missing_values-844f6de3e32e"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "success",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-844f6de3e32e",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-844f6de3e32e"
+        ],
+        "coverage": {
+          "missing_issue_ids": [],
+          "duplicate_issue_ids": [],
+          "unexpected_issue_ids": []
+        },
+        "prompt_character_length": 3991,
+        "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-844f6de3e32e\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is provided by the median semantic eligibility and mechanical preflight checks, which both passed.\"\n    }\n  ]\n}",
+        "time_since_last_call_seconds": 0.12704720001784153,
+        "pre_call_memory": {
+          "memory_load_percent": 81,
+          "total_physical_gib": 15.4036865234375,
+          "available_physical_gib": 2.807910919189453,
+          "total_page_file_gib": 25.187908172607422,
+          "available_page_file_gib": 2.2787399291992188
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:3b",
+            "model": "qwen2.5:3b",
+            "size": 2164166490,
+            "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-07T14:45:11.4150095+05:30",
+            "size_vram": 0,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_result": {
+          "decisions": [
+            {
+              "issue_id": "issue-missing_values-844f6de3e32e",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "median_semantic_eligibility",
+                "median_mechanical_preflight"
+              ],
+              "confidence": 0.9,
+              "rationale": "The affirmative preservation evidence is provided by the median semantic eligibility and mechanical preflight checks, which both passed."
+            }
+          ]
+        },
+        "ollama_telemetry": {
+          "model": "qwen2.5:3b",
+          "created_at": "2026-09-07T09:10:32.0916171Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 16448276300,
+          "load_duration": 7870600,
+          "prompt_eval_count": 829,
+          "prompt_eval_duration": 4838081000,
+          "eval_count": 137,
+          "eval_duration": 11570328000
+        }
+      }
+    ],
+    "cases": [
+      {
+        "column": "actual_quantity",
+        "expected": "action/impute_missing/median",
+        "readiness": {
+          "missing_count": 14,
+          "missing_percentage": 0.09333333333333334,
+          "missingness_band": "low",
+          "observed_count": 14986,
+          "physical_dtype": "float64",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "semantic_confidence": 0.9,
+          "concept_description": "The actual quantity produced in a production run",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "true",
+            "reason_code": "confirmed_quantitative_magnitude"
+          },
+          "median_mechanical_preflight": {
+            "status": "pass",
+            "reason_code": "existing_imputation_contract_passed"
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-77946834a5ac\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-45f43b8e28ce\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-844f6de3e32e\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    }\n  ]}",
+        "first_validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+        "accepted_immediately": false,
+        "retried": true,
+        "retry_attempts": [
+          {
+            "stage": "retry",
+            "retry_batch_size": 2,
+            "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-77946834a5ac\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-45f43b8e28ce\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    }\n  ]}",
+            "validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-77946834a5ac",
+          "source_issue_ids": [
+            "issue-missing_values-77946834a5ac"
+          ],
+          "target_columns": [
+            "actual_quantity"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+            "null_detection": "pandas.isna",
+            "non_null_count": 14986
+          },
+          "semantic_basis": {
+            "actual_quantity": {
+              "column_name": "actual_quantity",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The actual quantity produced in a production run",
+              "semantic_role": "unknown",
+              "confidence": 0.9,
+              "reasoning_summary": "The column name 'actual_quantity' and its numeric summary suggest it represents a measured quantity."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      },
+      {
+        "column": "defect_quantity",
+        "expected": "action/impute_missing/median",
+        "readiness": {
+          "missing_count": 14,
+          "missing_percentage": 0.09333333333333334,
+          "missingness_band": "low",
+          "observed_count": 14986,
+          "physical_dtype": "float64",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "semantic_confidence": 0.9,
+          "concept_description": "The quantity of defective items produced in a production run",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "true",
+            "reason_code": "confirmed_quantitative_magnitude"
+          },
+          "median_mechanical_preflight": {
+            "status": "pass",
+            "reason_code": "existing_imputation_contract_passed"
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-77946834a5ac\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-45f43b8e28ce\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-844f6de3e32e\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    }\n  ]}",
+        "first_validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+        "accepted_immediately": false,
+        "retried": true,
+        "retry_attempts": [
+          {
+            "stage": "retry",
+            "retry_batch_size": 2,
+            "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-77946834a5ac\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-45f43b8e28ce\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    }\n  ]}",
+            "validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-45f43b8e28ce",
+          "source_issue_ids": [
+            "issue-missing_values-45f43b8e28ce"
+          ],
+          "target_columns": [
+            "defect_quantity"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+            "null_detection": "pandas.isna",
+            "non_null_count": 14986
+          },
+          "semantic_basis": {
+            "defect_quantity": {
+              "column_name": "defect_quantity",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The quantity of defective items produced in a production run",
+              "semantic_role": "unknown",
+              "confidence": 0.9,
+              "reasoning_summary": "The column name 'defect_quantity' and its numeric summary suggest it represents a measured quantity."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      },
+      {
+        "column": "humidity_percent",
+        "expected": "action/impute_missing/median",
+        "readiness": {
+          "missing_count": 8,
+          "missing_percentage": 0.05333333333333334,
+          "missingness_band": "low",
+          "observed_count": 14992,
+          "physical_dtype": "float64",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "semantic_confidence": 0.9,
+          "concept_description": "The humidity percentage",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "true",
+            "reason_code": "confirmed_quantitative_magnitude"
+          },
+          "median_mechanical_preflight": {
+            "status": "pass",
+            "reason_code": "existing_imputation_contract_passed"
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-77946834a5ac\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-45f43b8e28ce\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-844f6de3e32e\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is concrete and confirms that the missing state should be preserved.\"\n    }\n  ]}",
+        "first_validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+        "accepted_immediately": false,
+        "retried": true,
+        "retry_attempts": [
+          {
+            "stage": "retry",
+            "retry_batch_size": 1,
+            "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-844f6de3e32e\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n      \"confidence\": 0.9,\n      \"rationale\": \"The affirmative preservation evidence is provided by the median semantic eligibility and mechanical preflight checks, which both passed.\"\n    }\n  ]\n}",
+            "validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-844f6de3e32e",
+          "source_issue_ids": [
+            "issue-missing_values-844f6de3e32e"
+          ],
+          "target_columns": [
+            "humidity_percent"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+            "null_detection": "pandas.isna",
+            "non_null_count": 14992
+          },
+          "semantic_basis": {
+            "humidity_percent": {
+              "column_name": "humidity_percent",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The humidity percentage",
+              "semantic_role": "unknown",
+              "confidence": 0.9,
+              "reasoning_summary": "The column name 'humidity_percent' and its numeric summary suggest it represents a measured quantity."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      }
+    ],
+    "summary": {
+      "total_decisions": 3,
+      "by_decision_type": {
+        "insufficient_evidence": 3
+      },
+      "by_proposed_action": {
+        "no_op": 3
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 0,
+      "fallback_decisions": 3,
+      "deterministic_runtime_seconds": 5.1e-05,
+      "tier2_issue_count": 3,
+      "tier2_batch_sizes": [
+        3
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 3,
+      "llm_runtime_seconds": 100.707217,
+      "intended_llm_decision_calls": 1,
+      "retries": 2,
+      "successful_batches": 0,
+      "batch_failures": 1,
+      "fallback_issue_count": 3,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-77946834a5ac",
+            "issue-missing_values-45f43b8e28ce",
+            "issue-missing_values-844f6de3e32e"
+          ],
+          "accepted_on_first_response": [],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [
+            "issue-missing_values-77946834a5ac",
+            "issue-missing_values-45f43b8e28ce",
+            "issue-missing_values-844f6de3e32e"
+          ],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-77946834a5ac",
+                "issue-missing_values-45f43b8e28ce",
+                "issue-missing_values-844f6de3e32e"
+              ],
+              "retry_batch_size": 3,
+              "provider_status": "success",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-77946834a5ac",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                },
+                {
+                  "issue_id": "issue-missing_values-45f43b8e28ce",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                },
+                {
+                  "issue_id": "issue-missing_values-844f6de3e32e",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-77946834a5ac",
+                "issue-missing_values-45f43b8e28ce",
+                "issue-missing_values-844f6de3e32e"
+              ],
+              "coverage": {
+                "missing_issue_ids": [],
+                "duplicate_issue_ids": [],
+                "unexpected_issue_ids": []
+              }
+            },
+            {
+              "stage": "retry",
+              "issue_ids": [
+                "issue-missing_values-77946834a5ac",
+                "issue-missing_values-45f43b8e28ce"
+              ],
+              "retry_batch_size": 2,
+              "provider_status": "success",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-77946834a5ac",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                },
+                {
+                  "issue_id": "issue-missing_values-45f43b8e28ce",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-77946834a5ac",
+                "issue-missing_values-45f43b8e28ce"
+              ],
+              "coverage": {
+                "missing_issue_ids": [],
+                "duplicate_issue_ids": [],
+                "unexpected_issue_ids": []
+              }
+            },
+            {
+              "stage": "retry",
+              "issue_ids": [
+                "issue-missing_values-844f6de3e32e"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "success",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-844f6de3e32e",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-844f6de3e32e"
+              ],
+              "coverage": {
+                "missing_issue_ids": [],
+                "duplicate_issue_ids": [],
+                "unexpected_issue_ids": []
+              }
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-77946834a5ac",
+            "issue-missing_values-45f43b8e28ce",
+            "issue-missing_values-844f6de3e32e"
+          ],
+          "retry_batch_size": 3,
+          "prompt_character_length": 5577,
+          "api_wall_duration_seconds": 52.723196,
+          "prompt_eval_count": 1218,
+          "prompt_eval_duration": 15083086000,
+          "eval_count": 383,
+          "eval_duration": 33338525999,
+          "total_duration": 48481666400,
+          "load_duration": 7045600,
+          "done_reason": "stop"
+        },
+        {
+          "batch_index": 1,
+          "attempt": 2,
+          "recovery_stage": "retry",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-77946834a5ac",
+            "issue-missing_values-45f43b8e28ce"
+          ],
+          "retry_batch_size": 2,
+          "prompt_character_length": 4815,
+          "api_wall_duration_seconds": 27.378397,
+          "prompt_eval_count": 1031,
+          "prompt_eval_duration": 542404000,
+          "eval_count": 259,
+          "eval_duration": 22631373000,
+          "total_duration": 23213878000,
+          "load_duration": 7908100,
+          "done_reason": "stop"
+        },
+        {
+          "batch_index": 1,
+          "attempt": 3,
+          "recovery_stage": "retry",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-844f6de3e32e"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 3991,
+          "api_wall_duration_seconds": 20.605624,
+          "prompt_eval_count": 829,
+          "prompt_eval_duration": 4838081000,
+          "eval_count": 137,
+          "eval_duration": 11570328000,
+          "total_duration": 16448276300,
+          "load_duration": 7870600,
+          "done_reason": "stop"
+        }
+      ],
+      "total_runtime_seconds": 100.99037
+    },
+    "warnings": [
+      "Tier 2 decision failed for issue issue-missing_values-77946834a5ac: ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "Tier 2 decision failed for issue issue-missing_values-45f43b8e28ce: ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "Tier 2 decision failed for issue issue-missing_values-844f6de3e32e: ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+    ]
+  }
+]

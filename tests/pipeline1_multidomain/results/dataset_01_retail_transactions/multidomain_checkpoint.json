@@ -1,0 +1,12 @@
+{
+  "dataset": "dataset_01_retail_transactions_raw.csv",
+  "dataset_id": "dataset_01_retail_transactions",
+  "status": "success",
+  "run_id": "20260906T111353-d29cfa77",
+  "runtime_seconds": 394.457,
+  "issues": 19,
+  "decisions": 19,
+  "executions": 3,
+  "validation_passed": true,
+  "warnings": []
+}
