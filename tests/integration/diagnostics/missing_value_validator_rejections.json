@@ -1,0 +1,440 @@
+{
+  "scope": "Recorded missing-value Tier-2 responses rejected by readiness alignment",
+  "source_files": [
+    {
+      "diagnostic_file": "missing_value_nine_case_after_prompt_fix.json",
+      "response_case_count": 9,
+      "validator_rejection_rows": 11
+    },
+    {
+      "diagnostic_file": "missing_value_nine_case_postfix_run2.json",
+      "response_case_count": 9,
+      "validator_rejection_rows": 11
+    },
+    {
+      "diagnostic_file": "missing_value_nine_case_postfix_run3.json",
+      "response_case_count": 9,
+      "validator_rejection_rows": 11
+    },
+    {
+      "diagnostic_file": "missing_value_nine_case_qwen25_7b.json",
+      "response_case_count": 9,
+      "validator_rejection_rows": 4
+    },
+    {
+      "diagnostic_file": "missing_value_prompt_after_fix.json",
+      "response_case_count": 0,
+      "validator_rejection_rows": 0
+    },
+    {
+      "diagnostic_file": "missing_value_prompt_before_fix.json",
+      "response_case_count": 0,
+      "validator_rejection_rows": 0
+    },
+    {
+      "diagnostic_file": "missing_value_timeout_240s.json",
+      "response_case_count": 3,
+      "validator_rejection_rows": 1
+    },
+    {
+      "diagnostic_file": "missing_value_timeout_480s.json",
+      "response_case_count": 3,
+      "validator_rejection_rows": 1
+    },
+    {
+      "diagnostic_file": "stuck_call_repetitions_3b.json",
+      "response_case_count": 10,
+      "validator_rejection_rows": 4
+    }
+  ],
+  "rejection_count": 43,
+  "rejections": [
+    {
+      "column_name": "customer_id",
+      "llm_claim": "The identifier-like text is protected and the supplied consequence evidence confirms that the missing state should be preserved. Cited preservation_evidence_keys=[supplied_consequence_evidence]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_after_prompt_fix.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-2434cbb43563"
+    },
+    {
+      "column_name": "customer_id",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[identifier_or_entity_reference_protected]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_after_prompt_fix.json",
+      "attempt": "singleton_retry",
+      "issue_id": "issue-missing_values-2434cbb43563"
+    },
+    {
+      "column_name": "transaction_time",
+      "llm_claim": "The transaction time is protected and the supplied consequence evidence confirms that the missing state should be preserved. Cited preservation_evidence_keys=[supplied_consequence_evidence]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_after_prompt_fix.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-5838a931658b"
+    },
+    {
+      "column_name": "attendance_percent",
+      "llm_claim": "The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks also support this. Cited preservation_evidence_keys=[concept_description, median_semantic_eligibility.status, median_semantic_eligibility.reason_code, median_mechanical_preflight.status, median_mechanical_preflight.reason_code]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_after_prompt_fix.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-321458eb06b8"
+    },
+    {
+      "column_name": "error_code",
+      "llm_claim": "The affirmative preservation evidence is null, and there is no supplied consequence evidence to support review. Cited preservation_evidence_keys=[supplied_consequence_evidence]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_after_prompt_fix.json",
+      "attempt": "retry",
+      "issue_id": "issue-missing_values-807a4a574212"
+    },
+    {
+      "column_name": "actual_quantity",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_after_prompt_fix.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-77946834a5ac"
+    },
+    {
+      "column_name": "actual_quantity",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_after_prompt_fix.json",
+      "attempt": "retry",
+      "issue_id": "issue-missing_values-77946834a5ac"
+    },
+    {
+      "column_name": "defect_quantity",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_after_prompt_fix.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-45f43b8e28ce"
+    },
+    {
+      "column_name": "defect_quantity",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_after_prompt_fix.json",
+      "attempt": "retry",
+      "issue_id": "issue-missing_values-45f43b8e28ce"
+    },
+    {
+      "column_name": "humidity_percent",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_after_prompt_fix.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-844f6de3e32e"
+    },
+    {
+      "column_name": "humidity_percent",
+      "llm_claim": "The affirmative preservation evidence is provided by the median semantic eligibility and mechanical preflight checks, which both passed. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_after_prompt_fix.json",
+      "attempt": "retry",
+      "issue_id": "issue-missing_values-844f6de3e32e"
+    },
+    {
+      "column_name": "customer_id",
+      "llm_claim": "The affirmative preservation evidence is provided and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[supplied_consequence_evidence]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run2.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-2434cbb43563"
+    },
+    {
+      "column_name": "customer_id",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[identifier_or_entity_reference_protected]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run2.json",
+      "attempt": "singleton_retry",
+      "issue_id": "issue-missing_values-2434cbb43563"
+    },
+    {
+      "column_name": "transaction_time",
+      "llm_claim": "The affirmative preservation evidence is provided and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[supplied_consequence_evidence]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run2.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-5838a931658b"
+    },
+    {
+      "column_name": "attendance_percent",
+      "llm_claim": "The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks also support this. Cited preservation_evidence_keys=[concept_description, median_semantic_eligibility.status, median_semantic_eligibility.reason_code, median_mechanical_preflight.status, median_mechanical_preflight.reason_code]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run2.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-321458eb06b8"
+    },
+    {
+      "column_name": "error_code",
+      "llm_claim": "The affirmative preservation evidence is null, and there is no supplied consequence evidence to support review. Cited preservation_evidence_keys=[supplied_consequence_evidence]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run2.json",
+      "attempt": "retry",
+      "issue_id": "issue-missing_values-807a4a574212"
+    },
+    {
+      "column_name": "actual_quantity",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run2.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-77946834a5ac"
+    },
+    {
+      "column_name": "actual_quantity",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run2.json",
+      "attempt": "retry",
+      "issue_id": "issue-missing_values-77946834a5ac"
+    },
+    {
+      "column_name": "defect_quantity",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run2.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-45f43b8e28ce"
+    },
+    {
+      "column_name": "defect_quantity",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run2.json",
+      "attempt": "retry",
+      "issue_id": "issue-missing_values-45f43b8e28ce"
+    },
+    {
+      "column_name": "humidity_percent",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run2.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-844f6de3e32e"
+    },
+    {
+      "column_name": "humidity_percent",
+      "llm_claim": "The affirmative preservation evidence is provided by the median semantic eligibility and mechanical preflight checks, which both passed. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run2.json",
+      "attempt": "retry",
+      "issue_id": "issue-missing_values-844f6de3e32e"
+    },
+    {
+      "column_name": "customer_id",
+      "llm_claim": "The affirmative preservation evidence is provided and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[supplied_consequence_evidence]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run3.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-2434cbb43563"
+    },
+    {
+      "column_name": "customer_id",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[identifier_or_entity_reference_protected]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run3.json",
+      "attempt": "singleton_retry",
+      "issue_id": "issue-missing_values-2434cbb43563"
+    },
+    {
+      "column_name": "transaction_time",
+      "llm_claim": "The affirmative preservation evidence is provided and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[supplied_consequence_evidence]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run3.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-5838a931658b"
+    },
+    {
+      "column_name": "error_code",
+      "llm_claim": "The affirmative preservation evidence is null, and there is no supplied consequence evidence to support review. Cited preservation_evidence_keys=[supplied_consequence_evidence]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run3.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-807a4a574212"
+    },
+    {
+      "column_name": "error_code",
+      "llm_claim": "The affirmative preservation evidence is null, and there is no supplied consequence evidence to support review. Cited preservation_evidence_keys=[supplied_consequence_evidence]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run3.json",
+      "attempt": "retry",
+      "issue_id": "issue-missing_values-807a4a574212"
+    },
+    {
+      "column_name": "actual_quantity",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run3.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-77946834a5ac"
+    },
+    {
+      "column_name": "actual_quantity",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run3.json",
+      "attempt": "retry",
+      "issue_id": "issue-missing_values-77946834a5ac"
+    },
+    {
+      "column_name": "defect_quantity",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run3.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-45f43b8e28ce"
+    },
+    {
+      "column_name": "defect_quantity",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run3.json",
+      "attempt": "retry",
+      "issue_id": "issue-missing_values-45f43b8e28ce"
+    },
+    {
+      "column_name": "humidity_percent",
+      "llm_claim": "The affirmative preservation evidence is concrete and confirms that the missing state should be preserved. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run3.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-844f6de3e32e"
+    },
+    {
+      "column_name": "humidity_percent",
+      "llm_claim": "The affirmative preservation evidence is provided by the median semantic eligibility and mechanical preflight checks, which both passed. Cited preservation_evidence_keys=[median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_postfix_run3.json",
+      "attempt": "retry",
+      "issue_id": "issue-missing_values-844f6de3e32e"
+    },
+    {
+      "column_name": "customer_id",
+      "llm_claim": "The customer_id is an identifier/entity reference and cannot be imputed. Cited preservation_evidence_keys=[identifier_or_entity_reference_protected]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_qwen25_7b.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-2434cbb43563"
+    },
+    {
+      "column_name": "customer_id",
+      "llm_claim": "Identifier/entity-reference protection and failed semantic/mechanical preflight indicate the missing state should be preserved. Cited preservation_evidence_keys=[identifier_or_entity_reference_protected, median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_qwen25_7b.json",
+      "attempt": "retry",
+      "issue_id": "issue-missing_values-2434cbb43563"
+    },
+    {
+      "column_name": "transaction_time",
+      "llm_claim": "The transaction_time is a temporal value and cannot be imputed. Cited preservation_evidence_keys=[identifier_or_entity_reference_protected]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_qwen25_7b.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-5838a931658b"
+    },
+    {
+      "column_name": "transaction_time",
+      "llm_claim": "Identifier/entity-reference protection and failed semantic/mechanical preflight indicate the missing state should be preserved. Cited preservation_evidence_keys=[identifier_or_entity_reference_protected, median_semantic_eligibility, median_mechanical_preflight]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_nine_case_qwen25_7b.json",
+      "attempt": "retry",
+      "issue_id": "issue-missing_values-5838a931658b"
+    },
+    {
+      "column_name": "source_port",
+      "llm_claim": "The affirmative preservation evidence is provided, indicating that the missing state should be preserved. Cited preservation_evidence_keys=[missing_count, missing_percentage, missingness_band, observed_count, physical_dtype, semantic_type, value_function, numeric_meaning, semantic_confidence, concept_description, identifier_or_entity_reference_protected, median_semantic_eligibility, median_mechanical_preflight, numeric_label_risk_evidence, affirmative_preservation_evidence, supplied_consequence_evidence]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_timeout_240s.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-a984adead289"
+    },
+    {
+      "column_name": "source_port",
+      "llm_claim": "The affirmative preservation evidence is provided, indicating that the missing state should be preserved. Cited preservation_evidence_keys=[missing_count, missing_percentage, missingness_band, observed_count, physical_dtype, semantic_type, value_function, numeric_meaning, semantic_confidence, concept_description, identifier_or_entity_reference_protected, median_semantic_eligibility, median_mechanical_preflight, numeric_label_risk_evidence, affirmative_preservation_evidence, supplied_consequence_evidence]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "missing_value_timeout_480s.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-a984adead289"
+    },
+    {
+      "column_name": "attendance_percent",
+      "llm_claim": "The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks have also confirmed this Cited preservation_evidence_keys=[concept_description, median_semantic_eligibility.status, median_semantic_eligibility.reason_code, median_mechanical_preflight.status, median_mechanical_preflight.reason_code]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "stuck_call_repetitions_3b.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-321458eb06b8"
+    },
+    {
+      "column_name": "attendance_percent",
+      "llm_claim": "The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks also support this. Cited preservation_evidence_keys=[concept_description, median_semantic_eligibility.status, median_semantic_eligibility.reason_code, median_mechanical_preflight.status, median_mechanical_preflight.reason_code]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "stuck_call_repetitions_3b.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-321458eb06b8"
+    },
+    {
+      "column_name": "attendance_percent",
+      "llm_claim": "The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks also support this. Cited preservation_evidence_keys=[concept_description, median_semantic_eligibility.status, median_semantic_eligibility.reason_code, median_mechanical_preflight.status, median_mechanical_preflight.reason_code]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "stuck_call_repetitions_3b.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-321458eb06b8"
+    },
+    {
+      "column_name": "attendance_percent",
+      "llm_claim": "The affirmative preservation evidence is provided in the concept_description, which states that the absence of attendance data genuinely means not applicable. The mechanical preflight and semantic eligibility checks also support this. Cited preservation_evidence_keys=[concept_description, median_semantic_eligibility.status, median_semantic_eligibility.reason_code, median_mechanical_preflight.status, median_mechanical_preflight.reason_code]; supplied affirmative_preservation_evidence=None.",
+      "validator_rejection_rule": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "safe_final_outcome": "insufficient_evidence / no_op (fallback)",
+      "diagnostic_file": "stuck_call_repetitions_3b.json",
+      "attempt": "first",
+      "issue_id": "issue-missing_values-321458eb06b8"
+    }
+  ]
+}
