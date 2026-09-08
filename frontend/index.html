@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LYNX — Data Intelligence Results Dashboard</title>
+  <meta name="description" content="LYNX Data Intelligence Platform - Pipeline 1 results dashboard.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container" id="app-root">
+    
+    <!-- BRAND AND HEADER -->
+    <header class="brand-header">
+      <div class="brand-identity-group">
+        <div class="brand-logo-title">
+          <img src="assets/ChatGPT Image Sep 7, 2026, 01_16_53 PM.png" alt="LYNX Logo" class="lynx-logo-img">
+          <span class="brand-wordmark">LYNX</span>
+        </div>
+        <div class="dataset-context">
+          <div class="dataset-header-row">
+            <h1 class="dataset-name" id="display-dataset-name">Loading dataset…</h1>
+            
+            <div class="dataset-selector-pill">
+              <label for="dataset-select-dropdown" class="sr-only">Switch Dataset:</label>
+              <select id="dataset-select-dropdown" class="dataset-dropdown-select">
+                <option value="survey_data" selected>Survey Data</option>
+                <option value="generic_business_data">Generic Business Data</option>
+              </select>
+              <button class="btn-custom-payload" id="btn-custom-json-load" title="Load custom backend payload JSON">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                Custom Backend JSON
+              </button>
+            </div>
+          </div>
+
+          <div class="dataset-meta-row">
+            <span id="display-dataset-category"></span>
+            <span>·</span>
+            <span class="status-dot"></span>
+            <span id="display-dataset-status">Loading report…</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn-primary" id="export-report-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Export Report
+        </button>
+
+        <button class="btn-icon-secondary" id="actions-menu-btn" aria-label="More actions">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="1"></circle>
+            <circle cx="12" cy="5" r="1"></circle>
+            <circle cx="12" cy="19" r="1"></circle>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- NAVIGATION TABS -->
+    <nav class="nav-tab-container" role="tablist" aria-label="Dashboard views">
+      <button class="nav-tab-item active" id="tab-overview" role="tab" aria-selected="true" aria-controls="panel-overview">Overview</button>
+      <button class="nav-tab-item" id="tab-profile" role="tab" aria-selected="false" aria-controls="panel-profile">Profile</button>
+      <button class="nav-tab-item" id="tab-data-preview" role="tab" aria-selected="false" aria-controls="panel-preview">Data Preview</button>
+      <button class="nav-tab-item" id="tab-visualize" role="tab" aria-selected="false" aria-controls="panel-visualize">Visualize</button>
+      <button class="nav-tab-item" id="tab-model" role="tab" aria-selected="false" aria-controls="panel-model">Model</button>
+    </nav>
+
+    <!-- MAIN OVERVIEW TAB PANEL -->
+    <main class="tab-panel active" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+      <div class="bento-grid">
+        
+        <!-- 1. COMPACT METRICS BAR (Row of 5 Cards spanning 12 cols) -->
+        <div class="metrics-row"></div>
+
+        <!-- 2. LARGE CARD: DATA QUALITY OVERVIEW (7 Cols) -->
+        <section class="bento-card col-span-7" aria-labelledby="heading-quality-overview">
+          <div class="card-header">
+            <div>
+              <div class="card-eyebrow">ISSUES BY STATUS</div>
+              <h2 class="card-title" id="heading-quality-overview">Data Quality Overview</h2>
+            </div>
+          </div>
+
+          <div class="chart-container">
+            <!-- Donut Chart SVG -->
+            <div class="donut-chart-wrapper">
+              <svg viewBox="0 0 100 100" class="donut-svg" id="quality-donut-svg">
+              </svg>
+              <div class="donut-center-label">
+                <span class="donut-center-value">—</span>
+                <span class="donut-center-subtext">Detected Issues</span>
+              </div>
+            </div>
+
+            <!-- Donut Legend Breakdown -->
+            <div class="donut-legend-list"></div>
+          </div>
+        </section>
+
+        <!-- 3. TALL CARD: TOP ISSUES (5 Cols) -->
+        <section class="bento-card col-span-5" aria-labelledby="heading-top-issues">
+          <div class="card-header">
+            <div>
+              <div class="card-eyebrow">PRIORITY ANOMALIES</div>
+              <h2 class="card-title" id="heading-top-issues">Top Issues</h2>
+            </div>
+          </div>
+
+          <div class="issues-list"></div>
+
+          <button class="btn-link-action" id="view-all-issues-btn">
+            View all issues
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </section>
+
+        <!-- 4. WIDE CARD: DATASET SUMMARY (8 Cols) -->
+        <section class="bento-card col-span-8" aria-labelledby="heading-dataset-summary">
+          <div class="card-header">
+            <div>
+              <div class="card-eyebrow">CONTEXT & DESCRIPTION</div>
+              <h2 class="card-title" id="heading-dataset-summary">Dataset Summary</h2>
+            </div>
+          </div>
+
+          <p class="summary-paragraph"></p>
+
+          <div class="meta-chips-grid"></div>
+        </section>
+
+        <!-- 5. COMPACT CARD: PROCESSING STATUS (4 Cols) -->
+        <section class="bento-card col-span-4" aria-labelledby="heading-processing-status">
+          <div class="card-header">
+            <div>
+              <div class="card-eyebrow">PIPELINE VERIFICATION</div>
+              <h2 class="card-title" id="heading-processing-status">Processing Status</h2>
+            </div>
+          </div>
+
+          <div class="status-checklist"></div>
+        </section>
+
+        <!-- 6. MEDIUM-TO-LARGE CARD: RECOMMENDED ACTIONS (12 Cols) -->
+        <section class="bento-card col-span-12" aria-labelledby="heading-recommended-actions">
+          <div class="card-header">
+            <div>
+              <div class="card-eyebrow">AUTOMATED PREPARATION PLAN</div>
+              <h2 class="card-title" id="heading-recommended-actions">Recommended Actions</h2>
+            </div>
+          </div>
+
+          <div class="recommendations-grid"></div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- OTHER TAB PANELS (Profile, Data Preview, Visualize, Model) -->
+    <div class="tab-panel" id="panel-profile">
+      <div class="placeholder-view">
+        <div class="placeholder-icon">📋</div>
+        <h2>Dataset Profile</h2>
+        <p>Column schema distributions, datatypes, and nullity matrix for Customer Transactions.</p>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="panel-preview">
+      <div class="placeholder-view">
+        <div class="placeholder-icon">👁️</div>
+        <h2>Data Preview</h2>
+        <p>Displaying first 100 sample rows of customer transaction records.</p>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="panel-visualize">
+      <div class="placeholder-view">
+        <div class="placeholder-icon">📊</div>
+        <h2>Data Visualizations</h2>
+        <p>Explore purchase trends, revenue by store location, and transaction volume over time.</p>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="panel-model">
+      <div class="placeholder-view">
+        <div class="placeholder-icon">⚡</div>
+        <h2>Feature Modeling</h2>
+        <p>Target encoding, scaling transformers, and feature correlation matrix.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MODAL OVERLAY -->
+  <div class="modal-overlay" id="dashboard-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-text">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title-text">Modal Action</h3>
+        <button class="modal-close-btn" id="modal-close-x">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body-text">
+        Action details content goes here.
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary-sm" id="modal-cancel-btn">Close</button>
+        <button class="btn-primary" id="modal-confirm-btn">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="reportAdapter.js"></script>
+  <script src="datasets.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
