@@ -1,0 +1,2463 @@
+{
+  "diagnostic": "low_signal_semantic_calibration",
+  "dataset": "C:\\Users\\HP\\OneDrive\\Documents\\GitHub\\LYNX\\benchmarks\\tabarena\\datasets\\MIC.csv",
+  "model": "qwen2.5:7b",
+  "started_at": "2026-09-10T11:01:08+00:00",
+  "configuration": {
+    "column_level_only": true,
+    "dataset_context_llm_call": false,
+    "batch_size": 12,
+    "retry_count": 1,
+    "timeout_seconds": 480.0,
+    "high_confidence_threshold": 0.8,
+    "opaque_name_heuristic": "Not AGE/SEX; no transparent token (age, sex, blood, time, date, year, month, day); and contains '_' or a digit, or is all-uppercase <=12 chars.",
+    "statistical_ambiguity_heuristic": "All non-null values numeric and integer-like with <=10 distinct values."
+  },
+  "input_shape": {
+    "rows": 1699,
+    "columns": 112
+  },
+  "calls": [
+    {
+      "batch_index": 1,
+      "attempt": 1,
+      "columns": [
+        "AGE",
+        "SEX",
+        "INF_ANAM",
+        "STENOK_AN",
+        "FK_STENOK",
+        "IBS_POST",
+        "IBS_NASL",
+        "GB",
+        "SIM_GIPERT",
+        "DLIT_AG",
+        "ZSN_A",
+        "nr_11"
+      ],
+      "status": "success",
+      "wall_seconds": 376.609214,
+      "ollama": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-10T11:07:25.4625806Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 374531122600,
+        "load_duration": 43437000,
+        "prompt_eval_count": 3044,
+        "prompt_eval_duration": 5828276000,
+        "eval_count": 1372,
+        "eval_duration": 367428387000
+      }
+    },
+    {
+      "batch_index": 2,
+      "attempt": 1,
+      "columns": [
+        "nr_01",
+        "nr_02",
+        "nr_03",
+        "nr_04",
+        "nr_07",
+        "nr_08",
+        "np_01",
+        "np_04",
+        "np_05",
+        "np_07",
+        "np_08",
+        "np_09"
+      ],
+      "status": "success",
+      "wall_seconds": 369.512008,
+      "ollama": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-10T11:13:35.0655725Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 367464416100,
+        "load_duration": 9584400,
+        "prompt_eval_count": 2918,
+        "prompt_eval_duration": 4291251000,
+        "eval_count": 1355,
+        "eval_duration": 362993406000
+      }
+    },
+    {
+      "batch_index": 3,
+      "attempt": 1,
+      "columns": [
+        "np_10",
+        "endocr_01",
+        "endocr_02",
+        "endocr_03",
+        "zab_leg_01",
+        "zab_leg_02",
+        "zab_leg_03",
+        "zab_leg_04",
+        "zab_leg_06",
+        "S_AD_KBRIG",
+        "D_AD_KBRIG",
+        "S_AD_ORIT"
+      ],
+      "status": "success",
+      "wall_seconds": 364.699031,
+      "ollama": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-10T11:19:39.8482681Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 362633130800,
+        "load_duration": 7503900,
+        "prompt_eval_count": 2996,
+        "prompt_eval_duration": 4276856000,
+        "eval_count": 1294,
+        "eval_duration": 358217955000
+      }
+    },
+    {
+      "batch_index": 4,
+      "attempt": 1,
+      "columns": [
+        "D_AD_ORIT",
+        "O_L_POST",
+        "K_SH_POST",
+        "MP_TP_POST",
+        "SVT_POST",
+        "GT_POST",
+        "FIB_G_POST",
+        "ant_im",
+        "lat_im",
+        "inf_im",
+        "post_im",
+        "IM_PG_P"
+      ],
+      "status": "success",
+      "wall_seconds": 398.002702,
+      "ollama": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-10T11:26:17.939988Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 395903339400,
+        "load_duration": 7906400,
+        "prompt_eval_count": 2969,
+        "prompt_eval_duration": 4298595000,
+        "eval_count": 1461,
+        "eval_duration": 391468571000
+      }
+    },
+    {
+      "batch_index": 5,
+      "attempt": 1,
+      "columns": [
+        "ritm_ecg_p_01",
+        "ritm_ecg_p_02",
+        "ritm_ecg_p_04",
+        "ritm_ecg_p_06",
+        "ritm_ecg_p_07",
+        "ritm_ecg_p_08",
+        "n_r_ecg_p_01",
+        "n_r_ecg_p_02",
+        "n_r_ecg_p_03",
+        "n_r_ecg_p_04",
+        "n_r_ecg_p_05",
+        "n_r_ecg_p_06"
+      ],
+      "status": "success",
+      "wall_seconds": 357.93305,
+      "ollama": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-10T11:32:16.0430677Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 355851509100,
+        "load_duration": 8514900,
+        "prompt_eval_count": 2941,
+        "prompt_eval_duration": 4092628000,
+        "eval_count": 1379,
+        "eval_duration": 351598140000
+      }
+    },
+    {
+      "batch_index": 6,
+      "attempt": 1,
+      "columns": [
+        "n_r_ecg_p_08",
+        "n_r_ecg_p_09",
+        "n_r_ecg_p_10",
+        "n_p_ecg_p_01",
+        "n_p_ecg_p_03",
+        "n_p_ecg_p_04",
+        "n_p_ecg_p_05",
+        "n_p_ecg_p_06",
+        "n_p_ecg_p_07",
+        "n_p_ecg_p_08",
+        "n_p_ecg_p_09",
+        "n_p_ecg_p_10"
+      ],
+      "status": "success",
+      "wall_seconds": 350.889809,
+      "ollama": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-10T11:38:07.0135443Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 348807807100,
+        "load_duration": 11234100,
+        "prompt_eval_count": 2970,
+        "prompt_eval_duration": 4032187000,
+        "eval_count": 1391,
+        "eval_duration": 344667971000
+      }
+    },
+    {
+      "batch_index": 7,
+      "attempt": 1,
+      "columns": [
+        "n_p_ecg_p_11",
+        "n_p_ecg_p_12",
+        "fibr_ter_01",
+        "fibr_ter_02",
+        "fibr_ter_03",
+        "fibr_ter_05",
+        "fibr_ter_06",
+        "fibr_ter_07",
+        "fibr_ter_08",
+        "GIPO_K",
+        "K_BLOOD",
+        "GIPER_NA"
+      ],
+      "status": "success",
+      "wall_seconds": 366.274477,
+      "ollama": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-10T11:44:13.36098Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 364182775900,
+        "load_duration": 6781300,
+        "prompt_eval_count": 3056,
+        "prompt_eval_duration": 4076544000,
+        "eval_count": 1484,
+        "eval_duration": 359972252000
+      }
+    },
+    {
+      "batch_index": 8,
+      "attempt": 1,
+      "columns": [
+        "NA_BLOOD",
+        "ALT_BLOOD",
+        "AST_BLOOD",
+        "KFK_BLOOD",
+        "L_BLOOD",
+        "ROE",
+        "TIME_B_S",
+        "R_AB_1_n",
+        "R_AB_2_n",
+        "R_AB_3_n",
+        "NA_KB",
+        "NOT_NA_KB"
+      ],
+      "status": "success",
+      "wall_seconds": 300.204713,
+      "ollama": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-10T11:49:13.6411808Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 298103914500,
+        "load_duration": 4937600,
+        "prompt_eval_count": 3048,
+        "prompt_eval_duration": 4029089000,
+        "eval_count": 1229,
+        "eval_duration": 293960456000
+      }
+    },
+    {
+      "batch_index": 9,
+      "attempt": 1,
+      "columns": [
+        "LID_KB",
+        "NITR_S",
+        "NA_R_1_n",
+        "NA_R_2_n",
+        "NA_R_3_n",
+        "NOT_NA_1_n",
+        "NOT_NA_2_n",
+        "NOT_NA_3_n",
+        "LID_S_n",
+        "B_BLOK_S_n",
+        "ANT_CA_S_n",
+        "GEPAR_S_n"
+      ],
+      "status": "success",
+      "wall_seconds": 360.410199,
+      "ollama": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-10T11:55:14.1536326Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 358359678900,
+        "load_duration": 4299400,
+        "prompt_eval_count": 2954,
+        "prompt_eval_duration": 3991359000,
+        "eval_count": 1475,
+        "eval_duration": 354275711000
+      }
+    },
+    {
+      "batch_index": 10,
+      "attempt": 1,
+      "columns": [
+        "ASP_S_n",
+        "TIKL_S_n",
+        "TRENT_S_n",
+        "LET_IS"
+      ],
+      "status": "success",
+      "wall_seconds": 130.97694,
+      "ollama": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-10T11:57:25.2134499Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 128897805900,
+        "load_duration": 8135100,
+        "prompt_eval_count": 1612,
+        "prompt_eval_duration": 2413305000,
+        "eval_count": 583,
+        "eval_duration": 126367785000
+      }
+    }
+  ],
+  "batch_failures": [],
+  "columns": [
+    {
+      "column_name": "AGE",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The column contains numeric values representing ages, which are quantitative magnitudes. The distribution of values and the presence of a mean and median support this interpretation.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": false,
+      "statistically_ambiguous": false,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 62,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": null
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": false
+    },
+    {
+      "column_name": "SEX",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The column contains two unique numeric values (0 and 1) that are commonly used to represent binary categories such as sex. The repetition rate of 1.0 and the presence of a mean and median support this interpretation.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": false,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": false
+    },
+    {
+      "column_name": "INF_ANAM",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The column contains numeric values with a range and statistical measures, indicating it likely represents a quantitative measurement or score.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 4,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "STENOK_AN",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The column contains numeric values with a range and statistical measures, indicating it likely represents a quantitative measurement or score.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 7,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "FK_STENOK",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The column contains numeric values with a range and statistical measures, indicating it likely represents a quantitative measurement or score.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 5,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "IBS_POST",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The column contains numeric values with a range and statistical measures, indicating it likely represents a quantitative measurement or score.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 3,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "IBS_NASL",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The column contains two unique numeric values (0 and 1) that are commonly used to represent binary categories. The repetition rate of 1.0 and the presence of a mean and median support this interpretation.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "GB",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The column contains numeric values with a range and statistical measures, indicating it likely represents a quantitative measurement or score.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 4,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "SIM_GIPERT",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The column contains two unique numeric values (0 and 1) that are commonly used to represent binary categories. The repetition rate of 1.0 and the presence of a mean and median support this interpretation.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "DLIT_AG",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The column contains numeric values with a range and statistical measures, indicating it likely represents a quantitative measurement or score.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 8,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "ZSN_A",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The column contains numeric values with a range and statistical measures, indicating it likely represents a quantitative measurement or score.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 5,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "nr_11",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The column contains two unique numeric values (0 and 1) that are commonly used to represent binary categories. The repetition rate of 1.0 and the presence of a mean and median support this interpretation.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "nr_01",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "nr_02",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "nr_03",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "nr_04",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "nr_07",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "nr_08",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "np_01",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "np_04",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "np_05",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "np_07",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "np_08",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "np_09",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "np_10",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0 or 1) and the sample shows repetition, suggesting a classification or categorical state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "endocr_01",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0 or 1) and the sample shows repetition, suggesting a classification or categorical state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "endocr_02",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0 or 1) and the sample shows repetition, suggesting a classification or categorical state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "endocr_03",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0 or 1) and the sample shows repetition, suggesting a classification or categorical state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "zab_leg_01",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0 or 1) and the sample shows repetition, suggesting a classification or categorical state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "zab_leg_02",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0 or 1) and the sample shows repetition, suggesting a classification or categorical state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "zab_leg_03",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0 or 1) and the sample shows repetition, suggesting a classification or categorical state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "zab_leg_04",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0 or 1) and the sample shows repetition, suggesting a classification or categorical state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "zab_leg_06",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values are numeric and span a range, with a mean and standard deviation, suggesting they represent measurements or quantities.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "S_AD_KBRIG",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values are numeric and span a range, with a mean and standard deviation, suggesting they represent measurements or quantities.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": false,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 30,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": null
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": false
+    },
+    {
+      "column_name": "D_AD_KBRIG",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values are numeric and span a range, with a mean and standard deviation, suggesting they represent measurements or quantities.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": false,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 21,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": null
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": false
+    },
+    {
+      "column_name": "S_AD_ORIT",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values are numeric and span a range, with a mean and standard deviation, suggesting they represent measurements or quantities.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": false,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 32,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": null
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": false
+    },
+    {
+      "column_name": "D_AD_ORIT",
+      "semantic_type": "numeric_measurement",
+      "confidence": 0.85,
+      "rationale": "The values are numeric, with a wide range and non-zero mean, suggesting a quantitative measurement. The repetition rate is high, indicating it may be a score or rating.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": false,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 20,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": null
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": false
+    },
+    {
+      "column_name": "O_L_POST",
+      "semantic_type": "categorical",
+      "confidence": 0.9,
+      "rationale": "The values are binary (0.0 and 1.0), and the repetition rate is 100%, suggesting it is a classification or state indicator.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "K_SH_POST",
+      "semantic_type": "categorical",
+      "confidence": 0.9,
+      "rationale": "The values are binary (0.0 and 1.0), and the repetition rate is 100%, suggesting it is a classification or state indicator.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "MP_TP_POST",
+      "semantic_type": "categorical",
+      "confidence": 0.9,
+      "rationale": "The values are binary (0.0 and 1.0), and the repetition rate is 100%, suggesting it is a classification or state indicator.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "SVT_POST",
+      "semantic_type": "categorical",
+      "confidence": 0.9,
+      "rationale": "The values are binary (0.0 and 1.0), and the repetition rate is 100%, suggesting it is a classification or state indicator.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "GT_POST",
+      "semantic_type": "categorical",
+      "confidence": 0.9,
+      "rationale": "The values are binary (0.0 and 1.0), and the repetition rate is 100%, suggesting it is a classification or state indicator.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "FIB_G_POST",
+      "semantic_type": "categorical",
+      "confidence": 0.9,
+      "rationale": "The values are binary (0.0 and 1.0), and the repetition rate is 100%, suggesting it is a classification or state indicator.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "ant_im",
+      "semantic_type": "categorical",
+      "confidence": 0.85,
+      "rationale": "The values are numeric but include non-binary values (0.0, 1.0, 2.0, 3.0, 4.0), suggesting it is a classification or state indicator.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 5,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "lat_im",
+      "semantic_type": "categorical",
+      "confidence": 0.85,
+      "rationale": "The values are numeric but include non-binary values (0.0, 1.0, 2.0, 3.0, 4.0), suggesting it is a classification or state indicator.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 5,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "inf_im",
+      "semantic_type": "categorical",
+      "confidence": 0.85,
+      "rationale": "The values are numeric but include non-binary values (0.0, 1.0, 2.0, 3.0, 4.0), suggesting it is a classification or state indicator.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 5,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "post_im",
+      "semantic_type": "categorical",
+      "confidence": 0.85,
+      "rationale": "The values are numeric but include non-binary values (0.0, 1.0, 2.0, 3.0, 4.0), suggesting it is a classification or state indicator.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 5,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "IM_PG_P",
+      "semantic_type": "categorical",
+      "confidence": 0.9,
+      "rationale": "The values are binary (0.0 and 1.0), and the repetition rate is 100%, suggesting it is a classification or state indicator.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "ritm_ecg_p_01",
+      "semantic_type": "boolean",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "ritm_ecg_p_02",
+      "semantic_type": "boolean",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "ritm_ecg_p_04",
+      "semantic_type": "boolean",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "ritm_ecg_p_06",
+      "semantic_type": "boolean",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "ritm_ecg_p_07",
+      "semantic_type": "boolean",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "ritm_ecg_p_08",
+      "semantic_type": "boolean",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_r_ecg_p_01",
+      "semantic_type": "boolean",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_r_ecg_p_02",
+      "semantic_type": "boolean",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_r_ecg_p_03",
+      "semantic_type": "boolean",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_r_ecg_p_04",
+      "semantic_type": "boolean",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_r_ecg_p_05",
+      "semantic_type": "boolean",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_r_ecg_p_06",
+      "semantic_type": "boolean",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_r_ecg_p_08",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_r_ecg_p_09",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_r_ecg_p_10",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_p_ecg_p_01",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_p_ecg_p_03",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_p_ecg_p_04",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_p_ecg_p_05",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_p_ecg_p_06",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_p_ecg_p_07",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_p_ecg_p_08",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_p_ecg_p_09",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_p_ecg_p_10",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_p_ecg_p_11",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "n_p_ecg_p_12",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "fibr_ter_01",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "fibr_ter_02",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "fibr_ter_03",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "fibr_ter_05",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "fibr_ter_06",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "fibr_ter_07",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "fibr_ter_08",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "GIPO_K",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "K_BLOOD",
+      "semantic_type": "numeric_measurement",
+      "confidence": 0.95,
+      "rationale": "The values are within a realistic range for blood potassium levels, and the distribution is consistent with a continuous measurement.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": false,
+      "statistically_ambiguous": false,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 51,
+        "all_observed_values_integer_like": false,
+        "ambiguity_basis": null
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": false
+    },
+    {
+      "column_name": "GIPER_NA",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "NA_BLOOD",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values represent continuous quantitative measurements, and the column name suggests a biological measurement.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": false,
+      "statistically_ambiguous": false,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 40,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": null
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": false
+    },
+    {
+      "column_name": "ALT_BLOOD",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values represent continuous quantitative measurements, and the column name suggests a biological measurement.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": false,
+      "statistically_ambiguous": false,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 69,
+        "all_observed_values_integer_like": false,
+        "ambiguity_basis": null
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": false
+    },
+    {
+      "column_name": "AST_BLOOD",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values represent continuous quantitative measurements, and the column name suggests a biological measurement.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": false,
+      "statistically_ambiguous": false,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 58,
+        "all_observed_values_integer_like": false,
+        "ambiguity_basis": null
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": false
+    },
+    {
+      "column_name": "KFK_BLOOD",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values represent continuous quantitative measurements, and the column name suggests a biological measurement.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": false,
+      "statistically_ambiguous": false,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 4,
+        "all_observed_values_integer_like": false,
+        "ambiguity_basis": null
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": false
+    },
+    {
+      "column_name": "L_BLOOD",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values represent continuous quantitative measurements, and the column name suggests a biological measurement.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": false,
+      "statistically_ambiguous": false,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 174,
+        "all_observed_values_integer_like": false,
+        "ambiguity_basis": null
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": false
+    },
+    {
+      "column_name": "ROE",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values represent continuous quantitative measurements, and the column name suggests a biological measurement.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": false,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 58,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": null
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": false
+    },
+    {
+      "column_name": "TIME_B_S",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values represent continuous quantitative measurements, and the column name suggests a temporal measurement.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": false,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 9,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": false
+    },
+    {
+      "column_name": "R_AB_1_n",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The values represent discrete states or levels, and the column name suggests a classification.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 4,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "R_AB_2_n",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The values represent discrete states or levels, and the column name suggests a classification.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 4,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "R_AB_3_n",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The values represent discrete states or levels, and the column name suggests a classification.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 4,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "NA_KB",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values represent continuous quantitative measurements, and the column name suggests a biological measurement.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "NOT_NA_KB",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values represent continuous quantitative measurements, and the column name suggests a biological measurement.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "LID_KB",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0) and the repetition rate is 1.0, suggesting a classification or categorical state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "NITR_S",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0) and the repetition rate is 1.0, suggesting a classification or categorical state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "NA_R_1_n",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values are numeric and span a range, with a non-zero mean and standard deviation, indicating a magnitude or count.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 5,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "NA_R_2_n",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values are numeric and span a range, with a non-zero mean and standard deviation, indicating a magnitude or count.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 4,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "NA_R_3_n",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values are numeric and span a range, with a non-zero mean and standard deviation, indicating a magnitude or count.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 3,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "NOT_NA_1_n",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values are numeric and span a range, with a non-zero mean and standard deviation, indicating a magnitude or count.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 5,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "NOT_NA_2_n",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values are numeric and span a range, with a non-zero mean and standard deviation, indicating a magnitude or count.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 4,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "NOT_NA_3_n",
+      "semantic_type": "numeric_measurement",
+      "confidence": 1.0,
+      "rationale": "The values are numeric and span a range, with a non-zero mean and standard deviation, indicating a magnitude or count.",
+      "value_function": "measurement",
+      "numeric_meaning": "magnitude",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 3,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "LID_S_n",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0) and the repetition rate is 1.0, suggesting a classification or categorical state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "B_BLOK_S_n",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0) and the repetition rate is 1.0, suggesting a classification or categorical state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "ANT_CA_S_n",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0) and the repetition rate is 1.0, suggesting a classification or categorical state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "GEPAR_S_n",
+      "semantic_type": "categorical",
+      "confidence": 1.0,
+      "rationale": "The values are binary (0.0 and 1.0) and the repetition rate is 1.0, suggesting a classification or categorical state.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "ASP_S_n",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 and 1), and the sample values provided (1.0, 0.0) suggest a classification. The mean value is not close to 0.5, indicating a clear distinction between the two states.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "TIKL_S_n",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 and 1), and the sample values provided (0.0, 1.0) suggest a classification. The mean value is very low, indicating a clear distinction between the two states.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "TRENT_S_n",
+      "semantic_type": "categorical",
+      "confidence": 0.95,
+      "rationale": "The values are binary (0 and 1), and the sample values provided (0.0, 1.0) suggest a classification. The mean value is not close to 0.5, indicating a clear distinction between the two states.",
+      "value_function": "classification",
+      "numeric_meaning": "nominal_code",
+      "opaque_name": true,
+      "statistically_ambiguous": true,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 1.0,
+        "observed_unique_count": 2,
+        "all_observed_values_integer_like": true,
+        "ambiguity_basis": "Low-cardinality integer storage is compatible with boolean, categorical, ordinal, or nominal-code meanings."
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": true
+    },
+    {
+      "column_name": "LET_IS",
+      "semantic_type": "text",
+      "confidence": 0.95,
+      "rationale": "The values are strings ('alive', 'cardiogenic_shock', 'myocardial_rupture', 'asystole', 'ventricular_fibrillation'), indicating that they are descriptive in nature and not numeric or categorical in a quantitative sense.",
+      "value_function": "descriptive_attribute",
+      "numeric_meaning": "unknown",
+      "opaque_name": true,
+      "statistically_ambiguous": false,
+      "ambiguity_evidence": {
+        "numeric_conversion_ratio": 0.0,
+        "observed_unique_count": 0,
+        "all_observed_values_integer_like": false,
+        "ambiguity_basis": null
+      },
+      "specific_high_confidence": true,
+      "fabricated_confidence_candidate": false
+    }
+  ],
+  "summary": {
+    "total_columns": 112,
+    "resolved_columns": 112,
+    "batch_failure_count": 0,
+    "specific_high_confidence_count": 112,
+    "opaque_and_statistically_ambiguous_count": 97,
+    "fabricated_confidence_candidate_count": 97,
+    "fabricated_confidence_candidate_columns": [
+      "INF_ANAM",
+      "STENOK_AN",
+      "FK_STENOK",
+      "IBS_POST",
+      "IBS_NASL",
+      "GB",
+      "SIM_GIPERT",
+      "DLIT_AG",
+      "ZSN_A",
+      "nr_11",
+      "nr_01",
+      "nr_02",
+      "nr_03",
+      "nr_04",
+      "nr_07",
+      "nr_08",
+      "np_01",
+      "np_04",
+      "np_05",
+      "np_07",
+      "np_08",
+      "np_09",
+      "np_10",
+      "endocr_01",
+      "endocr_02",
+      "endocr_03",
+      "zab_leg_01",
+      "zab_leg_02",
+      "zab_leg_03",
+      "zab_leg_04",
+      "zab_leg_06",
+      "O_L_POST",
+      "K_SH_POST",
+      "MP_TP_POST",
+      "SVT_POST",
+      "GT_POST",
+      "FIB_G_POST",
+      "ant_im",
+      "lat_im",
+      "inf_im",
+      "post_im",
+      "IM_PG_P",
+      "ritm_ecg_p_01",
+      "ritm_ecg_p_02",
+      "ritm_ecg_p_04",
+      "ritm_ecg_p_06",
+      "ritm_ecg_p_07",
+      "ritm_ecg_p_08",
+      "n_r_ecg_p_01",
+      "n_r_ecg_p_02",
+      "n_r_ecg_p_03",
+      "n_r_ecg_p_04",
+      "n_r_ecg_p_05",
+      "n_r_ecg_p_06",
+      "n_r_ecg_p_08",
+      "n_r_ecg_p_09",
+      "n_r_ecg_p_10",
+      "n_p_ecg_p_01",
+      "n_p_ecg_p_03",
+      "n_p_ecg_p_04",
+      "n_p_ecg_p_05",
+      "n_p_ecg_p_06",
+      "n_p_ecg_p_07",
+      "n_p_ecg_p_08",
+      "n_p_ecg_p_09",
+      "n_p_ecg_p_10",
+      "n_p_ecg_p_11",
+      "n_p_ecg_p_12",
+      "fibr_ter_01",
+      "fibr_ter_02",
+      "fibr_ter_03",
+      "fibr_ter_05",
+      "fibr_ter_06",
+      "fibr_ter_07",
+      "fibr_ter_08",
+      "GIPO_K",
+      "GIPER_NA",
+      "R_AB_1_n",
+      "R_AB_2_n",
+      "R_AB_3_n",
+      "NA_KB",
+      "NOT_NA_KB",
+      "LID_KB",
+      "NITR_S",
+      "NA_R_1_n",
+      "NA_R_2_n",
+      "NA_R_3_n",
+      "NOT_NA_1_n",
+      "NOT_NA_2_n",
+      "NOT_NA_3_n",
+      "LID_S_n",
+      "B_BLOK_S_n",
+      "ANT_CA_S_n",
+      "GEPAR_S_n",
+      "ASP_S_n",
+      "TIKL_S_n",
+      "TRENT_S_n"
+    ]
+  },
+  "columns_completed": 112,
+  "elapsed_seconds": 3376.592,
+  "completed_at": "2026-09-10T11:57:25+00:00"
+}

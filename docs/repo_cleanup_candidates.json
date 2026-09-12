@@ -1,0 +1,598 @@
+{
+  "keep_active": [
+    {
+      "path": "pipelines/pipeline1_cleaning/**/*.py",
+      "file_count": 33,
+      "exclusions": [
+        "pipelines/pipeline1_cleaning/semantics/column_understanding.py",
+        "pipelines/pipeline1_cleaning/semantics/role_resolver.py",
+        "**/__pycache__/**"
+      ],
+      "git_status": "31 tracked; pipeline.py tracked-modified; contradiction_guard.py untracked",
+      "reason": "Frozen Pipeline 1 runtime, imported directly or transitively from run_pipeline1."
+    },
+    {
+      "path": "intelligence/{llm,rag}/**/*.py",
+      "file_count": 11,
+      "exclusions": ["mock_provider.py", "mock_retriever.py", "**/__pycache__/**"],
+      "git_status": "tracked",
+      "reason": "Production Ollama provider, embedding, knowledge loading/chunking, vector store, and RAG retrieval dependencies."
+    },
+    {
+      "path": "knowledge_base/**/*.md",
+      "file_count": 87,
+      "exclusions": ["README.md", "MANIFEST.md", "KNOWLEDGE_SCHEMA.md", "sources/README.md"],
+      "git_status": "tracked",
+      "reason": "Indexed at runtime by the production RAG retriever."
+    },
+    {
+      "path": "Pipeline 2 active source set",
+      "file_count": 3,
+      "paths": [
+        "benchmarks/tabarena/pipeline2_groundwork.py",
+        "pipelines/pipeline2_prediction/__init__.py",
+        "pipelines/pipeline2_prediction/models/random_forest/"
+      ],
+      "git_status": "groundwork untracked; prediction files tracked",
+      "reason": "Current TabArena groundwork and the only implemented Pipeline 2 candidate model."
+    },
+    {
+      "path": "frontend runtime files",
+      "file_count": 6,
+      "paths": [
+        "frontend/index.html",
+        "frontend/main.js",
+        "frontend/datasets.js",
+        "frontend/reportAdapter.js",
+        "frontend/style.css",
+        "frontend/assets/ChatGPT Image Sep 7, 2026, 01_16_53 PM.png"
+      ],
+      "git_status": "tracked",
+      "reason": "Current static Pipeline 1 report dashboard; datasets.js reads multidomain result reports."
+    },
+    {
+      "path": "Frozen architecture documentation",
+      "file_count": 3,
+      "paths": [
+        "pipelines/pipeline1_cleaning/FROZEN.md",
+        "docs/research/pipeline1_frozen_system_architecture.md",
+        "docs/research/pipeline1_architecture_figure_spec.md"
+      ],
+      "git_status": "untracked",
+      "reason": "Current freeze marker and paper architecture specifications."
+    }
+  ],
+  "keep_tests": [
+    {
+      "path": "Automated Python and frontend regression tests",
+      "file_count": 15,
+      "paths": [
+        "tests/integration/test_pipeline1_vertical_slice.py",
+        "tests/pipeline2/test_groundwork.py",
+        "tests/pipeline2/test_semantic_confidence_auditor.py",
+        "tests/unit/test_batched_semantic_analyzer.py",
+        "tests/unit/test_benchmark_v001.py",
+        "tests/unit/test_cleaning_decision_engine.py",
+        "tests/unit/test_coerce_dtype.py",
+        "tests/unit/test_column_semantic_contract.py",
+        "tests/unit/test_impute_missing.py",
+        "tests/unit/test_issue_detector.py",
+        "tests/unit/test_parse_dates.py",
+        "tests/unit/test_pipeline1_vertical_slice.py",
+        "tests/unit/test_role_resolver.py",
+        "tests/unit/test_semantic_contradiction_guard.py",
+        "frontend/tests/reportAdapter.test.js"
+      ],
+      "git_status": "12 tracked; 3 new Pipeline 2/guard tests untracked",
+      "reason": "Runnable regression, contract, safety, benchmark, and report-adapter coverage."
+    },
+    {
+      "path": "tests/datasets/{valid,invalid}/**",
+      "file_count": 17,
+      "exclusions": ["tests/datasets/.gitkeep"],
+      "git_status": "tracked",
+      "reason": "Pipeline fixtures and the 13-dataset multidomain corpus; retain despite size."
+    },
+    {
+      "path": "intelligence/{llm/mock_provider.py,rag/mock_retriever.py}",
+      "file_count": 2,
+      "git_status": "tracked",
+      "reason": "Deterministic test doubles used by semantic tests."
+    },
+    {
+      "path": "tests/__init__.py",
+      "file_count": 1,
+      "git_status": "tracked",
+      "reason": "Supports package-style unittest invocation."
+    }
+  ],
+  "keep_research": [
+    {
+      "path": "Architecture A semantic implementation",
+      "file_count": 2,
+      "paths": [
+        "pipelines/pipeline1_cleaning/semantics/column_understanding.py",
+        "pipelines/pipeline1_cleaning/semantics/role_resolver.py"
+      ],
+      "git_status": "tracked",
+      "reason": "Inactive in frozen production but directly used by historical Benchmark V001 and research tests."
+    },
+    {
+      "path": "benchmarks/pipeline1_semantics generated evidence",
+      "file_count": 31,
+      "git_status": "tracked",
+      "reason": "Six benchmark result sets plus the prompt-cache diagnostic result; paper/reproducibility evidence."
+    },
+    {
+      "path": "tests/pipeline1_multidomain/{results,results_v001_baseline}/**",
+      "file_count": 90,
+      "git_status": "tracked",
+      "reason": "Two byte-identical 45-file result trees. Retain pending deliberate canonicalization because the runner resumes from results/ and the dashboard reads it."
+    },
+    {
+      "path": "tests/integration/*output*/** excluding 12 duplicate cleaned CSVs",
+      "file_count": 15,
+      "git_status": "tracked",
+      "reason": "Historical cleaning reports and live audits retain behavior and validator evidence."
+    },
+    {
+      "path": "tests/integration/diagnostics/**",
+      "file_count": 13,
+      "git_status": "11 tracked; 2 untracked GPU diagnostics",
+      "reason": "Missing-value prompt, timeout, rejection, and model-comparison evidence."
+    },
+    {
+      "path": "tests/integration/semantic_understanding_results.json",
+      "file_count": 1,
+      "git_status": "tracked",
+      "reason": "Architecture A cross-dataset semantic result evidence."
+    },
+    {
+      "path": "benchmarks/tabarena/model_inventory.json",
+      "file_count": 1,
+      "git_status": "untracked",
+      "reason": "Documents the current Pipeline 2 model-inventory gap (one of six candidates found)."
+    },
+    {
+      "path": "MIC low-signal and Task-B evidence",
+      "file_count": 5,
+      "paths": [
+        "benchmarks/tabarena/pipeline2_artifacts/low_signal_mic_qwen25_7b.csv",
+        "benchmarks/tabarena/pipeline2_artifacts/low_signal_mic_qwen25_7b.json",
+        "benchmarks/tabarena/pipeline2_artifacts/low_signal_mic_semantic_confidence_audit.csv",
+        "benchmarks/tabarena/pipeline2_artifacts/low_signal_mic_semantic_confidence_audit.json",
+        "benchmarks/tabarena/pipeline2_artifacts/task_b_summary.json"
+      ],
+      "git_status": "untracked",
+      "reason": "Citable evidence for the 97/112 calibration finding and final contradiction guard."
+    },
+    {
+      "path": "Architecture A live/manual semantic runners",
+      "file_count": 4,
+      "paths": [
+        "tests/integration/test_all_semantic_understanding.py",
+        "tests/integration/test_column_understanding.py",
+        "tests/integration/test_column_understanding_order_id.py",
+        "tests/integration/test_dataset_understanding.py"
+      ],
+      "git_status": "tracked",
+      "reason": "Not production tests, but preserve the earlier semantic architecture and experiment method."
+    }
+  ],
+  "keep_tooling": [
+    {
+      "path": "Root reproducibility/configuration files",
+      "file_count": 4,
+      "paths": [".gitignore", ".env.example", "README.md", "requirements.txt"],
+      "git_status": "tracked",
+      "reason": "Repository configuration and setup surfaces; requirements.txt is incomplete and needs later review, not deletion."
+    },
+    {
+      "path": "Pipeline 1 benchmark runners",
+      "file_count": 2,
+      "paths": [
+        "benchmarks/pipeline1_semantics/run_benchmark_v001.py",
+        "benchmarks/pipeline1_semantics/ollama_prompt_cache_diagnostic.py"
+      ],
+      "git_status": "tracked",
+      "reason": "Reproduces the Architecture A baseline and cache experiment."
+    },
+    {
+      "path": "TabArena acquisition and calibration utilities",
+      "file_count": 5,
+      "paths": [
+        "benchmarks/tabarena/check_missing_tasks.py",
+        "benchmarks/tabarena/download_missing.py",
+        "benchmarks/tabarena/download_tabarena.py",
+        "benchmarks/tabarena/run_low_signal_semantic_calibration.py",
+        "benchmarks/tabarena/semantic_confidence_auditor.py"
+      ],
+      "git_status": "3 tracked; 2 untracked",
+      "reason": "Dataset verification/download and reproducible MIC diagnostic/audit tooling."
+    },
+    {
+      "path": "benchmarks/tabarena/pipeline2_artifacts/model_run_log_schema.json",
+      "file_count": 1,
+      "git_status": "untracked",
+      "reason": "Defines the auditable Pipeline 2 result-log contract."
+    },
+    {
+      "path": "tests/pipeline1_multidomain runner and consolidator",
+      "file_count": 2,
+      "git_status": "tracked",
+      "reason": "Runs and consolidates the 13-domain Pipeline 1 experiment."
+    },
+    {
+      "path": "Missing/date/numeric live diagnostic helpers",
+      "file_count": 5,
+      "paths": [
+        "tests/integration/build_validator_rejection_evidence.py",
+        "tests/integration/run_coerce_dtype_live.py",
+        "tests/integration/run_impute_missing_live.py",
+        "tests/integration/run_missing_value_tier2_reasoning_live.py",
+        "tests/integration/run_parse_dates_live.py"
+      ],
+      "git_status": "tracked",
+      "reason": "Manual reproducibility tools for safety evidence, correctly treated as runners rather than automated tests."
+    },
+    {
+      "path": "Manual local RAG probes under tests/unit and tests/integration",
+      "file_count": 12,
+      "git_status": "tracked",
+      "reason": "Non-asserting but usable checks for knowledge loading, chunking, embeddings, vector search, retrieval, and Ollama connectivity."
+    },
+    {
+      "path": "pipelines/pipeline2_prediction/README.md",
+      "file_count": 1,
+      "git_status": "tracked",
+      "reason": "Pipeline 2 package documentation."
+    },
+    {
+      "path": "Knowledge-base support documentation",
+      "file_count": 4,
+      "paths": [
+        "knowledge_base/README.md",
+        "knowledge_base/MANIFEST.md",
+        "knowledge_base/KNOWLEDGE_SCHEMA.md",
+        "knowledge_base/sources/README.md"
+      ],
+      "git_status": "tracked",
+      "reason": "Authoring schema, manifest, and provenance guidance; intentionally excluded from runtime indexing."
+    }
+  ],
+  "review": [
+    {
+      "path": "PROJECT_STRUCTURE.md",
+      "type": "file",
+      "file_count": 1,
+      "git_status": "tracked",
+      "why": "Large architecture inventory predates the frozen contradiction guard and current Pipeline 2 groundwork, so it is useful history but misleading as current documentation.",
+      "imports_or_references": "Documents many repository paths; no runtime imports.",
+      "tests": "None consume it.",
+      "docs": "It is itself the old structure document.",
+      "benchmarks": "Documents benchmark paths but is not read by runners.",
+      "research_value": "High as a development snapshot.",
+      "deletion_risk": "MEDIUM",
+      "recommendation": "ARCHIVE"
+    },
+    {
+      "path": "app/**",
+      "type": "folder",
+      "file_count": 3,
+      "git_status": "tracked",
+      "why": "Only a welcome-message stub and empty config; not a Pipeline 1 or Pipeline 2 entry point.",
+      "imports_or_references": "No repository imports found.",
+      "tests": "None found.",
+      "docs": "Listed in PROJECT_STRUCTURE.md.",
+      "benchmarks": "None found.",
+      "research_value": "Low; may reserve a future application boundary.",
+      "deletion_risk": "MEDIUM",
+      "recommendation": "KEEP"
+    },
+    {
+      "path": "api/**",
+      "type": "folder",
+      "file_count": 4,
+      "git_status": "tracked",
+      "why": "Empty package plus three placeholder directories; no implemented API.",
+      "imports_or_references": "No imports found.",
+      "tests": "None found.",
+      "docs": "Listed as planned structure only.",
+      "benchmarks": "None found.",
+      "research_value": "Low; possible future scaffold.",
+      "deletion_risk": "MEDIUM",
+      "recommendation": "KEEP"
+    },
+    {
+      "path": "database/** excluding database/repositories/.gitkeep",
+      "type": "folder",
+      "file_count": 17,
+      "git_status": "tracked",
+      "why": "Dormant SQLAlchemy persistence subsystem; not called by frozen Pipeline 1 or active Pipeline 2 groundwork. Several model files are zero-byte stubs.",
+      "imports_or_references": "Internal imports connect base, connection, three populated models, repositories, and create_tables.",
+      "tests": "test_dataset_registration.py and test_profile_storage.py import it.",
+      "docs": "PROJECT_STRUCTURE.md describes it.",
+      "benchmarks": "No references found.",
+      "research_value": "Potential persistence prototype.",
+      "deletion_risk": "HIGH",
+      "recommendation": "ARCHIVE"
+    },
+    {
+      "path": "mcp/**",
+      "type": "folder",
+      "file_count": 9,
+      "git_status": "tracked",
+      "why": "Zero-byte packages and five placeholder server directories; no implementation.",
+      "imports_or_references": "No imports found.",
+      "tests": "None found.",
+      "docs": "Listed as planned structure only.",
+      "benchmarks": "None found.",
+      "research_value": "Possible future integration scaffold.",
+      "deletion_risk": "MEDIUM",
+      "recommendation": "KEEP"
+    },
+    {
+      "path": "security/**",
+      "type": "folder",
+      "file_count": 6,
+      "git_status": "tracked",
+      "why": "Empty package and placeholder subdirectories; production safety is implemented elsewhere.",
+      "imports_or_references": "No imports found.",
+      "tests": "None found.",
+      "docs": "Listed as planned structure only.",
+      "benchmarks": "None found.",
+      "research_value": "Possible future scaffold; name alone does not make it active.",
+      "deletion_risk": "MEDIUM",
+      "recommendation": "KEEP"
+    },
+    {
+      "path": "shared/**",
+      "type": "folder",
+      "file_count": 5,
+      "git_status": "tracked",
+      "why": "All five Python files are zero-byte and have no consumers.",
+      "imports_or_references": "No imports found.",
+      "tests": "None found.",
+      "docs": "Listed as shared infrastructure in PROJECT_STRUCTURE.md.",
+      "benchmarks": "None found.",
+      "research_value": "Low; possible namespace reservation.",
+      "deletion_risk": "MEDIUM",
+      "recommendation": "KEEP"
+    },
+    {
+      "path": "storage/**",
+      "type": "folder",
+      "file_count": 4,
+      "git_status": "tracked",
+      "why": "Four empty placeholder directories; production writes to caller-supplied output paths instead.",
+      "imports_or_references": "No code references found.",
+      "tests": "None found.",
+      "docs": "Listed in PROJECT_STRUCTURE.md.",
+      "benchmarks": "None found.",
+      "research_value": "Potential future layout only.",
+      "deletion_risk": "MEDIUM",
+      "recommendation": "KEEP"
+    },
+    {
+      "path": "pipelines/pipeline1_cleaning/techniques/{categorical,duplicates,inconsistencies,missing_values,outliers,text_cleaning,type_conversion}/.gitkeep",
+      "type": "files/folders",
+      "file_count": 7,
+      "git_status": "tracked",
+      "why": "Empty earlier technique taxonomy superseded by implemented top-level modules and action_registry.py.",
+      "imports_or_references": "No imports or path references found.",
+      "tests": "Tests import top-level date_parsing.py, numeric_coercion.py, missing_values.py, and registry handlers instead.",
+      "docs": "PROJECT_STRUCTURE.md still depicts the old taxonomy.",
+      "benchmarks": "None found.",
+      "research_value": "Shows original planned architecture.",
+      "deletion_risk": "MEDIUM",
+      "recommendation": "ARCHIVE"
+    },
+    {
+      "path": "intelligence/llm/prompts/.gitkeep",
+      "type": "file/folder",
+      "file_count": 1,
+      "git_status": "tracked",
+      "why": "Empty prompt directory; production prompts are inline in semantic and decision modules.",
+      "imports_or_references": "No path references found.",
+      "tests": "None found.",
+      "docs": "Planned structure only.",
+      "benchmarks": "None found.",
+      "research_value": "Low scaffold value.",
+      "deletion_risk": "LOW",
+      "recommendation": "ARCHIVE"
+    },
+    {
+      "path": "docs/{architecture,database,pipeline1,pipeline2,pipeline3}/.gitkeep",
+      "type": "files/folders",
+      "file_count": 5,
+      "git_status": "tracked",
+      "why": "Empty documentation placeholders; current detailed documents are in docs/research.",
+      "imports_or_references": "No references found.",
+      "tests": "None found.",
+      "docs": "Only placeholders.",
+      "benchmarks": "None found.",
+      "research_value": "May reserve an intended documentation taxonomy.",
+      "deletion_risk": "LOW",
+      "recommendation": "KEEP"
+    },
+    {
+      "path": "pipelines/pipeline3_results/**",
+      "type": "folder",
+      "file_count": 2,
+      "git_status": "tracked",
+      "why": "Empty package plus placeholder README; outside current Pipeline 1 and Pipeline 2 work.",
+      "imports_or_references": "No imports found.",
+      "tests": "None found.",
+      "docs": "Listed as future pipeline.",
+      "benchmarks": "None found.",
+      "research_value": "Future architecture placeholder.",
+      "deletion_risk": "MEDIUM",
+      "recommendation": "KEEP"
+    },
+    {
+      "path": "Manual or environment-bound scripts incorrectly named as tests",
+      "type": "files",
+      "file_count": 8,
+      "paths": [
+        "tests/integration/test_dataset_registration.py",
+        "tests/integration/test_profile_storage.py",
+        "tests/pipeline2/test_random_forest.py",
+        "tests/unit/test_column_profiler.py",
+        "tests/unit/test_column_understanding.py",
+        "tests/unit/test_dataset_profiler.py",
+        "tests/unit/test_semantic_evidence.py",
+        "tests/unit/test_semantic_retrieval.py"
+      ],
+      "git_status": "tracked",
+      "why": "No unittest test cases; two database scripts require external state, one is interactive, and five hard-code a missing G:\\My Drive path.",
+      "imports_or_references": "They import database, Pipeline 2 Random Forest, profiling, Architecture A semantics, or RAG mocks.",
+      "tests": "These are runners, not reliable automated tests.",
+      "docs": "Some are listed in PROJECT_STRUCTURE.md.",
+      "benchmarks": "No runner imports them.",
+      "research_value": "Medium for manual experiments; low as test-suite coverage.",
+      "deletion_risk": "MEDIUM",
+      "recommendation": "ARCHIVE"
+    },
+    {
+      "path": "intelligence/schemas/__init__.py",
+      "type": "file",
+      "file_count": 1,
+      "git_status": "tracked",
+      "why": "Zero-byte package not imported; active schemas live under Pipeline 1 semantics and decisions.",
+      "imports_or_references": "No imports found.",
+      "tests": "None found.",
+      "docs": "Listed as planned shared schema namespace.",
+      "benchmarks": "None found.",
+      "research_value": "Possible future package boundary.",
+      "deletion_risk": "MEDIUM",
+      "recommendation": "KEEP"
+    }
+  ],
+  "delete_candidates": [
+    {
+      "path": "12 byte-duplicate integration cleaned_dataset.csv files",
+      "type": "files",
+      "file_count": 12,
+      "paths": [
+        "tests/integration/pipeline1_architecture_b_pizza_output/cleaned_dataset.csv",
+        "tests/integration/pipeline1_architecture_b_pizza_output_v2/cleaned_dataset.csv",
+        "tests/integration/pipeline1_architecture_b_pizza_output_v3/cleaned_dataset.csv",
+        "tests/integration/pipeline1_categorical_normalization_business_output/cleaned_dataset.csv",
+        "tests/integration/pipeline1_coerce_dtype_business_output/cleaned_dataset.csv",
+        "tests/integration/pipeline1_impute_missing_business_output/cleaned_dataset.csv",
+        "tests/integration/pipeline1_parse_dates_business_output/cleaned_dataset.csv",
+        "tests/integration/pipeline1_trim_whitespace_business_output/cleaned_dataset.csv",
+        "tests/integration/pipeline1_decision_engine_business_output/cleaned_dataset.csv",
+        "tests/integration/pipeline1_decision_engine_business_repair_output/cleaned_dataset.csv",
+        "tests/integration/pipeline1_issue_detection_output/cleaned_dataset.csv",
+        "tests/integration/pipeline1_vertical_slice_output/cleaned_dataset.csv"
+      ],
+      "git_status": "tracked",
+      "why": "Three SHA-256 duplicate groups (3, 5, and 4 copies); original fixture datasets remain available and paired reports retain the substantive evidence.",
+      "imports_or_references": "No code opens these files; paired reports contain historical output-path strings.",
+      "tests": "No automated test reads them.",
+      "docs": "PROJECT_STRUCTURE.md generically mentions generated cleaned CSVs.",
+      "benchmarks": "No references found.",
+      "research_value": "Low beyond confirming no-op/equivalent output; hashes can be recorded before removal.",
+      "deletion_risk": "LOW",
+      "recommendation": "DELETE"
+    },
+    {
+      "path": "Redundant .gitkeep files in already non-empty directory trees",
+      "type": "files",
+      "file_count": 9,
+      "paths": [
+        "database/repositories/.gitkeep",
+        "intelligence/schemas/.gitkeep",
+        "knowledge_base/cleaning_methods/.gitkeep",
+        "knowledge_base/data_quality/.gitkeep",
+        "knowledge_base/domains/.gitkeep",
+        "knowledge_base/sources/.gitkeep",
+        "tests/datasets/.gitkeep",
+        "tests/integration/.gitkeep",
+        "tests/unit/.gitkeep"
+      ],
+      "git_status": "tracked",
+      "why": "Each parent/tree already contains tracked files, so the placeholder no longer preserves an otherwise empty directory.",
+      "imports_or_references": "No references found.",
+      "tests": "None found.",
+      "docs": "No functional documentation dependency.",
+      "benchmarks": "None found.",
+      "research_value": "None.",
+      "deletion_risk": "LOW",
+      "recommendation": "DELETE"
+    },
+    {
+      "path": "Unreferenced invalid-format sample files",
+      "type": "files",
+      "file_count": 2,
+      "paths": [
+        "tests/datasets/invalid/lab DM (Copy).pdf",
+        "tests/datasets/invalid/test.txt"
+      ],
+      "git_status": "tracked",
+      "why": "No file-validation test or repository script references either path; the PDF also has copy-style naming.",
+      "imports_or_references": "No textual references found.",
+      "tests": "No test consumes them.",
+      "docs": "No path-specific reference found.",
+      "benchmarks": "None found.",
+      "research_value": "Low; generic invalid-extension fixtures are trivial to recreate.",
+      "deletion_risk": "LOW",
+      "recommendation": "DELETE"
+    }
+  ],
+  "generated_or_ignore": [
+    {
+      "path": "**/__pycache__/** and **/*.pyc",
+      "type": "10 folders / 31 files",
+      "file_count": 31,
+      "git_status": "ignored",
+      "why": "Interpreter caches; fully reproducible and already covered by .gitignore.",
+      "imports_or_references": "Runtime regeneration only; no source references.",
+      "tests": "None.",
+      "docs": "None.",
+      "benchmarks": "None.",
+      "research_value": "None.",
+      "deletion_risk": "LOW",
+      "recommendation": "DELETE"
+    },
+    {
+      "path": "benchmarks/tabarena/datasets/",
+      "type": "folder",
+      "file_count": 53,
+      "git_status": "ignored",
+      "why": "Downloaded OpenML/TabArena CSV corpus and local metadata, approximately 265 MB; correctly excluded by .gitignore.",
+      "imports_or_references": "pipeline2_groundwork.py, downloader/check utilities, MIC calibration, and guard tests read files here.",
+      "tests": "test_semantic_contradiction_guard.py reads MIC.csv.",
+      "docs": "No versioning requirement found.",
+      "benchmarks": "Required locally for the 51-dataset semantic sweep and groundwork feature extraction.",
+      "research_value": "Inputs are reproducible from OpenML; local hashes/manifests carry provenance.",
+      "deletion_risk": "HIGH",
+      "recommendation": "GITIGNORE"
+    },
+    {
+      "path": "Regenerable Pipeline 2 state/checkpoint artifacts",
+      "type": "files/folder",
+      "file_count": 8,
+      "paths": [
+        "benchmarks/tabarena/pipeline2_artifacts/dataset_manifest.csv",
+        "benchmarks/tabarena/pipeline2_artifacts/dataset_manifest.json",
+        "benchmarks/tabarena/pipeline2_artifacts/dataset_sync.json",
+        "benchmarks/tabarena/pipeline2_artifacts/groundwork_summary.json",
+        "benchmarks/tabarena/pipeline2_artifacts/model_run_log.csv",
+        "benchmarks/tabarena/pipeline2_artifacts/semantic_run_status.json",
+        "benchmarks/tabarena/pipeline2_artifacts/statistical_meta_features.json",
+        "benchmarks/tabarena/pipeline2_artifacts/semantic_profiles/task_363621.json"
+      ],
+      "git_status": "untracked, not currently ignored",
+      "why": "Generated by active groundwork; includes resumable state and one semantic-profile checkpoint.",
+      "imports_or_references": "Fixed output paths are defined and read by pipeline2_groundwork.py.",
+      "tests": "Groundwork tests validate producers, not these exact files.",
+      "docs": "No stable documentation dependency found.",
+      "benchmarks": "Checkpoint/status files prevent expensive reruns; manifests and features support reproducibility.",
+      "research_value": "Medium; final manifests/features may deserve an archived release, but mutable run state should not be versioned.",
+      "deletion_risk": "MEDIUM",
+      "recommendation": "GITIGNORE"
+    }
+  ]
+}

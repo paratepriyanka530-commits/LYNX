@@ -1,0 +1,113 @@
+column_name,semantic_type,confidence,rationale,opaque_name,statistically_ambiguous,fabricated_confidence_candidate
+AGE,numeric_measurement,1.0,"The column contains numeric values representing ages, which are quantitative magnitudes. The distribution of values and the presence of a mean and median support this interpretation.",False,False,False
+SEX,categorical,1.0,The column contains two unique numeric values (0 and 1) that are commonly used to represent binary categories such as sex. The repetition rate of 1.0 and the presence of a mean and median support this interpretation.,False,True,False
+INF_ANAM,numeric_measurement,1.0,"The column contains numeric values with a range and statistical measures, indicating it likely represents a quantitative measurement or score.",True,True,True
+STENOK_AN,numeric_measurement,1.0,"The column contains numeric values with a range and statistical measures, indicating it likely represents a quantitative measurement or score.",True,True,True
+FK_STENOK,numeric_measurement,1.0,"The column contains numeric values with a range and statistical measures, indicating it likely represents a quantitative measurement or score.",True,True,True
+IBS_POST,numeric_measurement,1.0,"The column contains numeric values with a range and statistical measures, indicating it likely represents a quantitative measurement or score.",True,True,True
+IBS_NASL,categorical,1.0,The column contains two unique numeric values (0 and 1) that are commonly used to represent binary categories. The repetition rate of 1.0 and the presence of a mean and median support this interpretation.,True,True,True
+GB,numeric_measurement,1.0,"The column contains numeric values with a range and statistical measures, indicating it likely represents a quantitative measurement or score.",True,True,True
+SIM_GIPERT,categorical,1.0,The column contains two unique numeric values (0 and 1) that are commonly used to represent binary categories. The repetition rate of 1.0 and the presence of a mean and median support this interpretation.,True,True,True
+DLIT_AG,numeric_measurement,1.0,"The column contains numeric values with a range and statistical measures, indicating it likely represents a quantitative measurement or score.",True,True,True
+ZSN_A,numeric_measurement,1.0,"The column contains numeric values with a range and statistical measures, indicating it likely represents a quantitative measurement or score.",True,True,True
+nr_11,categorical,1.0,The column contains two unique numeric values (0 and 1) that are commonly used to represent binary categories. The repetition rate of 1.0 and the presence of a mean and median support this interpretation.,True,True,True
+nr_01,categorical,0.95,"The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",True,True,True
+nr_02,categorical,0.95,"The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",True,True,True
+nr_03,categorical,0.95,"The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",True,True,True
+nr_04,categorical,0.95,"The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",True,True,True
+nr_07,categorical,0.95,"The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",True,True,True
+nr_08,categorical,0.95,"The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",True,True,True
+np_01,categorical,0.95,"The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",True,True,True
+np_04,categorical,0.95,"The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",True,True,True
+np_05,categorical,0.95,"The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",True,True,True
+np_07,categorical,0.95,"The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",True,True,True
+np_08,categorical,0.95,"The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",True,True,True
+np_09,categorical,0.95,"The values are binary (0 or 1) and the repetition rate is 1.0, indicating a classification or categorical nature.",True,True,True
+np_10,categorical,1.0,"The values are binary (0 or 1) and the sample shows repetition, suggesting a classification or categorical state.",True,True,True
+endocr_01,categorical,1.0,"The values are binary (0 or 1) and the sample shows repetition, suggesting a classification or categorical state.",True,True,True
+endocr_02,categorical,1.0,"The values are binary (0 or 1) and the sample shows repetition, suggesting a classification or categorical state.",True,True,True
+endocr_03,categorical,1.0,"The values are binary (0 or 1) and the sample shows repetition, suggesting a classification or categorical state.",True,True,True
+zab_leg_01,categorical,1.0,"The values are binary (0 or 1) and the sample shows repetition, suggesting a classification or categorical state.",True,True,True
+zab_leg_02,categorical,1.0,"The values are binary (0 or 1) and the sample shows repetition, suggesting a classification or categorical state.",True,True,True
+zab_leg_03,categorical,1.0,"The values are binary (0 or 1) and the sample shows repetition, suggesting a classification or categorical state.",True,True,True
+zab_leg_04,categorical,1.0,"The values are binary (0 or 1) and the sample shows repetition, suggesting a classification or categorical state.",True,True,True
+zab_leg_06,numeric_measurement,1.0,"The values are numeric and span a range, with a mean and standard deviation, suggesting they represent measurements or quantities.",True,True,True
+S_AD_KBRIG,numeric_measurement,1.0,"The values are numeric and span a range, with a mean and standard deviation, suggesting they represent measurements or quantities.",True,False,False
+D_AD_KBRIG,numeric_measurement,1.0,"The values are numeric and span a range, with a mean and standard deviation, suggesting they represent measurements or quantities.",True,False,False
+S_AD_ORIT,numeric_measurement,1.0,"The values are numeric and span a range, with a mean and standard deviation, suggesting they represent measurements or quantities.",True,False,False
+D_AD_ORIT,numeric_measurement,0.85,"The values are numeric, with a wide range and non-zero mean, suggesting a quantitative measurement. The repetition rate is high, indicating it may be a score or rating.",True,False,False
+O_L_POST,categorical,0.9,"The values are binary (0.0 and 1.0), and the repetition rate is 100%, suggesting it is a classification or state indicator.",True,True,True
+K_SH_POST,categorical,0.9,"The values are binary (0.0 and 1.0), and the repetition rate is 100%, suggesting it is a classification or state indicator.",True,True,True
+MP_TP_POST,categorical,0.9,"The values are binary (0.0 and 1.0), and the repetition rate is 100%, suggesting it is a classification or state indicator.",True,True,True
+SVT_POST,categorical,0.9,"The values are binary (0.0 and 1.0), and the repetition rate is 100%, suggesting it is a classification or state indicator.",True,True,True
+GT_POST,categorical,0.9,"The values are binary (0.0 and 1.0), and the repetition rate is 100%, suggesting it is a classification or state indicator.",True,True,True
+FIB_G_POST,categorical,0.9,"The values are binary (0.0 and 1.0), and the repetition rate is 100%, suggesting it is a classification or state indicator.",True,True,True
+ant_im,categorical,0.85,"The values are numeric but include non-binary values (0.0, 1.0, 2.0, 3.0, 4.0), suggesting it is a classification or state indicator.",True,True,True
+lat_im,categorical,0.85,"The values are numeric but include non-binary values (0.0, 1.0, 2.0, 3.0, 4.0), suggesting it is a classification or state indicator.",True,True,True
+inf_im,categorical,0.85,"The values are numeric but include non-binary values (0.0, 1.0, 2.0, 3.0, 4.0), suggesting it is a classification or state indicator.",True,True,True
+post_im,categorical,0.85,"The values are numeric but include non-binary values (0.0, 1.0, 2.0, 3.0, 4.0), suggesting it is a classification or state indicator.",True,True,True
+IM_PG_P,categorical,0.9,"The values are binary (0.0 and 1.0), and the repetition rate is 100%, suggesting it is a classification or state indicator.",True,True,True
+ritm_ecg_p_01,boolean,1.0,"The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",True,True,True
+ritm_ecg_p_02,boolean,1.0,"The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",True,True,True
+ritm_ecg_p_04,boolean,1.0,"The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",True,True,True
+ritm_ecg_p_06,boolean,1.0,"The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",True,True,True
+ritm_ecg_p_07,boolean,1.0,"The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",True,True,True
+ritm_ecg_p_08,boolean,1.0,"The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",True,True,True
+n_r_ecg_p_01,boolean,1.0,"The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",True,True,True
+n_r_ecg_p_02,boolean,1.0,"The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",True,True,True
+n_r_ecg_p_03,boolean,1.0,"The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",True,True,True
+n_r_ecg_p_04,boolean,1.0,"The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",True,True,True
+n_r_ecg_p_05,boolean,1.0,"The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",True,True,True
+n_r_ecg_p_06,boolean,1.0,"The values are binary (0.0 and 1.0), with a high repetition rate, indicating a classification or state.",True,True,True
+n_r_ecg_p_08,categorical,0.95,The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.,True,True,True
+n_r_ecg_p_09,categorical,0.95,The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.,True,True,True
+n_r_ecg_p_10,categorical,0.95,The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.,True,True,True
+n_p_ecg_p_01,categorical,0.95,The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.,True,True,True
+n_p_ecg_p_03,categorical,0.95,The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.,True,True,True
+n_p_ecg_p_04,categorical,0.95,The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.,True,True,True
+n_p_ecg_p_05,categorical,0.95,The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.,True,True,True
+n_p_ecg_p_06,categorical,0.95,The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.,True,True,True
+n_p_ecg_p_07,categorical,0.95,The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.,True,True,True
+n_p_ecg_p_08,categorical,0.95,The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.,True,True,True
+n_p_ecg_p_09,categorical,0.95,The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.,True,True,True
+n_p_ecg_p_10,categorical,0.95,The values are binary (0 or 1) and the column name suggests a binary classification related to ECG readings.,True,True,True
+n_p_ecg_p_11,categorical,0.95,"The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",True,True,True
+n_p_ecg_p_12,categorical,0.95,"The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",True,True,True
+fibr_ter_01,categorical,0.95,"The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",True,True,True
+fibr_ter_02,categorical,0.95,"The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",True,True,True
+fibr_ter_03,categorical,0.95,"The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",True,True,True
+fibr_ter_05,categorical,0.95,"The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",True,True,True
+fibr_ter_06,categorical,0.95,"The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",True,True,True
+fibr_ter_07,categorical,0.95,"The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",True,True,True
+fibr_ter_08,categorical,0.95,"The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",True,True,True
+GIPO_K,categorical,0.95,"The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",True,True,True
+K_BLOOD,numeric_measurement,0.95,"The values are within a realistic range for blood potassium levels, and the distribution is consistent with a continuous measurement.",False,False,False
+GIPER_NA,categorical,0.95,"The values are binary (0 and 1) and repeated across all rows, suggesting they are categorical labels or states.",True,True,True
+NA_BLOOD,numeric_measurement,1.0,"The values represent continuous quantitative measurements, and the column name suggests a biological measurement.",False,False,False
+ALT_BLOOD,numeric_measurement,1.0,"The values represent continuous quantitative measurements, and the column name suggests a biological measurement.",False,False,False
+AST_BLOOD,numeric_measurement,1.0,"The values represent continuous quantitative measurements, and the column name suggests a biological measurement.",False,False,False
+KFK_BLOOD,numeric_measurement,1.0,"The values represent continuous quantitative measurements, and the column name suggests a biological measurement.",False,False,False
+L_BLOOD,numeric_measurement,1.0,"The values represent continuous quantitative measurements, and the column name suggests a biological measurement.",False,False,False
+ROE,numeric_measurement,1.0,"The values represent continuous quantitative measurements, and the column name suggests a biological measurement.",True,False,False
+TIME_B_S,numeric_measurement,1.0,"The values represent continuous quantitative measurements, and the column name suggests a temporal measurement.",False,True,False
+R_AB_1_n,categorical,1.0,"The values represent discrete states or levels, and the column name suggests a classification.",True,True,True
+R_AB_2_n,categorical,1.0,"The values represent discrete states or levels, and the column name suggests a classification.",True,True,True
+R_AB_3_n,categorical,1.0,"The values represent discrete states or levels, and the column name suggests a classification.",True,True,True
+NA_KB,numeric_measurement,1.0,"The values represent continuous quantitative measurements, and the column name suggests a biological measurement.",True,True,True
+NOT_NA_KB,numeric_measurement,1.0,"The values represent continuous quantitative measurements, and the column name suggests a biological measurement.",True,True,True
+LID_KB,categorical,1.0,"The values are binary (0.0 and 1.0) and the repetition rate is 1.0, suggesting a classification or categorical state.",True,True,True
+NITR_S,categorical,1.0,"The values are binary (0.0 and 1.0) and the repetition rate is 1.0, suggesting a classification or categorical state.",True,True,True
+NA_R_1_n,numeric_measurement,1.0,"The values are numeric and span a range, with a non-zero mean and standard deviation, indicating a magnitude or count.",True,True,True
+NA_R_2_n,numeric_measurement,1.0,"The values are numeric and span a range, with a non-zero mean and standard deviation, indicating a magnitude or count.",True,True,True
+NA_R_3_n,numeric_measurement,1.0,"The values are numeric and span a range, with a non-zero mean and standard deviation, indicating a magnitude or count.",True,True,True
+NOT_NA_1_n,numeric_measurement,1.0,"The values are numeric and span a range, with a non-zero mean and standard deviation, indicating a magnitude or count.",True,True,True
+NOT_NA_2_n,numeric_measurement,1.0,"The values are numeric and span a range, with a non-zero mean and standard deviation, indicating a magnitude or count.",True,True,True
+NOT_NA_3_n,numeric_measurement,1.0,"The values are numeric and span a range, with a non-zero mean and standard deviation, indicating a magnitude or count.",True,True,True
+LID_S_n,categorical,1.0,"The values are binary (0.0 and 1.0) and the repetition rate is 1.0, suggesting a classification or categorical state.",True,True,True
+B_BLOK_S_n,categorical,1.0,"The values are binary (0.0 and 1.0) and the repetition rate is 1.0, suggesting a classification or categorical state.",True,True,True
+ANT_CA_S_n,categorical,1.0,"The values are binary (0.0 and 1.0) and the repetition rate is 1.0, suggesting a classification or categorical state.",True,True,True
+GEPAR_S_n,categorical,1.0,"The values are binary (0.0 and 1.0) and the repetition rate is 1.0, suggesting a classification or categorical state.",True,True,True
+ASP_S_n,categorical,0.95,"The values are binary (0 and 1), and the sample values provided (1.0, 0.0) suggest a classification. The mean value is not close to 0.5, indicating a clear distinction between the two states.",True,True,True
+TIKL_S_n,categorical,0.95,"The values are binary (0 and 1), and the sample values provided (0.0, 1.0) suggest a classification. The mean value is very low, indicating a clear distinction between the two states.",True,True,True
+TRENT_S_n,categorical,0.95,"The values are binary (0 and 1), and the sample values provided (0.0, 1.0) suggest a classification. The mean value is not close to 0.5, indicating a clear distinction between the two states.",True,True,True
+LET_IS,text,0.95,"The values are strings ('alive', 'cardiogenic_shock', 'myocardial_rupture', 'asystole', 'ventricular_fibrillation'), indicating that they are descriptive in nature and not numeric or categorical in a quantitative sense.",True,False,False

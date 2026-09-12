@@ -1,0 +1,46 @@
+{
+  "run_date": "2026-09-09",
+  "model": "qwen2.5:7b",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 3050 A Laptop GPU",
+    "gpu_memory_total_mib": 4094,
+    "gpu_memory_used_after_load_mib": 2269,
+    "competing_compute_processes": [],
+    "ollama_processor_split": {
+      "cpu_percent": 55,
+      "gpu_percent": 45
+    }
+  },
+  "keep_alive": {
+    "requested": "30m",
+    "verified_remaining_after_warmup": "29m"
+  },
+  "warmup": {
+    "wall_seconds": 55.2139125,
+    "load_seconds": 33.840182
+  },
+  "diagnostic": {
+    "case_count": 9,
+    "exact_match_count": 6,
+    "exact_match_rate": 0.6666666667,
+    "accepted_first_response_count": 7,
+    "timeout_count": 0,
+    "provider_error_count": 0,
+    "llm_call_count": 6,
+    "fallback_count": 2,
+    "llm_runtime_seconds": 322.933905,
+    "wall_clock_seconds": 326.935
+  },
+  "cpu_baseline_comparison": {
+    "baseline_exact_match_count": 6,
+    "baseline_case_count": 9,
+    "baseline_wall_clock_seconds_approx": 355,
+    "failure_pattern_changed": false,
+    "observed_failures": [
+      "customer_id protection status cited as affirmative preservation evidence",
+      "transaction_time protection status cited as affirmative preservation evidence",
+      "error_code returned insufficient_evidence instead of flag_for_review"
+    ]
+  },
+  "production_logic_modified": false
+}

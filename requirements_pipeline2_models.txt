@@ -1,0 +1,88 @@
+# Pipeline 2 candidate-model environment snapshot
+# Scanned: 2026-09-09T16:16:20.3598064+05:30
+# Source: installed distribution metadata in CPython 3.13.5 on Windows x64.
+# Includes the recursive, mandatory dependency closure of every implemented model.
+# Environment markers were evaluated for this Windows/Python environment; extras were excluded.
+# No cross-model version conflicts were found.
+# Note: torch 2.11.0+cu128 is the installed CUDA 12.8 build and may require a PyTorch CUDA wheel index.
+# XTab's staged requirements declared numpy 1.22.4, pandas 1.4.4,
+# scikit-learn 1.6.1, and torch 2.8.0. Its artifact loads and predicts in this
+# snapshot, so the older mutually conflicting NumPy/pandas/torch pins are not
+# adopted. The incoming Random Forest artifact was created with scikit-learn
+# 1.9.0/joblib 1.6.0 and is verified separately in that provenance environment.
+# TabICLv2 2.2.0 adds no version conflict: all of its mandatory dependencies
+# were already satisfied. pytabkit FT-Transformer uses the separately installed
+# lazy skorch runtime dependency.
+
+annotated-types==0.6.0  # required by: tabpfn
+aiohappyeyeballs==2.7.1  # required by: pytabkit
+aiohttp==3.14.3  # required by: pytabkit
+aiosignal==1.4.0  # required by: pytabkit
+anyio==4.7.0  # required by: tabpfn
+attrs==26.1.0  # required by: pytabkit
+catboost==1.2.10  # required by: catboost
+certifi==2026.1.4  # required by: tabpfn
+click==8.4.2  # required by: tabpfn
+colorama==0.4.6  # required by: tabpfn
+contourpy==1.3.1  # required by: catboost
+cycler==0.11.0  # required by: catboost
+einops==0.8.2  # required by: tabpfn
+filelock==3.17.0  # required by: tabpfn
+fonttools==4.55.3  # required by: catboost
+fsspec==2025.3.2  # required by: tabpfn
+frozenlist==1.8.0  # required by: pytabkit
+graphviz==0.21  # required by: catboost
+h11==0.16.0  # required by: tabpfn
+hf-xet==1.5.1  # required by: tabpfn
+httpcore==1.0.9  # required by: tabpfn
+httpx==0.28.1  # required by: tabpfn
+huggingface_hub==1.22.0  # required by: tabpfn
+idna==3.7  # required by: tabpfn
+Jinja2==3.1.6  # required by: tabpfn
+joblib==1.4.2  # required by: catboost, lightgbm, random_forest, tabpfn, xgboost
+kiwisolver==1.4.8  # required by: catboost
+lightgbm==4.6.0  # required by: lightgbm, tabpfn
+lightning-utilities==0.15.3  # required by: pytabkit
+MarkupSafe==3.0.2  # required by: tabpfn
+matplotlib==3.10.0  # required by: catboost
+mpmath==1.3.0  # required by: tabpfn
+multidict==6.8.0  # required by: pytabkit
+networkx==3.4.2  # required by: tabpfn
+numpy==2.1.3  # required by: catboost, lightgbm, tabpfn, xtab, xgboost
+packaging==24.2  # required by: catboost, tabpfn
+pandas==2.2.3  # required by: catboost, lightgbm, random_forest, tabpfn, xtab, xgboost
+pillow==11.3.0  # required by: catboost
+plotly==5.24.1  # required by: catboost
+propcache==0.5.2  # required by: pytabkit
+psutil==7.2.2  # required by: pytabkit
+pydantic==2.10.3  # required by: tabpfn
+pydantic_core==2.27.1  # required by: tabpfn
+pydantic-settings==2.15.0  # required by: tabpfn
+pyparsing==3.2.0  # required by: catboost
+python-dateutil==2.9.0.post0  # required by: catboost, lightgbm, tabpfn, xgboost
+python-dotenv==1.1.0  # required by: tabpfn
+pytabkit==1.7.3  # required by: realmlp, tabm
+pytorch-lightning==2.6.6  # required by: pytabkit
+pytz==2024.1  # required by: catboost, lightgbm, tabpfn, xgboost
+PyYAML==6.0.3  # required by: tabpfn
+safetensors==0.8.0  # required by: tabpfn
+scikit-learn==1.6.1  # required by: catboost, lightgbm, random_forest, tabpfn, xtab, xgboost
+scipy==1.15.3  # required by: catboost, lightgbm, tabpfn, xgboost
+setuptools==72.1.0  # required by: tabpfn
+six==1.17.0  # required by: catboost, lightgbm, tabpfn, xgboost
+sniffio==1.3.0  # required by: tabpfn
+skorch==1.4.0  # required by: pytabkit FT-Transformer
+sympy==1.13.3  # required by: tabpfn
+tabicl==2.2.0  # required by: tabiclv2
+tabulate==0.10.0  # required by: skorch
+tabpfn==8.5.0  # required by: tabpfn
+tenacity==9.0.0  # required by: catboost
+threadpoolctl==3.5.0  # required by: catboost, lightgbm, tabpfn, xgboost
+torch==2.11.0+cu128  # required by: tabpfn, xtab
+torchmetrics==1.9.0  # required by: pytabkit
+tqdm==4.67.1  # required by: tabpfn
+typing_extensions==4.12.2  # required by: tabpfn
+typing-inspection==0.4.2  # required by: tabpfn
+tzdata==2025.2  # required by: catboost, lightgbm, tabpfn, xgboost
+xgboost==3.3.0  # required by: xgboost
+yarl==1.24.5  # required by: pytabkit

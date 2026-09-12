@@ -37,6 +37,9 @@ from pipelines.pipeline1_cleaning.quality.quality_report import summarize_issues
 from pipelines.pipeline1_cleaning.semantics.batched_analyzer import (
     analyze_batched_semantics,
 )
+from pipelines.pipeline1_cleaning.semantics.contradiction_guard import (
+    apply_semantic_contradiction_guard,
+)
 from pipelines.pipeline1_cleaning.semantics.evidence_builder import (
     build_dataset_evidence,
 )
@@ -46,6 +49,7 @@ from pipelines.pipeline1_cleaning.validation.post_clean_validator import (
 
 
 PIPELINE_VERSION = "pipeline1_architecture_b_v001"
+PIPELINE_FROZEN_FOR_BENCHMARK = True
 
 
 def _run_default_semantic_analyzer(dataset_profile, dataset_evidence):
@@ -100,6 +104,7 @@ def run_pipeline1(
     dataset_evidence = build_dataset_evidence(before_profile)
     analyzer = semantic_analyzer or _run_default_semantic_analyzer
     semantic_profile = analyzer(before_profile, dataset_evidence)
+    semantic_profile = apply_semantic_contradiction_guard(semantic_profile, original)
     if decision_engine is None:
         issue_decisions, decision_summary, decision_warnings = _run_default_decision_engine(
             detected_issues, semantic_profile, original,

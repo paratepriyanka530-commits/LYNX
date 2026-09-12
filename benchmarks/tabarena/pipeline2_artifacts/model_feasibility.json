@@ -1,0 +1,4595 @@
+{
+  "generated_at": "2026-09-12T14:59:28+00:00",
+  "records": [
+    {
+      "dataset_id": "363612",
+      "dataset_name": "airfoil_self_noise",
+      "model_id": "random_forest",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363612",
+      "dataset_name": "airfoil_self_noise",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by lightgbm"
+    },
+    {
+      "dataset_id": "363612",
+      "dataset_name": "airfoil_self_noise",
+      "model_id": "xgboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by xgboost"
+    },
+    {
+      "dataset_id": "363612",
+      "dataset_name": "airfoil_self_noise",
+      "model_id": "catboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by catboost"
+    },
+    {
+      "dataset_id": "363612",
+      "dataset_name": "airfoil_self_noise",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by tabpfn"
+    },
+    {
+      "dataset_id": "363612",
+      "dataset_name": "airfoil_self_noise",
+      "model_id": "xtab",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363612",
+      "dataset_name": "airfoil_self_noise",
+      "model_id": "realmlp",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363612",
+      "dataset_name": "airfoil_self_noise",
+      "model_id": "tabm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363612",
+      "dataset_name": "airfoil_self_noise",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363612",
+      "dataset_name": "airfoil_self_noise",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363613",
+      "dataset_name": "Amazon_employee_access",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363613",
+      "dataset_name": "Amazon_employee_access",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363613",
+      "dataset_name": "Amazon_employee_access",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363613",
+      "dataset_name": "Amazon_employee_access",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363613",
+      "dataset_name": "Amazon_employee_access",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "training_samples=32769 exceeds 10000"
+    },
+    {
+      "dataset_id": "363613",
+      "dataset_name": "Amazon_employee_access",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363613",
+      "dataset_name": "Amazon_employee_access",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363613",
+      "dataset_name": "Amazon_employee_access",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363613",
+      "dataset_name": "Amazon_employee_access",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363613",
+      "dataset_name": "Amazon_employee_access",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363614",
+      "dataset_name": "anneal",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363614",
+      "dataset_name": "anneal",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=5 exceeds 2"
+    },
+    {
+      "dataset_id": "363614",
+      "dataset_name": "anneal",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=5 exceeds 2"
+    },
+    {
+      "dataset_id": "363614",
+      "dataset_name": "anneal",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=5 exceeds 2"
+    },
+    {
+      "dataset_id": "363614",
+      "dataset_name": "anneal",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363614",
+      "dataset_name": "anneal",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363614",
+      "dataset_name": "anneal",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363614",
+      "dataset_name": "anneal",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363614",
+      "dataset_name": "anneal",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363614",
+      "dataset_name": "anneal",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363615",
+      "dataset_name": "Another-Dataset-on-used-Fiat-500",
+      "model_id": "random_forest",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363615",
+      "dataset_name": "Another-Dataset-on-used-Fiat-500",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by lightgbm"
+    },
+    {
+      "dataset_id": "363615",
+      "dataset_name": "Another-Dataset-on-used-Fiat-500",
+      "model_id": "xgboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by xgboost"
+    },
+    {
+      "dataset_id": "363615",
+      "dataset_name": "Another-Dataset-on-used-Fiat-500",
+      "model_id": "catboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by catboost"
+    },
+    {
+      "dataset_id": "363615",
+      "dataset_name": "Another-Dataset-on-used-Fiat-500",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by tabpfn"
+    },
+    {
+      "dataset_id": "363615",
+      "dataset_name": "Another-Dataset-on-used-Fiat-500",
+      "model_id": "xtab",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363615",
+      "dataset_name": "Another-Dataset-on-used-Fiat-500",
+      "model_id": "realmlp",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363615",
+      "dataset_name": "Another-Dataset-on-used-Fiat-500",
+      "model_id": "tabm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363615",
+      "dataset_name": "Another-Dataset-on-used-Fiat-500",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363615",
+      "dataset_name": "Another-Dataset-on-used-Fiat-500",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363616",
+      "dataset_name": "APSFailure",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363616",
+      "dataset_name": "APSFailure",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363616",
+      "dataset_name": "APSFailure",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363616",
+      "dataset_name": "APSFailure",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363616",
+      "dataset_name": "APSFailure",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "training_samples=76000 exceeds 10000"
+    },
+    {
+      "dataset_id": "363616",
+      "dataset_name": "APSFailure",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363616",
+      "dataset_name": "APSFailure",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363616",
+      "dataset_name": "APSFailure",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363616",
+      "dataset_name": "APSFailure",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363616",
+      "dataset_name": "APSFailure",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363618",
+      "dataset_name": "bank-marketing",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363618",
+      "dataset_name": "bank-marketing",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363618",
+      "dataset_name": "bank-marketing",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363618",
+      "dataset_name": "bank-marketing",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363618",
+      "dataset_name": "bank-marketing",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "training_samples=45211 exceeds 10000"
+    },
+    {
+      "dataset_id": "363618",
+      "dataset_name": "bank-marketing",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363618",
+      "dataset_name": "bank-marketing",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363618",
+      "dataset_name": "bank-marketing",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363618",
+      "dataset_name": "bank-marketing",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363618",
+      "dataset_name": "bank-marketing",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363619",
+      "dataset_name": "Bank_Customer_Churn",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363619",
+      "dataset_name": "Bank_Customer_Churn",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363619",
+      "dataset_name": "Bank_Customer_Churn",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363619",
+      "dataset_name": "Bank_Customer_Churn",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363619",
+      "dataset_name": "Bank_Customer_Churn",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363619",
+      "dataset_name": "Bank_Customer_Churn",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363619",
+      "dataset_name": "Bank_Customer_Churn",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363619",
+      "dataset_name": "Bank_Customer_Churn",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363619",
+      "dataset_name": "Bank_Customer_Churn",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363619",
+      "dataset_name": "Bank_Customer_Churn",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363620",
+      "dataset_name": "Bioresponse",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363620",
+      "dataset_name": "Bioresponse",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363620",
+      "dataset_name": "Bioresponse",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363620",
+      "dataset_name": "Bioresponse",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363620",
+      "dataset_name": "Bioresponse",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "feature_count=1776 exceeds 500"
+    },
+    {
+      "dataset_id": "363620",
+      "dataset_name": "Bioresponse",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363620",
+      "dataset_name": "Bioresponse",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363620",
+      "dataset_name": "Bioresponse",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363620",
+      "dataset_name": "Bioresponse",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363620",
+      "dataset_name": "Bioresponse",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363621",
+      "dataset_name": "blood-transfusion-service-center",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363621",
+      "dataset_name": "blood-transfusion-service-center",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363621",
+      "dataset_name": "blood-transfusion-service-center",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363621",
+      "dataset_name": "blood-transfusion-service-center",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363621",
+      "dataset_name": "blood-transfusion-service-center",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363621",
+      "dataset_name": "blood-transfusion-service-center",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363621",
+      "dataset_name": "blood-transfusion-service-center",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363621",
+      "dataset_name": "blood-transfusion-service-center",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363621",
+      "dataset_name": "blood-transfusion-service-center",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363621",
+      "dataset_name": "blood-transfusion-service-center",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363623",
+      "dataset_name": "churn",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363623",
+      "dataset_name": "churn",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363623",
+      "dataset_name": "churn",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363623",
+      "dataset_name": "churn",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363623",
+      "dataset_name": "churn",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363623",
+      "dataset_name": "churn",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363623",
+      "dataset_name": "churn",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363623",
+      "dataset_name": "churn",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363623",
+      "dataset_name": "churn",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363623",
+      "dataset_name": "churn",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363624",
+      "dataset_name": "coil2000_insurance_policies",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363624",
+      "dataset_name": "coil2000_insurance_policies",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363624",
+      "dataset_name": "coil2000_insurance_policies",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363624",
+      "dataset_name": "coil2000_insurance_policies",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363624",
+      "dataset_name": "coil2000_insurance_policies",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363624",
+      "dataset_name": "coil2000_insurance_policies",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363624",
+      "dataset_name": "coil2000_insurance_policies",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363624",
+      "dataset_name": "coil2000_insurance_policies",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363624",
+      "dataset_name": "coil2000_insurance_policies",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363624",
+      "dataset_name": "coil2000_insurance_policies",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363625",
+      "dataset_name": "concrete_compressive_strength",
+      "model_id": "random_forest",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363625",
+      "dataset_name": "concrete_compressive_strength",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by lightgbm"
+    },
+    {
+      "dataset_id": "363625",
+      "dataset_name": "concrete_compressive_strength",
+      "model_id": "xgboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by xgboost"
+    },
+    {
+      "dataset_id": "363625",
+      "dataset_name": "concrete_compressive_strength",
+      "model_id": "catboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by catboost"
+    },
+    {
+      "dataset_id": "363625",
+      "dataset_name": "concrete_compressive_strength",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by tabpfn"
+    },
+    {
+      "dataset_id": "363625",
+      "dataset_name": "concrete_compressive_strength",
+      "model_id": "xtab",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363625",
+      "dataset_name": "concrete_compressive_strength",
+      "model_id": "realmlp",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363625",
+      "dataset_name": "concrete_compressive_strength",
+      "model_id": "tabm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363625",
+      "dataset_name": "concrete_compressive_strength",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363625",
+      "dataset_name": "concrete_compressive_strength",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363626",
+      "dataset_name": "credit-g",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363626",
+      "dataset_name": "credit-g",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363626",
+      "dataset_name": "credit-g",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363626",
+      "dataset_name": "credit-g",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363626",
+      "dataset_name": "credit-g",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363626",
+      "dataset_name": "credit-g",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363626",
+      "dataset_name": "credit-g",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363626",
+      "dataset_name": "credit-g",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363626",
+      "dataset_name": "credit-g",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363626",
+      "dataset_name": "credit-g",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363627",
+      "dataset_name": "credit_card_clients_default",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363627",
+      "dataset_name": "credit_card_clients_default",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363627",
+      "dataset_name": "credit_card_clients_default",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363627",
+      "dataset_name": "credit_card_clients_default",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363627",
+      "dataset_name": "credit_card_clients_default",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "training_samples=30000 exceeds 10000"
+    },
+    {
+      "dataset_id": "363627",
+      "dataset_name": "credit_card_clients_default",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363627",
+      "dataset_name": "credit_card_clients_default",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363627",
+      "dataset_name": "credit_card_clients_default",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363627",
+      "dataset_name": "credit_card_clients_default",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363627",
+      "dataset_name": "credit_card_clients_default",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363628",
+      "dataset_name": "customer_satisfaction_in_airline",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363628",
+      "dataset_name": "customer_satisfaction_in_airline",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363628",
+      "dataset_name": "customer_satisfaction_in_airline",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363628",
+      "dataset_name": "customer_satisfaction_in_airline",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363628",
+      "dataset_name": "customer_satisfaction_in_airline",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "training_samples=129880 exceeds 10000"
+    },
+    {
+      "dataset_id": "363628",
+      "dataset_name": "customer_satisfaction_in_airline",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363628",
+      "dataset_name": "customer_satisfaction_in_airline",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363628",
+      "dataset_name": "customer_satisfaction_in_airline",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363628",
+      "dataset_name": "customer_satisfaction_in_airline",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363628",
+      "dataset_name": "customer_satisfaction_in_airline",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363629",
+      "dataset_name": "diabetes",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363629",
+      "dataset_name": "diabetes",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363629",
+      "dataset_name": "diabetes",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363629",
+      "dataset_name": "diabetes",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363629",
+      "dataset_name": "diabetes",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363629",
+      "dataset_name": "diabetes",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363629",
+      "dataset_name": "diabetes",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363629",
+      "dataset_name": "diabetes",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363629",
+      "dataset_name": "diabetes",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363629",
+      "dataset_name": "diabetes",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363630",
+      "dataset_name": "Diabetes130US",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363630",
+      "dataset_name": "Diabetes130US",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363630",
+      "dataset_name": "Diabetes130US",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363630",
+      "dataset_name": "Diabetes130US",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363630",
+      "dataset_name": "Diabetes130US",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "training_samples=71518 exceeds 10000"
+    },
+    {
+      "dataset_id": "363630",
+      "dataset_name": "Diabetes130US",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363630",
+      "dataset_name": "Diabetes130US",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363630",
+      "dataset_name": "Diabetes130US",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363630",
+      "dataset_name": "Diabetes130US",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363630",
+      "dataset_name": "Diabetes130US",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363631",
+      "dataset_name": "diamonds",
+      "model_id": "random_forest",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363631",
+      "dataset_name": "diamonds",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by lightgbm"
+    },
+    {
+      "dataset_id": "363631",
+      "dataset_name": "diamonds",
+      "model_id": "xgboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by xgboost"
+    },
+    {
+      "dataset_id": "363631",
+      "dataset_name": "diamonds",
+      "model_id": "catboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by catboost"
+    },
+    {
+      "dataset_id": "363631",
+      "dataset_name": "diamonds",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by tabpfn"
+    },
+    {
+      "dataset_id": "363631",
+      "dataset_name": "diamonds",
+      "model_id": "xtab",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363631",
+      "dataset_name": "diamonds",
+      "model_id": "realmlp",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363631",
+      "dataset_name": "diamonds",
+      "model_id": "tabm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363631",
+      "dataset_name": "diamonds",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363631",
+      "dataset_name": "diamonds",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363632",
+      "dataset_name": "E-CommereShippingData",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363632",
+      "dataset_name": "E-CommereShippingData",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363632",
+      "dataset_name": "E-CommereShippingData",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363632",
+      "dataset_name": "E-CommereShippingData",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363632",
+      "dataset_name": "E-CommereShippingData",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "training_samples=10999 exceeds 10000"
+    },
+    {
+      "dataset_id": "363632",
+      "dataset_name": "E-CommereShippingData",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363632",
+      "dataset_name": "E-CommereShippingData",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363632",
+      "dataset_name": "E-CommereShippingData",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363632",
+      "dataset_name": "E-CommereShippingData",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363632",
+      "dataset_name": "E-CommereShippingData",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363671",
+      "dataset_name": "Fitness_Club",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363671",
+      "dataset_name": "Fitness_Club",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363671",
+      "dataset_name": "Fitness_Club",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363671",
+      "dataset_name": "Fitness_Club",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363671",
+      "dataset_name": "Fitness_Club",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363671",
+      "dataset_name": "Fitness_Club",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363671",
+      "dataset_name": "Fitness_Club",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363671",
+      "dataset_name": "Fitness_Club",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363671",
+      "dataset_name": "Fitness_Club",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363671",
+      "dataset_name": "Fitness_Club",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363672",
+      "dataset_name": "Food_Delivery_Time",
+      "model_id": "random_forest",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363672",
+      "dataset_name": "Food_Delivery_Time",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by lightgbm"
+    },
+    {
+      "dataset_id": "363672",
+      "dataset_name": "Food_Delivery_Time",
+      "model_id": "xgboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by xgboost"
+    },
+    {
+      "dataset_id": "363672",
+      "dataset_name": "Food_Delivery_Time",
+      "model_id": "catboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by catboost"
+    },
+    {
+      "dataset_id": "363672",
+      "dataset_name": "Food_Delivery_Time",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by tabpfn"
+    },
+    {
+      "dataset_id": "363672",
+      "dataset_name": "Food_Delivery_Time",
+      "model_id": "xtab",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363672",
+      "dataset_name": "Food_Delivery_Time",
+      "model_id": "realmlp",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363672",
+      "dataset_name": "Food_Delivery_Time",
+      "model_id": "tabm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363672",
+      "dataset_name": "Food_Delivery_Time",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363672",
+      "dataset_name": "Food_Delivery_Time",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363673",
+      "dataset_name": "GiveMeSomeCredit",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363673",
+      "dataset_name": "GiveMeSomeCredit",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363673",
+      "dataset_name": "GiveMeSomeCredit",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363673",
+      "dataset_name": "GiveMeSomeCredit",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363673",
+      "dataset_name": "GiveMeSomeCredit",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "training_samples=150000 exceeds 10000"
+    },
+    {
+      "dataset_id": "363673",
+      "dataset_name": "GiveMeSomeCredit",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363673",
+      "dataset_name": "GiveMeSomeCredit",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363673",
+      "dataset_name": "GiveMeSomeCredit",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363673",
+      "dataset_name": "GiveMeSomeCredit",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363673",
+      "dataset_name": "GiveMeSomeCredit",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363674",
+      "dataset_name": "hazelnut-spread-contaminant-detection",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363674",
+      "dataset_name": "hazelnut-spread-contaminant-detection",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363674",
+      "dataset_name": "hazelnut-spread-contaminant-detection",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363674",
+      "dataset_name": "hazelnut-spread-contaminant-detection",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363674",
+      "dataset_name": "hazelnut-spread-contaminant-detection",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363674",
+      "dataset_name": "hazelnut-spread-contaminant-detection",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363674",
+      "dataset_name": "hazelnut-spread-contaminant-detection",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363674",
+      "dataset_name": "hazelnut-spread-contaminant-detection",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363674",
+      "dataset_name": "hazelnut-spread-contaminant-detection",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363674",
+      "dataset_name": "hazelnut-spread-contaminant-detection",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363675",
+      "dataset_name": "healthcare_insurance_expenses",
+      "model_id": "random_forest",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363675",
+      "dataset_name": "healthcare_insurance_expenses",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by lightgbm"
+    },
+    {
+      "dataset_id": "363675",
+      "dataset_name": "healthcare_insurance_expenses",
+      "model_id": "xgboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by xgboost"
+    },
+    {
+      "dataset_id": "363675",
+      "dataset_name": "healthcare_insurance_expenses",
+      "model_id": "catboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by catboost"
+    },
+    {
+      "dataset_id": "363675",
+      "dataset_name": "healthcare_insurance_expenses",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by tabpfn"
+    },
+    {
+      "dataset_id": "363675",
+      "dataset_name": "healthcare_insurance_expenses",
+      "model_id": "xtab",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363675",
+      "dataset_name": "healthcare_insurance_expenses",
+      "model_id": "realmlp",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363675",
+      "dataset_name": "healthcare_insurance_expenses",
+      "model_id": "tabm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363675",
+      "dataset_name": "healthcare_insurance_expenses",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363675",
+      "dataset_name": "healthcare_insurance_expenses",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363676",
+      "dataset_name": "heloc",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363676",
+      "dataset_name": "heloc",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363676",
+      "dataset_name": "heloc",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363676",
+      "dataset_name": "heloc",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363676",
+      "dataset_name": "heloc",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "training_samples=10459 exceeds 10000"
+    },
+    {
+      "dataset_id": "363676",
+      "dataset_name": "heloc",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363676",
+      "dataset_name": "heloc",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363676",
+      "dataset_name": "heloc",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363676",
+      "dataset_name": "heloc",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363676",
+      "dataset_name": "heloc",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363677",
+      "dataset_name": "hiva_agnostic",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363677",
+      "dataset_name": "hiva_agnostic",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363677",
+      "dataset_name": "hiva_agnostic",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363677",
+      "dataset_name": "hiva_agnostic",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363677",
+      "dataset_name": "hiva_agnostic",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "feature_count=1617 exceeds 500"
+    },
+    {
+      "dataset_id": "363677",
+      "dataset_name": "hiva_agnostic",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363677",
+      "dataset_name": "hiva_agnostic",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363677",
+      "dataset_name": "hiva_agnostic",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363677",
+      "dataset_name": "hiva_agnostic",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363677",
+      "dataset_name": "hiva_agnostic",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363678",
+      "dataset_name": "houses",
+      "model_id": "random_forest",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363678",
+      "dataset_name": "houses",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by lightgbm"
+    },
+    {
+      "dataset_id": "363678",
+      "dataset_name": "houses",
+      "model_id": "xgboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by xgboost"
+    },
+    {
+      "dataset_id": "363678",
+      "dataset_name": "houses",
+      "model_id": "catboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by catboost"
+    },
+    {
+      "dataset_id": "363678",
+      "dataset_name": "houses",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by tabpfn"
+    },
+    {
+      "dataset_id": "363678",
+      "dataset_name": "houses",
+      "model_id": "xtab",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363678",
+      "dataset_name": "houses",
+      "model_id": "realmlp",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363678",
+      "dataset_name": "houses",
+      "model_id": "tabm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363678",
+      "dataset_name": "houses",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363678",
+      "dataset_name": "houses",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363679",
+      "dataset_name": "HR_Analytics_Job_Change_of_Data_Scientists",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363679",
+      "dataset_name": "HR_Analytics_Job_Change_of_Data_Scientists",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363679",
+      "dataset_name": "HR_Analytics_Job_Change_of_Data_Scientists",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363679",
+      "dataset_name": "HR_Analytics_Job_Change_of_Data_Scientists",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363679",
+      "dataset_name": "HR_Analytics_Job_Change_of_Data_Scientists",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "training_samples=19158 exceeds 10000"
+    },
+    {
+      "dataset_id": "363679",
+      "dataset_name": "HR_Analytics_Job_Change_of_Data_Scientists",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363679",
+      "dataset_name": "HR_Analytics_Job_Change_of_Data_Scientists",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363679",
+      "dataset_name": "HR_Analytics_Job_Change_of_Data_Scientists",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363679",
+      "dataset_name": "HR_Analytics_Job_Change_of_Data_Scientists",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363679",
+      "dataset_name": "HR_Analytics_Job_Change_of_Data_Scientists",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363681",
+      "dataset_name": "in_vehicle_coupon_recommendation",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363681",
+      "dataset_name": "in_vehicle_coupon_recommendation",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363681",
+      "dataset_name": "in_vehicle_coupon_recommendation",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363681",
+      "dataset_name": "in_vehicle_coupon_recommendation",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363681",
+      "dataset_name": "in_vehicle_coupon_recommendation",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "training_samples=12684 exceeds 10000"
+    },
+    {
+      "dataset_id": "363681",
+      "dataset_name": "in_vehicle_coupon_recommendation",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363681",
+      "dataset_name": "in_vehicle_coupon_recommendation",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363681",
+      "dataset_name": "in_vehicle_coupon_recommendation",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363681",
+      "dataset_name": "in_vehicle_coupon_recommendation",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363681",
+      "dataset_name": "in_vehicle_coupon_recommendation",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363682",
+      "dataset_name": "Is-this-a-good-customer",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363682",
+      "dataset_name": "Is-this-a-good-customer",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363682",
+      "dataset_name": "Is-this-a-good-customer",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363682",
+      "dataset_name": "Is-this-a-good-customer",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363682",
+      "dataset_name": "Is-this-a-good-customer",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363682",
+      "dataset_name": "Is-this-a-good-customer",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363682",
+      "dataset_name": "Is-this-a-good-customer",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363682",
+      "dataset_name": "Is-this-a-good-customer",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363682",
+      "dataset_name": "Is-this-a-good-customer",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363682",
+      "dataset_name": "Is-this-a-good-customer",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363683",
+      "dataset_name": "kddcup09_appetency",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363683",
+      "dataset_name": "kddcup09_appetency",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363683",
+      "dataset_name": "kddcup09_appetency",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363683",
+      "dataset_name": "kddcup09_appetency",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363683",
+      "dataset_name": "kddcup09_appetency",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "training_samples=38918 exceeds 10000"
+    },
+    {
+      "dataset_id": "363683",
+      "dataset_name": "kddcup09_appetency",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363683",
+      "dataset_name": "kddcup09_appetency",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363683",
+      "dataset_name": "kddcup09_appetency",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363683",
+      "dataset_name": "kddcup09_appetency",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363683",
+      "dataset_name": "kddcup09_appetency",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363684",
+      "dataset_name": "Marketing_Campaign",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363684",
+      "dataset_name": "Marketing_Campaign",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363684",
+      "dataset_name": "Marketing_Campaign",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363684",
+      "dataset_name": "Marketing_Campaign",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363684",
+      "dataset_name": "Marketing_Campaign",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363684",
+      "dataset_name": "Marketing_Campaign",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363684",
+      "dataset_name": "Marketing_Campaign",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363684",
+      "dataset_name": "Marketing_Campaign",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363684",
+      "dataset_name": "Marketing_Campaign",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363684",
+      "dataset_name": "Marketing_Campaign",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363685",
+      "dataset_name": "maternal_health_risk",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363685",
+      "dataset_name": "maternal_health_risk",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363685",
+      "dataset_name": "maternal_health_risk",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363685",
+      "dataset_name": "maternal_health_risk",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363685",
+      "dataset_name": "maternal_health_risk",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363685",
+      "dataset_name": "maternal_health_risk",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363685",
+      "dataset_name": "maternal_health_risk",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363685",
+      "dataset_name": "maternal_health_risk",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363685",
+      "dataset_name": "maternal_health_risk",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363685",
+      "dataset_name": "maternal_health_risk",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363686",
+      "dataset_name": "miami_housing",
+      "model_id": "random_forest",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363686",
+      "dataset_name": "miami_housing",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by lightgbm"
+    },
+    {
+      "dataset_id": "363686",
+      "dataset_name": "miami_housing",
+      "model_id": "xgboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by xgboost"
+    },
+    {
+      "dataset_id": "363686",
+      "dataset_name": "miami_housing",
+      "model_id": "catboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by catboost"
+    },
+    {
+      "dataset_id": "363686",
+      "dataset_name": "miami_housing",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by tabpfn"
+    },
+    {
+      "dataset_id": "363686",
+      "dataset_name": "miami_housing",
+      "model_id": "xtab",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363686",
+      "dataset_name": "miami_housing",
+      "model_id": "realmlp",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363686",
+      "dataset_name": "miami_housing",
+      "model_id": "tabm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363686",
+      "dataset_name": "miami_housing",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363686",
+      "dataset_name": "miami_housing",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363689",
+      "dataset_name": "NATICUSdroid",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363689",
+      "dataset_name": "NATICUSdroid",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363689",
+      "dataset_name": "NATICUSdroid",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363689",
+      "dataset_name": "NATICUSdroid",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363689",
+      "dataset_name": "NATICUSdroid",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363689",
+      "dataset_name": "NATICUSdroid",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363689",
+      "dataset_name": "NATICUSdroid",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363689",
+      "dataset_name": "NATICUSdroid",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363689",
+      "dataset_name": "NATICUSdroid",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363689",
+      "dataset_name": "NATICUSdroid",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363691",
+      "dataset_name": "online_shoppers_intention",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363691",
+      "dataset_name": "online_shoppers_intention",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363691",
+      "dataset_name": "online_shoppers_intention",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363691",
+      "dataset_name": "online_shoppers_intention",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363691",
+      "dataset_name": "online_shoppers_intention",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "training_samples=12330 exceeds 10000"
+    },
+    {
+      "dataset_id": "363691",
+      "dataset_name": "online_shoppers_intention",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363691",
+      "dataset_name": "online_shoppers_intention",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363691",
+      "dataset_name": "online_shoppers_intention",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363691",
+      "dataset_name": "online_shoppers_intention",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363691",
+      "dataset_name": "online_shoppers_intention",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363693",
+      "dataset_name": "physiochemical_protein",
+      "model_id": "random_forest",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363693",
+      "dataset_name": "physiochemical_protein",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by lightgbm"
+    },
+    {
+      "dataset_id": "363693",
+      "dataset_name": "physiochemical_protein",
+      "model_id": "xgboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by xgboost"
+    },
+    {
+      "dataset_id": "363693",
+      "dataset_name": "physiochemical_protein",
+      "model_id": "catboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by catboost"
+    },
+    {
+      "dataset_id": "363693",
+      "dataset_name": "physiochemical_protein",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by tabpfn"
+    },
+    {
+      "dataset_id": "363693",
+      "dataset_name": "physiochemical_protein",
+      "model_id": "xtab",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363693",
+      "dataset_name": "physiochemical_protein",
+      "model_id": "realmlp",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363693",
+      "dataset_name": "physiochemical_protein",
+      "model_id": "tabm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363693",
+      "dataset_name": "physiochemical_protein",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363693",
+      "dataset_name": "physiochemical_protein",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363694",
+      "dataset_name": "polish_companies_bankruptcy",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363694",
+      "dataset_name": "polish_companies_bankruptcy",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363694",
+      "dataset_name": "polish_companies_bankruptcy",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363694",
+      "dataset_name": "polish_companies_bankruptcy",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363694",
+      "dataset_name": "polish_companies_bankruptcy",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363694",
+      "dataset_name": "polish_companies_bankruptcy",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363694",
+      "dataset_name": "polish_companies_bankruptcy",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363694",
+      "dataset_name": "polish_companies_bankruptcy",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363694",
+      "dataset_name": "polish_companies_bankruptcy",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363694",
+      "dataset_name": "polish_companies_bankruptcy",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363696",
+      "dataset_name": "qsar-biodeg",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363696",
+      "dataset_name": "qsar-biodeg",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363696",
+      "dataset_name": "qsar-biodeg",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363696",
+      "dataset_name": "qsar-biodeg",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363696",
+      "dataset_name": "qsar-biodeg",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363696",
+      "dataset_name": "qsar-biodeg",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363696",
+      "dataset_name": "qsar-biodeg",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363696",
+      "dataset_name": "qsar-biodeg",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363696",
+      "dataset_name": "qsar-biodeg",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363696",
+      "dataset_name": "qsar-biodeg",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363697",
+      "dataset_name": "QSAR-TID-11",
+      "model_id": "random_forest",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363697",
+      "dataset_name": "QSAR-TID-11",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by lightgbm"
+    },
+    {
+      "dataset_id": "363697",
+      "dataset_name": "QSAR-TID-11",
+      "model_id": "xgboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by xgboost"
+    },
+    {
+      "dataset_id": "363697",
+      "dataset_name": "QSAR-TID-11",
+      "model_id": "catboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by catboost"
+    },
+    {
+      "dataset_id": "363697",
+      "dataset_name": "QSAR-TID-11",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by tabpfn"
+    },
+    {
+      "dataset_id": "363697",
+      "dataset_name": "QSAR-TID-11",
+      "model_id": "xtab",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363697",
+      "dataset_name": "QSAR-TID-11",
+      "model_id": "realmlp",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363697",
+      "dataset_name": "QSAR-TID-11",
+      "model_id": "tabm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363697",
+      "dataset_name": "QSAR-TID-11",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363697",
+      "dataset_name": "QSAR-TID-11",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363698",
+      "dataset_name": "QSAR_fish_toxicity",
+      "model_id": "random_forest",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363698",
+      "dataset_name": "QSAR_fish_toxicity",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by lightgbm"
+    },
+    {
+      "dataset_id": "363698",
+      "dataset_name": "QSAR_fish_toxicity",
+      "model_id": "xgboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by xgboost"
+    },
+    {
+      "dataset_id": "363698",
+      "dataset_name": "QSAR_fish_toxicity",
+      "model_id": "catboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by catboost"
+    },
+    {
+      "dataset_id": "363698",
+      "dataset_name": "QSAR_fish_toxicity",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by tabpfn"
+    },
+    {
+      "dataset_id": "363698",
+      "dataset_name": "QSAR_fish_toxicity",
+      "model_id": "xtab",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363698",
+      "dataset_name": "QSAR_fish_toxicity",
+      "model_id": "realmlp",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363698",
+      "dataset_name": "QSAR_fish_toxicity",
+      "model_id": "tabm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363698",
+      "dataset_name": "QSAR_fish_toxicity",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363698",
+      "dataset_name": "QSAR_fish_toxicity",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363699",
+      "dataset_name": "SDSS17",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363699",
+      "dataset_name": "SDSS17",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363699",
+      "dataset_name": "SDSS17",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363699",
+      "dataset_name": "SDSS17",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363699",
+      "dataset_name": "SDSS17",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "training_samples=78053 exceeds 10000"
+    },
+    {
+      "dataset_id": "363699",
+      "dataset_name": "SDSS17",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363699",
+      "dataset_name": "SDSS17",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363699",
+      "dataset_name": "SDSS17",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363699",
+      "dataset_name": "SDSS17",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363699",
+      "dataset_name": "SDSS17",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363700",
+      "dataset_name": "seismic-bumps",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363700",
+      "dataset_name": "seismic-bumps",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363700",
+      "dataset_name": "seismic-bumps",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363700",
+      "dataset_name": "seismic-bumps",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363700",
+      "dataset_name": "seismic-bumps",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363700",
+      "dataset_name": "seismic-bumps",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363700",
+      "dataset_name": "seismic-bumps",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363700",
+      "dataset_name": "seismic-bumps",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363700",
+      "dataset_name": "seismic-bumps",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363700",
+      "dataset_name": "seismic-bumps",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363702",
+      "dataset_name": "splice",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363702",
+      "dataset_name": "splice",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363702",
+      "dataset_name": "splice",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363702",
+      "dataset_name": "splice",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363702",
+      "dataset_name": "splice",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363702",
+      "dataset_name": "splice",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363702",
+      "dataset_name": "splice",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363702",
+      "dataset_name": "splice",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363702",
+      "dataset_name": "splice",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363702",
+      "dataset_name": "splice",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363704",
+      "dataset_name": "students_dropout_and_academic_success",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363704",
+      "dataset_name": "students_dropout_and_academic_success",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363704",
+      "dataset_name": "students_dropout_and_academic_success",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363704",
+      "dataset_name": "students_dropout_and_academic_success",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363704",
+      "dataset_name": "students_dropout_and_academic_success",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363704",
+      "dataset_name": "students_dropout_and_academic_success",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363704",
+      "dataset_name": "students_dropout_and_academic_success",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363704",
+      "dataset_name": "students_dropout_and_academic_success",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363704",
+      "dataset_name": "students_dropout_and_academic_success",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363704",
+      "dataset_name": "students_dropout_and_academic_success",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363705",
+      "dataset_name": "superconductivity",
+      "model_id": "random_forest",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363705",
+      "dataset_name": "superconductivity",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by lightgbm"
+    },
+    {
+      "dataset_id": "363705",
+      "dataset_name": "superconductivity",
+      "model_id": "xgboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by xgboost"
+    },
+    {
+      "dataset_id": "363705",
+      "dataset_name": "superconductivity",
+      "model_id": "catboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by catboost"
+    },
+    {
+      "dataset_id": "363705",
+      "dataset_name": "superconductivity",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by tabpfn"
+    },
+    {
+      "dataset_id": "363705",
+      "dataset_name": "superconductivity",
+      "model_id": "xtab",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363705",
+      "dataset_name": "superconductivity",
+      "model_id": "realmlp",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363705",
+      "dataset_name": "superconductivity",
+      "model_id": "tabm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363705",
+      "dataset_name": "superconductivity",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363705",
+      "dataset_name": "superconductivity",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363706",
+      "dataset_name": "taiwanese_bankruptcy_prediction",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363706",
+      "dataset_name": "taiwanese_bankruptcy_prediction",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363706",
+      "dataset_name": "taiwanese_bankruptcy_prediction",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363706",
+      "dataset_name": "taiwanese_bankruptcy_prediction",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363706",
+      "dataset_name": "taiwanese_bankruptcy_prediction",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363706",
+      "dataset_name": "taiwanese_bankruptcy_prediction",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363706",
+      "dataset_name": "taiwanese_bankruptcy_prediction",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363706",
+      "dataset_name": "taiwanese_bankruptcy_prediction",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363706",
+      "dataset_name": "taiwanese_bankruptcy_prediction",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363706",
+      "dataset_name": "taiwanese_bankruptcy_prediction",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363707",
+      "dataset_name": "website_phishing",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363707",
+      "dataset_name": "website_phishing",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363707",
+      "dataset_name": "website_phishing",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363707",
+      "dataset_name": "website_phishing",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=3 exceeds 2"
+    },
+    {
+      "dataset_id": "363707",
+      "dataset_name": "website_phishing",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363707",
+      "dataset_name": "website_phishing",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363707",
+      "dataset_name": "website_phishing",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363707",
+      "dataset_name": "website_phishing",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363707",
+      "dataset_name": "website_phishing",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363707",
+      "dataset_name": "website_phishing",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363708",
+      "dataset_name": "wine_quality",
+      "model_id": "random_forest",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363708",
+      "dataset_name": "wine_quality",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by lightgbm"
+    },
+    {
+      "dataset_id": "363708",
+      "dataset_name": "wine_quality",
+      "model_id": "xgboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by xgboost"
+    },
+    {
+      "dataset_id": "363708",
+      "dataset_name": "wine_quality",
+      "model_id": "catboost",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by catboost"
+    },
+    {
+      "dataset_id": "363708",
+      "dataset_name": "wine_quality",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Regression",
+      "task_type_supported": false,
+      "feasible": false,
+      "feasibility_reason": "task_type='Supervised Regression' is not supported by tabpfn"
+    },
+    {
+      "dataset_id": "363708",
+      "dataset_name": "wine_quality",
+      "model_id": "xtab",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363708",
+      "dataset_name": "wine_quality",
+      "model_id": "realmlp",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363708",
+      "dataset_name": "wine_quality",
+      "model_id": "tabm",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363708",
+      "dataset_name": "wine_quality",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363708",
+      "dataset_name": "wine_quality",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Regression",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363711",
+      "dataset_name": "MIC",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363711",
+      "dataset_name": "MIC",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=8 exceeds 2"
+    },
+    {
+      "dataset_id": "363711",
+      "dataset_name": "MIC",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=8 exceeds 2"
+    },
+    {
+      "dataset_id": "363711",
+      "dataset_name": "MIC",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "class_count=8 exceeds 2"
+    },
+    {
+      "dataset_id": "363711",
+      "dataset_name": "MIC",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363711",
+      "dataset_name": "MIC",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363711",
+      "dataset_name": "MIC",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363711",
+      "dataset_name": "MIC",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363711",
+      "dataset_name": "MIC",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363711",
+      "dataset_name": "MIC",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363712",
+      "dataset_name": "jm1",
+      "model_id": "random_forest",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363712",
+      "dataset_name": "jm1",
+      "model_id": "lightgbm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363712",
+      "dataset_name": "jm1",
+      "model_id": "xgboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363712",
+      "dataset_name": "jm1",
+      "model_id": "catboost",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363712",
+      "dataset_name": "jm1",
+      "model_id": "tabpfn",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": false,
+      "feasibility_reason": "training_samples=10885 exceeds 10000"
+    },
+    {
+      "dataset_id": "363712",
+      "dataset_name": "jm1",
+      "model_id": "xtab",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363712",
+      "dataset_name": "jm1",
+      "model_id": "realmlp",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363712",
+      "dataset_name": "jm1",
+      "model_id": "tabm",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363712",
+      "dataset_name": "jm1",
+      "model_id": "tabiclv2",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    },
+    {
+      "dataset_id": "363712",
+      "dataset_name": "jm1",
+      "model_id": "ft_transformer",
+      "task_type": "Supervised Classification",
+      "task_type_supported": true,
+      "feasible": true,
+      "feasibility_reason": "Within all registered implementation-specific restrictions."
+    }
+  ]
+}

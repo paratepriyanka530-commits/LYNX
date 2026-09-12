@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-09-09T09:58:26+00:00",
+  "records": [
+    {
+      "dataset_id": "363684",
+      "dataset_name": "Marketing_Campaign",
+      "status": "downloaded",
+      "rows": 2240,
+      "columns": 26,
+      "csv_file": "Marketing_Campaign.csv",
+      "sha256": "39682b71757e658e2a3286a34ffe2a2ed2f9265180fd8be970bd354608177247"
+    },
+    {
+      "dataset_id": "363685",
+      "dataset_name": "maternal_health_risk",
+      "status": "downloaded",
+      "rows": 1014,
+      "columns": 7,
+      "csv_file": "maternal_health_risk.csv",
+      "sha256": "080d1ad2765fd170e4a7de35120a72d36264dc17a03740b9cf8ae75008d02eab"
+    },
+    {
+      "dataset_id": "363686",
+      "dataset_name": "miami_housing",
+      "status": "downloaded",
+      "rows": 13776,
+      "columns": 16,
+      "csv_file": "miami_housing.csv",
+      "sha256": "e743c4f6741bf9e426e60487e4f2ca66580e65118617fedab276b79c5e1a87ef"
+    },
+    {
+      "dataset_id": "363689",
+      "dataset_name": "NATICUSdroid",
+      "status": "downloaded",
+      "rows": 7491,
+      "columns": 87,
+      "csv_file": "NATICUSdroid.csv",
+      "sha256": "69fdfbbf1d0f6bc08232dc530f9d75f91199a17ee4c8e0e7a692ca64a6b46d34"
+    },
+    {
+      "dataset_id": "363691",
+      "dataset_name": "online_shoppers_intention",
+      "status": "downloaded",
+      "rows": 12330,
+      "columns": 18,
+      "csv_file": "online_shoppers_intention.csv",
+      "sha256": "ae1d1c2a2ffb07131fc227a35c9a371d05b4b2145bf43a147b6d571dc72a28f2"
+    },
+    {
+      "dataset_id": "363693",
+      "dataset_name": "physiochemical_protein",
+      "status": "downloaded",
+      "rows": 45730,
+      "columns": 10,
+      "csv_file": "physiochemical_protein.csv",
+      "sha256": "864b32830c6b4a7fa4fd5e63dea60a0ac886cb4d0c11bf8ee69b0f7a58a973cb"
+    }
+  ]
+}

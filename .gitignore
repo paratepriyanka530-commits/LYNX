@@ -1,6 +1,18 @@
 *.pyc
 __pycache__/
+/catboost_info/
 .env
 venv/
 .venv/
 benchmarks/tabarena/datasets/
+
+# Temporary model-integration staging; merged packages must not be committed.
+/_incoming_pipeline2_models/
+
+# Generated per-dataset model outputs from benchmark and lifecycle runs.
+/benchmarks/tabarena/pipeline2_artifacts/**/run_artifacts/
+/benchmarks/tabarena/pipeline2_artifacts/blocker_fix_artifacts/
+/pipelines/pipeline2_prediction/reference_artifacts/training_runs/
+
+# Large TabPFN weights are provisioned through TabPFN's local model cache.
+/pipelines/pipeline2_prediction/reference_artifacts/tabpfn/*.pkl

@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-09-09T11:06:13+00:00",
+  "datasets": {
+    "official_suite_tasks": 51,
+    "local_csvs": 51,
+    "statistical_meta_features_complete": 51
+  },
+  "semantic_meta_features": {
+    "complete": 1,
+    "degraded": 0,
+    "pending": 50,
+    "profiles": [
+      {
+        "dataset_id": "363621",
+        "dataset_name": "blood-transfusion-service-center",
+        "status": "complete",
+        "probable_domain": null,
+        "dataset_description_present": false
+      }
+    ]
+  },
+  "candidate_models": {
+    "expected": 6,
+    "found": 1,
+    "unresolved_slots": 5,
+    "blocking_gaps": [
+      "Names and implementations for five candidate models are absent.",
+      "No mapping identifies which candidates should reuse TabArena-published results.",
+      "No candidate-to-TabArena configuration or hyperparameter equivalence mapping exists."
+    ]
+  },
+  "model_run_log_rows": 0,
+  "router_training_started": false
+}

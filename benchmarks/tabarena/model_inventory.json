@@ -1,0 +1,300 @@
+{
+  "generated_from": "ten-model repository inspection plus runtime import, artifact-load, and prediction verification",
+  "generated_at": "2026-09-12T21:00:00+05:30",
+  "candidate_count_expected": 10,
+  "candidate_count_found": 10,
+  "unresolved_candidate_slots": 0,
+  "verification_environment": {
+    "python": "3.13.15",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "joblib": "1.4.2",
+    "lightgbm": "4.6.0",
+    "xgboost": "3.3.0",
+    "catboost": "1.2.10",
+    "tabpfn": "8.5.0",
+    "torch": "2.11.0+cu128",
+    "pytabkit": "1.7.3",
+    "tabicl": "2.2.0",
+    "skorch": "1.4.0"
+  },
+  "common_interface": [
+    "get_model_info()",
+    "build_model(task_type, random_state=42)",
+    "train_model(model, X_train, y_train)",
+    "predict_model(model, X_test)"
+  ],
+  "candidates": [
+    {
+      "model_id": "random_forest",
+      "implementation": "pipelines/pipeline2_prediction/models/random_forest",
+      "supported_tasks": [
+        "classification",
+        "regression"
+      ],
+      "import_verified": true,
+      "artifacts": [
+        {
+          "path": "pipelines/pipeline2_prediction/reference_artifacts/random_forest/random_forest.pkl",
+          "bytes": 2087146,
+          "sha256": "5722050709F0CFA3E8ED81BA86B9BD38E7E7940C14D8F67FB542BDD90C04B765",
+          "load_verified": true,
+          "fitted_state": true
+        },
+        {
+          "path": "pipelines/pipeline2_prediction/reference_artifacts/random_forest/random_forest_metadata.pkl",
+          "bytes": 552,
+          "sha256": "0ABF72FEE70072EE9BD56C7337D3083B047ED548E46C6C7551A41A8FF14F34AD",
+          "load_verified": true
+        }
+      ],
+      "artifact_load_status": "fitted_pipeline_and_metadata_loaded",
+      "prediction_sanity": "5 meaningfully different real pizza rows -> shape (5,), 5 distinct finite regression outputs spanning 9.75 to 35.94999999999988",
+      "provenance_environment": {
+        "python": "3.13.5 (copied staged venv metadata; runtime verification used 3.11.9)",
+        "numpy": "2.5.2",
+        "pandas": "3.0.5",
+        "scikit-learn": "1.9.0",
+        "joblib": "1.6.0"
+      },
+      "verification_warning": null,
+      "notes": "Incoming artifact is a RandomForestRegressor with 200 fitted trees. Its sklearn Pipeline embeds a fitted ColumnTransformer; inference calls transform/predict and does not refit."
+    },
+    {
+      "model_id": "lightgbm",
+      "implementation": "pipelines/pipeline2_prediction/models/lightgbm",
+      "supported_tasks": [
+        "classification"
+      ],
+      "import_verified": true,
+      "artifacts": [
+        {
+          "path": "pipelines/pipeline2_prediction/reference_artifacts/lightgbm/lightgbm_model.pkl",
+          "bytes": 1268836,
+          "sha256": "406026D2BB89035B93306F7A33289A444B93D256635F34165E5D04F727F121EF",
+          "load_verified": true
+        },
+        {
+          "path": "pipelines/pipeline2_prediction/reference_artifacts/lightgbm/lightgbm_preprocessor.pkl",
+          "bytes": 453,
+          "sha256": "4732FB7AD8285E3CAAE379DE9747242F8CDE4AD1657BDF66130FC4D362179273",
+          "load_verified": true,
+          "fitted_state": true
+        }
+      ],
+      "artifact_load_status": "model_and_fitted_preprocessor_loaded",
+      "inference_readiness": "ready"
+    },
+    {
+      "model_id": "xgboost",
+      "implementation": "pipelines/pipeline2_prediction/models/xgboost",
+      "supported_tasks": [
+        "classification"
+      ],
+      "import_verified": true,
+      "artifacts": [
+        {
+          "path": "pipelines/pipeline2_prediction/reference_artifacts/xgboost/xgboost_model.pkl",
+          "bytes": 605160,
+          "sha256": "DAD62DF96BBFC87A830F9AD4F6B20AFFD43ABEB03C2F3E101925974788274F3D",
+          "load_verified": true
+        },
+        {
+          "path": "pipelines/pipeline2_prediction/reference_artifacts/xgboost/xgboost_preprocessor.pkl",
+          "bytes": 46241,
+          "sha256": "E046C2B95AFEB49713C5CC91E688357F78885667FD09063D5C075EF62327F6F9",
+          "load_verified": true
+        }
+      ],
+      "artifact_load_status": "model_and_preprocessor_loaded",
+      "verification_warning": null
+    },
+    {
+      "model_id": "catboost",
+      "implementation": "pipelines/pipeline2_prediction/models/catboost",
+      "supported_tasks": [
+        "classification"
+      ],
+      "import_verified": true,
+      "artifacts": [
+        {
+          "path": "pipelines/pipeline2_prediction/reference_artifacts/catboost/catboost_model.pkl",
+          "bytes": 550862,
+          "sha256": "D019F99E6F71BAC979F91FD6697C24D08936E23B6F429C36DD6BF1CE0362680B",
+          "load_verified": true
+        },
+        {
+          "path": "pipelines/pipeline2_prediction/reference_artifacts/catboost/catboost_preprocessor.pkl",
+          "bytes": 464,
+          "sha256": "47E5775A026C4F39A18A69A1DFDB560717AEF9201E164F6C2FAF03EFC2725D56",
+          "load_verified": true,
+          "fitted_state": true
+        }
+      ],
+      "artifact_load_status": "model_and_fitted_preprocessor_loaded",
+      "inference_readiness": "ready"
+    },
+    {
+      "model_id": "tabpfn",
+      "implementation": "pipelines/pipeline2_prediction/models/tabpfn",
+      "supported_tasks": [
+        "classification"
+      ],
+      "import_verified": true,
+      "artifacts": [
+        {
+          "path": "pipelines/pipeline2_prediction/reference_artifacts/tabpfn/tabpfn_model.pkl",
+          "bytes": 213483984,
+          "sha256": "D40DD203EA7473284F795BE676417403326E689CD34AACEF6364C6FCB135C077",
+          "load_verified": true
+        }
+      ],
+      "artifact_load_status": "loaded_in_pinned_environment",
+      "verification_warning": null
+    },
+    {
+      "model_id": "xtab",
+      "implementation": "pipelines/pipeline2_prediction/models/xtab",
+      "supported_tasks": [
+        "classification",
+        "regression"
+      ],
+      "import_verified": true,
+      "capacity_limits": {
+        "minimum_training_rows": 10,
+        "maximum_rows": null,
+        "maximum_features": null,
+        "maximum_classes": null
+      },
+      "artifacts": [
+        {
+          "path": "pipelines/pipeline2_prediction/reference_artifacts/xtab/official_iter_2k_backbone.ckpt",
+          "bytes": 3134107,
+          "sha256": "A067CC251C5086D36AC518F1F6D119AAEE41FF58042AB641C58E0DD5EF9154B8",
+          "load_verified": true,
+          "pretrained_backbone": true,
+          "loaded_tensor_count": 46
+        },
+        {
+          "path": "pipelines/pipeline2_prediction/reference_artifacts/xtab/xtab.pt",
+          "bytes": 443261,
+          "sha256": "3F18F52E06A7F5FCA48531BC9154C4931D036071B9237A9735E7645982380BD4",
+          "load_verified": true,
+          "fitted_state": true
+        }
+      ],
+      "artifact_load_status": "official cross-table backbone loads before downstream optimization; legacy wine-quality model and embedded fitted preprocessor also remain load-compatible",
+      "prediction_sanity": "blood-transfusion train/test 598/150, CUDA two-epoch smoke: predictions (150,), probabilities (150,2), accuracy 0.78, probability row-sum max error 1.19e-07, no preprocessing refit, save/reload predictions preserved",
+      "staged_requirements": {
+        "numpy": "1.22.4",
+        "pandas": "1.4.4",
+        "scikit-learn": "1.6.1",
+        "torch": "2.8.0"
+      },
+      "verification_warning": "The legacy wine-quality artifact's original training-runtime provenance remains unresolved; this does not apply to the separately identified official iter_2k cross-table backbone.",
+      "notes": "Pretrained means the official XTab iter_2k checkpoint's 46 shared FT-Transformer block tensors are loaded before optimizer creation. Dataset-specific tokenizers, normalization, and prediction head are initialized fresh; all parameters are then finetuned, and the best epoch from that downstream run is restored. The staged xtab.pt is only a legacy wine-quality fitted model, not the transferable pretrained backbone."
+    },
+    {
+      "model_id": "realmlp",
+      "implementation": "pipelines/pipeline2_prediction/models/realmlp",
+      "upstream": "pytabkit 1.7.3 RealMLP_TD_Classifier / RealMLP_TD_Regressor",
+      "supported_tasks": ["classification", "regression"],
+      "import_verified": true,
+      "gpu_requirement": "optional; CPU verified",
+      "capacity_limits": {
+        "minimum_training_rows": 2,
+        "maximum_rows": null,
+        "maximum_features": null,
+        "maximum_classes": null
+      },
+      "preprocessing": "LYNX train-only numeric imputation plus pytabkit's internally fitted one-hot/embedding, median-centering, robust-scaling, smooth-clipping, and numerical-embedding pipeline.",
+      "artifacts": [],
+      "artifact_load_status": "no reference artifact; benchmark policy is fresh per-dataset training",
+      "prediction_sanity": "blood-transfusion train/test 598/150, CPU 2-epoch smoke: predictions (150,), probabilities (150,2), accuracy 0.6933333333, no preprocessing refit"
+    },
+    {
+      "model_id": "tabm",
+      "implementation": "pipelines/pipeline2_prediction/models/tabm",
+      "upstream": "pytabkit 1.7.3 TabM_D_Classifier / TabM_D_Regressor",
+      "supported_tasks": ["classification", "regression"],
+      "import_verified": true,
+      "gpu_requirement": "optional; CPU verified, MPS declared upstream",
+      "capacity_limits": {
+        "minimum_training_rows": 2,
+        "maximum_rows": null,
+        "maximum_features": null,
+        "maximum_classes": null
+      },
+      "preprocessing": "LYNX train-only numeric imputation plus pytabkit's internally fitted categorical one-hot and quantile-style transformations.",
+      "artifacts": [],
+      "artifact_load_status": "no reference artifact; benchmark policy is fresh per-dataset training",
+      "prediction_sanity": "blood-transfusion train/test 598/150, CPU 2-epoch smoke: predictions (150,), probabilities (150,2), accuracy 0.76, no preprocessing refit"
+    },
+    {
+      "model_id": "tabiclv2",
+      "implementation": "pipelines/pipeline2_prediction/models/tabiclv2",
+      "upstream": "official soda-inria/tabicl 2.2.0 TabICLClassifier / TabICLRegressor",
+      "supported_tasks": ["classification", "regression"],
+      "import_verified": true,
+      "gpu_requirement": "optional; CUDA sanity verified and GPU recommended for larger tables",
+      "capacity_limits": {
+        "minimum_training_rows": 2,
+        "maximum_rows": null,
+        "maximum_features": null,
+        "maximum_classes": null,
+        "empirical_training_range": "300-48000 rows and 2-100 features; upstream documents possible degradation outside this range rather than a hard gate"
+      },
+      "preprocessing": "LYNX train-only numeric imputation/categorical missing tokens plus official tabicl train-fitted ordinal encoding, scaling, normalization, and outlier processing.",
+      "artifacts": [],
+      "artifact_load_status": "official tabicl-classifier-v2-20260212.ckpt downloaded and loaded from the upstream Hugging Face cache",
+      "prediction_sanity": "blood-transfusion train/test 598/150, CUDA one-estimator smoke: predictions (150,), probabilities (150,2), accuracy 0.80, probability row-sum max error 5.96e-08, no preprocessing refit"
+    },
+    {
+      "model_id": "ft_transformer",
+      "implementation": "pipelines/pipeline2_prediction/models/ft_transformer",
+      "upstream": "pytabkit 1.7.3 FTT_D_Classifier / FTT_D_Regressor",
+      "supported_tasks": ["classification", "regression"],
+      "import_verified": true,
+      "gpu_requirement": "optional; CUDA sanity verified, CPU and MPS declared upstream",
+      "capacity_limits": {
+        "minimum_training_rows": 2,
+        "maximum_rows": null,
+        "maximum_features": null,
+        "maximum_classes": null
+      },
+      "pretraining": "none; fresh random initialization per dataset",
+      "purpose": "non-pretrained FT-Transformer baseline; intended architectural control for an XTab pretraining ablation",
+      "preprocessing": "LYNX train-only numeric imputation/categorical missing tokens plus pytabkit's internally fitted FT-Transformer transforms.",
+      "artifacts": [],
+      "artifact_load_status": "no reference artifact; benchmark policy is fresh per-dataset training",
+      "prediction_sanity": "blood-transfusion train/test 598/150, CUDA two-epoch-limit smoke: predictions (150,), probabilities (150,2), accuracy 0.7666666667, probability row-sum max error 1.19e-07, no preprocessing refit",
+      "ablation_warning": "XTab now genuinely starts from its official pretrained backbone while this candidate starts randomly. The comparison is directionally meaningful for pretraining, but it is not a perfectly isolated one-factor ablation because the wrappers' downstream preprocessing and default optimization settings are not identical."
+    }
+  ],
+  "missing_candidates": [],
+  "resolved_non_candidates": [],
+  "requirements": {
+    "model_snapshot": "requirements_pipeline2_models.txt",
+    "application_requirements": "requirements.txt",
+    "resolution": "tabicl 2.2.0 required no dependency replacements. pytabkit FT-Transformer added only skorch 1.4.0 and tabulate 0.10.0. Existing pinned NumPy, pandas, scikit-learn, Torch, XGBoost, LightGBM, CatBoost, TabPFN, XTab, RealMLP, and TabM versions remain unchanged.",
+    "staged_file_conflicts": [
+      "XTab numpy 1.22.4 vs snapshot 2.1.3",
+      "XTab pandas 1.4.4 vs snapshot 2.2.3",
+      "XTab torch 2.8.0 vs snapshot 2.11.0+cu128",
+      "Random Forest artifact scikit-learn 1.9.0/joblib 1.6.0 vs snapshot 1.6.1/1.4.2"
+    ]
+  },
+  "blocking_gaps": [],
+  "benchmark_runner_verification": {
+    "runner": "benchmarks/tabarena/pipeline2_benchmark_runner.py",
+    "xgboost_train_only_preprocessing": true,
+    "dataset_and_run_scoped_artifacts": true,
+    "dry_run_datasets": ["airfoil_self_noise", "diabetes"],
+    "rows_logged": 12,
+    "successes": 8,
+    "infeasible_skips": 4,
+    "failures": 0,
+    "full_sweep_started": false
+  }
+}

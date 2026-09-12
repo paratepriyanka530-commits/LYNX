@@ -1,0 +1,600 @@
+[
+  {
+    "dataset_id": "363612",
+    "model_id": "random_forest",
+    "target_column": "scaled-sound-pressure",
+    "task_type": "regression",
+    "feasible": true,
+    "status": "success",
+    "outcome_reason": "artifacts=['benchmarks\\\\tabarena\\\\pipeline2_artifacts\\\\dry_run_blocker_fixes_verified\\\\run_artifacts\\\\363612\\\\blocker-fix-dry-run-verified\\\\random_forest\\\\model.joblib']",
+    "metric_name": "rmse",
+    "metric_value": 1.9360029514010646,
+    "baseline_relative_score": 0.724527601210406,
+    "train_runtime_seconds": 0.2973262000014074,
+    "inference_runtime_seconds": 0.045530199975473806,
+    "runtime_seconds": 0.3428563999768812,
+    "split_seed": 42,
+    "hyperparams": {
+      "smoke_overrides": {}
+    },
+    "semantic_meta_features": null,
+    "statistical_meta_features": {
+      "row_count": 1503,
+      "column_count_including_target": 6,
+      "feature_count": 5,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.0,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 32.6,
+      "numeric_skew": {
+        "mean": 1.0443446377081018,
+        "median": 0.6891644015246552,
+        "max_abs": 2.1370843370561032
+      },
+      "numeric_kurtosis": {
+        "mean": 0.9825444073946628,
+        "median": -0.4129507932946681,
+        "max_abs": 5.708685076629566
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 1456,
+      "target_majority_ratio": 0.001996007984031936,
+      "target_minority_to_majority_ratio": 0.3333333333333333
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363612",
+    "model_id": "lightgbm",
+    "target_column": "scaled-sound-pressure",
+    "task_type": "regression",
+    "feasible": false,
+    "status": "infeasible_skip",
+    "outcome_reason": "task_type='regression' is not supported by lightgbm",
+    "metric_name": null,
+    "metric_value": null,
+    "baseline_relative_score": null,
+    "train_runtime_seconds": null,
+    "inference_runtime_seconds": null,
+    "runtime_seconds": null,
+    "split_seed": 42,
+    "hyperparams": {},
+    "semantic_meta_features": null,
+    "statistical_meta_features": {
+      "row_count": 1503,
+      "column_count_including_target": 6,
+      "feature_count": 5,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.0,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 32.6,
+      "numeric_skew": {
+        "mean": 1.0443446377081018,
+        "median": 0.6891644015246552,
+        "max_abs": 2.1370843370561032
+      },
+      "numeric_kurtosis": {
+        "mean": 0.9825444073946628,
+        "median": -0.4129507932946681,
+        "max_abs": 5.708685076629566
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 1456,
+      "target_majority_ratio": 0.001996007984031936,
+      "target_minority_to_majority_ratio": 0.3333333333333333
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363612",
+    "model_id": "xgboost",
+    "target_column": "scaled-sound-pressure",
+    "task_type": "regression",
+    "feasible": false,
+    "status": "infeasible_skip",
+    "outcome_reason": "task_type='regression' is not supported by xgboost",
+    "metric_name": null,
+    "metric_value": null,
+    "baseline_relative_score": null,
+    "train_runtime_seconds": null,
+    "inference_runtime_seconds": null,
+    "runtime_seconds": null,
+    "split_seed": 42,
+    "hyperparams": {},
+    "semantic_meta_features": null,
+    "statistical_meta_features": {
+      "row_count": 1503,
+      "column_count_including_target": 6,
+      "feature_count": 5,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.0,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 32.6,
+      "numeric_skew": {
+        "mean": 1.0443446377081018,
+        "median": 0.6891644015246552,
+        "max_abs": 2.1370843370561032
+      },
+      "numeric_kurtosis": {
+        "mean": 0.9825444073946628,
+        "median": -0.4129507932946681,
+        "max_abs": 5.708685076629566
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 1456,
+      "target_majority_ratio": 0.001996007984031936,
+      "target_minority_to_majority_ratio": 0.3333333333333333
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363612",
+    "model_id": "catboost",
+    "target_column": "scaled-sound-pressure",
+    "task_type": "regression",
+    "feasible": false,
+    "status": "infeasible_skip",
+    "outcome_reason": "task_type='regression' is not supported by catboost",
+    "metric_name": null,
+    "metric_value": null,
+    "baseline_relative_score": null,
+    "train_runtime_seconds": null,
+    "inference_runtime_seconds": null,
+    "runtime_seconds": null,
+    "split_seed": 42,
+    "hyperparams": {},
+    "semantic_meta_features": null,
+    "statistical_meta_features": {
+      "row_count": 1503,
+      "column_count_including_target": 6,
+      "feature_count": 5,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.0,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 32.6,
+      "numeric_skew": {
+        "mean": 1.0443446377081018,
+        "median": 0.6891644015246552,
+        "max_abs": 2.1370843370561032
+      },
+      "numeric_kurtosis": {
+        "mean": 0.9825444073946628,
+        "median": -0.4129507932946681,
+        "max_abs": 5.708685076629566
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 1456,
+      "target_majority_ratio": 0.001996007984031936,
+      "target_minority_to_majority_ratio": 0.3333333333333333
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363612",
+    "model_id": "tabpfn",
+    "target_column": "scaled-sound-pressure",
+    "task_type": "regression",
+    "feasible": false,
+    "status": "infeasible_skip",
+    "outcome_reason": "task_type='regression' is not supported by tabpfn",
+    "metric_name": null,
+    "metric_value": null,
+    "baseline_relative_score": null,
+    "train_runtime_seconds": null,
+    "inference_runtime_seconds": null,
+    "runtime_seconds": null,
+    "split_seed": 42,
+    "hyperparams": {},
+    "semantic_meta_features": null,
+    "statistical_meta_features": {
+      "row_count": 1503,
+      "column_count_including_target": 6,
+      "feature_count": 5,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.0,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 32.6,
+      "numeric_skew": {
+        "mean": 1.0443446377081018,
+        "median": 0.6891644015246552,
+        "max_abs": 2.1370843370561032
+      },
+      "numeric_kurtosis": {
+        "mean": 0.9825444073946628,
+        "median": -0.4129507932946681,
+        "max_abs": 5.708685076629566
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 1456,
+      "target_majority_ratio": 0.001996007984031936,
+      "target_minority_to_majority_ratio": 0.3333333333333333
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363612",
+    "model_id": "xtab",
+    "target_column": "scaled-sound-pressure",
+    "task_type": "regression",
+    "feasible": true,
+    "status": "success",
+    "outcome_reason": "artifacts=['benchmarks\\\\tabarena\\\\pipeline2_artifacts\\\\dry_run_blocker_fixes_verified\\\\run_artifacts\\\\363612\\\\blocker-fix-dry-run-verified\\\\xtab\\\\model.pt']",
+    "metric_name": "rmse",
+    "metric_value": 5.383650678084405,
+    "baseline_relative_score": 0.23396440823405262,
+    "train_runtime_seconds": 3.817635600018548,
+    "inference_runtime_seconds": 0.004507899982854724,
+    "runtime_seconds": 3.8221435000014026,
+    "split_seed": 42,
+    "hyperparams": {
+      "smoke_overrides": {
+        "epochs": 1,
+        "patience": 1
+      }
+    },
+    "semantic_meta_features": null,
+    "statistical_meta_features": {
+      "row_count": 1503,
+      "column_count_including_target": 6,
+      "feature_count": 5,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.0,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 32.6,
+      "numeric_skew": {
+        "mean": 1.0443446377081018,
+        "median": 0.6891644015246552,
+        "max_abs": 2.1370843370561032
+      },
+      "numeric_kurtosis": {
+        "mean": 0.9825444073946628,
+        "median": -0.4129507932946681,
+        "max_abs": 5.708685076629566
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 1456,
+      "target_majority_ratio": 0.001996007984031936,
+      "target_minority_to_majority_ratio": 0.3333333333333333
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363629",
+    "model_id": "random_forest",
+    "target_column": "TestedPositiveForDiabetes",
+    "task_type": "classification",
+    "feasible": true,
+    "status": "success",
+    "outcome_reason": "artifacts=['benchmarks\\\\tabarena\\\\pipeline2_artifacts\\\\dry_run_blocker_fixes_verified\\\\run_artifacts\\\\363629\\\\blocker-fix-dry-run-verified\\\\random_forest\\\\model.joblib']",
+    "metric_name": "balanced_accuracy",
+    "metric_value": 0.6964814814814815,
+    "baseline_relative_score": 0.39296296296296296,
+    "train_runtime_seconds": 0.4190197999996599,
+    "inference_runtime_seconds": 0.05026779999025166,
+    "runtime_seconds": 0.46928759998991154,
+    "split_seed": 42,
+    "hyperparams": {
+      "smoke_overrides": {}
+    },
+    "semantic_meta_features": null,
+    "statistical_meta_features": {
+      "row_count": 768,
+      "column_count_including_target": 9,
+      "feature_count": 8,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.0,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 156.75,
+      "numeric_skew": {
+        "mean": 0.5292461289375234,
+        "median": 0.5377137404718741,
+        "max_abs": 2.272250858431574
+      },
+      "numeric_kurtosis": {
+        "mean": 2.775362395442394,
+        "median": 1.9668008946784366,
+        "max_abs": 7.214259554348768
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 2,
+      "target_majority_ratio": 0.6510416666666666,
+      "target_minority_to_majority_ratio": 0.536
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363629",
+    "model_id": "lightgbm",
+    "target_column": "TestedPositiveForDiabetes",
+    "task_type": "classification",
+    "feasible": true,
+    "status": "success",
+    "outcome_reason": "artifacts=['benchmarks\\\\tabarena\\\\pipeline2_artifacts\\\\dry_run_blocker_fixes_verified\\\\run_artifacts\\\\363629\\\\blocker-fix-dry-run-verified\\\\lightgbm\\\\model.joblib', 'benchmarks\\\\tabarena\\\\pipeline2_artifacts\\\\dry_run_blocker_fixes_verified\\\\run_artifacts\\\\363629\\\\blocker-fix-dry-run-verified\\\\lightgbm\\\\preprocessor.joblib']",
+    "metric_name": "balanced_accuracy",
+    "metric_value": 0.6992592592592592,
+    "baseline_relative_score": 0.3985185185185185,
+    "train_runtime_seconds": 0.4416547000000719,
+    "inference_runtime_seconds": 0.0041662000003270805,
+    "runtime_seconds": 0.445820900000399,
+    "split_seed": 42,
+    "hyperparams": {
+      "smoke_overrides": {}
+    },
+    "semantic_meta_features": null,
+    "statistical_meta_features": {
+      "row_count": 768,
+      "column_count_including_target": 9,
+      "feature_count": 8,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.0,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 156.75,
+      "numeric_skew": {
+        "mean": 0.5292461289375234,
+        "median": 0.5377137404718741,
+        "max_abs": 2.272250858431574
+      },
+      "numeric_kurtosis": {
+        "mean": 2.775362395442394,
+        "median": 1.9668008946784366,
+        "max_abs": 7.214259554348768
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 2,
+      "target_majority_ratio": 0.6510416666666666,
+      "target_minority_to_majority_ratio": 0.536
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363629",
+    "model_id": "xgboost",
+    "target_column": "TestedPositiveForDiabetes",
+    "task_type": "classification",
+    "feasible": true,
+    "status": "success",
+    "outcome_reason": "artifacts=['benchmarks\\\\tabarena\\\\pipeline2_artifacts\\\\dry_run_blocker_fixes_verified\\\\run_artifacts\\\\363629\\\\blocker-fix-dry-run-verified\\\\xgboost\\\\model.joblib', 'benchmarks\\\\tabarena\\\\pipeline2_artifacts\\\\dry_run_blocker_fixes_verified\\\\run_artifacts\\\\363629\\\\blocker-fix-dry-run-verified\\\\xgboost\\\\preprocessor.joblib']",
+    "metric_name": "balanced_accuracy",
+    "metric_value": 0.6957407407407408,
+    "baseline_relative_score": 0.39148148148148154,
+    "train_runtime_seconds": 0.153376100002788,
+    "inference_runtime_seconds": 0.006026299990480766,
+    "runtime_seconds": 0.15940239999326877,
+    "split_seed": 42,
+    "hyperparams": {
+      "smoke_overrides": {}
+    },
+    "semantic_meta_features": null,
+    "statistical_meta_features": {
+      "row_count": 768,
+      "column_count_including_target": 9,
+      "feature_count": 8,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.0,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 156.75,
+      "numeric_skew": {
+        "mean": 0.5292461289375234,
+        "median": 0.5377137404718741,
+        "max_abs": 2.272250858431574
+      },
+      "numeric_kurtosis": {
+        "mean": 2.775362395442394,
+        "median": 1.9668008946784366,
+        "max_abs": 7.214259554348768
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 2,
+      "target_majority_ratio": 0.6510416666666666,
+      "target_minority_to_majority_ratio": 0.536
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363629",
+    "model_id": "catboost",
+    "target_column": "TestedPositiveForDiabetes",
+    "task_type": "classification",
+    "feasible": true,
+    "status": "success",
+    "outcome_reason": "artifacts=['benchmarks\\\\tabarena\\\\pipeline2_artifacts\\\\dry_run_blocker_fixes_verified\\\\run_artifacts\\\\363629\\\\blocker-fix-dry-run-verified\\\\catboost\\\\model.joblib', 'benchmarks\\\\tabarena\\\\pipeline2_artifacts\\\\dry_run_blocker_fixes_verified\\\\run_artifacts\\\\363629\\\\blocker-fix-dry-run-verified\\\\catboost\\\\preprocessor.joblib']",
+    "metric_name": "balanced_accuracy",
+    "metric_value": 0.7185185185185186,
+    "baseline_relative_score": 0.4370370370370371,
+    "train_runtime_seconds": 0.7556960000074469,
+    "inference_runtime_seconds": 0.002159299998311326,
+    "runtime_seconds": 0.7578553000057582,
+    "split_seed": 42,
+    "hyperparams": {
+      "smoke_overrides": {}
+    },
+    "semantic_meta_features": null,
+    "statistical_meta_features": {
+      "row_count": 768,
+      "column_count_including_target": 9,
+      "feature_count": 8,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.0,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 156.75,
+      "numeric_skew": {
+        "mean": 0.5292461289375234,
+        "median": 0.5377137404718741,
+        "max_abs": 2.272250858431574
+      },
+      "numeric_kurtosis": {
+        "mean": 2.775362395442394,
+        "median": 1.9668008946784366,
+        "max_abs": 7.214259554348768
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 2,
+      "target_majority_ratio": 0.6510416666666666,
+      "target_minority_to_majority_ratio": 0.536
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363629",
+    "model_id": "tabpfn",
+    "target_column": "TestedPositiveForDiabetes",
+    "task_type": "classification",
+    "feasible": true,
+    "status": "success",
+    "outcome_reason": "artifacts=['benchmarks\\\\tabarena\\\\pipeline2_artifacts\\\\dry_run_blocker_fixes_verified\\\\run_artifacts\\\\363629\\\\blocker-fix-dry-run-verified\\\\tabpfn\\\\model.pkl']",
+    "metric_name": "balanced_accuracy",
+    "metric_value": 0.7007407407407408,
+    "baseline_relative_score": 0.40148148148148155,
+    "train_runtime_seconds": 0.7066058000200428,
+    "inference_runtime_seconds": 1.1602051999943797,
+    "runtime_seconds": 1.8668110000144225,
+    "split_seed": 42,
+    "hyperparams": {
+      "smoke_overrides": {}
+    },
+    "semantic_meta_features": null,
+    "statistical_meta_features": {
+      "row_count": 768,
+      "column_count_including_target": 9,
+      "feature_count": 8,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.0,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 156.75,
+      "numeric_skew": {
+        "mean": 0.5292461289375234,
+        "median": 0.5377137404718741,
+        "max_abs": 2.272250858431574
+      },
+      "numeric_kurtosis": {
+        "mean": 2.775362395442394,
+        "median": 1.9668008946784366,
+        "max_abs": 7.214259554348768
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 2,
+      "target_majority_ratio": 0.6510416666666666,
+      "target_minority_to_majority_ratio": 0.536
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363629",
+    "model_id": "xtab",
+    "target_column": "TestedPositiveForDiabetes",
+    "task_type": "classification",
+    "feasible": true,
+    "status": "success",
+    "outcome_reason": "artifacts=['benchmarks\\\\tabarena\\\\pipeline2_artifacts\\\\dry_run_blocker_fixes_verified\\\\run_artifacts\\\\363629\\\\blocker-fix-dry-run-verified\\\\xtab\\\\model.pt']",
+    "metric_name": "balanced_accuracy",
+    "metric_value": 0.6614814814814814,
+    "baseline_relative_score": 0.3229629629629629,
+    "train_runtime_seconds": 0.274082299991278,
+    "inference_runtime_seconds": 0.004791899991687387,
+    "runtime_seconds": 0.27887419998296537,
+    "split_seed": 42,
+    "hyperparams": {
+      "smoke_overrides": {
+        "epochs": 1,
+        "patience": 1
+      }
+    },
+    "semantic_meta_features": null,
+    "statistical_meta_features": {
+      "row_count": 768,
+      "column_count_including_target": 9,
+      "feature_count": 8,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.0,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 156.75,
+      "numeric_skew": {
+        "mean": 0.5292461289375234,
+        "median": 0.5377137404718741,
+        "max_abs": 2.272250858431574
+      },
+      "numeric_kurtosis": {
+        "mean": 2.775362395442394,
+        "median": 1.9668008946784366,
+        "max_abs": 7.214259554348768
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 2,
+      "target_majority_ratio": 0.6510416666666666,
+      "target_minority_to_majority_ratio": 0.536
+    },
+    "source": "team-original-run"
+  }
+]

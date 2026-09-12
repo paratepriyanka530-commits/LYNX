@@ -1,0 +1,140 @@
+{
+  "dataset_id": "363621",
+  "dataset_name": "blood-transfusion-service-center",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 240.0,
+  "generated_at": "2026-09-09T10:57:19+00:00",
+  "status": "complete",
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": "a blood donation record",
+      "row_entity_confidence": 0.75,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "MonthsSinceLastDonation",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The number of months since the last blood donation.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The values represent a quantitative measure of time elapsed since the last donation, and the summary statistics (min, max, mean, median) indicate a meaningful quantitative distribution."
+      },
+      {
+        "column_name": "NumberOfDonations",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The total number of blood donations made by the individual.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The values represent a count of donations, and the summary statistics (min, max, mean, median) indicate a meaningful quantitative distribution."
+      },
+      {
+        "column_name": "TotalBloodDonated",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The total volume of blood donated in milliliters.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The values represent a quantitative measure of blood volume, and the summary statistics (min, max, mean, median) indicate a meaningful quantitative distribution."
+      },
+      {
+        "column_name": "MonthsSinceFirstDonation",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The number of months since the first blood donation.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The values represent a quantitative measure of time elapsed since the first donation, and the summary statistics (min, max, mean, median) indicate a meaningful quantitative distribution."
+      },
+      {
+        "column_name": "DonatedBloodInMarch2007",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "nominal_code",
+        "concept_description": "A binary indicator of whether blood was donated in March 2007.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The values are binary (Yes/No), indicating a classification or state, and the sample values support a categorical interpretation."
+      }
+    ],
+    "warnings": [],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 1,
+      "total_llm_calls": 2,
+      "batch_sizes": [
+        5
+      ],
+      "dataset_semantic_runtime_seconds": 34.613275,
+      "batch_runtime_seconds": [
+        138.547166
+      ],
+      "rag_runtime_seconds": 0.126635,
+      "batch_failures": 0,
+      "batch_retries": 0,
+      "llm_calls": [
+        {
+          "stage": "dataset_context",
+          "api_wall_duration_seconds": 34.558612,
+          "prompt_eval_count": 1199,
+          "prompt_eval_duration": 501721000,
+          "eval_count": 146,
+          "eval_duration": 30644406000,
+          "total_duration": 32492646800,
+          "load_duration": 7328300,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "api_wall_duration_seconds": 138.547064,
+          "prompt_eval_count": 1899,
+          "prompt_eval_duration": 370191000,
+          "eval_count": 563,
+          "eval_duration": 135885228000,
+          "total_duration": 136447056300,
+          "load_duration": 4866000,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 173.232716
+    }
+  },
+  "semantic_meta_features": {
+    "probable_domain": null,
+    "domain_confidence": null,
+    "row_entity": "a blood donation record",
+    "row_entity_confidence": 0.75,
+    "dataset_description_present": false,
+    "column_count": 5,
+    "mean_column_confidence": 0.95,
+    "distributions": {
+      "semantic_type": {
+        "numeric_measurement": 4,
+        "categorical": 1
+      },
+      "value_function": {
+        "measurement": 4,
+        "classification": 1
+      },
+      "numeric_meaning": {
+        "magnitude": 4,
+        "nominal_code": 1
+      },
+      "semantic_role": {
+        "unknown": 5
+      }
+    },
+    "warning_count": 0
+  }
+}

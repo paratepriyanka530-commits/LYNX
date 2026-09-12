@@ -1,0 +1,1736 @@
+[
+  {
+    "dataset_id": "dataset_01_retail_transactions",
+    "repeat": 1,
+    "model": "qwen2.5:7b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-fd5dfd5a3538",
+          "issue-missing_values-2434cbb43563",
+          "issue-missing_values-5838a931658b"
+        ],
+        "retry_batch_size": 3,
+        "provider_status": "success",
+        "accepted_issue_ids": [
+          "issue-missing_values-fd5dfd5a3538"
+        ],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-2434cbb43563",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          },
+          {
+            "issue_id": "issue-missing_values-5838a931658b",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-2434cbb43563",
+          "issue-missing_values-5838a931658b"
+        ],
+        "coverage": {
+          "missing_issue_ids": [],
+          "duplicate_issue_ids": [],
+          "unexpected_issue_ids": []
+        },
+        "prompt_character_length": 5732,
+        "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-fd5dfd5a3538\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.8,\n      \"rationale\": \"The missing values are numeric measurements and the median imputation is semantically appropriate.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-2434cbb43563\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"identifier_or_entity_reference_protected\"],\n      \"confidence\": 1.0,\n      \"rationale\": \"The customer_id is an identifier and its missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-5838a931658b\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"identifier_or_entity_reference_protected\"],\n      \"confidence\": 1.0,\n      \"rationale\": \"The transaction_time is a temporal value and its missing state should be preserved.\"\n    }\n  ]\n}",
+        "time_since_last_call_seconds": null,
+        "pre_call_memory": {
+          "memory_load_percent": 90,
+          "total_physical_gib": 15.637882232666016,
+          "available_physical_gib": 1.4272041320800781,
+          "total_page_file_gib": 24.131553649902344,
+          "available_page_file_gib": 0.979278564453125
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:7b",
+            "model": "qwen2.5:7b",
+            "size": 5123845650,
+            "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "7.6B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-09T15:34:42.7312043+05:30",
+            "size_vram": 2300040969,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_result": {
+          "decisions": [
+            {
+              "issue_id": "issue-missing_values-fd5dfd5a3538",
+              "decision_type": "action",
+              "proposed_action": "impute_missing",
+              "parameters": {
+                "strategy": "median"
+              },
+              "recommendation_basis": "semantically_appropriate_imputation",
+              "confidence": 0.8,
+              "rationale": "The missing values are numeric measurements and the median imputation is semantically appropriate."
+            },
+            {
+              "issue_id": "issue-missing_values-2434cbb43563",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "identifier_or_entity_reference_protected"
+              ],
+              "confidence": 1.0,
+              "rationale": "The customer_id is an identifier and its missing state should be preserved."
+            },
+            {
+              "issue_id": "issue-missing_values-5838a931658b",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "identifier_or_entity_reference_protected"
+              ],
+              "confidence": 1.0,
+              "rationale": "The transaction_time is a temporal value and its missing state should be preserved."
+            }
+          ]
+        },
+        "ollama_telemetry": {
+          "model": "qwen2.5:7b",
+          "created_at": "2026-09-09T09:37:04.031377Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 78881889200,
+          "load_duration": 10577000,
+          "prompt_eval_count": 1241,
+          "prompt_eval_duration": 1944718000,
+          "eval_count": 347,
+          "eval_duration": 76869547000
+        }
+      },
+      {
+        "stage": "retry",
+        "issue_ids": [
+          "issue-missing_values-2434cbb43563",
+          "issue-missing_values-5838a931658b"
+        ],
+        "retry_batch_size": 2,
+        "provider_status": "success",
+        "accepted_issue_ids": [],
+        "rejected": [
+          {
+            "issue_id": "issue-missing_values-2434cbb43563",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          },
+          {
+            "issue_id": "issue-missing_values-5838a931658b",
+            "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "unresolved_issue_ids": [
+          "issue-missing_values-2434cbb43563",
+          "issue-missing_values-5838a931658b"
+        ],
+        "coverage": {
+          "missing_issue_ids": [],
+          "duplicate_issue_ids": [],
+          "unexpected_issue_ids": []
+        },
+        "prompt_character_length": 4940,
+        "raw_qwen_response": "{\n    \"decisions\": [\n        {\n            \"issue_id\": \"issue-missing_values-2434cbb43563\",\n            \"decision_type\": \"no_action\",\n            \"proposed_action\": \"no_op\",\n            \"parameters\": {},\n            \"recommendation_basis\": \"affirmative_preservation_evidence\",\n            \"preservation_evidence_keys\": [\"identifier_or_entity_reference_protected\", \"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n            \"confidence\": 0.8555555555555556,\n            \"rationale\": \"Identifier/entity-reference protection and failed semantic/mechanical preflight indicate the missing state should be preserved.\"\n        },\n        {\n            \"issue_id\": \"issue-missing_values-5838a931658b\",\n            \"decision_type\": \"no_action\",\n            \"proposed_action\": \"no_op\",\n            \"parameters\": {},\n            \"recommendation_basis\": \"affirmative_preservation_evidence\",\n            \"preservation_evidence_keys\": [\"identifier_or_entity_reference_protected\", \"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n            \"confidence\": 0.8555555555555556,\n            \"rationale\": \"Identifier/entity-reference protection and failed semantic/mechanical preflight indicate the missing state should be preserved.\"\n        }\n    ]\n}",
+        "time_since_last_call_seconds": 0.050185800000690506,
+        "pre_call_memory": {
+          "memory_load_percent": 89,
+          "total_physical_gib": 15.637882232666016,
+          "available_physical_gib": 1.7187080383300781,
+          "total_page_file_gib": 24.131553649902344,
+          "available_page_file_gib": 1.2823677062988281
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:7b",
+            "model": "qwen2.5:7b",
+            "size": 5123845650,
+            "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "7.6B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-09T15:37:04.0411511+05:30",
+            "size_vram": 2300040969,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_result": {
+          "decisions": [
+            {
+              "issue_id": "issue-missing_values-2434cbb43563",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "identifier_or_entity_reference_protected",
+                "median_semantic_eligibility",
+                "median_mechanical_preflight"
+              ],
+              "confidence": 0.8555555555555556,
+              "rationale": "Identifier/entity-reference protection and failed semantic/mechanical preflight indicate the missing state should be preserved."
+            },
+            {
+              "issue_id": "issue-missing_values-5838a931658b",
+              "decision_type": "no_action",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "affirmative_preservation_evidence",
+              "preservation_evidence_keys": [
+                "identifier_or_entity_reference_protected",
+                "median_semantic_eligibility",
+                "median_mechanical_preflight"
+              ],
+              "confidence": 0.8555555555555556,
+              "rationale": "Identifier/entity-reference protection and failed semantic/mechanical preflight indicate the missing state should be preserved."
+            }
+          ]
+        },
+        "ollama_telemetry": {
+          "model": "qwen2.5:7b",
+          "created_at": "2026-09-09T09:38:17.6612456Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 69435491000,
+          "load_duration": 8492100,
+          "prompt_eval_count": 1062,
+          "prompt_eval_duration": 856649000,
+          "eval_count": 312,
+          "eval_duration": 68437950000
+        }
+      }
+    ],
+    "cases": [
+      {
+        "column": "total_amount",
+        "expected": "action/impute_missing/median",
+        "readiness": {
+          "missing_count": 50,
+          "missing_percentage": 0.5,
+          "missingness_band": "low",
+          "observed_count": 9950,
+          "physical_dtype": "float64",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "semantic_confidence": 0.8,
+          "concept_description": "Represents the total amount of a transaction, measured in monetary units.",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "true",
+            "reason_code": "confirmed_quantitative_magnitude"
+          },
+          "median_mechanical_preflight": {
+            "status": "pass",
+            "reason_code": "existing_imputation_contract_passed"
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-fd5dfd5a3538\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.8,\n      \"rationale\": \"The missing values are numeric measurements and the median imputation is semantically appropriate.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-2434cbb43563\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"identifier_or_entity_reference_protected\"],\n      \"confidence\": 1.0,\n      \"rationale\": \"The customer_id is an identifier and its missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-5838a931658b\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"identifier_or_entity_reference_protected\"],\n      \"confidence\": 1.0,\n      \"rationale\": \"The transaction_time is a temporal value and its missing state should be preserved.\"\n    }\n  ]\n}",
+        "first_validation": "accepted",
+        "accepted_immediately": true,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-fd5dfd5a3538",
+          "source_issue_ids": [
+            "issue-missing_values-fd5dfd5a3538"
+          ],
+          "target_columns": [
+            "total_amount"
+          ],
+          "decision_type": "action",
+          "proposed_action": "impute_missing",
+          "parameters": {
+            "strategy": "median"
+          },
+          "confidence": 0.8,
+          "rationale": "The missing values are numeric measurements and the median imputation is semantically appropriate.",
+          "evidence_summary": {
+            "null_detection": "pandas.isna",
+            "non_null_count": 9950
+          },
+          "semantic_basis": {
+            "total_amount": {
+              "column_name": "total_amount",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Represents the total amount of a transaction, measured in monetary units.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column 'total_amount' contains numeric values such as 61.2, 284.0, 45.0, 72.0, and 80.75, indicating that it likely represents the monetary value of a transaction with measurement semantics."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "llm_tier2"
+        },
+        "fallback": false
+      },
+      {
+        "column": "customer_id",
+        "expected": "flag_for_review/flag_rows",
+        "readiness": {
+          "missing_count": 1793,
+          "missing_percentage": 17.93,
+          "missingness_band": "moderate",
+          "observed_count": 8207,
+          "physical_dtype": "str",
+          "semantic_type": "identifier",
+          "value_function": "entity_reference",
+          "numeric_meaning": "identifier",
+          "semantic_confidence": 0.8555555555555556,
+          "concept_description": "Identifies the customer who made the transaction.",
+          "identifier_or_entity_reference_protected": true,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "false",
+            "reason_code": "identifier_or_entity_reference"
+          },
+          "median_mechanical_preflight": {
+            "status": "fail",
+            "reason_code": "existing_imputation_contract_failed",
+            "reason": "Imputation requires LOW missingness (0–5%); observed moderate."
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-fd5dfd5a3538\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.8,\n      \"rationale\": \"The missing values are numeric measurements and the median imputation is semantically appropriate.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-2434cbb43563\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"identifier_or_entity_reference_protected\"],\n      \"confidence\": 1.0,\n      \"rationale\": \"The customer_id is an identifier and its missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-5838a931658b\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"identifier_or_entity_reference_protected\"],\n      \"confidence\": 1.0,\n      \"rationale\": \"The transaction_time is a temporal value and its missing state should be preserved.\"\n    }\n  ]\n}",
+        "first_validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+        "accepted_immediately": false,
+        "retried": true,
+        "retry_attempts": [
+          {
+            "stage": "retry",
+            "retry_batch_size": 2,
+            "raw_qwen_response": "{\n    \"decisions\": [\n        {\n            \"issue_id\": \"issue-missing_values-2434cbb43563\",\n            \"decision_type\": \"no_action\",\n            \"proposed_action\": \"no_op\",\n            \"parameters\": {},\n            \"recommendation_basis\": \"affirmative_preservation_evidence\",\n            \"preservation_evidence_keys\": [\"identifier_or_entity_reference_protected\", \"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n            \"confidence\": 0.8555555555555556,\n            \"rationale\": \"Identifier/entity-reference protection and failed semantic/mechanical preflight indicate the missing state should be preserved.\"\n        },\n        {\n            \"issue_id\": \"issue-missing_values-5838a931658b\",\n            \"decision_type\": \"no_action\",\n            \"proposed_action\": \"no_op\",\n            \"parameters\": {},\n            \"recommendation_basis\": \"affirmative_preservation_evidence\",\n            \"preservation_evidence_keys\": [\"identifier_or_entity_reference_protected\", \"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n            \"confidence\": 0.8555555555555556,\n            \"rationale\": \"Identifier/entity-reference protection and failed semantic/mechanical preflight indicate the missing state should be preserved.\"\n        }\n    ]\n}",
+            "validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-2434cbb43563",
+          "source_issue_ids": [
+            "issue-missing_values-2434cbb43563"
+          ],
+          "target_columns": [
+            "customer_id"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+            "null_detection": "pandas.isna",
+            "non_null_count": 8207
+          },
+          "semantic_basis": {
+            "customer_id": {
+              "column_name": "customer_id",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Identifies the customer who made the transaction.",
+              "semantic_role": "unknown",
+              "confidence": 0.8555555555555556,
+              "reasoning_summary": "The column name 'customer_id' and the high uniqueness ratio (0.304009) suggest that each value represents a unique customer instance."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      },
+      {
+        "column": "transaction_time",
+        "expected": "flag_for_review/flag_rows",
+        "readiness": {
+          "missing_count": 3,
+          "missing_percentage": 0.03,
+          "missingness_band": "low",
+          "observed_count": 9997,
+          "physical_dtype": "str",
+          "semantic_type": "time",
+          "value_function": "temporal",
+          "numeric_meaning": "not_applicable",
+          "semantic_confidence": 0.8555555555555556,
+          "concept_description": "Represents the time of the transaction.",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "false",
+            "reason_code": "numeric_meaning_not_applicable"
+          },
+          "median_mechanical_preflight": {
+            "status": "fail",
+            "reason_code": "existing_imputation_contract_failed",
+            "reason": "Median requires an already numeric physical dtype; identifier-like text is not coerced."
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-fd5dfd5a3538\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.8,\n      \"rationale\": \"The missing values are numeric measurements and the median imputation is semantically appropriate.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-2434cbb43563\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"identifier_or_entity_reference_protected\"],\n      \"confidence\": 1.0,\n      \"rationale\": \"The customer_id is an identifier and its missing state should be preserved.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-5838a931658b\",\n      \"decision_type\": \"no_action\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"affirmative_preservation_evidence\",\n      \"preservation_evidence_keys\": [\"identifier_or_entity_reference_protected\"],\n      \"confidence\": 1.0,\n      \"rationale\": \"The transaction_time is a temporal value and its missing state should be preserved.\"\n    }\n  ]\n}",
+        "first_validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+        "accepted_immediately": false,
+        "retried": true,
+        "retry_attempts": [
+          {
+            "stage": "retry",
+            "retry_batch_size": 2,
+            "raw_qwen_response": "{\n    \"decisions\": [\n        {\n            \"issue_id\": \"issue-missing_values-2434cbb43563\",\n            \"decision_type\": \"no_action\",\n            \"proposed_action\": \"no_op\",\n            \"parameters\": {},\n            \"recommendation_basis\": \"affirmative_preservation_evidence\",\n            \"preservation_evidence_keys\": [\"identifier_or_entity_reference_protected\", \"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n            \"confidence\": 0.8555555555555556,\n            \"rationale\": \"Identifier/entity-reference protection and failed semantic/mechanical preflight indicate the missing state should be preserved.\"\n        },\n        {\n            \"issue_id\": \"issue-missing_values-5838a931658b\",\n            \"decision_type\": \"no_action\",\n            \"proposed_action\": \"no_op\",\n            \"parameters\": {},\n            \"recommendation_basis\": \"affirmative_preservation_evidence\",\n            \"preservation_evidence_keys\": [\"identifier_or_entity_reference_protected\", \"median_semantic_eligibility\", \"median_mechanical_preflight\"],\n            \"confidence\": 0.8555555555555556,\n            \"rationale\": \"Identifier/entity-reference protection and failed semantic/mechanical preflight indicate the missing state should be preserved.\"\n        }\n    ]\n}",
+            "validation": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+          }
+        ],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-5838a931658b",
+          "source_issue_ids": [
+            "issue-missing_values-5838a931658b"
+          ],
+          "target_columns": [
+            "transaction_time"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.0,
+          "rationale": "Tier 2 decision inference failed; data is preserved.",
+          "evidence_summary": {
+            "fallback_reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+            "null_detection": "pandas.isna",
+            "non_null_count": 9997
+          },
+          "semantic_basis": {
+            "transaction_time": {
+              "column_name": "transaction_time",
+              "semantic_type": "time",
+              "value_function": "temporal",
+              "numeric_meaning": "not_applicable",
+              "concept_description": "Represents the time of the transaction.",
+              "semantic_role": "unknown",
+              "confidence": 0.8555555555555556,
+              "reasoning_summary": "The column name 'transaction_time' and the presence of time values in the sample suggest that this column represents the time of the transaction."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "fallback"
+        },
+        "fallback": true
+      }
+    ],
+    "summary": {
+      "total_decisions": 3,
+      "by_decision_type": {
+        "action": 1,
+        "insufficient_evidence": 2
+      },
+      "by_proposed_action": {
+        "impute_missing": 1,
+        "no_op": 2
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 1,
+      "fallback_decisions": 2,
+      "deterministic_runtime_seconds": 2.2e-05,
+      "tier2_issue_count": 3,
+      "tier2_batch_sizes": [
+        3
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 2,
+      "llm_runtime_seconds": 156.67592,
+      "intended_llm_decision_calls": 1,
+      "retries": 1,
+      "successful_batches": 0,
+      "batch_failures": 1,
+      "fallback_issue_count": 2,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-fd5dfd5a3538",
+            "issue-missing_values-2434cbb43563",
+            "issue-missing_values-5838a931658b"
+          ],
+          "accepted_on_first_response": [
+            "issue-missing_values-fd5dfd5a3538"
+          ],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [
+            "issue-missing_values-2434cbb43563",
+            "issue-missing_values-5838a931658b"
+          ],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-fd5dfd5a3538",
+                "issue-missing_values-2434cbb43563",
+                "issue-missing_values-5838a931658b"
+              ],
+              "retry_batch_size": 3,
+              "provider_status": "success",
+              "accepted_issue_ids": [
+                "issue-missing_values-fd5dfd5a3538"
+              ],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-2434cbb43563",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                },
+                {
+                  "issue_id": "issue-missing_values-5838a931658b",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-2434cbb43563",
+                "issue-missing_values-5838a931658b"
+              ],
+              "coverage": {
+                "missing_issue_ids": [],
+                "duplicate_issue_ids": [],
+                "unexpected_issue_ids": []
+              }
+            },
+            {
+              "stage": "retry",
+              "issue_ids": [
+                "issue-missing_values-2434cbb43563",
+                "issue-missing_values-5838a931658b"
+              ],
+              "retry_batch_size": 2,
+              "provider_status": "success",
+              "accepted_issue_ids": [],
+              "rejected": [
+                {
+                  "issue_id": "issue-missing_values-2434cbb43563",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                },
+                {
+                  "issue_id": "issue-missing_values-5838a931658b",
+                  "reason": "ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+                }
+              ],
+              "unresolved_issue_ids": [
+                "issue-missing_values-2434cbb43563",
+                "issue-missing_values-5838a931658b"
+              ],
+              "coverage": {
+                "missing_issue_ids": [],
+                "duplicate_issue_ids": [],
+                "unexpected_issue_ids": []
+              }
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-fd5dfd5a3538",
+            "issue-missing_values-2434cbb43563",
+            "issue-missing_values-5838a931658b"
+          ],
+          "retry_batch_size": 3,
+          "prompt_character_length": 5732,
+          "api_wall_duration_seconds": 83.089536,
+          "prompt_eval_count": 1241,
+          "prompt_eval_duration": 1944718000,
+          "eval_count": 347,
+          "eval_duration": 76869547000,
+          "total_duration": 78881889200,
+          "load_duration": 10577000,
+          "done_reason": "stop"
+        },
+        {
+          "batch_index": 1,
+          "attempt": 2,
+          "recovery_stage": "retry",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-2434cbb43563",
+            "issue-missing_values-5838a931658b"
+          ],
+          "retry_batch_size": 2,
+          "prompt_character_length": 4940,
+          "api_wall_duration_seconds": 73.586384,
+          "prompt_eval_count": 1062,
+          "prompt_eval_duration": 856649000,
+          "eval_count": 312,
+          "eval_duration": 68437950000,
+          "total_duration": 69435491000,
+          "load_duration": 8492100,
+          "done_reason": "stop"
+        }
+      ],
+      "total_runtime_seconds": 156.759063
+    },
+    "warnings": [
+      "Tier 2 decision failed for issue issue-missing_values-2434cbb43563: ValueError: Missing-value no_action requires supplied affirmative preservation evidence.",
+      "Tier 2 decision failed for issue issue-missing_values-5838a931658b: ValueError: Missing-value no_action requires supplied affirmative preservation evidence."
+    ]
+  },
+  {
+    "dataset_id": "dataset_05_education",
+    "repeat": 1,
+    "model": "qwen2.5:7b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-321458eb06b8"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "success",
+        "accepted_issue_ids": [
+          "issue-missing_values-321458eb06b8"
+        ],
+        "rejected": [],
+        "unresolved_issue_ids": [],
+        "coverage": {
+          "missing_issue_ids": [],
+          "duplicate_issue_ids": [],
+          "unexpected_issue_ids": []
+        },
+        "prompt_character_length": 4003,
+        "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-321458eb06b8\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.8,\n      \"rationale\": \"The median imputation is semantically appropriate for numeric measurements with confirmed quantitative magnitude.\"\n    }\n  ]\n}",
+        "time_since_last_call_seconds": 0.37037819999932253,
+        "pre_call_memory": {
+          "memory_load_percent": 89,
+          "total_physical_gib": 15.637882232666016,
+          "available_physical_gib": 1.6339111328125,
+          "total_page_file_gib": 24.131553649902344,
+          "available_page_file_gib": 1.1151924133300781
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:7b",
+            "model": "qwen2.5:7b",
+            "size": 5123845650,
+            "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "7.6B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-09T15:38:17.6657679+05:30",
+            "size_vram": 2300040969,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_result": {
+          "decisions": [
+            {
+              "issue_id": "issue-missing_values-321458eb06b8",
+              "decision_type": "action",
+              "proposed_action": "impute_missing",
+              "parameters": {
+                "strategy": "median"
+              },
+              "recommendation_basis": "semantically_appropriate_imputation",
+              "confidence": 0.8,
+              "rationale": "The median imputation is semantically appropriate for numeric measurements with confirmed quantitative magnitude."
+            }
+          ]
+        },
+        "ollama_telemetry": {
+          "model": "qwen2.5:7b",
+          "created_at": "2026-09-09T09:38:48.3606811Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 26229785800,
+          "load_duration": 7183300,
+          "prompt_eval_count": 830,
+          "prompt_eval_duration": 678332000,
+          "eval_count": 119,
+          "eval_duration": 25448147000
+        }
+      }
+    ],
+    "cases": [
+      {
+        "column": "attendance_percent",
+        "expected": "action/impute_missing/median",
+        "readiness": {
+          "missing_count": 2,
+          "missing_percentage": 0.03333333333333333,
+          "missingness_band": "low",
+          "observed_count": 5998,
+          "physical_dtype": "float64",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "semantic_confidence": 0.8,
+          "concept_description": "Percentage of attendance for the student.",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "true",
+            "reason_code": "confirmed_quantitative_magnitude"
+          },
+          "median_mechanical_preflight": {
+            "status": "pass",
+            "reason_code": "existing_imputation_contract_passed"
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-321458eb06b8\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.8,\n      \"rationale\": \"The median imputation is semantically appropriate for numeric measurements with confirmed quantitative magnitude.\"\n    }\n  ]\n}",
+        "first_validation": "accepted",
+        "accepted_immediately": true,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-321458eb06b8",
+          "source_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "target_columns": [
+            "attendance_percent"
+          ],
+          "decision_type": "action",
+          "proposed_action": "impute_missing",
+          "parameters": {
+            "strategy": "median"
+          },
+          "confidence": 0.8,
+          "rationale": "The median imputation is semantically appropriate for numeric measurements with confirmed quantitative magnitude.",
+          "evidence_summary": {
+            "null_detection": "pandas.isna",
+            "non_null_count": 5998
+          },
+          "semantic_basis": {
+            "attendance_percent": {
+              "column_name": "attendance_percent",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Percentage of attendance for the student.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'attendance_percent' and the sample values are numeric, indicating a measurement nature."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "llm_tier2"
+        },
+        "fallback": false
+      }
+    ],
+    "summary": {
+      "total_decisions": 1,
+      "by_decision_type": {
+        "action": 1
+      },
+      "by_proposed_action": {
+        "impute_missing": 1
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 1,
+      "fallback_decisions": 0,
+      "deterministic_runtime_seconds": 4.4e-05,
+      "tier2_issue_count": 1,
+      "tier2_batch_sizes": [
+        1
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 1,
+      "llm_runtime_seconds": 30.354898,
+      "intended_llm_decision_calls": 1,
+      "retries": 0,
+      "successful_batches": 1,
+      "batch_failures": 0,
+      "fallback_issue_count": 0,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "accepted_on_first_response": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-321458eb06b8"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "success",
+              "accepted_issue_ids": [
+                "issue-missing_values-321458eb06b8"
+              ],
+              "rejected": [],
+              "unresolved_issue_ids": [],
+              "coverage": {
+                "missing_issue_ids": [],
+                "duplicate_issue_ids": [],
+                "unexpected_issue_ids": []
+              }
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-321458eb06b8"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4003,
+          "api_wall_duration_seconds": 30.354898,
+          "prompt_eval_count": 830,
+          "prompt_eval_duration": 678332000,
+          "eval_count": 119,
+          "eval_duration": 25448147000,
+          "total_duration": 26229785800,
+          "load_duration": 7183300,
+          "done_reason": "stop"
+        }
+      ],
+      "total_runtime_seconds": 30.375224
+    },
+    "warnings": []
+  },
+  {
+    "dataset_id": "dataset_06_cybersecurity",
+    "repeat": 1,
+    "model": "qwen2.5:7b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-a984adead289"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "success",
+        "accepted_issue_ids": [
+          "issue-missing_values-a984adead289"
+        ],
+        "rejected": [],
+        "unresolved_issue_ids": [],
+        "coverage": {
+          "missing_issue_ids": [],
+          "duplicate_issue_ids": [],
+          "unexpected_issue_ids": []
+        },
+        "prompt_character_length": 4154,
+        "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-a984adead289\",\n      \"decision_type\": \"insufficient_evidence\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"insufficient_or_contradictory_evidence\",\n      \"confidence\": 0.8,\n      \"rationale\": \"Median imputation is not semantically appropriate due to high cardinality integral label risk.\"\n    }\n  ]\n}",
+        "time_since_last_call_seconds": 0.8502193999993324,
+        "pre_call_memory": {
+          "memory_load_percent": 89,
+          "total_physical_gib": 15.637882232666016,
+          "available_physical_gib": 1.5836372375488281,
+          "total_page_file_gib": 24.131553649902344,
+          "available_page_file_gib": 1.0727195739746094
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:7b",
+            "model": "qwen2.5:7b",
+            "size": 5123845650,
+            "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "7.6B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-09T15:38:48.3656977+05:30",
+            "size_vram": 2300040969,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_result": {
+          "decisions": [
+            {
+              "issue_id": "issue-missing_values-a984adead289",
+              "decision_type": "insufficient_evidence",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "insufficient_or_contradictory_evidence",
+              "confidence": 0.8,
+              "rationale": "Median imputation is not semantically appropriate due to high cardinality integral label risk."
+            }
+          ]
+        },
+        "ollama_telemetry": {
+          "model": "qwen2.5:7b",
+          "created_at": "2026-09-09T09:39:17.7475533Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 24422487400,
+          "load_duration": 6019000,
+          "prompt_eval_count": 882,
+          "prompt_eval_duration": 754373000,
+          "eval_count": 111,
+          "eval_duration": 23632469000
+        }
+      }
+    ],
+    "cases": [
+      {
+        "column": "source_port",
+        "expected": "insufficient_evidence/no_op",
+        "readiness": {
+          "missing_count": 16,
+          "missing_percentage": 0.08,
+          "missingness_band": "low",
+          "observed_count": 19984,
+          "physical_dtype": "float64",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "semantic_confidence": 0.8,
+          "concept_description": "The source_port column represents the source port number of the event.",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "unknown",
+            "reason_code": "high_cardinality_integral_label_risk"
+          },
+          "median_mechanical_preflight": {
+            "status": "pass",
+            "reason_code": "existing_imputation_contract_passed"
+          },
+          "numeric_label_risk_evidence": {
+            "integral_fraction": 1.0,
+            "unique_ratio": 0.8556345076060848,
+            "repetition_rate": 0.27251801441152923
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-a984adead289\",\n      \"decision_type\": \"insufficient_evidence\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"insufficient_or_contradictory_evidence\",\n      \"confidence\": 0.8,\n      \"rationale\": \"Median imputation is not semantically appropriate due to high cardinality integral label risk.\"\n    }\n  ]\n}",
+        "first_validation": "accepted",
+        "accepted_immediately": true,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-a984adead289",
+          "source_issue_ids": [
+            "issue-missing_values-a984adead289"
+          ],
+          "target_columns": [
+            "source_port"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.8,
+          "rationale": "Median imputation is not semantically appropriate due to high cardinality integral label risk.",
+          "evidence_summary": {
+            "null_detection": "pandas.isna",
+            "non_null_count": 19984
+          },
+          "semantic_basis": {
+            "source_port": {
+              "column_name": "source_port",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The source_port column represents the source port number of the event.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'source_port' and the presence of numeric values (e.g., 27450.0) suggest that this column likely represents a numeric measurement."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "llm_tier2"
+        },
+        "fallback": false
+      }
+    ],
+    "summary": {
+      "total_decisions": 1,
+      "by_decision_type": {
+        "insufficient_evidence": 1
+      },
+      "by_proposed_action": {
+        "no_op": 1
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 1,
+      "fallback_decisions": 0,
+      "deterministic_runtime_seconds": 4.6e-05,
+      "tier2_issue_count": 1,
+      "tier2_batch_sizes": [
+        1
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 1,
+      "llm_runtime_seconds": 28.611369,
+      "intended_llm_decision_calls": 1,
+      "retries": 0,
+      "successful_batches": 1,
+      "batch_failures": 0,
+      "fallback_issue_count": 0,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-a984adead289"
+          ],
+          "accepted_on_first_response": [
+            "issue-missing_values-a984adead289"
+          ],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-a984adead289"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "success",
+              "accepted_issue_ids": [
+                "issue-missing_values-a984adead289"
+              ],
+              "rejected": [],
+              "unresolved_issue_ids": [],
+              "coverage": {
+                "missing_issue_ids": [],
+                "duplicate_issue_ids": [],
+                "unexpected_issue_ids": []
+              }
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-a984adead289"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4154,
+          "api_wall_duration_seconds": 28.611369,
+          "prompt_eval_count": 882,
+          "prompt_eval_duration": 754373000,
+          "eval_count": 111,
+          "eval_duration": 23632469000,
+          "total_duration": 24422487400,
+          "load_duration": 6019000,
+          "done_reason": "stop"
+        }
+      ],
+      "total_runtime_seconds": 28.67245
+    },
+    "warnings": []
+  },
+  {
+    "dataset_id": "dataset_07_iot_sensor",
+    "repeat": 1,
+    "model": "qwen2.5:7b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-807a4a574212"
+        ],
+        "retry_batch_size": 1,
+        "provider_status": "success",
+        "accepted_issue_ids": [
+          "issue-missing_values-807a4a574212"
+        ],
+        "rejected": [],
+        "unresolved_issue_ids": [],
+        "coverage": {
+          "missing_issue_ids": [],
+          "duplicate_issue_ids": [],
+          "unexpected_issue_ids": []
+        },
+        "prompt_character_length": 4075,
+        "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-807a4a574212\",\n      \"decision_type\": \"insufficient_evidence\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"insufficient_or_contradictory_evidence\",\n      \"confidence\": 0.8,\n      \"rationale\": \"Median imputation is not semantically eligible due to high missingness, and no affirmative preservation evidence is provided.\"\n    }\n  ]\n}",
+        "time_since_last_call_seconds": 0.4200647999987268,
+        "pre_call_memory": {
+          "memory_load_percent": 90,
+          "total_physical_gib": 15.637882232666016,
+          "available_physical_gib": 1.5208206176757812,
+          "total_page_file_gib": 24.131553649902344,
+          "available_page_file_gib": 0.9977455139160156
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:7b",
+            "model": "qwen2.5:7b",
+            "size": 5123845650,
+            "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "7.6B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-09T15:39:17.7537716+05:30",
+            "size_vram": 2300040969,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_result": {
+          "decisions": [
+            {
+              "issue_id": "issue-missing_values-807a4a574212",
+              "decision_type": "insufficient_evidence",
+              "proposed_action": "no_op",
+              "parameters": {},
+              "recommendation_basis": "insufficient_or_contradictory_evidence",
+              "confidence": 0.8,
+              "rationale": "Median imputation is not semantically eligible due to high missingness, and no affirmative preservation evidence is provided."
+            }
+          ]
+        },
+        "ollama_telemetry": {
+          "model": "qwen2.5:7b",
+          "created_at": "2026-09-09T09:39:46.9475697Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 24642194000,
+          "load_duration": 5575200,
+          "prompt_eval_count": 854,
+          "prompt_eval_duration": 667652000,
+          "eval_count": 120,
+          "eval_duration": 23938648000
+        }
+      }
+    ],
+    "cases": [
+      {
+        "column": "error_code",
+        "expected": "flag_for_review/flag_rows",
+        "readiness": {
+          "missing_count": 27679,
+          "missing_percentage": 92.26333333333334,
+          "missingness_band": "very_high",
+          "observed_count": 2321,
+          "physical_dtype": "str",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "numeric_meaning": "not_applicable",
+          "semantic_confidence": 0.8,
+          "concept_description": "Error code encountered by the sensor",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "false",
+            "reason_code": "numeric_meaning_not_applicable"
+          },
+          "median_mechanical_preflight": {
+            "status": "fail",
+            "reason_code": "existing_imputation_contract_failed",
+            "reason": "Imputation requires LOW missingness (0–5%); observed very_high."
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-807a4a574212\",\n      \"decision_type\": \"insufficient_evidence\",\n      \"proposed_action\": \"no_op\",\n      \"parameters\": {},\n      \"recommendation_basis\": \"insufficient_or_contradictory_evidence\",\n      \"confidence\": 0.8,\n      \"rationale\": \"Median imputation is not semantically eligible due to high missingness, and no affirmative preservation evidence is provided.\"\n    }\n  ]\n}",
+        "first_validation": "accepted",
+        "accepted_immediately": true,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-807a4a574212",
+          "source_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "target_columns": [
+            "error_code"
+          ],
+          "decision_type": "insufficient_evidence",
+          "proposed_action": "no_op",
+          "parameters": {},
+          "confidence": 0.8,
+          "rationale": "Median imputation is not semantically eligible due to high missingness, and no affirmative preservation evidence is provided.",
+          "evidence_summary": {
+            "null_detection": "pandas.isna",
+            "non_null_count": 2321
+          },
+          "semantic_basis": {
+            "error_code": {
+              "column_name": "error_code",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "not_applicable",
+              "concept_description": "Error code encountered by the sensor",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'error_code' suggests that the values represent different error codes encountered by the sensor, which are reusable categories or labels."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "llm_tier2"
+        },
+        "fallback": false
+      }
+    ],
+    "summary": {
+      "total_decisions": 1,
+      "by_decision_type": {
+        "insufficient_evidence": 1
+      },
+      "by_proposed_action": {
+        "no_op": 1
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 1,
+      "fallback_decisions": 0,
+      "deterministic_runtime_seconds": 5.8e-05,
+      "tier2_issue_count": 1,
+      "tier2_batch_sizes": [
+        1
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 1,
+      "llm_runtime_seconds": 28.795655,
+      "intended_llm_decision_calls": 1,
+      "retries": 0,
+      "successful_batches": 1,
+      "batch_failures": 0,
+      "fallback_issue_count": 0,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "accepted_on_first_response": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-807a4a574212"
+              ],
+              "retry_batch_size": 1,
+              "provider_status": "success",
+              "accepted_issue_ids": [
+                "issue-missing_values-807a4a574212"
+              ],
+              "rejected": [],
+              "unresolved_issue_ids": [],
+              "coverage": {
+                "missing_issue_ids": [],
+                "duplicate_issue_ids": [],
+                "unexpected_issue_ids": []
+              }
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-807a4a574212"
+          ],
+          "retry_batch_size": 1,
+          "prompt_character_length": 4075,
+          "api_wall_duration_seconds": 28.795655,
+          "prompt_eval_count": 854,
+          "prompt_eval_duration": 667652000,
+          "eval_count": 120,
+          "eval_duration": 23938648000,
+          "total_duration": 24642194000,
+          "load_duration": 5575200,
+          "done_reason": "stop"
+        }
+      ],
+      "total_runtime_seconds": 28.800532
+    },
+    "warnings": []
+  },
+  {
+    "dataset_id": "dataset_08_manufacturing",
+    "repeat": 1,
+    "model": "qwen2.5:7b",
+    "calls": [
+      {
+        "stage": "initial",
+        "issue_ids": [
+          "issue-missing_values-77946834a5ac",
+          "issue-missing_values-45f43b8e28ce",
+          "issue-missing_values-844f6de3e32e"
+        ],
+        "retry_batch_size": 3,
+        "provider_status": "success",
+        "accepted_issue_ids": [
+          "issue-missing_values-77946834a5ac",
+          "issue-missing_values-45f43b8e28ce",
+          "issue-missing_values-844f6de3e32e"
+        ],
+        "rejected": [],
+        "unresolved_issue_ids": [],
+        "coverage": {
+          "missing_issue_ids": [],
+          "duplicate_issue_ids": [],
+          "unexpected_issue_ids": []
+        },
+        "prompt_character_length": 5577,
+        "raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-77946834a5ac\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.9,\n      \"rationale\": \"The missingness band is low and the median semantic eligibility is confirmed.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-45f43b8e28ce\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.9,\n      \"rationale\": \"The missingness band is low and the median semantic eligibility is confirmed.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-844f6de3e32e\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.9,\n      \"rationale\": \"The missingness band is low and the median semantic eligibility is confirmed.\"\n    }\n  ]\n}",
+        "time_since_last_call_seconds": 0.15079209999930754,
+        "pre_call_memory": {
+          "memory_load_percent": 89,
+          "total_physical_gib": 15.637882232666016,
+          "available_physical_gib": 1.6681861877441406,
+          "total_page_file_gib": 24.131553649902344,
+          "available_page_file_gib": 1.203094482421875
+        },
+        "pre_call_loaded_models": [
+          {
+            "name": "qwen2.5:7b",
+            "model": "qwen2.5:7b",
+            "size": 5123845650,
+            "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "7.6B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-09-09T15:39:46.9558567+05:30",
+            "size_vram": 2300040969,
+            "context_length": 4096
+          }
+        ],
+        "request_keep_alive": null,
+        "effective_keep_alive": "Ollama server default (documented default: 5m)",
+        "provider_result": {
+          "decisions": [
+            {
+              "issue_id": "issue-missing_values-77946834a5ac",
+              "decision_type": "action",
+              "proposed_action": "impute_missing",
+              "parameters": {
+                "strategy": "median"
+              },
+              "recommendation_basis": "semantically_appropriate_imputation",
+              "confidence": 0.9,
+              "rationale": "The missingness band is low and the median semantic eligibility is confirmed."
+            },
+            {
+              "issue_id": "issue-missing_values-45f43b8e28ce",
+              "decision_type": "action",
+              "proposed_action": "impute_missing",
+              "parameters": {
+                "strategy": "median"
+              },
+              "recommendation_basis": "semantically_appropriate_imputation",
+              "confidence": 0.9,
+              "rationale": "The missingness band is low and the median semantic eligibility is confirmed."
+            },
+            {
+              "issue_id": "issue-missing_values-844f6de3e32e",
+              "decision_type": "action",
+              "proposed_action": "impute_missing",
+              "parameters": {
+                "strategy": "median"
+              },
+              "recommendation_basis": "semantically_appropriate_imputation",
+              "confidence": 0.9,
+              "rationale": "The missingness band is low and the median semantic eligibility is confirmed."
+            }
+          ]
+        },
+        "ollama_telemetry": {
+          "model": "qwen2.5:7b",
+          "created_at": "2026-09-09T09:41:05.5622996Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 74368541100,
+          "load_duration": 10375000,
+          "prompt_eval_count": 1218,
+          "prompt_eval_duration": 1275478000,
+          "eval_count": 329,
+          "eval_duration": 73024380000
+        }
+      }
+    ],
+    "cases": [
+      {
+        "column": "actual_quantity",
+        "expected": "action/impute_missing/median",
+        "readiness": {
+          "missing_count": 14,
+          "missing_percentage": 0.09333333333333334,
+          "missingness_band": "low",
+          "observed_count": 14986,
+          "physical_dtype": "float64",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "semantic_confidence": 0.9,
+          "concept_description": "The actual quantity produced in a production run",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "true",
+            "reason_code": "confirmed_quantitative_magnitude"
+          },
+          "median_mechanical_preflight": {
+            "status": "pass",
+            "reason_code": "existing_imputation_contract_passed"
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-77946834a5ac\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.9,\n      \"rationale\": \"The missingness band is low and the median semantic eligibility is confirmed.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-45f43b8e28ce\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.9,\n      \"rationale\": \"The missingness band is low and the median semantic eligibility is confirmed.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-844f6de3e32e\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.9,\n      \"rationale\": \"The missingness band is low and the median semantic eligibility is confirmed.\"\n    }\n  ]\n}",
+        "first_validation": "accepted",
+        "accepted_immediately": true,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-77946834a5ac",
+          "source_issue_ids": [
+            "issue-missing_values-77946834a5ac"
+          ],
+          "target_columns": [
+            "actual_quantity"
+          ],
+          "decision_type": "action",
+          "proposed_action": "impute_missing",
+          "parameters": {
+            "strategy": "median"
+          },
+          "confidence": 0.9,
+          "rationale": "The missingness band is low and the median semantic eligibility is confirmed.",
+          "evidence_summary": {
+            "null_detection": "pandas.isna",
+            "non_null_count": 14986
+          },
+          "semantic_basis": {
+            "actual_quantity": {
+              "column_name": "actual_quantity",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The actual quantity produced in a production run",
+              "semantic_role": "unknown",
+              "confidence": 0.9,
+              "reasoning_summary": "The column name 'actual_quantity' and its numeric summary suggest it represents a measured quantity."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "llm_tier2"
+        },
+        "fallback": false
+      },
+      {
+        "column": "defect_quantity",
+        "expected": "action/impute_missing/median",
+        "readiness": {
+          "missing_count": 14,
+          "missing_percentage": 0.09333333333333334,
+          "missingness_band": "low",
+          "observed_count": 14986,
+          "physical_dtype": "float64",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "semantic_confidence": 0.9,
+          "concept_description": "The quantity of defective items produced in a production run",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "true",
+            "reason_code": "confirmed_quantitative_magnitude"
+          },
+          "median_mechanical_preflight": {
+            "status": "pass",
+            "reason_code": "existing_imputation_contract_passed"
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-77946834a5ac\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.9,\n      \"rationale\": \"The missingness band is low and the median semantic eligibility is confirmed.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-45f43b8e28ce\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.9,\n      \"rationale\": \"The missingness band is low and the median semantic eligibility is confirmed.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-844f6de3e32e\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.9,\n      \"rationale\": \"The missingness band is low and the median semantic eligibility is confirmed.\"\n    }\n  ]\n}",
+        "first_validation": "accepted",
+        "accepted_immediately": true,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-45f43b8e28ce",
+          "source_issue_ids": [
+            "issue-missing_values-45f43b8e28ce"
+          ],
+          "target_columns": [
+            "defect_quantity"
+          ],
+          "decision_type": "action",
+          "proposed_action": "impute_missing",
+          "parameters": {
+            "strategy": "median"
+          },
+          "confidence": 0.9,
+          "rationale": "The missingness band is low and the median semantic eligibility is confirmed.",
+          "evidence_summary": {
+            "null_detection": "pandas.isna",
+            "non_null_count": 14986
+          },
+          "semantic_basis": {
+            "defect_quantity": {
+              "column_name": "defect_quantity",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The quantity of defective items produced in a production run",
+              "semantic_role": "unknown",
+              "confidence": 0.9,
+              "reasoning_summary": "The column name 'defect_quantity' and its numeric summary suggest it represents a measured quantity."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "llm_tier2"
+        },
+        "fallback": false
+      },
+      {
+        "column": "humidity_percent",
+        "expected": "action/impute_missing/median",
+        "readiness": {
+          "missing_count": 8,
+          "missing_percentage": 0.05333333333333334,
+          "missingness_band": "low",
+          "observed_count": 14992,
+          "physical_dtype": "float64",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "semantic_confidence": 0.9,
+          "concept_description": "The humidity percentage",
+          "identifier_or_entity_reference_protected": false,
+          "affirmative_preservation_evidence": null,
+          "supplied_consequence_evidence": null,
+          "median_semantic_eligibility": {
+            "status": "true",
+            "reason_code": "confirmed_quantitative_magnitude"
+          },
+          "median_mechanical_preflight": {
+            "status": "pass",
+            "reason_code": "existing_imputation_contract_passed"
+          }
+        },
+        "first_raw_qwen_response": "{\n  \"decisions\": [\n    {\n      \"issue_id\": \"issue-missing_values-77946834a5ac\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.9,\n      \"rationale\": \"The missingness band is low and the median semantic eligibility is confirmed.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-45f43b8e28ce\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.9,\n      \"rationale\": \"The missingness band is low and the median semantic eligibility is confirmed.\"\n    },\n    {\n      \"issue_id\": \"issue-missing_values-844f6de3e32e\",\n      \"decision_type\": \"action\",\n      \"proposed_action\": \"impute_missing\",\n      \"parameters\": {\n        \"strategy\": \"median\"\n      },\n      \"recommendation_basis\": \"semantically_appropriate_imputation\",\n      \"confidence\": 0.9,\n      \"rationale\": \"The missingness band is low and the median semantic eligibility is confirmed.\"\n    }\n  ]\n}",
+        "first_validation": "accepted",
+        "accepted_immediately": true,
+        "retried": false,
+        "retry_attempts": [],
+        "final_decision": {
+          "decision_id": "decision-issue-missing_values-844f6de3e32e",
+          "source_issue_ids": [
+            "issue-missing_values-844f6de3e32e"
+          ],
+          "target_columns": [
+            "humidity_percent"
+          ],
+          "decision_type": "action",
+          "proposed_action": "impute_missing",
+          "parameters": {
+            "strategy": "median"
+          },
+          "confidence": 0.9,
+          "rationale": "The missingness band is low and the median semantic eligibility is confirmed.",
+          "evidence_summary": {
+            "null_detection": "pandas.isna",
+            "non_null_count": 14992
+          },
+          "semantic_basis": {
+            "humidity_percent": {
+              "column_name": "humidity_percent",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The humidity percentage",
+              "semantic_role": "unknown",
+              "confidence": 0.9,
+              "reasoning_summary": "The column name 'humidity_percent' and its numeric summary suggest it represents a measured quantity."
+            }
+          },
+          "risk_level": "high",
+          "requires_review": true,
+          "decision_source": "llm_tier2"
+        },
+        "fallback": false
+      }
+    ],
+    "summary": {
+      "total_decisions": 3,
+      "by_decision_type": {
+        "action": 3
+      },
+      "by_proposed_action": {
+        "impute_missing": 3
+      },
+      "tier1_decisions": 0,
+      "tier2_decisions": 3,
+      "fallback_decisions": 0,
+      "deterministic_runtime_seconds": 2.6e-05,
+      "tier2_issue_count": 3,
+      "tier2_batch_sizes": [
+        3
+      ],
+      "tier2_batch_kinds": [
+        "missing_values"
+      ],
+      "llm_decision_calls": 1,
+      "llm_runtime_seconds": 78.496063,
+      "intended_llm_decision_calls": 1,
+      "retries": 0,
+      "successful_batches": 1,
+      "batch_failures": 0,
+      "fallback_issue_count": 0,
+      "tier2_recovery_audit": [
+        {
+          "original_batch_index": 1,
+          "batch_kind": "missing_values",
+          "original_issue_ids": [
+            "issue-missing_values-77946834a5ac",
+            "issue-missing_values-45f43b8e28ce",
+            "issue-missing_values-844f6de3e32e"
+          ],
+          "accepted_on_first_response": [
+            "issue-missing_values-77946834a5ac",
+            "issue-missing_values-45f43b8e28ce",
+            "issue-missing_values-844f6de3e32e"
+          ],
+          "recovered_on_retry": [],
+          "final_fallback_issue_ids": [],
+          "calls": [
+            {
+              "stage": "initial",
+              "issue_ids": [
+                "issue-missing_values-77946834a5ac",
+                "issue-missing_values-45f43b8e28ce",
+                "issue-missing_values-844f6de3e32e"
+              ],
+              "retry_batch_size": 3,
+              "provider_status": "success",
+              "accepted_issue_ids": [
+                "issue-missing_values-77946834a5ac",
+                "issue-missing_values-45f43b8e28ce",
+                "issue-missing_values-844f6de3e32e"
+              ],
+              "rejected": [],
+              "unresolved_issue_ids": [],
+              "coverage": {
+                "missing_issue_ids": [],
+                "duplicate_issue_ids": [],
+                "unexpected_issue_ids": []
+              }
+            }
+          ]
+        }
+      ],
+      "llm_calls": [
+        {
+          "batch_index": 1,
+          "attempt": 1,
+          "recovery_stage": "initial",
+          "batch_kind": "missing_values",
+          "issue_ids": [
+            "issue-missing_values-77946834a5ac",
+            "issue-missing_values-45f43b8e28ce",
+            "issue-missing_values-844f6de3e32e"
+          ],
+          "retry_batch_size": 3,
+          "prompt_character_length": 5577,
+          "api_wall_duration_seconds": 78.496063,
+          "prompt_eval_count": 1218,
+          "prompt_eval_duration": 1275478000,
+          "eval_count": 329,
+          "eval_duration": 73024380000,
+          "total_duration": 74368541100,
+          "load_duration": 10375000,
+          "done_reason": "stop"
+        }
+      ],
+      "total_runtime_seconds": 78.537989
+    },
+    "warnings": []
+  }
+]
