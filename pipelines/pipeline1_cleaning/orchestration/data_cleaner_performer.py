@@ -13,7 +13,12 @@ from pipelines.pipeline1_cleaning.profiling.column_profiler import make_serializ
 from pipelines.pipeline1_cleaning.techniques.missing_values import prepare_imputation, missingness_assessment
 
 
-def _changed_cells(before: pd.DataFrame, after: pd.DataFrame, cap: int = 5):
+def _changed_cells(
+    before: pd.DataFrame,
+    after: pd.DataFrame,
+    cap: int = 5,
+    include_values: bool = True,
+):
     changed_count = 0
     examples = []
     for column in before.columns:
@@ -27,12 +32,16 @@ def _changed_cells(before: pd.DataFrame, after: pd.DataFrame, cap: int = 5):
         for index in before.index[~equal.fillna(False)]:
             changed_count += 1
             if len(examples) < cap:
-                examples.append({
+                example = {
                     "row_index": make_serializable(index),
                     "column": str(column),
-                    "before": make_serializable(before.at[index, column]),
-                    "after": make_serializable(after.at[index, column]),
-                })
+                }
+                if include_values:
+                    example.update({
+                        "before": make_serializable(before.at[index, column]),
+                        "after": make_serializable(after.at[index, column]),
+                    })
+                examples.append(example)
     return changed_count, examples
 
 
@@ -49,6 +58,15 @@ def execute_instruction(
         if column in before.columns:
             audit_metadata = {"strategy": instruction.parameters.get("strategy"),
                               **missingness_assessment(before[column])}
+    if instruction.action_id == "mask_column" and len(instruction.target_columns) == 1:
+        column = instruction.target_columns[0]
+        if column in before.columns:
+            audit_metadata = {
+                "reason": "masked for privacy",
+                "metric_category": "privacy",
+                "strategy": instruction.parameters.get("strategy"),
+                "affected_cell_count": int(before[column].notna().sum()),
+            }
     try:
         handler = get_action(instruction.action_id)
         cleaned = handler(
@@ -73,7 +91,11 @@ def execute_instruction(
             error=f"{type(exc).__name__}: {exc}",
         )
 
-    changed_cell_count, change_examples = _changed_cells(before, cleaned)
+    changed_cell_count, change_examples = _changed_cells(
+        before,
+        cleaned,
+        include_values=instruction.action_id != "mask_column",
+    )
     changed = not cleaned.equals(before)
     result = ExecutionResult(
         instruction_id=instruction.instruction_id,
@@ -93,7 +115,11 @@ def execute_instruction(
         message=(
             "No changes were requested or applied."
             if instruction.action_id == "no_op"
-            else "Instruction executed successfully."
+            else (
+                "Column masked for privacy."
+                if instruction.action_id == "mask_column"
+                else "Instruction executed successfully."
+            )
         ),
     )
     return cleaned, result

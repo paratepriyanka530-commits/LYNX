@@ -1,10 +1,16 @@
+import json
 import tempfile
 import unittest
 from pathlib import Path
 
 import pandas as pd
 
-from benchmarks.tabarena.pipeline2_benchmark_runner import _score, run_evaluations
+from benchmarks.tabarena.pipeline2_benchmark_runner import (
+    Pipeline1PrivacyClearanceError,
+    _score,
+    load_privacy_cleared_dataset,
+    run_evaluations,
+)
 from pipelines.pipeline2_prediction.models.artifact_io import training_artifact_dir
 
 
@@ -49,12 +55,70 @@ class BenchmarkRunnerTests(unittest.TestCase):
             "csv_file": "does-not-exist.csv",
         }
         with tempfile.TemporaryDirectory() as directory:
-            rows = run_evaluations([dataset], Path(directory), run_id="test")
+            root = Path(directory)
+            rows = run_evaluations(
+                [dataset],
+                root / "runner",
+                root / "pipeline1",
+                run_id="test",
+            )
         self.assertEqual(len(rows), 10)
         self.assertTrue(all(row["status"] == "failure" for row in rows))
         self.assertTrue(
             all(row["outcome_reason"].startswith("dataset_setup:") for row in rows)
         )
+
+    def test_raw_dataset_without_pipeline1_privacy_clearance_is_rejected(self):
+        dataset = {
+            "task_id": "raw-only",
+            "dataset_name": "raw-only",
+            "task_type": "Supervised Classification",
+            "target_column": "target",
+            "csv_file": "raw.csv",
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            pd.DataFrame({
+                "email": ["person@example.com"],
+                "target": [1],
+            }).to_csv(root / "raw.csv", index=False)
+
+            with self.assertRaisesRegex(
+                Pipeline1PrivacyClearanceError,
+                "Raw-input fallback is prohibited",
+            ):
+                load_privacy_cleared_dataset(dataset, root / "pipeline1")
+
+    def test_successful_cleaning_without_privacy_stage_is_rejected(self):
+        dataset = {
+            "task_id": "cleaned-only",
+            "dataset_name": "cleaned-only",
+            "task_type": "Supervised Classification",
+            "target_column": "target",
+            "csv_file": "raw.csv",
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            artifact_dir = Path(directory) / "pipeline1" / "cleaned-only"
+            artifact_dir.mkdir(parents=True)
+            pd.DataFrame({"feature": [1], "target": [0]}).to_csv(
+                artifact_dir / "cleaned_dataset.csv",
+                index=False,
+            )
+            (artifact_dir / "cleaning_report.json").write_text(
+                json.dumps({
+                    "status": "success",
+                    "original_dataset": {"file_name": "raw.csv"},
+                    "validation": {"passed": True},
+                    "decision_summary": {},
+                }),
+                encoding="utf-8",
+            )
+
+            with self.assertRaisesRegex(
+                Pipeline1PrivacyClearanceError,
+                "has no Pipeline 1 privacy audit",
+            ):
+                load_privacy_cleared_dataset(dataset, Path(directory) / "pipeline1")
 
 
 if __name__ == "__main__":

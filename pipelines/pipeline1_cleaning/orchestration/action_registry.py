@@ -9,6 +9,7 @@ import pandas as pd
 from pipelines.pipeline1_cleaning.techniques.date_parsing import parse_dates
 from pipelines.pipeline1_cleaning.techniques.numeric_coercion import coerce_dtype
 from pipelines.pipeline1_cleaning.techniques.missing_values import impute_missing
+from pipelines.pipeline1_cleaning.techniques.privacy_masking import mask_column
 
 
 ActionHandler = Callable[[pd.DataFrame, Sequence[str], Dict[str, Any]], pd.DataFrame]
@@ -71,6 +72,7 @@ ACTION_REGISTRY: Dict[str, ActionHandler] = {
     "parse_dates": parse_dates,
     "coerce_dtype": coerce_dtype,
     "impute_missing": impute_missing,
+    "mask_column": mask_column,
 }
 
 

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 from typing import Any, Dict
@@ -22,6 +23,11 @@ def export_pipeline_outputs(
     report_path = output_dir / "cleaning_report.json"
 
     dataframe.to_csv(dataset_path, index=False)
+    privacy_actions = report.decision_summary.get("privacy_actions")
+    if isinstance(privacy_actions, dict):
+        privacy_actions["cleaned_dataset_sha256"] = hashlib.sha256(
+            dataset_path.read_bytes()
+        ).hexdigest()
     report.output_artifacts = {
         "cleaned_dataset": str(dataset_path),
         "cleaning_report": str(report_path),

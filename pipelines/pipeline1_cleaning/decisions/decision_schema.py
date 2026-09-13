@@ -17,7 +17,7 @@ DecisionOutcome = Literal[
 ProposedAction = Literal[
     "no_op", "trim_whitespace", "normalize_categorical_labels",
     "parse_dates", "coerce_dtype", "impute_missing",
-    "add_missing_indicator", "drop_duplicate_rows", "flag_rows",
+    "mask_column", "add_missing_indicator", "drop_duplicate_rows", "flag_rows",
 ]
 
 
@@ -94,6 +94,7 @@ class ValidationReport(BaseModel):
     only_approved_date_changes: bool = True
     expected_dtype_changes_only: bool = True
     only_approved_numeric_changes: bool = True
+    only_approved_privacy_changes: bool = True
     null_positions_equal: bool = True
     targeted_mixed_numeric_improved: bool = True
     only_approved_imputation_changes: bool = True

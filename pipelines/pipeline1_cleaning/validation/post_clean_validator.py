@@ -23,6 +23,8 @@ def _issue_counts(dataframe, profile):
     dates_by_column = {}
     numeric_by_column = {}
     for issue in issues:
+        if issue.issue_type == "pii_candidate":
+            continue
         by_type[issue.issue_type] = by_type.get(issue.issue_type, 0) + 1
         if issue.issue_type == "whitespace_issue":
             for column in issue.target_columns:
@@ -169,11 +171,16 @@ def _validate_non_imputation(
 
     numeric_instructions = [item for item in executed_instructions if item.action_id == "coerce_dtype"]
     numeric_columns = {item.target_columns[0] for item in numeric_instructions}
+    mask_instructions = [
+        item for item in executed_instructions if item.action_id == "mask_column"
+    ]
+    mask_columns = {item.target_columns[0] for item in mask_instructions}
     only_approved_numeric_changes = True
     targeted_mixed_numeric_improved = True
     expected_dtype_changes_only = all(
         original[column].dtype == cleaned[column].dtype
-        for column in original.columns if column not in numeric_columns
+        for column in original.columns
+        if column not in numeric_columns | mask_columns
     )
     for instruction in numeric_instructions:
         column = instruction.target_columns[0]
@@ -194,6 +201,31 @@ def _validate_non_imputation(
         before_numeric = before_issue_counts["mixed_numeric_affected_cells_by_column"].get(column, 0)
         after_numeric = after_issue_counts["mixed_numeric_affected_cells_by_column"].get(column, 0)
         targeted_mixed_numeric_improved &= after_numeric < before_numeric if before_numeric else after_numeric == 0
+    only_approved_privacy_changes = True
+    for instruction in mask_instructions:
+        column = instruction.target_columns[0]
+        expected_input = original[[column]].copy(deep=True)
+        from pipelines.pipeline1_cleaning.orchestration.action_registry import get_action
+        try:
+            for preceding in executed_instructions:
+                if preceding.instruction_id == instruction.instruction_id:
+                    break
+                if column in preceding.target_columns:
+                    get_action(preceding.action_id)(
+                        expected_input,
+                        [column],
+                        preceding.parameters,
+                    )
+            get_action("mask_column")(
+                expected_input,
+                [column],
+                instruction.parameters,
+            )
+            only_approved_privacy_changes &= expected_input[column].equals(
+                cleaned[column]
+            )
+        except (ValueError, KeyError, TypeError):
+            only_approved_privacy_changes = False
     null_positions_equal = original.isna().equals(cleaned.isna())
 
     comparisons = {
@@ -227,6 +259,7 @@ def _validate_non_imputation(
             and null_positions_equal
             and only_approved_numeric_changes
             and targeted_mixed_numeric_improved
+            and only_approved_privacy_changes
         )
     warnings = [] if no_unexpected_changes else [
         "Post-clean validation found changes outside the approved action boundaries."
@@ -246,6 +279,7 @@ def _validate_non_imputation(
         only_approved_date_changes=only_approved_date_changes,
         expected_dtype_changes_only=expected_dtype_changes_only,
         only_approved_numeric_changes=only_approved_numeric_changes,
+        only_approved_privacy_changes=only_approved_privacy_changes,
         null_positions_equal=null_positions_equal,
         targeted_mixed_numeric_improved=targeted_mixed_numeric_improved,
         newly_introduced_null_count=newly_introduced_null_count,

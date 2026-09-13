@@ -13,6 +13,9 @@ import pandas as pd
 
 from pipelines.pipeline1_cleaning.profiling.column_profiler import make_serializable
 from pipelines.pipeline1_cleaning.quality.quality_report import DetectedIssue
+from pipelines.pipeline1_cleaning.techniques.privacy_masking import (
+    PII_DEFAULT_STRATEGIES,
+)
 
 
 @dataclass(frozen=True)
@@ -30,11 +33,35 @@ class DetectionConfig:
     outlier_iqr_multiplier: float = 1.5
     outlier_min_unique: int = 10
     outlier_min_unique_ratio: float = 0.05
+    pii_pattern_min_fraction: float = 0.80
+    pii_semantic_min_confidence: float = 0.0
 
 
 DEFAULT_CONFIG = DetectionConfig()
 
-
+EMAIL_PATTERN = re.compile(
+    r"^[A-Z0-9.!#$%&'*+/=?^_{}|~-]+@[A-Z0-9-]+(?:\.[A-Z0-9-]+)+$",
+    re.IGNORECASE,
+)
+NATIONAL_ID_PATTERNS = (
+    re.compile(r"^\d{3}-\d{2}-\d{4}$"),
+    re.compile(r"^\d{4}[ -]\d{4}[ -]\d{4}$"),
+    re.compile(r"^[A-Z]{5}\d{4}[A-Z]$", re.IGNORECASE),
+)
+PHONE_PATTERNS = (
+    re.compile(r"^\+\d{1,3}[ -]\d{3,5}[ -]\d{4,5}$"),
+    re.compile(r"^\+\d{1,3}[ -]\d{2,4}[ -]\d{3,4}[ -]\d{4}$"),
+    re.compile(r"^\(?\d{3}\)?[ -]\d{3}[ -]\d{4}$"),
+)
+PERSON_NAME_CONCEPT = re.compile(
+    r"(?:\b(?:full|first|last|given|family)[ _-]?name\b|"
+    r"\b(?:person|patient|customer|employee|student|client|member|"
+    r"applicant|passenger|recipient|sender|contact)(?:'s)?[ _-]+names?\b|"
+    r"\bnames?\s+of\s+(?:an?\s+|the\s+)?(?:person|patient|customer|"
+    r"employee|student|client|member|applicant|passenger|recipient|sender|"
+    r"contact)s?\b)",
+    re.IGNORECASE,
+)
 def _issue_id(issue_type: str, columns: Iterable[str]) -> str:
     identity = issue_type + "|" + "|".join(columns)
     digest = hashlib.sha256(identity.encode("utf-8")).hexdigest()[:12]
@@ -70,12 +97,44 @@ def _date_format(value: str) -> str | None:
     return None
 
 
+def _semantic_pii_subtype(
+    semantic: Dict[str, Any],
+    minimum_confidence: float,
+) -> str | None:
+    confidence = float(semantic.get("confidence") or 0.0)
+    if confidence < minimum_confidence:
+        return None
+    if (
+        semantic.get("semantic_type") == "contact_information"
+        or semantic.get("semantic_role") == "contact_field"
+        or semantic.get("value_function") == "contact"
+    ):
+        return "semantic_contact_information"
+    concept = str(semantic.get("concept_description") or "")
+    if (
+        semantic.get("semantic_type") in {"text", "identifier"}
+        and PERSON_NAME_CONCEPT.search(concept)
+    ):
+        return "semantic_person_name"
+    return None
+
+
+def _phone_mask(values: pd.Series) -> pd.Series:
+    matched = pd.Series(False, index=values.index)
+    for pattern in PHONE_PATTERNS:
+        matched |= values.str.fullmatch(pattern, na=False)
+    digit_counts = values.str.replace(r"\D", "", regex=True).str.len()
+    return matched & digit_counts.between(7, 15)
+
+
 def detect_issues(
     dataframe: pd.DataFrame,
     dataset_profile: Dict[str, Any],
     config: DetectionConfig = DEFAULT_CONFIG,
+    column_semantics: Dict[str, Dict[str, Any]] | None = None,
 ) -> List[DetectedIssue]:
     issues: List[DetectedIssue] = []
+    pii_columns: set[str] = set()
     row_count = len(dataframe)
 
     def add(
@@ -180,6 +239,51 @@ def detect_issues(
         if non_null.empty:
             continue
         stripped = non_null.str.strip()
+
+        national_mask = pd.Series(False, index=stripped.index)
+        for pattern in NATIONAL_ID_PATTERNS:
+            national_mask |= stripped.str.fullmatch(pattern, na=False)
+        pattern_masks = {
+            "national_id": national_mask,
+            "email": stripped.str.fullmatch(EMAIL_PATTERN, na=False),
+            "phone_number": _phone_mask(stripped) & ~national_mask,
+        }
+        subtype = next(
+            (
+                candidate
+                for candidate in ("national_id", "email", "phone_number")
+                if float(pattern_masks[candidate].mean())
+                >= config.pii_pattern_min_fraction
+            ),
+            None,
+        )
+        detection_basis = "direct_value_pattern"
+        matched_count = int(pattern_masks[subtype].sum()) if subtype else 0
+        if subtype is None and column_semantics is not None:
+            subtype = _semantic_pii_subtype(
+                column_semantics.get(name, {}),
+                config.pii_semantic_min_confidence,
+            )
+            detection_basis = "existing_semantic_classification"
+            matched_count = len(non_null) if subtype else 0
+        if subtype is not None:
+            pii_columns.add(name)
+            add(
+                "pii_candidate",
+                [name],
+                matched_count,
+                len(non_null),
+                {
+                    "pii_subtype": subtype,
+                    "detection_basis": detection_basis,
+                    "match_fraction": round(matched_count / len(non_null), 6),
+                    "default_masking_strategy": PII_DEFAULT_STRATEGIES[subtype],
+                    "privacy_reason": "masked for privacy",
+                },
+                [],
+                "candidate",
+                "high",
+            )
         leading = non_null.str.match(r"^\s+")
         trailing = non_null.str.match(r".*\s+$")
         whitespace_only = stripped.eq("")
@@ -271,4 +375,9 @@ def detect_issues(
                 _examples(non_null, date_like, config.example_cap), "candidate",
             )
 
+    # Once a column is privacy-sensitive, do not retain its raw values in
+    # examples belonging to any overlapping quality observation.
+    for issue in issues:
+        if pii_columns.intersection(issue.target_columns):
+            issue.examples = []
     return issues

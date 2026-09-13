@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import csv
 from datetime import datetime, timezone
+import hashlib
 import importlib
 import json
 from pathlib import Path
@@ -23,7 +24,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
 from benchmarks.tabarena.pipeline2_groundwork import (
-    DATASET_DIR,
     EVALUATION_MODEL_IDS,
     LOG_COLUMNS,
     OUTPUT_DIR,
@@ -34,6 +34,87 @@ from benchmarks.tabarena.pipeline2_groundwork import (
     validate_log_record,
 )
 from pipelines.pipeline2_prediction.models.artifact_io import training_artifact_dir
+
+
+class Pipeline1PrivacyClearanceError(RuntimeError):
+    """The dataset has no valid, privacy-cleared Pipeline 1 artifact."""
+
+
+def load_privacy_cleared_dataset(
+    dataset: dict[str, Any],
+    pipeline1_output_root: Path,
+) -> pd.DataFrame:
+    """Load only a hash-verified Pipeline 1 output; never read raw input."""
+    dataset_id = str(dataset["task_id"])
+    artifact_dir = Path(pipeline1_output_root) / dataset_id
+    report_path = artifact_dir / "cleaning_report.json"
+    cleaned_path = artifact_dir / "cleaned_dataset.csv"
+    if not report_path.is_file() or not cleaned_path.is_file():
+        raise Pipeline1PrivacyClearanceError(
+            f"Dataset {dataset_id!r} is missing Pipeline 1 artifacts under "
+            f"{artifact_dir}. Raw-input fallback is prohibited."
+        )
+
+    try:
+        report = json.loads(report_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise Pipeline1PrivacyClearanceError(
+            f"Dataset {dataset_id!r} has an unreadable Pipeline 1 report: {exc}"
+        ) from exc
+    if report.get("status") != "success":
+        raise Pipeline1PrivacyClearanceError(
+            f"Dataset {dataset_id!r} Pipeline 1 status is not success."
+        )
+    if not report.get("validation", {}).get("passed"):
+        raise Pipeline1PrivacyClearanceError(
+            f"Dataset {dataset_id!r} failed Pipeline 1 post-clean validation."
+        )
+
+    source_name = report.get("original_dataset", {}).get("file_name")
+    expected_source_name = Path(str(dataset["csv_file"])).name
+    if source_name != expected_source_name:
+        raise Pipeline1PrivacyClearanceError(
+            f"Dataset {dataset_id!r} Pipeline 1 source mismatch: "
+            f"expected {expected_source_name!r}, got {source_name!r}."
+        )
+
+    privacy = report.get("decision_summary", {}).get("privacy_actions")
+    if not isinstance(privacy, dict):
+        raise Pipeline1PrivacyClearanceError(
+            f"Dataset {dataset_id!r} has no Pipeline 1 privacy audit."
+        )
+    if (
+        privacy.get("reason") != "masked for privacy"
+        or privacy.get("privacy_stage_completed") is not True
+        or privacy.get("privacy_clearance_passed") is not True
+    ):
+        raise Pipeline1PrivacyClearanceError(
+            f"Dataset {dataset_id!r} did not pass the Pipeline 1 privacy stage."
+        )
+
+    candidate_columns = set(privacy.get("pii_candidate_columns") or [])
+    successful_mask_columns = {
+        column
+        for execution in report.get("executions", [])
+        if execution.get("action_id") == "mask_column"
+        and execution.get("status") == "success"
+        and execution.get("audit_metadata", {}).get("reason")
+        == "masked for privacy"
+        for column in execution.get("target_columns", [])
+    }
+    if successful_mask_columns != candidate_columns:
+        raise Pipeline1PrivacyClearanceError(
+            f"Dataset {dataset_id!r} PII candidates do not match successful "
+            "masking audit entries."
+        )
+
+    expected_digest = privacy.get("cleaned_dataset_sha256")
+    actual_digest = hashlib.sha256(cleaned_path.read_bytes()).hexdigest()
+    if not expected_digest or actual_digest != expected_digest:
+        raise Pipeline1PrivacyClearanceError(
+            f"Dataset {dataset_id!r} cleaned artifact failed privacy hash verification."
+        )
+    return pd.read_csv(cleaned_path, low_memory=False)
 
 
 def _task_type(value: str) -> str:
@@ -153,10 +234,16 @@ def _base_record(dataset, model_id, task_type, statistics, semantics, split_seed
     }
 
 
-def _prepare_dataset(dataset, split_seed, statistics_lookup, semantic_lookup):
+def _prepare_dataset(
+    dataset,
+    split_seed,
+    statistics_lookup,
+    semantic_lookup,
+    pipeline1_output_root,
+):
     dataset_id = str(dataset["task_id"])
     task_type = _task_type(dataset["task_type"])
-    frame = pd.read_csv(DATASET_DIR / dataset["csv_file"], low_memory=False)
+    frame = load_privacy_cleared_dataset(dataset, pipeline1_output_root)
     frame = frame.dropna(subset=[dataset["target_column"]]).reset_index(drop=True)
     X = frame.drop(columns=[dataset["target_column"]])
     y = frame[dataset["target_column"]]
@@ -182,6 +269,7 @@ def _prepare_dataset(dataset, split_seed, statistics_lookup, semantic_lookup):
 def run_evaluations(
     datasets: list[dict[str, Any]],
     output_dir: Path,
+    pipeline1_output_root: Path,
     split_seed: int = 42,
     run_id: str | None = None,
     smoke: bool = False,
@@ -202,7 +290,13 @@ def run_evaluations(
             (
                 task_type, statistics, semantics, class_count,
                 X_train, X_test, y_train, y_test,
-            ) = _prepare_dataset(dataset, split_seed, statistics_lookup, semantic_lookup)
+            ) = _prepare_dataset(
+                dataset,
+                split_seed,
+                statistics_lookup,
+                semantic_lookup,
+                pipeline1_output_root,
+            )
         except Exception as exc:
             task_type = _task_type(dataset["task_type"])
             for model_id in EVALUATION_MODEL_IDS:
@@ -317,6 +411,15 @@ def main() -> int:
     parser.add_argument("--all", action="store_true", help="Explicitly authorize the full manifest")
     parser.add_argument("--manifest-dir", type=Path, default=OUTPUT_DIR)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument(
+        "--pipeline1-output-root",
+        type=Path,
+        required=True,
+        help=(
+            "Root containing one privacy-cleared Pipeline 1 artifact directory "
+            "per task_id"
+        ),
+    )
     parser.add_argument("--split-seed", type=int, default=42)
     parser.add_argument("--run-id")
     parser.add_argument("--smoke", action="store_true", help="Use one XTab epoch for a lifecycle dry run")
@@ -341,7 +444,12 @@ def main() -> int:
         if missing:
             parser.error(f"Unknown dataset selectors: {sorted(missing)}")
     rows = run_evaluations(
-        selected, args.output_dir, args.split_seed, args.run_id, args.smoke
+        selected,
+        args.output_dir,
+        args.pipeline1_output_root,
+        args.split_seed,
+        args.run_id,
+        args.smoke,
     )
     print(json.dumps(rows, indent=2, default=str))
     return 0 if all(row["status"] != "failure" for row in rows) else 1

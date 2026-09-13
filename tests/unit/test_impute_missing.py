@@ -228,7 +228,8 @@ class ImputeMissingTests(unittest.TestCase):
             self.assertEqual(list(exported.columns), ["value", "other"])
             saved = json.loads((output / "cleaning_report.json").read_text(encoding="utf-8"))
             self.assertEqual(saved["executions"][-1]["audit_metadata"]["replacement_value"], 10)
-            self.assertEqual(len(ACTION_REGISTRY), 6)
+            self.assertEqual(len(ACTION_REGISTRY), 7)
+            self.assertIn("mask_column", ACTION_REGISTRY)
             self.assertNotIn("add_missing_indicator", ACTION_REGISTRY)
 
 

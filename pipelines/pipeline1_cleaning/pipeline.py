@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from copy import deepcopy
 from datetime import datetime, timezone
 from pathlib import Path
 from uuid import uuid4
@@ -52,6 +53,14 @@ PIPELINE_VERSION = "pipeline1_architecture_b_v001"
 PIPELINE_FROZEN_FOR_BENCHMARK = True
 
 
+def _privacy_safe_profile(dataset_profile, pii_columns):
+    safe_profile = deepcopy(dataset_profile)
+    for column_profile in safe_profile.get("column_profiles", []):
+        if column_profile.get("column_name") in pii_columns:
+            column_profile["sample_values"] = []
+    return safe_profile
+
+
 def _run_default_semantic_analyzer(dataset_profile, dataset_evidence):
     from intelligence.llm.ollama_provider import OllamaProvider
     from intelligence.rag.retriever import RAGRetriever
@@ -99,12 +108,23 @@ def run_pipeline1(
     loaded = load_dataset(str(input_file))
     original = loaded["dataframe"]
     before_profile = profile_dataset(original)
-    detected_issues = detect_issues(original, before_profile)
-    quality_summary = summarize_issues(detected_issues)
     dataset_evidence = build_dataset_evidence(before_profile)
     analyzer = semantic_analyzer or _run_default_semantic_analyzer
     semantic_profile = analyzer(before_profile, dataset_evidence)
     semantic_profile = apply_semantic_contradiction_guard(semantic_profile, original)
+    semantics_by_column = {
+        item.column_name: item.model_dump(mode="json")
+        for item in semantic_profile.columns
+    }
+    detected_issues = detect_issues(
+        original,
+        before_profile,
+        column_semantics=semantics_by_column,
+    )
+    quality_summary = summarize_issues([
+        issue for issue in detected_issues
+        if issue.issue_type != "pii_candidate"
+    ])
     if decision_engine is None:
         issue_decisions, decision_summary, decision_warnings = _run_default_decision_engine(
             detected_issues, semantic_profile, original,
@@ -115,7 +135,6 @@ def run_pipeline1(
         )
 
     instructions, execution_warnings, skipped = [], [], []
-    semantics_by_column = {item.column_name: item.model_dump(mode="json") for item in semantic_profile.columns}
     date_assessments = []
     numeric_assessments = []
     imputation_decisions = []
@@ -152,6 +171,7 @@ def run_pipeline1(
             decision.decision_type == "action"
             and decision.proposed_action in {
                 "trim_whitespace", "normalize_categorical_labels", "parse_dates", "coerce_dtype",
+                "mask_column",
             }
             and decision.proposed_action in ACTION_REGISTRY
             and not decision.requires_review
@@ -178,7 +198,8 @@ def run_pipeline1(
             })
 
     action_priority = {"no_op": 0, "trim_whitespace": 10, "normalize_categorical_labels": 20,
-                       "parse_dates": 30, "coerce_dtype": 40, "impute_missing": 50}
+                       "parse_dates": 30, "coerce_dtype": 40, "impute_missing": 50,
+                       "mask_column": 100}
     for decision in imputation_decisions:
         original_recommendation = {
             "decision_type": decision.decision_type,
@@ -346,6 +367,7 @@ def run_pipeline1(
         column for instruction in instructions
         if instruction.action_id in {
             "trim_whitespace", "normalize_categorical_labels", "parse_dates", "coerce_dtype", "impute_missing",
+            "mask_column",
         }
         for column in instruction.target_columns
     })
@@ -392,6 +414,61 @@ def run_pipeline1(
             for execution in executions
         ),
     }
+    privacy_issues = [
+        issue for issue in detected_issues
+        if issue.issue_type == "pii_candidate"
+    ]
+    privacy_executions = [
+        execution for execution in executions
+        if execution.action_id == "mask_column"
+    ]
+    pii_columns = sorted({
+        column
+        for issue in privacy_issues
+        for column in issue.target_columns
+    })
+    successfully_masked_columns = sorted({
+        column
+        for execution in privacy_executions
+        if execution.status == "success"
+        for column in execution.target_columns
+    })
+    privacy_clearance_passed = (
+        set(successfully_masked_columns) == set(pii_columns)
+        and all(
+            execution.status == "success"
+            for execution in privacy_executions
+        )
+        and validation_report.only_approved_privacy_changes
+    )
+    decision_summary["privacy_actions"] = {
+        "reason": "masked for privacy",
+        "privacy_stage_completed": True,
+        "privacy_clearance_passed": privacy_clearance_passed,
+        "excluded_from_quality_fix_metrics": True,
+        "pii_candidate_count": len(privacy_issues),
+        "pii_candidate_columns": pii_columns,
+        "masked_column_count": sum(
+            execution.status == "success" for execution in privacy_executions
+        ),
+        "masked_columns": successfully_masked_columns,
+        "masked_cell_count": sum(
+            execution.audit_metadata.get("affected_cell_count", 0)
+            for execution in privacy_executions
+            if execution.status == "success"
+        ),
+        "by_subtype": {
+            subtype: sum(
+                issue.evidence.get("pii_subtype") == subtype
+                for issue in privacy_issues
+            )
+            for subtype in sorted({
+                issue.evidence.get("pii_subtype")
+                for issue in privacy_issues
+                if issue.evidence.get("pii_subtype")
+            })
+        },
+    }
 
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S") + "-" + uuid4().hex[:8]
     report = Pipeline1Report(
@@ -403,7 +480,14 @@ def run_pipeline1(
             "source_path": str(input_file),
             "raw_dataset_overwritten": False,
         },
-        before_profile=before_profile,
+        before_profile=_privacy_safe_profile(
+            before_profile,
+            {
+                column
+                for issue in privacy_issues
+                for column in issue.target_columns
+            },
+        ),
         issues=[issue.model_dump(mode="json") for issue in detected_issues],
         quality_summary=quality_summary,
         semantic_profile=semantic_profile.model_dump(mode="json"),

@@ -19,6 +19,9 @@ from pipelines.pipeline1_cleaning.techniques.missing_values import (
 from pipelines.pipeline1_cleaning.techniques.date_parsing import (
     OUTPUT_FORMATS, assess_dates, require_safe_dates,
 )
+from pipelines.pipeline1_cleaning.techniques.privacy_masking import (
+    PII_DEFAULT_STRATEGIES,
+)
 
 
 def compile_instruction(
@@ -101,6 +104,38 @@ def compile_instruction(
             raise ValueError("no_op must not target individual columns.")
         if decision.parameters:
             raise ValueError("no_op does not accept parameters.")
+
+    if decision.proposed_action == "mask_column":
+        if (
+            decision.decision_type != "action"
+            or decision.decision_source != "deterministic_tier1"
+            or decision.requires_review
+            or decision.risk_level != "low"
+        ):
+            raise ValueError(
+                "mask_column requires an approved deterministic Tier 1 "
+                "low-risk action without review."
+            )
+        if len(decision.target_columns) != 1:
+            raise ValueError("mask_column requires exactly one target column.")
+        subtype = decision.evidence_summary.get("pii_subtype")
+        expected_strategy = PII_DEFAULT_STRATEGIES.get(subtype)
+        if expected_strategy is None:
+            raise ValueError("mask_column requires a recognized PII subtype.")
+        if parameters != {"strategy": expected_strategy}:
+            raise ValueError(
+                "mask_column strategy must match the deterministic subtype default."
+            )
+        if decision.evidence_summary.get("privacy_reason") != "masked for privacy":
+            raise ValueError("mask_column requires the privacy audit reason.")
+        column = decision.target_columns[0]
+        if dataframe is None or column not in dataframe.columns:
+            raise ValueError("mask_column requires observed target values.")
+        if not (
+            pd.api.types.is_object_dtype(dataframe[column].dtype)
+            or pd.api.types.is_string_dtype(dataframe[column].dtype)
+        ):
+            raise ValueError("mask_column currently requires string-compatible values.")
 
     if decision.proposed_action == "coerce_dtype":
         if decision.decision_type != "action" or decision.requires_review or decision.risk_level != "low":

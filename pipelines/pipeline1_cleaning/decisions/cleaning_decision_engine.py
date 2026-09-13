@@ -141,6 +141,19 @@ def _tier1(issue: DetectedIssue, semantic: Dict[str, Any]) -> CleaningDecision |
         target_columns=issue.target_columns, evidence_summary=issue.evidence,
         semantic_basis=semantic,
     )
+    if issue.issue_type == "pii_candidate":
+        strategy = issue.evidence.get("default_masking_strategy")
+        return CleaningDecision(
+            **common,
+            decision_type="action",
+            proposed_action="mask_column",
+            parameters={"strategy": strategy},
+            confidence=0.99,
+            rationale="Masked for privacy using the deterministic PII policy.",
+            risk_level="low",
+            requires_review=False,
+            decision_source="deterministic_tier1",
+        )
     if issue.issue_type == "whitespace_issue":
         return CleaningDecision(
             **common, decision_type="action", proposed_action="trim_whitespace",
