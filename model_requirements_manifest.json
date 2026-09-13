@@ -1,0 +1,281 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-13",
+  "candidate_count": 10,
+  "pinned_runtime": {
+    "python": "3.13.15",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "joblib": "1.4.2",
+    "lightgbm": "4.6.0",
+    "xgboost": "3.3.0",
+    "catboost": "1.2.10",
+    "tabpfn": "8.5.0",
+    "torch": "2.11.0+cu128",
+    "pytabkit": "1.7.3",
+    "tabicl": "2.2.0",
+    "skorch": "1.4.0"
+  },
+  "candidates": [
+    {
+      "model_id": "random_forest",
+      "artifact_role": "imported fitted sklearn Pipeline and metadata",
+      "artifact_environment": {
+        "python": "3.13.5",
+        "numpy": "2.5.2",
+        "pandas": "3.0.5",
+        "scikit-learn": "1.9.0",
+        "joblib": "1.6.0"
+      },
+      "artifact_environment_evidence": "Staged provenance plus embedded sklearn 1.9.0 markers and InconsistentVersionWarning inspection.",
+      "runtime_environment": {
+        "python": "3.13.15",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.6.1",
+        "joblib": "1.4.2"
+      },
+      "artifact_environment_matches_runtime": false,
+      "mismatches": [
+        "python: artifact 3.13.5; runtime 3.13.15",
+        "numpy: artifact 2.5.2; runtime 2.1.3",
+        "pandas: artifact 3.0.5; runtime 2.2.3",
+        "scikit-learn: artifact 1.9.0; runtime 1.6.1",
+        "joblib: artifact 1.6.0; runtime 1.4.2"
+      ],
+      "verified_safe_despite_mismatch": true,
+      "verification_evidence": "Five distinct real pizza rows produced five finite regression outputs; fitted ColumnTransformer state was loaded and reused. Current runtime emits 207 InconsistentVersionWarning instances."
+    },
+    {
+      "model_id": "lightgbm",
+      "artifact_role": "reference model and fitted preprocessor retrained in the pinned runtime",
+      "artifact_environment": {
+        "python": "3.13.15",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.6.1",
+        "joblib": "1.4.2",
+        "lightgbm": "4.6.0"
+      },
+      "artifact_environment_evidence": "Recorded retraining environment; artifact embeds sklearn 1.6.1 and loads without version warnings.",
+      "runtime_environment": {
+        "python": "3.13.15",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.6.1",
+        "joblib": "1.4.2",
+        "lightgbm": "4.6.0"
+      },
+      "artifact_environment_matches_runtime": true,
+      "mismatches": [],
+      "verified_safe_despite_mismatch": false,
+      "verification_evidence": "Fresh train-preprocess-predict lifecycle and saved-preprocessor reuse passed."
+    },
+    {
+      "model_id": "xgboost",
+      "artifact_role": "imported fitted classifier and fitted preprocessor",
+      "artifact_environment": {
+        "python": "3.13 (exact patch not embedded)",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.6.1",
+        "joblib": "1.4.2",
+        "xgboost": "3.3.0"
+      },
+      "artifact_environment_evidence": "Staged pins; XGBoost booster config embeds version 3.3.0 and serialized sklearn objects embed 1.6.1.",
+      "runtime_environment": {
+        "python": "3.13.15",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.6.1",
+        "joblib": "1.4.2",
+        "xgboost": "3.3.0"
+      },
+      "artifact_environment_matches_runtime": true,
+      "mismatches": [],
+      "verified_safe_despite_mismatch": false,
+      "verification_evidence": "Artifact load and prediction sanity passed without compatibility warnings; exact Python patch is not serialized."
+    },
+    {
+      "model_id": "catboost",
+      "artifact_role": "reference model and fitted preprocessor retrained in the pinned runtime",
+      "artifact_environment": {
+        "python": "3.13.15",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.6.1",
+        "joblib": "1.4.2",
+        "catboost": "1.2.10"
+      },
+      "artifact_environment_evidence": "Recorded retraining environment; artifact loads without version warnings.",
+      "runtime_environment": {
+        "python": "3.13.15",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.6.1",
+        "joblib": "1.4.2",
+        "catboost": "1.2.10"
+      },
+      "artifact_environment_matches_runtime": true,
+      "mismatches": [],
+      "verified_safe_despite_mismatch": false,
+      "verification_evidence": "Fresh train-preprocess-predict lifecycle and saved-preprocessor reuse passed."
+    },
+    {
+      "model_id": "tabpfn",
+      "artifact_role": "official TabPFN V3 weights resolved by tabpfn 8.5.0; legacy reference pickle is not used by production",
+      "artifact_environment": {
+        "checkpoint": "Prior-Labs/tabpfn_3/tabpfn-v3-classifier-v3_default.ckpt",
+        "original_training_python": "unknown_not_embedded",
+        "original_training_torch": "unknown_not_embedded",
+        "compatibility_package": "tabpfn 8.5.0"
+      },
+      "artifact_environment_evidence": "Official weights-only loading contract; no conflicting Python-estimator version is serialized on the production path.",
+      "runtime_environment": {
+        "python": "3.13.15",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.6.1",
+        "joblib": "1.4.2",
+        "tabpfn": "8.5.0",
+        "torch": "2.11.0+cu128"
+      },
+      "artifact_environment_matches_runtime": true,
+      "mismatches": [],
+      "verified_safe_despite_mismatch": false,
+      "verification_evidence": "The exact installed package resolves its official checkpoint; cached/load/prediction sanity passed. Original foundation-training package versions remain undisclosed and are not claimed."
+    },
+    {
+      "model_id": "xtab",
+      "artifact_role": "official iter_2k pretrained backbone plus legacy fitted integration artifact",
+      "artifact_environment": {
+        "official_backbone_training_environment": "unknown_not_embedded",
+        "legacy_artifact_scikit-learn": "1.6.1",
+        "staged_compatibility_torch": "2.8.0",
+        "staged_compatibility_numpy": "2.1.3",
+        "staged_compatibility_pandas": "2.2.3"
+      },
+      "artifact_environment_evidence": "Checkpoint inspection found no Python/Torch provenance; legacy scaler embeds sklearn 1.6.1. Torch 2.8.0 is a staged compatibility pin, not asserted as the original training version.",
+      "runtime_environment": {
+        "python": "3.13.15",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.6.1",
+        "torch": "2.11.0+cu128"
+      },
+      "artifact_environment_matches_runtime": false,
+      "mismatches": [
+        "torch: staged artifact compatibility target 2.8.0; runtime 2.11.0+cu128"
+      ],
+      "verified_safe_despite_mismatch": true,
+      "verification_evidence": "The legacy artifact produced identical predictions under Torch 2.8.0 and 2.11.0 with maximum probability difference 5.96e-08; the updated official backbone also passed a 150-row downstream sanity run."
+    },
+    {
+      "model_id": "realmlp",
+      "artifact_role": "no imported fitted artifact; fresh per-dataset training",
+      "artifact_environment": {
+        "python": "3.13.15",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.6.1",
+        "joblib": "1.4.2",
+        "pytabkit": "1.7.3",
+        "torch": "2.11.0+cu128"
+      },
+      "artifact_environment_evidence": "Versions captured from the environment used for the fresh training and serialization sanity run.",
+      "runtime_environment": {
+        "python": "3.13.15",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.6.1",
+        "joblib": "1.4.2",
+        "pytabkit": "1.7.3",
+        "torch": "2.11.0+cu128"
+      },
+      "artifact_environment_matches_runtime": true,
+      "mismatches": [],
+      "verified_safe_despite_mismatch": false,
+      "verification_evidence": "Blood-transfusion fresh train/predict/save/reload lifecycle passed."
+    },
+    {
+      "model_id": "tabm",
+      "artifact_role": "no imported fitted artifact; fresh per-dataset training",
+      "artifact_environment": {
+        "python": "3.13.15",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.6.1",
+        "joblib": "1.4.2",
+        "pytabkit": "1.7.3",
+        "torch": "2.11.0+cu128"
+      },
+      "artifact_environment_evidence": "Versions captured from the environment used for the fresh training and serialization sanity run.",
+      "runtime_environment": {
+        "python": "3.13.15",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.6.1",
+        "joblib": "1.4.2",
+        "pytabkit": "1.7.3",
+        "torch": "2.11.0+cu128"
+      },
+      "artifact_environment_matches_runtime": true,
+      "mismatches": [],
+      "verified_safe_despite_mismatch": false,
+      "verification_evidence": "Blood-transfusion fresh train/predict/save/reload lifecycle passed."
+    },
+    {
+      "model_id": "tabiclv2",
+      "artifact_role": "official tabicl v2 weights managed by tabicl 2.2.0; no imported fitted estimator pickle",
+      "artifact_environment": {
+        "checkpoint": "tabicl-classifier-v2-20260212.ckpt",
+        "original_training_python": "unknown_not_embedded",
+        "original_training_torch": "unknown_not_embedded",
+        "compatibility_package": "tabicl 2.2.0"
+      },
+      "artifact_environment_evidence": "Official weights checkpoint contains no asserted Python package environment; compatibility is supplied by the exact tabicl release.",
+      "runtime_environment": {
+        "python": "3.13.15",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.6.1",
+        "tabicl": "2.2.0",
+        "torch": "2.11.0+cu128"
+      },
+      "artifact_environment_matches_runtime": true,
+      "mismatches": [],
+      "verified_safe_despite_mismatch": false,
+      "verification_evidence": "Official checkpoint loaded through tabicl 2.2.0 and completed a 150-row prediction/probability sanity run."
+    },
+    {
+      "model_id": "ft_transformer",
+      "artifact_role": "no imported fitted artifact; non-pretrained fresh-training control",
+      "artifact_environment": {
+        "python": "3.13.15",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.6.1",
+        "joblib": "1.4.2",
+        "pytabkit": "1.7.3",
+        "skorch": "1.4.0",
+        "torch": "2.11.0+cu128"
+      },
+      "artifact_environment_evidence": "Versions captured from the environment used for the fresh training sanity run.",
+      "runtime_environment": {
+        "python": "3.13.15",
+        "numpy": "2.1.3",
+        "pandas": "2.2.3",
+        "scikit-learn": "1.6.1",
+        "joblib": "1.4.2",
+        "pytabkit": "1.7.3",
+        "skorch": "1.4.0",
+        "torch": "2.11.0+cu128"
+      },
+      "artifact_environment_matches_runtime": true,
+      "mismatches": [],
+      "verified_safe_despite_mismatch": false,
+      "verification_evidence": "Blood-transfusion fresh train/predict lifecycle passed."
+    }
+  ]
+}
