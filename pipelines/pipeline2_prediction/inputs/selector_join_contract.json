@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "dataset_join_key": "dataset_id",
+  "model_join_key": "base_model_id",
+  "run_identity": [
+    "dataset_id",
+    "model_id",
+    "execution_strategy",
+    "run_id"
+  ],
+  "dataset_sources": [
+    "dataset_metadata.json",
+    "dataset_semantics.json",
+    "dataset_target_registry.json"
+  ],
+  "model_source": "model_capabilities.json",
+  "supervision_source": "../training_data/model_performance.json",
+  "canonical_dataset_count": 51,
+  "canonical_model_count": 10,
+  "potential_base_grid_size": 510,
+  "filename_is_not_a_join_key": true,
+  "infeasible_policy": "retain explicitly as infeasible_skip; never convert to zero performance"
+}

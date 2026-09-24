@@ -1,0 +1,427 @@
+{
+  "dataset_id": "363678",
+  "dataset_name": "houses",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 240.0,
+  "generated_at": "2026-09-13T18:27:59+00:00",
+  "status": "degraded",
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": null,
+      "row_entity_confidence": 0.0,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "MedianIncome",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "HousingMedianAge",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "TotalRooms",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "TotalBedrooms",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Population",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Households",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Latitude",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Longitude",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "LnMedianHouseValue",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      }
+    ],
+    "warnings": [
+      "Dataset semantic context failed: ModuleNotFoundError: No module named 'requests'",
+      "Semantic batch 1 failed after retry; unknown fallback used for ['MedianIncome', 'HousingMedianAge', 'TotalRooms', 'TotalBedrooms', 'Population', 'Households', 'Latitude', 'Longitude', 'LnMedianHouseValue']: ModuleNotFoundError: No module named 'requests'"
+    ],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 2,
+      "total_llm_calls": 3,
+      "batch_sizes": [
+        9
+      ],
+      "dataset_semantic_runtime_seconds": 0.086124,
+      "batch_runtime_seconds": [
+        0.043172
+      ],
+      "rag_runtime_seconds": 0.108966,
+      "batch_failures": 1,
+      "batch_retries": 1,
+      "llm_calls": [
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "error": "ModuleNotFoundError: No module named 'requests'",
+          "api_wall_duration_seconds": 0.024915,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 2,
+          "error": "ModuleNotFoundError: No module named 'requests'",
+          "api_wall_duration_seconds": 0.017967,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        }
+      ],
+      "total_semantic_runtime_seconds": 0.18274,
+      "semantic_contradiction_guard": {
+        "guard_version": "semantic_contradiction_guard_v001",
+        "deterministic": true,
+        "evaluated_column_count": 9,
+        "correction_count": 0,
+        "ambiguous_shape_overrides_enabled": false,
+        "entries": [
+          {
+            "column_name": "MedianIncome",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "MedianIncome",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "MedianIncome",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "HousingMedianAge",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "HousingMedianAge",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "HousingMedianAge",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "TotalRooms",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "TotalRooms",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "TotalRooms",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "TotalBedrooms",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "TotalBedrooms",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "TotalBedrooms",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Population",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Population",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Population",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Households",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Households",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Households",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Latitude",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Latitude",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Latitude",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Longitude",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Longitude",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Longitude",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "LnMedianHouseValue",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "LnMedianHouseValue",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "LnMedianHouseValue",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          }
+        ]
+      }
+    }
+  },
+  "semantic_meta_features": {
+    "probable_domain": null,
+    "domain_confidence": null,
+    "row_entity": null,
+    "row_entity_confidence": 0.0,
+    "dataset_description_present": false,
+    "column_count": 9,
+    "mean_column_confidence": 0.0,
+    "distributions": {
+      "semantic_type": {
+        "unknown": 9
+      },
+      "value_function": {
+        "unknown": 9
+      },
+      "numeric_meaning": {
+        "unknown": 9
+      },
+      "semantic_role": {
+        "unknown": 9
+      }
+    },
+    "warning_count": 2
+  }
+}

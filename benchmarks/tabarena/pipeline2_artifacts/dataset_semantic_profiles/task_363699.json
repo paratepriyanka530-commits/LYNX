@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363699",
+  "dataset_name": "SDSS17",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:30:26+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "SDSS17",
+    "task_type": "classification",
+    "target_column": "ObjectType",
+    "row_count": 78053,
+    "feature_count": 11,
+    "feature_type_counts": {
+      "numeric": 11,
+      "categorical": 0,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "alpha",
+      "delta",
+      "u",
+      "g",
+      "r",
+      "i",
+      "z",
+      "cam_col",
+      "redshift",
+      "plate",
+      "fiber_ID"
+    ],
+    "representative_feature_name_count": 11,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "astronomy",
+    "subdomain": "galaxy and star classification",
+    "dataset_purpose": "classification",
+    "row_entity": "astronomical object",
+    "target_concept": "object type",
+    "feature_context": [
+      "photometric measurements",
+      "spectroscopic data",
+      "position coordinates"
+    ],
+    "semantic_summary": "This dataset contains photometric and spectroscopic measurements of astronomical objects, with the goal of classifying them into different object types.",
+    "domain_confidence": 0.9
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 28.88775,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:30:26.3523068Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 26833320200,
+      "load_duration": 8048900,
+      "prompt_eval_count": 446,
+      "prompt_eval_duration": 575698000,
+      "eval_count": 117,
+      "eval_duration": 26233015000
+    }
+  }
+}

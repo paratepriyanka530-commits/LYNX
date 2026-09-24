@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363621",
+  "dataset_name": "blood-transfusion-service-center",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:15:01+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "blood-transfusion-service-center",
+    "task_type": "classification",
+    "target_column": "DonatedBloodInMarch2007",
+    "row_count": 748,
+    "feature_count": 4,
+    "feature_type_counts": {
+      "numeric": 4,
+      "categorical": 0,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "MonthsSinceLastDonation",
+      "NumberOfDonations",
+      "TotalBloodDonated",
+      "MonthsSinceFirstDonation"
+    ],
+    "representative_feature_name_count": 4,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "healthcare",
+    "subdomain": "blood donation",
+    "dataset_purpose": "predict blood donation behavior",
+    "row_entity": "individual blood donor",
+    "target_concept": "whether the donor donated blood in March 2007",
+    "feature_context": [
+      "demographics",
+      "donation history",
+      "blood volume"
+    ],
+    "semantic_summary": "A healthcare dataset focusing on predicting blood donation behavior for individual donors based on their donation history and demographic information.",
+    "domain_confidence": 0.85
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 27.524298,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:15:01.6883463Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 25479841500,
+      "load_duration": 10218900,
+      "prompt_eval_count": 439,
+      "prompt_eval_duration": 615728000,
+      "eval_count": 121,
+      "eval_duration": 24837957000
+    }
+  }
+}

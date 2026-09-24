@@ -16,21 +16,27 @@ import sys
 from pathlib import Path
 
 import pandas as pd
-from xgboost import XGBClassifier
+from xgboost import XGBClassifier, XGBRegressor
 
 from .xgboost_config import XGBOOST_CONFIG
 
 
 class LYNXXGBoost:
     """
-    XGBoost binary classification model for LYNX.
+    Task-aware XGBoost model for LYNX.
     """
 
-    def __init__(self) -> None:
+    def __init__(self, task_type: str = "classification") -> None:
 
-        self.model = XGBClassifier(
-            **XGBOOST_CONFIG
-        )
+        if task_type not in {"classification", "regression"}:
+            raise ValueError(f"Unsupported XGBoost task type: {task_type}")
+        self.task_type = task_type
+        config = dict(XGBOOST_CONFIG)
+        if task_type == "regression":
+            config.update(objective="reg:squarederror", eval_metric="rmse")
+            self.model = XGBRegressor(**config)
+        else:
+            self.model = XGBClassifier(**config)
 
         self.is_trained = False
 
@@ -45,6 +51,14 @@ class LYNXXGBoost:
             y_train,
         )
 
+        if self.task_type == "classification":
+            n_classes = int(pd.Series(y_train).nunique())
+            if n_classes > 2:
+                self.model.set_params(
+                    objective="multi:softprob", num_class=n_classes,
+                    eval_metric="mlogloss",
+                )
+
         self.model.fit(
             X_train,
             y_train,
@@ -57,7 +71,7 @@ class LYNXXGBoost:
     def predict(
         self,
         X: pd.DataFrame,
-    ) -> pd.Series:
+    ):
 
         self._check_trained()
 
@@ -76,13 +90,9 @@ class LYNXXGBoost:
 
         self._check_trained()
 
-        probabilities = self.model.predict_proba(X)[:, 1]
-
-        return pd.Series(
-            probabilities,
-            index=X.index,
-            name="prediction_probability",
-        )
+        if self.task_type != "classification":
+            raise RuntimeError("Regression models do not expose class probabilities.")
+        return self.model.predict_proba(X)
 
     def get_feature_importance(
         self,
@@ -116,7 +126,7 @@ class LYNXXGBoost:
                 "Features and labels must contain the same number of rows."
             )
 
-        if pd.Series(y_train).nunique() < 2:
+        if self.task_type == "classification" and pd.Series(y_train).nunique() < 2:
             raise ValueError(
                 "Target column must contain at least two classes."
             )

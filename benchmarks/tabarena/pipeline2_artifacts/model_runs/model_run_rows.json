@@ -1,0 +1,882 @@
+[
+  {
+    "dataset_id": "363621",
+    "model_id": "random_forest",
+    "base_model_id": "random_forest",
+    "execution_strategy": "standard",
+    "target_column": "DonatedBloodInMarch2007",
+    "task_type": "classification",
+    "feasible": true,
+    "status": "failure",
+    "outcome_reason": "dataset_setup: Pipeline1PrivacyClearanceError: Dataset '363621' is missing Pipeline 1 artifacts under benchmarks\\tabarena\\pipeline2_artifacts\\pipeline1_outputs\\363621. Raw-input fallback is prohibited.",
+    "metric_name": null,
+    "metric_value": null,
+    "baseline_relative_score": null,
+    "train_runtime_seconds": null,
+    "inference_runtime_seconds": null,
+    "runtime_seconds": null,
+    "oob_score": null,
+    "oob_diagnostic_reason": null,
+    "split_seed": 42,
+    "hyperparams": {},
+    "predictive_metrics": null,
+    "calibration_metrics": {
+      "brier_score": null,
+      "ece": null,
+      "ece_n_bins": 15,
+      "ece_method": "top_label_equal_width",
+      "status": "unavailable",
+      "reason": "run did not produce validated probabilities"
+    },
+    "probability_metadata": null,
+    "semantic_meta_features": {
+      "probable_domain": null,
+      "domain_confidence": null,
+      "row_entity": "a blood donation record",
+      "row_entity_confidence": 0.75,
+      "dataset_description_present": false,
+      "column_count": 5,
+      "mean_column_confidence": 0.95,
+      "distributions": {
+        "semantic_type": {
+          "numeric_measurement": 4,
+          "categorical": 1
+        },
+        "value_function": {
+          "measurement": 4,
+          "classification": 1
+        },
+        "numeric_meaning": {
+          "magnitude": 4,
+          "nominal_code": 1
+        },
+        "semantic_role": {
+          "unknown": 5
+        }
+      },
+      "warning_count": 0
+    },
+    "statistical_meta_features": {
+      "row_count": 748,
+      "column_count_including_target": 5,
+      "feature_count": 4,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.2874331550802139,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 43.75,
+      "numeric_skew": {
+        "mean": 2.2631111929251677,
+        "median": 2.545864503444355,
+        "max_abs": 3.211265474184831
+      },
+      "numeric_kurtosis": {
+        "mean": 10.224505250350324,
+        "median": 12.633750101130959,
+        "max_abs": 15.876151978541806
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 2,
+      "target_majority_ratio": 0.7620320855614974,
+      "target_minority_to_majority_ratio": 0.312280701754386
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363621",
+    "model_id": "lightgbm",
+    "base_model_id": "lightgbm",
+    "execution_strategy": "standard",
+    "target_column": "DonatedBloodInMarch2007",
+    "task_type": "classification",
+    "feasible": true,
+    "status": "failure",
+    "outcome_reason": "dataset_setup: Pipeline1PrivacyClearanceError: Dataset '363621' is missing Pipeline 1 artifacts under benchmarks\\tabarena\\pipeline2_artifacts\\pipeline1_outputs\\363621. Raw-input fallback is prohibited.",
+    "metric_name": null,
+    "metric_value": null,
+    "baseline_relative_score": null,
+    "train_runtime_seconds": null,
+    "inference_runtime_seconds": null,
+    "runtime_seconds": null,
+    "oob_score": null,
+    "oob_diagnostic_reason": null,
+    "split_seed": 42,
+    "hyperparams": {},
+    "predictive_metrics": null,
+    "calibration_metrics": {
+      "brier_score": null,
+      "ece": null,
+      "ece_n_bins": 15,
+      "ece_method": "top_label_equal_width",
+      "status": "unavailable",
+      "reason": "run did not produce validated probabilities"
+    },
+    "probability_metadata": null,
+    "semantic_meta_features": {
+      "probable_domain": null,
+      "domain_confidence": null,
+      "row_entity": "a blood donation record",
+      "row_entity_confidence": 0.75,
+      "dataset_description_present": false,
+      "column_count": 5,
+      "mean_column_confidence": 0.95,
+      "distributions": {
+        "semantic_type": {
+          "numeric_measurement": 4,
+          "categorical": 1
+        },
+        "value_function": {
+          "measurement": 4,
+          "classification": 1
+        },
+        "numeric_meaning": {
+          "magnitude": 4,
+          "nominal_code": 1
+        },
+        "semantic_role": {
+          "unknown": 5
+        }
+      },
+      "warning_count": 0
+    },
+    "statistical_meta_features": {
+      "row_count": 748,
+      "column_count_including_target": 5,
+      "feature_count": 4,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.2874331550802139,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 43.75,
+      "numeric_skew": {
+        "mean": 2.2631111929251677,
+        "median": 2.545864503444355,
+        "max_abs": 3.211265474184831
+      },
+      "numeric_kurtosis": {
+        "mean": 10.224505250350324,
+        "median": 12.633750101130959,
+        "max_abs": 15.876151978541806
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 2,
+      "target_majority_ratio": 0.7620320855614974,
+      "target_minority_to_majority_ratio": 0.312280701754386
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363621",
+    "model_id": "xgboost",
+    "base_model_id": "xgboost",
+    "execution_strategy": "standard",
+    "target_column": "DonatedBloodInMarch2007",
+    "task_type": "classification",
+    "feasible": true,
+    "status": "failure",
+    "outcome_reason": "dataset_setup: Pipeline1PrivacyClearanceError: Dataset '363621' is missing Pipeline 1 artifacts under benchmarks\\tabarena\\pipeline2_artifacts\\pipeline1_outputs\\363621. Raw-input fallback is prohibited.",
+    "metric_name": null,
+    "metric_value": null,
+    "baseline_relative_score": null,
+    "train_runtime_seconds": null,
+    "inference_runtime_seconds": null,
+    "runtime_seconds": null,
+    "oob_score": null,
+    "oob_diagnostic_reason": null,
+    "split_seed": 42,
+    "hyperparams": {},
+    "predictive_metrics": null,
+    "calibration_metrics": {
+      "brier_score": null,
+      "ece": null,
+      "ece_n_bins": 15,
+      "ece_method": "top_label_equal_width",
+      "status": "unavailable",
+      "reason": "run did not produce validated probabilities"
+    },
+    "probability_metadata": null,
+    "semantic_meta_features": {
+      "probable_domain": null,
+      "domain_confidence": null,
+      "row_entity": "a blood donation record",
+      "row_entity_confidence": 0.75,
+      "dataset_description_present": false,
+      "column_count": 5,
+      "mean_column_confidence": 0.95,
+      "distributions": {
+        "semantic_type": {
+          "numeric_measurement": 4,
+          "categorical": 1
+        },
+        "value_function": {
+          "measurement": 4,
+          "classification": 1
+        },
+        "numeric_meaning": {
+          "magnitude": 4,
+          "nominal_code": 1
+        },
+        "semantic_role": {
+          "unknown": 5
+        }
+      },
+      "warning_count": 0
+    },
+    "statistical_meta_features": {
+      "row_count": 748,
+      "column_count_including_target": 5,
+      "feature_count": 4,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.2874331550802139,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 43.75,
+      "numeric_skew": {
+        "mean": 2.2631111929251677,
+        "median": 2.545864503444355,
+        "max_abs": 3.211265474184831
+      },
+      "numeric_kurtosis": {
+        "mean": 10.224505250350324,
+        "median": 12.633750101130959,
+        "max_abs": 15.876151978541806
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 2,
+      "target_majority_ratio": 0.7620320855614974,
+      "target_minority_to_majority_ratio": 0.312280701754386
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363621",
+    "model_id": "catboost",
+    "base_model_id": "catboost",
+    "execution_strategy": "standard",
+    "target_column": "DonatedBloodInMarch2007",
+    "task_type": "classification",
+    "feasible": true,
+    "status": "failure",
+    "outcome_reason": "dataset_setup: Pipeline1PrivacyClearanceError: Dataset '363621' is missing Pipeline 1 artifacts under benchmarks\\tabarena\\pipeline2_artifacts\\pipeline1_outputs\\363621. Raw-input fallback is prohibited.",
+    "metric_name": null,
+    "metric_value": null,
+    "baseline_relative_score": null,
+    "train_runtime_seconds": null,
+    "inference_runtime_seconds": null,
+    "runtime_seconds": null,
+    "oob_score": null,
+    "oob_diagnostic_reason": null,
+    "split_seed": 42,
+    "hyperparams": {},
+    "predictive_metrics": null,
+    "calibration_metrics": {
+      "brier_score": null,
+      "ece": null,
+      "ece_n_bins": 15,
+      "ece_method": "top_label_equal_width",
+      "status": "unavailable",
+      "reason": "run did not produce validated probabilities"
+    },
+    "probability_metadata": null,
+    "semantic_meta_features": {
+      "probable_domain": null,
+      "domain_confidence": null,
+      "row_entity": "a blood donation record",
+      "row_entity_confidence": 0.75,
+      "dataset_description_present": false,
+      "column_count": 5,
+      "mean_column_confidence": 0.95,
+      "distributions": {
+        "semantic_type": {
+          "numeric_measurement": 4,
+          "categorical": 1
+        },
+        "value_function": {
+          "measurement": 4,
+          "classification": 1
+        },
+        "numeric_meaning": {
+          "magnitude": 4,
+          "nominal_code": 1
+        },
+        "semantic_role": {
+          "unknown": 5
+        }
+      },
+      "warning_count": 0
+    },
+    "statistical_meta_features": {
+      "row_count": 748,
+      "column_count_including_target": 5,
+      "feature_count": 4,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.2874331550802139,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 43.75,
+      "numeric_skew": {
+        "mean": 2.2631111929251677,
+        "median": 2.545864503444355,
+        "max_abs": 3.211265474184831
+      },
+      "numeric_kurtosis": {
+        "mean": 10.224505250350324,
+        "median": 12.633750101130959,
+        "max_abs": 15.876151978541806
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 2,
+      "target_majority_ratio": 0.7620320855614974,
+      "target_minority_to_majority_ratio": 0.312280701754386
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363621",
+    "model_id": "tabpfn",
+    "base_model_id": "tabpfn",
+    "execution_strategy": "standard",
+    "target_column": "DonatedBloodInMarch2007",
+    "task_type": "classification",
+    "feasible": true,
+    "status": "failure",
+    "outcome_reason": "dataset_setup: Pipeline1PrivacyClearanceError: Dataset '363621' is missing Pipeline 1 artifacts under benchmarks\\tabarena\\pipeline2_artifacts\\pipeline1_outputs\\363621. Raw-input fallback is prohibited.",
+    "metric_name": null,
+    "metric_value": null,
+    "baseline_relative_score": null,
+    "train_runtime_seconds": null,
+    "inference_runtime_seconds": null,
+    "runtime_seconds": null,
+    "oob_score": null,
+    "oob_diagnostic_reason": null,
+    "split_seed": 42,
+    "hyperparams": {},
+    "predictive_metrics": null,
+    "calibration_metrics": {
+      "brier_score": null,
+      "ece": null,
+      "ece_n_bins": 15,
+      "ece_method": "top_label_equal_width",
+      "status": "unavailable",
+      "reason": "run did not produce validated probabilities"
+    },
+    "probability_metadata": null,
+    "semantic_meta_features": {
+      "probable_domain": null,
+      "domain_confidence": null,
+      "row_entity": "a blood donation record",
+      "row_entity_confidence": 0.75,
+      "dataset_description_present": false,
+      "column_count": 5,
+      "mean_column_confidence": 0.95,
+      "distributions": {
+        "semantic_type": {
+          "numeric_measurement": 4,
+          "categorical": 1
+        },
+        "value_function": {
+          "measurement": 4,
+          "classification": 1
+        },
+        "numeric_meaning": {
+          "magnitude": 4,
+          "nominal_code": 1
+        },
+        "semantic_role": {
+          "unknown": 5
+        }
+      },
+      "warning_count": 0
+    },
+    "statistical_meta_features": {
+      "row_count": 748,
+      "column_count_including_target": 5,
+      "feature_count": 4,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.2874331550802139,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 43.75,
+      "numeric_skew": {
+        "mean": 2.2631111929251677,
+        "median": 2.545864503444355,
+        "max_abs": 3.211265474184831
+      },
+      "numeric_kurtosis": {
+        "mean": 10.224505250350324,
+        "median": 12.633750101130959,
+        "max_abs": 15.876151978541806
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 2,
+      "target_majority_ratio": 0.7620320855614974,
+      "target_minority_to_majority_ratio": 0.312280701754386
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363621",
+    "model_id": "xtab",
+    "base_model_id": "xtab",
+    "execution_strategy": "standard",
+    "target_column": "DonatedBloodInMarch2007",
+    "task_type": "classification",
+    "feasible": true,
+    "status": "failure",
+    "outcome_reason": "dataset_setup: Pipeline1PrivacyClearanceError: Dataset '363621' is missing Pipeline 1 artifacts under benchmarks\\tabarena\\pipeline2_artifacts\\pipeline1_outputs\\363621. Raw-input fallback is prohibited.",
+    "metric_name": null,
+    "metric_value": null,
+    "baseline_relative_score": null,
+    "train_runtime_seconds": null,
+    "inference_runtime_seconds": null,
+    "runtime_seconds": null,
+    "oob_score": null,
+    "oob_diagnostic_reason": null,
+    "split_seed": 42,
+    "hyperparams": {},
+    "predictive_metrics": null,
+    "calibration_metrics": {
+      "brier_score": null,
+      "ece": null,
+      "ece_n_bins": 15,
+      "ece_method": "top_label_equal_width",
+      "status": "unavailable",
+      "reason": "run did not produce validated probabilities"
+    },
+    "probability_metadata": null,
+    "semantic_meta_features": {
+      "probable_domain": null,
+      "domain_confidence": null,
+      "row_entity": "a blood donation record",
+      "row_entity_confidence": 0.75,
+      "dataset_description_present": false,
+      "column_count": 5,
+      "mean_column_confidence": 0.95,
+      "distributions": {
+        "semantic_type": {
+          "numeric_measurement": 4,
+          "categorical": 1
+        },
+        "value_function": {
+          "measurement": 4,
+          "classification": 1
+        },
+        "numeric_meaning": {
+          "magnitude": 4,
+          "nominal_code": 1
+        },
+        "semantic_role": {
+          "unknown": 5
+        }
+      },
+      "warning_count": 0
+    },
+    "statistical_meta_features": {
+      "row_count": 748,
+      "column_count_including_target": 5,
+      "feature_count": 4,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.2874331550802139,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 43.75,
+      "numeric_skew": {
+        "mean": 2.2631111929251677,
+        "median": 2.545864503444355,
+        "max_abs": 3.211265474184831
+      },
+      "numeric_kurtosis": {
+        "mean": 10.224505250350324,
+        "median": 12.633750101130959,
+        "max_abs": 15.876151978541806
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 2,
+      "target_majority_ratio": 0.7620320855614974,
+      "target_minority_to_majority_ratio": 0.312280701754386
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363621",
+    "model_id": "realmlp",
+    "base_model_id": "realmlp",
+    "execution_strategy": "standard",
+    "target_column": "DonatedBloodInMarch2007",
+    "task_type": "classification",
+    "feasible": true,
+    "status": "failure",
+    "outcome_reason": "dataset_setup: Pipeline1PrivacyClearanceError: Dataset '363621' is missing Pipeline 1 artifacts under benchmarks\\tabarena\\pipeline2_artifacts\\pipeline1_outputs\\363621. Raw-input fallback is prohibited.",
+    "metric_name": null,
+    "metric_value": null,
+    "baseline_relative_score": null,
+    "train_runtime_seconds": null,
+    "inference_runtime_seconds": null,
+    "runtime_seconds": null,
+    "oob_score": null,
+    "oob_diagnostic_reason": null,
+    "split_seed": 42,
+    "hyperparams": {},
+    "predictive_metrics": null,
+    "calibration_metrics": {
+      "brier_score": null,
+      "ece": null,
+      "ece_n_bins": 15,
+      "ece_method": "top_label_equal_width",
+      "status": "unavailable",
+      "reason": "run did not produce validated probabilities"
+    },
+    "probability_metadata": null,
+    "semantic_meta_features": {
+      "probable_domain": null,
+      "domain_confidence": null,
+      "row_entity": "a blood donation record",
+      "row_entity_confidence": 0.75,
+      "dataset_description_present": false,
+      "column_count": 5,
+      "mean_column_confidence": 0.95,
+      "distributions": {
+        "semantic_type": {
+          "numeric_measurement": 4,
+          "categorical": 1
+        },
+        "value_function": {
+          "measurement": 4,
+          "classification": 1
+        },
+        "numeric_meaning": {
+          "magnitude": 4,
+          "nominal_code": 1
+        },
+        "semantic_role": {
+          "unknown": 5
+        }
+      },
+      "warning_count": 0
+    },
+    "statistical_meta_features": {
+      "row_count": 748,
+      "column_count_including_target": 5,
+      "feature_count": 4,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.2874331550802139,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 43.75,
+      "numeric_skew": {
+        "mean": 2.2631111929251677,
+        "median": 2.545864503444355,
+        "max_abs": 3.211265474184831
+      },
+      "numeric_kurtosis": {
+        "mean": 10.224505250350324,
+        "median": 12.633750101130959,
+        "max_abs": 15.876151978541806
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 2,
+      "target_majority_ratio": 0.7620320855614974,
+      "target_minority_to_majority_ratio": 0.312280701754386
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363621",
+    "model_id": "tabm",
+    "base_model_id": "tabm",
+    "execution_strategy": "standard",
+    "target_column": "DonatedBloodInMarch2007",
+    "task_type": "classification",
+    "feasible": true,
+    "status": "failure",
+    "outcome_reason": "dataset_setup: Pipeline1PrivacyClearanceError: Dataset '363621' is missing Pipeline 1 artifacts under benchmarks\\tabarena\\pipeline2_artifacts\\pipeline1_outputs\\363621. Raw-input fallback is prohibited.",
+    "metric_name": null,
+    "metric_value": null,
+    "baseline_relative_score": null,
+    "train_runtime_seconds": null,
+    "inference_runtime_seconds": null,
+    "runtime_seconds": null,
+    "oob_score": null,
+    "oob_diagnostic_reason": null,
+    "split_seed": 42,
+    "hyperparams": {},
+    "predictive_metrics": null,
+    "calibration_metrics": {
+      "brier_score": null,
+      "ece": null,
+      "ece_n_bins": 15,
+      "ece_method": "top_label_equal_width",
+      "status": "unavailable",
+      "reason": "run did not produce validated probabilities"
+    },
+    "probability_metadata": null,
+    "semantic_meta_features": {
+      "probable_domain": null,
+      "domain_confidence": null,
+      "row_entity": "a blood donation record",
+      "row_entity_confidence": 0.75,
+      "dataset_description_present": false,
+      "column_count": 5,
+      "mean_column_confidence": 0.95,
+      "distributions": {
+        "semantic_type": {
+          "numeric_measurement": 4,
+          "categorical": 1
+        },
+        "value_function": {
+          "measurement": 4,
+          "classification": 1
+        },
+        "numeric_meaning": {
+          "magnitude": 4,
+          "nominal_code": 1
+        },
+        "semantic_role": {
+          "unknown": 5
+        }
+      },
+      "warning_count": 0
+    },
+    "statistical_meta_features": {
+      "row_count": 748,
+      "column_count_including_target": 5,
+      "feature_count": 4,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.2874331550802139,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 43.75,
+      "numeric_skew": {
+        "mean": 2.2631111929251677,
+        "median": 2.545864503444355,
+        "max_abs": 3.211265474184831
+      },
+      "numeric_kurtosis": {
+        "mean": 10.224505250350324,
+        "median": 12.633750101130959,
+        "max_abs": 15.876151978541806
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 2,
+      "target_majority_ratio": 0.7620320855614974,
+      "target_minority_to_majority_ratio": 0.312280701754386
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363621",
+    "model_id": "tabiclv2",
+    "base_model_id": "tabiclv2",
+    "execution_strategy": "standard",
+    "target_column": "DonatedBloodInMarch2007",
+    "task_type": "classification",
+    "feasible": true,
+    "status": "failure",
+    "outcome_reason": "dataset_setup: Pipeline1PrivacyClearanceError: Dataset '363621' is missing Pipeline 1 artifacts under benchmarks\\tabarena\\pipeline2_artifacts\\pipeline1_outputs\\363621. Raw-input fallback is prohibited.",
+    "metric_name": null,
+    "metric_value": null,
+    "baseline_relative_score": null,
+    "train_runtime_seconds": null,
+    "inference_runtime_seconds": null,
+    "runtime_seconds": null,
+    "oob_score": null,
+    "oob_diagnostic_reason": null,
+    "split_seed": 42,
+    "hyperparams": {},
+    "predictive_metrics": null,
+    "calibration_metrics": {
+      "brier_score": null,
+      "ece": null,
+      "ece_n_bins": 15,
+      "ece_method": "top_label_equal_width",
+      "status": "unavailable",
+      "reason": "run did not produce validated probabilities"
+    },
+    "probability_metadata": null,
+    "semantic_meta_features": {
+      "probable_domain": null,
+      "domain_confidence": null,
+      "row_entity": "a blood donation record",
+      "row_entity_confidence": 0.75,
+      "dataset_description_present": false,
+      "column_count": 5,
+      "mean_column_confidence": 0.95,
+      "distributions": {
+        "semantic_type": {
+          "numeric_measurement": 4,
+          "categorical": 1
+        },
+        "value_function": {
+          "measurement": 4,
+          "classification": 1
+        },
+        "numeric_meaning": {
+          "magnitude": 4,
+          "nominal_code": 1
+        },
+        "semantic_role": {
+          "unknown": 5
+        }
+      },
+      "warning_count": 0
+    },
+    "statistical_meta_features": {
+      "row_count": 748,
+      "column_count_including_target": 5,
+      "feature_count": 4,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.2874331550802139,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 43.75,
+      "numeric_skew": {
+        "mean": 2.2631111929251677,
+        "median": 2.545864503444355,
+        "max_abs": 3.211265474184831
+      },
+      "numeric_kurtosis": {
+        "mean": 10.224505250350324,
+        "median": 12.633750101130959,
+        "max_abs": 15.876151978541806
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 2,
+      "target_majority_ratio": 0.7620320855614974,
+      "target_minority_to_majority_ratio": 0.312280701754386
+    },
+    "source": "team-original-run"
+  },
+  {
+    "dataset_id": "363621",
+    "model_id": "ft_transformer",
+    "base_model_id": "ft_transformer",
+    "execution_strategy": "standard",
+    "target_column": "DonatedBloodInMarch2007",
+    "task_type": "classification",
+    "feasible": true,
+    "status": "failure",
+    "outcome_reason": "dataset_setup: Pipeline1PrivacyClearanceError: Dataset '363621' is missing Pipeline 1 artifacts under benchmarks\\tabarena\\pipeline2_artifacts\\pipeline1_outputs\\363621. Raw-input fallback is prohibited.",
+    "metric_name": null,
+    "metric_value": null,
+    "baseline_relative_score": null,
+    "train_runtime_seconds": null,
+    "inference_runtime_seconds": null,
+    "runtime_seconds": null,
+    "oob_score": null,
+    "oob_diagnostic_reason": null,
+    "split_seed": 42,
+    "hyperparams": {},
+    "predictive_metrics": null,
+    "calibration_metrics": {
+      "brier_score": null,
+      "ece": null,
+      "ece_n_bins": 15,
+      "ece_method": "top_label_equal_width",
+      "status": "unavailable",
+      "reason": "run did not produce validated probabilities"
+    },
+    "probability_metadata": null,
+    "semantic_meta_features": {
+      "probable_domain": null,
+      "domain_confidence": null,
+      "row_entity": "a blood donation record",
+      "row_entity_confidence": 0.75,
+      "dataset_description_present": false,
+      "column_count": 5,
+      "mean_column_confidence": 0.95,
+      "distributions": {
+        "semantic_type": {
+          "numeric_measurement": 4,
+          "categorical": 1
+        },
+        "value_function": {
+          "measurement": 4,
+          "classification": 1
+        },
+        "numeric_meaning": {
+          "magnitude": 4,
+          "nominal_code": 1
+        },
+        "semantic_role": {
+          "unknown": 5
+        }
+      },
+      "warning_count": 0
+    },
+    "statistical_meta_features": {
+      "row_count": 748,
+      "column_count_including_target": 5,
+      "feature_count": 4,
+      "missing_cell_ratio": 0.0,
+      "rows_with_missing_ratio": 0.0,
+      "duplicate_row_ratio": 0.2874331550802139,
+      "numeric_feature_ratio": 1.0,
+      "categorical_feature_ratio": 0.0,
+      "boolean_feature_ratio": 0.0,
+      "datetime_feature_ratio": 0.0,
+      "high_cardinality_feature_ratio": 0.0,
+      "mean_feature_cardinality": 43.75,
+      "numeric_skew": {
+        "mean": 2.2631111929251677,
+        "median": 2.545864503444355,
+        "max_abs": 3.211265474184831
+      },
+      "numeric_kurtosis": {
+        "mean": 10.224505250350324,
+        "median": 12.633750101130959,
+        "max_abs": 15.876151978541806
+      },
+      "target_present": true,
+      "target_missing_ratio": 0.0,
+      "target_class_count": 2,
+      "target_majority_ratio": 0.7620320855614974,
+      "target_minority_to_majority_ratio": 0.312280701754386
+    },
+    "source": "team-original-run"
+  }
+]

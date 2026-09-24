@@ -1,0 +1,450 @@
+{
+  "dataset_id": "363613",
+  "dataset_name": "Amazon_employee_access",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 1200.0,
+  "generated_at": "2026-09-13T19:16:56+00:00",
+  "status": "complete",
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": null,
+      "row_entity_confidence": 0.0,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "RESOURCE",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values appear to reference unique instances or records within the dataset.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+      },
+      {
+        "column_name": "MGR_ID",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing manager IDs.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+      },
+      {
+        "column_name": "ROLE_ROLLUP_1",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing a higher-level role classification.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+      },
+      {
+        "column_name": "ROLE_ROLLUP_2",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing a lower-level role classification.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+      },
+      {
+        "column_name": "ROLE_DEPTNAME",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing department names.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+      },
+      {
+        "column_name": "ROLE_TITLE",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing role titles.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+      },
+      {
+        "column_name": "ROLE_FAMILY_DESC",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing role family descriptions.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+      },
+      {
+        "column_name": "ROLE_FAMILY",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing role families.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+      },
+      {
+        "column_name": "ROLE_CODE",
+        "semantic_type": "identifier",
+        "value_function": "entity_reference",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing role codes.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+      },
+      {
+        "column_name": "ResourceApproved",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "nominal_code",
+        "concept_description": "Values represent a binary classification ('Yes', 'No') indicating approval status.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column contains only two distinct values ('Yes', 'No'), indicating a categorical classification. The values are not numeric in nature and do not represent a measurement or count."
+      }
+    ],
+    "warnings": [
+      "Dataset semantic context failed: RuntimeError: Failed to communicate with Ollama: 500 Server Error: Internal Server Error for url: http://localhost:11434/api/generate"
+    ],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 1,
+      "total_llm_calls": 2,
+      "batch_sizes": [
+        10
+      ],
+      "dataset_semantic_runtime_seconds": 29.493031,
+      "batch_runtime_seconds": [
+        310.737684
+      ],
+      "rag_runtime_seconds": 0.071599,
+      "batch_failures": 0,
+      "batch_retries": 0,
+      "llm_calls": [
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "api_wall_duration_seconds": 310.737321,
+          "prompt_eval_count": 3033,
+          "prompt_eval_duration": 3933484000,
+          "eval_count": 1159,
+          "eval_duration": 294227227000,
+          "total_duration": 308689083100,
+          "load_duration": 10470046900,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 340.270758,
+      "semantic_contradiction_guard": {
+        "guard_version": "semantic_contradiction_guard_v001",
+        "deterministic": true,
+        "evaluated_column_count": 10,
+        "correction_count": 0,
+        "ambiguous_shape_overrides_enabled": false,
+        "entries": [
+          {
+            "column_name": "RESOURCE",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "RESOURCE",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "RESOURCE",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            }
+          },
+          {
+            "column_name": "MGR_ID",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "MGR_ID",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing manager IDs.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "MGR_ID",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing manager IDs.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            }
+          },
+          {
+            "column_name": "ROLE_ROLLUP_1",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "ROLE_ROLLUP_1",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing a higher-level role classification.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "ROLE_ROLLUP_1",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing a higher-level role classification.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            }
+          },
+          {
+            "column_name": "ROLE_ROLLUP_2",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "ROLE_ROLLUP_2",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing a lower-level role classification.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "ROLE_ROLLUP_2",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing a lower-level role classification.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            }
+          },
+          {
+            "column_name": "ROLE_DEPTNAME",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "ROLE_DEPTNAME",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing department names.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "ROLE_DEPTNAME",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing department names.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            }
+          },
+          {
+            "column_name": "ROLE_TITLE",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "ROLE_TITLE",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing role titles.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "ROLE_TITLE",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing role titles.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            }
+          },
+          {
+            "column_name": "ROLE_FAMILY_DESC",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "ROLE_FAMILY_DESC",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing role family descriptions.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "ROLE_FAMILY_DESC",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing role family descriptions.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            }
+          },
+          {
+            "column_name": "ROLE_FAMILY",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "ROLE_FAMILY",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing role families.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "ROLE_FAMILY",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing role families.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            }
+          },
+          {
+            "column_name": "ROLE_CODE",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "ROLE_CODE",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing role codes.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "ROLE_CODE",
+              "semantic_type": "identifier",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values appear to reference unique instances or records within the dataset, likely representing role codes.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column has a high repetition rate and low unique ratio, indicating that each value likely refers to a unique entity. The numeric nature of the values supports this interpretation."
+            }
+          },
+          {
+            "column_name": "ResourceApproved",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "ResourceApproved",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "nominal_code",
+              "concept_description": "Values represent a binary classification ('Yes', 'No') indicating approval status.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column contains only two distinct values ('Yes', 'No'), indicating a categorical classification. The values are not numeric in nature and do not represent a measurement or count."
+            },
+            "effective_semantic_result": {
+              "column_name": "ResourceApproved",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "nominal_code",
+              "concept_description": "Values represent a binary classification ('Yes', 'No') indicating approval status.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column contains only two distinct values ('Yes', 'No'), indicating a categorical classification. The values are not numeric in nature and do not represent a measurement or count."
+            }
+          }
+        ]
+      }
+    }
+  },
+  "semantic_meta_features": {
+    "probable_domain": null,
+    "domain_confidence": null,
+    "row_entity": null,
+    "row_entity_confidence": 0.0,
+    "dataset_description_present": false,
+    "column_count": 10,
+    "mean_column_confidence": 1.0,
+    "distributions": {
+      "semantic_type": {
+        "identifier": 9,
+        "categorical": 1
+      },
+      "value_function": {
+        "entity_reference": 9,
+        "classification": 1
+      },
+      "numeric_meaning": {
+        "identifier": 9,
+        "nominal_code": 1
+      },
+      "semantic_role": {
+        "unknown": 10
+      }
+    },
+    "warning_count": 1
+  }
+}

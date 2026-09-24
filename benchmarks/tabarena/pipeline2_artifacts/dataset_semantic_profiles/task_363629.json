@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363629",
+  "dataset_name": "diabetes",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:18:10+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "diabetes",
+    "task_type": "classification",
+    "target_column": "TestedPositiveForDiabetes",
+    "row_count": 768,
+    "feature_count": 8,
+    "feature_type_counts": {
+      "numeric": 8,
+      "categorical": 0,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "Pregnancies",
+      "Glucose",
+      "BloodPressure",
+      "SkinThickness",
+      "Insulin",
+      "BMI",
+      "DiabetesPedigreeFunction",
+      "Age"
+    ],
+    "representative_feature_name_count": 8,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "healthcare",
+    "subdomain": "diabetes",
+    "dataset_purpose": "classification",
+    "row_entity": "patient",
+    "target_concept": "diabetes status",
+    "feature_context": [
+      "biological measurements",
+      "demographics"
+    ],
+    "semantic_summary": "A healthcare dataset for classifying patients based on their biological measurements and demographic information to determine if they have tested positive for diabetes.",
+    "domain_confidence": 1.0
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 27.550007,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:18:10.9530172Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 25507628500,
+      "load_duration": 8971900,
+      "prompt_eval_count": 443,
+      "prompt_eval_duration": 671057000,
+      "eval_count": 104,
+      "eval_duration": 24760859000
+    }
+  }
+}

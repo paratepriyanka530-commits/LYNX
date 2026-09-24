@@ -1,20 +1,67 @@
 import json
+import hashlib
 import tempfile
 import unittest
 from pathlib import Path
 
 import pandas as pd
+import numpy as np
+from unittest.mock import patch
 
 from benchmarks.tabarena.pipeline2_benchmark_runner import (
-    Pipeline1PrivacyClearanceError,
+    _model_overrides,
+    _optional_oob_result,
     _score,
-    load_privacy_cleared_dataset,
     run_evaluations,
 )
+from benchmarks.tabarena.tabarena_benchmark import validate_record
 from pipelines.pipeline2_prediction.models.artifact_io import training_artifact_dir
 
 
 class BenchmarkRunnerTests(unittest.TestCase):
+    def test_oob_option_is_random_forest_only(self):
+        self.assertEqual(_model_overrides("random_forest", False, False), {})
+        self.assertEqual(
+            _model_overrides("random_forest", False, True),
+            {"oob_score": True},
+        )
+        self.assertEqual(_model_overrides("xgboost", False, True), {})
+        self.assertEqual(_optional_oob_result("xgboost", object(), True), (None, None))
+
+    def test_direct_tabarena_run_is_checkpointed_and_resumed(self):
+        dataset = {
+            "task_id": "rf-oob",
+            "dataset_name": "rf-oob",
+            "task_type": "classification",
+            "target_column": "target",
+            "csv_file": "raw.csv",
+        }
+        frame = pd.DataFrame({
+            "feature": np.arange(120),
+            "category": np.where(np.arange(120) % 3, "a", "b"),
+            "target": np.arange(120) % 2,
+        })
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            frame.to_csv(root / "raw.csv", index=False)
+            output = root / "model_performance.json"
+            with patch(
+                "benchmarks.tabarena.tabarena_benchmark.CANONICAL_MODEL_IDS",
+                ("random_forest",),
+            ), patch("benchmarks.tabarena.tabarena_benchmark.DATASET_DIR", root):
+                rows = run_evaluations([dataset], output)
+                first = output.read_bytes()
+                resumed = run_evaluations([dataset], output)
+                second = output.read_bytes()
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(len(resumed), 1)
+        self.assertEqual(first, second)
+        validate_record(rows[0])
+        self.assertEqual(rows[0]["primary_metric_name"], "balanced_accuracy")
+        self.assertTrue(np.isfinite(rows[0]["primary_metric_value"]))
+        self.assertIn("accuracy", rows[0]["classification_metrics"])
+        self.assertIsNone(rows[0]["regression_metrics"])
+
     def test_training_artifacts_are_isolated_by_dataset_and_run(self):
         with tempfile.TemporaryDirectory() as directory:
             first = training_artifact_dir(
@@ -50,7 +97,7 @@ class BenchmarkRunnerTests(unittest.TestCase):
         dataset = {
             "task_id": 999999,
             "dataset_name": "missing-test-dataset",
-            "task_type": "Supervised Classification",
+            "task_type": "classification",
             "target_column": "target",
             "csv_file": "does-not-exist.csv",
         }
@@ -58,67 +105,13 @@ class BenchmarkRunnerTests(unittest.TestCase):
             root = Path(directory)
             rows = run_evaluations(
                 [dataset],
-                root / "runner",
-                root / "pipeline1",
-                run_id="test",
+                root / "model_performance.json",
             )
         self.assertEqual(len(rows), 10)
-        self.assertTrue(all(row["status"] == "failure" for row in rows))
+        self.assertTrue(all(row["feasible"] for row in rows))
         self.assertTrue(
-            all(row["outcome_reason"].startswith("dataset_setup:") for row in rows)
+            all(row["infeasible_reason"].startswith("runtime_failure:dataset_setup:") for row in rows)
         )
-
-    def test_raw_dataset_without_pipeline1_privacy_clearance_is_rejected(self):
-        dataset = {
-            "task_id": "raw-only",
-            "dataset_name": "raw-only",
-            "task_type": "Supervised Classification",
-            "target_column": "target",
-            "csv_file": "raw.csv",
-        }
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            pd.DataFrame({
-                "email": ["person@example.com"],
-                "target": [1],
-            }).to_csv(root / "raw.csv", index=False)
-
-            with self.assertRaisesRegex(
-                Pipeline1PrivacyClearanceError,
-                "Raw-input fallback is prohibited",
-            ):
-                load_privacy_cleared_dataset(dataset, root / "pipeline1")
-
-    def test_successful_cleaning_without_privacy_stage_is_rejected(self):
-        dataset = {
-            "task_id": "cleaned-only",
-            "dataset_name": "cleaned-only",
-            "task_type": "Supervised Classification",
-            "target_column": "target",
-            "csv_file": "raw.csv",
-        }
-        with tempfile.TemporaryDirectory() as directory:
-            artifact_dir = Path(directory) / "pipeline1" / "cleaned-only"
-            artifact_dir.mkdir(parents=True)
-            pd.DataFrame({"feature": [1], "target": [0]}).to_csv(
-                artifact_dir / "cleaned_dataset.csv",
-                index=False,
-            )
-            (artifact_dir / "cleaning_report.json").write_text(
-                json.dumps({
-                    "status": "success",
-                    "original_dataset": {"file_name": "raw.csv"},
-                    "validation": {"passed": True},
-                    "decision_summary": {},
-                }),
-                encoding="utf-8",
-            )
-
-            with self.assertRaisesRegex(
-                Pipeline1PrivacyClearanceError,
-                "has no Pipeline 1 privacy audit",
-            ):
-                load_privacy_cleared_dataset(dataset, Path(directory) / "pipeline1")
 
 
 if __name__ == "__main__":

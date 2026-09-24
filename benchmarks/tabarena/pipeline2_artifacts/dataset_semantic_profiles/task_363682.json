@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363682",
+  "dataset_name": "Is-this-a-good-customer",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:24:41+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "Is-this-a-good-customer",
+    "task_type": "classification",
+    "target_column": "bad_client_target",
+    "row_count": 1723,
+    "feature_count": 13,
+    "feature_type_counts": {
+      "numeric": 9,
+      "categorical": 4,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "month",
+      "credit_amount",
+      "credit_term",
+      "age",
+      "sex",
+      "education",
+      "product_type",
+      "having_children_flg",
+      "region",
+      "income",
+      "family_status",
+      "phone_operator",
+      "is_client"
+    ],
+    "representative_feature_name_count": 13,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "finance",
+    "subdomain": "credit risk assessment",
+    "dataset_purpose": "classification",
+    "row_entity": "customer",
+    "target_concept": "bad client status",
+    "feature_context": [
+      "demographics",
+      "financial status",
+      "credit history",
+      "product usage",
+      "contact information"
+    ],
+    "semantic_summary": "A dataset for classifying customers as good or bad based on demographic, financial, and product-related features.",
+    "domain_confidence": 0.9
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 28.082857,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:24:41.6236342Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 26040912200,
+      "load_duration": 9032000,
+      "prompt_eval_count": 459,
+      "prompt_eval_duration": 641311000,
+      "eval_count": 113,
+      "eval_duration": 25334883000
+    }
+  }
+}

@@ -1,0 +1,1437 @@
+{
+  "pipeline_version": "pipeline1_architecture_b_v001",
+  "run_id": "20260913T235253-b94a1d5d",
+  "status": "success",
+  "original_dataset": {
+    "valid": true,
+    "file_name": "bank-marketing.csv",
+    "file_format": ".csv",
+    "file_size_bytes": 3277189,
+    "rows": 45211,
+    "columns": 14,
+    "duplicate_columns": [],
+    "absolute_path": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\datasets\\bank-marketing.csv",
+    "source_path": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\datasets\\bank-marketing.csv",
+    "raw_dataset_overwritten": false
+  },
+  "before_profile": {
+    "shape": {
+      "rows": 45211,
+      "columns": 14
+    },
+    "column_names": [
+      "age",
+      "job",
+      "marital",
+      "education",
+      "default",
+      "balance",
+      "housing",
+      "loan",
+      "contact",
+      "campaign",
+      "pdays",
+      "previous",
+      "poutcome",
+      "SubscribeTermDeposit"
+    ],
+    "dtype_distribution": {
+      "int64": 5,
+      "object": 9
+    },
+    "missingness": {
+      "total_missing_cells": 0,
+      "overall_missing_percentage": 0.0
+    },
+    "duplicates": {
+      "exact_duplicate_rows": 274,
+      "percentage": 0.606
+    },
+    "column_profiles": [
+      {
+        "column_name": "age",
+        "physical_dtype": "int64",
+        "row_count": 45211,
+        "non_null_count": 45211,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 77,
+          "unique_ratio": 0.001703
+        },
+        "repetition": {
+          "repeated_unique_count": 76,
+          "repeated_occurrences": 45210,
+          "repetition_rate": 0.999978
+        },
+        "sample_values": [
+          36,
+          25,
+          48,
+          51,
+          42
+        ],
+        "numeric_statistics": {
+          "min": 18,
+          "max": 95,
+          "mean": 40.93621021432837,
+          "median": 39.0,
+          "std": 10.61876204097542,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "job",
+        "physical_dtype": "object",
+        "row_count": 45211,
+        "non_null_count": 45211,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 12,
+          "unique_ratio": 0.000265
+        },
+        "repetition": {
+          "repeated_unique_count": 12,
+          "repeated_occurrences": 45211,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "entrepreneur",
+          "admin.",
+          "management",
+          "blue-collar",
+          "technician"
+        ]
+      },
+      {
+        "column_name": "marital",
+        "physical_dtype": "object",
+        "row_count": 45211,
+        "non_null_count": 45211,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 3,
+          "unique_ratio": 6.6e-05
+        },
+        "repetition": {
+          "repeated_unique_count": 3,
+          "repeated_occurrences": 45211,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "married",
+          "single",
+          "divorced"
+        ]
+      },
+      {
+        "column_name": "education",
+        "physical_dtype": "object",
+        "row_count": 45211,
+        "non_null_count": 45211,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 4,
+          "unique_ratio": 8.8e-05
+        },
+        "repetition": {
+          "repeated_unique_count": 4,
+          "repeated_occurrences": 45211,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "secondary",
+          "primary",
+          "tertiary",
+          "unknown"
+        ]
+      },
+      {
+        "column_name": "default",
+        "physical_dtype": "object",
+        "row_count": 45211,
+        "non_null_count": 45211,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 4.4e-05
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 45211,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "no",
+          "yes"
+        ]
+      },
+      {
+        "column_name": "balance",
+        "physical_dtype": "int64",
+        "row_count": 45211,
+        "non_null_count": 45211,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 7168,
+          "unique_ratio": 0.158545
+        },
+        "repetition": {
+          "repeated_unique_count": 4615,
+          "repeated_occurrences": 42658,
+          "repetition_rate": 0.943531
+        },
+        "sample_values": [
+          229,
+          789,
+          -876,
+          2832,
+          504
+        ],
+        "numeric_statistics": {
+          "min": -8019,
+          "max": 102127,
+          "mean": 1362.2720576850766,
+          "median": 448.0,
+          "std": 3044.7658291685175,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "housing",
+        "physical_dtype": "object",
+        "row_count": 45211,
+        "non_null_count": 45211,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 4.4e-05
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 45211,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "yes",
+          "no"
+        ]
+      },
+      {
+        "column_name": "loan",
+        "physical_dtype": "object",
+        "row_count": 45211,
+        "non_null_count": 45211,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 4.4e-05
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 45211,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "no",
+          "yes"
+        ]
+      },
+      {
+        "column_name": "contact",
+        "physical_dtype": "object",
+        "row_count": 45211,
+        "non_null_count": 45211,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 3,
+          "unique_ratio": 6.6e-05
+        },
+        "repetition": {
+          "repeated_unique_count": 3,
+          "repeated_occurrences": 45211,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "cellular",
+          "unknown",
+          "telephone"
+        ]
+      },
+      {
+        "column_name": "campaign",
+        "physical_dtype": "int64",
+        "row_count": 45211,
+        "non_null_count": 45211,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 48,
+          "unique_ratio": 0.001062
+        },
+        "repetition": {
+          "repeated_unique_count": 41,
+          "repeated_occurrences": 45204,
+          "repetition_rate": 0.999845
+        },
+        "sample_values": [
+          2,
+          1,
+          16,
+          4,
+          11
+        ],
+        "numeric_statistics": {
+          "min": 1,
+          "max": 63,
+          "mean": 2.763840658246887,
+          "median": 2.0,
+          "std": 3.0980208832791694,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "pdays",
+        "physical_dtype": "int64",
+        "row_count": 45211,
+        "non_null_count": 45211,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 559,
+          "unique_ratio": 0.012364
+        },
+        "repetition": {
+          "repeated_unique_count": 426,
+          "repeated_occurrences": 45078,
+          "repetition_rate": 0.997058
+        },
+        "sample_values": [
+          -1,
+          238,
+          97,
+          179,
+          182
+        ],
+        "numeric_statistics": {
+          "min": -1,
+          "max": 871,
+          "mean": 40.19782796222158,
+          "median": -1.0,
+          "std": 100.12874599059835,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "previous",
+        "physical_dtype": "int64",
+        "row_count": 45211,
+        "non_null_count": 45211,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 41,
+          "unique_ratio": 0.000907
+        },
+        "repetition": {
+          "repeated_unique_count": 33,
+          "repeated_occurrences": 45203,
+          "repetition_rate": 0.999823
+        },
+        "sample_values": [
+          0,
+          12,
+          1,
+          2,
+          3
+        ],
+        "numeric_statistics": {
+          "min": 0,
+          "max": 275,
+          "mean": 0.5803233726305546,
+          "median": 0.0,
+          "std": 2.3034410449312213,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "poutcome",
+        "physical_dtype": "object",
+        "row_count": 45211,
+        "non_null_count": 45211,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 4,
+          "unique_ratio": 8.8e-05
+        },
+        "repetition": {
+          "repeated_unique_count": 4,
+          "repeated_occurrences": 45211,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "unknown",
+          "other",
+          "failure",
+          "success"
+        ]
+      },
+      {
+        "column_name": "SubscribeTermDeposit",
+        "physical_dtype": "object",
+        "row_count": 45211,
+        "non_null_count": 45211,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 4.4e-05
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 45211,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "no",
+          "yes"
+        ]
+      }
+    ]
+  },
+  "issues": [
+    {
+      "issue_id": "issue-exact_duplicate_rows-192ec5f83876",
+      "issue_type": "exact_duplicate_rows",
+      "target_columns": [],
+      "affected_count": 274,
+      "affected_percentage": 0.606,
+      "evidence": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "examples": [
+        1782,
+        3579,
+        4636,
+        5181,
+        5328
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-b8b0dc186174",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "job"
+      ],
+      "affected_count": 288,
+      "affected_percentage": 0.637,
+      "evidence": {
+        "maximum_frequency": 452,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "examples": [
+        "unknown",
+        "unknown",
+        "unknown",
+        "unknown",
+        "unknown"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-statistical_outlier_candidate-2dfdc35ebae4",
+      "issue_type": "statistical_outlier_candidate",
+      "target_columns": [
+        "balance"
+      ],
+      "affected_count": 4729,
+      "affected_percentage": 10.4598,
+      "evidence": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 72.0,
+        "q3": 1428.0,
+        "lower_bound": -1962.0,
+        "upper_bound": 3462.0
+      },
+      "examples": [
+        11146,
+        3494,
+        5643,
+        3540,
+        4264
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    }
+  ],
+  "quality_summary": {
+    "total_issues_detected": 3,
+    "issues_by_type": {
+      "exact_duplicate_rows": 1,
+      "rare_category_observation": 1,
+      "statistical_outlier_candidate": 1
+    },
+    "issues_by_status": {
+      "candidate": 1,
+      "issue": 1,
+      "observation": 1
+    },
+    "affected_columns": [
+      "balance",
+      "job"
+    ],
+    "dataset_level_issue_count": 1
+  },
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": null,
+      "row_entity_confidence": 0.606,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "age",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Numeric representation of age in years, with arithmetic differences and central tendency representing age differences and distributions respectively.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "Age values are numeric and represent a quantitative magnitude with arithmetic differences and central tendency (mean, median) being meaningful for age distributions."
+      },
+      {
+        "column_name": "job",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "unknown",
+        "concept_description": "Reusable job categories, states, or levels, used for categorization without numeric representation.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "Job values are categorical and represent reusable job types or states without numeric representation."
+      },
+      {
+        "column_name": "marital",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "unknown",
+        "concept_description": "Reusable marital status categories, states, or levels, used for categorization without numeric representation.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "Marital values are categorical and represent reusable marital status types or states without numeric representation."
+      },
+      {
+        "column_name": "education",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "unknown",
+        "concept_description": "Reusable education level categories, states, or levels, used for categorization without numeric representation.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "Education values are categorical and represent reusable education levels without numeric representation."
+      },
+      {
+        "column_name": "default",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "unknown",
+        "concept_description": "Reusable default status categories, states, or levels, used for categorization without numeric representation.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "Default values are categorical and represent reusable default status types or states without numeric representation."
+      },
+      {
+        "column_name": "balance",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Numeric representation of financial balance, with arithmetic differences and central tendency representing financial balances and distributions respectively.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "Balance values are numeric and represent a quantitative magnitude with arithmetic differences and central tendency (mean, median) being meaningful for financial balance distributions."
+      },
+      {
+        "column_name": "housing",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "unknown",
+        "concept_description": "Reusable housing status categories, states, or levels, used for categorization without numeric representation.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "Housing values are categorical and represent reusable housing status types or states without numeric representation."
+      },
+      {
+        "column_name": "loan",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "unknown",
+        "concept_description": "Reusable loan status categories, states, or levels, used for categorization without numeric representation.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "Loan values are categorical and represent reusable loan status types or states without numeric representation."
+      },
+      {
+        "column_name": "contact",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "unknown",
+        "concept_description": "Reusable contact method categories, states, or levels, used for categorization without numeric representation.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "Contact values are categorical and represent reusable contact method types or states without numeric representation."
+      },
+      {
+        "column_name": "campaign",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Numeric representation of marketing campaign count, with arithmetic differences and central tendency representing campaign counts and distributions respectively.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "Campaign values are numeric and represent a quantitative magnitude with arithmetic differences and central tendency (mean, median) being meaningful for campaign counts."
+      },
+      {
+        "column_name": "pdays",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Numeric representation of days since last contact, with arithmetic differences and central tendency representing days since last contact and distributions respectively.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "Pdays values are numeric and represent a quantitative magnitude with arithmetic differences and central tendency (mean, median) being meaningful for days since last contact."
+      },
+      {
+        "column_name": "previous",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Numeric representation of previous marketing campaign count, with arithmetic differences and central tendency representing previous campaign counts and distributions respectively.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "Previous values are numeric and represent a quantitative magnitude with arithmetic differences and central tendency (mean, median) being meaningful for previous campaign counts."
+      },
+      {
+        "column_name": "poutcome",
+        "semantic_type": "categorical",
+        "value_function": "entity_reference",
+        "numeric_meaning": "identifier",
+        "concept_description": "The outcome of a previous marketing campaign for a customer, identifying a specific instance of a customer interaction.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The values 'unknown', 'other', 'failure', and 'success' suggest that each value designates a specific instance of a customer interaction rather than a general category. The uniqueness and repetition of these values indicate that each value refers to a specific customer instance."
+      },
+      {
+        "column_name": "SubscribeTermDeposit",
+        "semantic_type": "categorical",
+        "value_function": "entity_reference",
+        "numeric_meaning": "identifier",
+        "concept_description": "Whether a customer has subscribed to a term deposit, identifying a specific instance of a customer action.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The values 'no' and 'yes' suggest that each value designates a specific instance of a customer action rather than a general category. The uniqueness and repetition of these values indicate that each value refers to a specific customer instance."
+      }
+    ],
+    "warnings": [],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 2,
+      "total_llm_calls": 3,
+      "batch_sizes": [
+        12,
+        2
+      ],
+      "dataset_semantic_runtime_seconds": 5.824578,
+      "batch_runtime_seconds": [
+        40.915654,
+        11.221399
+      ],
+      "rag_runtime_seconds": 0.349439,
+      "batch_failures": 0,
+      "batch_retries": 0,
+      "llm_calls": [
+        {
+          "stage": "dataset_context",
+          "api_wall_duration_seconds": 5.762244,
+          "prompt_eval_count": 1568,
+          "prompt_eval_duration": 1184972000,
+          "eval_count": 83,
+          "eval_duration": 2330981000,
+          "total_duration": 3706692100,
+          "load_duration": 12009500,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "api_wall_duration_seconds": 40.91544,
+          "prompt_eval_count": 2529,
+          "prompt_eval_duration": 1028875000,
+          "eval_count": 1242,
+          "eval_duration": 37616075000,
+          "total_duration": 38842172900,
+          "load_duration": 11883100,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 2,
+          "attempt": 1,
+          "api_wall_duration_seconds": 11.22124,
+          "prompt_eval_count": 1323,
+          "prompt_eval_duration": 502055000,
+          "eval_count": 279,
+          "eval_duration": 8497094999,
+          "total_duration": 9166468800,
+          "load_duration": 10437200,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 58.250121,
+      "semantic_contradiction_guard": {
+        "guard_version": "semantic_contradiction_guard_v001",
+        "deterministic": true,
+        "evaluated_column_count": 14,
+        "correction_count": 0,
+        "ambiguous_shape_overrides_enabled": false,
+        "entries": [
+          {
+            "column_name": "age",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "age",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of age in years, with arithmetic differences and central tendency representing age differences and distributions respectively.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Age values are numeric and represent a quantitative magnitude with arithmetic differences and central tendency (mean, median) being meaningful for age distributions."
+            },
+            "effective_semantic_result": {
+              "column_name": "age",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of age in years, with arithmetic differences and central tendency representing age differences and distributions respectively.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Age values are numeric and represent a quantitative magnitude with arithmetic differences and central tendency (mean, median) being meaningful for age distributions."
+            }
+          },
+          {
+            "column_name": "job",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "job",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Reusable job categories, states, or levels, used for categorization without numeric representation.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Job values are categorical and represent reusable job types or states without numeric representation."
+            },
+            "effective_semantic_result": {
+              "column_name": "job",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Reusable job categories, states, or levels, used for categorization without numeric representation.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Job values are categorical and represent reusable job types or states without numeric representation."
+            }
+          },
+          {
+            "column_name": "marital",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "marital",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Reusable marital status categories, states, or levels, used for categorization without numeric representation.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Marital values are categorical and represent reusable marital status types or states without numeric representation."
+            },
+            "effective_semantic_result": {
+              "column_name": "marital",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Reusable marital status categories, states, or levels, used for categorization without numeric representation.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Marital values are categorical and represent reusable marital status types or states without numeric representation."
+            }
+          },
+          {
+            "column_name": "education",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "education",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Reusable education level categories, states, or levels, used for categorization without numeric representation.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Education values are categorical and represent reusable education levels without numeric representation."
+            },
+            "effective_semantic_result": {
+              "column_name": "education",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Reusable education level categories, states, or levels, used for categorization without numeric representation.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Education values are categorical and represent reusable education levels without numeric representation."
+            }
+          },
+          {
+            "column_name": "default",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "default",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Reusable default status categories, states, or levels, used for categorization without numeric representation.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Default values are categorical and represent reusable default status types or states without numeric representation."
+            },
+            "effective_semantic_result": {
+              "column_name": "default",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Reusable default status categories, states, or levels, used for categorization without numeric representation.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Default values are categorical and represent reusable default status types or states without numeric representation."
+            }
+          },
+          {
+            "column_name": "balance",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "balance",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of financial balance, with arithmetic differences and central tendency representing financial balances and distributions respectively.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Balance values are numeric and represent a quantitative magnitude with arithmetic differences and central tendency (mean, median) being meaningful for financial balance distributions."
+            },
+            "effective_semantic_result": {
+              "column_name": "balance",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of financial balance, with arithmetic differences and central tendency representing financial balances and distributions respectively.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Balance values are numeric and represent a quantitative magnitude with arithmetic differences and central tendency (mean, median) being meaningful for financial balance distributions."
+            }
+          },
+          {
+            "column_name": "housing",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "housing",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Reusable housing status categories, states, or levels, used for categorization without numeric representation.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Housing values are categorical and represent reusable housing status types or states without numeric representation."
+            },
+            "effective_semantic_result": {
+              "column_name": "housing",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Reusable housing status categories, states, or levels, used for categorization without numeric representation.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Housing values are categorical and represent reusable housing status types or states without numeric representation."
+            }
+          },
+          {
+            "column_name": "loan",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "loan",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Reusable loan status categories, states, or levels, used for categorization without numeric representation.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Loan values are categorical and represent reusable loan status types or states without numeric representation."
+            },
+            "effective_semantic_result": {
+              "column_name": "loan",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Reusable loan status categories, states, or levels, used for categorization without numeric representation.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Loan values are categorical and represent reusable loan status types or states without numeric representation."
+            }
+          },
+          {
+            "column_name": "contact",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "contact",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Reusable contact method categories, states, or levels, used for categorization without numeric representation.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Contact values are categorical and represent reusable contact method types or states without numeric representation."
+            },
+            "effective_semantic_result": {
+              "column_name": "contact",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Reusable contact method categories, states, or levels, used for categorization without numeric representation.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Contact values are categorical and represent reusable contact method types or states without numeric representation."
+            }
+          },
+          {
+            "column_name": "campaign",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "campaign",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of marketing campaign count, with arithmetic differences and central tendency representing campaign counts and distributions respectively.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Campaign values are numeric and represent a quantitative magnitude with arithmetic differences and central tendency (mean, median) being meaningful for campaign counts."
+            },
+            "effective_semantic_result": {
+              "column_name": "campaign",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of marketing campaign count, with arithmetic differences and central tendency representing campaign counts and distributions respectively.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Campaign values are numeric and represent a quantitative magnitude with arithmetic differences and central tendency (mean, median) being meaningful for campaign counts."
+            }
+          },
+          {
+            "column_name": "pdays",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "pdays",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of days since last contact, with arithmetic differences and central tendency representing days since last contact and distributions respectively.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Pdays values are numeric and represent a quantitative magnitude with arithmetic differences and central tendency (mean, median) being meaningful for days since last contact."
+            },
+            "effective_semantic_result": {
+              "column_name": "pdays",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of days since last contact, with arithmetic differences and central tendency representing days since last contact and distributions respectively.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Pdays values are numeric and represent a quantitative magnitude with arithmetic differences and central tendency (mean, median) being meaningful for days since last contact."
+            }
+          },
+          {
+            "column_name": "previous",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "previous",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of previous marketing campaign count, with arithmetic differences and central tendency representing previous campaign counts and distributions respectively.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Previous values are numeric and represent a quantitative magnitude with arithmetic differences and central tendency (mean, median) being meaningful for previous campaign counts."
+            },
+            "effective_semantic_result": {
+              "column_name": "previous",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of previous marketing campaign count, with arithmetic differences and central tendency representing previous campaign counts and distributions respectively.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "Previous values are numeric and represent a quantitative magnitude with arithmetic differences and central tendency (mean, median) being meaningful for previous campaign counts."
+            }
+          },
+          {
+            "column_name": "poutcome",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "poutcome",
+              "semantic_type": "categorical",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "The outcome of a previous marketing campaign for a customer, identifying a specific instance of a customer interaction.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The values 'unknown', 'other', 'failure', and 'success' suggest that each value designates a specific instance of a customer interaction rather than a general category. The uniqueness and repetition of these values indicate that each value refers to a specific customer instance."
+            },
+            "effective_semantic_result": {
+              "column_name": "poutcome",
+              "semantic_type": "categorical",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "The outcome of a previous marketing campaign for a customer, identifying a specific instance of a customer interaction.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The values 'unknown', 'other', 'failure', and 'success' suggest that each value designates a specific instance of a customer interaction rather than a general category. The uniqueness and repetition of these values indicate that each value refers to a specific customer instance."
+            }
+          },
+          {
+            "column_name": "SubscribeTermDeposit",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "SubscribeTermDeposit",
+              "semantic_type": "categorical",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Whether a customer has subscribed to a term deposit, identifying a specific instance of a customer action.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The values 'no' and 'yes' suggest that each value designates a specific instance of a customer action rather than a general category. The uniqueness and repetition of these values indicate that each value refers to a specific customer instance."
+            },
+            "effective_semantic_result": {
+              "column_name": "SubscribeTermDeposit",
+              "semantic_type": "categorical",
+              "value_function": "entity_reference",
+              "numeric_meaning": "identifier",
+              "concept_description": "Whether a customer has subscribed to a term deposit, identifying a specific instance of a customer action.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The values 'no' and 'yes' suggest that each value designates a specific instance of a customer action rather than a general category. The uniqueness and repetition of these values indicate that each value refers to a specific customer instance."
+            }
+          }
+        ]
+      }
+    }
+  },
+  "decision_summary": {
+    "total_decisions": 3,
+    "by_decision_type": {
+      "flag_for_review": 2,
+      "no_action": 1
+    },
+    "by_proposed_action": {
+      "flag_rows": 2,
+      "no_op": 1
+    },
+    "tier1_decisions": 3,
+    "tier2_decisions": 0,
+    "fallback_decisions": 0,
+    "deterministic_runtime_seconds": 0.000315,
+    "tier2_issue_count": 0,
+    "tier2_batch_sizes": [],
+    "tier2_batch_kinds": [],
+    "llm_decision_calls": 0,
+    "llm_runtime_seconds": 0.0,
+    "intended_llm_decision_calls": 0,
+    "retries": 0,
+    "successful_batches": 0,
+    "batch_failures": 0,
+    "fallback_issue_count": 0,
+    "tier2_recovery_audit": [],
+    "llm_calls": [],
+    "total_runtime_seconds": 0.000421,
+    "execution_routing": {
+      "detected_issue_count": 3,
+      "decision_count": 3,
+      "proposed_action_count": 0,
+      "compiled_instruction_count": 1,
+      "executed_action_count": 1,
+      "executed_trim_whitespace_count": 0,
+      "executed_normalize_categorical_labels_count": 0,
+      "skipped_action_count": 0,
+      "skipped_actions": [],
+      "parse_date_assessments": [],
+      "numeric_coercion_assessments": [],
+      "missing_value_assessments": [],
+      "impute_missing_proposal_count": 0,
+      "median_imputation_authorization_assessments": [],
+      "executed_impute_missing_count": 0,
+      "executed_coerce_dtype_count": 0,
+      "executed_parse_dates_count": 0
+    },
+    "privacy_actions": {
+      "reason": "masked for privacy",
+      "privacy_stage_completed": true,
+      "privacy_clearance_passed": true,
+      "excluded_from_quality_fix_metrics": true,
+      "pii_candidate_count": 0,
+      "pii_candidate_columns": [],
+      "masked_column_count": 0,
+      "masked_columns": [],
+      "masked_cell_count": 0,
+      "by_subtype": {},
+      "cleaned_dataset_sha256": "faae5c9c76ebb7ef2e672c2569d2c8a78662cc9b02ed4fa118a67a90b4621faa"
+    }
+  },
+  "decisions": [
+    {
+      "decision_id": "decision-issue-exact_duplicate_rows-192ec5f83876",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876"
+      ],
+      "target_columns": [],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Exact duplicate records may be legitimate repeated events; deletion is not automatic.",
+      "evidence_summary": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "semantic_basis": {},
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-b8b0dc186174",
+      "source_issue_ids": [
+        "issue-rare_category_observation-b8b0dc186174"
+      ],
+      "target_columns": [
+        "job"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 452,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "semantic_basis": {
+        "job": {
+          "column_name": "job",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "numeric_meaning": "unknown",
+          "concept_description": "Reusable job categories, states, or levels, used for categorization without numeric representation.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "Job values are categorical and represent reusable job types or states without numeric representation."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-statistical_outlier_candidate-2dfdc35ebae4",
+      "source_issue_ids": [
+        "issue-statistical_outlier_candidate-2dfdc35ebae4"
+      ],
+      "target_columns": [
+        "balance"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "A statistical outlier may be valid and must not be clipped or removed automatically.",
+      "evidence_summary": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 72.0,
+        "q3": 1428.0,
+        "lower_bound": -1962.0,
+        "upper_bound": 3462.0
+      },
+      "semantic_basis": {
+        "balance": {
+          "column_name": "balance",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "concept_description": "Numeric representation of financial balance, with arithmetic differences and central tendency representing financial balances and distributions respectively.",
+          "semantic_role": "unknown",
+          "confidence": 1.0,
+          "reasoning_summary": "Balance values are numeric and represent a quantitative magnitude with arithmetic differences and central tendency (mean, median) being meaningful for financial balance distributions."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    }
+  ],
+  "instructions": [
+    {
+      "instruction_id": "instruction-decision-execution-safety-no-op",
+      "source_decision_id": "decision-execution-safety-no-op",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876",
+        "issue-rare_category_observation-b8b0dc186174",
+        "issue-statistical_outlier_candidate-2dfdc35ebae4"
+      ],
+      "action_id": "no_op",
+      "target_columns": [],
+      "parameters": {}
+    }
+  ],
+  "executions": [
+    {
+      "instruction_id": "instruction-decision-execution-safety-no-op",
+      "source_decision_id": "decision-execution-safety-no-op",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876",
+        "issue-rare_category_observation-b8b0dc186174",
+        "issue-statistical_outlier_candidate-2dfdc35ebae4"
+      ],
+      "action_id": "no_op",
+      "target_columns": [],
+      "status": "success",
+      "changed": false,
+      "changed_cell_count": 0,
+      "change_examples": [],
+      "rows_before": 45211,
+      "rows_after": 45211,
+      "columns_before": 14,
+      "columns_after": 14,
+      "message": "No changes were requested or applied.",
+      "error": null,
+      "audit_metadata": {}
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "no_unexpected_changes": true,
+    "dataframe_equal": true,
+    "row_count_equal": true,
+    "column_count_equal": true,
+    "missingness_equal": true,
+    "duplicate_row_count_equal": true,
+    "physical_dtypes_equal": true,
+    "cardinality_equal": true,
+    "unrelated_columns_equal": true,
+    "targeted_whitespace_improved": true,
+    "targeted_case_variants_improved": true,
+    "only_approved_value_changes": true,
+    "no_unexpected_categories": true,
+    "targeted_date_formats_improved": true,
+    "only_approved_date_changes": true,
+    "expected_dtype_changes_only": true,
+    "only_approved_numeric_changes": true,
+    "only_approved_privacy_changes": true,
+    "null_positions_equal": true,
+    "targeted_mixed_numeric_improved": true,
+    "only_approved_imputation_changes": true,
+    "expected_missingness_changes_only": true,
+    "imputed_cell_count": 0,
+    "imputation_audit": [],
+    "newly_introduced_null_count": 0,
+    "changed_cell_count": 0,
+    "before_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "rare_category_observation": 1,
+        "statistical_outlier_candidate": 1
+      },
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {},
+      "date_format_affected_cells_by_column": {},
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "after_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "rare_category_observation": 1,
+        "statistical_outlier_candidate": 1
+      },
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {},
+      "date_format_affected_cells_by_column": {},
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "before_summary": {
+      "row_count": 45211,
+      "column_count": 14,
+      "total_missing_cells": 0,
+      "duplicate_row_count": 274,
+      "physical_dtypes": {
+        "age": "int64",
+        "job": "object",
+        "marital": "object",
+        "education": "object",
+        "default": "object",
+        "balance": "int64",
+        "housing": "object",
+        "loan": "object",
+        "contact": "object",
+        "campaign": "int64",
+        "pdays": "int64",
+        "previous": "int64",
+        "poutcome": "object",
+        "SubscribeTermDeposit": "object"
+      },
+      "cardinality": {
+        "age": 77,
+        "job": 12,
+        "marital": 3,
+        "education": 4,
+        "default": 2,
+        "balance": 7168,
+        "housing": 2,
+        "loan": 2,
+        "contact": 3,
+        "campaign": 48,
+        "pdays": 559,
+        "previous": 41,
+        "poutcome": 4,
+        "SubscribeTermDeposit": 2
+      }
+    },
+    "after_summary": {
+      "row_count": 45211,
+      "column_count": 14,
+      "total_missing_cells": 0,
+      "duplicate_row_count": 274,
+      "physical_dtypes": {
+        "age": "int64",
+        "job": "object",
+        "marital": "object",
+        "education": "object",
+        "default": "object",
+        "balance": "int64",
+        "housing": "object",
+        "loan": "object",
+        "contact": "object",
+        "campaign": "int64",
+        "pdays": "int64",
+        "previous": "int64",
+        "poutcome": "object",
+        "SubscribeTermDeposit": "object"
+      },
+      "cardinality": {
+        "age": 77,
+        "job": 12,
+        "marital": 3,
+        "education": 4,
+        "default": 2,
+        "balance": 7168,
+        "housing": 2,
+        "loan": 2,
+        "contact": 3,
+        "campaign": 48,
+        "pdays": 559,
+        "previous": 41,
+        "poutcome": 4,
+        "SubscribeTermDeposit": 2
+      }
+    },
+    "warnings": []
+  },
+  "warnings": [],
+  "output_artifacts": {
+    "cleaned_dataset": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\pipeline1_outputs\\363618\\cleaned_dataset.csv",
+    "cleaning_report": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\pipeline1_outputs\\363618\\cleaning_report.json",
+    "cleaned_dataset_format": "csv"
+  }
+}

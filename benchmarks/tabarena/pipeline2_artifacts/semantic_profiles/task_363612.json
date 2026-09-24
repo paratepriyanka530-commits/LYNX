@@ -1,0 +1,312 @@
+{
+  "dataset_id": "363612",
+  "dataset_name": "airfoil_self_noise",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 240.0,
+  "generated_at": "2026-09-13T18:48:52+00:00",
+  "status": "complete",
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": "aerofoil measurement",
+      "row_entity_confidence": 0.75,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "frequency",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The frequency of the oscillation or vibration being measured.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'frequency' and the numeric values suggest a measurement of oscillation frequency. The distribution and presence of both low and high values support this as a magnitude measurement."
+      },
+      {
+        "column_name": "attack-angle",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The angle at which the aerofoil attacks the oncoming flow.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'attack-angle' and the numeric values suggest a measurement of the angle. The distribution and presence of both low and high values support this as a magnitude measurement."
+      },
+      {
+        "column_name": "chord-length",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The length of the aerofoil from leading edge to trailing edge.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'chord-length' and the numeric values suggest a measurement of length. The distribution and presence of both low and high values support this as a magnitude measurement."
+      },
+      {
+        "column_name": "free-stream-velocity",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The velocity of the free stream, i.e., the undisturbed flow of air or fluid around the aerofoil.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'free-stream-velocity' and the numeric values suggest a measurement of velocity. The distribution and presence of both low and high values support this as a magnitude measurement."
+      },
+      {
+        "column_name": "suction-side-displacement-thickness",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The displacement thickness on the suction side of the aerofoil, which is a measure of the thickness of the boundary layer.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'suction-side-displacement-thickness' and the numeric values suggest a measurement of thickness. The distribution and presence of both low and high values support this as a magnitude measurement."
+      },
+      {
+        "column_name": "scaled-sound-pressure",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The scaled sound pressure level, which is a measure of the sound pressure level relative to a reference level.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column name 'scaled-sound-pressure' and the numeric values suggest a measurement of sound pressure level. The distribution and presence of both low and high values support this as a magnitude measurement."
+      }
+    ],
+    "warnings": [],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 1,
+      "total_llm_calls": 2,
+      "batch_sizes": [
+        6
+      ],
+      "dataset_semantic_runtime_seconds": 21.969674,
+      "batch_runtime_seconds": [
+        182.948289
+      ],
+      "rag_runtime_seconds": 0.095762,
+      "batch_failures": 0,
+      "batch_retries": 0,
+      "llm_calls": [
+        {
+          "stage": "dataset_context",
+          "api_wall_duration_seconds": 21.909957,
+          "prompt_eval_count": 1333,
+          "prompt_eval_duration": 1727396000,
+          "eval_count": 88,
+          "eval_duration": 18045186000,
+          "total_duration": 19818804500,
+          "load_duration": 11226400,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "api_wall_duration_seconds": 182.947934,
+          "prompt_eval_count": 2182,
+          "prompt_eval_duration": 3182207000,
+          "eval_count": 738,
+          "eval_duration": 177605969000,
+          "total_duration": 180892207800,
+          "load_duration": 10084900,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 204.955194,
+      "semantic_contradiction_guard": {
+        "guard_version": "semantic_contradiction_guard_v001",
+        "deterministic": true,
+        "evaluated_column_count": 6,
+        "correction_count": 0,
+        "ambiguous_shape_overrides_enabled": false,
+        "entries": [
+          {
+            "column_name": "frequency",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "frequency",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The frequency of the oscillation or vibration being measured.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The column name 'frequency' and the numeric values suggest a measurement of oscillation frequency. The distribution and presence of both low and high values support this as a magnitude measurement."
+            },
+            "effective_semantic_result": {
+              "column_name": "frequency",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The frequency of the oscillation or vibration being measured.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The column name 'frequency' and the numeric values suggest a measurement of oscillation frequency. The distribution and presence of both low and high values support this as a magnitude measurement."
+            }
+          },
+          {
+            "column_name": "attack-angle",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "attack-angle",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The angle at which the aerofoil attacks the oncoming flow.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The column name 'attack-angle' and the numeric values suggest a measurement of the angle. The distribution and presence of both low and high values support this as a magnitude measurement."
+            },
+            "effective_semantic_result": {
+              "column_name": "attack-angle",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The angle at which the aerofoil attacks the oncoming flow.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The column name 'attack-angle' and the numeric values suggest a measurement of the angle. The distribution and presence of both low and high values support this as a magnitude measurement."
+            }
+          },
+          {
+            "column_name": "chord-length",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "chord-length",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The length of the aerofoil from leading edge to trailing edge.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The column name 'chord-length' and the numeric values suggest a measurement of length. The distribution and presence of both low and high values support this as a magnitude measurement."
+            },
+            "effective_semantic_result": {
+              "column_name": "chord-length",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The length of the aerofoil from leading edge to trailing edge.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The column name 'chord-length' and the numeric values suggest a measurement of length. The distribution and presence of both low and high values support this as a magnitude measurement."
+            }
+          },
+          {
+            "column_name": "free-stream-velocity",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "free-stream-velocity",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The velocity of the free stream, i.e., the undisturbed flow of air or fluid around the aerofoil.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The column name 'free-stream-velocity' and the numeric values suggest a measurement of velocity. The distribution and presence of both low and high values support this as a magnitude measurement."
+            },
+            "effective_semantic_result": {
+              "column_name": "free-stream-velocity",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The velocity of the free stream, i.e., the undisturbed flow of air or fluid around the aerofoil.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The column name 'free-stream-velocity' and the numeric values suggest a measurement of velocity. The distribution and presence of both low and high values support this as a magnitude measurement."
+            }
+          },
+          {
+            "column_name": "suction-side-displacement-thickness",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "suction-side-displacement-thickness",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The displacement thickness on the suction side of the aerofoil, which is a measure of the thickness of the boundary layer.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The column name 'suction-side-displacement-thickness' and the numeric values suggest a measurement of thickness. The distribution and presence of both low and high values support this as a magnitude measurement."
+            },
+            "effective_semantic_result": {
+              "column_name": "suction-side-displacement-thickness",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The displacement thickness on the suction side of the aerofoil, which is a measure of the thickness of the boundary layer.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The column name 'suction-side-displacement-thickness' and the numeric values suggest a measurement of thickness. The distribution and presence of both low and high values support this as a magnitude measurement."
+            }
+          },
+          {
+            "column_name": "scaled-sound-pressure",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "scaled-sound-pressure",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The scaled sound pressure level, which is a measure of the sound pressure level relative to a reference level.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The column name 'scaled-sound-pressure' and the numeric values suggest a measurement of sound pressure level. The distribution and presence of both low and high values support this as a magnitude measurement."
+            },
+            "effective_semantic_result": {
+              "column_name": "scaled-sound-pressure",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The scaled sound pressure level, which is a measure of the sound pressure level relative to a reference level.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The column name 'scaled-sound-pressure' and the numeric values suggest a measurement of sound pressure level. The distribution and presence of both low and high values support this as a magnitude measurement."
+            }
+          }
+        ]
+      }
+    }
+  },
+  "semantic_meta_features": {
+    "probable_domain": null,
+    "domain_confidence": null,
+    "row_entity": "aerofoil measurement",
+    "row_entity_confidence": 0.75,
+    "dataset_description_present": false,
+    "column_count": 6,
+    "mean_column_confidence": 0.9499999999999998,
+    "distributions": {
+      "semantic_type": {
+        "numeric_measurement": 6
+      },
+      "value_function": {
+        "measurement": 6
+      },
+      "numeric_meaning": {
+        "magnitude": 6
+      },
+      "semantic_role": {
+        "unknown": 6
+      }
+    },
+    "warning_count": 0
+  }
+}

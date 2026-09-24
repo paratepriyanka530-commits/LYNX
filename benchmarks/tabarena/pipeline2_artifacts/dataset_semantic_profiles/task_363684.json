@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363684",
+  "dataset_name": "Marketing_Campaign",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:25:42+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "Marketing_Campaign",
+    "task_type": "classification",
+    "target_column": "Response",
+    "row_count": 2240,
+    "feature_count": 25,
+    "feature_type_counts": {
+      "numeric": 22,
+      "categorical": 3,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "Year_Birth",
+      "Education",
+      "Marital_Status",
+      "Income",
+      "Kidhome",
+      "Teenhome",
+      "Dt_Customer",
+      "Recency",
+      "MntWines",
+      "MntFruits",
+      "MntMeatProducts",
+      "MntFishProducts",
+      "MntSweetProducts",
+      "MntGoldProds",
+      "NumDealsPurchases",
+      "NumWebPurchases",
+      "NumCatalogPurchases",
+      "NumStorePurchases",
+      "NumWebVisitsMonth",
+      "AcceptedCmp3",
+      "AcceptedCmp4",
+      "AcceptedCmp5",
+      "AcceptedCmp1",
+      "AcceptedCmp2",
+      "Complain"
+    ],
+    "representative_feature_name_count": 25,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "marketing",
+    "subdomain": "customer segmentation",
+    "dataset_purpose": "customer behavior analysis and campaign response prediction",
+    "row_entity": "customer",
+    "target_concept": "customer response to marketing campaign",
+    "feature_context": [
+      "demographics",
+      "purchasing behavior",
+      "customer interactions",
+      "campaign history"
+    ],
+    "semantic_summary": "A marketing dataset focusing on customer demographics, purchasing behavior, and campaign responses to predict customer reactions to marketing campaigns.",
+    "domain_confidence": 0.9
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 29.495822,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:25:42.2083192Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 27459278400,
+      "load_duration": 9429500,
+      "prompt_eval_count": 544,
+      "prompt_eval_duration": 647484000,
+      "eval_count": 119,
+      "eval_duration": 26720242000
+    }
+  }
+}

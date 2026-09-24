@@ -1,0 +1,499 @@
+{
+  "dataset_id": "363632",
+  "dataset_name": "E-CommereShippingData",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 240.0,
+  "generated_at": "2026-09-13T18:27:35+00:00",
+  "status": "degraded",
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": null,
+      "row_entity_confidence": 0.0,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "Warehouse_block",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Mode_of_Shipment",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Customer_care_calls",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Customer_rating",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Cost_of_the_Product",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Prior_purchases",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Product_importance",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Gender",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Discount_offered",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Weight_in_gms",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "ArrivedLate",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      }
+    ],
+    "warnings": [
+      "Dataset semantic context failed: ModuleNotFoundError: No module named 'requests'",
+      "Semantic batch 1 failed after retry; unknown fallback used for ['Warehouse_block', 'Mode_of_Shipment', 'Customer_care_calls', 'Customer_rating', 'Cost_of_the_Product', 'Prior_purchases', 'Product_importance', 'Gender', 'Discount_offered', 'Weight_in_gms', 'ArrivedLate']: ModuleNotFoundError: No module named 'requests'"
+    ],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 2,
+      "total_llm_calls": 3,
+      "batch_sizes": [
+        11
+      ],
+      "dataset_semantic_runtime_seconds": 0.106693,
+      "batch_runtime_seconds": [
+        0.077637
+      ],
+      "rag_runtime_seconds": 0.104422,
+      "batch_failures": 1,
+      "batch_retries": 1,
+      "llm_calls": [
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "error": "ModuleNotFoundError: No module named 'requests'",
+          "api_wall_duration_seconds": 0.070335,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 2,
+          "error": "ModuleNotFoundError: No module named 'requests'",
+          "api_wall_duration_seconds": 0.007057,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        }
+      ],
+      "total_semantic_runtime_seconds": 0.236497,
+      "semantic_contradiction_guard": {
+        "guard_version": "semantic_contradiction_guard_v001",
+        "deterministic": true,
+        "evaluated_column_count": 11,
+        "correction_count": 0,
+        "ambiguous_shape_overrides_enabled": false,
+        "entries": [
+          {
+            "column_name": "Warehouse_block",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Warehouse_block",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Warehouse_block",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Mode_of_Shipment",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Mode_of_Shipment",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Mode_of_Shipment",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Customer_care_calls",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Customer_care_calls",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Customer_care_calls",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Customer_rating",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Customer_rating",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Customer_rating",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Cost_of_the_Product",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Cost_of_the_Product",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Cost_of_the_Product",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Prior_purchases",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Prior_purchases",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Prior_purchases",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Product_importance",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Product_importance",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Product_importance",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Gender",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Gender",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Gender",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Discount_offered",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Discount_offered",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Discount_offered",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Weight_in_gms",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Weight_in_gms",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Weight_in_gms",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "ArrivedLate",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "ArrivedLate",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "ArrivedLate",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          }
+        ]
+      }
+    }
+  },
+  "semantic_meta_features": {
+    "probable_domain": null,
+    "domain_confidence": null,
+    "row_entity": null,
+    "row_entity_confidence": 0.0,
+    "dataset_description_present": false,
+    "column_count": 11,
+    "mean_column_confidence": 0.0,
+    "distributions": {
+      "semantic_type": {
+        "unknown": 11
+      },
+      "value_function": {
+        "unknown": 11
+      },
+      "numeric_meaning": {
+        "unknown": 11
+      },
+      "semantic_role": {
+        "unknown": 11
+      }
+    },
+    "warning_count": 2
+  }
+}

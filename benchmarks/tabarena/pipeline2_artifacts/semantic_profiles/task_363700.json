@@ -1,0 +1,710 @@
+{
+  "dataset_id": "363700",
+  "dataset_name": "seismic-bumps",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 240.0,
+  "generated_at": "2026-09-13T18:28:36+00:00",
+  "status": "degraded",
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": null,
+      "row_entity_confidence": 0.0,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "seismic",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "seismoacoustic",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "shift",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "genergy",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "gpuls",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "gdenergy",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "gdpuls",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "ghazard",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "nbumps",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "nbumps2",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "nbumps3",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "nbumps4",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "nbumps5",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "energy",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "maxenergy",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "HighEnergySeismicBump",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      }
+    ],
+    "warnings": [
+      "Dataset semantic context failed: ModuleNotFoundError: No module named 'requests'",
+      "Semantic batch 1 failed after retry; unknown fallback used for ['seismic', 'seismoacoustic', 'shift', 'genergy', 'gpuls', 'gdenergy', 'gdpuls', 'ghazard', 'nbumps', 'nbumps2', 'nbumps3', 'nbumps4']: ModuleNotFoundError: No module named 'requests'",
+      "Semantic batch 2 failed after retry; unknown fallback used for ['nbumps5', 'energy', 'maxenergy', 'HighEnergySeismicBump']: ModuleNotFoundError: No module named 'requests'"
+    ],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 4,
+      "total_llm_calls": 5,
+      "batch_sizes": [
+        12,
+        4
+      ],
+      "dataset_semantic_runtime_seconds": 0.058722,
+      "batch_runtime_seconds": [
+        0.040777,
+        0.021412
+      ],
+      "rag_runtime_seconds": 0.158901,
+      "batch_failures": 2,
+      "batch_retries": 2,
+      "llm_calls": [
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "error": "ModuleNotFoundError: No module named 'requests'",
+          "api_wall_duration_seconds": 0.013377,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 2,
+          "error": "ModuleNotFoundError: No module named 'requests'",
+          "api_wall_duration_seconds": 0.02721,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 2,
+          "attempt": 1,
+          "error": "ModuleNotFoundError: No module named 'requests'",
+          "api_wall_duration_seconds": 0.00902,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 2,
+          "attempt": 2,
+          "error": "ModuleNotFoundError: No module named 'requests'",
+          "api_wall_duration_seconds": 0.012177,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        }
+      ],
+      "total_semantic_runtime_seconds": 0.226644,
+      "semantic_contradiction_guard": {
+        "guard_version": "semantic_contradiction_guard_v001",
+        "deterministic": true,
+        "evaluated_column_count": 16,
+        "correction_count": 0,
+        "ambiguous_shape_overrides_enabled": false,
+        "entries": [
+          {
+            "column_name": "seismic",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "seismic",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "seismic",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "seismoacoustic",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "seismoacoustic",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "seismoacoustic",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "shift",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "shift",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "shift",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "genergy",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "genergy",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "genergy",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "gpuls",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "gpuls",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "gpuls",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "gdenergy",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "gdenergy",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "gdenergy",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "gdpuls",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "gdpuls",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "gdpuls",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "ghazard",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "ghazard",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "ghazard",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "nbumps",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "nbumps",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "nbumps",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "nbumps2",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "nbumps2",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "nbumps2",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "nbumps3",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "nbumps3",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "nbumps3",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "nbumps4",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "nbumps4",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "nbumps4",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "nbumps5",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "nbumps5",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "nbumps5",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "energy",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "energy",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "energy",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "maxenergy",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "maxenergy",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "maxenergy",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "HighEnergySeismicBump",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "HighEnergySeismicBump",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "HighEnergySeismicBump",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          }
+        ]
+      }
+    }
+  },
+  "semantic_meta_features": {
+    "probable_domain": null,
+    "domain_confidence": null,
+    "row_entity": null,
+    "row_entity_confidence": 0.0,
+    "dataset_description_present": false,
+    "column_count": 16,
+    "mean_column_confidence": 0.0,
+    "distributions": {
+      "semantic_type": {
+        "unknown": 16
+      },
+      "value_function": {
+        "unknown": 16
+      },
+      "numeric_meaning": {
+        "unknown": 16
+      },
+      "semantic_role": {
+        "unknown": 16
+      }
+    },
+    "warning_count": 3
+  }
+}

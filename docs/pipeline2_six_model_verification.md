@@ -1,4 +1,4 @@
-# Pipeline 2 six-model verification
+# Pipeline 2 model-layer verification (six-to-ten candidate expansion)
 
 Date: 2026-09-11
 
@@ -592,3 +592,163 @@ Focused validation in the pinned Python 3.13 / TabPFN 8.5.0 environment:
 - No non-TabPFN model wrapper was modified by this fix.
 
 Final verdict: **GO - TABPFN CLEAN-CHECKOUT PATH FIXED**.
+
+## Phase A closeout: ten-model layer (2026-09-13)
+
+The authoritative candidate pool now contains exactly ten model packages. All
+ten expose `get_model_info`, `build_model`, `train_model`, and `predict_model`.
+The four Phase A candidates use real upstream estimators rather than
+placeholders: pytabkit's TabM-D, RealMLP-TD, and FTT-D estimators, plus the
+official `tabicl` v2 classifiers and regressors.
+
+| Model | Classification | Regression | Training / checkpoint | Evidence-backed limits | Status |
+|---|---:|---:|---|---|---|
+| Random Forest | yes | yes | fresh per dataset; legacy fitted artifact is verification-only | none found | READY |
+| XGBoost | yes | no | fresh per dataset | minimum 2 rows; binary only | READY |
+| LightGBM | yes | no | fresh per dataset | minimum 2 rows; binary only | READY |
+| CatBoost | yes | no | fresh per dataset | minimum 1 row; binary only | READY |
+| XTab | yes | yes | official `iter_2k` backbone, then full downstream finetuning | minimum 10 rows; no hard maxima found | READY |
+| TabPFN V3 | yes | no | licensed PriorLabs checkpoint | 10,000 rows, 500 features, 10 classes | READY_WITH_PROVISIONING |
+| TabM-D | yes | yes | fresh per dataset; no external checkpoint | minimum 2 rows; no hard maxima found | READY |
+| TabICLv2 | yes | yes | public package-managed v2 checkpoints | minimum 2 rows; no hard maxima found | READY_WITH_PROVISIONING |
+| RealMLP-TD | yes | yes | fresh per dataset; no external checkpoint | minimum 2 rows; no hard maxima found | READY |
+| FT-Transformer | yes | yes | fresh random initialization; no XTab imports or artifacts | minimum 2 rows; no hard maxima found | READY |
+
+TabM-D, RealMLP-TD, and FT-Transformer share a LYNX adapter that fits numeric
+imputation and input schema exactly once on training data. Prediction calls
+only `transform`, and the fitted estimator's own categorical/numeric converter
+is reused. TabM-D uses pytabkit's categorical one-hot and quantile-style
+pipeline. RealMLP-TD uses its one-hot/embedding categorical path and robust
+numeric transformations. FT-Transformer uses pytabkit's independently
+initialized FTT-D implementation and has no code or checkpoint dependency on
+XTab. Upstream early-stopping/training defaults remain authoritative; the
+focused lifecycle tests use short epoch overrides only to make verification
+bounded.
+
+TabICLv2 2.2.0 supports both classification and regression. The official
+classifier and regressor checkpoints were loaded directly and both real
+lifecycles produced finite outputs; classification probabilities had shape
+`(12, 2)` and summed to one. First use downloads public checkpoints from
+`jingang/TabICL` without authentication; subsequent use can be offline from a
+populated Hugging Face cache. A clear LYNX provisioning error is raised when
+neither cache nor download is available. Upstream describes strong operation
+from 300 to 100,000 rows and up to 2,000 features, and scaling to 500,000 rows
+with offloading and possible degradation. Those are empirical ranges, not hard
+500,000-row or 500-feature rejection limits, so no speculative gate was added.
+
+The pinned verification runtime is Python 3.13.15 with numpy 2.1.3, pandas
+2.2.3, scikit-learn 1.6.1, torch 2.11.0+cu128, pytabkit 1.7.3, tabicl 2.2.0,
+skorch 1.4.0, LightGBM 4.6.0, XGBoost 3.3.0, CatBoost 1.2.10, and TabPFN
+8.5.0. RealMLP and LightGBM use these canonical citations:
+
+- David Holzmüller, Léo Grinsztajn, and Ingo Steinwart. “Better by Default:
+  Strong Pre-Tuned MLPs and Boosted Trees on Tabular Data.” NeurIPS 2024,
+  [arXiv:2407.04491](https://arxiv.org/abs/2407.04491). The repository uses
+  the authors' maintained pytabkit implementation.
+- Guolin Ke, Qi Meng, Thomas Finley, Taifeng Wang, Wei Chen, Weidong Ma,
+  Qiwei Ye, and Tie-Yan Liu. “LightGBM: A Highly Efficient Gradient Boosting
+  Decision Tree.” NeurIPS 2017,
+  [proceedings entry](https://papers.nips.cc/paper_files/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html).
+
+Focused Phase A validation passed 22/22 tests. It covered classification and
+regression lifecycles, fresh construction, train-only preprocessing, no refit
+at prediction, finite outputs, probability shape/sums, serialization or
+checkpoint reuse, artifact-directory isolation, unsupported tasks, the
+ten-package interface, exact inventory membership, and feasibility behavior.
+The complete Pipeline 2 suite additionally surfaced an obsolete Random Forest
+assertion that expected zero warnings despite the recorded sklearn 1.9.0 to
+1.6.1 artifact mismatch. The test now requires exactly the documented 207
+`InconsistentVersionWarning` instances while retaining fitted-artifact and
+prediction checks; the stronger five-input verification remains the basis for
+its accepted compatibility exception. After that correction, the complete
+Pipeline 2 test directory passed 51/51 tests, and the separate ten-model
+artifact/runtime requirements-manifest check also passed.
+
+Remaining operational limitations are provisioning, not unresolved candidate
+slots: TabPFN requires one-time PriorLabs license/token provisioning on a new
+machine, and TabICLv2 requires its public checkpoints to be cached or
+downloadable. No model is in HOLD status. The full benchmark was not started.
+
+## PHASE B — FEASIBILITY & CAPABILITY VERIFICATION (2026-09-13)
+
+The deterministic feasibility gate was re-audited against the merged wrappers,
+not the broader upstream libraries. “Hard” below means enforced before model
+execution. Empirical guidance is metadata only and does not cause a skip.
+
+| Model | Task support | Hard limits | Empirical guidance | Provisioning | Optional diagnostic |
+|---|---|---|---|---|---|
+| Random Forest | classification, regression | none verified | hardware-dependent scaling | none | OOB score, opt-in |
+| XGBoost | classification | minimum 2 rows; binary only | wrapper pre-imputes numeric NaNs | none | none |
+| LightGBM | classification | minimum 2 rows; binary only | no capacity boundary verified | none | none |
+| CatBoost | classification | minimum 1 row; binary only | no capacity boundary verified | none | none |
+| XTab | classification, regression | minimum 10 rows; no verified maxima | 20–500 features succeeded at 96 rows on the verification GPU | bundled official `iter_2k` backbone | synthetic feature-capacity probe |
+| TabPFN V3 | classification | 2–10,000 rows; at most 500 features and 10 classes | memory remains hardware-dependent inside the gate | PriorLabs license; `TABPFN_TOKEN` for headless first use | none |
+| TabM-D | classification, regression | minimum 2 rows; no verified maxima | hardware-dependent; CPU lifecycle verified | none | none |
+| TabICLv2 | classification, regression | minimum 2 rows; no verified maxima | upstream large-scale claims remain empirical | public v2 checkpoints; network or cache, no authentication | none |
+| RealMLP-TD | classification, regression | minimum 2 rows; no verified maxima | hardware-dependent; CPU lifecycle verified | none | none |
+| FT-Transformer | classification, regression | minimum 2 rows; no verified maxima | hardware-dependent; CPU lifecycle verified | none; independent of XTab | none |
+
+TabPFN’s existing 10,000-row, 500-feature, and 10-class limits are unchanged.
+TabICLv2 still has no hard 500,000-row or 500-feature gate: installed-package
+evidence describes operating ranges and optional offloading, not deterministic
+rejection boundaries. XGBoost, LightGBM, CatBoost, and TabPFN were not silently
+broadened beyond their merged classification wrappers; the first three remain
+binary-only.
+
+### XTab empirical feature-capacity probe
+
+The controlled probe used synthetic binary-classification frames with 96 rows,
+all-numeric features, the benchmark wrapper/device selection, default batch
+size 32, and a bounded one-epoch/patience-one training configuration. It ran on
+an NVIDIA GeForce RTX 3050 A Laptop GPU with 4,094 MiB VRAM. Every checkpoint
+trained and predicted successfully with output shape `(8,)`:
+
+| Features | Runtime (s) | Peak CUDA allocation | Peak process working set |
+|---:|---:|---:|---:|
+| 20 | 1.167 | 45,786,624 B | 1,228,648,448 B |
+| 50 | 0.181 | 81,601,024 B | 1,233,096,704 B |
+| 100 | 0.208 | 156,374,016 B | 1,233,903,616 B |
+| 150 | 0.284 | 252,107,264 B | 1,235,025,920 B |
+| 200 | 0.422 | 378,167,296 B | 1,236,189,184 B |
+| 300 | 0.550 | 738,194,944 B | 1,237,221,376 B |
+| 500 | 1.029 | 1,858,371,072 B | 1,239,416,832 B |
+
+Verdict: **EMPIRICAL_SAFE_RANGE = 20–500 tested features at 96 rows on this
+hardware**. No failure boundary was observed, and 500 is not a hard maximum.
+CUDA peak allocation was reset for each checkpoint; the process-memory column
+is Windows' process-lifetime peak working set and is therefore cumulative.
+The diagnostic is persisted as JSON and CSV under
+`benchmarks/tabarena/pipeline2_artifacts/diagnostics/phase_b_xtab_capacity_20260913/`.
+The increasing CUDA allocation is a hardware-planning signal only.
+
+### XGBoost missing-value path
+
+The merged `XGBoostPreprocessor` computes numeric medians on training data and
+fills numeric NaNs in both `fit_transform` and later `transform`. A controlled
+classification lifecycle contained five numeric NaNs before preprocessing and
+zero afterward; an instrumented `XGBClassifier.fit` likewise received zero
+NaNs. Training and prediction succeeded. Verdict: **PRE-IMPUTED**. XGBoost’s
+native sparsity-aware missing routing is therefore not exercised by this LYNX
+candidate. This behavior is retained because it is explicit in the current
+train-fitted/persisted preprocessor contract and changing it would alter model
+behavior and artifact compatibility; it was not demonstrated to be accidental.
+
+### Random Forest optional OOB signal
+
+`build_model(..., oob_score=False)` remains the default and explicitly keeps
+`bootstrap=True`. The runner’s `--random-forest-oob` option passes
+`oob_score=True` only to Random Forest. When available, the fitted estimator’s
+training-only `oob_score_` is logged in the neutral `oob_score` field. It is
+`null` for every other model and when disabled. If enabled but unavailable, the
+run remains valid with `oob_score=null` plus `oob_diagnostic_reason`.
+Balanced accuracy or RMSE on the held-out test split remains the primary metric
+and ranking input. No test rows enter preprocessing fit, model fit, or OOB
+estimation. Verdict: **AVAILABLE_OPTIONAL**.
+
+The authoritative feasibility artifact was regenerated from the existing
+manifest and statistical metadata and contains 510 records (51 datasets × 10
+models). Phase B used no TabArena dataset for capacity probing and did not run
+the pilot or full benchmark. Focused feasibility/capacity/missing-value/OOB/
+inventory tests passed 28/28; the complete Pipeline 2 suite passed 58/58. The
+ten-model artifact/runtime requirements check and `git diff --check` also
+passed. No Phase B blocker remains.

@@ -3,6 +3,7 @@ import unittest
 import pandas as pd
 
 from benchmarks.tabarena.pipeline2_groundwork import (
+    CAPABILITY_PROFILES,
     MODEL_CAPABILITIES,
     compute_model_feasibility,
     feasibility,
@@ -13,6 +14,14 @@ from benchmarks.tabarena.pipeline2_groundwork import (
 
 
 class GroundworkTests(unittest.TestCase):
+    def test_all_ten_models_have_classified_capability_profiles(self):
+        self.assertEqual(set(CAPABILITY_PROFILES), set(MODEL_CAPABILITIES))
+        for model_id, profile in CAPABILITY_PROFILES.items():
+            self.assertTrue(profile["hard_limits"], model_id)
+            self.assertTrue(profile["empirical_guidance"], model_id)
+            self.assertTrue(profile["provisioning"], model_id)
+            self.assertIsInstance(profile["optional_diagnostics"], list)
+
     def test_statistical_features_include_target_imbalance(self):
         frame = pd.DataFrame({"x": [1.0, 2.0, None, 4.0], "kind": ["a", "a", "b", "b"], "y": [0, 0, 0, 1]})
         result = statistical_meta_features(frame, "y")
@@ -92,6 +101,20 @@ class GroundworkTests(unittest.TestCase):
         self.assertFalse(feasibility("xtab", 9, 4, "regression")[0])
         self.assertTrue(feasibility("xtab", 10, 4, "regression")[0])
 
+    def test_tabiclv2_empirical_scale_is_not_an_invented_hard_limit(self):
+        capability = MODEL_CAPABILITIES["tabiclv2"]
+        self.assertIsNone(capability["maximum_training_rows"])
+        self.assertIsNone(capability["maximum_features"])
+        self.assertTrue(
+            feasibility(
+                "tabiclv2",
+                500_001,
+                501,
+                "classification",
+                class_count=2,
+            )[0]
+        )
+
     def test_binary_only_implementations_reject_multiclass(self):
         for model_id in ("lightgbm", "xgboost", "catboost"):
             feasible, reason = feasibility(
@@ -144,15 +167,33 @@ class GroundworkTests(unittest.TestCase):
     def test_infeasible_score_is_rejected(self):
         record = {
             "dataset_id": "1", "model_id": "TabICL", "target_column": "y",
+            "base_model_id": "TabICL", "execution_strategy": "standard",
             "task_type": "classification", "feasible": False,
             "status": "infeasible_skip", "outcome_reason": "capacity",
             "metric_name": "roc_auc", "metric_value": 0.9,
             "baseline_relative_score": None, "train_runtime_seconds": None,
             "inference_runtime_seconds": None, "runtime_seconds": None,
+            "oob_score": None, "oob_diagnostic_reason": None,
             "split_seed": 42, "hyperparams": {}, "semantic_meta_features": {},
             "statistical_meta_features": {}, "source": "team-original-run",
         }
         with self.assertRaisesRegex(ValueError, "must not contain"):
+            validate_log_record(record)
+
+    def test_oob_score_is_random_forest_only(self):
+        record = {
+            "dataset_id": "1", "model_id": "xgboost", "target_column": "y",
+            "base_model_id": "xgboost", "execution_strategy": "standard",
+            "task_type": "classification", "feasible": True,
+            "status": "success", "outcome_reason": None,
+            "metric_name": "balanced_accuracy", "metric_value": 0.5,
+            "baseline_relative_score": 0.0, "train_runtime_seconds": 1.0,
+            "inference_runtime_seconds": 0.1, "runtime_seconds": 1.1,
+            "oob_score": 0.5, "oob_diagnostic_reason": None,
+            "split_seed": 42, "hyperparams": {}, "semantic_meta_features": {},
+            "statistical_meta_features": {}, "source": "team-original-run",
+        }
+        with self.assertRaisesRegex(ValueError, "only valid for random_forest"):
             validate_log_record(record)
 
 

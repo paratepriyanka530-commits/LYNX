@@ -16,22 +16,45 @@ import sys
 from pathlib import Path
 
 import lightgbm as lgb
+import numpy as np
 import pandas as pd
 
+from .cb_chl import make_cb_chl_objective
 from .lightgbm_config import LIGHTGBM_CONFIG
 
 
 class LYNXLightGBM:
     """
-    LightGBM binary classification model for LYNX.
+    Task-aware LightGBM model for LYNX.
     """
 
-    def __init__(self) -> None:
+    def __init__(
+        self,
+        training_mode: str = "standard",
+        cb_chl_eligible: bool = False,
+        cost_config=None,
+        task_type: str = "classification",
+    ) -> None:
 
-        self.model = lgb.LGBMClassifier(
-            **LIGHTGBM_CONFIG
-        )
+        if training_mode not in {"standard", "cb_chl"}:
+            raise ValueError(f"Unsupported LightGBM training_mode: {training_mode}")
 
+        if task_type not in {"classification", "regression"}:
+            raise ValueError(f"Unsupported LightGBM task type: {task_type}")
+        if task_type == "regression" and training_mode != "standard":
+            raise ValueError("CB-CHL is classification-only.")
+        self.task_type = task_type
+        config = dict(LIGHTGBM_CONFIG)
+        if task_type == "regression":
+            config.update(objective="regression", metric="rmse")
+            self.model = lgb.LGBMRegressor(**config)
+        else:
+            self.model = lgb.LGBMClassifier(**config)
+
+        self.training_mode = training_mode
+        self.cb_chl_eligible = bool(cb_chl_eligible)
+        self.cost_config = cost_config
+        self.cb_chl_training_state = None
         self.is_trained = False
 
     def train(
@@ -41,6 +64,16 @@ class LYNXLightGBM:
     ) -> "LYNXLightGBM":
 
         self._validate_training_data(X_train, y_train)
+
+        if self.task_type == "classification" and self.training_mode == "standard":
+            n_classes = int(pd.Series(y_train).nunique())
+            if n_classes > 2:
+                self.model.set_params(objective="multiclass", num_class=n_classes)
+
+        if self.training_mode == "cb_chl":
+            objective, state = make_cb_chl_objective(y_train, self.cost_config)
+            self.cb_chl_training_state = state
+            self.model.set_params(objective=objective)
 
         self.model.fit(X_train, y_train)
 
@@ -55,7 +88,13 @@ class LYNXLightGBM:
 
         self._check_trained()
 
-        predictions = self.model.predict(X)
+        if self.training_mode == "cb_chl":
+            raw_scores = np.asarray(
+                self.model.booster_.predict(X, raw_score=True), dtype=float
+            )
+            predictions = (raw_scores >= 0.0).astype(int)
+        else:
+            predictions = self.model.predict(X)
 
         return pd.Series(
             predictions,
@@ -70,13 +109,17 @@ class LYNXLightGBM:
 
         self._check_trained()
 
-        probabilities = self.model.predict_proba(X)[:, 1]
+        if self.task_type != "classification":
+            raise RuntimeError("Regression models do not expose class probabilities.")
+        if self.training_mode == "cb_chl":
+            raw_scores = np.asarray(
+                self.model.booster_.predict(X, raw_score=True), dtype=float
+            )
+            probabilities = 1.0 / (1.0 + np.exp(-np.clip(raw_scores, -709.0, 709.0)))
+        else:
+            return self.model.predict_proba(X)
 
-        return pd.Series(
-            probabilities,
-            index=X.index,
-            name="prediction_probability",
-        )
+        return pd.Series(probabilities, index=X.index, name="prediction_probability")
 
     def get_feature_importance(self) -> pd.DataFrame:
 
@@ -113,7 +156,7 @@ class LYNXLightGBM:
                 "Features and labels must contain the same number of rows."
             )
 
-        if pd.Series(y_train).nunique() < 2:
+        if self.task_type == "classification" and pd.Series(y_train).nunique() < 2:
             raise ValueError(
                 "Target column must contain at least two classes."
             )

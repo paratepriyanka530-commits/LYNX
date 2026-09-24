@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363679",
+  "dataset_name": "HR_Analytics_Job_Change_of_Data_Scientists",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:23:45+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "HR_Analytics_Job_Change_of_Data_Scientists",
+    "task_type": "classification",
+    "target_column": "LookingForJobChange",
+    "row_count": 19158,
+    "feature_count": 12,
+    "feature_type_counts": {
+      "numeric": 2,
+      "categorical": 10,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "city",
+      "city_development_index",
+      "gender",
+      "relevent_experience",
+      "enrolled_university",
+      "education_level",
+      "major_discipline",
+      "experience",
+      "company_size",
+      "company_type",
+      "last_new_job",
+      "training_hours"
+    ],
+    "representative_feature_name_count": 12,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "technology",
+    "subdomain": "human resources",
+    "dataset_purpose": "predict job change intentions",
+    "row_entity": "data scientist",
+    "target_concept": "job change intention",
+    "feature_context": [
+      "location",
+      "professional background",
+      "education",
+      "experience",
+      "company characteristics",
+      "training"
+    ],
+    "semantic_summary": "A dataset for predicting job change intentions among data scientists based on their professional and personal background.",
+    "domain_confidence": 0.85
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 28.261018,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:23:45.141335Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 26209964700,
+      "load_duration": 8792400,
+      "prompt_eval_count": 474,
+      "prompt_eval_duration": 702442000,
+      "eval_count": 114,
+      "eval_duration": 25479904000
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363712",
+  "dataset_name": "jm1",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:34:45+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "jm1",
+    "task_type": "classification",
+    "target_column": "defects",
+    "row_count": 10885,
+    "feature_count": 21,
+    "feature_type_counts": {
+      "numeric": 21,
+      "categorical": 0,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "loc",
+      "v(g)",
+      "ev(g)",
+      "iv(g)",
+      "n",
+      "v",
+      "l",
+      "d",
+      "i",
+      "e",
+      "b",
+      "t",
+      "lOCode",
+      "lOComment",
+      "lOBlank",
+      "locCodeAndComment",
+      "uniq_Op",
+      "uniq_Opnd",
+      "total_Op",
+      "total_Opnd",
+      "branchCount"
+    ],
+    "representative_feature_name_count": 21,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "unknown",
+    "subdomain": "unknown",
+    "dataset_purpose": "classification",
+    "row_entity": "software code file",
+    "target_concept": "defects presence",
+    "feature_context": [
+      "code metrics",
+      "code structure",
+      "code complexity"
+    ],
+    "semantic_summary": "A dataset of software code files with various metrics and features used to predict the presence of defects.",
+    "domain_confidence": 0.3
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 25.981144,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:34:45.0510248Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 23930074000,
+      "load_duration": 9760600,
+      "prompt_eval_count": 496,
+      "prompt_eval_duration": 605009000,
+      "eval_count": 104,
+      "eval_duration": 23238732000
+    }
+  }
+}

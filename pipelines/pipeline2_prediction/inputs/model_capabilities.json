@@ -1,0 +1,506 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-13T22:35:42+00:00",
+  "canonical_model_count": 10,
+  "canonical_model_ids": [
+    "random_forest",
+    "lightgbm",
+    "xgboost",
+    "catboost",
+    "tabpfn",
+    "xtab",
+    "realmlp",
+    "tabm",
+    "tabiclv2",
+    "ft_transformer"
+  ],
+  "selector_availability": "INFERENCE_AVAILABLE",
+  "constraint_classes": {
+    "HARD": "Deterministically enforced before model execution.",
+    "EMPIRICAL": "Observed operating guidance; never used alone to skip a run.",
+    "PROVISIONING": "External checkpoint, cache, network, license, or authentication prerequisite.",
+    "NONE_VERIFIED": "No evidence-backed restriction is registered."
+  },
+  "experimental_execution_strategies": [
+    {
+      "strategy_id": "tabpfn_crumb",
+      "execution_strategy": "crumb",
+      "base_model_id": "tabpfn",
+      "canonical_candidate": false,
+      "status": "experimental",
+      "source_scope": "CRUMB explicitly evaluates TabPFNv2; the current LYNX base is TabPFN V3, so compatibility is architectural rather than directly paper-validated.",
+      "selector_input_scope": "finite numeric features only until a source-grounded mixed-type distance representation is available"
+    },
+    {
+      "strategy_id": "tabiclv2_crumb",
+      "execution_strategy": "crumb",
+      "base_model_id": "tabiclv2",
+      "canonical_candidate": false,
+      "status": "experimental",
+      "source_scope": "CRUMB explicitly evaluates TabICLv2.",
+      "selector_input_scope": "finite numeric features only until a source-grounded mixed-type distance representation is available"
+    }
+  ],
+  "noncanonical_modes": {
+    "cb_chl": "LightGBM training mode; not a candidate model",
+    "crumb": "experimental execution strategy attached to a base model"
+  },
+  "records": [
+    {
+      "model_id": "random_forest",
+      "model_family": "tree_ensemble",
+      "supported_task_types": [
+        "classification",
+        "regression"
+      ],
+      "hard_limits": {
+        "min_train_rows": null,
+        "max_train_rows": null,
+        "max_features": null,
+        "max_classes": null,
+        "evidence_class": {
+          "min_train_rows": "NONE_VERIFIED",
+          "max_train_rows": "NONE_VERIFIED",
+          "max_features": "NONE_VERIFIED",
+          "max_classes": "NONE_VERIFIED"
+        }
+      },
+      "capabilities": {
+        "handles_missing_natively": null,
+        "handles_categorical_natively": false,
+        "supports_probabilities": true,
+        "probability_class_order_available": true,
+        "supports_oob": true,
+        "null_means": "NONE_VERIFIED"
+      },
+      "runtime_and_provisioning": {
+        "pretrained": false,
+        "gpu_required": false,
+        "gpu_optional": false,
+        "provisioning_required": false,
+        "provisioning": "None for fresh benchmark training.",
+        "evidence_class": "NONE_VERIFIED"
+      },
+      "empirical_guidance": {
+        "value": "General memory/runtime scaling is dataset- and hardware-dependent.",
+        "evidence_class": "EMPIRICAL",
+        "used_as_hard_gate": false
+      },
+      "evidence": {
+        "capability_source": "random_forest package and fitted random_forest_metadata.pkl",
+        "inventory_implementation_source": "Repository sklearn Pipeline using RandomForestClassifier/RandomForestRegressor and a fitted ColumnTransformer.",
+        "lifecycle_test_status": "classification and regression; fitted ColumnTransformer reused at prediction"
+      }
+    },
+    {
+      "model_id": "lightgbm",
+      "model_family": "gradient_boosted_trees",
+      "supported_task_types": [
+        "classification"
+      ],
+      "hard_limits": {
+        "min_train_rows": 2,
+        "max_train_rows": null,
+        "max_features": null,
+        "max_classes": 2,
+        "evidence_class": {
+          "min_train_rows": "HARD",
+          "max_train_rows": "NONE_VERIFIED",
+          "max_features": "NONE_VERIFIED",
+          "max_classes": "HARD"
+        }
+      },
+      "capabilities": {
+        "handles_missing_natively": false,
+        "handles_categorical_natively": false,
+        "supports_probabilities": true,
+        "probability_class_order_available": true,
+        "supports_oob": false,
+        "null_means": "NONE_VERIFIED"
+      },
+      "runtime_and_provisioning": {
+        "pretrained": false,
+        "gpu_required": false,
+        "gpu_optional": false,
+        "provisioning_required": false,
+        "provisioning": "None.",
+        "evidence_class": "NONE_VERIFIED"
+      },
+      "empirical_guidance": {
+        "value": "No repository-specific capacity boundary verified.",
+        "evidence_class": "EMPIRICAL",
+        "used_as_hard_gate": false
+      },
+      "evidence": {
+        "capability_source": "lightgbm_config.py binary objective, model validation, and fitted preprocessor",
+        "inventory_implementation_source": "Repository LYNXLightGBM wrapper backed by lightgbm.LGBMClassifier.",
+        "lifecycle_test_status": "binary classification; train-only fitted preprocessor verified"
+      }
+    },
+    {
+      "model_id": "xgboost",
+      "model_family": "gradient_boosted_trees",
+      "supported_task_types": [
+        "classification"
+      ],
+      "hard_limits": {
+        "min_train_rows": 2,
+        "max_train_rows": null,
+        "max_features": null,
+        "max_classes": 2,
+        "evidence_class": {
+          "min_train_rows": "HARD",
+          "max_train_rows": "NONE_VERIFIED",
+          "max_features": "NONE_VERIFIED",
+          "max_classes": "HARD"
+        }
+      },
+      "capabilities": {
+        "handles_missing_natively": false,
+        "handles_categorical_natively": false,
+        "supports_probabilities": true,
+        "probability_class_order_available": true,
+        "supports_oob": false,
+        "null_means": "NONE_VERIFIED"
+      },
+      "runtime_and_provisioning": {
+        "pretrained": false,
+        "gpu_required": false,
+        "gpu_optional": false,
+        "provisioning_required": false,
+        "provisioning": "None.",
+        "evidence_class": "NONE_VERIFIED"
+      },
+      "empirical_guidance": {
+        "value": "Numeric NaNs are pre-imputed by the merged wrapper, so native missing-value routing is not exercised.",
+        "evidence_class": "EMPIRICAL",
+        "used_as_hard_gate": false
+      },
+      "evidence": {
+        "capability_source": "xgboost_config.py binary:logistic objective, model validation, and preprocessor",
+        "inventory_implementation_source": "Repository LYNXXGBoost wrapper backed by xgboost.XGBClassifier.",
+        "lifecycle_test_status": "binary classification; train-only preprocessing verified"
+      }
+    },
+    {
+      "model_id": "catboost",
+      "model_family": "gradient_boosted_trees",
+      "supported_task_types": [
+        "classification"
+      ],
+      "hard_limits": {
+        "min_train_rows": 1,
+        "max_train_rows": null,
+        "max_features": null,
+        "max_classes": 2,
+        "evidence_class": {
+          "min_train_rows": "HARD",
+          "max_train_rows": "NONE_VERIFIED",
+          "max_features": "NONE_VERIFIED",
+          "max_classes": "HARD"
+        }
+      },
+      "capabilities": {
+        "handles_missing_natively": false,
+        "handles_categorical_natively": true,
+        "supports_probabilities": true,
+        "probability_class_order_available": true,
+        "supports_oob": false,
+        "null_means": "NONE_VERIFIED"
+      },
+      "runtime_and_provisioning": {
+        "pretrained": false,
+        "gpu_required": false,
+        "gpu_optional": false,
+        "provisioning_required": false,
+        "provisioning": "None.",
+        "evidence_class": "NONE_VERIFIED"
+      },
+      "empirical_guidance": {
+        "value": "No repository-specific capacity boundary verified.",
+        "evidence_class": "EMPIRICAL",
+        "used_as_hard_gate": false
+      },
+      "evidence": {
+        "capability_source": "catboost_config.py Logloss objective, model validation, and fitted preprocessor",
+        "inventory_implementation_source": "Repository LYNXCatBoost wrapper backed by catboost.CatBoostClassifier.",
+        "lifecycle_test_status": "binary classification; train-only fitted preprocessor verified"
+      }
+    },
+    {
+      "model_id": "tabpfn",
+      "model_family": "prior_fitted_network",
+      "supported_task_types": [
+        "classification"
+      ],
+      "hard_limits": {
+        "min_train_rows": 2,
+        "max_train_rows": 10000,
+        "max_features": 500,
+        "max_classes": 10,
+        "evidence_class": {
+          "min_train_rows": "HARD",
+          "max_train_rows": "HARD",
+          "max_features": "HARD",
+          "max_classes": "HARD"
+        }
+      },
+      "capabilities": {
+        "handles_missing_natively": true,
+        "handles_categorical_natively": null,
+        "supports_probabilities": true,
+        "probability_class_order_available": true,
+        "supports_oob": false,
+        "null_means": "NONE_VERIFIED"
+      },
+      "runtime_and_provisioning": {
+        "pretrained": true,
+        "gpu_required": false,
+        "gpu_optional": true,
+        "provisioning_required": true,
+        "provisioning": "Licensed V3 checkpoint; one-time PriorLabs acceptance and TABPFN_TOKEN for headless first use.",
+        "evidence_class": "PROVISIONING"
+      },
+      "empirical_guidance": {
+        "value": "GPU memory remains hardware-dependent within the hard gate.",
+        "evidence_class": "EMPIRICAL",
+        "used_as_hard_gate": false
+      },
+      "evidence": {
+        "capability_source": "tabpfn_model.py plus TabPFN 8.5 inference_config pretraining limits",
+        "inventory_implementation_source": "Repository LYNXTabPFN wrapper using the official tabpfn 8.5.0 model_path=auto API.",
+        "lifecycle_test_status": "classification lifecycle and clean-checkout provisioning behavior verified"
+      }
+    },
+    {
+      "model_id": "xtab",
+      "model_family": "pretrained_transformer",
+      "supported_task_types": [
+        "classification",
+        "regression"
+      ],
+      "hard_limits": {
+        "min_train_rows": 10,
+        "max_train_rows": null,
+        "max_features": null,
+        "max_classes": null,
+        "evidence_class": {
+          "min_train_rows": "HARD",
+          "max_train_rows": "NONE_VERIFIED",
+          "max_features": "NONE_VERIFIED",
+          "max_classes": "NONE_VERIFIED"
+        }
+      },
+      "capabilities": {
+        "handles_missing_natively": false,
+        "handles_categorical_natively": true,
+        "supports_probabilities": true,
+        "probability_class_order_available": true,
+        "supports_oob": false,
+        "null_means": "NONE_VERIFIED"
+      },
+      "runtime_and_provisioning": {
+        "pretrained": true,
+        "gpu_required": false,
+        "gpu_optional": true,
+        "provisioning_required": true,
+        "provisioning": "Repository official iter_2k pretrained-backbone checkpoint; no authentication.",
+        "evidence_class": "PROVISIONING"
+      },
+      "empirical_guidance": {
+        "value": "96-row CUDA probe succeeded from 20 through 500 features; peak allocation reached about 1.86 GB at 500 features.",
+        "evidence_class": "EMPIRICAL",
+        "used_as_hard_gate": false
+      },
+      "evidence": {
+        "capability_source": "xtab_trainer.py, xtab_preprocessor.py, xtab_model.py, official XTab iter_2k checkpoint, and exact tensor-load verification",
+        "inventory_implementation_source": "Repository XTab adaptation using the official iter_2k pretrained FT-Transformer backbone.",
+        "lifecycle_test_status": "classification and regression; train-only preprocessing and pretrained load verified"
+      }
+    },
+    {
+      "model_id": "realmlp",
+      "model_family": "multilayer_perceptron",
+      "supported_task_types": [
+        "classification",
+        "regression"
+      ],
+      "hard_limits": {
+        "min_train_rows": 2,
+        "max_train_rows": null,
+        "max_features": null,
+        "max_classes": null,
+        "evidence_class": {
+          "min_train_rows": "HARD",
+          "max_train_rows": "NONE_VERIFIED",
+          "max_features": "NONE_VERIFIED",
+          "max_classes": "NONE_VERIFIED"
+        }
+      },
+      "capabilities": {
+        "handles_missing_natively": false,
+        "handles_categorical_natively": true,
+        "supports_probabilities": true,
+        "probability_class_order_available": true,
+        "supports_oob": false,
+        "null_means": "NONE_VERIFIED"
+      },
+      "runtime_and_provisioning": {
+        "pretrained": false,
+        "gpu_required": false,
+        "gpu_optional": true,
+        "provisioning_required": false,
+        "provisioning": "None.",
+        "evidence_class": "NONE_VERIFIED"
+      },
+      "empirical_guidance": {
+        "value": "Runtime and memory are hardware-dependent; CPU lifecycle verified.",
+        "evidence_class": "EMPIRICAL",
+        "used_as_hard_gate": false
+      },
+      "evidence": {
+        "capability_source": "pytabkit RealMLP_TD_Classifier/Regressor interfaces and installed source defaults",
+        "inventory_implementation_source": "Authors' pytabkit 1.7.3 RealMLP_TD_Classifier and RealMLP_TD_Regressor through the shared leakage-safe adapter.",
+        "lifecycle_test_status": "classification and regression; fresh construction, train-only preprocessing, prediction state reuse, probabilities, and serialization verified"
+      }
+    },
+    {
+      "model_id": "tabm",
+      "model_family": "deep_tabular_ensemble",
+      "supported_task_types": [
+        "classification",
+        "regression"
+      ],
+      "hard_limits": {
+        "min_train_rows": 2,
+        "max_train_rows": null,
+        "max_features": null,
+        "max_classes": null,
+        "evidence_class": {
+          "min_train_rows": "HARD",
+          "max_train_rows": "NONE_VERIFIED",
+          "max_features": "NONE_VERIFIED",
+          "max_classes": "NONE_VERIFIED"
+        }
+      },
+      "capabilities": {
+        "handles_missing_natively": false,
+        "handles_categorical_natively": false,
+        "supports_probabilities": true,
+        "probability_class_order_available": true,
+        "supports_oob": false,
+        "null_means": "NONE_VERIFIED"
+      },
+      "runtime_and_provisioning": {
+        "pretrained": false,
+        "gpu_required": false,
+        "gpu_optional": true,
+        "provisioning_required": false,
+        "provisioning": "None.",
+        "evidence_class": "NONE_VERIFIED"
+      },
+      "empirical_guidance": {
+        "value": "Runtime and memory are hardware-dependent; CPU lifecycle verified.",
+        "evidence_class": "EMPIRICAL",
+        "used_as_hard_gate": false
+      },
+      "evidence": {
+        "capability_source": "pytabkit TabM_D_Classifier/Regressor interfaces and installed source defaults",
+        "inventory_implementation_source": "pytabkit 1.7.3 TabM_D_Classifier and TabM_D_Regressor through the shared leakage-safe adapter.",
+        "lifecycle_test_status": "classification and regression; fresh construction, train-only preprocessing, prediction state reuse, and serialization verified"
+      }
+    },
+    {
+      "model_id": "tabiclv2",
+      "model_family": "prior_fitted_network",
+      "supported_task_types": [
+        "classification",
+        "regression"
+      ],
+      "hard_limits": {
+        "min_train_rows": 2,
+        "max_train_rows": null,
+        "max_features": null,
+        "max_classes": null,
+        "evidence_class": {
+          "min_train_rows": "HARD",
+          "max_train_rows": "NONE_VERIFIED",
+          "max_features": "NONE_VERIFIED",
+          "max_classes": "NONE_VERIFIED"
+        }
+      },
+      "capabilities": {
+        "handles_missing_natively": true,
+        "handles_categorical_natively": true,
+        "supports_probabilities": true,
+        "probability_class_order_available": true,
+        "supports_oob": false,
+        "null_means": "NONE_VERIFIED"
+      },
+      "runtime_and_provisioning": {
+        "pretrained": true,
+        "gpu_required": false,
+        "gpu_optional": true,
+        "provisioning_required": true,
+        "provisioning": "Public v2 classifier/regressor checkpoints require first-use network or a populated cache; no authentication.",
+        "evidence_class": "PROVISIONING"
+      },
+      "empirical_guidance": {
+        "value": "Upstream scale claims, including 500000 rows, are empirical rather than hard gates.",
+        "evidence_class": "EMPIRICAL",
+        "used_as_hard_gate": false
+      },
+      "evidence": {
+        "capability_source": "official soda-inria/tabicl 2.2.0 package and v2 checkpoints",
+        "inventory_implementation_source": "Official soda-inria tabicl 2.2.0 TabICLClassifier and TabICLRegressor through the shared leakage-safe adapter.",
+        "lifecycle_test_status": "classification and regression; fresh construction, train-only preprocessing, finite outputs, probabilities, and public checkpoint download verified"
+      }
+    },
+    {
+      "model_id": "ft_transformer",
+      "model_family": "transformer",
+      "supported_task_types": [
+        "classification",
+        "regression"
+      ],
+      "hard_limits": {
+        "min_train_rows": 2,
+        "max_train_rows": null,
+        "max_features": null,
+        "max_classes": null,
+        "evidence_class": {
+          "min_train_rows": "HARD",
+          "max_train_rows": "NONE_VERIFIED",
+          "max_features": "NONE_VERIFIED",
+          "max_classes": "NONE_VERIFIED"
+        }
+      },
+      "capabilities": {
+        "handles_missing_natively": false,
+        "handles_categorical_natively": true,
+        "supports_probabilities": true,
+        "probability_class_order_available": true,
+        "supports_oob": false,
+        "null_means": "NONE_VERIFIED"
+      },
+      "runtime_and_provisioning": {
+        "pretrained": false,
+        "gpu_required": false,
+        "gpu_optional": true,
+        "provisioning_required": false,
+        "provisioning": "None; no XTab checkpoint dependency.",
+        "evidence_class": "NONE_VERIFIED"
+      },
+      "empirical_guidance": {
+        "value": "Runtime and memory are hardware-dependent; CPU lifecycle verified.",
+        "evidence_class": "EMPIRICAL",
+        "used_as_hard_gate": false
+      },
+      "evidence": {
+        "capability_source": "pytabkit FTT_D_Classifier/Regressor (Gorishniy et al. FT-Transformer)",
+        "inventory_implementation_source": "pytabkit 1.7.3 FTT_D_Classifier and FTT_D_Regressor.",
+        "lifecycle_test_status": "classification and regression; fresh construction, train-only preprocessing, prediction state reuse, probabilities, and serialization verified"
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "updated_at": "2026-09-13T23:54:50+00:00",
+  "records": [
+    {
+      "dataset_id": "363612",
+      "status": "complete",
+      "row_count": 1503,
+      "duration_seconds": 33.415934
+    },
+    {
+      "dataset_id": "363613",
+      "status": "complete",
+      "row_count": 32769,
+      "duration_seconds": 182.084404
+    },
+    {
+      "dataset_id": "363614",
+      "status": "complete",
+      "row_count": 898,
+      "duration_seconds": 295.166933
+    },
+    {
+      "dataset_id": "363615",
+      "status": "complete",
+      "row_count": 1538,
+      "duration_seconds": 59.050259
+    },
+    {
+      "dataset_id": "363616",
+      "status": "complete",
+      "row_count": 76000,
+      "duration_seconds": 2013.37707
+    },
+    {
+      "dataset_id": "363618",
+      "status": "complete",
+      "row_count": 45211,
+      "duration_seconds": 130.421922
+    },
+    {
+      "dataset_id": "363619",
+      "status": "complete",
+      "row_count": 10000,
+      "duration_seconds": 115.824772
+    }
+  ]
+}

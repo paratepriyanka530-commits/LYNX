@@ -11,7 +11,7 @@ from typing import Optional
 import pickle
 
 import pandas as pd
-from tabpfn import TabPFNClassifier
+from tabpfn import TabPFNClassifier, TabPFNRegressor
 from tabpfn.errors import (
     TabPFNHuggingFaceGatedRepoError,
     TabPFNLicenseError,
@@ -50,21 +50,26 @@ def _is_provisioning_error(error: BaseException) -> bool:
 
 class LYNXTabPFN:
     """
-    LYNX wrapper around the official TabPFNClassifier.
+    LYNX wrapper around the official task-appropriate TabPFN estimator.
     """
 
     def __init__(
         self,
         device: Optional[str] = None,
         model_path=None,
+        task_type: str = "classification",
     ) -> None:
 
+        if task_type not in {"classification", "regression"}:
+            raise ValueError(f"Unsupported TabPFN task type: {task_type}")
+        self.task_type = task_type
         kwargs = {}
         if device is not None:
             kwargs["device"] = device
         if model_path is not None:
             kwargs["model_path"] = model_path
-        self.model = TabPFNClassifier(**kwargs)
+        estimator = TabPFNClassifier if task_type == "classification" else TabPFNRegressor
+        self.model = estimator(**kwargs)
 
         self.is_trained = False
 
@@ -113,6 +118,8 @@ class LYNXTabPFN:
 
         self._check_trained()
 
+        if self.task_type != "classification":
+            raise RuntimeError("Regression models do not expose class probabilities.")
         return self.model.predict_proba(
             X
         )
@@ -169,7 +176,7 @@ class LYNXTabPFN:
                 "X_train and y_train must have the same number of rows."
             )
 
-        if pd.Series(y_train).nunique() < 2:
+        if self.task_type == "classification" and pd.Series(y_train).nunique() < 2:
             raise ValueError(
                 "y_train must contain at least two classes."
             )

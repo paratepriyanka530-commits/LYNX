@@ -1,0 +1,3650 @@
+{
+  "pipeline_version": "pipeline1_architecture_b_v001",
+  "run_id": "20260913T231611-ac9610a5",
+  "status": "success",
+  "original_dataset": {
+    "valid": true,
+    "file_name": "anneal.csv",
+    "file_format": ".csv",
+    "file_size_bytes": 370536,
+    "rows": 898,
+    "columns": 39,
+    "duplicate_columns": [],
+    "absolute_path": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\datasets\\anneal.csv",
+    "source_path": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\datasets\\anneal.csv",
+    "raw_dataset_overwritten": false
+  },
+  "before_profile": {
+    "shape": {
+      "rows": 898,
+      "columns": 39
+    },
+    "column_names": [
+      "family",
+      "product-type",
+      "steel",
+      "carbon",
+      "hardness",
+      "temper_rolling",
+      "condition",
+      "formability",
+      "strength",
+      "non-ageing",
+      "surface-finish",
+      "surface-quality",
+      "enamelability",
+      "bc",
+      "bf",
+      "bt",
+      "bw_me",
+      "bl",
+      "m",
+      "chrom",
+      "phos",
+      "cbond",
+      "marvi",
+      "exptl",
+      "ferro",
+      "corr",
+      "blue_bright_varn_clean",
+      "lustre",
+      "jurofm",
+      "s",
+      "p",
+      "shape",
+      "thick",
+      "width",
+      "len",
+      "oil",
+      "bore",
+      "packing",
+      "classes"
+    ],
+    "dtype_distribution": {
+      "object": 32,
+      "int64": 5,
+      "float64": 2
+    },
+    "missingness": {
+      "total_missing_cells": 0,
+      "overall_missing_percentage": 0.0
+    },
+    "duplicates": {
+      "exact_duplicate_rows": 12,
+      "percentage": 1.3363
+    },
+    "column_profiles": [
+      {
+        "column_name": "family",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 3,
+          "unique_ratio": 0.003341
+        },
+        "repetition": {
+          "repeated_unique_count": 3,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "TN",
+          "ZS"
+        ]
+      },
+      {
+        "column_name": "product-type",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 1,
+          "unique_ratio": 0.001114
+        },
+        "repetition": {
+          "repeated_unique_count": 1,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "C"
+        ]
+      },
+      {
+        "column_name": "steel",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 8,
+          "unique_ratio": 0.008909
+        },
+        "repetition": {
+          "repeated_unique_count": 8,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "M",
+          "A",
+          "W",
+          "R",
+          "not_applicable"
+        ]
+      },
+      {
+        "column_name": "carbon",
+        "physical_dtype": "int64",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 10,
+          "unique_ratio": 0.011136
+        },
+        "repetition": {
+          "repeated_unique_count": 9,
+          "repeated_occurrences": 897,
+          "repetition_rate": 0.998886
+        },
+        "sample_values": [
+          0,
+          4,
+          70,
+          55,
+          45
+        ],
+        "numeric_statistics": {
+          "min": 0,
+          "max": 70,
+          "mean": 3.6347438752783963,
+          "median": 0.0,
+          "std": 13.716844935904266,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "hardness",
+        "physical_dtype": "int64",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 7,
+          "unique_ratio": 0.007795
+        },
+        "repetition": {
+          "repeated_unique_count": 7,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          0,
+          50,
+          45,
+          85,
+          60
+        ],
+        "numeric_statistics": {
+          "min": 0,
+          "max": 85,
+          "mean": 11.776169265033408,
+          "median": 0.0,
+          "std": 24.75052807387436,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "temper_rolling",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.002227
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "T"
+        ]
+      },
+      {
+        "column_name": "condition",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 3,
+          "unique_ratio": 0.003341
+        },
+        "repetition": {
+          "repeated_unique_count": 3,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "S",
+          "A"
+        ]
+      },
+      {
+        "column_name": "formability",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 5,
+          "unique_ratio": 0.005568
+        },
+        "repetition": {
+          "repeated_unique_count": 5,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "2",
+          "3",
+          "1",
+          "5"
+        ]
+      },
+      {
+        "column_name": "strength",
+        "physical_dtype": "int64",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 8,
+          "unique_ratio": 0.008909
+        },
+        "repetition": {
+          "repeated_unique_count": 7,
+          "repeated_occurrences": 897,
+          "repetition_rate": 0.998886
+        },
+        "sample_values": [
+          350,
+          0,
+          310,
+          500,
+          600
+        ],
+        "numeric_statistics": {
+          "min": 0,
+          "max": 700,
+          "mean": 30.66815144766147,
+          "median": 0.0,
+          "std": 114.95624250704856,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "non-ageing",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.002227
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "N"
+        ]
+      },
+      {
+        "column_name": "surface-finish",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.002227
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "P"
+        ]
+      },
+      {
+        "column_name": "surface-quality",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 5,
+          "unique_ratio": 0.005568
+        },
+        "repetition": {
+          "repeated_unique_count": 5,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "G",
+          "E",
+          "F",
+          "not_applicable",
+          "D"
+        ]
+      },
+      {
+        "column_name": "enamelability",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 3,
+          "unique_ratio": 0.003341
+        },
+        "repetition": {
+          "repeated_unique_count": 3,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "1",
+          "2"
+        ]
+      },
+      {
+        "column_name": "bc",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.002227
+        },
+        "repetition": {
+          "repeated_unique_count": 1,
+          "repeated_occurrences": 897,
+          "repetition_rate": 0.998886
+        },
+        "sample_values": [
+          "not_applicable",
+          "Y"
+        ]
+      },
+      {
+        "column_name": "bf",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.002227
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "Y"
+        ]
+      },
+      {
+        "column_name": "bt",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.002227
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "Y"
+        ]
+      },
+      {
+        "column_name": "bw_me",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 3,
+          "unique_ratio": 0.003341
+        },
+        "repetition": {
+          "repeated_unique_count": 3,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "B",
+          "M"
+        ]
+      },
+      {
+        "column_name": "bl",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.002227
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "Y"
+        ]
+      },
+      {
+        "column_name": "m",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 1,
+          "unique_ratio": 0.001114
+        },
+        "repetition": {
+          "repeated_unique_count": 1,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable"
+        ]
+      },
+      {
+        "column_name": "chrom",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.002227
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "C"
+        ]
+      },
+      {
+        "column_name": "phos",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.002227
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "P"
+        ]
+      },
+      {
+        "column_name": "cbond",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.002227
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "Y"
+        ]
+      },
+      {
+        "column_name": "marvi",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 1,
+          "unique_ratio": 0.001114
+        },
+        "repetition": {
+          "repeated_unique_count": 1,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable"
+        ]
+      },
+      {
+        "column_name": "exptl",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.002227
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "Y"
+        ]
+      },
+      {
+        "column_name": "ferro",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.002227
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "Y"
+        ]
+      },
+      {
+        "column_name": "corr",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 1,
+          "unique_ratio": 0.001114
+        },
+        "repetition": {
+          "repeated_unique_count": 1,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable"
+        ]
+      },
+      {
+        "column_name": "blue_bright_varn_clean",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 4,
+          "unique_ratio": 0.004454
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 896,
+          "repetition_rate": 0.997773
+        },
+        "sample_values": [
+          "not_applicable",
+          "B",
+          "V",
+          "C"
+        ]
+      },
+      {
+        "column_name": "lustre",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.002227
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "Y"
+        ]
+      },
+      {
+        "column_name": "jurofm",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 1,
+          "unique_ratio": 0.001114
+        },
+        "repetition": {
+          "repeated_unique_count": 1,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable"
+        ]
+      },
+      {
+        "column_name": "s",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 1,
+          "unique_ratio": 0.001114
+        },
+        "repetition": {
+          "repeated_unique_count": 1,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable"
+        ]
+      },
+      {
+        "column_name": "p",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 1,
+          "unique_ratio": 0.001114
+        },
+        "repetition": {
+          "repeated_unique_count": 1,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable"
+        ]
+      },
+      {
+        "column_name": "shape",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.002227
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "COIL",
+          "SHEET"
+        ]
+      },
+      {
+        "column_name": "thick",
+        "physical_dtype": "float64",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 50,
+          "unique_ratio": 0.055679
+        },
+        "repetition": {
+          "repeated_unique_count": 42,
+          "repeated_occurrences": 890,
+          "repetition_rate": 0.991091
+        },
+        "sample_values": [
+          1.601,
+          1.6,
+          0.6,
+          0.8,
+          0.699
+        ],
+        "numeric_statistics": {
+          "min": 0.24,
+          "max": 4.0,
+          "mean": 1.1985489977728285,
+          "median": 0.8,
+          "std": 0.8712082809718925,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "width",
+        "physical_dtype": "float64",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 68,
+          "unique_ratio": 0.075724
+        },
+        "repetition": {
+          "repeated_unique_count": 49,
+          "repeated_occurrences": 879,
+          "repetition_rate": 0.978842
+        },
+        "sample_values": [
+          609.9,
+          60.0,
+          300.1,
+          610.0,
+          374.9
+        ],
+        "numeric_statistics": {
+          "min": 0.0,
+          "max": 1525.0,
+          "mean": 780.6533407572383,
+          "median": 610.0,
+          "std": 405.3456879630692,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "len",
+        "physical_dtype": "int64",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 24,
+          "unique_ratio": 0.026726
+        },
+        "repetition": {
+          "repeated_unique_count": 19,
+          "repeated_occurrences": 893,
+          "repetition_rate": 0.994432
+        },
+        "sample_values": [
+          0,
+          4880,
+          762,
+          761,
+          1
+        ],
+        "numeric_statistics": {
+          "min": 0,
+          "max": 4880,
+          "mean": 1263.0946547884187,
+          "median": 611.0,
+          "std": 1871.399107266592,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "oil",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 3,
+          "unique_ratio": 0.003341
+        },
+        "repetition": {
+          "repeated_unique_count": 3,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "not_applicable",
+          "N",
+          "Y"
+        ]
+      },
+      {
+        "column_name": "bore",
+        "physical_dtype": "int64",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 3,
+          "unique_ratio": 0.003341
+        },
+        "repetition": {
+          "repeated_unique_count": 3,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          0,
+          600,
+          500
+        ],
+        "numeric_statistics": {
+          "min": 0,
+          "max": 600,
+          "mean": 28.173719376391983,
+          "median": 0.0,
+          "std": 124.56034118076842,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "packing",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 3,
+          "unique_ratio": 0.003341
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 897,
+          "repetition_rate": 0.998886
+        },
+        "sample_values": [
+          "not_applicable",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "column_name": "classes",
+        "physical_dtype": "object",
+        "row_count": 898,
+        "non_null_count": 898,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 5,
+          "unique_ratio": 0.005568
+        },
+        "repetition": {
+          "repeated_unique_count": 5,
+          "repeated_occurrences": 898,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "3",
+          "2",
+          "5",
+          "U",
+          "1"
+        ]
+      }
+    ]
+  },
+  "issues": [
+    {
+      "issue_id": "issue-exact_duplicate_rows-192ec5f83876",
+      "issue_type": "exact_duplicate_rows",
+      "target_columns": [],
+      "affected_count": 12,
+      "affected_percentage": 1.3363,
+      "evidence": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "examples": [
+        138,
+        164,
+        387,
+        426,
+        465
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-mixed_numeric_representation_candidate-cb6262c7d857",
+      "issue_type": "mixed_numeric_representation_candidate",
+      "target_columns": [
+        "formability"
+      ],
+      "affected_count": 580,
+      "affected_percentage": 64.588,
+      "evidence": {
+        "parseable_count": 580,
+        "unparseable_count": 318,
+        "parseable_fraction": 0.64588,
+        "zero_padded_identifier_guard": true
+      },
+      "examples": [
+        "not_applicable",
+        "not_applicable",
+        "not_applicable",
+        "not_applicable",
+        "not_applicable"
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-be3b49d2e5c7",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "enamelability"
+      ],
+      "affected_count": 6,
+      "affected_percentage": 0.6682,
+      "evidence": {
+        "maximum_frequency": 8,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "examples": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-1cbea091aebb",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "bc"
+      ],
+      "affected_count": 1,
+      "affected_percentage": 0.1114,
+      "evidence": {
+        "maximum_frequency": 8,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "examples": [
+        "Y"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-e5ab13bab281",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "phos"
+      ],
+      "affected_count": 7,
+      "affected_percentage": 0.7795,
+      "evidence": {
+        "maximum_frequency": 8,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "examples": [
+        "P",
+        "P",
+        "P",
+        "P",
+        "P"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-c1f579beb134",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "exptl"
+      ],
+      "affected_count": 2,
+      "affected_percentage": 0.2227,
+      "evidence": {
+        "maximum_frequency": 8,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "examples": [
+        "Y",
+        "Y"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-4dfb0aea3e04",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "blue_bright_varn_clean"
+      ],
+      "affected_count": 6,
+      "affected_percentage": 0.6682,
+      "evidence": {
+        "maximum_frequency": 8,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "examples": [
+        "B",
+        "B",
+        "B",
+        "V",
+        "B"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-statistical_outlier_candidate-ff7f8a9fa4fd",
+      "issue_type": "statistical_outlier_candidate",
+      "target_columns": [
+        "thick"
+      ],
+      "affected_count": 86,
+      "affected_percentage": 9.5768,
+      "evidence": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 0.601,
+        "q3": 1.6,
+        "lower_bound": -0.8975000000000002,
+        "upper_bound": 3.0985000000000005
+      },
+      "examples": [
+        3.5,
+        4.0,
+        3.2,
+        3.201,
+        3.2
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-41125b211c59",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "packing"
+      ],
+      "affected_count": 9,
+      "affected_percentage": 1.0022,
+      "evidence": {
+        "maximum_frequency": 8,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 2
+      },
+      "examples": [
+        "3",
+        "2",
+        "3",
+        "3",
+        "3"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-rare_category_observation-a1053dc00037",
+      "issue_type": "rare_category_observation",
+      "target_columns": [
+        "classes"
+      ],
+      "affected_count": 8,
+      "affected_percentage": 0.8909,
+      "evidence": {
+        "maximum_frequency": 8,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "examples": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "status": "observation",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    }
+  ],
+  "quality_summary": {
+    "total_issues_detected": 10,
+    "issues_by_type": {
+      "exact_duplicate_rows": 1,
+      "mixed_numeric_representation_candidate": 1,
+      "rare_category_observation": 7,
+      "statistical_outlier_candidate": 1
+    },
+    "issues_by_status": {
+      "candidate": 2,
+      "issue": 1,
+      "observation": 7
+    },
+    "affected_columns": [
+      "bc",
+      "blue_bright_varn_clean",
+      "classes",
+      "enamelability",
+      "exptl",
+      "formability",
+      "packing",
+      "phos",
+      "thick"
+    ],
+    "dataset_level_issue_count": 1
+  },
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": "unknown",
+      "row_entity_confidence": 0.8,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "family",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "product-type",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "steel",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "carbon",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "hardness",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "temper_rolling",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "condition",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "formability",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "strength",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "non-ageing",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "surface-finish",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "surface-quality",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "enamelability",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values represent different states or categories of enamelability, such as not applicable, 1, and 2, without implying a specific numeric value or order among them.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains values like 'not_applicable', '1', and '2', indicating categorical data without a clear numeric or temporal interpretation."
+      },
+      {
+        "column_name": "bc",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+      },
+      {
+        "column_name": "bf",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+      },
+      {
+        "column_name": "bt",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+      },
+      {
+        "column_name": "bw_me",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'B', 'M', indicating a binary state without implying a specific numeric value or order.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains values like 'not_applicable', 'B', and 'M', suggesting categorical data with a binary state interpretation."
+      },
+      {
+        "column_name": "bl",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+      },
+      {
+        "column_name": "m",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', indicating a binary state without implying a specific numeric value or order.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains values like 'not_applicable', suggesting categorical data with a binary state interpretation."
+      },
+      {
+        "column_name": "chrom",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'C', indicating a binary state without implying a specific numeric value or order.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains values like 'not_applicable' and 'C', suggesting categorical data with a binary state interpretation."
+      },
+      {
+        "column_name": "phos",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'P', indicating a binary state without implying a specific numeric value or order.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains values like 'not_applicable' and 'P', suggesting categorical data with a binary state interpretation."
+      },
+      {
+        "column_name": "cbond",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+      },
+      {
+        "column_name": "marvi",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', indicating a binary state without implying a specific numeric value or order.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains values like 'not_applicable', suggesting categorical data with a binary state interpretation."
+      },
+      {
+        "column_name": "exptl",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+      },
+      {
+        "column_name": "ferro",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+        "semantic_role": "unknown",
+        "confidence": 0.8571428571428571,
+        "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+      },
+      {
+        "column_name": "corr",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+        "semantic_role": "unknown",
+        "confidence": 0.8571428571428571,
+        "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+      },
+      {
+        "column_name": "blue_bright_varn_clean",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (B, V, C) or absence (not_applicable).",
+        "semantic_role": "unknown",
+        "confidence": 0.8571428571428571,
+        "reasoning_summary": "The column contains four unique values, 'B', 'V', 'C', and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+      },
+      {
+        "column_name": "lustre",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+        "semantic_role": "unknown",
+        "confidence": 0.8571428571428571,
+        "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+      },
+      {
+        "column_name": "jurofm",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+        "semantic_role": "unknown",
+        "confidence": 0.8571428571428571,
+        "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+      },
+      {
+        "column_name": "s",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+        "semantic_role": "unknown",
+        "confidence": 0.8571428571428571,
+        "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+      },
+      {
+        "column_name": "p",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+        "semantic_role": "unknown",
+        "confidence": 0.8571428571428571,
+        "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+      },
+      {
+        "column_name": "shape",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (COIL, SHEET) or absence (not_applicable).",
+        "semantic_role": "unknown",
+        "confidence": 0.8571428571428571,
+        "reasoning_summary": "The column contains two unique values, 'COIL' and 'SHEET', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+      },
+      {
+        "column_name": "thick",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Quantitative measurement of thickness, with a range from 0.24 to 4.0, and a mean of approximately 1.20.",
+        "semantic_role": "unknown",
+        "confidence": 0.8571428571428571,
+        "reasoning_summary": "The column contains numeric values with a clear distribution and a mean of approximately 1.20, indicating a quantitative measurement of thickness."
+      },
+      {
+        "column_name": "width",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Quantitative measurement of width, with a range from 0.0 to 1525.0, and a mean of approximately 780.65.",
+        "semantic_role": "unknown",
+        "confidence": 0.8571428571428571,
+        "reasoning_summary": "The column contains numeric values with a clear distribution and a mean of approximately 780.65, indicating a quantitative measurement of width."
+      },
+      {
+        "column_name": "len",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Quantitative measurement of length, with a range from 0 to 4880, and a mean of approximately 1263.10.",
+        "semantic_role": "unknown",
+        "confidence": 0.8571428571428571,
+        "reasoning_summary": "The column contains numeric values with a clear distribution and a mean of approximately 1263.10, indicating a quantitative measurement of length."
+      },
+      {
+        "column_name": "oil",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+        "semantic_role": "unknown",
+        "confidence": 0.8571428571428571,
+        "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+      },
+      {
+        "column_name": "bore",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The bore of a cylinder, representing a measurable physical attribute.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'bore' suggests a physical attribute, and the physical dtype is 'int64', indicating a numeric value. The numeric_summary shows arithmetic differences and central tendency are meaningful, supporting numeric_measurement and magnitude."
+      },
+      {
+        "column_name": "packing",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "not_applicable",
+        "concept_description": "Values representing packing classes or codes.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'packing' suggests a categorical attribute, and the physical dtype is 'object'. The values are repeated and bounded, indicating a categorical type. The numeric_summary shows no numeric meaning, supporting categorical and not_applicable."
+      },
+      {
+        "column_name": "classes",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "not_applicable",
+        "concept_description": "Values representing classes or categories.",
+        "semantic_role": "unknown",
+        "confidence": 0.8,
+        "reasoning_summary": "The column name 'classes' suggests a categorical attribute, and the physical dtype is 'object'. The values are repeated and bounded, indicating a categorical type. The numeric_summary shows no numeric meaning, supporting categorical and not_applicable."
+      }
+    ],
+    "warnings": [
+      "Semantic batch 1 failed after retry; unknown fallback used for ['family', 'product-type', 'steel', 'carbon', 'hardness', 'temper_rolling', 'condition', 'formability', 'strength', 'non-ageing', 'surface-finish', 'surface-quality']: BatchCoverageError: Invalid semantic batch coverage: missing=non-ageing,surface-finish,surface-quality; invented=monetary_amount"
+    ],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 6,
+      "total_llm_calls": 7,
+      "batch_sizes": [
+        12,
+        12,
+        12,
+        3
+      ],
+      "dataset_semantic_runtime_seconds": 4.002217,
+      "batch_runtime_seconds": [
+        129.577586,
+        32.340302,
+        94.558942,
+        11.656036
+      ],
+      "rag_runtime_seconds": 0.104786,
+      "batch_failures": 1,
+      "batch_retries": 2,
+      "llm_calls": [
+        {
+          "stage": "dataset_context",
+          "api_wall_duration_seconds": 3.986037,
+          "prompt_eval_count": 2983,
+          "prompt_eval_duration": 1289303000,
+          "eval_count": 23,
+          "eval_duration": 528789999,
+          "total_duration": 1945168500,
+          "load_duration": 8657000,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "api_wall_duration_seconds": 79.026128,
+          "prompt_eval_count": 2222,
+          "prompt_eval_duration": 1063189000,
+          "eval_count": 3460,
+          "eval_duration": 75767572000,
+          "total_duration": 76964967000,
+          "load_duration": 8591000,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "error": "BatchCoverageError: Invalid semantic batch coverage: missing=condition,formability,non-ageing,strength,surface-finish,surface-quality; duplicate=carbon,family,hardness,product-type,steel",
+          "api_wall_duration_seconds": 79.026225,
+          "prompt_eval_count": 2222,
+          "prompt_eval_duration": 1063189000,
+          "eval_count": 3460,
+          "eval_duration": 75767572000,
+          "total_duration": 76964967000,
+          "load_duration": 8591000,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 2,
+          "api_wall_duration_seconds": 50.551243,
+          "prompt_eval_count": 2222,
+          "prompt_eval_duration": 1082046000,
+          "eval_count": 2184,
+          "eval_duration": 47214823000,
+          "total_duration": 48474496200,
+          "load_duration": 12616100,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 2,
+          "error": "BatchCoverageError: Invalid semantic batch coverage: missing=non-ageing,surface-finish,surface-quality; invented=monetary_amount",
+          "api_wall_duration_seconds": 50.551295,
+          "prompt_eval_count": 2222,
+          "prompt_eval_duration": 1082046000,
+          "eval_count": 2184,
+          "eval_duration": 47214823000,
+          "total_duration": 48474496200,
+          "load_duration": 12616100,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 2,
+          "attempt": 1,
+          "api_wall_duration_seconds": 32.340214,
+          "prompt_eval_count": 1930,
+          "prompt_eval_duration": 1079193000,
+          "eval_count": 1455,
+          "eval_duration": 29111456000,
+          "total_duration": 30292106900,
+          "load_duration": 10071000,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 3,
+          "attempt": 1,
+          "api_wall_duration_seconds": 47.482801,
+          "prompt_eval_count": 2257,
+          "prompt_eval_duration": 811969000,
+          "eval_count": 2107,
+          "eval_duration": 44477872000,
+          "total_duration": 45426399200,
+          "load_duration": 8857700,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 3,
+          "attempt": 1,
+          "error": "BatchCoverageError: Invalid semantic batch coverage: missing=oil; invented=geographic_location",
+          "api_wall_duration_seconds": 47.482978,
+          "prompt_eval_count": 2257,
+          "prompt_eval_duration": 811969000,
+          "eval_count": 2107,
+          "eval_duration": 44477872000,
+          "total_duration": 45426399200,
+          "load_duration": 8857700,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 3,
+          "attempt": 2,
+          "api_wall_duration_seconds": 47.075516,
+          "prompt_eval_count": 2257,
+          "prompt_eval_duration": 1187671000,
+          "eval_count": 1689,
+          "eval_duration": 43636145000,
+          "total_duration": 44995429500,
+          "load_duration": 23217600,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 4,
+          "attempt": 1,
+          "api_wall_duration_seconds": 11.65573,
+          "prompt_eval_count": 1465,
+          "prompt_eval_duration": 521712000,
+          "eval_count": 366,
+          "eval_duration": 8881006000,
+          "total_duration": 9579590300,
+          "load_duration": 11707400,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 272.224347,
+      "semantic_contradiction_guard": {
+        "guard_version": "semantic_contradiction_guard_v001",
+        "deterministic": true,
+        "evaluated_column_count": 39,
+        "correction_count": 0,
+        "ambiguous_shape_overrides_enabled": false,
+        "entries": [
+          {
+            "column_name": "family",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "family",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "family",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "product-type",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "product-type",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "product-type",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "steel",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "steel",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "steel",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "carbon",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "carbon",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "carbon",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "hardness",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "hardness",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "hardness",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "temper_rolling",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "temper_rolling",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "temper_rolling",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "condition",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "condition",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "condition",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "formability",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "formability",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "formability",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "strength",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "strength",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "strength",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "non-ageing",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "non-ageing",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "non-ageing",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "surface-finish",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "surface-finish",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "surface-finish",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "surface-quality",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "surface-quality",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "surface-quality",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "enamelability",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "enamelability",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of enamelability, such as not applicable, 1, and 2, without implying a specific numeric value or order among them.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable', '1', and '2', indicating categorical data without a clear numeric or temporal interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "enamelability",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of enamelability, such as not applicable, 1, and 2, without implying a specific numeric value or order among them.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable', '1', and '2', indicating categorical data without a clear numeric or temporal interpretation."
+            }
+          },
+          {
+            "column_name": "bc",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "bc",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "bc",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+            }
+          },
+          {
+            "column_name": "bf",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "bf",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "bf",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+            }
+          },
+          {
+            "column_name": "bt",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "bt",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "bt",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+            }
+          },
+          {
+            "column_name": "bw_me",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "bw_me",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'B', 'M', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable', 'B', and 'M', suggesting categorical data with a binary state interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "bw_me",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'B', 'M', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable', 'B', and 'M', suggesting categorical data with a binary state interpretation."
+            }
+          },
+          {
+            "column_name": "bl",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "bl",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "bl",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+            }
+          },
+          {
+            "column_name": "m",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "m",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable', suggesting categorical data with a binary state interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "m",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable', suggesting categorical data with a binary state interpretation."
+            }
+          },
+          {
+            "column_name": "chrom",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "chrom",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'C', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable' and 'C', suggesting categorical data with a binary state interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "chrom",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'C', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable' and 'C', suggesting categorical data with a binary state interpretation."
+            }
+          },
+          {
+            "column_name": "phos",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "phos",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'P', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable' and 'P', suggesting categorical data with a binary state interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "phos",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'P', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable' and 'P', suggesting categorical data with a binary state interpretation."
+            }
+          },
+          {
+            "column_name": "cbond",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "cbond",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "cbond",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+            }
+          },
+          {
+            "column_name": "marvi",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "marvi",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable', suggesting categorical data with a binary state interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "marvi",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable', suggesting categorical data with a binary state interpretation."
+            }
+          },
+          {
+            "column_name": "exptl",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "exptl",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "exptl",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+            }
+          },
+          {
+            "column_name": "ferro",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "ferro",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            },
+            "effective_semantic_result": {
+              "column_name": "ferro",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            }
+          },
+          {
+            "column_name": "corr",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "corr",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            },
+            "effective_semantic_result": {
+              "column_name": "corr",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            }
+          },
+          {
+            "column_name": "blue_bright_varn_clean",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "blue_bright_varn_clean",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (B, V, C) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains four unique values, 'B', 'V', 'C', and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            },
+            "effective_semantic_result": {
+              "column_name": "blue_bright_varn_clean",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (B, V, C) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains four unique values, 'B', 'V', 'C', and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            }
+          },
+          {
+            "column_name": "lustre",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "lustre",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            },
+            "effective_semantic_result": {
+              "column_name": "lustre",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            }
+          },
+          {
+            "column_name": "jurofm",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "jurofm",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            },
+            "effective_semantic_result": {
+              "column_name": "jurofm",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            }
+          },
+          {
+            "column_name": "s",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "s",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            },
+            "effective_semantic_result": {
+              "column_name": "s",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            }
+          },
+          {
+            "column_name": "p",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "p",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            },
+            "effective_semantic_result": {
+              "column_name": "p",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            }
+          },
+          {
+            "column_name": "shape",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "shape",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (COIL, SHEET) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains two unique values, 'COIL' and 'SHEET', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            },
+            "effective_semantic_result": {
+              "column_name": "shape",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (COIL, SHEET) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains two unique values, 'COIL' and 'SHEET', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            }
+          },
+          {
+            "column_name": "thick",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "thick",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Quantitative measurement of thickness, with a range from 0.24 to 4.0, and a mean of approximately 1.20.",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains numeric values with a clear distribution and a mean of approximately 1.20, indicating a quantitative measurement of thickness."
+            },
+            "effective_semantic_result": {
+              "column_name": "thick",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Quantitative measurement of thickness, with a range from 0.24 to 4.0, and a mean of approximately 1.20.",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains numeric values with a clear distribution and a mean of approximately 1.20, indicating a quantitative measurement of thickness."
+            }
+          },
+          {
+            "column_name": "width",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "width",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Quantitative measurement of width, with a range from 0.0 to 1525.0, and a mean of approximately 780.65.",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains numeric values with a clear distribution and a mean of approximately 780.65, indicating a quantitative measurement of width."
+            },
+            "effective_semantic_result": {
+              "column_name": "width",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Quantitative measurement of width, with a range from 0.0 to 1525.0, and a mean of approximately 780.65.",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains numeric values with a clear distribution and a mean of approximately 780.65, indicating a quantitative measurement of width."
+            }
+          },
+          {
+            "column_name": "len",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "len",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Quantitative measurement of length, with a range from 0 to 4880, and a mean of approximately 1263.10.",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains numeric values with a clear distribution and a mean of approximately 1263.10, indicating a quantitative measurement of length."
+            },
+            "effective_semantic_result": {
+              "column_name": "len",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Quantitative measurement of length, with a range from 0 to 4880, and a mean of approximately 1263.10.",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains numeric values with a clear distribution and a mean of approximately 1263.10, indicating a quantitative measurement of length."
+            }
+          },
+          {
+            "column_name": "oil",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "oil",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            },
+            "effective_semantic_result": {
+              "column_name": "oil",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (Y) or absence (not_applicable).",
+              "semantic_role": "unknown",
+              "confidence": 0.8571428571428571,
+              "reasoning_summary": "The column contains two unique values, 'Y' and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+            }
+          },
+          {
+            "column_name": "bore",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "bore",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The bore of a cylinder, representing a measurable physical attribute.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'bore' suggests a physical attribute, and the physical dtype is 'int64', indicating a numeric value. The numeric_summary shows arithmetic differences and central tendency are meaningful, supporting numeric_measurement and magnitude."
+            },
+            "effective_semantic_result": {
+              "column_name": "bore",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The bore of a cylinder, representing a measurable physical attribute.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'bore' suggests a physical attribute, and the physical dtype is 'int64', indicating a numeric value. The numeric_summary shows arithmetic differences and central tendency are meaningful, supporting numeric_measurement and magnitude."
+            }
+          },
+          {
+            "column_name": "packing",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "packing",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "not_applicable",
+              "concept_description": "Values representing packing classes or codes.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'packing' suggests a categorical attribute, and the physical dtype is 'object'. The values are repeated and bounded, indicating a categorical type. The numeric_summary shows no numeric meaning, supporting categorical and not_applicable."
+            },
+            "effective_semantic_result": {
+              "column_name": "packing",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "not_applicable",
+              "concept_description": "Values representing packing classes or codes.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'packing' suggests a categorical attribute, and the physical dtype is 'object'. The values are repeated and bounded, indicating a categorical type. The numeric_summary shows no numeric meaning, supporting categorical and not_applicable."
+            }
+          },
+          {
+            "column_name": "classes",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "classes",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "not_applicable",
+              "concept_description": "Values representing classes or categories.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'classes' suggests a categorical attribute, and the physical dtype is 'object'. The values are repeated and bounded, indicating a categorical type. The numeric_summary shows no numeric meaning, supporting categorical and not_applicable."
+            },
+            "effective_semantic_result": {
+              "column_name": "classes",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "not_applicable",
+              "concept_description": "Values representing classes or categories.",
+              "semantic_role": "unknown",
+              "confidence": 0.8,
+              "reasoning_summary": "The column name 'classes' suggests a categorical attribute, and the physical dtype is 'object'. The values are repeated and bounded, indicating a categorical type. The numeric_summary shows no numeric meaning, supporting categorical and not_applicable."
+            }
+          }
+        ]
+      }
+    }
+  },
+  "decision_summary": {
+    "total_decisions": 10,
+    "by_decision_type": {
+      "flag_for_review": 2,
+      "no_action": 8
+    },
+    "by_proposed_action": {
+      "flag_rows": 2,
+      "no_op": 8
+    },
+    "tier1_decisions": 9,
+    "tier2_decisions": 1,
+    "fallback_decisions": 0,
+    "deterministic_runtime_seconds": 0.000891,
+    "tier2_issue_count": 1,
+    "tier2_batch_sizes": [
+      1
+    ],
+    "tier2_batch_kinds": [
+      "general"
+    ],
+    "llm_decision_calls": 1,
+    "llm_runtime_seconds": 5.739755,
+    "intended_llm_decision_calls": 1,
+    "retries": 0,
+    "successful_batches": 1,
+    "batch_failures": 0,
+    "fallback_issue_count": 0,
+    "tier2_recovery_audit": [
+      {
+        "original_batch_index": 1,
+        "batch_kind": "general",
+        "original_issue_ids": [
+          "issue-mixed_numeric_representation_candidate-cb6262c7d857"
+        ],
+        "accepted_on_first_response": [
+          "issue-mixed_numeric_representation_candidate-cb6262c7d857"
+        ],
+        "recovered_on_retry": [],
+        "final_fallback_issue_ids": [],
+        "calls": [
+          {
+            "stage": "initial",
+            "issue_ids": [
+              "issue-mixed_numeric_representation_candidate-cb6262c7d857"
+            ],
+            "retry_batch_size": 1,
+            "provider_status": "success",
+            "accepted_issue_ids": [
+              "issue-mixed_numeric_representation_candidate-cb6262c7d857"
+            ],
+            "rejected": [],
+            "unresolved_issue_ids": [],
+            "coverage": {
+              "missing_issue_ids": [],
+              "duplicate_issue_ids": [],
+              "unexpected_issue_ids": []
+            }
+          }
+        ]
+      }
+    ],
+    "llm_calls": [
+      {
+        "batch_index": 1,
+        "attempt": 1,
+        "recovery_stage": "initial",
+        "batch_kind": "general",
+        "issue_ids": [
+          "issue-mixed_numeric_representation_candidate-cb6262c7d857"
+        ],
+        "retry_batch_size": 1,
+        "prompt_character_length": 1447,
+        "api_wall_duration_seconds": 5.739755,
+        "prompt_eval_count": 333,
+        "prompt_eval_duration": 277700000,
+        "eval_count": 132,
+        "eval_duration": 3271304000,
+        "total_duration": 3684467000,
+        "load_duration": 12043200,
+        "done_reason": "stop"
+      }
+    ],
+    "total_runtime_seconds": 5.740968,
+    "execution_routing": {
+      "detected_issue_count": 10,
+      "decision_count": 10,
+      "proposed_action_count": 0,
+      "compiled_instruction_count": 1,
+      "executed_action_count": 1,
+      "executed_trim_whitespace_count": 0,
+      "executed_normalize_categorical_labels_count": 0,
+      "skipped_action_count": 0,
+      "skipped_actions": [],
+      "parse_date_assessments": [],
+      "numeric_coercion_assessments": [],
+      "missing_value_assessments": [],
+      "impute_missing_proposal_count": 0,
+      "median_imputation_authorization_assessments": [],
+      "executed_impute_missing_count": 0,
+      "executed_coerce_dtype_count": 0,
+      "executed_parse_dates_count": 0
+    },
+    "privacy_actions": {
+      "reason": "masked for privacy",
+      "privacy_stage_completed": true,
+      "privacy_clearance_passed": true,
+      "excluded_from_quality_fix_metrics": true,
+      "pii_candidate_count": 0,
+      "pii_candidate_columns": [],
+      "masked_column_count": 0,
+      "masked_columns": [],
+      "masked_cell_count": 0,
+      "by_subtype": {},
+      "cleaned_dataset_sha256": "5a4dd4a36131aa2290111962761d38c172906f2bce02a89614d57ef48ea7e09b"
+    }
+  },
+  "decisions": [
+    {
+      "decision_id": "decision-issue-exact_duplicate_rows-192ec5f83876",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876"
+      ],
+      "target_columns": [],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Exact duplicate records may be legitimate repeated events; deletion is not automatic.",
+      "evidence_summary": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "semantic_basis": {},
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-mixed_numeric_representation_candidate-cb6262c7d857",
+      "source_issue_ids": [
+        "issue-mixed_numeric_representation_candidate-cb6262c7d857"
+      ],
+      "target_columns": [
+        "formability"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.0,
+      "rationale": "The column 'formability' has a parseable fraction of 64.588%, which is above the threshold for imputation. However, the column semantics are unknown, and the data is not extreme, so no action is recommended.",
+      "evidence_summary": {
+        "parseable_count": 580,
+        "unparseable_count": 318,
+        "parseable_fraction": 0.64588,
+        "zero_padded_identifier_guard": true
+      },
+      "semantic_basis": {
+        "formability": {
+          "column_name": "formability",
+          "semantic_type": "unknown",
+          "value_function": "unknown",
+          "numeric_meaning": "unknown",
+          "concept_description": "Semantic analysis unavailable for this column.",
+          "semantic_role": "unknown",
+          "confidence": 0.0,
+          "reasoning_summary": "The semantic batch failed validation after retry."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "llm_tier2"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-be3b49d2e5c7",
+      "source_issue_ids": [
+        "issue-rare_category_observation-be3b49d2e5c7"
+      ],
+      "target_columns": [
+        "enamelability"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 8,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "semantic_basis": {
+        "enamelability": {
+          "column_name": "enamelability",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "numeric_meaning": "identifier",
+          "concept_description": "Values represent different states or categories of enamelability, such as not applicable, 1, and 2, without implying a specific numeric value or order among them.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains values like 'not_applicable', '1', and '2', indicating categorical data without a clear numeric or temporal interpretation."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-1cbea091aebb",
+      "source_issue_ids": [
+        "issue-rare_category_observation-1cbea091aebb"
+      ],
+      "target_columns": [
+        "bc"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 8,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "semantic_basis": {
+        "bc": {
+          "column_name": "bc",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "numeric_meaning": "identifier",
+          "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-e5ab13bab281",
+      "source_issue_ids": [
+        "issue-rare_category_observation-e5ab13bab281"
+      ],
+      "target_columns": [
+        "phos"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 8,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "semantic_basis": {
+        "phos": {
+          "column_name": "phos",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "numeric_meaning": "identifier",
+          "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'P', indicating a binary state without implying a specific numeric value or order.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains values like 'not_applicable' and 'P', suggesting categorical data with a binary state interpretation."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-c1f579beb134",
+      "source_issue_ids": [
+        "issue-rare_category_observation-c1f579beb134"
+      ],
+      "target_columns": [
+        "exptl"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 8,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "semantic_basis": {
+        "exptl": {
+          "column_name": "exptl",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "numeric_meaning": "identifier",
+          "concept_description": "Values represent different states or categories of a biological component, such as 'not_applicable', 'Y', indicating a binary state without implying a specific numeric value or order.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column contains values like 'not_applicable' and 'Y', suggesting categorical data with a binary state interpretation."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-4dfb0aea3e04",
+      "source_issue_ids": [
+        "issue-rare_category_observation-4dfb0aea3e04"
+      ],
+      "target_columns": [
+        "blue_bright_varn_clean"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 8,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 3
+      },
+      "semantic_basis": {
+        "blue_bright_varn_clean": {
+          "column_name": "blue_bright_varn_clean",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "numeric_meaning": "identifier",
+          "concept_description": "Binary classification for presence or absence of a specific attribute or condition, such as presence (B, V, C) or absence (not_applicable).",
+          "semantic_role": "unknown",
+          "confidence": 0.8571428571428571,
+          "reasoning_summary": "The column contains four unique values, 'B', 'V', 'C', and 'not_applicable', with a high repetition rate and missing percentage of 0.0. The values represent binary classifications."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-statistical_outlier_candidate-ff7f8a9fa4fd",
+      "source_issue_ids": [
+        "issue-statistical_outlier_candidate-ff7f8a9fa4fd"
+      ],
+      "target_columns": [
+        "thick"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "A statistical outlier may be valid and must not be clipped or removed automatically.",
+      "evidence_summary": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 0.601,
+        "q3": 1.6,
+        "lower_bound": -0.8975000000000002,
+        "upper_bound": 3.0985000000000005
+      },
+      "semantic_basis": {
+        "thick": {
+          "column_name": "thick",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "concept_description": "Quantitative measurement of thickness, with a range from 0.24 to 4.0, and a mean of approximately 1.20.",
+          "semantic_role": "unknown",
+          "confidence": 0.8571428571428571,
+          "reasoning_summary": "The column contains numeric values with a clear distribution and a mean of approximately 1.20, indicating a quantitative measurement of thickness."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-41125b211c59",
+      "source_issue_ids": [
+        "issue-rare_category_observation-41125b211c59"
+      ],
+      "target_columns": [
+        "packing"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 8,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 2
+      },
+      "semantic_basis": {
+        "packing": {
+          "column_name": "packing",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "numeric_meaning": "not_applicable",
+          "concept_description": "Values representing packing classes or codes.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'packing' suggests a categorical attribute, and the physical dtype is 'object'. The values are repeated and bounded, indicating a categorical type. The numeric_summary shows no numeric meaning, supporting categorical and not_applicable."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-rare_category_observation-a1053dc00037",
+      "source_issue_ids": [
+        "issue-rare_category_observation-a1053dc00037"
+      ],
+      "target_columns": [
+        "classes"
+      ],
+      "decision_type": "no_action",
+      "proposed_action": "no_op",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Rarity alone does not establish that a category is invalid.",
+      "evidence_summary": {
+        "maximum_frequency": 8,
+        "maximum_fraction": 0.01,
+        "rare_value_count": 1
+      },
+      "semantic_basis": {
+        "classes": {
+          "column_name": "classes",
+          "semantic_type": "categorical",
+          "value_function": "classification",
+          "numeric_meaning": "not_applicable",
+          "concept_description": "Values representing classes or categories.",
+          "semantic_role": "unknown",
+          "confidence": 0.8,
+          "reasoning_summary": "The column name 'classes' suggests a categorical attribute, and the physical dtype is 'object'. The values are repeated and bounded, indicating a categorical type. The numeric_summary shows no numeric meaning, supporting categorical and not_applicable."
+        }
+      },
+      "risk_level": "low",
+      "requires_review": false,
+      "decision_source": "deterministic_tier1"
+    }
+  ],
+  "instructions": [
+    {
+      "instruction_id": "instruction-decision-execution-safety-no-op",
+      "source_decision_id": "decision-execution-safety-no-op",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876",
+        "issue-mixed_numeric_representation_candidate-cb6262c7d857",
+        "issue-rare_category_observation-be3b49d2e5c7",
+        "issue-rare_category_observation-1cbea091aebb",
+        "issue-rare_category_observation-e5ab13bab281",
+        "issue-rare_category_observation-c1f579beb134",
+        "issue-rare_category_observation-4dfb0aea3e04",
+        "issue-statistical_outlier_candidate-ff7f8a9fa4fd",
+        "issue-rare_category_observation-41125b211c59",
+        "issue-rare_category_observation-a1053dc00037"
+      ],
+      "action_id": "no_op",
+      "target_columns": [],
+      "parameters": {}
+    }
+  ],
+  "executions": [
+    {
+      "instruction_id": "instruction-decision-execution-safety-no-op",
+      "source_decision_id": "decision-execution-safety-no-op",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876",
+        "issue-mixed_numeric_representation_candidate-cb6262c7d857",
+        "issue-rare_category_observation-be3b49d2e5c7",
+        "issue-rare_category_observation-1cbea091aebb",
+        "issue-rare_category_observation-e5ab13bab281",
+        "issue-rare_category_observation-c1f579beb134",
+        "issue-rare_category_observation-4dfb0aea3e04",
+        "issue-statistical_outlier_candidate-ff7f8a9fa4fd",
+        "issue-rare_category_observation-41125b211c59",
+        "issue-rare_category_observation-a1053dc00037"
+      ],
+      "action_id": "no_op",
+      "target_columns": [],
+      "status": "success",
+      "changed": false,
+      "changed_cell_count": 0,
+      "change_examples": [],
+      "rows_before": 898,
+      "rows_after": 898,
+      "columns_before": 39,
+      "columns_after": 39,
+      "message": "No changes were requested or applied.",
+      "error": null,
+      "audit_metadata": {}
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "no_unexpected_changes": true,
+    "dataframe_equal": true,
+    "row_count_equal": true,
+    "column_count_equal": true,
+    "missingness_equal": true,
+    "duplicate_row_count_equal": true,
+    "physical_dtypes_equal": true,
+    "cardinality_equal": true,
+    "unrelated_columns_equal": true,
+    "targeted_whitespace_improved": true,
+    "targeted_case_variants_improved": true,
+    "only_approved_value_changes": true,
+    "no_unexpected_categories": true,
+    "targeted_date_formats_improved": true,
+    "only_approved_date_changes": true,
+    "expected_dtype_changes_only": true,
+    "only_approved_numeric_changes": true,
+    "only_approved_privacy_changes": true,
+    "null_positions_equal": true,
+    "targeted_mixed_numeric_improved": true,
+    "only_approved_imputation_changes": true,
+    "expected_missingness_changes_only": true,
+    "imputed_cell_count": 0,
+    "imputation_audit": [],
+    "newly_introduced_null_count": 0,
+    "changed_cell_count": 0,
+    "before_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "mixed_numeric_representation_candidate": 1,
+        "rare_category_observation": 7,
+        "statistical_outlier_candidate": 1
+      },
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {},
+      "date_format_affected_cells_by_column": {},
+      "mixed_numeric_affected_cells_by_column": {
+        "formability": 580
+      }
+    },
+    "after_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "mixed_numeric_representation_candidate": 1,
+        "rare_category_observation": 7,
+        "statistical_outlier_candidate": 1
+      },
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {},
+      "date_format_affected_cells_by_column": {},
+      "mixed_numeric_affected_cells_by_column": {
+        "formability": 580
+      }
+    },
+    "before_summary": {
+      "row_count": 898,
+      "column_count": 39,
+      "total_missing_cells": 0,
+      "duplicate_row_count": 12,
+      "physical_dtypes": {
+        "family": "object",
+        "product-type": "object",
+        "steel": "object",
+        "carbon": "int64",
+        "hardness": "int64",
+        "temper_rolling": "object",
+        "condition": "object",
+        "formability": "object",
+        "strength": "int64",
+        "non-ageing": "object",
+        "surface-finish": "object",
+        "surface-quality": "object",
+        "enamelability": "object",
+        "bc": "object",
+        "bf": "object",
+        "bt": "object",
+        "bw_me": "object",
+        "bl": "object",
+        "m": "object",
+        "chrom": "object",
+        "phos": "object",
+        "cbond": "object",
+        "marvi": "object",
+        "exptl": "object",
+        "ferro": "object",
+        "corr": "object",
+        "blue_bright_varn_clean": "object",
+        "lustre": "object",
+        "jurofm": "object",
+        "s": "object",
+        "p": "object",
+        "shape": "object",
+        "thick": "float64",
+        "width": "float64",
+        "len": "int64",
+        "oil": "object",
+        "bore": "int64",
+        "packing": "object",
+        "classes": "object"
+      },
+      "cardinality": {
+        "family": 3,
+        "product-type": 1,
+        "steel": 8,
+        "carbon": 10,
+        "hardness": 7,
+        "temper_rolling": 2,
+        "condition": 3,
+        "formability": 5,
+        "strength": 8,
+        "non-ageing": 2,
+        "surface-finish": 2,
+        "surface-quality": 5,
+        "enamelability": 3,
+        "bc": 2,
+        "bf": 2,
+        "bt": 2,
+        "bw_me": 3,
+        "bl": 2,
+        "m": 1,
+        "chrom": 2,
+        "phos": 2,
+        "cbond": 2,
+        "marvi": 1,
+        "exptl": 2,
+        "ferro": 2,
+        "corr": 1,
+        "blue_bright_varn_clean": 4,
+        "lustre": 2,
+        "jurofm": 1,
+        "s": 1,
+        "p": 1,
+        "shape": 2,
+        "thick": 50,
+        "width": 68,
+        "len": 24,
+        "oil": 3,
+        "bore": 3,
+        "packing": 3,
+        "classes": 5
+      }
+    },
+    "after_summary": {
+      "row_count": 898,
+      "column_count": 39,
+      "total_missing_cells": 0,
+      "duplicate_row_count": 12,
+      "physical_dtypes": {
+        "family": "object",
+        "product-type": "object",
+        "steel": "object",
+        "carbon": "int64",
+        "hardness": "int64",
+        "temper_rolling": "object",
+        "condition": "object",
+        "formability": "object",
+        "strength": "int64",
+        "non-ageing": "object",
+        "surface-finish": "object",
+        "surface-quality": "object",
+        "enamelability": "object",
+        "bc": "object",
+        "bf": "object",
+        "bt": "object",
+        "bw_me": "object",
+        "bl": "object",
+        "m": "object",
+        "chrom": "object",
+        "phos": "object",
+        "cbond": "object",
+        "marvi": "object",
+        "exptl": "object",
+        "ferro": "object",
+        "corr": "object",
+        "blue_bright_varn_clean": "object",
+        "lustre": "object",
+        "jurofm": "object",
+        "s": "object",
+        "p": "object",
+        "shape": "object",
+        "thick": "float64",
+        "width": "float64",
+        "len": "int64",
+        "oil": "object",
+        "bore": "int64",
+        "packing": "object",
+        "classes": "object"
+      },
+      "cardinality": {
+        "family": 3,
+        "product-type": 1,
+        "steel": 8,
+        "carbon": 10,
+        "hardness": 7,
+        "temper_rolling": 2,
+        "condition": 3,
+        "formability": 5,
+        "strength": 8,
+        "non-ageing": 2,
+        "surface-finish": 2,
+        "surface-quality": 5,
+        "enamelability": 3,
+        "bc": 2,
+        "bf": 2,
+        "bt": 2,
+        "bw_me": 3,
+        "bl": 2,
+        "m": 1,
+        "chrom": 2,
+        "phos": 2,
+        "cbond": 2,
+        "marvi": 1,
+        "exptl": 2,
+        "ferro": 2,
+        "corr": 1,
+        "blue_bright_varn_clean": 4,
+        "lustre": 2,
+        "jurofm": 1,
+        "s": 1,
+        "p": 1,
+        "shape": 2,
+        "thick": 50,
+        "width": 68,
+        "len": 24,
+        "oil": 3,
+        "bore": 3,
+        "packing": 3,
+        "classes": 5
+      }
+    },
+    "warnings": []
+  },
+  "warnings": [
+    "Semantic batch 1 failed after retry; unknown fallback used for ['family', 'product-type', 'steel', 'carbon', 'hardness', 'temper_rolling', 'condition', 'formability', 'strength', 'non-ageing', 'surface-finish', 'surface-quality']: BatchCoverageError: Invalid semantic batch coverage: missing=non-ageing,surface-finish,surface-quality; invented=monetary_amount"
+  ],
+  "output_artifacts": {
+    "cleaned_dataset": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\pipeline1_outputs\\363614\\cleaned_dataset.csv",
+    "cleaning_report": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\pipeline1_outputs\\363614\\cleaning_report.json",
+    "cleaned_dataset_format": "csv"
+  }
+}

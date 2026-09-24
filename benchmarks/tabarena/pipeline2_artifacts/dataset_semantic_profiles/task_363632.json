@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363632",
+  "dataset_name": "E-CommereShippingData",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:19:39+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "E-CommereShippingData",
+    "task_type": "classification",
+    "target_column": "ArrivedLate",
+    "row_count": 10999,
+    "feature_count": 10,
+    "feature_type_counts": {
+      "numeric": 6,
+      "categorical": 4,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "Warehouse_block",
+      "Mode_of_Shipment",
+      "Customer_care_calls",
+      "Customer_rating",
+      "Cost_of_the_Product",
+      "Prior_purchases",
+      "Product_importance",
+      "Gender",
+      "Discount_offered",
+      "Weight_in_gms"
+    ],
+    "representative_feature_name_count": 10,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "logistics",
+    "subdomain": "supply chain management",
+    "dataset_purpose": "classification",
+    "row_entity": "shipping order",
+    "target_concept": "whether the shipping order arrived late",
+    "feature_context": [
+      "shipping mode",
+      "customer service interactions",
+      "product characteristics",
+      "customer information",
+      "order details"
+    ],
+    "semantic_summary": "This dataset supports classification tasks related to logistics, focusing on shipping orders and their delivery times, using features like shipment mode, customer service calls, product importance, and order details.",
+    "domain_confidence": 0.8
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 32.106025,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:19:39.6759996Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 30050493300,
+      "load_duration": 6109800,
+      "prompt_eval_count": 464,
+      "prompt_eval_duration": 728338000,
+      "eval_count": 133,
+      "eval_duration": 29298528000
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363693",
+  "dataset_name": "physiochemical_protein",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:28:04+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "physiochemical_protein",
+    "task_type": "regression",
+    "target_column": "ResidualSize",
+    "row_count": 45730,
+    "feature_count": 9,
+    "feature_type_counts": {
+      "numeric": 9,
+      "categorical": 0,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "TotalSurfaceArea",
+      "NonPolarExposedArea",
+      "FracExposedNonPolarResidue",
+      "FracExposedNonPolarPart",
+      "MassWeightedExposedArea",
+      "AvgDeviationExposedArea",
+      "EuclideanDistance",
+      "SecondaryStructurePenalty",
+      "SpatialDistNK"
+    ],
+    "representative_feature_name_count": 9,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "chemistry",
+    "subdomain": "molecular biology",
+    "dataset_purpose": "regression analysis",
+    "row_entity": "protein",
+    "target_concept": "residual size",
+    "feature_context": [
+      "molecular surface properties",
+      "exposed residue characteristics",
+      "secondary structure interactions",
+      "spatial distribution"
+    ],
+    "semantic_summary": "This dataset contains physiochemical properties of proteins, aiming to predict the residual size through regression analysis.",
+    "domain_confidence": 0.8
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 28.555206,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:28:04.468932Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 26518018300,
+      "load_duration": 7709800,
+      "prompt_eval_count": 472,
+      "prompt_eval_duration": 589082000,
+      "eval_count": 116,
+      "eval_duration": 25872075000
+    }
+  }
+}

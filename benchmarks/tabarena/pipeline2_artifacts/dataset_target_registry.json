@@ -1,0 +1,1650 @@
+{
+  "schema_version": "2.1",
+  "dataset_count": 51,
+  "validation": {
+    "passed": true,
+    "checks": {
+      "exact_dataset_count": true,
+      "all_target_columns_resolved": true,
+      "classification_distributions_valid": true,
+      "regression_classification_metadata_null": true,
+      "classification_minority_ratios_present": true,
+      "missing_targets_excluded_from_classes": true
+    },
+    "total_datasets": 51,
+    "resolved_datasets": 51,
+    "unresolved_datasets": 0,
+    "classification_count": 38,
+    "regression_count": 13,
+    "binary_classification_count": 30,
+    "multiclass_classification_count": 8
+  },
+  "datasets": [
+    {
+      "dataset_id": 363612,
+      "dataset_name": "airfoil_self_noise",
+      "dataset_file": "airfoil_self_noise.csv",
+      "target_column": "scaled-sound-pressure",
+      "provided_target_column": "scaled-sound-pressure",
+      "authoritative_target_column": "scaled-sound-pressure",
+      "benchmark_target_column": "scaled-sound-pressure",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "regression",
+      "classification_type": null,
+      "n_classes": null,
+      "class_distribution": null,
+      "minority_class_ratio": null,
+      "target_row_count": 1503,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": null,
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363613,
+      "dataset_name": "Amazon_employee_access",
+      "dataset_file": "Amazon_employee_access.csv",
+      "target_column": "ResourceApproved",
+      "provided_target_column": "ResourceApproved",
+      "authoritative_target_column": "ResourceApproved",
+      "benchmark_target_column": "ResourceApproved",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "Yes": {
+          "count": 30872,
+          "proportion": 0.9421099209618847
+        },
+        "No": {
+          "count": 1897,
+          "proportion": 0.05789007903811529
+        }
+      },
+      "minority_class_ratio": 0.05789007903811529,
+      "target_row_count": 32769,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "MODERATE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363614,
+      "dataset_name": "anneal",
+      "dataset_file": "anneal.csv",
+      "target_column": "classes",
+      "provided_target_column": "classes",
+      "authoritative_target_column": "classes",
+      "benchmark_target_column": "classes",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "multiclass",
+      "n_classes": 5,
+      "class_distribution": {
+        "3": {
+          "count": 684,
+          "proportion": 0.7616926503340757
+        },
+        "2": {
+          "count": 99,
+          "proportion": 0.11024498886414254
+        },
+        "5": {
+          "count": 67,
+          "proportion": 0.07461024498886415
+        },
+        "U": {
+          "count": 40,
+          "proportion": 0.044543429844097995
+        },
+        "1": {
+          "count": 8,
+          "proportion": 0.008908685968819599
+        }
+      },
+      "minority_class_ratio": 0.008908685968819599,
+      "target_row_count": 898,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "EXTREME_IMBALANCE",
+      "cb_chl_eligible": true,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363615,
+      "dataset_name": "Another-Dataset-on-used-Fiat-500",
+      "dataset_file": "Another-Dataset-on-used-Fiat-500.csv",
+      "target_column": "price",
+      "provided_target_column": "price",
+      "authoritative_target_column": "price",
+      "benchmark_target_column": "price",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "regression",
+      "classification_type": null,
+      "n_classes": null,
+      "class_distribution": null,
+      "minority_class_ratio": null,
+      "target_row_count": 1538,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": null,
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363616,
+      "dataset_name": "APSFailure",
+      "dataset_file": "APSFailure.csv",
+      "target_column": "AirPressureSystemFailure",
+      "provided_target_column": "AirPressureSystemFailure",
+      "authoritative_target_column": "AirPressureSystemFailure",
+      "benchmark_target_column": "AirPressureSystemFailure",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "neg": {
+          "count": 74625,
+          "proportion": 0.9819078947368421
+        },
+        "pos": {
+          "count": 1375,
+          "proportion": 0.018092105263157895
+        }
+      },
+      "minority_class_ratio": 0.018092105263157895,
+      "target_row_count": 76000,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "SEVERE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363618,
+      "dataset_name": "bank-marketing",
+      "dataset_file": "bank-marketing.csv",
+      "target_column": "SubscribeTermDeposit",
+      "provided_target_column": "SubscribeTermDeposit",
+      "authoritative_target_column": "SubscribeTermDeposit",
+      "benchmark_target_column": "SubscribeTermDeposit",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "no": {
+          "count": 39922,
+          "proportion": 0.8830151954170445
+        },
+        "yes": {
+          "count": 5289,
+          "proportion": 0.11698480458295547
+        }
+      },
+      "minority_class_ratio": 0.11698480458295547,
+      "target_row_count": 45211,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "MODERATE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363619,
+      "dataset_name": "Bank_Customer_Churn",
+      "dataset_file": "Bank_Customer_Churn.csv",
+      "target_column": "churn",
+      "provided_target_column": "churn",
+      "authoritative_target_column": "churn",
+      "benchmark_target_column": "churn",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "No": {
+          "count": 7963,
+          "proportion": 0.7963
+        },
+        "Yes": {
+          "count": 2037,
+          "proportion": 0.2037
+        }
+      },
+      "minority_class_ratio": 0.2037,
+      "target_row_count": 10000,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "NOT_IMBALANCED",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363620,
+      "dataset_name": "Bioresponse",
+      "dataset_file": "Bioresponse.csv",
+      "target_column": "MoleculeElicitsResponse",
+      "provided_target_column": "MoleculeElicitsResponse",
+      "authoritative_target_column": "MoleculeElicitsResponse",
+      "benchmark_target_column": "MoleculeElicitsResponse",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "Yes": {
+          "count": 2034,
+          "proportion": 0.5422553985603839
+        },
+        "No": {
+          "count": 1717,
+          "proportion": 0.4577446014396161
+        }
+      },
+      "minority_class_ratio": 0.4577446014396161,
+      "target_row_count": 3751,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "NOT_IMBALANCED",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363621,
+      "dataset_name": "blood-transfusion-service-center",
+      "dataset_file": "blood-transfusion-service-center.csv",
+      "target_column": "DonatedBloodInMarch2007",
+      "provided_target_column": "DonatedBloodInMarch2007",
+      "authoritative_target_column": "DonatedBloodInMarch2007",
+      "benchmark_target_column": "DonatedBloodInMarch2007",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "No": {
+          "count": 570,
+          "proportion": 0.7620320855614974
+        },
+        "Yes": {
+          "count": 178,
+          "proportion": 0.23796791443850268
+        }
+      },
+      "minority_class_ratio": 0.23796791443850268,
+      "target_row_count": 748,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "NOT_IMBALANCED",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363623,
+      "dataset_name": "churn",
+      "dataset_file": "churn.csv",
+      "target_column": "CustomerChurned",
+      "provided_target_column": "CustomerChurned",
+      "authoritative_target_column": "CustomerChurned",
+      "benchmark_target_column": "CustomerChurned",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "No": {
+          "count": 4293,
+          "proportion": 0.8586
+        },
+        "Yes": {
+          "count": 707,
+          "proportion": 0.1414
+        }
+      },
+      "minority_class_ratio": 0.1414,
+      "target_row_count": 5000,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "MODERATE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363624,
+      "dataset_name": "coil2000_insurance_policies",
+      "dataset_file": "coil2000_insurance_policies.csv",
+      "target_column": "MobileHomePolicy",
+      "provided_target_column": "MobileHomePolicy",
+      "authoritative_target_column": "MobileHomePolicy",
+      "benchmark_target_column": "MobileHomePolicy",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "No": {
+          "count": 9236,
+          "proportion": 0.9403380166972104
+        },
+        "Yes": {
+          "count": 586,
+          "proportion": 0.059661983302789656
+        }
+      },
+      "minority_class_ratio": 0.059661983302789656,
+      "target_row_count": 9822,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "MODERATE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363625,
+      "dataset_name": "concrete_compressive_strength",
+      "dataset_file": "concrete_compressive_strength.csv",
+      "target_column": "ConcreteCompressiveStrength",
+      "provided_target_column": "ConcreteCompressiveStrength",
+      "authoritative_target_column": "ConcreteCompressiveStrength",
+      "benchmark_target_column": "ConcreteCompressiveStrength",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "regression",
+      "classification_type": null,
+      "n_classes": null,
+      "class_distribution": null,
+      "minority_class_ratio": null,
+      "target_row_count": 1030,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": null,
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363626,
+      "dataset_name": "credit-g",
+      "dataset_file": "credit-g.csv",
+      "target_column": "good_or_bad_customer",
+      "provided_target_column": "good_or_bad_customer",
+      "authoritative_target_column": "good_or_bad_customer",
+      "benchmark_target_column": "good_or_bad_customer",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "bad": {
+          "count": 300,
+          "proportion": 0.3
+        },
+        "good": {
+          "count": 700,
+          "proportion": 0.7
+        }
+      },
+      "minority_class_ratio": 0.3,
+      "target_row_count": 1000,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "NOT_IMBALANCED",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363627,
+      "dataset_name": "credit_card_clients_default",
+      "dataset_file": "credit_card_clients_default.csv",
+      "target_column": "DefaultOnPaymentNextMonth",
+      "provided_target_column": "DefaultOnPaymentNextMonth",
+      "authoritative_target_column": "DefaultOnPaymentNextMonth",
+      "benchmark_target_column": "DefaultOnPaymentNextMonth",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "No": {
+          "count": 23364,
+          "proportion": 0.7788
+        },
+        "Yes": {
+          "count": 6636,
+          "proportion": 0.2212
+        }
+      },
+      "minority_class_ratio": 0.2212,
+      "target_row_count": 30000,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "NOT_IMBALANCED",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363628,
+      "dataset_name": "customer_satisfaction_in_airline",
+      "dataset_file": "customer_satisfaction_in_airline.csv",
+      "target_column": "satisfaction",
+      "provided_target_column": "satisfaction",
+      "authoritative_target_column": "satisfaction",
+      "benchmark_target_column": "satisfaction",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "dissatisfied": {
+          "count": 58793,
+          "proportion": 0.4526716969510317
+        },
+        "satisfied": {
+          "count": 71087,
+          "proportion": 0.5473283030489683
+        }
+      },
+      "minority_class_ratio": 0.4526716969510317,
+      "target_row_count": 129880,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "NOT_IMBALANCED",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363629,
+      "dataset_name": "diabetes",
+      "dataset_file": "diabetes.csv",
+      "target_column": "TestedPositiveForDiabetes",
+      "provided_target_column": "TestedPositiveForDiabetes",
+      "authoritative_target_column": "TestedPositiveForDiabetes",
+      "benchmark_target_column": "TestedPositiveForDiabetes",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "No": {
+          "count": 500,
+          "proportion": 0.6510416666666666
+        },
+        "Yes": {
+          "count": 268,
+          "proportion": 0.3489583333333333
+        }
+      },
+      "minority_class_ratio": 0.3489583333333333,
+      "target_row_count": 768,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "NOT_IMBALANCED",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363630,
+      "dataset_name": "Diabetes130US",
+      "dataset_file": "Diabetes130US.csv",
+      "target_column": "EarlyReadmission",
+      "provided_target_column": "EarlyReadmission",
+      "authoritative_target_column": "EarlyReadmission",
+      "benchmark_target_column": "EarlyReadmission",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "No": {
+          "count": 65225,
+          "proportion": 0.9120081657764478
+        },
+        "Yes": {
+          "count": 6293,
+          "proportion": 0.08799183422355211
+        }
+      },
+      "minority_class_ratio": 0.08799183422355211,
+      "target_row_count": 71518,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "MODERATE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363631,
+      "dataset_name": "diamonds",
+      "dataset_file": "diamonds.csv",
+      "target_column": "price",
+      "provided_target_column": "price",
+      "authoritative_target_column": "price",
+      "benchmark_target_column": "price",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "regression",
+      "classification_type": null,
+      "n_classes": null,
+      "class_distribution": null,
+      "minority_class_ratio": null,
+      "target_row_count": 53940,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": null,
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363632,
+      "dataset_name": "E-CommereShippingData",
+      "dataset_file": "E-CommereShippingData.csv",
+      "target_column": "ArrivedLate",
+      "provided_target_column": "ArrivedLate",
+      "authoritative_target_column": "ArrivedLate",
+      "benchmark_target_column": "ArrivedLate",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "No": {
+          "count": 4436,
+          "proportion": 0.40330939176288755
+        },
+        "Yes": {
+          "count": 6563,
+          "proportion": 0.5966906082371125
+        }
+      },
+      "minority_class_ratio": 0.40330939176288755,
+      "target_row_count": 10999,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "NOT_IMBALANCED",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363671,
+      "dataset_name": "Fitness_Club",
+      "dataset_file": "Fitness_Club.csv",
+      "target_column": "attended",
+      "provided_target_column": "attended",
+      "authoritative_target_column": "attended",
+      "benchmark_target_column": "attended",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "Yes": {
+          "count": 454,
+          "proportion": 0.30266666666666664
+        },
+        "No": {
+          "count": 1046,
+          "proportion": 0.6973333333333334
+        }
+      },
+      "minority_class_ratio": 0.30266666666666664,
+      "target_row_count": 1500,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "NOT_IMBALANCED",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363672,
+      "dataset_name": "Food_Delivery_Time",
+      "dataset_file": "Food_Delivery_Time.csv",
+      "target_column": "Time_taken(min)",
+      "provided_target_column": "Time_taken(min)",
+      "authoritative_target_column": "Time_taken(min)",
+      "benchmark_target_column": "Time_taken(min)",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "regression",
+      "classification_type": null,
+      "n_classes": null,
+      "class_distribution": null,
+      "minority_class_ratio": null,
+      "target_row_count": 45451,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": null,
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363673,
+      "dataset_name": "GiveMeSomeCredit",
+      "dataset_file": "GiveMeSomeCredit.csv",
+      "target_column": "FinancialDistressNextTwoYears",
+      "provided_target_column": "FinancialDistressNextTwoYears",
+      "authoritative_target_column": "FinancialDistressNextTwoYears",
+      "benchmark_target_column": "FinancialDistressNextTwoYears",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "No": {
+          "count": 139974,
+          "proportion": 0.93316
+        },
+        "Yes": {
+          "count": 10026,
+          "proportion": 0.06684
+        }
+      },
+      "minority_class_ratio": 0.06684,
+      "target_row_count": 150000,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "MODERATE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363674,
+      "dataset_name": "hazelnut-spread-contaminant-detection",
+      "dataset_file": "hazelnut-spread-contaminant-detection.csv",
+      "target_column": "Contaminated",
+      "provided_target_column": "Contaminated",
+      "authoritative_target_column": "Contaminated",
+      "benchmark_target_column": "Contaminated",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "0": {
+          "count": 1200,
+          "proportion": 0.5
+        },
+        "1": {
+          "count": 1200,
+          "proportion": 0.5
+        }
+      },
+      "minority_class_ratio": 0.5,
+      "target_row_count": 2400,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "NOT_IMBALANCED",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363675,
+      "dataset_name": "healthcare_insurance_expenses",
+      "dataset_file": "healthcare_insurance_expenses.csv",
+      "target_column": "charges",
+      "provided_target_column": "charges",
+      "authoritative_target_column": "charges",
+      "benchmark_target_column": "charges",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "regression",
+      "classification_type": null,
+      "n_classes": null,
+      "class_distribution": null,
+      "minority_class_ratio": null,
+      "target_row_count": 1338,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": null,
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363676,
+      "dataset_name": "heloc",
+      "dataset_file": "heloc.csv",
+      "target_column": "RiskPerformance",
+      "provided_target_column": "RiskPerformance",
+      "authoritative_target_column": "RiskPerformance",
+      "benchmark_target_column": "RiskPerformance",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "Bad": {
+          "count": 5459,
+          "proportion": 0.5219428243617936
+        },
+        "Good": {
+          "count": 5000,
+          "proportion": 0.4780571756382063
+        }
+      },
+      "minority_class_ratio": 0.4780571756382063,
+      "target_row_count": 10459,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "NOT_IMBALANCED",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363677,
+      "dataset_name": "hiva_agnostic",
+      "dataset_file": "hiva_agnostic.csv",
+      "target_column": "CompoundActivity",
+      "provided_target_column": "CompoundActivity",
+      "authoritative_target_column": "CompoundActivity",
+      "benchmark_target_column": "CompoundActivity",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "multiclass",
+      "n_classes": 3,
+      "class_distribution": {
+        "CM": {
+          "count": 93,
+          "proportion": 0.024187256176853057
+        },
+        "CI": {
+          "count": 3710,
+          "proportion": 0.9648894668400521
+        },
+        "CA": {
+          "count": 42,
+          "proportion": 0.01092327698309493
+        }
+      },
+      "minority_class_ratio": 0.01092327698309493,
+      "target_row_count": 3845,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "SEVERE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363678,
+      "dataset_name": "houses",
+      "dataset_file": "houses.csv",
+      "target_column": "LnMedianHouseValue",
+      "provided_target_column": "LnMedianHouseValue",
+      "authoritative_target_column": "LnMedianHouseValue",
+      "benchmark_target_column": "LnMedianHouseValue",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "regression",
+      "classification_type": null,
+      "n_classes": null,
+      "class_distribution": null,
+      "minority_class_ratio": null,
+      "target_row_count": 20640,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": null,
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363679,
+      "dataset_name": "HR_Analytics_Job_Change_of_Data_Scientists",
+      "dataset_file": "HR_Analytics_Job_Change_of_Data_Scientists.csv",
+      "target_column": "LookingForJobChange",
+      "provided_target_column": "LookingForJobChange",
+      "authoritative_target_column": "LookingForJobChange",
+      "benchmark_target_column": "LookingForJobChange",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "No": {
+          "count": 14381,
+          "proportion": 0.7506524689424784
+        },
+        "Yes": {
+          "count": 4777,
+          "proportion": 0.24934753105752167
+        }
+      },
+      "minority_class_ratio": 0.24934753105752167,
+      "target_row_count": 19158,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "NOT_IMBALANCED",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363681,
+      "dataset_name": "in_vehicle_coupon_recommendation",
+      "dataset_file": "in_vehicle_coupon_recommendation.csv",
+      "target_column": "AcceptCoupon",
+      "provided_target_column": "AcceptCoupon",
+      "authoritative_target_column": "AcceptCoupon",
+      "benchmark_target_column": "AcceptCoupon",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "Yes": {
+          "count": 7210,
+          "proportion": 0.5684326710816777
+        },
+        "No": {
+          "count": 5474,
+          "proportion": 0.4315673289183223
+        }
+      },
+      "minority_class_ratio": 0.4315673289183223,
+      "target_row_count": 12684,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "NOT_IMBALANCED",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363682,
+      "dataset_name": "Is-this-a-good-customer",
+      "dataset_file": "Is-this-a-good-customer.csv",
+      "target_column": "bad_client_target",
+      "provided_target_column": "bad_client_target",
+      "authoritative_target_column": "bad_client_target",
+      "benchmark_target_column": "bad_client_target",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "No": {
+          "count": 1527,
+          "proportion": 0.8862449216482878
+        },
+        "Yes": {
+          "count": 196,
+          "proportion": 0.11375507835171213
+        }
+      },
+      "minority_class_ratio": 0.11375507835171213,
+      "target_row_count": 1723,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "MODERATE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363712,
+      "dataset_name": "jm1",
+      "dataset_file": "jm1.csv",
+      "target_column": "defects",
+      "provided_target_column": "defects",
+      "authoritative_target_column": "defects",
+      "benchmark_target_column": "defects",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "false": {
+          "count": 8779,
+          "proportion": 0.8065227377124483
+        },
+        "true": {
+          "count": 2106,
+          "proportion": 0.1934772622875517
+        }
+      },
+      "minority_class_ratio": 0.1934772622875517,
+      "target_row_count": 10885,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "MODERATE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363683,
+      "dataset_name": "kddcup09_appetency",
+      "dataset_file": "kddcup09_appetency.csv",
+      "target_column": "appetency",
+      "provided_target_column": "appetency",
+      "authoritative_target_column": "appetency",
+      "benchmark_target_column": "appetency",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "-1": {
+          "count": 38231,
+          "proportion": 0.9823474998715247
+        },
+        "1": {
+          "count": 687,
+          "proportion": 0.017652500128475256
+        }
+      },
+      "minority_class_ratio": 0.017652500128475256,
+      "target_row_count": 38918,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "SEVERE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363684,
+      "dataset_name": "Marketing_Campaign",
+      "dataset_file": "Marketing_Campaign.csv",
+      "target_column": "Response",
+      "provided_target_column": "Response",
+      "authoritative_target_column": "Response",
+      "benchmark_target_column": "Response",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "No": {
+          "count": 1906,
+          "proportion": 0.8508928571428571
+        },
+        "Yes": {
+          "count": 334,
+          "proportion": 0.14910714285714285
+        }
+      },
+      "minority_class_ratio": 0.14910714285714285,
+      "target_row_count": 2240,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "MODERATE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363685,
+      "dataset_name": "maternal_health_risk",
+      "dataset_file": "maternal_health_risk.csv",
+      "target_column": "RiskLevel",
+      "provided_target_column": "RiskLevel",
+      "authoritative_target_column": "RiskLevel",
+      "benchmark_target_column": "RiskLevel",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "multiclass",
+      "n_classes": 3,
+      "class_distribution": {
+        "mid risk": {
+          "count": 336,
+          "proportion": 0.33136094674556216
+        },
+        "low risk": {
+          "count": 406,
+          "proportion": 0.40039447731755423
+        },
+        "high risk": {
+          "count": 272,
+          "proportion": 0.2682445759368836
+        }
+      },
+      "minority_class_ratio": 0.2682445759368836,
+      "target_row_count": 1014,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "NOT_IMBALANCED",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363686,
+      "dataset_name": "miami_housing",
+      "dataset_file": "miami_housing.csv",
+      "target_column": "SALE_PRC",
+      "provided_target_column": "structure_quality",
+      "authoritative_target_column": "SALE_PRC",
+      "benchmark_target_column": "SALE_PRC",
+      "target_resolution_status": "resolved_to_authoritative_target",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "regression",
+      "classification_type": null,
+      "n_classes": null,
+      "class_distribution": null,
+      "minority_class_ratio": null,
+      "target_row_count": 13776,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": null,
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363711,
+      "dataset_name": "MIC",
+      "dataset_file": "MIC.csv",
+      "target_column": "LET_IS",
+      "provided_target_column": "LET_IS",
+      "authoritative_target_column": "LET_IS",
+      "benchmark_target_column": "LET_IS",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "multiclass",
+      "n_classes": 8,
+      "class_distribution": {
+        "alive": {
+          "count": 1428,
+          "proportion": 0.8404944084755739
+        },
+        "cardiogenic_shock": {
+          "count": 110,
+          "proportion": 0.06474396703943497
+        },
+        "myocardial_rupture": {
+          "count": 54,
+          "proportion": 0.031783402001177165
+        },
+        "asystole": {
+          "count": 27,
+          "proportion": 0.015891701000588582
+        },
+        "ventricular_fibrillation": {
+          "count": 27,
+          "proportion": 0.015891701000588582
+        },
+        "thromboembolism": {
+          "count": 12,
+          "proportion": 0.007062978222483814
+        },
+        "pulmonary_edema": {
+          "count": 18,
+          "proportion": 0.01059446733372572
+        },
+        "progress_congestive_heart_failure": {
+          "count": 23,
+          "proportion": 0.01353737492642731
+        }
+      },
+      "minority_class_ratio": 0.007062978222483814,
+      "target_row_count": 1699,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "EXTREME_IMBALANCE",
+      "cb_chl_eligible": true,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363689,
+      "dataset_name": "NATICUSdroid",
+      "dataset_file": "NATICUSdroid.csv",
+      "target_column": "Malware",
+      "provided_target_column": "Malware",
+      "authoritative_target_column": "Malware",
+      "benchmark_target_column": "Malware",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "Yes": {
+          "count": 2624,
+          "proportion": 0.35028701107996263
+        },
+        "No": {
+          "count": 4867,
+          "proportion": 0.6497129889200374
+        }
+      },
+      "minority_class_ratio": 0.35028701107996263,
+      "target_row_count": 7491,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "NOT_IMBALANCED",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363691,
+      "dataset_name": "online_shoppers_intention",
+      "dataset_file": "online_shoppers_intention.csv",
+      "target_column": "Revenue",
+      "provided_target_column": "Revenue",
+      "authoritative_target_column": "Revenue",
+      "benchmark_target_column": "Revenue",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "false": {
+          "count": 10422,
+          "proportion": 0.8452554744525548
+        },
+        "true": {
+          "count": 1908,
+          "proportion": 0.15474452554744525
+        }
+      },
+      "minority_class_ratio": 0.15474452554744525,
+      "target_row_count": 12330,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "MODERATE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363693,
+      "dataset_name": "physiochemical_protein",
+      "dataset_file": "physiochemical_protein.csv",
+      "target_column": "ResidualSize",
+      "provided_target_column": "SpatialDistNK",
+      "authoritative_target_column": "ResidualSize",
+      "benchmark_target_column": "ResidualSize",
+      "target_resolution_status": "resolved_to_authoritative_target",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "regression",
+      "classification_type": null,
+      "n_classes": null,
+      "class_distribution": null,
+      "minority_class_ratio": null,
+      "target_row_count": 45730,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": null,
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363694,
+      "dataset_name": "polish_companies_bankruptcy",
+      "dataset_file": "polish_companies_bankruptcy.csv",
+      "target_column": "company_bankrupt",
+      "provided_target_column": "company_bankrupt",
+      "authoritative_target_column": "company_bankrupt",
+      "benchmark_target_column": "company_bankrupt",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "No": {
+          "count": 5500,
+          "proportion": 0.9306260575296108
+        },
+        "Yes": {
+          "count": 410,
+          "proportion": 0.06937394247038917
+        }
+      },
+      "minority_class_ratio": 0.06937394247038917,
+      "target_row_count": 5910,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "MODERATE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363696,
+      "dataset_name": "qsar-biodeg",
+      "dataset_file": "qsar-biodeg.csv",
+      "target_column": "Biodegradable",
+      "provided_target_column": "Biodegradable",
+      "authoritative_target_column": "Biodegradable",
+      "benchmark_target_column": "Biodegradable",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "Yes": {
+          "count": 355,
+          "proportion": 0.3368121442125237
+        },
+        "No": {
+          "count": 699,
+          "proportion": 0.6631878557874763
+        }
+      },
+      "minority_class_ratio": 0.3368121442125237,
+      "target_row_count": 1054,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "NOT_IMBALANCED",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363697,
+      "dataset_name": "QSAR-TID-11",
+      "dataset_file": "QSAR-TID-11.csv",
+      "target_column": "MEDIAN_PXC50",
+      "provided_target_column": "MEDIAN_PXC50",
+      "authoritative_target_column": "MEDIAN_PXC50",
+      "benchmark_target_column": "MEDIAN_PXC50",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "regression",
+      "classification_type": null,
+      "n_classes": null,
+      "class_distribution": null,
+      "minority_class_ratio": null,
+      "target_row_count": 5742,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": null,
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363698,
+      "dataset_name": "QSAR_fish_toxicity",
+      "dataset_file": "QSAR_fish_toxicity.csv",
+      "target_column": "LC50",
+      "provided_target_column": "LC50",
+      "authoritative_target_column": "LC50",
+      "benchmark_target_column": "LC50",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "regression",
+      "classification_type": null,
+      "n_classes": null,
+      "class_distribution": null,
+      "minority_class_ratio": null,
+      "target_row_count": 907,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": null,
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363699,
+      "dataset_name": "SDSS17",
+      "dataset_file": "SDSS17.csv",
+      "target_column": "ObjectType",
+      "provided_target_column": "ObjectType",
+      "authoritative_target_column": "ObjectType",
+      "benchmark_target_column": "ObjectType",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "multiclass",
+      "n_classes": 3,
+      "class_distribution": {
+        "STAR": {
+          "count": 16446,
+          "proportion": 0.21070298386993452
+        },
+        "QSO": {
+          "count": 13994,
+          "proportion": 0.17928843221913315
+        },
+        "GALAXY": {
+          "count": 47613,
+          "proportion": 0.6100085839109323
+        }
+      },
+      "minority_class_ratio": 0.17928843221913315,
+      "target_row_count": 78053,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "MODERATE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363700,
+      "dataset_name": "seismic-bumps",
+      "dataset_file": "seismic-bumps.csv",
+      "target_column": "HighEnergySeismicBump",
+      "provided_target_column": "HighEnergySeismicBump",
+      "authoritative_target_column": "HighEnergySeismicBump",
+      "benchmark_target_column": "HighEnergySeismicBump",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "No": {
+          "count": 2414,
+          "proportion": 0.9342105263157895
+        },
+        "Yes": {
+          "count": 170,
+          "proportion": 0.06578947368421052
+        }
+      },
+      "minority_class_ratio": 0.06578947368421052,
+      "target_row_count": 2584,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "MODERATE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363702,
+      "dataset_name": "splice",
+      "dataset_file": "splice.csv",
+      "target_column": "SiteType",
+      "provided_target_column": "SiteType",
+      "authoritative_target_column": "SiteType",
+      "benchmark_target_column": "SiteType",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "multiclass",
+      "n_classes": 3,
+      "class_distribution": {
+        "IE": {
+          "count": 768,
+          "proportion": 0.24075235109717869
+        },
+        "EI": {
+          "count": 767,
+          "proportion": 0.24043887147335424
+        },
+        "N": {
+          "count": 1655,
+          "proportion": 0.5188087774294671
+        }
+      },
+      "minority_class_ratio": 0.24043887147335424,
+      "target_row_count": 3190,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "NOT_IMBALANCED",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363704,
+      "dataset_name": "students_dropout_and_academic_success",
+      "dataset_file": "students_dropout_and_academic_success.csv",
+      "target_column": "AcademicOutcome",
+      "provided_target_column": "AcademicOutcome",
+      "authoritative_target_column": "AcademicOutcome",
+      "benchmark_target_column": "AcademicOutcome",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "multiclass",
+      "n_classes": 3,
+      "class_distribution": {
+        "Graduate": {
+          "count": 2209,
+          "proportion": 0.4993218806509946
+        },
+        "Enrolled": {
+          "count": 794,
+          "proportion": 0.1794755877034358
+        },
+        "Dropout": {
+          "count": 1421,
+          "proportion": 0.3212025316455696
+        }
+      },
+      "minority_class_ratio": 0.1794755877034358,
+      "target_row_count": 4424,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "MODERATE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363705,
+      "dataset_name": "superconductivity",
+      "dataset_file": "superconductivity.csv",
+      "target_column": "critical_temp",
+      "provided_target_column": "critical_temp",
+      "authoritative_target_column": "critical_temp",
+      "benchmark_target_column": "critical_temp",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "regression",
+      "classification_type": null,
+      "n_classes": null,
+      "class_distribution": null,
+      "minority_class_ratio": null,
+      "target_row_count": 21263,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": null,
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363706,
+      "dataset_name": "taiwanese_bankruptcy_prediction",
+      "dataset_file": "taiwanese_bankruptcy_prediction.csv",
+      "target_column": "Bankrupt",
+      "provided_target_column": "Bankrupt",
+      "authoritative_target_column": "Bankrupt",
+      "benchmark_target_column": "Bankrupt",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "binary",
+      "n_classes": 2,
+      "class_distribution": {
+        "No": {
+          "count": 6599,
+          "proportion": 0.967737204868749
+        },
+        "Yes": {
+          "count": 220,
+          "proportion": 0.03226279513125092
+        }
+      },
+      "minority_class_ratio": 0.03226279513125092,
+      "target_row_count": 6819,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "SEVERE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363707,
+      "dataset_name": "website_phishing",
+      "dataset_file": "website_phishing.csv",
+      "target_column": "WebsiteType",
+      "provided_target_column": "WebsiteType",
+      "authoritative_target_column": "WebsiteType",
+      "benchmark_target_column": "WebsiteType",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "classification",
+      "classification_type": "multiclass",
+      "n_classes": 3,
+      "class_distribution": {
+        "Suspicious": {
+          "count": 103,
+          "proportion": 0.07612712490761271
+        },
+        "Legitimate": {
+          "count": 548,
+          "proportion": 0.4050258684405026
+        },
+        "Phishy": {
+          "count": 702,
+          "proportion": 0.5188470066518847
+        }
+      },
+      "minority_class_ratio": 0.07612712490761271,
+      "target_row_count": 1353,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": "MODERATE_IMBALANCE",
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    },
+    {
+      "dataset_id": 363708,
+      "dataset_name": "wine_quality",
+      "dataset_file": "wine_quality.csv",
+      "target_column": "median_wine_quality",
+      "provided_target_column": "median_wine_quality",
+      "authoritative_target_column": "median_wine_quality",
+      "benchmark_target_column": "median_wine_quality",
+      "target_resolution_status": "agreed",
+      "resolution_source": "OpenML suite 457 dataset_manifest.json",
+      "task_type": "regression",
+      "classification_type": null,
+      "n_classes": null,
+      "class_distribution": null,
+      "minority_class_ratio": null,
+      "target_row_count": 6497,
+      "target_missing_count": 0,
+      "target_missing_pct": 0.0,
+      "imbalance_category": null,
+      "cb_chl_eligible": false,
+      "source": "TabArena_51_Dataset_Target_Columns.pdf provided target mapping; OpenML suite 457 authoritative task metadata; local TabArena CSV target values",
+      "status": "resolved",
+      "unresolved_reason": null
+    }
+  ]
+}

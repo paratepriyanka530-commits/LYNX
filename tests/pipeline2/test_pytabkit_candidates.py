@@ -41,29 +41,64 @@ class PytabkitCandidateTests(unittest.TestCase):
         cls.X_train, cls.X_test, cls.y_train, cls.y_test = train_test_split(
             X, y, test_size=0.2, random_state=42, stratify=y
         )
+        regression_target = (
+            X.iloc[:, 0].astype(float) * 0.25
+            + X.iloc[:, 1].astype(float) * 0.5
+        )
+        (
+            cls.X_regression_train,
+            cls.X_regression_test,
+            cls.y_regression_train,
+            cls.y_regression_test,
+        ) = train_test_split(
+            X,
+            regression_target,
+            test_size=0.2,
+            random_state=42,
+        )
 
-    def _assert_lifecycle(self, package_name):
+    def _assert_lifecycle(self, package_name, task_type):
         package = __import__(
             f"pipelines.pipeline2_prediction.models.{package_name}",
             fromlist=["build_model"],
         )
+        if package_name == "ft_transformer":
+            config = {
+                "device": "cpu",
+                "n_threads": 1,
+                "max_epochs": 2,
+                "es_patience": 1,
+                "use_checkpoints": False,
+            }
+        else:
+            config = {
+                "device": "cpu",
+                "n_threads": 1,
+                "n_epochs": 2,
+                **({"patience": 1} if package_name == "tabm" else {}),
+            }
+        if task_type == "classification":
+            X_train, X_test = self.X_train, self.X_test
+            y_train, y_test = self.y_train, self.y_test
+        else:
+            X_train, X_test = self.X_regression_train, self.X_regression_test
+            y_train, y_test = self.y_regression_train, self.y_regression_test
         model = package.build_model(
-            "classification",
+            task_type,
             random_state=42,
-            device="cpu",
-            n_threads=1,
-            n_epochs=2,
-            **({"patience": 1} if package_name == "tabm" else {}),
+            **config,
         )
-        package.train_model(model, self.X_train, self.y_train)
+        fresh_model = package.build_model(task_type, random_state=42, **config)
+        self.assertIsNot(model, fresh_model)
+        self.assertIsNot(model.estimator, fresh_model.estimator)
+        package.train_model(model, X_train, y_train)
         state_before = (
             model.preprocessor.fit_calls,
             tuple(model.preprocessor.feature_columns),
             dict(model.preprocessor.numeric_fill_values),
             id(model.estimator.x_converter_),
         )
-        predictions = np.asarray(package.predict_model(model, self.X_test)).reshape(-1)
-        probabilities = np.asarray(model.predict_proba(self.X_test))
+        predictions = np.asarray(package.predict_model(model, X_test)).reshape(-1)
         state_after = (
             model.preprocessor.fit_calls,
             tuple(model.preprocessor.feature_columns),
@@ -72,26 +107,37 @@ class PytabkitCandidateTests(unittest.TestCase):
         )
         self.assertEqual(model.fit_calls, 1)
         self.assertEqual(state_before, state_after)
-        self.assertEqual(predictions.shape, (len(self.y_test),))
-        self.assertEqual(probabilities.shape, (len(self.y_test), 2))
-        np.testing.assert_allclose(probabilities.sum(axis=1), 1.0, atol=1e-6)
-        self.assertGreaterEqual(accuracy_score(self.y_test, predictions), 0.5)
+        self.assertEqual(predictions.shape, (len(y_test),))
+        if task_type == "classification":
+            probabilities = np.asarray(model.predict_proba(X_test))
+            self.assertEqual(probabilities.shape, (len(y_test), 2))
+            self.assertTrue(np.isfinite(probabilities).all())
+            np.testing.assert_allclose(probabilities.sum(axis=1), 1.0, atol=1e-6)
+            self.assertGreaterEqual(accuracy_score(y_test, predictions), 0.5)
+        else:
+            self.assertTrue(np.isfinite(predictions.astype(float)).all())
         with tempfile.TemporaryDirectory() as directory:
-            path = Path(directory) / f"{package_name}.joblib"
+            path = Path(directory) / f"{package_name}-{task_type}.joblib"
             joblib.dump(model, path)
             loaded = joblib.load(path)
-            loaded_predictions = np.asarray(loaded.predict(self.X_test)).reshape(-1)
+            loaded_predictions = np.asarray(loaded.predict(X_test)).reshape(-1)
         np.testing.assert_array_equal(loaded_predictions, predictions)
         self.assertEqual(loaded.preprocessor.fit_calls, 1)
 
-    def test_realmlp_train_preprocessor_predict_lifecycle(self):
-        self._assert_lifecycle("realmlp")
+    def test_realmlp_classification_and_regression_lifecycles(self):
+        self._assert_lifecycle("realmlp", "classification")
+        self._assert_lifecycle("realmlp", "regression")
 
-    def test_tabm_train_preprocessor_predict_lifecycle(self):
-        self._assert_lifecycle("tabm")
+    def test_tabm_classification_and_regression_lifecycles(self):
+        self._assert_lifecycle("tabm", "classification")
+        self._assert_lifecycle("tabm", "regression")
 
-    def test_both_candidates_support_classification_and_regression(self):
-        for package_name in ("realmlp", "tabm"):
+    def test_ft_transformer_classification_and_regression_lifecycles(self):
+        self._assert_lifecycle("ft_transformer", "classification")
+        self._assert_lifecycle("ft_transformer", "regression")
+
+    def test_all_pytabkit_candidates_support_classification_and_regression(self):
+        for package_name in ("realmlp", "tabm", "ft_transformer"):
             package = __import__(
                 f"pipelines.pipeline2_prediction.models.{package_name}",
                 fromlist=["get_model_info"],
@@ -101,6 +147,8 @@ class PytabkitCandidateTests(unittest.TestCase):
                 ["classification", "regression"],
             )
             self.assertIsNotNone(package.build_model("regression", device="cpu"))
+            with self.assertRaisesRegex(ValueError, "Unsupported task"):
+                package.build_model("clustering", device="cpu")
 
 
 if __name__ == "__main__":

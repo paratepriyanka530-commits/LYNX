@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363625",
+  "dataset_name": "concrete_compressive_strength",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:16:20+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "concrete_compressive_strength",
+    "task_type": "regression",
+    "target_column": "ConcreteCompressiveStrength",
+    "row_count": 1030,
+    "feature_count": 8,
+    "feature_type_counts": {
+      "numeric": 8,
+      "categorical": 0,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "Cement",
+      "BlastFurnaceSlag",
+      "FlyAsh",
+      "Water",
+      "Superplasticizer",
+      "CoarseAggregate",
+      "FineAggregate",
+      "Age"
+    ],
+    "representative_feature_name_count": 8,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "construction",
+    "subdomain": "materials science",
+    "dataset_purpose": "predict concrete compressive strength",
+    "row_entity": "mix design",
+    "target_concept": "concrete compressive strength",
+    "feature_context": [
+      "material composition",
+      "mixing components",
+      "age"
+    ],
+    "semantic_summary": "This dataset predicts the compressive strength of concrete based on its material composition and age.",
+    "domain_confidence": 0.9
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 24.748127,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:16:20.4264559Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 22710367500,
+      "load_duration": 7469300,
+      "prompt_eval_count": 449,
+      "prompt_eval_duration": 657664000,
+      "eval_count": 107,
+      "eval_duration": 21969112000
+    }
+  }
+}

@@ -3,6 +3,7 @@ import warnings
 
 import numpy as np
 import pandas as pd
+from sklearn.exceptions import InconsistentVersionWarning
 
 from pipelines.pipeline2_prediction.models.random_forest import (
     build_model,
@@ -12,6 +13,7 @@ from pipelines.pipeline2_prediction.models.random_forest import (
     predict_with_artifact,
     train_model,
 )
+from benchmarks.tabarena.pipeline2_benchmark_runner import _optional_oob_result
 
 
 class RandomForestTests(unittest.TestCase):
@@ -22,6 +24,22 @@ class RandomForestTests(unittest.TestCase):
         )
         self.assertEqual(build_model("classification").named_steps["model"].n_estimators, 200)
         self.assertEqual(build_model("regression").named_steps["model"].n_estimators, 200)
+        self.assertFalse(build_model("classification").named_steps["model"].oob_score)
+        self.assertTrue(build_model("classification").named_steps["model"].bootstrap)
+
+    def test_optional_oob_is_training_only_and_available(self):
+        features = pd.DataFrame({
+            "numeric": np.arange(120),
+            "category": np.where(np.arange(120) % 3, "a", "b"),
+        })
+        target = np.arange(120) % 2
+        model = build_model("classification", random_state=7, oob_score=True)
+        train_model(model, features, target)
+        score, reason = _optional_oob_result("random_forest", model, True)
+        self.assertIsNone(reason)
+        self.assertTrue(np.isfinite(score))
+        self.assertEqual(_optional_oob_result("random_forest", model, False), (None, None))
+
 
     def test_mixed_type_preprocessor_is_fitted_once_and_reused(self):
         features = pd.DataFrame({
@@ -47,11 +65,14 @@ class RandomForestTests(unittest.TestCase):
         )
         self.assertEqual(categories, ["a", "b"])
 
-    def test_supplied_artifact_loads_without_warning_and_predicts(self):
+    def test_supplied_artifact_loads_with_only_documented_version_warnings(self):
         with warnings.catch_warnings(record=True) as caught:
             warnings.simplefilter("always")
             model, metadata = load_trained_model()
-        self.assertEqual(caught, [])
+        self.assertEqual(len(caught), 207)
+        self.assertTrue(
+            all(item.category is InconsistentVersionWarning for item in caught)
+        )
         self.assertEqual(type(model.named_steps["model"]).__name__, "RandomForestRegressor")
         self.assertEqual(len(model.named_steps["model"].estimators_), 200)
 

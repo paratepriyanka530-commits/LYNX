@@ -1,0 +1,687 @@
+{
+  "pipeline_version": "pipeline1_architecture_b_v001",
+  "run_id": "20260913T230648-e9ceb191",
+  "status": "success",
+  "original_dataset": {
+    "valid": true,
+    "file_name": "blood-transfusion-service-center.csv",
+    "file_format": ".csv",
+    "file_size_bytes": 12268,
+    "rows": 748,
+    "columns": 5,
+    "duplicate_columns": [],
+    "absolute_path": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\datasets\\blood-transfusion-service-center.csv",
+    "source_path": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\datasets\\blood-transfusion-service-center.csv",
+    "raw_dataset_overwritten": false
+  },
+  "before_profile": {
+    "shape": {
+      "rows": 748,
+      "columns": 5
+    },
+    "column_names": [
+      "MonthsSinceLastDonation",
+      "NumberOfDonations",
+      "TotalBloodDonated",
+      "MonthsSinceFirstDonation",
+      "DonatedBloodInMarch2007"
+    ],
+    "dtype_distribution": {
+      "int64": 4,
+      "object": 1
+    },
+    "missingness": {
+      "total_missing_cells": 0,
+      "overall_missing_percentage": 0.0
+    },
+    "duplicates": {
+      "exact_duplicate_rows": 215,
+      "percentage": 28.7433
+    },
+    "column_profiles": [
+      {
+        "column_name": "MonthsSinceLastDonation",
+        "physical_dtype": "int64",
+        "row_count": 748,
+        "non_null_count": 748,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 31,
+          "unique_ratio": 0.041444
+        },
+        "repetition": {
+          "repeated_unique_count": 21,
+          "repeated_occurrences": 738,
+          "repetition_rate": 0.986631
+        },
+        "sample_values": [
+          9,
+          25,
+          16,
+          11,
+          4
+        ],
+        "numeric_statistics": {
+          "min": 0,
+          "max": 74,
+          "mean": 9.506684491978609,
+          "median": 7.0,
+          "std": 8.095395635299214,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "NumberOfDonations",
+        "physical_dtype": "int64",
+        "row_count": 748,
+        "non_null_count": 748,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 33,
+          "unique_ratio": 0.044118
+        },
+        "repetition": {
+          "repeated_unique_count": 22,
+          "repeated_occurrences": 737,
+          "repetition_rate": 0.985294
+        },
+        "sample_values": [
+          4,
+          6,
+          3,
+          1,
+          7
+        ],
+        "numeric_statistics": {
+          "min": 1,
+          "max": 50,
+          "mean": 5.514705882352941,
+          "median": 4.0,
+          "std": 5.839307123090025,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "TotalBloodDonated",
+        "physical_dtype": "int64",
+        "row_count": 748,
+        "non_null_count": 748,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 33,
+          "unique_ratio": 0.044118
+        },
+        "repetition": {
+          "repeated_unique_count": 22,
+          "repeated_occurrences": 737,
+          "repetition_rate": 0.985294
+        },
+        "sample_values": [
+          1000,
+          1500,
+          750,
+          250,
+          1750
+        ],
+        "numeric_statistics": {
+          "min": 250,
+          "max": 12500,
+          "mean": 1378.6764705882354,
+          "median": 1000.0,
+          "std": 1459.8267807725063,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "MonthsSinceFirstDonation",
+        "physical_dtype": "int64",
+        "row_count": 748,
+        "non_null_count": 748,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 78,
+          "unique_ratio": 0.104278
+        },
+        "repetition": {
+          "repeated_unique_count": 70,
+          "repeated_occurrences": 740,
+          "repetition_rate": 0.989305
+        },
+        "sample_values": [
+          65,
+          50,
+          21,
+          11,
+          58
+        ],
+        "numeric_statistics": {
+          "min": 2,
+          "max": 98,
+          "mean": 34.282085561497325,
+          "median": 28.0,
+          "std": 24.376714368614188,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "DonatedBloodInMarch2007",
+        "physical_dtype": "object",
+        "row_count": 748,
+        "non_null_count": 748,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.002674
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 748,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "No",
+          "Yes"
+        ]
+      }
+    ]
+  },
+  "issues": [
+    {
+      "issue_id": "issue-exact_duplicate_rows-192ec5f83876",
+      "issue_type": "exact_duplicate_rows",
+      "target_columns": [],
+      "affected_count": 215,
+      "affected_percentage": 28.7433,
+      "evidence": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "examples": [
+        17,
+        43,
+        52,
+        72,
+        81
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    }
+  ],
+  "quality_summary": {
+    "total_issues_detected": 1,
+    "issues_by_type": {
+      "exact_duplicate_rows": 1
+    },
+    "issues_by_status": {
+      "issue": 1
+    },
+    "affected_columns": [],
+    "dataset_level_issue_count": 1
+  },
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": null,
+      "row_entity_confidence": 0.287433,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "MonthsSinceLastDonation",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Numeric representation of the duration in months since the last blood donation event.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column name 'MonthsSinceLastDonation' suggests a numeric measurement of time. The numeric_summary indicates a mean of 9.51 and a standard deviation of 8.09, suggesting a meaningful quantitative amount."
+      },
+      {
+        "column_name": "NumberOfDonations",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Numeric representation of the number of donations made by an individual.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column name 'NumberOfDonations' suggests a numeric measurement of the number of donations. The numeric_summary indicates a mean of 5.51 and a standard deviation of 5.84, suggesting a meaningful quantitative amount."
+      },
+      {
+        "column_name": "TotalBloodDonated",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Numeric representation of the total blood donated by an individual.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column name 'TotalBloodDonated' suggests a numeric measurement of the total blood donated. The numeric_summary indicates a mean of 1378.68 and a standard deviation of 1459.83, suggesting a meaningful quantitative amount."
+      },
+      {
+        "column_name": "MonthsSinceFirstDonation",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Numeric representation of the duration in months since the first blood donation event.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column name 'MonthsSinceFirstDonation' suggests a numeric measurement of time. The numeric_summary indicates a mean of 34.28 and a standard deviation of 24.38, suggesting a meaningful quantitative amount."
+      },
+      {
+        "column_name": "DonatedBloodInMarch2007",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "identifier",
+        "concept_description": "Numeric representation of whether blood was donated in March 2007, encoded as 1 for 'Yes' and 0 for 'No'.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column name 'DonatedBloodInMarch2007' suggests a categorical classification. The sample values indicate 'Yes' and 'No', and the numeric_summary indicates a mean of 0.5, suggesting a binary logical state."
+      }
+    ],
+    "warnings": [],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 1,
+      "total_llm_calls": 2,
+      "batch_sizes": [
+        5
+      ],
+      "dataset_semantic_runtime_seconds": 8.505314,
+      "batch_runtime_seconds": [
+        15.900583
+      ],
+      "rag_runtime_seconds": 0.06478,
+      "batch_failures": 0,
+      "batch_retries": 0,
+      "llm_calls": [
+        {
+          "stage": "dataset_context",
+          "api_wall_duration_seconds": 8.456692,
+          "prompt_eval_count": 1199,
+          "prompt_eval_duration": 530395999,
+          "eval_count": 106,
+          "eval_duration": 1992093000,
+          "total_duration": 6399180600,
+          "load_duration": 3831464200,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "api_wall_duration_seconds": 15.900499,
+          "prompt_eval_count": 1907,
+          "prompt_eval_duration": 979028000,
+          "eval_count": 673,
+          "eval_duration": 12770751000,
+          "total_duration": 13839024100,
+          "load_duration": 9664800,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 24.422355,
+      "semantic_contradiction_guard": {
+        "guard_version": "semantic_contradiction_guard_v001",
+        "deterministic": true,
+        "evaluated_column_count": 5,
+        "correction_count": 0,
+        "ambiguous_shape_overrides_enabled": false,
+        "entries": [
+          {
+            "column_name": "MonthsSinceLastDonation",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "MonthsSinceLastDonation",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of the duration in months since the last blood donation event.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'MonthsSinceLastDonation' suggests a numeric measurement of time. The numeric_summary indicates a mean of 9.51 and a standard deviation of 8.09, suggesting a meaningful quantitative amount."
+            },
+            "effective_semantic_result": {
+              "column_name": "MonthsSinceLastDonation",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of the duration in months since the last blood donation event.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'MonthsSinceLastDonation' suggests a numeric measurement of time. The numeric_summary indicates a mean of 9.51 and a standard deviation of 8.09, suggesting a meaningful quantitative amount."
+            }
+          },
+          {
+            "column_name": "NumberOfDonations",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "NumberOfDonations",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of the number of donations made by an individual.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'NumberOfDonations' suggests a numeric measurement of the number of donations. The numeric_summary indicates a mean of 5.51 and a standard deviation of 5.84, suggesting a meaningful quantitative amount."
+            },
+            "effective_semantic_result": {
+              "column_name": "NumberOfDonations",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of the number of donations made by an individual.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'NumberOfDonations' suggests a numeric measurement of the number of donations. The numeric_summary indicates a mean of 5.51 and a standard deviation of 5.84, suggesting a meaningful quantitative amount."
+            }
+          },
+          {
+            "column_name": "TotalBloodDonated",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "TotalBloodDonated",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of the total blood donated by an individual.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'TotalBloodDonated' suggests a numeric measurement of the total blood donated. The numeric_summary indicates a mean of 1378.68 and a standard deviation of 1459.83, suggesting a meaningful quantitative amount."
+            },
+            "effective_semantic_result": {
+              "column_name": "TotalBloodDonated",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of the total blood donated by an individual.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'TotalBloodDonated' suggests a numeric measurement of the total blood donated. The numeric_summary indicates a mean of 1378.68 and a standard deviation of 1459.83, suggesting a meaningful quantitative amount."
+            }
+          },
+          {
+            "column_name": "MonthsSinceFirstDonation",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "MonthsSinceFirstDonation",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of the duration in months since the first blood donation event.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'MonthsSinceFirstDonation' suggests a numeric measurement of time. The numeric_summary indicates a mean of 34.28 and a standard deviation of 24.38, suggesting a meaningful quantitative amount."
+            },
+            "effective_semantic_result": {
+              "column_name": "MonthsSinceFirstDonation",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric representation of the duration in months since the first blood donation event.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'MonthsSinceFirstDonation' suggests a numeric measurement of time. The numeric_summary indicates a mean of 34.28 and a standard deviation of 24.38, suggesting a meaningful quantitative amount."
+            }
+          },
+          {
+            "column_name": "DonatedBloodInMarch2007",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "DonatedBloodInMarch2007",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Numeric representation of whether blood was donated in March 2007, encoded as 1 for 'Yes' and 0 for 'No'.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'DonatedBloodInMarch2007' suggests a categorical classification. The sample values indicate 'Yes' and 'No', and the numeric_summary indicates a mean of 0.5, suggesting a binary logical state."
+            },
+            "effective_semantic_result": {
+              "column_name": "DonatedBloodInMarch2007",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "identifier",
+              "concept_description": "Numeric representation of whether blood was donated in March 2007, encoded as 1 for 'Yes' and 0 for 'No'.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'DonatedBloodInMarch2007' suggests a categorical classification. The sample values indicate 'Yes' and 'No', and the numeric_summary indicates a mean of 0.5, suggesting a binary logical state."
+            }
+          }
+        ]
+      }
+    }
+  },
+  "decision_summary": {
+    "total_decisions": 1,
+    "by_decision_type": {
+      "flag_for_review": 1
+    },
+    "by_proposed_action": {
+      "flag_rows": 1
+    },
+    "tier1_decisions": 1,
+    "tier2_decisions": 0,
+    "fallback_decisions": 0,
+    "deterministic_runtime_seconds": 6.3e-05,
+    "tier2_issue_count": 0,
+    "tier2_batch_sizes": [],
+    "tier2_batch_kinds": [],
+    "llm_decision_calls": 0,
+    "llm_runtime_seconds": 0.0,
+    "intended_llm_decision_calls": 0,
+    "retries": 0,
+    "successful_batches": 0,
+    "batch_failures": 0,
+    "fallback_issue_count": 0,
+    "tier2_recovery_audit": [],
+    "llm_calls": [],
+    "total_runtime_seconds": 9.3e-05,
+    "execution_routing": {
+      "detected_issue_count": 1,
+      "decision_count": 1,
+      "proposed_action_count": 0,
+      "compiled_instruction_count": 1,
+      "executed_action_count": 1,
+      "executed_trim_whitespace_count": 0,
+      "executed_normalize_categorical_labels_count": 0,
+      "skipped_action_count": 0,
+      "skipped_actions": [],
+      "parse_date_assessments": [],
+      "numeric_coercion_assessments": [],
+      "missing_value_assessments": [],
+      "impute_missing_proposal_count": 0,
+      "median_imputation_authorization_assessments": [],
+      "executed_impute_missing_count": 0,
+      "executed_coerce_dtype_count": 0,
+      "executed_parse_dates_count": 0
+    },
+    "privacy_actions": {
+      "reason": "masked for privacy",
+      "privacy_stage_completed": true,
+      "privacy_clearance_passed": true,
+      "excluded_from_quality_fix_metrics": true,
+      "pii_candidate_count": 0,
+      "pii_candidate_columns": [],
+      "masked_column_count": 0,
+      "masked_columns": [],
+      "masked_cell_count": 0,
+      "by_subtype": {},
+      "cleaned_dataset_sha256": "a7d58eb1485348877e5f6d57f8792f2f214756deddac926adb4a7b7497e6e698"
+    }
+  },
+  "decisions": [
+    {
+      "decision_id": "decision-issue-exact_duplicate_rows-192ec5f83876",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876"
+      ],
+      "target_columns": [],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Exact duplicate records may be legitimate repeated events; deletion is not automatic.",
+      "evidence_summary": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "semantic_basis": {},
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    }
+  ],
+  "instructions": [
+    {
+      "instruction_id": "instruction-decision-execution-safety-no-op",
+      "source_decision_id": "decision-execution-safety-no-op",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876"
+      ],
+      "action_id": "no_op",
+      "target_columns": [],
+      "parameters": {}
+    }
+  ],
+  "executions": [
+    {
+      "instruction_id": "instruction-decision-execution-safety-no-op",
+      "source_decision_id": "decision-execution-safety-no-op",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876"
+      ],
+      "action_id": "no_op",
+      "target_columns": [],
+      "status": "success",
+      "changed": false,
+      "changed_cell_count": 0,
+      "change_examples": [],
+      "rows_before": 748,
+      "rows_after": 748,
+      "columns_before": 5,
+      "columns_after": 5,
+      "message": "No changes were requested or applied.",
+      "error": null,
+      "audit_metadata": {}
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "no_unexpected_changes": true,
+    "dataframe_equal": true,
+    "row_count_equal": true,
+    "column_count_equal": true,
+    "missingness_equal": true,
+    "duplicate_row_count_equal": true,
+    "physical_dtypes_equal": true,
+    "cardinality_equal": true,
+    "unrelated_columns_equal": true,
+    "targeted_whitespace_improved": true,
+    "targeted_case_variants_improved": true,
+    "only_approved_value_changes": true,
+    "no_unexpected_categories": true,
+    "targeted_date_formats_improved": true,
+    "only_approved_date_changes": true,
+    "expected_dtype_changes_only": true,
+    "only_approved_numeric_changes": true,
+    "only_approved_privacy_changes": true,
+    "null_positions_equal": true,
+    "targeted_mixed_numeric_improved": true,
+    "only_approved_imputation_changes": true,
+    "expected_missingness_changes_only": true,
+    "imputed_cell_count": 0,
+    "imputation_audit": [],
+    "newly_introduced_null_count": 0,
+    "changed_cell_count": 0,
+    "before_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1
+      },
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {},
+      "date_format_affected_cells_by_column": {},
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "after_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1
+      },
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {},
+      "date_format_affected_cells_by_column": {},
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "before_summary": {
+      "row_count": 748,
+      "column_count": 5,
+      "total_missing_cells": 0,
+      "duplicate_row_count": 215,
+      "physical_dtypes": {
+        "MonthsSinceLastDonation": "int64",
+        "NumberOfDonations": "int64",
+        "TotalBloodDonated": "int64",
+        "MonthsSinceFirstDonation": "int64",
+        "DonatedBloodInMarch2007": "object"
+      },
+      "cardinality": {
+        "MonthsSinceLastDonation": 31,
+        "NumberOfDonations": 33,
+        "TotalBloodDonated": 33,
+        "MonthsSinceFirstDonation": 78,
+        "DonatedBloodInMarch2007": 2
+      }
+    },
+    "after_summary": {
+      "row_count": 748,
+      "column_count": 5,
+      "total_missing_cells": 0,
+      "duplicate_row_count": 215,
+      "physical_dtypes": {
+        "MonthsSinceLastDonation": "int64",
+        "NumberOfDonations": "int64",
+        "TotalBloodDonated": "int64",
+        "MonthsSinceFirstDonation": "int64",
+        "DonatedBloodInMarch2007": "object"
+      },
+      "cardinality": {
+        "MonthsSinceLastDonation": 31,
+        "NumberOfDonations": 33,
+        "TotalBloodDonated": 33,
+        "MonthsSinceFirstDonation": 78,
+        "DonatedBloodInMarch2007": 2
+      }
+    },
+    "warnings": []
+  },
+  "warnings": [],
+  "output_artifacts": {
+    "cleaned_dataset": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\pipeline1_outputs\\363621\\cleaned_dataset.csv",
+    "cleaning_report": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\pipeline1_outputs\\363621\\cleaning_report.json",
+    "cleaned_dataset_format": "csv"
+  }
+}

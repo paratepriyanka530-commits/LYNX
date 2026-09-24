@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363681",
+  "dataset_name": "in_vehicle_coupon_recommendation",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:24:13+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "in_vehicle_coupon_recommendation",
+    "task_type": "classification",
+    "target_column": "AcceptCoupon",
+    "row_count": 12684,
+    "feature_count": 24,
+    "feature_type_counts": {
+      "numeric": 7,
+      "categorical": 17,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "destination",
+      "passenger",
+      "weather",
+      "temperature",
+      "time",
+      "coupon",
+      "expiration",
+      "gender",
+      "age",
+      "maritalStatus",
+      "has_children",
+      "education",
+      "occupation",
+      "income",
+      "car",
+      "Bar",
+      "CoffeeHouse",
+      "CarryAway",
+      "RestaurantLessThan20",
+      "Restaurant20To50",
+      "toCoupon_GEQ15min",
+      "toCoupon_GEQ25min",
+      "direction_same",
+      "direction_opp"
+    ],
+    "representative_feature_name_count": 24,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "Retail",
+    "subdomain": "Customer Behavior",
+    "dataset_purpose": "Predict customer coupon acceptance",
+    "row_entity": "Customer",
+    "target_concept": "Coupon acceptance",
+    "feature_context": [
+      "Customer demographics",
+      "Travel context",
+      "Coupon details",
+      "Restaurant preferences"
+    ],
+    "semantic_summary": "A retail dataset predicting whether a customer will accept a coupon based on demographic, travel, and coupon information.",
+    "domain_confidence": 0.85
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 28.203336,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:24:13.444743Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 26155212100,
+      "load_duration": 9406900,
+      "prompt_eval_count": 515,
+      "prompt_eval_duration": 726176000,
+      "eval_count": 111,
+      "eval_duration": 25357170000
+    }
+  }
+}

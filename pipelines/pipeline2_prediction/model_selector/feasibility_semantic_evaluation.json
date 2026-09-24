@@ -1,0 +1,2024 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-14T19:11:17+00:00",
+  "hypothesis": "Structural information is more useful as a model-feasibility filter (F+D) than as a predictive feature concatenated with semantic features (S+D).",
+  "evaluation_protocol": "Leave-One-Dataset-Out (LODO) across 51 datasets",
+  "feasibility_rule_source": "pipelines/pipeline2_prediction/inputs/model_capabilities.json",
+  "comparison_summary": {
+    "S": {
+      "top1_accuracy_pct": 35.294117647058826,
+      "top2_accuracy_pct": 49.01960784313725,
+      "mean_normalized_regret": 0.26002989635172535
+    },
+    "D": {
+      "top1_accuracy_pct": 39.21568627450981,
+      "top2_accuracy_pct": 62.745098039215684,
+      "mean_normalized_regret": 0.25930565187816207
+    },
+    "S+D": {
+      "top1_accuracy_pct": 35.294117647058826,
+      "top2_accuracy_pct": 56.86274509803921,
+      "mean_normalized_regret": 0.24697191287733694
+    },
+    "F+D": {
+      "top1_accuracy_pct": 35.294117647058826,
+      "top2_accuracy_pct": 45.09803921568628,
+      "mean_normalized_regret": 0.27965720090223295,
+      "percentage_datasets_filtered": 56.86274509803921,
+      "mean_candidates_removed": 1.4901960784313726,
+      "oracle_filter_rate": 19.607843137254903
+    }
+  },
+  "fd_summary": {
+    "datasets_evaluated": 51,
+    "top1_accuracy": 18,
+    "top1_accuracy_pct": 35.294117647058826,
+    "top2_accuracy": 23,
+    "top2_accuracy_pct": 45.09803921568628,
+    "mean_regret": 34.3193631320943,
+    "mean_normalized_regret": 0.27965720090223295,
+    "percentage_of_datasets_with_filtered_candidate": 56.86274509803921,
+    "mean_number_of_candidates_removed": 1.4901960784313726,
+    "oracle_filtered_count": 10,
+    "oracle_filter_rate": 19.607843137254903
+  },
+  "evaluations_by_dataset": [
+    {
+      "dataset_id": 363612,
+      "dataset_name": "airfoil_self_noise",
+      "task_type": "regression",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 6,
+      "filtered_models": [
+        "tabpfn",
+        "lightgbm",
+        "xgboost",
+        "catboost"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Task type 'regression' not in supported_task_types ['classification']",
+        "lightgbm": "Task type 'regression' not in supported_task_types ['classification']",
+        "xgboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "catboost": "Task type 'regression' not in supported_task_types ['classification']"
+      },
+      "actual_benchmark_best_model": "tabpfn",
+      "whether_oracle_successful_model_filtered": true,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "lightgbm",
+        "xgboost",
+        "tabm",
+        "random_forest",
+        "catboost",
+        "realmlp",
+        "ft_transformer",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "tabm",
+        "random_forest",
+        "realmlp",
+        "ft_transformer",
+        "xtab"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.20832988377432793,
+      "normalized_regret": 0.16616799734600896
+    },
+    {
+      "dataset_id": 363613,
+      "dataset_name": "Amazon_employee_access",
+      "task_type": "classification",
+      "original_candidate_count": 9,
+      "feasible_candidate_count": 9,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "random_forest",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabiclv2",
+        "xgboost",
+        "catboost",
+        "lightgbm",
+        "tabm",
+        "realmlp",
+        "random_forest",
+        "ft_transformer",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "xgboost",
+        "catboost",
+        "lightgbm",
+        "tabm",
+        "realmlp",
+        "random_forest",
+        "ft_transformer",
+        "xtab"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.022474869943277187,
+      "normalized_regret": 0.12738150881161328
+    },
+    {
+      "dataset_id": 363614,
+      "dataset_name": "anneal",
+      "task_type": "classification",
+      "original_candidate_count": 7,
+      "feasible_candidate_count": 6,
+      "filtered_models": [
+        "catboost"
+      ],
+      "reason_each_model_filtered": {
+        "catboost": "Class count (5) exceeds max_classes (2)"
+      },
+      "actual_benchmark_best_model": "random_forest",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "tabm",
+        "realmlp",
+        "random_forest",
+        "ft_transformer",
+        "catboost"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "tabm",
+        "realmlp",
+        "random_forest",
+        "ft_transformer"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363615,
+      "dataset_name": "Another-Dataset-on-used-Fiat-500",
+      "task_type": "regression",
+      "original_candidate_count": 9,
+      "feasible_candidate_count": 5,
+      "filtered_models": [
+        "lightgbm",
+        "catboost",
+        "tabpfn",
+        "xgboost"
+      ],
+      "reason_each_model_filtered": {
+        "lightgbm": "Task type 'regression' not in supported_task_types ['classification']",
+        "catboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "tabpfn": "Task type 'regression' not in supported_task_types ['classification']",
+        "xgboost": "Task type 'regression' not in supported_task_types ['classification']"
+      },
+      "actual_benchmark_best_model": "tabiclv2",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "lightgbm",
+        "catboost",
+        "realmlp",
+        "tabpfn",
+        "tabm",
+        "xgboost",
+        "tabiclv2",
+        "random_forest",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "realmlp",
+        "tabm",
+        "tabiclv2",
+        "random_forest",
+        "ft_transformer"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 52.5510994064108,
+      "normalized_regret": 0.7169917764046074
+    },
+    {
+      "dataset_id": 363616,
+      "dataset_name": "APSFailure",
+      "task_type": "classification",
+      "original_candidate_count": 6,
+      "feasible_candidate_count": 6,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "lightgbm",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "catboost",
+        "lightgbm",
+        "xgboost",
+        "tabm",
+        "ft_transformer",
+        "random_forest"
+      ],
+      "final_ranking_after_filtering": [
+        "catboost",
+        "lightgbm",
+        "xgboost",
+        "tabm",
+        "ft_transformer",
+        "random_forest"
+      ],
+      "top1_correct": false,
+      "top2_correct": true,
+      "regret": 0.009358915791076727,
+      "normalized_regret": 0.3657462508926493
+    },
+    {
+      "dataset_id": 363618,
+      "dataset_name": "bank-marketing",
+      "task_type": "classification",
+      "original_candidate_count": 8,
+      "feasible_candidate_count": 8,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "random_forest",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "xgboost",
+        "catboost",
+        "lightgbm",
+        "realmlp",
+        "random_forest",
+        "ft_transformer",
+        "tabm",
+        "tabiclv2"
+      ],
+      "final_ranking_after_filtering": [
+        "xgboost",
+        "catboost",
+        "lightgbm",
+        "realmlp",
+        "random_forest",
+        "ft_transformer",
+        "tabm",
+        "tabiclv2"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.008923749989642626,
+      "normalized_regret": 0.3925692564049131
+    },
+    {
+      "dataset_id": 363619,
+      "dataset_name": "Bank_Customer_Churn",
+      "task_type": "classification",
+      "original_candidate_count": 9,
+      "feasible_candidate_count": 9,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "tabpfn",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "catboost",
+        "xgboost",
+        "lightgbm",
+        "tabm",
+        "random_forest",
+        "realmlp",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "catboost",
+        "xgboost",
+        "lightgbm",
+        "tabm",
+        "random_forest",
+        "realmlp",
+        "ft_transformer"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363620,
+      "dataset_name": "Bioresponse",
+      "task_type": "classification",
+      "original_candidate_count": 6,
+      "feasible_candidate_count": 5,
+      "filtered_models": [
+        "tabpfn"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Dataset features (1776) exceeds max_features (500)"
+      },
+      "actual_benchmark_best_model": "xgboost",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabm",
+        "random_forest",
+        "xgboost",
+        "lightgbm",
+        "catboost"
+      ],
+      "final_ranking_after_filtering": [
+        "tabm",
+        "random_forest",
+        "xgboost",
+        "lightgbm",
+        "catboost"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.018670361693617465,
+      "normalized_regret": 1.0
+    },
+    {
+      "dataset_id": 363621,
+      "dataset_name": "blood-transfusion-service-center",
+      "task_type": "classification",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 10,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "xtab",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "catboost",
+        "lightgbm",
+        "xgboost",
+        "random_forest",
+        "tabm",
+        "realmlp",
+        "ft_transformer",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "catboost",
+        "lightgbm",
+        "xgboost",
+        "random_forest",
+        "tabm",
+        "realmlp",
+        "ft_transformer",
+        "xtab"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.03801169590643283,
+      "normalized_regret": 0.5416666666666679
+    },
+    {
+      "dataset_id": 363623,
+      "dataset_name": "churn",
+      "task_type": "classification",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 10,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "tabpfn",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "catboost",
+        "lightgbm",
+        "xgboost",
+        "random_forest",
+        "tabm",
+        "realmlp",
+        "ft_transformer",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "catboost",
+        "lightgbm",
+        "xgboost",
+        "random_forest",
+        "tabm",
+        "realmlp",
+        "ft_transformer",
+        "xtab"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363624,
+      "dataset_name": "coil2000_insurance_policies",
+      "task_type": "classification",
+      "original_candidate_count": 9,
+      "feasible_candidate_count": 9,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "xgboost",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "catboost",
+        "xgboost",
+        "lightgbm",
+        "tabpfn",
+        "tabiclv2",
+        "random_forest",
+        "realmlp",
+        "tabm",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "catboost",
+        "xgboost",
+        "lightgbm",
+        "tabpfn",
+        "tabiclv2",
+        "random_forest",
+        "realmlp",
+        "tabm",
+        "ft_transformer"
+      ],
+      "top1_correct": false,
+      "top2_correct": true,
+      "regret": 0.00692363192363199,
+      "normalized_regret": 0.3710037174721219
+    },
+    {
+      "dataset_id": 363625,
+      "dataset_name": "concrete_compressive_strength",
+      "task_type": "regression",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 6,
+      "filtered_models": [
+        "tabpfn",
+        "lightgbm",
+        "xgboost",
+        "catboost"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Task type 'regression' not in supported_task_types ['classification']",
+        "lightgbm": "Task type 'regression' not in supported_task_types ['classification']",
+        "xgboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "catboost": "Task type 'regression' not in supported_task_types ['classification']"
+      },
+      "actual_benchmark_best_model": "tabiclv2",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "lightgbm",
+        "xgboost",
+        "tabm",
+        "catboost",
+        "realmlp",
+        "random_forest",
+        "ft_transformer",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "tabm",
+        "realmlp",
+        "random_forest",
+        "ft_transformer",
+        "xtab"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363626,
+      "dataset_name": "credit-g",
+      "task_type": "classification",
+      "original_candidate_count": 9,
+      "feasible_candidate_count": 9,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "catboost",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "xgboost",
+        "catboost",
+        "lightgbm",
+        "random_forest",
+        "tabm",
+        "realmlp",
+        "ft_transformer",
+        "tabiclv2",
+        "tabpfn"
+      ],
+      "final_ranking_after_filtering": [
+        "xgboost",
+        "catboost",
+        "lightgbm",
+        "random_forest",
+        "tabm",
+        "realmlp",
+        "ft_transformer",
+        "tabiclv2",
+        "tabpfn"
+      ],
+      "top1_correct": false,
+      "top2_correct": true,
+      "regret": 0.052380952380952306,
+      "normalized_regret": 0.25730994152046754
+    },
+    {
+      "dataset_id": 363627,
+      "dataset_name": "credit_card_clients_default",
+      "task_type": "classification",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 9,
+      "filtered_models": [
+        "tabpfn"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Dataset rows (30000) exceeds max_train_rows (10000)"
+      },
+      "actual_benchmark_best_model": "ft_transformer",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "catboost",
+        "xgboost",
+        "lightgbm",
+        "random_forest",
+        "realmlp",
+        "tabm",
+        "ft_transformer",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "catboost",
+        "xgboost",
+        "lightgbm",
+        "random_forest",
+        "realmlp",
+        "tabm",
+        "ft_transformer",
+        "xtab"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.018778449722636648,
+      "normalized_regret": 0.9314602247730278
+    },
+    {
+      "dataset_id": 363628,
+      "dataset_name": "customer_satisfaction_in_airline",
+      "task_type": "classification",
+      "original_candidate_count": 6,
+      "feasible_candidate_count": 6,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "tabm",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "catboost",
+        "xgboost",
+        "lightgbm",
+        "random_forest",
+        "tabm",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "catboost",
+        "xgboost",
+        "lightgbm",
+        "random_forest",
+        "tabm",
+        "ft_transformer"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.0065901072943919115,
+      "normalized_regret": 0.8293613079548242
+    },
+    {
+      "dataset_id": 363629,
+      "dataset_name": "diabetes",
+      "task_type": "classification",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 10,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "catboost",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "lightgbm",
+        "xgboost",
+        "catboost",
+        "realmlp",
+        "tabm",
+        "random_forest",
+        "xtab",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "lightgbm",
+        "xgboost",
+        "catboost",
+        "realmlp",
+        "tabm",
+        "random_forest",
+        "xtab",
+        "ft_transformer"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.032037037037037086,
+      "normalized_regret": 0.5924657534246575
+    },
+    {
+      "dataset_id": 363630,
+      "dataset_name": "Diabetes130US",
+      "task_type": "classification",
+      "original_candidate_count": 4,
+      "feasible_candidate_count": 4,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "catboost",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "catboost",
+        "random_forest",
+        "tabm",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "catboost",
+        "random_forest",
+        "tabm",
+        "ft_transformer"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363631,
+      "dataset_name": "diamonds",
+      "task_type": "regression",
+      "original_candidate_count": 8,
+      "feasible_candidate_count": 5,
+      "filtered_models": [
+        "catboost",
+        "lightgbm",
+        "xgboost"
+      ],
+      "reason_each_model_filtered": {
+        "catboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "lightgbm": "Task type 'regression' not in supported_task_types ['classification']",
+        "xgboost": "Task type 'regression' not in supported_task_types ['classification']"
+      },
+      "actual_benchmark_best_model": "tabiclv2",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabiclv2",
+        "catboost",
+        "lightgbm",
+        "xgboost",
+        "tabm",
+        "ft_transformer",
+        "random_forest",
+        "realmlp"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "tabm",
+        "ft_transformer",
+        "random_forest",
+        "realmlp"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363632,
+      "dataset_name": "E-CommereShippingData",
+      "task_type": "classification",
+      "original_candidate_count": 9,
+      "feasible_candidate_count": 8,
+      "filtered_models": [
+        "tabpfn"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Dataset rows (10999) exceeds max_train_rows (10000)"
+      },
+      "actual_benchmark_best_model": "tabpfn",
+      "whether_oracle_successful_model_filtered": true,
+      "d_ranking_before_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "lightgbm",
+        "random_forest",
+        "xgboost",
+        "catboost",
+        "tabm",
+        "realmlp",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "lightgbm",
+        "random_forest",
+        "xgboost",
+        "catboost",
+        "tabm",
+        "realmlp",
+        "ft_transformer"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.0003808073115004751,
+      "normalized_regret": 0.004270582571016942
+    },
+    {
+      "dataset_id": 363671,
+      "dataset_name": "Fitness_Club",
+      "task_type": "classification",
+      "original_candidate_count": 9,
+      "feasible_candidate_count": 9,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "realmlp",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "lightgbm",
+        "xgboost",
+        "catboost",
+        "realmlp",
+        "tabm",
+        "random_forest",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "lightgbm",
+        "xgboost",
+        "catboost",
+        "realmlp",
+        "tabm",
+        "random_forest",
+        "ft_transformer"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.04201062095798935,
+      "normalized_regret": 0.9258400926998818
+    },
+    {
+      "dataset_id": 363672,
+      "dataset_name": "Food_Delivery_Time",
+      "task_type": "regression",
+      "original_candidate_count": 8,
+      "feasible_candidate_count": 5,
+      "filtered_models": [
+        "xgboost",
+        "lightgbm",
+        "catboost"
+      ],
+      "reason_each_model_filtered": {
+        "xgboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "lightgbm": "Task type 'regression' not in supported_task_types ['classification']",
+        "catboost": "Task type 'regression' not in supported_task_types ['classification']"
+      },
+      "actual_benchmark_best_model": "xgboost",
+      "whether_oracle_successful_model_filtered": true,
+      "d_ranking_before_filtering": [
+        "tabiclv2",
+        "xgboost",
+        "lightgbm",
+        "tabm",
+        "catboost",
+        "realmlp",
+        "random_forest",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "tabm",
+        "realmlp",
+        "random_forest",
+        "ft_transformer"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.1855462546209834,
+      "normalized_regret": 0.2959817958515749
+    },
+    {
+      "dataset_id": 363673,
+      "dataset_name": "GiveMeSomeCredit",
+      "task_type": "classification",
+      "original_candidate_count": 7,
+      "feasible_candidate_count": 7,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "xgboost",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "catboost",
+        "xgboost",
+        "lightgbm",
+        "random_forest",
+        "tabm",
+        "xtab",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "catboost",
+        "xgboost",
+        "lightgbm",
+        "random_forest",
+        "tabm",
+        "xtab",
+        "ft_transformer"
+      ],
+      "top1_correct": false,
+      "top2_correct": true,
+      "regret": 0.005717132423451177,
+      "normalized_regret": 0.11741616920383527
+    },
+    {
+      "dataset_id": 363674,
+      "dataset_name": "hazelnut-spread-contaminant-detection",
+      "task_type": "classification",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 10,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "tabpfn",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "tabm",
+        "catboost",
+        "realmlp",
+        "xgboost",
+        "lightgbm",
+        "random_forest",
+        "ft_transformer",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "tabm",
+        "catboost",
+        "realmlp",
+        "xgboost",
+        "lightgbm",
+        "random_forest",
+        "ft_transformer",
+        "xtab"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363675,
+      "dataset_name": "healthcare_insurance_expenses",
+      "task_type": "regression",
+      "original_candidate_count": 9,
+      "feasible_candidate_count": 5,
+      "filtered_models": [
+        "tabpfn",
+        "lightgbm",
+        "xgboost",
+        "catboost"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Task type 'regression' not in supported_task_types ['classification']",
+        "lightgbm": "Task type 'regression' not in supported_task_types ['classification']",
+        "xgboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "catboost": "Task type 'regression' not in supported_task_types ['classification']"
+      },
+      "actual_benchmark_best_model": "tabpfn",
+      "whether_oracle_successful_model_filtered": true,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "lightgbm",
+        "xgboost",
+        "catboost",
+        "ft_transformer",
+        "tabm",
+        "realmlp",
+        "random_forest"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "ft_transformer",
+        "tabm",
+        "realmlp",
+        "random_forest"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 85.70687616796931,
+      "normalized_regret": 0.1104482955299538
+    },
+    {
+      "dataset_id": 363676,
+      "dataset_name": "heloc",
+      "task_type": "classification",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 9,
+      "filtered_models": [
+        "tabpfn"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Dataset rows (10459) exceeds max_train_rows (10000)"
+      },
+      "actual_benchmark_best_model": "tabiclv2",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "catboost",
+        "tabiclv2",
+        "xgboost",
+        "realmlp",
+        "lightgbm",
+        "xtab",
+        "random_forest",
+        "tabm",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "catboost",
+        "tabiclv2",
+        "xgboost",
+        "realmlp",
+        "lightgbm",
+        "xtab",
+        "random_forest",
+        "tabm",
+        "ft_transformer"
+      ],
+      "top1_correct": false,
+      "top2_correct": true,
+      "regret": 0.008705128205128254,
+      "normalized_regret": 0.5068785325797194
+    },
+    {
+      "dataset_id": 363677,
+      "dataset_name": "hiva_agnostic",
+      "task_type": "classification",
+      "original_candidate_count": 6,
+      "feasible_candidate_count": 2,
+      "filtered_models": [
+        "tabpfn",
+        "xgboost",
+        "lightgbm",
+        "catboost"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Dataset features (1617) exceeds max_features (500)",
+        "xgboost": "Class count (3) exceeds max_classes (2)",
+        "lightgbm": "Class count (3) exceeds max_classes (2)",
+        "catboost": "Class count (3) exceeds max_classes (2)"
+      },
+      "actual_benchmark_best_model": "random_forest",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "random_forest",
+        "tabpfn",
+        "xgboost",
+        "lightgbm",
+        "tabm",
+        "catboost"
+      ],
+      "final_ranking_after_filtering": [
+        "random_forest",
+        "tabm"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363678,
+      "dataset_name": "houses",
+      "task_type": "regression",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 6,
+      "filtered_models": [
+        "tabpfn",
+        "catboost",
+        "xgboost",
+        "lightgbm"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Task type 'regression' not in supported_task_types ['classification']",
+        "catboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "xgboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "lightgbm": "Task type 'regression' not in supported_task_types ['classification']"
+      },
+      "actual_benchmark_best_model": "tabpfn",
+      "whether_oracle_successful_model_filtered": true,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "tabm",
+        "catboost",
+        "xgboost",
+        "realmlp",
+        "ft_transformer",
+        "lightgbm",
+        "random_forest",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "tabm",
+        "realmlp",
+        "ft_transformer",
+        "random_forest",
+        "xtab"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.0028989240774956737,
+      "normalized_regret": 0.03105744891804969
+    },
+    {
+      "dataset_id": 363679,
+      "dataset_name": "HR_Analytics_Job_Change_of_Data_Scientists",
+      "task_type": "classification",
+      "original_candidate_count": 9,
+      "feasible_candidate_count": 8,
+      "filtered_models": [
+        "tabpfn"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Dataset rows (19158) exceeds max_train_rows (10000)"
+      },
+      "actual_benchmark_best_model": "tabiclv2",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "realmlp",
+        "tabm",
+        "lightgbm",
+        "catboost",
+        "xgboost",
+        "ft_transformer",
+        "random_forest"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "realmlp",
+        "tabm",
+        "lightgbm",
+        "catboost",
+        "xgboost",
+        "ft_transformer",
+        "random_forest"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363681,
+      "dataset_name": "in_vehicle_coupon_recommendation",
+      "task_type": "classification",
+      "original_candidate_count": 9,
+      "feasible_candidate_count": 8,
+      "filtered_models": [
+        "tabpfn"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Dataset rows (12684) exceeds max_train_rows (10000)"
+      },
+      "actual_benchmark_best_model": "tabiclv2",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "catboost",
+        "lightgbm",
+        "tabm",
+        "xgboost",
+        "realmlp",
+        "random_forest",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "catboost",
+        "lightgbm",
+        "tabm",
+        "xgboost",
+        "realmlp",
+        "random_forest",
+        "ft_transformer"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363682,
+      "dataset_name": "Is-this-a-good-customer",
+      "task_type": "classification",
+      "original_candidate_count": 9,
+      "feasible_candidate_count": 9,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "lightgbm",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "catboost",
+        "xgboost",
+        "tabpfn",
+        "lightgbm",
+        "tabiclv2",
+        "random_forest",
+        "realmlp",
+        "tabm",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "catboost",
+        "xgboost",
+        "tabpfn",
+        "lightgbm",
+        "tabiclv2",
+        "random_forest",
+        "realmlp",
+        "tabm",
+        "ft_transformer"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.06548516842634489,
+      "normalized_regret": 0.7594752186588918
+    },
+    {
+      "dataset_id": 363683,
+      "dataset_name": "kddcup09_appetency",
+      "task_type": "classification",
+      "original_candidate_count": 2,
+      "feasible_candidate_count": 2,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "catboost",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "catboost",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "catboost",
+        "ft_transformer"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363684,
+      "dataset_name": "Marketing_Campaign",
+      "task_type": "classification",
+      "original_candidate_count": 6,
+      "feasible_candidate_count": 6,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "tabpfn",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "catboost",
+        "tabm",
+        "realmlp",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "catboost",
+        "tabm",
+        "realmlp",
+        "ft_transformer"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363685,
+      "dataset_name": "maternal_health_risk",
+      "task_type": "classification",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 7,
+      "filtered_models": [
+        "xgboost",
+        "lightgbm",
+        "catboost"
+      ],
+      "reason_each_model_filtered": {
+        "xgboost": "Class count (3) exceeds max_classes (2)",
+        "lightgbm": "Class count (3) exceeds max_classes (2)",
+        "catboost": "Class count (3) exceeds max_classes (2)"
+      },
+      "actual_benchmark_best_model": "tabiclv2",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "xgboost",
+        "lightgbm",
+        "catboost",
+        "random_forest",
+        "realmlp",
+        "tabm",
+        "ft_transformer",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "random_forest",
+        "realmlp",
+        "tabm",
+        "ft_transformer",
+        "xtab"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363686,
+      "dataset_name": "miami_housing",
+      "task_type": "regression",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 6,
+      "filtered_models": [
+        "tabpfn",
+        "catboost",
+        "xgboost",
+        "lightgbm"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Task type 'regression' not in supported_task_types ['classification']",
+        "catboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "xgboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "lightgbm": "Task type 'regression' not in supported_task_types ['classification']"
+      },
+      "actual_benchmark_best_model": "tabpfn",
+      "whether_oracle_successful_model_filtered": true,
+      "d_ranking_before_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "catboost",
+        "tabm",
+        "xgboost",
+        "lightgbm",
+        "random_forest",
+        "realmlp",
+        "ft_transformer",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "tabm",
+        "random_forest",
+        "realmlp",
+        "ft_transformer",
+        "xtab"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 1610.7919380292005,
+      "normalized_regret": 0.04649385568534382
+    },
+    {
+      "dataset_id": 363689,
+      "dataset_name": "NATICUSdroid",
+      "task_type": "classification",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 10,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "tabiclv2",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "lightgbm",
+        "xgboost",
+        "catboost",
+        "random_forest",
+        "realmlp",
+        "tabm",
+        "ft_transformer",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "lightgbm",
+        "xgboost",
+        "catboost",
+        "random_forest",
+        "realmlp",
+        "tabm",
+        "ft_transformer",
+        "xtab"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363691,
+      "dataset_name": "online_shoppers_intention",
+      "task_type": "classification",
+      "original_candidate_count": 9,
+      "feasible_candidate_count": 8,
+      "filtered_models": [
+        "tabpfn"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Dataset rows (12330) exceeds max_train_rows (10000)"
+      },
+      "actual_benchmark_best_model": "tabpfn",
+      "whether_oracle_successful_model_filtered": true,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "tabm",
+        "catboost",
+        "lightgbm",
+        "random_forest",
+        "realmlp",
+        "xgboost",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "tabm",
+        "catboost",
+        "lightgbm",
+        "random_forest",
+        "realmlp",
+        "xgboost",
+        "ft_transformer"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.007373556692224947,
+      "normalized_regret": 0.29391147606649043
+    },
+    {
+      "dataset_id": 363693,
+      "dataset_name": "physiochemical_protein",
+      "task_type": "regression",
+      "original_candidate_count": 9,
+      "feasible_candidate_count": 6,
+      "filtered_models": [
+        "xgboost",
+        "catboost",
+        "lightgbm"
+      ],
+      "reason_each_model_filtered": {
+        "xgboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "catboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "lightgbm": "Task type 'regression' not in supported_task_types ['classification']"
+      },
+      "actual_benchmark_best_model": "tabiclv2",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabiclv2",
+        "tabm",
+        "realmlp",
+        "random_forest",
+        "xgboost",
+        "catboost",
+        "lightgbm",
+        "ft_transformer",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "tabm",
+        "realmlp",
+        "random_forest",
+        "ft_transformer",
+        "xtab"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363694,
+      "dataset_name": "polish_companies_bankruptcy",
+      "task_type": "classification",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 10,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "tabpfn",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "xgboost",
+        "catboost",
+        "lightgbm",
+        "ft_transformer",
+        "random_forest",
+        "realmlp",
+        "tabm",
+        "tabpfn",
+        "tabiclv2",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "xgboost",
+        "catboost",
+        "lightgbm",
+        "ft_transformer",
+        "random_forest",
+        "realmlp",
+        "tabm",
+        "tabpfn",
+        "tabiclv2",
+        "xtab"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.1097560975609756,
+      "normalized_regret": 0.30547070258261594
+    },
+    {
+      "dataset_id": 363696,
+      "dataset_name": "qsar-biodeg",
+      "task_type": "classification",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 10,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "xgboost",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "catboost",
+        "random_forest",
+        "lightgbm",
+        "xgboost",
+        "tabm",
+        "realmlp",
+        "ft_transformer",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "catboost",
+        "random_forest",
+        "lightgbm",
+        "xgboost",
+        "tabm",
+        "realmlp",
+        "ft_transformer",
+        "xtab"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.02826961770623737,
+      "normalized_regret": 1.0
+    },
+    {
+      "dataset_id": 363697,
+      "dataset_name": "QSAR-TID-11",
+      "task_type": "regression",
+      "original_candidate_count": 6,
+      "feasible_candidate_count": 2,
+      "filtered_models": [
+        "tabpfn",
+        "catboost",
+        "xgboost",
+        "lightgbm"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Task type 'regression' not in supported_task_types ['classification']",
+        "catboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "xgboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "lightgbm": "Task type 'regression' not in supported_task_types ['classification']"
+      },
+      "actual_benchmark_best_model": "tabpfn",
+      "whether_oracle_successful_model_filtered": true,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "catboost",
+        "xgboost",
+        "lightgbm",
+        "random_forest",
+        "tabm"
+      ],
+      "final_ranking_after_filtering": [
+        "random_forest",
+        "tabm"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.04736073401881169,
+      "normalized_regret": 0.4463904248726747
+    },
+    {
+      "dataset_id": 363698,
+      "dataset_name": "QSAR_fish_toxicity",
+      "task_type": "regression",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 6,
+      "filtered_models": [
+        "tabpfn",
+        "lightgbm",
+        "xgboost",
+        "catboost"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Task type 'regression' not in supported_task_types ['classification']",
+        "lightgbm": "Task type 'regression' not in supported_task_types ['classification']",
+        "xgboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "catboost": "Task type 'regression' not in supported_task_types ['classification']"
+      },
+      "actual_benchmark_best_model": "tabpfn",
+      "whether_oracle_successful_model_filtered": true,
+      "d_ranking_before_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "random_forest",
+        "tabm",
+        "lightgbm",
+        "xgboost",
+        "realmlp",
+        "catboost",
+        "ft_transformer",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "random_forest",
+        "tabm",
+        "realmlp",
+        "ft_transformer",
+        "xtab"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.042994718774629126,
+      "normalized_regret": 0.26947026130333757
+    },
+    {
+      "dataset_id": 363699,
+      "dataset_name": "SDSS17",
+      "task_type": "classification",
+      "original_candidate_count": 9,
+      "feasible_candidate_count": 6,
+      "filtered_models": [
+        "xgboost",
+        "lightgbm",
+        "catboost"
+      ],
+      "reason_each_model_filtered": {
+        "xgboost": "Class count (3) exceeds max_classes (2)",
+        "lightgbm": "Class count (3) exceeds max_classes (2)",
+        "catboost": "Class count (3) exceeds max_classes (2)"
+      },
+      "actual_benchmark_best_model": "tabiclv2",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabiclv2",
+        "xgboost",
+        "lightgbm",
+        "catboost",
+        "random_forest",
+        "tabm",
+        "realmlp",
+        "ft_transformer",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "random_forest",
+        "tabm",
+        "realmlp",
+        "ft_transformer",
+        "xtab"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363700,
+      "dataset_name": "seismic-bumps",
+      "task_type": "classification",
+      "original_candidate_count": 9,
+      "feasible_candidate_count": 9,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "lightgbm",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "lightgbm",
+        "xgboost",
+        "random_forest",
+        "catboost",
+        "realmlp",
+        "tabm",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "lightgbm",
+        "xgboost",
+        "random_forest",
+        "catboost",
+        "realmlp",
+        "tabm",
+        "ft_transformer"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.06835342832785285,
+      "normalized_regret": 1.0
+    },
+    {
+      "dataset_id": 363702,
+      "dataset_name": "splice",
+      "task_type": "classification",
+      "original_candidate_count": 7,
+      "feasible_candidate_count": 6,
+      "filtered_models": [
+        "catboost"
+      ],
+      "reason_each_model_filtered": {
+        "catboost": "Class count (3) exceeds max_classes (2)"
+      },
+      "actual_benchmark_best_model": "tabiclv2",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "random_forest",
+        "realmlp",
+        "catboost",
+        "tabm",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "random_forest",
+        "realmlp",
+        "tabm",
+        "ft_transformer"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363704,
+      "dataset_name": "students_dropout_and_academic_success",
+      "task_type": "classification",
+      "original_candidate_count": 7,
+      "feasible_candidate_count": 6,
+      "filtered_models": [
+        "catboost"
+      ],
+      "reason_each_model_filtered": {
+        "catboost": "Class count (3) exceeds max_classes (2)"
+      },
+      "actual_benchmark_best_model": "tabiclv2",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "catboost",
+        "random_forest",
+        "tabm",
+        "realmlp",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "random_forest",
+        "tabm",
+        "realmlp",
+        "ft_transformer"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363705,
+      "dataset_name": "superconductivity",
+      "task_type": "regression",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 6,
+      "filtered_models": [
+        "tabpfn",
+        "xgboost",
+        "catboost",
+        "lightgbm"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Task type 'regression' not in supported_task_types ['classification']",
+        "xgboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "catboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "lightgbm": "Task type 'regression' not in supported_task_types ['classification']"
+      },
+      "actual_benchmark_best_model": "tabiclv2",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "xgboost",
+        "catboost",
+        "lightgbm",
+        "random_forest",
+        "tabm",
+        "realmlp",
+        "ft_transformer",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "random_forest",
+        "tabm",
+        "realmlp",
+        "ft_transformer",
+        "xtab"
+      ],
+      "top1_correct": true,
+      "top2_correct": true,
+      "regret": 0.0,
+      "normalized_regret": 0.0
+    },
+    {
+      "dataset_id": 363706,
+      "dataset_name": "taiwanese_bankruptcy_prediction",
+      "task_type": "classification",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 10,
+      "filtered_models": [],
+      "reason_each_model_filtered": {},
+      "actual_benchmark_best_model": "ft_transformer",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "catboost",
+        "tabpfn",
+        "tabiclv2",
+        "lightgbm",
+        "xgboost",
+        "realmlp",
+        "tabm",
+        "random_forest",
+        "ft_transformer",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "catboost",
+        "tabpfn",
+        "tabiclv2",
+        "lightgbm",
+        "xgboost",
+        "realmlp",
+        "tabm",
+        "random_forest",
+        "ft_transformer",
+        "xtab"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.07651515151515154,
+      "normalized_regret": 0.3626570915619389
+    },
+    {
+      "dataset_id": 363707,
+      "dataset_name": "website_phishing",
+      "task_type": "classification",
+      "original_candidate_count": 9,
+      "feasible_candidate_count": 6,
+      "filtered_models": [
+        "lightgbm",
+        "xgboost",
+        "catboost"
+      ],
+      "reason_each_model_filtered": {
+        "lightgbm": "Class count (3) exceeds max_classes (2)",
+        "xgboost": "Class count (3) exceeds max_classes (2)",
+        "catboost": "Class count (3) exceeds max_classes (2)"
+      },
+      "actual_benchmark_best_model": "ft_transformer",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "lightgbm",
+        "xgboost",
+        "catboost",
+        "random_forest",
+        "realmlp",
+        "tabm",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "random_forest",
+        "realmlp",
+        "tabm",
+        "ft_transformer"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.014141414141414232,
+      "normalized_regret": 0.32721202003339156
+    },
+    {
+      "dataset_id": 363708,
+      "dataset_name": "wine_quality",
+      "task_type": "regression",
+      "original_candidate_count": 9,
+      "feasible_candidate_count": 5,
+      "filtered_models": [
+        "tabpfn",
+        "xgboost",
+        "lightgbm",
+        "catboost"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Task type 'regression' not in supported_task_types ['classification']",
+        "xgboost": "Task type 'regression' not in supported_task_types ['classification']",
+        "lightgbm": "Task type 'regression' not in supported_task_types ['classification']",
+        "catboost": "Task type 'regression' not in supported_task_types ['classification']"
+      },
+      "actual_benchmark_best_model": "tabpfn",
+      "whether_oracle_successful_model_filtered": true,
+      "d_ranking_before_filtering": [
+        "tabpfn",
+        "tabiclv2",
+        "random_forest",
+        "xgboost",
+        "lightgbm",
+        "tabm",
+        "realmlp",
+        "catboost",
+        "ft_transformer"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "random_forest",
+        "tabm",
+        "realmlp",
+        "ft_transformer"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.011875929840358124,
+      "normalized_regret": 0.10871003534553116
+    },
+    {
+      "dataset_id": 363711,
+      "dataset_name": "MIC",
+      "task_type": "classification",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 7,
+      "filtered_models": [
+        "lightgbm",
+        "xgboost",
+        "catboost"
+      ],
+      "reason_each_model_filtered": {
+        "lightgbm": "Class count (8) exceeds max_classes (2)",
+        "xgboost": "Class count (8) exceeds max_classes (2)",
+        "catboost": "Class count (8) exceeds max_classes (2)"
+      },
+      "actual_benchmark_best_model": "xtab",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "lightgbm",
+        "xgboost",
+        "catboost",
+        "realmlp",
+        "random_forest",
+        "ft_transformer",
+        "tabm",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "tabiclv2",
+        "tabpfn",
+        "realmlp",
+        "random_forest",
+        "ft_transformer",
+        "tabm",
+        "xtab"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.08715034965034965,
+      "normalized_regret": 0.9343955014058106
+    },
+    {
+      "dataset_id": 363712,
+      "dataset_name": "jm1",
+      "task_type": "classification",
+      "original_candidate_count": 10,
+      "feasible_candidate_count": 9,
+      "filtered_models": [
+        "tabpfn"
+      ],
+      "reason_each_model_filtered": {
+        "tabpfn": "Dataset rows (10885) exceeds max_train_rows (10000)"
+      },
+      "actual_benchmark_best_model": "random_forest",
+      "whether_oracle_successful_model_filtered": false,
+      "d_ranking_before_filtering": [
+        "lightgbm",
+        "xgboost",
+        "catboost",
+        "tabpfn",
+        "random_forest",
+        "realmlp",
+        "tabiclv2",
+        "tabm",
+        "ft_transformer",
+        "xtab"
+      ],
+      "final_ranking_after_filtering": [
+        "lightgbm",
+        "xgboost",
+        "catboost",
+        "random_forest",
+        "realmlp",
+        "tabiclv2",
+        "tabm",
+        "ft_transformer",
+        "xtab"
+      ],
+      "top1_correct": false,
+      "top2_correct": false,
+      "regret": 0.010591443520417188,
+      "normalized_regret": 0.12431333947226278
+    }
+  ]
+}

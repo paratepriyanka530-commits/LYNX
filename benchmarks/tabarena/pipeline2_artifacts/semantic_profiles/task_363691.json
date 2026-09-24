@@ -1,0 +1,782 @@
+{
+  "dataset_id": "363691",
+  "dataset_name": "online_shoppers_intention",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 240.0,
+  "generated_at": "2026-09-13T18:28:14+00:00",
+  "status": "degraded",
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": null,
+      "row_entity_confidence": 0.0,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "Administrative",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Administrative_Duration",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Informational",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Informational_Duration",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "ProductRelated",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "ProductRelated_Duration",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "BounceRates",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "ExitRates",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "PageValues",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "SpecialDay",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Month",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "OperatingSystems",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Browser",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Region",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "TrafficType",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "VisitorType",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Weekend",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      },
+      {
+        "column_name": "Revenue",
+        "semantic_type": "unknown",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "Semantic analysis unavailable for this column.",
+        "semantic_role": "unknown",
+        "confidence": 0.0,
+        "reasoning_summary": "The semantic batch failed validation after retry."
+      }
+    ],
+    "warnings": [
+      "Dataset semantic context failed: ModuleNotFoundError: No module named 'requests'",
+      "Semantic batch 1 failed after retry; unknown fallback used for ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'Month', 'OperatingSystems']: ModuleNotFoundError: No module named 'requests'",
+      "Semantic batch 2 failed after retry; unknown fallback used for ['Browser', 'Region', 'TrafficType', 'VisitorType', 'Weekend', 'Revenue']: ModuleNotFoundError: No module named 'requests'"
+    ],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 4,
+      "total_llm_calls": 5,
+      "batch_sizes": [
+        12,
+        6
+      ],
+      "dataset_semantic_runtime_seconds": 0.075562,
+      "batch_runtime_seconds": [
+        0.028824,
+        0.024671
+      ],
+      "rag_runtime_seconds": 0.167412,
+      "batch_failures": 2,
+      "batch_retries": 2,
+      "llm_calls": [
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "error": "ModuleNotFoundError: No module named 'requests'",
+          "api_wall_duration_seconds": 0.01481,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 2,
+          "error": "ModuleNotFoundError: No module named 'requests'",
+          "api_wall_duration_seconds": 0.013697,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 2,
+          "attempt": 1,
+          "error": "ModuleNotFoundError: No module named 'requests'",
+          "api_wall_duration_seconds": 0.00978,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 2,
+          "attempt": 2,
+          "error": "ModuleNotFoundError: No module named 'requests'",
+          "api_wall_duration_seconds": 0.014729,
+          "prompt_eval_count": null,
+          "prompt_eval_duration": null,
+          "eval_count": null,
+          "eval_duration": null,
+          "total_duration": null,
+          "load_duration": null,
+          "done_reason": null
+        }
+      ],
+      "total_semantic_runtime_seconds": 0.241276,
+      "semantic_contradiction_guard": {
+        "guard_version": "semantic_contradiction_guard_v001",
+        "deterministic": true,
+        "evaluated_column_count": 18,
+        "correction_count": 0,
+        "ambiguous_shape_overrides_enabled": false,
+        "entries": [
+          {
+            "column_name": "Administrative",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Administrative",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Administrative",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Administrative_Duration",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Administrative_Duration",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Administrative_Duration",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Informational",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Informational",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Informational",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Informational_Duration",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Informational_Duration",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Informational_Duration",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "ProductRelated",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "ProductRelated",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "ProductRelated",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "ProductRelated_Duration",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "ProductRelated_Duration",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "ProductRelated_Duration",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "BounceRates",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "BounceRates",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "BounceRates",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "ExitRates",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "ExitRates",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "ExitRates",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "PageValues",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "PageValues",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "PageValues",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "SpecialDay",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "SpecialDay",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "SpecialDay",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Month",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Month",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Month",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "OperatingSystems",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "OperatingSystems",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "OperatingSystems",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Browser",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Browser",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Browser",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Region",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Region",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Region",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "TrafficType",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "TrafficType",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "TrafficType",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "VisitorType",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "VisitorType",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "VisitorType",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Weekend",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Weekend",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Weekend",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          },
+          {
+            "column_name": "Revenue",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "Revenue",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            },
+            "effective_semantic_result": {
+              "column_name": "Revenue",
+              "semantic_type": "unknown",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "Semantic analysis unavailable for this column.",
+              "semantic_role": "unknown",
+              "confidence": 0.0,
+              "reasoning_summary": "The semantic batch failed validation after retry."
+            }
+          }
+        ]
+      }
+    }
+  },
+  "semantic_meta_features": {
+    "probable_domain": null,
+    "domain_confidence": null,
+    "row_entity": null,
+    "row_entity_confidence": 0.0,
+    "dataset_description_present": false,
+    "column_count": 18,
+    "mean_column_confidence": 0.0,
+    "distributions": {
+      "semantic_type": {
+        "unknown": 18
+      },
+      "value_function": {
+        "unknown": 18
+      },
+      "numeric_meaning": {
+        "unknown": 18
+      },
+      "semantic_role": {
+        "unknown": 18
+      }
+    },
+    "warning_count": 3
+  }
+}

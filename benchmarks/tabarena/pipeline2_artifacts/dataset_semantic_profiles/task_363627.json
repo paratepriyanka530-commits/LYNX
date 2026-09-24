@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363627",
+  "dataset_name": "credit_card_clients_default",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:17:14+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "credit_card_clients_default",
+    "task_type": "classification",
+    "target_column": "DefaultOnPaymentNextMonth",
+    "row_count": 30000,
+    "feature_count": 23,
+    "feature_type_counts": {
+      "numeric": 23,
+      "categorical": 0,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "LIMIT_BAL",
+      "SEX",
+      "EDUCATION",
+      "MARRIAGE",
+      "AGE",
+      "PAY_0",
+      "PAY_2",
+      "PAY_3",
+      "PAY_4",
+      "PAY_5",
+      "PAY_6",
+      "BILL_AMT1",
+      "BILL_AMT2",
+      "BILL_AMT3",
+      "BILL_AMT4",
+      "BILL_AMT5",
+      "BILL_AMT6",
+      "PAY_AMT1",
+      "PAY_AMT2",
+      "PAY_AMT3",
+      "PAY_AMT4",
+      "PAY_AMT5",
+      "PAY_AMT6"
+    ],
+    "representative_feature_name_count": 23,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "finance",
+    "subdomain": "credit risk",
+    "dataset_purpose": "credit risk assessment",
+    "row_entity": "customer",
+    "target_concept": "likelihood of default on next payment",
+    "feature_context": [
+      "credit history",
+      "payment status",
+      "bill amounts",
+      "payment amounts"
+    ],
+    "semantic_summary": "A dataset for predicting the likelihood of default on the next payment for credit card customers, based on historical payment and billing information.",
+    "domain_confidence": 0.9
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 27.245783,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:17:14.3635572Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 25195102900,
+      "load_duration": 7596200,
+      "prompt_eval_count": 537,
+      "prompt_eval_duration": 632620000,
+      "eval_count": 117,
+      "eval_duration": 24519299000
+    }
+  }
+}

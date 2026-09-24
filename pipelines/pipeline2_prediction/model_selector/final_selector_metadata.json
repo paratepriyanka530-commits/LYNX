@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-09-14T19:49:06+00:00",
+  "selector_name": "LYNX Meta-Level Model Selector",
+  "representation": "D",
+  "meta_model_type": "RandomForestRegressor",
+  "number_of_source_benchmark_datasets": 51,
+  "number_of_successful_dataset_model_training_observations": 437,
+  "number_of_failed_benchmark_observations_excluded_from_supervised_training": 73,
+  "candidate_models": [
+    "random_forest",
+    "xgboost",
+    "lightgbm",
+    "catboost",
+    "xtab",
+    "tabpfn",
+    "tabm",
+    "tabiclv2",
+    "realmlp",
+    "ft_transformer"
+  ],
+  "candidate_model_families": [
+    "tree_ensemble",
+    "gradient_boosted_trees",
+    "pretrained_transformer",
+    "prior_fitted_network",
+    "deep_tabular_ensemble",
+    "multilayer_perceptron",
+    "transformer"
+  ],
+  "classification_primary_metric": "balanced_accuracy",
+  "regression_primary_metric": "rmse",
+  "normalized_rank_target_definition": "Within each dataset, signed primary metric values (balanced_accuracy for classification, -rmse for regression) are converted to ranks in [0, 1] using (rank - 1)/(k - 1), where the empirical best model receives 1.0 and the worst receives 0.0.",
+  "final_model_hyperparameters": {
+    "n_estimators": 100,
+    "max_depth": 10,
+    "min_samples_leaf": 2,
+    "random_state": 42
+  },
+  "feature_schema": {
+    "common_features_dim": 29,
+    "semantic_features_dim": 51,
+    "total_features_dim": 80,
+    "semantic_feature_breakdown": {
+      "domain_confidence": 1,
+      "domain_one_hot": 25,
+      "tfidf_semantic_tokens": 25
+    }
+  },
+  "frozen_lodo_results_for_D": {
+    "datasets_evaluated": 51,
+    "top1_accuracy": 20,
+    "top1_accuracy_pct": 39.21568627450981,
+    "top2_accuracy": 32,
+    "top2_accuracy_pct": 62.745098039215684,
+    "mean_regret": 33.043344134942664,
+    "mean_normalized_regret": 0.25930565187816207,
+    "oracle_gap": 0.25930565187816207
+  },
+  "relevant_bootstrap_results": {
+    "confidence_level": 0.95,
+    "resamples": 10000,
+    "mode_D_estimates": {
+      "top1_accuracy_observed_pct": 39.21568627450981,
+      "top1_accuracy_95_ci_pct": [
+        25.49019607843137,
+        52.94117647058824
+      ],
+      "top2_accuracy_observed_pct": 62.745098039215684,
+      "top2_accuracy_95_ci_pct": [
+        49.01960784313725,
+        76.47058823529412
+      ],
+      "mean_normalized_regret_observed": 0.25930565187816207,
+      "mean_normalized_regret_95_ci": [
+        0.16703968850219464,
+        0.3586123617522688
+      ]
+    },
+    "paired_differences": {
+      "D_minus_S": {
+        "top1_diff_pct": 3.9215686274509802,
+        "top1_diff_95_ci_pct": [
+          -7.8431372549019605,
+          15.686274509803921
+        ],
+        "top1_p_value": 0.642,
+        "top2_diff_pct": 13.725490196078432,
+        "top2_diff_95_ci_pct": [
+          1.9607843137254888,
+          25.490196078431378
+        ],
+        "top2_p_value": 0.0358,
+        "regret_diff": -0.0007242444735632662,
+        "regret_p_value": 0.9786
+      },
+      "SD_minus_D": {
+        "top1_diff_pct": -3.9215686274509802,
+        "top2_diff_pct": -5.88235294117647,
+        "regret_diff": -0.012333739000825161,
+        "regret_p_value": 0.4224
+      }
+    }
+  },
+  "artifact_file": "lynx_model_selector.joblib"
+}

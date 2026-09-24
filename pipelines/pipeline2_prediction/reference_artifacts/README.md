@@ -16,8 +16,11 @@ reference_artifacts/
 These files support loading, compatibility, and sanity checks. They must not
 be reused as dataset-specific trained estimators across the TabArena
 benchmark; each benchmark dataset requires a fresh training lifecycle.
-RealMLP and TabM have no reference artifact; both are freshly trained through
-their pytabkit-backed candidate wrappers.
+RealMLP, TabM, and FT-Transformer have no reference artifact; all three are
+freshly trained through their pytabkit-backed candidate wrappers. TabICLv2's
+pretrained classifier and regressor checkpoints are public, package-managed
+downloads cached outside this repository; the wrapper requires network access
+on first use or a populated Hugging Face cache, but no authentication.
 
 `xtab/official_iter_2k_backbone.ckpt` is the official XTab cross-table
 FT-Transformer backbone released by BingzhaoZhu/XTab. It is loaded before

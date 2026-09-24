@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363619",
+  "dataset_name": "Bank_Customer_Churn",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:14:33+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "Bank_Customer_Churn",
+    "task_type": "classification",
+    "target_column": "churn",
+    "row_count": 10000,
+    "feature_count": 10,
+    "feature_type_counts": {
+      "numeric": 8,
+      "categorical": 2,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "credit_score",
+      "country",
+      "gender",
+      "age",
+      "tenure",
+      "balance",
+      "products_number",
+      "credit_card",
+      "active_member",
+      "estimated_salary"
+    ],
+    "representative_feature_name_count": 10,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "finance",
+    "subdomain": "customer behavior",
+    "dataset_purpose": "classification",
+    "row_entity": "bank customer",
+    "target_concept": "customer churn",
+    "feature_context": [
+      "customer demographics",
+      "account information",
+      "transaction behavior",
+      "service usage"
+    ],
+    "semantic_summary": "A dataset for predicting customer churn in a bank, focusing on demographic and transactional features.",
+    "domain_confidence": 0.8
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 24.137553,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:14:33.9531858Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 22095151900,
+      "load_duration": 10282300,
+      "prompt_eval_count": 446,
+      "prompt_eval_duration": 588698000,
+      "eval_count": 105,
+      "eval_duration": 21476726000
+    }
+  }
+}

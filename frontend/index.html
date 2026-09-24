@@ -3,222 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LYNX — Data Intelligence Results Dashboard</title>
-  <meta name="description" content="LYNX Data Intelligence Platform - Pipeline 1 results dashboard.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="LYNX professional tabular-data analysis workspace">
+  <title>LYNX — Data Analysis & Prediction</title>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("lynx-theme");
+        var preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.dataset.theme = saved === "dark" || saved === "light" ? saved : preferred;
+      } catch (_error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    }());
+  </script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app-container" id="app-root">
-    
-    <!-- BRAND AND HEADER -->
-    <header class="brand-header">
-      <div class="brand-identity-group">
-        <div class="brand-logo-title">
-          <img src="assets/ChatGPT Image Sep 7, 2026, 01_16_53 PM.png" alt="LYNX Logo" class="lynx-logo-img">
-          <span class="brand-wordmark">LYNX</span>
-        </div>
-        <div class="dataset-context">
-          <div class="dataset-header-row">
-            <h1 class="dataset-name" id="display-dataset-name">Loading dataset…</h1>
-            
-            <div class="dataset-selector-pill">
-              <label for="dataset-select-dropdown" class="sr-only">Switch Dataset:</label>
-              <select id="dataset-select-dropdown" class="dataset-dropdown-select">
-                <option value="survey_data" selected>Survey Data</option>
-                <option value="generic_business_data">Generic Business Data</option>
-              </select>
-              <button class="btn-custom-payload" id="btn-custom-json-load" title="Load custom backend payload JSON">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                Custom Backend JSON
-              </button>
-            </div>
-          </div>
-
-          <div class="dataset-meta-row">
-            <span id="display-dataset-category"></span>
-            <span>·</span>
-            <span class="status-dot"></span>
-            <span id="display-dataset-status">Loading report…</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="header-actions">
-        <button class="btn-primary" id="export-report-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          Export Report
-        </button>
-
-        <button class="btn-icon-secondary" id="actions-menu-btn" aria-label="More actions">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="1"></circle>
-            <circle cx="12" cy="5" r="1"></circle>
-            <circle cx="12" cy="19" r="1"></circle>
-          </svg>
-        </button>
-      </div>
-    </header>
-
-    <!-- NAVIGATION TABS -->
-    <nav class="nav-tab-container" role="tablist" aria-label="Dashboard views">
-      <button class="nav-tab-item active" id="tab-overview" role="tab" aria-selected="true" aria-controls="panel-overview">Overview</button>
-      <button class="nav-tab-item" id="tab-profile" role="tab" aria-selected="false" aria-controls="panel-profile">Profile</button>
-      <button class="nav-tab-item" id="tab-data-preview" role="tab" aria-selected="false" aria-controls="panel-preview">Data Preview</button>
-      <button class="nav-tab-item" id="tab-visualize" role="tab" aria-selected="false" aria-controls="panel-visualize">Visualize</button>
-      <button class="nav-tab-item" id="tab-model" role="tab" aria-selected="false" aria-controls="panel-model">Model</button>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <aside class="app-sidebar" aria-label="Primary navigation">
+    <button class="sidebar-brand" id="brand-home" type="button" aria-label="LYNX datasets home"><img class="brand-logo" src="assets/ChatGPT%20Image%20Sep%207,%202026,%2001_16_53%20PM.png" alt=""><span>LYNX</span></button>
+    <nav class="sidebar-nav" aria-label="Workspace">
+      <button class="sidebar-link active" id="nav-datasets" type="button" aria-current="page"><svg aria-hidden="true" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v6c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 11v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg><span>Datasets</span></button>
     </nav>
-
-    <!-- MAIN OVERVIEW TAB PANEL -->
-    <main class="tab-panel active" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
-      <div class="bento-grid">
-        
-        <!-- 1. COMPACT METRICS BAR (Row of 5 Cards spanning 12 cols) -->
-        <div class="metrics-row"></div>
-
-        <!-- 2. LARGE CARD: DATA QUALITY OVERVIEW (7 Cols) -->
-        <section class="bento-card col-span-7" aria-labelledby="heading-quality-overview">
-          <div class="card-header">
-            <div>
-              <div class="card-eyebrow">ISSUES BY STATUS</div>
-              <h2 class="card-title" id="heading-quality-overview">Data Quality Overview</h2>
-            </div>
-          </div>
-
-          <div class="chart-container">
-            <!-- Donut Chart SVG -->
-            <div class="donut-chart-wrapper">
-              <svg viewBox="0 0 100 100" class="donut-svg" id="quality-donut-svg">
-              </svg>
-              <div class="donut-center-label">
-                <span class="donut-center-value">—</span>
-                <span class="donut-center-subtext">Detected Issues</span>
-              </div>
-            </div>
-
-            <!-- Donut Legend Breakdown -->
-            <div class="donut-legend-list"></div>
-          </div>
-        </section>
-
-        <!-- 3. TALL CARD: TOP ISSUES (5 Cols) -->
-        <section class="bento-card col-span-5" aria-labelledby="heading-top-issues">
-          <div class="card-header">
-            <div>
-              <div class="card-eyebrow">PRIORITY ANOMALIES</div>
-              <h2 class="card-title" id="heading-top-issues">Top Issues</h2>
-            </div>
-          </div>
-
-          <div class="issues-list"></div>
-
-          <button class="btn-link-action" id="view-all-issues-btn">
-            View all issues
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </section>
-
-        <!-- 4. WIDE CARD: DATASET SUMMARY (8 Cols) -->
-        <section class="bento-card col-span-8" aria-labelledby="heading-dataset-summary">
-          <div class="card-header">
-            <div>
-              <div class="card-eyebrow">CONTEXT & DESCRIPTION</div>
-              <h2 class="card-title" id="heading-dataset-summary">Dataset Summary</h2>
-            </div>
-          </div>
-
-          <p class="summary-paragraph"></p>
-
-          <div class="meta-chips-grid"></div>
-        </section>
-
-        <!-- 5. COMPACT CARD: PROCESSING STATUS (4 Cols) -->
-        <section class="bento-card col-span-4" aria-labelledby="heading-processing-status">
-          <div class="card-header">
-            <div>
-              <div class="card-eyebrow">PIPELINE VERIFICATION</div>
-              <h2 class="card-title" id="heading-processing-status">Processing Status</h2>
-            </div>
-          </div>
-
-          <div class="status-checklist"></div>
-        </section>
-
-        <!-- 6. MEDIUM-TO-LARGE CARD: RECOMMENDED ACTIONS (12 Cols) -->
-        <section class="bento-card col-span-12" aria-labelledby="heading-recommended-actions">
-          <div class="card-header">
-            <div>
-              <div class="card-eyebrow">AUTOMATED PREPARATION PLAN</div>
-              <h2 class="card-title" id="heading-recommended-actions">Recommended Actions</h2>
-            </div>
-          </div>
-
-          <div class="recommendations-grid"></div>
-        </section>
-
-      </div>
-    </main>
-
-    <!-- OTHER TAB PANELS (Profile, Data Preview, Visualize, Model) -->
-    <div class="tab-panel" id="panel-profile">
-      <div class="placeholder-view">
-        <div class="placeholder-icon">📋</div>
-        <h2>Dataset Profile</h2>
-        <p>Column schema distributions, datatypes, and nullity matrix for Customer Transactions.</p>
+    <nav class="sidebar-nav sidebar-nav-lower" aria-label="Support">
+      <button class="sidebar-link" type="button" data-shell-action="settings"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"/></svg><span>Settings</span></button>
+      <button class="sidebar-link" type="button" data-shell-action="help"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 1 1 3.7 2c-1 .7-1.5 1.2-1.5 2.3M12 17h.01"/></svg><span>Help</span></button>
+    </nav>
+  </aside>
+  <header class="app-header" aria-label="Application header">
+    <div class="header-inner">
+      <button class="brand mobile-brand" id="mobile-brand-home" type="button" aria-label="LYNX datasets home"><img class="brand-logo" src="assets/ChatGPT%20Image%20Sep%207,%202026,%2001_16_53%20PM.png" alt=""><span>LYNX</span></button>
+      <div class="header-context" aria-hidden="true"><span class="status-dot"></span><span>Data workspace</span></div>
+      <div class="header-actions" id="global-actions">
+        <button class="button button-primary action-new" id="btn-new-dataset" type="button" hidden><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>New Dataset</span></button>
+        <button class="button button-secondary action-secondary" id="btn-export" type="button" aria-label="Export report" title="Export is not available yet" disabled hidden><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v3h14v-3"/></svg><span>Export</span></button>
+        <button class="button button-secondary action-theme" id="btn-theme" type="button" aria-label="Switch to dark theme" aria-pressed="false"><svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></svg><span id="theme-label">Dark</span></button>
+        <button class="button button-secondary action-secondary" id="btn-settings" type="button" aria-label="Settings"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"/></svg><span>Settings</span></button>
+        <button class="button button-secondary action-secondary" id="btn-help" type="button" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 1 1 3.7 2c-1 .7-1.5 1.2-1.5 2.3M12 17h.01"/></svg><span>Help</span></button>
+        <div class="more-wrap"><button class="icon-button" id="btn-more" type="button" aria-label="More actions" aria-expanded="false" aria-controls="more-menu"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></button><div class="more-menu" id="more-menu" hidden><button id="more-new" type="button" data-more-action="new" hidden>New Dataset</button><button id="more-export" type="button" data-more-action="export" disabled hidden>Export</button><button type="button" data-more-action="theme">Switch theme</button><button type="button" data-more-action="settings">Settings</button><button type="button" data-more-action="help">Help</button></div></div>
       </div>
     </div>
+  </header>
 
-    <div class="tab-panel" id="panel-preview">
-      <div class="placeholder-view">
-        <div class="placeholder-icon">👁️</div>
-        <h2>Data Preview</h2>
-        <p>Displaying first 100 sample rows of customer transaction records.</p>
+  <main id="main-content">
+    <section class="app-view upload-view active" id="view-upload" aria-labelledby="upload-title">
+      <div class="upload-intro"><p class="eyebrow">Datasets</p><h1 id="upload-title">Data workspace</h1><p>Upload tabular data to review its structure, quality, meaning, and preparation before prediction.</p></div>
+      <div class="upload-panel">
+        <div class="upload-panel-heading"><div><h2>Upload a dataset</h2><p>CSV, XLSX, or XLS · up to 50 MB by default</p></div><span class="format-badge">Tabular data</span></div>
+        <div class="dropzone" id="upload-dropzone" tabindex="0" role="button" aria-label="Choose or drop a dataset file"><input type="file" id="dataset-file-input" accept=".csv,.xlsx,.xls" hidden><svg class="upload-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 16V4m0 0-4 4m4-4 4 4M5 15v4h14v-4"/></svg><div><strong>Drop a dataset here</strong><span> or <span class="text-link">browse files</span></span><small>Supported formats: CSV, XLSX, XLS</small></div></div>
+        <div class="notice notice-error" id="upload-error-box" role="alert" hidden><strong>We couldn’t use that file.</strong><span id="upload-error-text"></span></div>
+        <div class="selected-file" id="selected-file-card" hidden><div class="file-identity"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v5h4"/></svg><div><strong id="selected-file-name" title=""></strong><span><span id="selected-file-format"></span> · <span id="selected-file-size"></span></span></div></div><div class="file-actions"><button class="button button-secondary" id="btn-replace-file" type="button">Replace</button><button class="button button-primary" id="btn-run-analysis" type="button" disabled>Analyze dataset</button></div></div>
       </div>
-    </div>
+      <ol class="product-steps" aria-label="How LYNX works"><li><span>1</span><div><strong>Upload</strong><small>Select a supported tabular file.</small></div></li><li><span>2</span><div><strong>Analyze</strong><small>LYNX checks structure, quality, and meaning.</small></div></li><li><span>3</span><div><strong>Explore</strong><small>Review the prepared dataset workspace.</small></div></li></ol>
+    </section>
 
-    <div class="tab-panel" id="panel-visualize">
-      <div class="placeholder-view">
-        <div class="placeholder-icon">📊</div>
-        <h2>Data Visualizations</h2>
-        <p>Explore purchase trends, revenue by store location, and transaction volume over time.</p>
+    <section class="app-view analysis-view" id="view-analysis" aria-labelledby="analysis-title" aria-live="polite">
+      <div class="analysis-content">
+        <svg class="constellation" viewBox="0 0 124 140" role="img" aria-label="LYNX constellation analysis indicator">
+          <title>Lynx constellation path</title>
+          <g class="constellation-base" aria-hidden="true">
+            <path d="M10 132 L14 119 L26 113 L33 97 L64 92 L104 59 L113 12 L118 5"/>
+            <circle cx="10" cy="132" r="2.7"/><circle cx="14" cy="119" r="2.8"/><circle cx="26" cy="113" r="2.3"/><circle cx="33" cy="97" r="3.2"/><circle cx="64" cy="92" r="2.8"/><circle cx="104" cy="59" r="3.1"/><circle cx="113" cy="12" r="3.1"/><circle cx="118" cy="5" r="2.8"/>
+          </g>
+          <g class="constellation-active" aria-hidden="true">
+            <g class="active-lines"><path class="line l1" d="M10 132 L14 119"/><path class="line l2" d="M14 119 L26 113"/><path class="line l3" d="M26 113 L33 97"/><path class="line l4" d="M33 97 L64 92"/><path class="line l5" d="M64 92 L104 59"/><path class="line l6" d="M104 59 L113 12"/><path class="line l7" d="M113 12 L118 5"/></g>
+            <g class="active-stars"><circle class="star s1" cx="10" cy="132" r="2.7"/><circle class="star s2" cx="14" cy="119" r="2.8"/><circle class="star s3" cx="26" cy="113" r="2.3"/><circle class="star s4" cx="33" cy="97" r="3.2"/><circle class="star s5" cx="64" cy="92" r="2.8"/><circle class="star s6" cx="104" cy="59" r="3.1"/><circle class="star s7" cx="113" cy="12" r="3.1"/><circle class="star s8" cx="118" cy="5" r="2.8"/></g>
+          </g>
+        </svg>
+        <p class="eyebrow">Dataset analysis</p><h1 id="analysis-title">Analyzing your dataset</h1><p class="analysis-file" id="analysis-filename" title=""></p><p class="analysis-message" id="analysis-status-message">This may take a few minutes.</p><strong class="elapsed" id="analysis-elapsed">00:00 elapsed</strong>
+        <div class="notice notice-error analysis-error" id="analysis-error" role="alert" hidden><strong>Analysis could not be completed.</strong><span id="analysis-error-text"></span><div><button class="button button-secondary" id="btn-analysis-retry" type="button">Try again</button></div></div><button class="button button-quiet" id="btn-analysis-cancel" type="button">Choose another dataset</button>
       </div>
-    </div>
+    </section>
 
-    <div class="tab-panel" id="panel-model">
-      <div class="placeholder-view">
-        <div class="placeholder-icon">⚡</div>
-        <h2>Feature Modeling</h2>
-        <p>Target encoding, scaling transformers, and feature correlation matrix.</p>
+    <section class="app-view workspace-view" id="view-workspace" aria-labelledby="workspace-dataset-name">
+      <div class="workspace-header"><div class="dataset-heading"><p class="eyebrow">Dataset workspace</p><div class="dataset-title-line"><h1 id="workspace-dataset-name" title="">Dataset</h1><span class="format-badge" id="workspace-file-type">DATA</span></div><p id="workspace-dataset-meta">Analysis complete</p></div></div>
+      <nav class="workspace-tabs" aria-label="Dataset workspace sections"><button class="workspace-tab active" id="tab-overview" type="button" role="tab" aria-selected="true" data-tab="overview">Overview</button><button class="workspace-tab" id="tab-data-profile" type="button" role="tab" aria-selected="false" data-tab="data-profile">Data Profile</button><button class="workspace-tab" id="tab-prediction" type="button" role="tab" aria-selected="false" data-tab="prediction">Prediction</button><button class="workspace-tab" id="tab-insights" type="button" role="tab" aria-selected="false" data-tab="insights">Insights</button><button class="workspace-tab" id="tab-visualizations" type="button" role="tab" aria-selected="false" data-tab="visualizations">Visualizations</button></nav>
+      <div class="workspace-content">
+        <section class="tab-panel active" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview"><div class="section-heading"><div><p class="eyebrow">Overview</p><h2>What happened to your dataset</h2></div><p id="overview-summary"></p></div><div class="metric-strip" id="overview-metrics"></div><div class="overview-layout"><section class="content-section quality-section" aria-labelledby="quality-title"><h3 id="quality-title">Data quality</h3><div id="overview-quality"></div></section><section class="content-section" aria-labelledby="findings-title"><h3 id="findings-title">Key findings</h3><div id="overview-findings"></div></section><section class="content-section" aria-labelledby="preparation-title"><h3 id="preparation-title">Preparation summary</h3><div id="overview-preparation"></div></section><section class="content-section" aria-labelledby="privacy-title"><h3 id="privacy-title">Privacy status</h3><div id="overview-privacy"></div></section></div></section>
+        <section class="tab-panel" id="panel-data-profile" role="tabpanel" hidden><div class="section-heading"><div><p class="eyebrow">Data Profile</p><h2>Explore columns</h2></div><p>Review observed structure, semantics, quality, and preparation evidence.</p></div><div class="profile-mobile-picker"><label for="profile-column-select">Column</label><select id="profile-column-select"></select></div><div class="profile-layout"><aside class="column-browser" aria-label="Dataset columns"><label for="column-search">Columns</label><div class="search-field"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg><input id="column-search" type="search" placeholder="Search columns" autocomplete="off"></div><div class="column-count" id="column-count"></div><div class="column-list" id="column-list" role="listbox" aria-label="Columns"></div></aside><article class="column-profile" id="column-profile" aria-live="polite"></article><aside class="column-findings" aria-labelledby="column-findings-title"><h3 id="column-findings-title">Findings</h3><div id="column-findings"></div></aside></div></section>
+        <section class="tab-panel" id="panel-prediction" role="tabpanel" hidden><div class="narrow-panel" id="prediction-target-section"><p class="eyebrow">Prediction</p><h2>What would you like to predict?</h2><p>Choose a target from the prepared dataset to generate predictions.</p><label for="prediction-target">Target column</label><select id="prediction-target"><option value="">Select a target column</option></select><p class="field-help" id="prediction-eligibility" aria-live="polite"></p><button class="button button-primary" id="btn-run-prediction" type="button" disabled>Run prediction</button></div><div class="prediction-waiting" id="prediction-waiting-section" role="status" aria-live="polite" hidden><div class="prediction-constellation-holder" id="prediction-constellation-holder"></div><p class="eyebrow">Prediction</p><h2>Preparing prediction</h2><p class="prediction-waiting-target">Target: <strong id="prediction-waiting-target-name">—</strong></p><p class="prediction-waiting-message">LYNX is analysing the prepared dataset and generating predictions.</p><strong class="elapsed" id="prediction-elapsed">00:00 elapsed</strong></div><div class="prediction-results" id="prediction-results-section" hidden><div class="prediction-header-bar"><div class="prediction-header-info"><p class="eyebrow">Prediction Results</p><div class="prediction-header-meta"><div class="meta-item"><span>Target</span><strong id="pred-summary-target">—</strong></div><div class="meta-item"><span>Task</span><strong id="pred-summary-task">—</strong></div><div class="meta-item"><span>Evaluated rows</span><strong id="pred-summary-rows">—</strong></div></div></div><button class="button button-secondary" id="btn-prediction-run-another" type="button">Run another prediction</button></div><div class="prediction-section"><h3 class="prediction-section-title">Model evaluation</h3><div class="prediction-metrics-grid" id="prediction-primary-metrics"></div><div id="prediction-secondary-metrics-wrapper"></div></div><div class="prediction-section" id="prediction-viz-section"><h3 class="prediction-section-title" id="prediction-viz-title">Visualization</h3><div class="prediction-viz-container" id="prediction-viz-container"></div></div><div class="prediction-section"><h3 class="prediction-section-title">Prediction rows</h3><div class="table-scroll-container"><table class="prediction-table" id="prediction-rows-table"><caption class="sr-only">Evaluated prediction rows</caption><thead id="prediction-table-head"></thead><tbody id="prediction-table-body"></tbody></table></div><div class="prediction-pagination" id="prediction-pagination"><button class="button button-secondary" id="btn-pred-prev-page" type="button" disabled>Previous</button><span class="pagination-info" id="pred-page-info">Showing 0–0 of 0</span><button class="button button-secondary" id="btn-pred-next-page" type="button" disabled>Next</button></div></div></div><div class="prediction-error" id="prediction-error-section" role="alert" hidden><div class="notice notice-error"><strong>Prediction could not be completed.</strong><span id="prediction-error-text"></span><div class="notice-actions"><button class="button button-secondary" id="btn-prediction-retry" type="button">Try again</button></div></div></div></section>
+        <section class="tab-panel" id="panel-insights" role="tabpanel" hidden><div class="empty-state"><p class="eyebrow">Insights</p><h2>Deeper insights are not available yet</h2><p id="insights-context">LYNX has not generated model-backed explanations for this dataset. No observations are fabricated to fill this space.</p></div></section>
+        <section class="tab-panel" id="panel-visualizations" role="tabpanel" hidden><div class="section-heading"><div><p class="eyebrow">Visualizations</p><h2>Report-supported views</h2></div><p>Only charts supported by the current analysis are shown.</p></div><div class="visualization-grid" id="visualization-grid"></div><div class="future-result-space"><strong>Custom chart</strong><span>Custom chart controls are not connected yet.</span></div></section>
       </div>
-    </div>
+    </section>
+  </main>
 
-  </div>
+  <dialog class="product-dialog" id="settings-dialog" aria-labelledby="settings-title"><form method="dialog"><div class="dialog-heading"><div><p class="eyebrow">Settings</p><h2 id="settings-title">Application settings</h2></div><button class="icon-button" value="cancel" aria-label="Close settings">×</button></div><section><h3>Appearance</h3><p>Choose the interface theme used on this device.</p><div class="theme-options" role="group" aria-label="Appearance"><button class="theme-choice" type="button" data-theme-choice="light">Light</button><button class="theme-choice" type="button" data-theme-choice="dark">Dark</button></div></section><section><h3>Data & privacy</h3><p>Privacy checks and approved masking actions run during dataset preparation.</p></section><section><h3>About</h3><p>LYNX analyzes tabular datasets and prepares them for prediction workflows.</p></section><button class="button button-secondary" value="cancel">Close</button></form></dialog>
+  <dialog class="product-dialog" id="help-dialog" aria-labelledby="help-title"><form method="dialog"><div class="dialog-heading"><div><p class="eyebrow">Help</p><h2 id="help-title">Using LYNX</h2></div><button class="icon-button" value="cancel" aria-label="Close help">×</button></div><section><h3>Supported files</h3><p>Upload CSV, XLSX, or legacy XLS datasets.</p></section><section><h3>Data Profile</h3><p>Explore observed column types, meanings, statistics, issues, and preparation decisions.</p></section><section><h3>Prediction</h3><p>Select an eligible target to run a prediction and review real evaluation metrics and prediction rows.</p></section><section><h3>Privacy</h3><p>LYNX reports whether the prepared dataset passed its privacy clearance checks.</p></section><button class="button button-secondary" value="cancel">Close</button></form></dialog>
 
-  <!-- MODAL OVERLAY -->
-  <div class="modal-overlay" id="dashboard-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-text">
-    <div class="modal-box">
-      <div class="modal-header">
-        <h3 class="modal-title" id="modal-title-text">Modal Action</h3>
-        <button class="modal-close-btn" id="modal-close-x">&times;</button>
-      </div>
-      <div class="modal-body" id="modal-body-text">
-        Action details content goes here.
-      </div>
-      <div class="modal-footer">
-        <button class="btn-secondary-sm" id="modal-cancel-btn">Close</button>
-        <button class="btn-primary" id="modal-confirm-btn">Confirm</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="reportAdapter.js"></script>
-  <script src="datasets.js"></script>
-  <script src="main.js"></script>
+  <script src="reportAdapter.js"></script><script src="apiClient.js"></script><script src="pipeline1Controller.js"></script><script src="predictionController.js"></script><script src="main.js"></script>
 </body>
 </html>

@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "tested_at": "2026-09-14T20:05:24+00:00",
+  "verification_checks": {
+    "unseen_dataset_confirmed": true,
+    "not_in_51_training_datasets": true,
+    "selector_was_not_retrained": true,
+    "no_benchmark_outcomes_used": true,
+    "no_predictive_models_trained": true
+  },
+  "dataset_metadata": {
+    "dataset_name": "pizza_sales",
+    "dataset_path": "G:\\My Drive\\GitHub\\LYNX\\tests\\datasets\\valid\\pizza_sales.csv",
+    "n_rows": 48620,
+    "n_cols": 12,
+    "target_column": "total_price",
+    "task_type": "regression",
+    "feature_columns_count": 11,
+    "feature_type_counts": {
+      "numeric": 4,
+      "categorical": 7,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    }
+  },
+  "generated_semantic_profile": {
+    "probable_domain": "retail",
+    "subdomain": "food service",
+    "dataset_purpose": "sales analysis",
+    "row_entity": "pizza order",
+    "target_concept": "total sales price",
+    "feature_context": [
+      "order details",
+      "pizza characteristics",
+      "sales timing"
+    ],
+    "semantic_summary": "A retail dataset focusing on pizza sales, with features related to order details, pizza characteristics, and sales timing, aiming to predict total sales price.",
+    "domain_confidence": 0.85
+  },
+  "recommendations": {
+    "top1_model": "tabpfn",
+    "top1_family": "prior_fitted_network",
+    "top1_score": 0.8615658174359814,
+    "top2_models": [
+      {
+        "rank": 1,
+        "model_name": "tabpfn",
+        "model_family": "prior_fitted_network",
+        "predicted_suitability_score": 0.8615658174359814
+      },
+      {
+        "rank": 2,
+        "model_name": "tabiclv2",
+        "model_family": "prior_fitted_network",
+        "predicted_suitability_score": 0.8360548236866296
+      }
+    ],
+    "full_ranking": [
+      {
+        "rank": 1,
+        "model_name": "tabpfn",
+        "model_family": "prior_fitted_network",
+        "predicted_suitability_score": 0.8615658174359814
+      },
+      {
+        "rank": 2,
+        "model_name": "tabiclv2",
+        "model_family": "prior_fitted_network",
+        "predicted_suitability_score": 0.8360548236866296
+      },
+      {
+        "rank": 3,
+        "model_name": "lightgbm",
+        "model_family": "gradient_boosted_trees",
+        "predicted_suitability_score": 0.4930030648286651
+      },
+      {
+        "rank": 4,
+        "model_name": "xgboost",
+        "model_family": "gradient_boosted_trees",
+        "predicted_suitability_score": 0.4896636538997305
+      },
+      {
+        "rank": 5,
+        "model_name": "tabm",
+        "model_family": "deep_tabular_ensemble",
+        "predicted_suitability_score": 0.47449512534541133
+      },
+      {
+        "rank": 6,
+        "model_name": "catboost",
+        "model_family": "gradient_boosted_trees",
+        "predicted_suitability_score": 0.4682208358316287
+      },
+      {
+        "rank": 7,
+        "model_name": "realmlp",
+        "model_family": "multilayer_perceptron",
+        "predicted_suitability_score": 0.42663819010398946
+      },
+      {
+        "rank": 8,
+        "model_name": "random_forest",
+        "model_family": "tree_ensemble",
+        "predicted_suitability_score": 0.41670304453275875
+      },
+      {
+        "rank": 9,
+        "model_name": "ft_transformer",
+        "model_family": "transformer",
+        "predicted_suitability_score": 0.37062704412287373
+      },
+      {
+        "rank": 10,
+        "model_name": "xtab",
+        "model_family": "pretrained_transformer",
+        "predicted_suitability_score": 0.13732319437059412
+      }
+    ]
+  }
+}

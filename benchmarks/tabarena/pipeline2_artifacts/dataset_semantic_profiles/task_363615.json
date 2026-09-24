@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363615",
+  "dataset_name": "Another-Dataset-on-used-Fiat-500",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:13:15+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "Another-Dataset-on-used-Fiat-500",
+    "task_type": "regression",
+    "target_column": "price",
+    "row_count": 1538,
+    "feature_count": 7,
+    "feature_type_counts": {
+      "numeric": 6,
+      "categorical": 1,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "model",
+      "engine_power",
+      "age_in_days",
+      "km",
+      "previous_owners",
+      "lat",
+      "lon"
+    ],
+    "representative_feature_name_count": 7,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "automotive",
+    "subdomain": "used vehicles",
+    "dataset_purpose": "price prediction",
+    "row_entity": "used Fiat 500 vehicle",
+    "target_concept": "vehicle price",
+    "feature_context": [
+      "vehicle characteristics",
+      "usage metrics",
+      "geographical location"
+    ],
+    "semantic_summary": "A dataset for predicting the price of used Fiat 500 vehicles based on their characteristics, usage metrics, and geographical location.",
+    "domain_confidence": 0.9
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 26.51368,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:13:15.2965563Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 24468921200,
+      "load_duration": 7366300,
+      "prompt_eval_count": 440,
+      "prompt_eval_duration": 610474000,
+      "eval_count": 117,
+      "eval_duration": 23802420000
+    }
+  }
+}

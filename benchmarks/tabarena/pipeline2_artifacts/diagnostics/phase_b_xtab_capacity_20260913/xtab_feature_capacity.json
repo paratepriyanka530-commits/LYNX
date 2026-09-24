@@ -1,0 +1,125 @@
+{
+  "diagnostic": "xtab_feature_capacity",
+  "classification": "EMPIRICAL_SAFE_RANGE",
+  "rows_per_probe": 96,
+  "tested_feature_counts": [
+    20,
+    50,
+    100,
+    150,
+    200,
+    300,
+    500
+  ],
+  "highest_successful_feature_count": 500,
+  "hard_maximum_features": null,
+  "memory_measurement_notes": "CUDA max_memory_allocated is reset per probe; process memory is the Windows process-lifetime peak working set observed by psutil.",
+  "stop_reason": null,
+  "records": [
+    {
+      "feature_count": 20,
+      "rows": 96,
+      "device": "cuda",
+      "success": true,
+      "exception_type": null,
+      "exception_message": null,
+      "runtime_seconds": 1.1666385999997146,
+      "peak_gpu_memory_bytes": 45786624,
+      "peak_process_memory_bytes": 1228648448,
+      "prediction_success": true,
+      "output_shape": [
+        8
+      ]
+    },
+    {
+      "feature_count": 50,
+      "rows": 96,
+      "device": "cuda",
+      "success": true,
+      "exception_type": null,
+      "exception_message": null,
+      "runtime_seconds": 0.18129120001685806,
+      "peak_gpu_memory_bytes": 81601024,
+      "peak_process_memory_bytes": 1233096704,
+      "prediction_success": true,
+      "output_shape": [
+        8
+      ]
+    },
+    {
+      "feature_count": 100,
+      "rows": 96,
+      "device": "cuda",
+      "success": true,
+      "exception_type": null,
+      "exception_message": null,
+      "runtime_seconds": 0.20750999997835606,
+      "peak_gpu_memory_bytes": 156374016,
+      "peak_process_memory_bytes": 1233903616,
+      "prediction_success": true,
+      "output_shape": [
+        8
+      ]
+    },
+    {
+      "feature_count": 150,
+      "rows": 96,
+      "device": "cuda",
+      "success": true,
+      "exception_type": null,
+      "exception_message": null,
+      "runtime_seconds": 0.28377189999446273,
+      "peak_gpu_memory_bytes": 252107264,
+      "peak_process_memory_bytes": 1235025920,
+      "prediction_success": true,
+      "output_shape": [
+        8
+      ]
+    },
+    {
+      "feature_count": 200,
+      "rows": 96,
+      "device": "cuda",
+      "success": true,
+      "exception_type": null,
+      "exception_message": null,
+      "runtime_seconds": 0.42171870000311173,
+      "peak_gpu_memory_bytes": 378167296,
+      "peak_process_memory_bytes": 1236189184,
+      "prediction_success": true,
+      "output_shape": [
+        8
+      ]
+    },
+    {
+      "feature_count": 300,
+      "rows": 96,
+      "device": "cuda",
+      "success": true,
+      "exception_type": null,
+      "exception_message": null,
+      "runtime_seconds": 0.5498617000121158,
+      "peak_gpu_memory_bytes": 738194944,
+      "peak_process_memory_bytes": 1237221376,
+      "prediction_success": true,
+      "output_shape": [
+        8
+      ]
+    },
+    {
+      "feature_count": 500,
+      "rows": 96,
+      "device": "cuda",
+      "success": true,
+      "exception_type": null,
+      "exception_message": null,
+      "runtime_seconds": 1.0291358999966178,
+      "peak_gpu_memory_bytes": 1858371072,
+      "peak_process_memory_bytes": 1239416832,
+      "prediction_success": true,
+      "output_shape": [
+        8
+      ]
+    }
+  ]
+}

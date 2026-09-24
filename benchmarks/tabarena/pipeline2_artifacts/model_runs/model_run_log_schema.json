@@ -1,0 +1,315 @@
+{
+  "version": 5,
+  "columns": [
+    "dataset_id",
+    "model_id",
+    "base_model_id",
+    "execution_strategy",
+    "target_column",
+    "task_type",
+    "feasible",
+    "status",
+    "outcome_reason",
+    "metric_name",
+    "metric_value",
+    "baseline_relative_score",
+    "train_runtime_seconds",
+    "inference_runtime_seconds",
+    "runtime_seconds",
+    "oob_score",
+    "oob_diagnostic_reason",
+    "split_seed",
+    "hyperparams",
+    "predictive_metrics",
+    "calibration_metrics",
+    "probability_metadata",
+    "semantic_meta_features",
+    "statistical_meta_features",
+    "source"
+  ],
+  "valid_sources": [
+    "TabArena-published",
+    "team-original-run",
+    "team-reproduced"
+  ],
+  "invariant": "Every dataset/model outcome is logged; infeasible rows have no metric",
+  "foundation_model_limits": {
+    "tabpfn": {
+      "max_training_samples": 10000,
+      "max_features": 500,
+      "max_classes": 10
+    }
+  },
+  "model_capabilities": {
+    "randomforest": {
+      "task_type_supported": [
+        "classification",
+        "regression"
+      ],
+      "minimum_training_rows": null,
+      "maximum_training_rows": null,
+      "maximum_features": null,
+      "maximum_classes": null,
+      "binary_classification": true,
+      "multiclass_classification": true,
+      "missing_values": "No wrapper-level prohibition; categorical values use OneHotEncoder(handle_unknown='ignore'). Numeric missing-value artifact behavior is not separately certified.",
+      "categorical_features": "Supported through the fitted OneHotEncoder.",
+      "numeric_features": "Supported.",
+      "artifact_requirements": "The supplied unit_price regression artifact requires its persisted 11-column pizza schema.",
+      "environment_restrictions": "Supplied artifact verified with scikit-learn 1.9.0 and joblib 1.6.0.",
+      "source": "random_forest package and fitted random_forest_metadata.pkl",
+      "hard_limits": "Implemented classification/regression task contract; no verified row, feature, or class limits.",
+      "empirical_guidance": "General memory/runtime scaling is dataset- and hardware-dependent.",
+      "provisioning": "None for fresh benchmark training.",
+      "optional_diagnostics": [
+        "oob_score (disabled by default)"
+      ],
+      "supports_class_predictions": true,
+      "supports_classification_probabilities": true,
+      "probability_source": "sklearn Pipeline.predict_proba",
+      "probability_class_order_available": true
+    },
+    "lightgbm": {
+      "task_type_supported": [
+        "classification"
+      ],
+      "minimum_training_rows": 2,
+      "maximum_training_rows": null,
+      "maximum_features": null,
+      "maximum_classes": 2,
+      "binary_classification": true,
+      "multiclass_classification": false,
+      "missing_values": "Fitted medians handle numeric nulls; categorical nulls become 'Unknown'.",
+      "categorical_features": "Label-encoded; unseen inference labels are rejected by the fitted encoder.",
+      "numeric_features": "Supported.",
+      "artifact_requirements": "Supplied artifact requires the four persisted blood-donation feature names.",
+      "environment_restrictions": "Verified in the pinned Pipeline 2 model environment.",
+      "source": "lightgbm_config.py binary objective, model validation, and fitted preprocessor",
+      "hard_limits": "Classification only, binary only, minimum 2 training rows.",
+      "empirical_guidance": "No repository-specific capacity boundary verified.",
+      "provisioning": "None.",
+      "optional_diagnostics": [],
+      "supports_class_predictions": true,
+      "supports_classification_probabilities": true,
+      "probability_source": "LYNXLightGBM.predict_probability; binary matrix reconstructed",
+      "probability_class_order_available": true
+    },
+    "xgboost": {
+      "task_type_supported": [
+        "classification"
+      ],
+      "minimum_training_rows": 2,
+      "maximum_training_rows": null,
+      "maximum_features": null,
+      "maximum_classes": 2,
+      "binary_classification": true,
+      "multiclass_classification": false,
+      "missing_values": "Training preprocessing fills nulls; inference-time fill state is not persisted by the current preprocessor.",
+      "categorical_features": "Label-encoded; unseen inference labels are rejected.",
+      "numeric_features": "Supported.",
+      "artifact_requirements": "Model and matching fitted preprocessor must be loaded together.",
+      "environment_restrictions": "Pinned XGBoost 3.3.0 / scikit-learn 1.6.1 environment required for verified reuse.",
+      "source": "xgboost_config.py binary:logistic objective, model validation, and preprocessor",
+      "hard_limits": "Classification only, binary only, minimum 2 training rows.",
+      "empirical_guidance": "Numeric NaNs are pre-imputed by the merged wrapper, so native missing-value routing is not exercised.",
+      "provisioning": "None.",
+      "optional_diagnostics": [],
+      "supports_class_predictions": true,
+      "supports_classification_probabilities": true,
+      "probability_source": "LYNXXGBoost.predict_probability; binary matrix reconstructed",
+      "probability_class_order_available": true
+    },
+    "catboost": {
+      "task_type_supported": [
+        "classification"
+      ],
+      "minimum_training_rows": 1,
+      "maximum_training_rows": null,
+      "maximum_features": null,
+      "maximum_classes": 2,
+      "binary_classification": true,
+      "multiclass_classification": false,
+      "missing_values": "Fitted medians handle numeric nulls; categorical nulls become 'Unknown'.",
+      "categorical_features": "Supported as object/string columns by the fitted preprocessor and CatBoost.",
+      "numeric_features": "Supported for int64/float64 columns.",
+      "artifact_requirements": "Supplied artifact requires the four persisted blood-donation feature names.",
+      "environment_restrictions": "Verified in the pinned Pipeline 2 model environment.",
+      "source": "catboost_config.py Logloss objective, model validation, and fitted preprocessor",
+      "hard_limits": "Classification only, binary only, minimum 1 training row.",
+      "empirical_guidance": "No repository-specific capacity boundary verified.",
+      "provisioning": "None.",
+      "optional_diagnostics": [],
+      "supports_class_predictions": true,
+      "supports_classification_probabilities": true,
+      "probability_source": "LYNXCatBoost.predict_probability; binary matrix reconstructed",
+      "probability_class_order_available": true
+    },
+    "tabpfn": {
+      "task_type_supported": [
+        "classification"
+      ],
+      "minimum_training_rows": 2,
+      "maximum_training_rows": 10000,
+      "maximum_features": 500,
+      "maximum_classes": 10,
+      "binary_classification": true,
+      "multiclass_classification": true,
+      "missing_values": "No repository preprocessing; values are passed unchanged to TabPFNClassifier.",
+      "categorical_features": "No repository encoding or categorical-feature indices are supplied; compatibility is delegated to TabPFN.",
+      "numeric_features": "Supported.",
+      "artifact_requirements": "Pretrained classifier artifact and at least two target classes are required.",
+      "environment_restrictions": "Verified with tabpfn 8.5.0, torch 2.11.0+cu128, and scikit-learn 1.6.1.",
+      "source": "tabpfn_model.py plus TabPFN 8.5 inference_config pretraining limits",
+      "hard_limits": "Classification only; maximum 10000 training rows, 500 features, and 10 classes; minimum 2 rows.",
+      "empirical_guidance": "GPU memory remains hardware-dependent within the hard gate.",
+      "provisioning": "Licensed V3 checkpoint; one-time PriorLabs acceptance and TABPFN_TOKEN for headless first use.",
+      "optional_diagnostics": [],
+      "supports_class_predictions": true,
+      "supports_classification_probabilities": true,
+      "probability_source": "LYNXTabPFN.predict_probability",
+      "probability_class_order_available": true
+    },
+    "xtab": {
+      "task_type_supported": [
+        "classification",
+        "regression"
+      ],
+      "minimum_training_rows": 10,
+      "maximum_training_rows": null,
+      "maximum_features": null,
+      "maximum_classes": null,
+      "binary_classification": true,
+      "multiclass_classification": true,
+      "missing_values": "Numeric nulls use fitted means at inference; categorical nulls use a learned missing token. Regression targets cannot be missing/non-numeric.",
+      "categorical_features": "Supported with learned mappings and an unknown-category index.",
+      "numeric_features": "Supported with a fitted StandardScaler.",
+      "artifact_requirements": "The official iter_2k checkpoint supplies 46 pretrained shared-backbone tensors before optimization. Dataset-specific tokenizer, normalization, head, and fitted preprocessor are created per dataset and persisted in the downstream model artifact.",
+      "environment_restrictions": "Official backbone load and downstream train/predict verified with torch 2.11.0+cu128.",
+      "source": "xtab_trainer.py, xtab_preprocessor.py, xtab_model.py, official XTab iter_2k checkpoint, and exact tensor-load verification",
+      "hard_limits": "Minimum 10 training rows; no verified hard row, feature, or class maximum.",
+      "empirical_guidance": "96-row CUDA probe succeeded from 20 through 500 features; peak allocation reached about 1.86 GB at 500 features.",
+      "provisioning": "Repository official iter_2k pretrained-backbone checkpoint; no authentication.",
+      "optional_diagnostics": [
+        "synthetic feature-capacity probe"
+      ],
+      "supports_class_predictions": true,
+      "supports_classification_probabilities": true,
+      "probability_source": "XTabCandidate.predict_proba",
+      "probability_class_order_available": true
+    },
+    "realmlp": {
+      "task_type_supported": [
+        "classification",
+        "regression"
+      ],
+      "minimum_training_rows": 2,
+      "maximum_training_rows": null,
+      "maximum_features": null,
+      "maximum_classes": null,
+      "binary_classification": true,
+      "multiclass_classification": true,
+      "missing_values": "LYNX fits numeric medians on train only; pytabkit handles categorical missing/unknown values through its fitted converter.",
+      "categorical_features": "pytabkit RealMLP-TD internally one-hot encodes cardinality <=8 (threshold 9 includes unknown) and embeds larger cardinalities.",
+      "numeric_features": "pytabkit internally applies median centering, robust scaling, smooth clipping, and numerical embeddings.",
+      "artifact_requirements": "Fresh fitted PytabkitCandidate containing its train-fitted LYNX preprocessor and pytabkit estimator.",
+      "environment_restrictions": "pytabkit 1.7.3; GPU optional, CPU supported.",
+      "source": "pytabkit RealMLP_TD_Classifier/Regressor interfaces and installed source defaults",
+      "hard_limits": "Minimum 2 training rows; no verified hard maxima.",
+      "empirical_guidance": "Runtime and memory are hardware-dependent; CPU lifecycle verified.",
+      "provisioning": "None.",
+      "optional_diagnostics": [],
+      "supports_class_predictions": true,
+      "supports_classification_probabilities": true,
+      "probability_source": "PytabkitCandidate.predict_proba (RealMLP-TD)",
+      "probability_class_order_available": true
+    },
+    "tabm": {
+      "task_type_supported": [
+        "classification",
+        "regression"
+      ],
+      "minimum_training_rows": 2,
+      "maximum_training_rows": null,
+      "maximum_features": null,
+      "maximum_classes": null,
+      "binary_classification": true,
+      "multiclass_classification": true,
+      "missing_values": "LYNX fits numeric medians on train only; pytabkit's fitted converter handles categorical missing/unknown values.",
+      "categorical_features": "pytabkit TabM-D internally one-hot encodes categorical values.",
+      "numeric_features": "pytabkit internally applies its configured quantile-style transformation.",
+      "artifact_requirements": "Fresh fitted PytabkitCandidate containing its train-fitted LYNX preprocessor and pytabkit estimator.",
+      "environment_restrictions": "pytabkit 1.7.3; GPU optional, CPU and MPS supported.",
+      "source": "pytabkit TabM_D_Classifier/Regressor interfaces and installed source defaults",
+      "hard_limits": "Minimum 2 training rows; no verified hard maxima.",
+      "empirical_guidance": "Runtime and memory are hardware-dependent; CPU lifecycle verified.",
+      "provisioning": "None.",
+      "optional_diagnostics": [],
+      "supports_class_predictions": true,
+      "supports_classification_probabilities": true,
+      "probability_source": "PytabkitCandidate.predict_proba (TabM-D)",
+      "probability_class_order_available": true
+    },
+    "tabiclv2": {
+      "task_type_supported": [
+        "classification",
+        "regression"
+      ],
+      "minimum_training_rows": 2,
+      "maximum_training_rows": null,
+      "maximum_features": null,
+      "maximum_classes": null,
+      "binary_classification": true,
+      "multiclass_classification": true,
+      "missing_values": "LYNX fits train-only numeric medians and categorical missing tokens; TabICLv2 also natively handles numeric and categorical missing values.",
+      "categorical_features": "Official tabicl preprocessing detects and ordinal-encodes pandas categorical/object/string/bool columns.",
+      "numeric_features": "Supported with upstream scaling and normalization.",
+      "artifact_requirements": "Official v2 classification or regression checkpoint, cached by tabicl.",
+      "environment_restrictions": "tabicl 2.2.0; GPU optional but recommended for larger tables.",
+      "source": "official soda-inria/tabicl 2.2.0 package and v2 checkpoints",
+      "hard_limits": "Minimum 2 training rows; no verified hard row, feature, or class maximum.",
+      "empirical_guidance": "Upstream scale claims, including 500000 rows, are empirical rather than hard gates.",
+      "provisioning": "Public v2 classifier/regressor checkpoints require first-use network or a populated cache; no authentication.",
+      "optional_diagnostics": [],
+      "supports_class_predictions": true,
+      "supports_classification_probabilities": true,
+      "probability_source": "PytabkitCandidate.predict_proba (TabICLv2)",
+      "probability_class_order_available": true
+    },
+    "fttransformer": {
+      "task_type_supported": [
+        "classification",
+        "regression"
+      ],
+      "minimum_training_rows": 2,
+      "maximum_training_rows": null,
+      "maximum_features": null,
+      "maximum_classes": null,
+      "binary_classification": true,
+      "multiclass_classification": true,
+      "missing_values": "LYNX fits train-only numeric medians and categorical missing tokens before pytabkit's fitted converter.",
+      "categorical_features": "Supported through pytabkit's train-fitted FT-Transformer conversion.",
+      "numeric_features": "Supported through pytabkit's configured quantile transformation.",
+      "artifact_requirements": "Fresh fitted PytabkitCandidate; no pretrained checkpoint is loaded.",
+      "environment_restrictions": "pytabkit 1.7.3 plus skorch 1.4.0; CPU, CUDA, and MPS supported.",
+      "source": "pytabkit FTT_D_Classifier/Regressor (Gorishniy et al. FT-Transformer)",
+      "hard_limits": "Minimum 2 training rows; no verified hard maxima.",
+      "empirical_guidance": "Runtime and memory are hardware-dependent; CPU lifecycle verified.",
+      "provisioning": "None; no XTab checkpoint dependency.",
+      "optional_diagnostics": [],
+      "supports_class_predictions": true,
+      "supports_classification_probabilities": true,
+      "probability_source": "PytabkitCandidate.predict_proba (FT-Transformer)",
+      "probability_class_order_available": true
+    }
+  },
+  "experimental_execution_strategies": {
+    "tabpfn_crumb": {
+      "base_model_id": "tabpfn",
+      "execution_strategy": "crumb"
+    },
+    "tabiclv2_crumb": {
+      "base_model_id": "tabiclv2",
+      "execution_strategy": "crumb"
+    }
+  }
+}

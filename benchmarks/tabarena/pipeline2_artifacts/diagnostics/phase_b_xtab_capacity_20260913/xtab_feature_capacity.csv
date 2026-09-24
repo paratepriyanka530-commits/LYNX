@@ -1,0 +1,8 @@
+feature_count,rows,device,success,exception_type,exception_message,runtime_seconds,peak_gpu_memory_bytes,peak_process_memory_bytes,prediction_success,output_shape
+20,96,cuda,True,,,1.1666385999997146,45786624,1228648448,True,[8]
+50,96,cuda,True,,,0.18129120001685806,81601024,1233096704,True,[8]
+100,96,cuda,True,,,0.20750999997835606,156374016,1233903616,True,[8]
+150,96,cuda,True,,,0.28377189999446273,252107264,1235025920,True,[8]
+200,96,cuda,True,,,0.42171870000311173,378167296,1236189184,True,[8]
+300,96,cuda,True,,,0.5498617000121158,738194944,1237221376,True,[8]
+500,96,cuda,True,,,1.0291358999966178,1858371072,1239416832,True,[8]

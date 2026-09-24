@@ -28,6 +28,25 @@ category "privacy"; privacy counts are excluded from quality-fix summaries.
 Raw values from masked columns are omitted from detector examples, execution
 change examples, and persisted before-profile samples.
 
+## Deliberate scope boundary: internal surrogate identifiers
+
+Internal surrogate identifiers such as employee_id, patient_id, student_id,
+user_id, customer_id, account_id, and transaction_id are intentionally not
+treated as PII candidates. This is a deliberate scope boundary, not a
+detection gap. Sensitivity in this pipeline is defined by what a field directly
+reveals or enables: contact information, government-issued identifiers, or
+personal names. A surrogate identifier is a pointer that does not itself expose
+contact details or create direct impersonation or fraud risk, and it may be
+needed for grouping, joins, longitudinal analysis, or legitimate predictive
+use.
+
+Re-identification risk from these identifiers depends on whether they are
+joined against identity-mapping data outside this pipeline's control. Such
+external linkage is outside the current masking policy. Consequently,
+person-linked and event/object-linked surrogate identifiers are both retained;
+the detector does not infer privacy sensitivity merely from an identifier
+semantic role or an *_id-style column name.
+
 ## Pipeline 2 handoff enforcement
 
 The Pipeline 2 benchmark runner accepts only a per-dataset Pipeline 1 artifact

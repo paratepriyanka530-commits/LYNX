@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363686",
+  "dataset_name": "miami_housing",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:26:38+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "miami_housing",
+    "task_type": "regression",
+    "target_column": "SALE_PRC",
+    "row_count": 13776,
+    "feature_count": 15,
+    "feature_type_counts": {
+      "numeric": 15,
+      "categorical": 0,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "LATITUDE",
+      "LONGITUDE",
+      "LND_SQFOOT",
+      "TOT_LVG_AREA",
+      "SPEC_FEAT_VAL",
+      "RAIL_DIST",
+      "OCEAN_DIST",
+      "WATER_DIST",
+      "CNTR_DIST",
+      "SUBCNTR_DI",
+      "HWY_DIST",
+      "age",
+      "avno60plus",
+      "month_sold",
+      "structure_quality"
+    ],
+    "representative_feature_name_count": 15,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "real estate",
+    "subdomain": "housing",
+    "dataset_purpose": "regression analysis",
+    "row_entity": "property",
+    "target_concept": "sale price",
+    "feature_context": [
+      "geographical location",
+      "property size",
+      "amenities",
+      "proximity to features",
+      "age",
+      "demographics",
+      "time of sale",
+      "quality"
+    ],
+    "semantic_summary": "A dataset focused on housing in Miami, predicting sale prices based on various property and location features.",
+    "domain_confidence": 0.9
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 31.191348,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:26:38.7044025Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 29144929700,
+      "load_duration": 6685600,
+      "prompt_eval_count": 492,
+      "prompt_eval_duration": 636825000,
+      "eval_count": 125,
+      "eval_duration": 28485635000
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363672",
+  "dataset_name": "Food_Delivery_Time",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:20:35+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "Food_Delivery_Time",
+    "task_type": "regression",
+    "target_column": "Time_taken(min)",
+    "row_count": 45451,
+    "feature_count": 9,
+    "feature_type_counts": {
+      "numeric": 6,
+      "categorical": 3,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "Delivery_person_ID",
+      "Delivery_person_Age",
+      "Delivery_person_Ratings",
+      "Restaurant_latitude",
+      "Restaurant_longitude",
+      "Delivery_location_latitude",
+      "Delivery_location_longitude",
+      "Type_of_order",
+      "Type_of_vehicle"
+    ],
+    "representative_feature_name_count": 9,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "transportation",
+    "subdomain": "logistics",
+    "dataset_purpose": "predict delivery time",
+    "row_entity": "food delivery",
+    "target_concept": "time taken for delivery",
+    "feature_context": [
+      "demographics",
+      "geography",
+      "order details",
+      "vehicle type"
+    ],
+    "semantic_summary": "This dataset contains logistics data for food deliveries, focusing on predicting the time taken based on delivery person attributes, geographic locations, and order details.",
+    "domain_confidence": 0.8
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 29.028545,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:20:35.532973Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 26992214000,
+      "load_duration": 7046100,
+      "prompt_eval_count": 455,
+      "prompt_eval_duration": 615326000,
+      "eval_count": 120,
+      "eval_duration": 26355478000
+    }
+  }
+}

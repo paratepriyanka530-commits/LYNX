@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363631",
+  "dataset_name": "diamonds",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:19:07+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "diamonds",
+    "task_type": "regression",
+    "target_column": "price",
+    "row_count": 53940,
+    "feature_count": 9,
+    "feature_type_counts": {
+      "numeric": 6,
+      "categorical": 3,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "carat",
+      "cut",
+      "color",
+      "clarity",
+      "depth",
+      "table",
+      "x",
+      "y",
+      "z"
+    ],
+    "representative_feature_name_count": 9,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "unknown",
+    "subdomain": "unknown",
+    "dataset_purpose": "regression analysis",
+    "row_entity": "diamond",
+    "target_concept": "price",
+    "feature_context": [
+      "size",
+      "cut quality",
+      "color",
+      "clarity",
+      "dimensions"
+    ],
+    "semantic_summary": "A dataset for predicting diamond prices based on size, cut quality, color, clarity, and dimensions.",
+    "domain_confidence": 0.3
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 26.071792,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:19:07.4776837Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 24036035300,
+      "load_duration": 7852400,
+      "prompt_eval_count": 435,
+      "prompt_eval_duration": 649173000,
+      "eval_count": 107,
+      "eval_duration": 23317030000
+    }
+  }
+}

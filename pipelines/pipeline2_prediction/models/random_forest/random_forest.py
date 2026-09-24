@@ -31,7 +31,7 @@ def _categorical_columns(frame):
     ).columns.tolist()
 
 
-def build_model(task_type, random_state=42):
+def build_model(task_type, random_state=42, oob_score=False):
     """Build an unfitted pipeline; preprocessing is fitted only by train_model."""
     if task_type not in {"classification", "regression"}:
         raise ValueError(f"Unsupported task type for Random Forest: {task_type}")
@@ -55,7 +55,13 @@ def build_model(task_type, random_state=42):
             ("preprocessor", preprocessor),
             (
                 "model",
-                estimator_class(n_estimators=200, random_state=random_state, n_jobs=-1),
+                estimator_class(
+                    n_estimators=200,
+                    random_state=random_state,
+                    n_jobs=-1,
+                    bootstrap=True,
+                    oob_score=oob_score,
+                ),
             ),
         ]
     )

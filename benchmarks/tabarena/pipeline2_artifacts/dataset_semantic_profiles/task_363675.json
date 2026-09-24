@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363675",
+  "dataset_name": "healthcare_insurance_expenses",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:21:57+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "healthcare_insurance_expenses",
+    "task_type": "regression",
+    "target_column": "charges",
+    "row_count": 1338,
+    "feature_count": 6,
+    "feature_type_counts": {
+      "numeric": 3,
+      "categorical": 3,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "age",
+      "sex",
+      "bmi",
+      "children",
+      "smoker",
+      "region"
+    ],
+    "representative_feature_name_count": 6,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "healthcare",
+    "subdomain": "insurance",
+    "dataset_purpose": "predict insurance charges",
+    "row_entity": "patient",
+    "target_concept": "medical insurance charges",
+    "feature_context": [
+      "demographics",
+      "health status",
+      "behavioral factors",
+      "geographical location"
+    ],
+    "semantic_summary": "A healthcare dataset for predicting insurance charges based on patient demographics and health-related features.",
+    "domain_confidence": 1.0
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 25.894971,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:21:57.126199Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 23860342300,
+      "load_duration": 6985300,
+      "prompt_eval_count": 429,
+      "prompt_eval_duration": 576608000,
+      "eval_count": 105,
+      "eval_duration": 23214794000
+    }
+  }
+}

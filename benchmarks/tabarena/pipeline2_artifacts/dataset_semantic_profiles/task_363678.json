@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363678",
+  "dataset_name": "houses",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:23:16+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "houses",
+    "task_type": "regression",
+    "target_column": "LnMedianHouseValue",
+    "row_count": 20640,
+    "feature_count": 8,
+    "feature_type_counts": {
+      "numeric": 8,
+      "categorical": 0,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "MedianIncome",
+      "HousingMedianAge",
+      "TotalRooms",
+      "TotalBedrooms",
+      "Population",
+      "Households",
+      "Latitude",
+      "Longitude"
+    ],
+    "representative_feature_name_count": 8,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "real estate",
+    "subdomain": "housing market analysis",
+    "dataset_purpose": "regression analysis",
+    "row_entity": "geographical area",
+    "target_concept": "median house value (log-transformed)",
+    "feature_context": [
+      "geographical location",
+      "demographics",
+      "housing characteristics"
+    ],
+    "semantic_summary": "This dataset contains geographical and demographic features to predict the log-transformed median house value of areas.",
+    "domain_confidence": 0.8
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 28.137356,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:23:16.7954964Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 26087605800,
+      "load_duration": 8428800,
+      "prompt_eval_count": 440,
+      "prompt_eval_duration": 656863000,
+      "eval_count": 113,
+      "eval_duration": 25340123000
+    }
+  }
+}

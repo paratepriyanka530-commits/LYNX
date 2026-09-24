@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363612",
+  "dataset_name": "airfoil_self_noise",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:11:56+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "airfoil_self_noise",
+    "task_type": "regression",
+    "target_column": "scaled-sound-pressure",
+    "row_count": 1503,
+    "feature_count": 5,
+    "feature_type_counts": {
+      "numeric": 5,
+      "categorical": 0,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "frequency",
+      "attack-angle",
+      "chord-length",
+      "free-stream-velocity",
+      "suction-side-displacement-thickness"
+    ],
+    "representative_feature_name_count": 5,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "aerospace engineering",
+    "subdomain": "aerodynamics",
+    "dataset_purpose": "regression analysis",
+    "row_entity": "airfoil geometry and flow characteristics",
+    "target_concept": "sound pressure level",
+    "feature_context": [
+      "aerodynamic parameters",
+      "flow conditions",
+      "acoustic properties"
+    ],
+    "semantic_summary": "This dataset contains aerodynamic parameters and flow conditions to predict the sound pressure level of an airfoil.",
+    "domain_confidence": 0.8
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 26.615327,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:11:56.7496606Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 24397790200,
+      "load_duration": 11224800,
+      "prompt_eval_count": 437,
+      "prompt_eval_duration": 699632000,
+      "eval_count": 117,
+      "eval_duration": 23616695000
+    }
+  }
+}

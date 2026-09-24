@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363623",
+  "dataset_name": "churn",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:15:26+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "churn",
+    "task_type": "classification",
+    "target_column": "CustomerChurned",
+    "row_count": 5000,
+    "feature_count": 19,
+    "feature_type_counts": {
+      "numeric": 19,
+      "categorical": 0,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "state",
+      "account_length",
+      "area_code",
+      "international_plan",
+      "voice_mail_plan",
+      "number_vmail_messages",
+      "total_day_minutes",
+      "total_day_calls",
+      "total_day_charge",
+      "total_eve_minutes",
+      "total_eve_calls",
+      "total_eve_charge",
+      "total_night_minutes",
+      "total_night_calls",
+      "total_night_charge",
+      "total_intl_minutes",
+      "total_intl_calls",
+      "total_intl_charge",
+      "number_customer_service_calls"
+    ],
+    "representative_feature_name_count": 19,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "telecommunications",
+    "subdomain": "customer behavior",
+    "dataset_purpose": "classification",
+    "row_entity": "customer",
+    "target_concept": "churn status",
+    "feature_context": [
+      "customer demographics",
+      "service usage",
+      "customer service interactions"
+    ],
+    "semantic_summary": "A dataset for predicting customer churn in telecommunications, focusing on customer demographics, service usage patterns, and customer service interactions.",
+    "domain_confidence": 0.9
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 25.034411,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:15:26.8147398Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 22983325200,
+      "load_duration": 14802900,
+      "prompt_eval_count": 511,
+      "prompt_eval_duration": 646056000,
+      "eval_count": 108,
+      "eval_duration": 22304197000
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363626",
+  "dataset_name": "credit-g",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:16:47+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "credit-g",
+    "task_type": "classification",
+    "target_column": "good_or_bad_customer",
+    "row_count": 1000,
+    "feature_count": 20,
+    "feature_type_counts": {
+      "numeric": 7,
+      "categorical": 13,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "checking_status",
+      "duration_months",
+      "credit_history",
+      "credit_purpose",
+      "credit_amount",
+      "savings_status",
+      "employment_since",
+      "installment_rate_percent",
+      "personal_status_sex",
+      "other_debtors",
+      "residence_since",
+      "property",
+      "age_years",
+      "other_installment_plans",
+      "housing",
+      "existing_credits_count",
+      "job",
+      "people_liable",
+      "telephone",
+      "foreign_worker"
+    ],
+    "representative_feature_name_count": 20,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "finance",
+    "subdomain": "credit scoring",
+    "dataset_purpose": "classification",
+    "row_entity": "loan applicant",
+    "target_concept": "creditworthiness",
+    "feature_context": [
+      "demographics",
+      "employment",
+      "credit history",
+      "loan details",
+      "financial status"
+    ],
+    "semantic_summary": "A dataset for classifying loan applicants into good or bad credit customers based on various personal and financial attributes.",
+    "domain_confidence": 0.9
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 26.459846,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:16:47.0199824Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 24419332700,
+      "load_duration": 9046100,
+      "prompt_eval_count": 500,
+      "prompt_eval_duration": 640772000,
+      "eval_count": 112,
+      "eval_duration": 23752047000
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363676",
+  "dataset_name": "heloc",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:22:23+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "heloc",
+    "task_type": "classification",
+    "target_column": "RiskPerformance",
+    "row_count": 10459,
+    "feature_count": 23,
+    "feature_type_counts": {
+      "numeric": 23,
+      "categorical": 0,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "ExternalRiskEstimate",
+      "MSinceOldestTradeOpen",
+      "MSinceMostRecentTradeOpen",
+      "AverageMInFile",
+      "NumSatisfactoryTrades",
+      "NumTrades60Ever2DerogPubRec",
+      "NumTrades90Ever2DerogPubRec",
+      "PercentTradesNeverDelq",
+      "MSinceMostRecentDelq",
+      "MaxDelq2PublicRecLast12M",
+      "MaxDelqEver",
+      "NumTotalTrades",
+      "NumTradesOpeninLast12M",
+      "PercentInstallTrades",
+      "MSinceMostRecentInqexcl7days",
+      "NumInqLast6M",
+      "NumInqLast6Mexcl7days",
+      "NetFractionRevolvingBurden",
+      "NetFractionInstallBurden",
+      "NumRevolvingTradesWBalance",
+      "NumInstallTradesWBalance",
+      "NumBank2NatlTradesWHighUtilization",
+      "PercentTradesWBalance"
+    ],
+    "representative_feature_name_count": 23,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "finance",
+    "subdomain": "credit risk assessment",
+    "dataset_purpose": "classification",
+    "row_entity": "individual borrower",
+    "target_concept": "credit risk performance",
+    "feature_context": [
+      "credit history",
+      "loan behavior",
+      "credit utilization",
+      "inquiries"
+    ],
+    "semantic_summary": "A dataset for classifying credit risk performance based on borrower's credit history and behavior.",
+    "domain_confidence": 0.9
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 26.608269,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:22:23.8559935Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 24551044900,
+      "load_duration": 8485500,
+      "prompt_eval_count": 613,
+      "prompt_eval_duration": 680733000,
+      "eval_count": 106,
+      "eval_duration": 23834583000
+    }
+  }
+}

@@ -1,0 +1,1115 @@
+{
+  "pipeline_version": "pipeline1_architecture_b_v001",
+  "run_id": "20260913T231710-9736a238",
+  "status": "success",
+  "original_dataset": {
+    "valid": true,
+    "file_name": "Another-Dataset-on-used-Fiat-500.csv",
+    "file_format": ".csv",
+    "file_size_bytes": 99393,
+    "rows": 1538,
+    "columns": 8,
+    "duplicate_columns": [],
+    "absolute_path": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\datasets\\Another-Dataset-on-used-Fiat-500.csv",
+    "source_path": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\datasets\\Another-Dataset-on-used-Fiat-500.csv",
+    "raw_dataset_overwritten": false
+  },
+  "before_profile": {
+    "shape": {
+      "rows": 1538,
+      "columns": 8
+    },
+    "column_names": [
+      "model",
+      "engine_power",
+      "age_in_days",
+      "km",
+      "previous_owners",
+      "lat",
+      "lon",
+      "price"
+    ],
+    "dtype_distribution": {
+      "object": 1,
+      "int64": 5,
+      "float64": 2
+    },
+    "missingness": {
+      "total_missing_cells": 0,
+      "overall_missing_percentage": 0.0
+    },
+    "duplicates": {
+      "exact_duplicate_rows": 18,
+      "percentage": 1.1704
+    },
+    "column_profiles": [
+      {
+        "column_name": "model",
+        "physical_dtype": "object",
+        "row_count": 1538,
+        "non_null_count": 1538,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 3,
+          "unique_ratio": 0.001951
+        },
+        "repetition": {
+          "repeated_unique_count": 3,
+          "repeated_occurrences": 1538,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "lounge",
+          "pop",
+          "sport"
+        ]
+      },
+      {
+        "column_name": "engine_power",
+        "physical_dtype": "int64",
+        "row_count": 1538,
+        "non_null_count": 1538,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 8,
+          "unique_ratio": 0.005202
+        },
+        "repetition": {
+          "repeated_unique_count": 5,
+          "repeated_occurrences": 1535,
+          "repetition_rate": 0.998049
+        },
+        "sample_values": [
+          62,
+          51,
+          74,
+          73,
+          77
+        ],
+        "numeric_statistics": {
+          "min": 51,
+          "max": 77,
+          "mean": 51.904421326397916,
+          "median": 51.0,
+          "std": 3.9880228896004217,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "age_in_days",
+        "physical_dtype": "int64",
+        "row_count": 1538,
+        "non_null_count": 1538,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 140,
+          "unique_ratio": 0.091027
+        },
+        "repetition": {
+          "repeated_unique_count": 137,
+          "repeated_occurrences": 1535,
+          "repetition_rate": 0.998049
+        },
+        "sample_values": [
+          3074,
+          790,
+          821,
+          397,
+          366
+        ],
+        "numeric_statistics": {
+          "min": 366,
+          "max": 4658,
+          "mean": 1650.9804941482444,
+          "median": 1035.0,
+          "std": 1289.5222775270936,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "km",
+        "physical_dtype": "int64",
+        "row_count": 1538,
+        "non_null_count": 1538,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 988,
+          "unique_ratio": 0.642393
+        },
+        "repetition": {
+          "repeated_unique_count": 194,
+          "repeated_occurrences": 744,
+          "repetition_rate": 0.483745
+        },
+        "sample_values": [
+          61000,
+          29395,
+          28220,
+          11997,
+          10295
+        ],
+        "numeric_statistics": {
+          "min": 1232,
+          "max": 235000,
+          "mean": 53396.01170351105,
+          "median": 39031.0,
+          "std": 40046.83072333686,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "previous_owners",
+        "physical_dtype": "int64",
+        "row_count": 1538,
+        "non_null_count": 1538,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 4,
+          "unique_ratio": 0.002601
+        },
+        "repetition": {
+          "repeated_unique_count": 4,
+          "repeated_occurrences": 1538,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "numeric_statistics": {
+          "min": 1,
+          "max": 4,
+          "mean": 1.1235370611183355,
+          "median": 1.0,
+          "std": 0.41642275450175514,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "lat",
+        "physical_dtype": "float64",
+        "row_count": 1538,
+        "non_null_count": 1538,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 449,
+          "unique_ratio": 0.291938
+        },
+        "repetition": {
+          "repeated_unique_count": 226,
+          "repeated_occurrences": 1315,
+          "repetition_rate": 0.855007
+        },
+        "sample_values": [
+          45.51815032958984,
+          41.90322113037109,
+          45.14241027832031,
+          40.465370178222656,
+          40.83581161499024
+        ],
+        "numeric_statistics": {
+          "min": 36.855838775634766,
+          "max": 46.79561233520508,
+          "mean": 43.54136132635903,
+          "median": 44.39409637451172,
+          "std": 2.133517826356603,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "lon",
+        "physical_dtype": "float64",
+        "row_count": 1538,
+        "non_null_count": 1538,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 450,
+          "unique_ratio": 0.292588
+        },
+        "repetition": {
+          "repeated_unique_count": 225,
+          "repeated_occurrences": 1313,
+          "repetition_rate": 0.853706
+        },
+        "sample_values": [
+          10.350669860839844,
+          12.495650291442873,
+          10.015210151672363,
+          17.250539779663086,
+          14.504409790039062
+        ],
+        "numeric_statistics": {
+          "min": 7.2453999519348145,
+          "max": 18.36552047729492,
+          "mean": 11.563428342419886,
+          "median": 11.86925983428955,
+          "std": 2.328189899399839,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "price",
+        "physical_dtype": "int64",
+        "row_count": 1538,
+        "non_null_count": 1538,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 222,
+          "unique_ratio": 0.144343
+        },
+        "repetition": {
+          "repeated_unique_count": 144,
+          "repeated_occurrences": 1460,
+          "repetition_rate": 0.949285
+        },
+        "sample_values": [
+          8450,
+          8650,
+          10400,
+          9999,
+          10100
+        ],
+        "numeric_statistics": {
+          "min": 2500,
+          "max": 11100,
+          "mean": 8576.00390117035,
+          "median": 9000.0,
+          "std": 1939.9586410378124,
+          "infinity_count": 0
+        }
+      }
+    ]
+  },
+  "issues": [
+    {
+      "issue_id": "issue-exact_duplicate_rows-192ec5f83876",
+      "issue_type": "exact_duplicate_rows",
+      "target_columns": [],
+      "affected_count": 18,
+      "affected_percentage": 1.1704,
+      "evidence": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "examples": [
+        202,
+        343,
+        542,
+        549,
+        631
+      ],
+      "status": "issue",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-statistical_outlier_candidate-2d09369edcf5",
+      "issue_type": "statistical_outlier_candidate",
+      "target_columns": [
+        "km"
+      ],
+      "affected_count": 15,
+      "affected_percentage": 0.9753,
+      "evidence": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 20006.25,
+        "q3": 79667.75,
+        "lower_bound": -69486.0,
+        "upper_bound": 169160.0
+      },
+      "examples": [
+        171150,
+        170000,
+        174000,
+        188000,
+        185000
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-statistical_outlier_candidate-ac9fdcce450d",
+      "issue_type": "statistical_outlier_candidate",
+      "target_columns": [
+        "lon"
+      ],
+      "affected_count": 12,
+      "affected_percentage": 0.7802,
+      "evidence": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 9.50508975982666,
+        "q3": 12.76903986930847,
+        "lower_bound": 4.6091645956039455,
+        "upper_bound": 17.664965033531185
+      },
+      "examples": [
+        17.70716094970703,
+        18.36552047729492,
+        18.3604793548584,
+        18.16801071166992,
+        17.808019638061523
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    },
+    {
+      "issue_id": "issue-statistical_outlier_candidate-1d0714808a03",
+      "issue_type": "statistical_outlier_candidate",
+      "target_columns": [
+        "price"
+      ],
+      "affected_count": 1,
+      "affected_percentage": 0.065,
+      "evidence": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 7122.5,
+        "q3": 10000.0,
+        "lower_bound": 2806.25,
+        "upper_bound": 14316.25
+      },
+      "examples": [
+        2500
+      ],
+      "status": "candidate",
+      "risk_hint": "context_dependent",
+      "detector": "deterministic_issue_detector"
+    }
+  ],
+  "quality_summary": {
+    "total_issues_detected": 4,
+    "issues_by_type": {
+      "exact_duplicate_rows": 1,
+      "statistical_outlier_candidate": 3
+    },
+    "issues_by_status": {
+      "candidate": 3,
+      "issue": 1
+    },
+    "affected_columns": [
+      "km",
+      "lon",
+      "price"
+    ],
+    "dataset_level_issue_count": 1
+  },
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": "vehicle",
+      "row_entity_confidence": 0.8,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "model",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "unknown",
+        "concept_description": "Unknown categorical values representing different vehicle models or types, likely without a specific numeric or entity reference interpretation within the dataset context provided. The values are repeated and bounded, suggesting they are part of a controlled taxonomy of vehicle types or models.",
+        "semantic_role": "unknown",
+        "confidence": 0.8550070000000001,
+        "reasoning_summary": "The column name 'model' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are part of a controlled taxonomy of vehicle types or models. The physical dtype is 'object', indicating that these values are strings or categorical data."
+      },
+      {
+        "column_name": "engine_power",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Numeric values representing the power output of the engine, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+        "semantic_role": "unknown",
+        "confidence": 0.998049,
+        "reasoning_summary": "The column name 'engine_power' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of engine power. The physical dtype is 'int64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+      },
+      {
+        "column_name": "age_in_days",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Numeric values representing the age of the vehicle in days, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+        "semantic_role": "unknown",
+        "confidence": 0.998049,
+        "reasoning_summary": "The column name 'age_in_days' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the age of the vehicle. The physical dtype is 'int64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+      },
+      {
+        "column_name": "km",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Numeric values representing the distance driven by the vehicle, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+        "semantic_role": "unknown",
+        "confidence": 0.998049,
+        "reasoning_summary": "The column name 'km' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the distance driven by the vehicle. The physical dtype is 'int64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+      },
+      {
+        "column_name": "previous_owners",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "unknown",
+        "concept_description": "Numeric values representing the number of previous owners, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary, but the semantic type is categorical as they are repeated values without a specific numeric or entity reference interpretation.",
+        "semantic_role": "unknown",
+        "confidence": 0.998049,
+        "reasoning_summary": "The column name 'previous_owners' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the number of previous owners. The physical dtype is 'int64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude. However, the semantic type is categorical as these values are repeated values without a specific numeric or entity reference interpretation."
+      },
+      {
+        "column_name": "lat",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Numeric values representing the latitude of the vehicle, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+        "semantic_role": "unknown",
+        "confidence": 0.8550070000000001,
+        "reasoning_summary": "The column name 'lat' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the latitude of the vehicle. The physical dtype is 'float64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+      },
+      {
+        "column_name": "lon",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Numeric values representing the longitude of the vehicle, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+        "semantic_role": "unknown",
+        "confidence": 0.8537060000000001,
+        "reasoning_summary": "The column name 'lon' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the longitude of the vehicle. The physical dtype is 'float64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+      },
+      {
+        "column_name": "price",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Numeric values representing the price of the vehicle, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+        "semantic_role": "unknown",
+        "confidence": 0.949285,
+        "reasoning_summary": "The column name 'price' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the price of the vehicle. The physical dtype is 'int64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+      }
+    ],
+    "warnings": [],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 1,
+      "total_llm_calls": 2,
+      "batch_sizes": [
+        8
+      ],
+      "dataset_semantic_runtime_seconds": 3.301921,
+      "batch_runtime_seconds": [
+        40.369334
+      ],
+      "rag_runtime_seconds": 0.059543,
+      "batch_failures": 0,
+      "batch_retries": 0,
+      "llm_calls": [
+        {
+          "stage": "dataset_context",
+          "api_wall_duration_seconds": 3.267688,
+          "prompt_eval_count": 1268,
+          "prompt_eval_duration": 705936000,
+          "eval_count": 20,
+          "eval_duration": 435768000,
+          "total_duration": 1227796900,
+          "load_duration": 15996900,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "api_wall_duration_seconds": 40.369033,
+          "prompt_eval_count": 2628,
+          "prompt_eval_duration": 1096177000,
+          "eval_count": 1404,
+          "eval_duration": 37035546000,
+          "total_duration": 38266737400,
+          "load_duration": 5603000,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 43.69705,
+      "semantic_contradiction_guard": {
+        "guard_version": "semantic_contradiction_guard_v001",
+        "deterministic": true,
+        "evaluated_column_count": 8,
+        "correction_count": 0,
+        "ambiguous_shape_overrides_enabled": false,
+        "entries": [
+          {
+            "column_name": "model",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "model",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Unknown categorical values representing different vehicle models or types, likely without a specific numeric or entity reference interpretation within the dataset context provided. The values are repeated and bounded, suggesting they are part of a controlled taxonomy of vehicle types or models.",
+              "semantic_role": "unknown",
+              "confidence": 0.8550070000000001,
+              "reasoning_summary": "The column name 'model' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are part of a controlled taxonomy of vehicle types or models. The physical dtype is 'object', indicating that these values are strings or categorical data."
+            },
+            "effective_semantic_result": {
+              "column_name": "model",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Unknown categorical values representing different vehicle models or types, likely without a specific numeric or entity reference interpretation within the dataset context provided. The values are repeated and bounded, suggesting they are part of a controlled taxonomy of vehicle types or models.",
+              "semantic_role": "unknown",
+              "confidence": 0.8550070000000001,
+              "reasoning_summary": "The column name 'model' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are part of a controlled taxonomy of vehicle types or models. The physical dtype is 'object', indicating that these values are strings or categorical data."
+            }
+          },
+          {
+            "column_name": "engine_power",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "engine_power",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric values representing the power output of the engine, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+              "semantic_role": "unknown",
+              "confidence": 0.998049,
+              "reasoning_summary": "The column name 'engine_power' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of engine power. The physical dtype is 'int64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+            },
+            "effective_semantic_result": {
+              "column_name": "engine_power",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric values representing the power output of the engine, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+              "semantic_role": "unknown",
+              "confidence": 0.998049,
+              "reasoning_summary": "The column name 'engine_power' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of engine power. The physical dtype is 'int64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+            }
+          },
+          {
+            "column_name": "age_in_days",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "age_in_days",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric values representing the age of the vehicle in days, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+              "semantic_role": "unknown",
+              "confidence": 0.998049,
+              "reasoning_summary": "The column name 'age_in_days' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the age of the vehicle. The physical dtype is 'int64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+            },
+            "effective_semantic_result": {
+              "column_name": "age_in_days",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric values representing the age of the vehicle in days, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+              "semantic_role": "unknown",
+              "confidence": 0.998049,
+              "reasoning_summary": "The column name 'age_in_days' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the age of the vehicle. The physical dtype is 'int64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+            }
+          },
+          {
+            "column_name": "km",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "km",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric values representing the distance driven by the vehicle, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+              "semantic_role": "unknown",
+              "confidence": 0.998049,
+              "reasoning_summary": "The column name 'km' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the distance driven by the vehicle. The physical dtype is 'int64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+            },
+            "effective_semantic_result": {
+              "column_name": "km",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric values representing the distance driven by the vehicle, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+              "semantic_role": "unknown",
+              "confidence": 0.998049,
+              "reasoning_summary": "The column name 'km' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the distance driven by the vehicle. The physical dtype is 'int64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+            }
+          },
+          {
+            "column_name": "previous_owners",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "previous_owners",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Numeric values representing the number of previous owners, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary, but the semantic type is categorical as they are repeated values without a specific numeric or entity reference interpretation.",
+              "semantic_role": "unknown",
+              "confidence": 0.998049,
+              "reasoning_summary": "The column name 'previous_owners' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the number of previous owners. The physical dtype is 'int64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude. However, the semantic type is categorical as these values are repeated values without a specific numeric or entity reference interpretation."
+            },
+            "effective_semantic_result": {
+              "column_name": "previous_owners",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Numeric values representing the number of previous owners, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary, but the semantic type is categorical as they are repeated values without a specific numeric or entity reference interpretation.",
+              "semantic_role": "unknown",
+              "confidence": 0.998049,
+              "reasoning_summary": "The column name 'previous_owners' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the number of previous owners. The physical dtype is 'int64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude. However, the semantic type is categorical as these values are repeated values without a specific numeric or entity reference interpretation."
+            }
+          },
+          {
+            "column_name": "lat",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "lat",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric values representing the latitude of the vehicle, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+              "semantic_role": "unknown",
+              "confidence": 0.8550070000000001,
+              "reasoning_summary": "The column name 'lat' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the latitude of the vehicle. The physical dtype is 'float64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+            },
+            "effective_semantic_result": {
+              "column_name": "lat",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric values representing the latitude of the vehicle, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+              "semantic_role": "unknown",
+              "confidence": 0.8550070000000001,
+              "reasoning_summary": "The column name 'lat' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the latitude of the vehicle. The physical dtype is 'float64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+            }
+          },
+          {
+            "column_name": "lon",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "lon",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric values representing the longitude of the vehicle, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+              "semantic_role": "unknown",
+              "confidence": 0.8537060000000001,
+              "reasoning_summary": "The column name 'lon' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the longitude of the vehicle. The physical dtype is 'float64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+            },
+            "effective_semantic_result": {
+              "column_name": "lon",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric values representing the longitude of the vehicle, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+              "semantic_role": "unknown",
+              "confidence": 0.8537060000000001,
+              "reasoning_summary": "The column name 'lon' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the longitude of the vehicle. The physical dtype is 'float64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+            }
+          },
+          {
+            "column_name": "price",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "price",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric values representing the price of the vehicle, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+              "semantic_role": "unknown",
+              "confidence": 0.949285,
+              "reasoning_summary": "The column name 'price' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the price of the vehicle. The physical dtype is 'int64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+            },
+            "effective_semantic_result": {
+              "column_name": "price",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Numeric values representing the price of the vehicle, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+              "semantic_role": "unknown",
+              "confidence": 0.949285,
+              "reasoning_summary": "The column name 'price' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the price of the vehicle. The physical dtype is 'int64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+            }
+          }
+        ]
+      }
+    }
+  },
+  "decision_summary": {
+    "total_decisions": 4,
+    "by_decision_type": {
+      "flag_for_review": 4
+    },
+    "by_proposed_action": {
+      "flag_rows": 4
+    },
+    "tier1_decisions": 4,
+    "tier2_decisions": 0,
+    "fallback_decisions": 0,
+    "deterministic_runtime_seconds": 0.000187,
+    "tier2_issue_count": 0,
+    "tier2_batch_sizes": [],
+    "tier2_batch_kinds": [],
+    "llm_decision_calls": 0,
+    "llm_runtime_seconds": 0.0,
+    "intended_llm_decision_calls": 0,
+    "retries": 0,
+    "successful_batches": 0,
+    "batch_failures": 0,
+    "fallback_issue_count": 0,
+    "tier2_recovery_audit": [],
+    "llm_calls": [],
+    "total_runtime_seconds": 0.000227,
+    "execution_routing": {
+      "detected_issue_count": 4,
+      "decision_count": 4,
+      "proposed_action_count": 0,
+      "compiled_instruction_count": 1,
+      "executed_action_count": 1,
+      "executed_trim_whitespace_count": 0,
+      "executed_normalize_categorical_labels_count": 0,
+      "skipped_action_count": 0,
+      "skipped_actions": [],
+      "parse_date_assessments": [],
+      "numeric_coercion_assessments": [],
+      "missing_value_assessments": [],
+      "impute_missing_proposal_count": 0,
+      "median_imputation_authorization_assessments": [],
+      "executed_impute_missing_count": 0,
+      "executed_coerce_dtype_count": 0,
+      "executed_parse_dates_count": 0
+    },
+    "privacy_actions": {
+      "reason": "masked for privacy",
+      "privacy_stage_completed": true,
+      "privacy_clearance_passed": true,
+      "excluded_from_quality_fix_metrics": true,
+      "pii_candidate_count": 0,
+      "pii_candidate_columns": [],
+      "masked_column_count": 0,
+      "masked_columns": [],
+      "masked_cell_count": 0,
+      "by_subtype": {},
+      "cleaned_dataset_sha256": "ff9ac29ce9b1dd8122cd34efa666a941d7d29995aa1a4e89cd821fc88150ca27"
+    }
+  },
+  "decisions": [
+    {
+      "decision_id": "decision-issue-exact_duplicate_rows-192ec5f83876",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876"
+      ],
+      "target_columns": [],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "Exact duplicate records may be legitimate repeated events; deletion is not automatic.",
+      "evidence_summary": {
+        "definition": "Rows equal across all columns after the first occurrence."
+      },
+      "semantic_basis": {},
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-statistical_outlier_candidate-2d09369edcf5",
+      "source_issue_ids": [
+        "issue-statistical_outlier_candidate-2d09369edcf5"
+      ],
+      "target_columns": [
+        "km"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "A statistical outlier may be valid and must not be clipped or removed automatically.",
+      "evidence_summary": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 20006.25,
+        "q3": 79667.75,
+        "lower_bound": -69486.0,
+        "upper_bound": 169160.0
+      },
+      "semantic_basis": {
+        "km": {
+          "column_name": "km",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "concept_description": "Numeric values representing the distance driven by the vehicle, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+          "semantic_role": "unknown",
+          "confidence": 0.998049,
+          "reasoning_summary": "The column name 'km' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the distance driven by the vehicle. The physical dtype is 'int64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-statistical_outlier_candidate-ac9fdcce450d",
+      "source_issue_ids": [
+        "issue-statistical_outlier_candidate-ac9fdcce450d"
+      ],
+      "target_columns": [
+        "lon"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "A statistical outlier may be valid and must not be clipped or removed automatically.",
+      "evidence_summary": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 9.50508975982666,
+        "q3": 12.76903986930847,
+        "lower_bound": 4.6091645956039455,
+        "upper_bound": 17.664965033531185
+      },
+      "semantic_basis": {
+        "lon": {
+          "column_name": "lon",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "concept_description": "Numeric values representing the longitude of the vehicle, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+          "semantic_role": "unknown",
+          "confidence": 0.8537060000000001,
+          "reasoning_summary": "The column name 'lon' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the longitude of the vehicle. The physical dtype is 'float64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    },
+    {
+      "decision_id": "decision-issue-statistical_outlier_candidate-1d0714808a03",
+      "source_issue_ids": [
+        "issue-statistical_outlier_candidate-1d0714808a03"
+      ],
+      "target_columns": [
+        "price"
+      ],
+      "decision_type": "flag_for_review",
+      "proposed_action": "flag_rows",
+      "parameters": {},
+      "confidence": 0.99,
+      "rationale": "A statistical outlier may be valid and must not be clipped or removed automatically.",
+      "evidence_summary": {
+        "method": "IQR",
+        "iqr_multiplier": 1.5,
+        "q1": 7122.5,
+        "q3": 10000.0,
+        "lower_bound": 2806.25,
+        "upper_bound": 14316.25
+      },
+      "semantic_basis": {
+        "price": {
+          "column_name": "price",
+          "semantic_type": "numeric_measurement",
+          "value_function": "measurement",
+          "numeric_meaning": "magnitude",
+          "concept_description": "Numeric values representing the price of the vehicle, likely in a meaningful quantitative sense as they are repeated and have a clear numeric summary.",
+          "semantic_role": "unknown",
+          "confidence": 0.949285,
+          "reasoning_summary": "The column name 'price' and the high repetition rate of values (repetition_rate: 0.998049) suggest that these values are numeric and represent a quantitative measurement of the price of the vehicle. The physical dtype is 'int64', indicating that these values are numeric and the numeric summary provides clear evidence of magnitude."
+        }
+      },
+      "risk_level": "high",
+      "requires_review": true,
+      "decision_source": "deterministic_tier1"
+    }
+  ],
+  "instructions": [
+    {
+      "instruction_id": "instruction-decision-execution-safety-no-op",
+      "source_decision_id": "decision-execution-safety-no-op",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876",
+        "issue-statistical_outlier_candidate-2d09369edcf5",
+        "issue-statistical_outlier_candidate-ac9fdcce450d",
+        "issue-statistical_outlier_candidate-1d0714808a03"
+      ],
+      "action_id": "no_op",
+      "target_columns": [],
+      "parameters": {}
+    }
+  ],
+  "executions": [
+    {
+      "instruction_id": "instruction-decision-execution-safety-no-op",
+      "source_decision_id": "decision-execution-safety-no-op",
+      "source_issue_ids": [
+        "issue-exact_duplicate_rows-192ec5f83876",
+        "issue-statistical_outlier_candidate-2d09369edcf5",
+        "issue-statistical_outlier_candidate-ac9fdcce450d",
+        "issue-statistical_outlier_candidate-1d0714808a03"
+      ],
+      "action_id": "no_op",
+      "target_columns": [],
+      "status": "success",
+      "changed": false,
+      "changed_cell_count": 0,
+      "change_examples": [],
+      "rows_before": 1538,
+      "rows_after": 1538,
+      "columns_before": 8,
+      "columns_after": 8,
+      "message": "No changes were requested or applied.",
+      "error": null,
+      "audit_metadata": {}
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "no_unexpected_changes": true,
+    "dataframe_equal": true,
+    "row_count_equal": true,
+    "column_count_equal": true,
+    "missingness_equal": true,
+    "duplicate_row_count_equal": true,
+    "physical_dtypes_equal": true,
+    "cardinality_equal": true,
+    "unrelated_columns_equal": true,
+    "targeted_whitespace_improved": true,
+    "targeted_case_variants_improved": true,
+    "only_approved_value_changes": true,
+    "no_unexpected_categories": true,
+    "targeted_date_formats_improved": true,
+    "only_approved_date_changes": true,
+    "expected_dtype_changes_only": true,
+    "only_approved_numeric_changes": true,
+    "only_approved_privacy_changes": true,
+    "null_positions_equal": true,
+    "targeted_mixed_numeric_improved": true,
+    "only_approved_imputation_changes": true,
+    "expected_missingness_changes_only": true,
+    "imputed_cell_count": 0,
+    "imputation_audit": [],
+    "newly_introduced_null_count": 0,
+    "changed_cell_count": 0,
+    "before_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "statistical_outlier_candidate": 3
+      },
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {},
+      "date_format_affected_cells_by_column": {},
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "after_issue_counts": {
+      "by_type": {
+        "exact_duplicate_rows": 1,
+        "statistical_outlier_candidate": 3
+      },
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {},
+      "date_format_affected_cells_by_column": {},
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "before_summary": {
+      "row_count": 1538,
+      "column_count": 8,
+      "total_missing_cells": 0,
+      "duplicate_row_count": 18,
+      "physical_dtypes": {
+        "model": "object",
+        "engine_power": "int64",
+        "age_in_days": "int64",
+        "km": "int64",
+        "previous_owners": "int64",
+        "lat": "float64",
+        "lon": "float64",
+        "price": "int64"
+      },
+      "cardinality": {
+        "model": 3,
+        "engine_power": 8,
+        "age_in_days": 140,
+        "km": 988,
+        "previous_owners": 4,
+        "lat": 449,
+        "lon": 450,
+        "price": 222
+      }
+    },
+    "after_summary": {
+      "row_count": 1538,
+      "column_count": 8,
+      "total_missing_cells": 0,
+      "duplicate_row_count": 18,
+      "physical_dtypes": {
+        "model": "object",
+        "engine_power": "int64",
+        "age_in_days": "int64",
+        "km": "int64",
+        "previous_owners": "int64",
+        "lat": "float64",
+        "lon": "float64",
+        "price": "int64"
+      },
+      "cardinality": {
+        "model": 3,
+        "engine_power": 8,
+        "age_in_days": 140,
+        "km": 988,
+        "previous_owners": 4,
+        "lat": 449,
+        "lon": 450,
+        "price": 222
+      }
+    },
+    "warnings": []
+  },
+  "warnings": [],
+  "output_artifacts": {
+    "cleaned_dataset": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\pipeline1_outputs\\363615\\cleaned_dataset.csv",
+    "cleaning_report": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\pipeline1_outputs\\363615\\cleaning_report.json",
+    "cleaned_dataset_format": "csv"
+  }
+}

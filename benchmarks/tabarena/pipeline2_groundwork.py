@@ -17,9 +17,12 @@ import math
 from pathlib import Path
 import re
 import sys
+import time
 from typing import Any, Iterable
 
 import pandas as pd
+
+from benchmarks.tabarena.evaluation_metrics import PROBABILITY_CAPABILITIES
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -27,12 +30,18 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 DATASET_DIR = ROOT / "benchmarks" / "tabarena" / "datasets"
 OUTPUT_DIR = ROOT / "benchmarks" / "tabarena" / "pipeline2_artifacts"
+TARGET_REGISTRY_PATH = (
+    ROOT / "pipelines" / "pipeline2_prediction" / "inputs" / "dataset_target_registry.json"
+)
+SELECTOR_METADATA_PATH = (
+    ROOT / "pipelines" / "pipeline2_prediction" / "inputs" / "dataset_metadata.json"
+)
 SUITE_ID = 457
 FOUNDATION_MODEL_LIMITS = {
     "tabpfn": {
-        "max_training_samples": 10_000,
-        "max_features": 500,
-        "max_classes": 10,
+        "max_training_samples": 1_000_000,
+        "max_features": 2_000,
+        "max_classes": 160,
     },
 }
 MODEL_CAPABILITIES = {
@@ -52,62 +61,62 @@ MODEL_CAPABILITIES = {
         "source": "random_forest package and fitted random_forest_metadata.pkl",
     },
     "lightgbm": {
-        "task_type_supported": ["classification"],
+        "task_type_supported": ["classification", "regression"],
         "minimum_training_rows": 2,
         "maximum_training_rows": None,
         "maximum_features": None,
-        "maximum_classes": 2,
+        "maximum_classes": None,
         "binary_classification": True,
-        "multiclass_classification": False,
+        "multiclass_classification": True,
         "missing_values": "Fitted medians handle numeric nulls; categorical nulls become 'Unknown'.",
         "categorical_features": "Label-encoded; unseen inference labels are rejected by the fitted encoder.",
         "numeric_features": "Supported.",
         "artifact_requirements": "Supplied artifact requires the four persisted blood-donation feature names.",
         "environment_restrictions": "Verified in the pinned Pipeline 2 model environment.",
-        "source": "lightgbm_config.py binary objective, model validation, and fitted preprocessor",
+        "source": "task-aware LGBMClassifier/LGBMRegressor wrapper and fitted preprocessor",
     },
     "xgboost": {
-        "task_type_supported": ["classification"],
+        "task_type_supported": ["classification", "regression"],
         "minimum_training_rows": 2,
         "maximum_training_rows": None,
         "maximum_features": None,
-        "maximum_classes": 2,
+        "maximum_classes": None,
         "binary_classification": True,
-        "multiclass_classification": False,
+        "multiclass_classification": True,
         "missing_values": "Training preprocessing fills nulls; inference-time fill state is not persisted by the current preprocessor.",
         "categorical_features": "Label-encoded; unseen inference labels are rejected.",
         "numeric_features": "Supported.",
         "artifact_requirements": "Model and matching fitted preprocessor must be loaded together.",
         "environment_restrictions": "Pinned XGBoost 3.3.0 / scikit-learn 1.6.1 environment required for verified reuse.",
-        "source": "xgboost_config.py binary:logistic objective, model validation, and preprocessor",
+        "source": "task-aware XGBClassifier/XGBRegressor wrapper and fitted preprocessor",
     },
     "catboost": {
-        "task_type_supported": ["classification"],
+        "task_type_supported": ["classification", "regression"],
         "minimum_training_rows": 1,
         "maximum_training_rows": None,
         "maximum_features": None,
-        "maximum_classes": 2,
+        "maximum_classes": None,
         "binary_classification": True,
-        "multiclass_classification": False,
+        "multiclass_classification": True,
         "missing_values": "Fitted medians handle numeric nulls; categorical nulls become 'Unknown'.",
         "categorical_features": "Supported as object/string columns by the fitted preprocessor and CatBoost.",
         "numeric_features": "Supported for int64/float64 columns.",
         "artifact_requirements": "Supplied artifact requires the four persisted blood-donation feature names.",
         "environment_restrictions": "Verified in the pinned Pipeline 2 model environment.",
-        "source": "catboost_config.py Logloss objective, model validation, and fitted preprocessor",
+        "source": "task-aware CatBoostClassifier/CatBoostRegressor wrapper and fitted preprocessor",
     },
     "tabpfn": {
-        "task_type_supported": ["classification"],
+        "task_type_supported": ["classification", "regression"],
         "minimum_training_rows": 2,
-        "maximum_training_rows": 10_000,
-        "maximum_features": 500,
-        "maximum_classes": 10,
+        "maximum_training_rows": 1_000_000,
+        "maximum_features": 2_000,
+        "maximum_classes": 160,
         "binary_classification": True,
         "multiclass_classification": True,
         "missing_values": "No repository preprocessing; values are passed unchanged to TabPFNClassifier.",
         "categorical_features": "No repository encoding or categorical-feature indices are supplied; compatibility is delegated to TabPFN.",
         "numeric_features": "Supported.",
-        "artifact_requirements": "Pretrained classifier artifact and at least two target classes are required.",
+        "artifact_requirements": "Official pretrained V3 classifier or regressor checkpoint is required.",
         "environment_restrictions": "Verified with tabpfn 8.5.0, torch 2.11.0+cu128, and scikit-learn 1.6.1.",
         "source": "tabpfn_model.py plus TabPFN 8.5 inference_config pretraining limits",
     },
@@ -187,16 +196,97 @@ MODEL_CAPABILITIES = {
         "source": "pytabkit FTT_D_Classifier/Regressor (Gorishniy et al. FT-Transformer)",
     },
 }
+
+CAPABILITY_PROFILES = {
+    "randomforest": {
+        "hard_limits": "Implemented classification/regression task contract; no verified row, feature, or class limits.",
+        "empirical_guidance": "General memory/runtime scaling is dataset- and hardware-dependent.",
+        "provisioning": "None for fresh benchmark training.",
+        "optional_diagnostics": ["oob_score (disabled by default)"],
+    },
+    "lightgbm": {
+        "hard_limits": "Classification and regression; no verified project-specific capacity boundary.",
+        "empirical_guidance": "No repository-specific capacity boundary verified.",
+        "provisioning": "None.",
+        "optional_diagnostics": [],
+    },
+    "xgboost": {
+        "hard_limits": "Classification and regression; no verified project-specific capacity boundary.",
+        "empirical_guidance": "Numeric NaNs are pre-imputed by the merged wrapper, so native missing-value routing is not exercised.",
+        "provisioning": "None.",
+        "optional_diagnostics": [],
+    },
+    "catboost": {
+        "hard_limits": "Classification and regression; no verified project-specific capacity boundary.",
+        "empirical_guidance": "No repository-specific capacity boundary verified.",
+        "provisioning": "None.",
+        "optional_diagnostics": [],
+    },
+    "tabpfn": {
+        "hard_limits": "Official V3 checkpoint limits: maximum 1000000 training rows, 2000 features, and 160 classes; minimum 2 rows in the LYNX benchmark contract.",
+        "empirical_guidance": "GPU memory and runtime remain hardware-dependent; resource failures are recorded at execution time.",
+        "provisioning": "Licensed V3 checkpoint; one-time PriorLabs acceptance and TABPFN_TOKEN for headless first use.",
+        "optional_diagnostics": [],
+    },
+    "xtab": {
+        "hard_limits": "Minimum 10 training rows; no verified hard row, feature, or class maximum.",
+        "empirical_guidance": "96-row CUDA probe succeeded from 20 through 500 features; peak allocation reached about 1.86 GB at 500 features.",
+        "provisioning": "Repository official iter_2k pretrained-backbone checkpoint; no authentication.",
+        "optional_diagnostics": ["synthetic feature-capacity probe"],
+    },
+    "realmlp": {
+        "hard_limits": "Minimum 2 training rows; no verified hard maxima.",
+        "empirical_guidance": "Runtime and memory are hardware-dependent; CPU lifecycle verified.",
+        "provisioning": "None.",
+        "optional_diagnostics": [],
+    },
+    "tabm": {
+        "hard_limits": "Minimum 2 training rows; no verified hard maxima.",
+        "empirical_guidance": "Runtime and memory are hardware-dependent; CPU lifecycle verified.",
+        "provisioning": "None.",
+        "optional_diagnostics": [],
+    },
+    "tabiclv2": {
+        "hard_limits": "Minimum 2 training rows; no verified hard row, feature, or class maximum.",
+        "empirical_guidance": "Upstream scale claims, including 500000 rows, are empirical rather than hard gates.",
+        "provisioning": "Public v2 classifier/regressor checkpoints require first-use network or a populated cache; no authentication.",
+        "optional_diagnostics": [],
+    },
+    "fttransformer": {
+        "hard_limits": "Minimum 2 training rows; no verified hard maxima.",
+        "empirical_guidance": "Runtime and memory are hardware-dependent; CPU lifecycle verified.",
+        "provisioning": "None; no XTab checkpoint dependency.",
+        "optional_diagnostics": [],
+    },
+}
+for _model_key, _profile in CAPABILITY_PROFILES.items():
+    MODEL_CAPABILITIES[_model_key].update(_profile)
+for _model_id, _probability_profile in PROBABILITY_CAPABILITIES.items():
+    _model_key = re.sub(r"[^a-z0-9]", "", _model_id.casefold())
+    MODEL_CAPABILITIES[_model_key].update({
+        "supports_class_predictions": True,
+        **_probability_profile,
+    })
+
 EVALUATION_MODEL_IDS = (
     "random_forest", "lightgbm", "xgboost", "catboost", "tabpfn", "xtab",
     "realmlp", "tabm", "tabiclv2", "ft_transformer",
 )
+EXPERIMENTAL_EXECUTION_STRATEGIES = {
+    "tabpfn_crumb": {"base_model_id": "tabpfn", "execution_strategy": "crumb"},
+    "tabiclv2_crumb": {"base_model_id": "tabiclv2", "execution_strategy": "crumb"},
+}
 LOG_COLUMNS = [
-    "dataset_id", "model_id", "target_column", "task_type", "feasible",
-    "status", "outcome_reason", "metric_name", "metric_value",
+    "dataset_id", "model_id", "base_model_id", "execution_strategy",
+    "run_id",
+    "target_column", "task_type", "feasible",
+    "status", "outcome_reason", "infeasible_reason", "failure", "split",
+    "metric_name", "metric_value",
     "baseline_relative_score", "train_runtime_seconds",
-    "inference_runtime_seconds", "runtime_seconds", "split_seed", "hyperparams",
-    "semantic_meta_features", "statistical_meta_features", "source",
+    "inference_runtime_seconds", "runtime_seconds", "oob_score",
+    "oob_diagnostic_reason", "split_seed", "hyperparams",
+    "predictive_metrics", "calibration_metrics", "probability_metadata",
+    "semantic_meta_features", "statistical_meta_features", "resource_usage", "source",
 ]
 VALID_SOURCES = {
     "TabArena-published", "team-reproduced", "team-original-run",
@@ -487,6 +577,132 @@ class GroundworkOllamaProvider:
         return response_model.model_validate_json(raw).model_dump()
 
 
+def run_dataset_semantic_profiles(
+    manifest: list[dict[str, Any]], output_dir: Path, model: str,
+    selected_task_ids: set[int] | None = None, llm_timeout: float = 600,
+    dataset_dir: Path = DATASET_DIR,
+    target_registry_path: Path = TARGET_REGISTRY_PATH,
+    metadata_path: Path = SELECTOR_METADATA_PATH,
+) -> list[dict[str, Any]]:
+    """Run one validated holistic semantic request per Pipeline 2 dataset."""
+    from pipelines.pipeline2_prediction.dataset_semantic_profiler import (
+        Pipeline2DatasetSemanticProfile,
+        build_dataset_semantic_evidence,
+        build_dataset_semantic_prompt,
+    )
+
+    target_payload = json.loads(target_registry_path.read_text(encoding="utf-8"))
+    metadata_payload = json.loads(metadata_path.read_text(encoding="utf-8"))
+    targets = {int(row["dataset_id"]): row for row in target_payload["datasets"]}
+    metadata = {int(row["dataset_id"]): row for row in metadata_payload["records"]}
+    profile_dir = output_dir / "dataset_semantic_profiles"
+    profile_dir.mkdir(parents=True, exist_ok=True)
+    provider = GroundworkOllamaProvider(model=model, timeout_seconds=llm_timeout)
+    summary: list[dict[str, Any]] = []
+
+    def persist_status() -> None:
+        _atomic_json(output_dir / "dataset_semantic_run_status.json", {
+            "updated_at": _utc_now(), "model": model,
+            "llm_timeout_seconds": llm_timeout, "records": summary,
+        })
+
+    for item in manifest:
+        task_id = int(item["task_id"])
+        if selected_task_ids and task_id not in selected_task_ids:
+            continue
+        destination = profile_dir / f"task_{task_id}.json"
+        if destination.is_file():
+            existing = json.loads(destination.read_text(encoding="utf-8"))
+            if existing.get("status") == "complete":
+                print(f"[SKIP] task_{task_id} {item['dataset_name']} already complete", flush=True)
+                summary.append({"dataset_id": str(task_id), "status": "already_complete"})
+                persist_status()
+                continue
+
+        print(f"[START] task_{task_id} {item['dataset_name']}", flush=True)
+        evidence: dict[str, Any] | None = None
+        request_attempted = False
+        started = time.perf_counter()
+        try:
+            target = targets[task_id]
+            meta = metadata[task_id]
+            target_column = target["benchmark_target_column"]
+            if item["target_column"] != target_column:
+                raise ValueError(
+                    f"Manifest target {item['target_column']!r} does not match "
+                    f"benchmark target {target_column!r}"
+                )
+            source = dataset_dir / item["csv_file"]
+            if not source.is_file():
+                raise FileNotFoundError(f"Local dataset CSV not found: {source}")
+            columns = list(pd.read_csv(source, nrows=0).columns)
+            if target_column not in columns:
+                raise ValueError(f"Target column {target_column!r} is absent from {source.name}")
+            feature_names = [name for name in columns if name != target_column]
+            evidence = build_dataset_semantic_evidence(
+                dataset_name=item["dataset_name"], task_type=target["task_type"],
+                target_column=target_column, row_count=meta["n_rows"],
+                feature_count=meta["n_features"],
+                feature_type_counts={
+                    kind: meta[f"{kind}_feature_count"] for kind in (
+                        "numeric", "categorical", "boolean", "datetime", "other"
+                    )
+                },
+                feature_names=feature_names,
+            )
+            prompt = build_dataset_semantic_prompt(evidence)
+            request_attempted = True
+            raw = provider.generate_structured(prompt, Pipeline2DatasetSemanticProfile)
+            semantic = Pipeline2DatasetSemanticProfile(**raw).model_dump(mode="json")
+            duration = round(time.perf_counter() - started, 6)
+            artifact = {
+                "schema_version": "1.0", "dataset_id": str(task_id),
+                "dataset_name": item["dataset_name"], "model": model,
+                "llm_timeout_seconds": llm_timeout, "generated_at": _utc_now(),
+                "status": "complete", "evidence": evidence,
+                "semantic_profile": semantic,
+                "telemetry": {
+                    "llm_generation_requests": 1,
+                    "total_runtime_seconds": duration,
+                    "ollama": provider.last_response_metadata,
+                },
+            }
+            _atomic_json(destination, artifact)
+            summary.append({
+                "dataset_id": str(task_id), "status": "complete",
+                "duration_seconds": duration, "llm_generation_requests": 1,
+            })
+            print(f"[DONE] task_{task_id} {duration:.3f}s", flush=True)
+        except Exception as exc:
+            duration = round(time.perf_counter() - started, 6)
+            artifact = {
+                "schema_version": "1.0", "dataset_id": str(task_id),
+                "dataset_name": item["dataset_name"], "model": model,
+                "llm_timeout_seconds": llm_timeout, "generated_at": _utc_now(),
+                "status": "error", "evidence": evidence,
+                "semantic_profile": None,
+                "telemetry": {
+                    "llm_generation_requests": int(request_attempted),
+                    "total_runtime_seconds": duration,
+                    "ollama": provider.last_response_metadata,
+                },
+                "error": {
+                    "stage": "dataset_semantic_generation",
+                    "exception_type": type(exc).__name__,
+                    "exception_message": str(exc),
+                },
+            }
+            _atomic_json(destination, artifact)
+            summary.append({
+                "dataset_id": str(task_id), "status": "error",
+                "duration_seconds": duration,
+                "error": f"{type(exc).__name__}: {exc}",
+            })
+            print(f"[ERROR] task_{task_id} {type(exc).__name__}: {exc}", flush=True)
+        persist_status()
+    return summary
+
+
 def run_semantic_profiles(
     manifest: list[dict[str, Any]], output_dir: Path, model: str,
     selected_task_ids: set[int] | None = None, llm_timeout: float = 240,
@@ -663,12 +879,136 @@ def compute_model_feasibility(
     return records
 
 
+def crumb_feasibility(
+    base_model_id: str,
+    training_samples: int | None,
+    feature_count: int | None,
+    task_type: str | None,
+    class_count: int | None,
+    context_fraction: float = 0.10,
+) -> dict[str, Any]:
+    """Evaluate CRUMB separately without changing the base-model gate."""
+    if base_model_id not in {"tabpfn", "tabiclv2"}:
+        return {
+            "base_model_feasible": None,
+            "crumb_variant_feasible": None,
+            "changes_feasibility": False,
+            "reason": f"CRUMB is not registered for base model {base_model_id!r}.",
+            "context_size": None,
+        }
+    base_allowed, base_reason = feasibility(
+        base_model_id, training_samples, feature_count, task_type, class_count
+    )
+    if training_samples is None:
+        return {
+            "base_model_feasible": base_allowed,
+            "crumb_variant_feasible": None,
+            "changes_feasibility": False,
+            "reason": "Training-sample count is required for CRUMB context sizing.",
+            "context_size": None,
+        }
+    maximum_context = 10_000 if base_model_id == "tabpfn" else 4_096
+    context_size = min(
+        training_samples,
+        maximum_context,
+        max(1, int(math.ceil(context_fraction * training_samples))),
+    )
+    variant_allowed, variant_reason = feasibility(
+        base_model_id, context_size, feature_count, task_type, class_count
+    )
+    changes = base_allowed is False and variant_allowed is True
+    return {
+        "base_model_feasible": base_allowed,
+        "base_feasibility_reason": base_reason,
+        "crumb_variant_feasible": variant_allowed,
+        "changes_feasibility": changes,
+        "reason": variant_reason,
+        "context_size": context_size,
+    }
+
+
+def compute_crumb_feasibility(
+    manifest: list[dict[str, Any]],
+    statistical_records: list[dict[str, Any]],
+    output_dir: Path,
+) -> list[dict[str, Any]]:
+    """Materialize optional-strategy feasibility outside the 10-model matrix."""
+    statistics_by_id = {
+        str(record["dataset_id"]): record.get("statistical_meta_features") or {}
+        for record in statistical_records
+    }
+    records = []
+    for dataset in manifest:
+        statistics = statistics_by_id.get(str(dataset["task_id"]), {})
+        for variant_id, strategy in EXPERIMENTAL_EXECUTION_STRATEGIES.items():
+            result = crumb_feasibility(
+                strategy["base_model_id"],
+                statistics.get("row_count"),
+                statistics.get("feature_count"),
+                dataset.get("task_type"),
+                statistics.get("target_class_count"),
+            )
+            records.append({
+                "dataset_id": str(dataset["task_id"]),
+                "dataset_name": dataset["dataset_name"],
+                "model_id": variant_id,
+                "base_model_id": strategy["base_model_id"],
+                "execution_strategy": "crumb",
+                "task_type": dataset.get("task_type"),
+                **result,
+            })
+    _atomic_json(output_dir / "crumb_feasibility.json", {
+        "generated_at": _utc_now(),
+        "canonical_model_count_unchanged": len(EVALUATION_MODEL_IDS),
+        "records": records,
+    })
+    return records
+
+
 def validate_log_record(record: dict[str, Any]) -> None:
+    # Additive schema evolution: old in-memory records remain valid and gain
+    # explicit defaults when re-serialized under the current schema.
+    record.setdefault("base_model_id", record.get("model_id"))
+    record.setdefault("execution_strategy", "standard")
+    record.setdefault("run_id", "legacy")
+    record.setdefault("infeasible_reason", None)
+    record.setdefault("failure", None)
+    record.setdefault("split", {
+        "train_rows": None,
+        "test_rows": None,
+        "test_size": 0.2,
+        "split_seed": record.get("split_seed"),
+        "stratified": _normalized_task_type(record.get("task_type")) == "classification",
+    })
+    record.setdefault("resource_usage", None)
+    record.setdefault("predictive_metrics", None)
+    if "calibration_metrics" not in record:
+        regression = _normalized_task_type(record.get("task_type")) == "regression"
+        record["calibration_metrics"] = {
+            "brier_score": None,
+            "ece": None,
+            "ece_n_bins": None if regression else 15,
+            "ece_method": None if regression else "top_label_equal_width",
+            "status": "not_applicable" if regression else "unavailable",
+            "reason": (
+                "point-prediction regression protocol" if regression
+                else "legacy record has no probability evaluation"
+            ),
+        }
+    record.setdefault("probability_metadata", None)
     missing = [field for field in LOG_COLUMNS if field not in record]
     if missing:
         raise ValueError("Missing model-run fields: " + ", ".join(missing))
     if record["source"] not in VALID_SOURCES:
         raise ValueError(f"Invalid source: {record['source']}")
+    if record["execution_strategy"] not in {"standard", "crumb"}:
+        raise ValueError("execution_strategy must be 'standard' or 'crumb'")
+    if record["execution_strategy"] == "standard" and record["base_model_id"] != record["model_id"]:
+        raise ValueError("Standard runs must identify their model as base_model_id")
+    if record["execution_strategy"] == "crumb":
+        strategy = EXPERIMENTAL_EXECUTION_STRATEGIES.get(record["model_id"])
+        if strategy is None or strategy["base_model_id"] != record["base_model_id"]:
+            raise ValueError("CRUMB run does not match a registered experimental strategy")
     if not isinstance(record["feasible"], bool):
         raise ValueError("feasible must be a resolved boolean before a run is logged")
     if record["status"] not in {"success", "infeasible_skip", "failure"}:
@@ -681,6 +1021,13 @@ def validate_log_record(record: dict[str, Any]) -> None:
         raise ValueError("Infeasible runs must not contain a performance score")
     if record["metric_value"] is not None and not record["metric_name"]:
         raise ValueError("A metric_value requires metric_name")
+    if record["oob_score"] is not None:
+        if record["model_id"] != "random_forest":
+            raise ValueError("oob_score is only valid for random_forest")
+        if record["status"] != "success" or not math.isfinite(record["oob_score"]):
+            raise ValueError("oob_score must be finite and belong to a successful run")
+    if record["oob_diagnostic_reason"] is not None and record["oob_score"] is not None:
+        raise ValueError("An available oob_score must not also have an OOB failure reason")
 
 
 def initialize_log(output_dir: Path) -> None:
@@ -691,9 +1038,15 @@ def initialize_log(output_dir: Path) -> None:
             existing_rows = list(csv.reader(handle))
         existing_header = existing_rows[0] if existing_rows else []
         if existing_header != LOG_COLUMNS:
-            if len(existing_rows) <= 1:
+            if set(existing_header).issubset(LOG_COLUMNS):
+                legacy_records = [
+                    dict(zip(existing_header, row)) for row in existing_rows[1:]
+                ]
                 with log_path.open("w", encoding="utf-8", newline="") as handle:
-                    csv.DictWriter(handle, fieldnames=LOG_COLUMNS).writeheader()
+                    writer = csv.DictWriter(handle, fieldnames=LOG_COLUMNS)
+                    writer.writeheader()
+                    for legacy in legacy_records:
+                        writer.writerow({field: legacy.get(field, "") for field in LOG_COLUMNS})
             else:
                 raise ValueError(
                     "Existing model_run_log.csv uses an incompatible schema; "
@@ -703,12 +1056,13 @@ def initialize_log(output_dir: Path) -> None:
         with log_path.open("w", encoding="utf-8", newline="") as handle:
             csv.DictWriter(handle, fieldnames=LOG_COLUMNS).writeheader()
     _atomic_json(output_dir / "model_run_log_schema.json", {
-        "version": 2,
+        "version": 5,
         "columns": LOG_COLUMNS,
         "valid_sources": sorted(VALID_SOURCES),
         "invariant": "Every dataset/model outcome is logged; infeasible rows have no metric",
         "foundation_model_limits": FOUNDATION_MODEL_LIMITS,
         "model_capabilities": MODEL_CAPABILITIES,
+        "experimental_execution_strategies": EXPERIMENTAL_EXECUTION_STRATEGIES,
     })
 
 
@@ -762,7 +1116,10 @@ def load_manifest(output_dir: Path) -> list[dict[str, Any]]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["prepare", "refresh", "sync-missing", "semantic", "summarize"])
+    parser.add_argument(
+        "command",
+        choices=["prepare", "refresh", "sync-missing", "semantic", "dataset-semantic", "summarize"],
+    )
     parser.add_argument("--output-dir", type=Path, default=OUTPUT_DIR)
     parser.add_argument("--model", default="qwen2.5:7b")
     parser.add_argument("--timeout", type=float, default=120)
@@ -774,6 +1131,7 @@ def main() -> int:
         write_manifest(manifest, args.output_dir)
         statistics = compute_statistical_artifacts(manifest, args.output_dir)
         compute_model_feasibility(manifest, statistics, args.output_dir)
+        compute_crumb_feasibility(manifest, statistics, args.output_dir)
         initialize_log(args.output_dir)
         summary = {
             "generated_at": _utc_now(), "suite_tasks": len(manifest),
@@ -793,6 +1151,7 @@ def main() -> int:
         write_manifest(manifest, args.output_dir)
         statistics = compute_statistical_artifacts(manifest, args.output_dir)
         compute_model_feasibility(manifest, statistics, args.output_dir)
+        compute_crumb_feasibility(manifest, statistics, args.output_dir)
         initialize_log(args.output_dir)
         summary = {
             "generated_at": _utc_now(), "suite_tasks": len(manifest),
@@ -810,6 +1169,14 @@ def main() -> int:
         })
         print(json.dumps(results, indent=2))
         return 0 if not any(item["status"] == "error" for item in results) else 1
+    if args.command == "dataset-semantic":
+        summary = run_dataset_semantic_profiles(
+            manifest, args.output_dir, args.model,
+            selected_task_ids=set(args.task_id) if args.task_id else None,
+            llm_timeout=args.llm_timeout,
+        )
+        print(json.dumps(summary, indent=2))
+        return 0 if not any(item["status"] == "error" for item in summary) else 1
     summary = run_semantic_profiles(
         manifest, args.output_dir, args.model,
         selected_task_ids=set(args.task_id) if args.task_id else None,

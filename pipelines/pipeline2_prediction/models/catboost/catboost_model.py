@@ -3,21 +3,27 @@ LYNX CatBoost Model
 """
 
 import pandas as pd
-from catboost import CatBoostClassifier
+from catboost import CatBoostClassifier, CatBoostRegressor
 
 from .catboost_config import CATBOOST_CONFIG
 
 
 class LYNXCatBoost:
     """
-    CatBoost binary classification model for LYNX.
+    Task-aware CatBoost model for LYNX.
     """
 
-    def __init__(self) -> None:
+    def __init__(self, task_type: str = "classification") -> None:
 
-        self.model = CatBoostClassifier(
-            **CATBOOST_CONFIG
-        )
+        if task_type not in {"classification", "regression"}:
+            raise ValueError(f"Unsupported CatBoost task type: {task_type}")
+        self.task_type = task_type
+        config = dict(CATBOOST_CONFIG)
+        if task_type == "regression":
+            config["loss_function"] = "RMSE"
+            self.model = CatBoostRegressor(**config)
+        else:
+            self.model = CatBoostClassifier(**config)
 
         self.is_trained = False
 
@@ -38,6 +44,9 @@ class LYNXCatBoost:
                 include=["object", "string"]
             ).columns
         )
+
+        if self.task_type == "classification" and pd.Series(y_train).nunique() > 2:
+            self.model.set_params(loss_function="MultiClass")
 
         self.model.fit(
             X_train,
@@ -65,7 +74,9 @@ class LYNXCatBoost:
 
         self._check_trained()
 
-        return self.model.predict_proba(X)[:, 1]
+        if self.task_type != "classification":
+            raise RuntimeError("Regression models do not expose class probabilities.")
+        return self.model.predict_proba(X)
 
     def get_feature_importance(
         self,

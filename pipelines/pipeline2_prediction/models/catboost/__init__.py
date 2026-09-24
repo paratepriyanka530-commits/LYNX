@@ -7,14 +7,14 @@ def get_model_info():
     return {
         "name": "catboost",
         "display_name": "CatBoost",
-        "supported_tasks": ["classification"],
+        "supported_tasks": ["classification", "regression"],
     }
 
 
 def build_model(task_type, random_state=42):
-    if task_type != "classification":
+    if task_type not in {"classification", "regression"}:
         raise ValueError(f"Unsupported task type for CatBoost: {task_type}")
-    model = LYNXCatBoost()
+    model = LYNXCatBoost(task_type=task_type)
     model.model.set_params(random_seed=random_state)
     return model
 

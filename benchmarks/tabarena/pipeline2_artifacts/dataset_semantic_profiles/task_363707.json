@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363707",
+  "dataset_name": "website_phishing",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:33:21+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "website_phishing",
+    "task_type": "classification",
+    "target_column": "WebsiteType",
+    "row_count": 1353,
+    "feature_count": 9,
+    "feature_type_counts": {
+      "numeric": 0,
+      "categorical": 9,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "SFH",
+      "popUpWidnow",
+      "SSLfinal_State",
+      "Request_URL",
+      "URL_of_Anchor",
+      "web_traffic",
+      "URL_Length",
+      "age_of_domain",
+      "having_IP_Address"
+    ],
+    "representative_feature_name_count": 9,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "technology",
+    "subdomain": "web security",
+    "dataset_purpose": "classification",
+    "row_entity": "website",
+    "target_concept": "phishing status",
+    "feature_context": [
+      "URL structure",
+      "technical indicators",
+      "domain age"
+    ],
+    "semantic_summary": "This dataset classifies websites as phishing or non-phishing based on URL and technical features.",
+    "domain_confidence": 0.8
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 24.971791,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:33:21.8016803Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 22917501900,
+      "load_duration": 11727200,
+      "prompt_eval_count": 450,
+      "prompt_eval_duration": 638832000,
+      "eval_count": 101,
+      "eval_duration": 22161699000
+    }
+  }
+}

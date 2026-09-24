@@ -1,0 +1,390 @@
+{
+  "dataset_id": "363615",
+  "dataset_name": "Another-Dataset-on-used-Fiat-500",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 240.0,
+  "generated_at": "2026-09-13T19:02:18+00:00",
+  "status": "complete",
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": "used car listing",
+      "row_entity_confidence": 0.75,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "model",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "unknown",
+        "concept_description": "The model of the used car, which is a classification of the car's make and model.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The column contains a small set of unique values that are repeated across most rows, indicating that these are categorical labels for the car's model."
+      },
+      {
+        "column_name": "engine_power",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The engine power of the car, measured in kilowatts (kW).",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The values are numeric, and the summary statistics indicate a range of engine powers, suggesting a quantitative measurement."
+      },
+      {
+        "column_name": "age_in_days",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The age of the car in days, which is a quantitative measure of how long the car has been in use.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The values are numeric and represent a duration, and the summary statistics show a wide range of values, indicating a quantitative measurement."
+      },
+      {
+        "column_name": "km",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The distance the car has traveled in kilometers.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The values are numeric and represent a distance, and the summary statistics show a wide range of values, indicating a quantitative measurement."
+      },
+      {
+        "column_name": "previous_owners",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "nominal_code",
+        "concept_description": "The number of previous owners of the car, which is a categorical representation of the car's ownership history.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The values are numeric and represent a count, but the context suggests that these are categorical codes for the number of previous owners."
+      },
+      {
+        "column_name": "lat",
+        "semantic_type": "location",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "The latitude coordinate of the car's location.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The values are numeric and represent a geographical coordinate, but the context does not provide enough information to determine if this is an identifier or a measurement."
+      },
+      {
+        "column_name": "lon",
+        "semantic_type": "location",
+        "value_function": "unknown",
+        "numeric_meaning": "unknown",
+        "concept_description": "The longitude coordinate of the car's location.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The values are numeric and represent a geographical coordinate, but the context does not provide enough information to determine if this is an identifier or a measurement."
+      },
+      {
+        "column_name": "price",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The price of the used car, measured in the local currency.",
+        "semantic_role": "unknown",
+        "confidence": 0.95,
+        "reasoning_summary": "The values are numeric and represent a monetary amount, and the summary statistics show a range of prices, indicating a quantitative measurement."
+      }
+    ],
+    "warnings": [],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 1,
+      "total_llm_calls": 2,
+      "batch_sizes": [
+        8
+      ],
+      "dataset_semantic_runtime_seconds": 9.228302,
+      "batch_runtime_seconds": [
+        226.600146
+      ],
+      "rag_runtime_seconds": 0.077929,
+      "batch_failures": 0,
+      "batch_retries": 0,
+      "llm_calls": [
+        {
+          "stage": "dataset_context",
+          "api_wall_duration_seconds": 9.176531,
+          "prompt_eval_count": 1268,
+          "prompt_eval_duration": 2122315999,
+          "eval_count": 26,
+          "eval_duration": 4813685000,
+          "total_duration": 7114820300,
+          "load_duration": 6145100,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "api_wall_duration_seconds": 226.600079,
+          "prompt_eval_count": 2756,
+          "prompt_eval_duration": 4048140000,
+          "eval_count": 854,
+          "eval_duration": 220381150000,
+          "total_duration": 224543551300,
+          "load_duration": 10617100,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 235.855433,
+      "semantic_contradiction_guard": {
+        "guard_version": "semantic_contradiction_guard_v001",
+        "deterministic": true,
+        "evaluated_column_count": 8,
+        "correction_count": 0,
+        "ambiguous_shape_overrides_enabled": false,
+        "entries": [
+          {
+            "column_name": "model",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "model",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "The model of the used car, which is a classification of the car's make and model.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The column contains a small set of unique values that are repeated across most rows, indicating that these are categorical labels for the car's model."
+            },
+            "effective_semantic_result": {
+              "column_name": "model",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "The model of the used car, which is a classification of the car's make and model.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The column contains a small set of unique values that are repeated across most rows, indicating that these are categorical labels for the car's model."
+            }
+          },
+          {
+            "column_name": "engine_power",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "engine_power",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The engine power of the car, measured in kilowatts (kW).",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The values are numeric, and the summary statistics indicate a range of engine powers, suggesting a quantitative measurement."
+            },
+            "effective_semantic_result": {
+              "column_name": "engine_power",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The engine power of the car, measured in kilowatts (kW).",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The values are numeric, and the summary statistics indicate a range of engine powers, suggesting a quantitative measurement."
+            }
+          },
+          {
+            "column_name": "age_in_days",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "age_in_days",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The age of the car in days, which is a quantitative measure of how long the car has been in use.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The values are numeric and represent a duration, and the summary statistics show a wide range of values, indicating a quantitative measurement."
+            },
+            "effective_semantic_result": {
+              "column_name": "age_in_days",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The age of the car in days, which is a quantitative measure of how long the car has been in use.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The values are numeric and represent a duration, and the summary statistics show a wide range of values, indicating a quantitative measurement."
+            }
+          },
+          {
+            "column_name": "km",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "km",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The distance the car has traveled in kilometers.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The values are numeric and represent a distance, and the summary statistics show a wide range of values, indicating a quantitative measurement."
+            },
+            "effective_semantic_result": {
+              "column_name": "km",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The distance the car has traveled in kilometers.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The values are numeric and represent a distance, and the summary statistics show a wide range of values, indicating a quantitative measurement."
+            }
+          },
+          {
+            "column_name": "previous_owners",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "previous_owners",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "nominal_code",
+              "concept_description": "The number of previous owners of the car, which is a categorical representation of the car's ownership history.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The values are numeric and represent a count, but the context suggests that these are categorical codes for the number of previous owners."
+            },
+            "effective_semantic_result": {
+              "column_name": "previous_owners",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "nominal_code",
+              "concept_description": "The number of previous owners of the car, which is a categorical representation of the car's ownership history.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The values are numeric and represent a count, but the context suggests that these are categorical codes for the number of previous owners."
+            }
+          },
+          {
+            "column_name": "lat",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "lat",
+              "semantic_type": "location",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "The latitude coordinate of the car's location.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The values are numeric and represent a geographical coordinate, but the context does not provide enough information to determine if this is an identifier or a measurement."
+            },
+            "effective_semantic_result": {
+              "column_name": "lat",
+              "semantic_type": "location",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "The latitude coordinate of the car's location.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The values are numeric and represent a geographical coordinate, but the context does not provide enough information to determine if this is an identifier or a measurement."
+            }
+          },
+          {
+            "column_name": "lon",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "lon",
+              "semantic_type": "location",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "The longitude coordinate of the car's location.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The values are numeric and represent a geographical coordinate, but the context does not provide enough information to determine if this is an identifier or a measurement."
+            },
+            "effective_semantic_result": {
+              "column_name": "lon",
+              "semantic_type": "location",
+              "value_function": "unknown",
+              "numeric_meaning": "unknown",
+              "concept_description": "The longitude coordinate of the car's location.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The values are numeric and represent a geographical coordinate, but the context does not provide enough information to determine if this is an identifier or a measurement."
+            }
+          },
+          {
+            "column_name": "price",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "price",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The price of the used car, measured in the local currency.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The values are numeric and represent a monetary amount, and the summary statistics show a range of prices, indicating a quantitative measurement."
+            },
+            "effective_semantic_result": {
+              "column_name": "price",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The price of the used car, measured in the local currency.",
+              "semantic_role": "unknown",
+              "confidence": 0.95,
+              "reasoning_summary": "The values are numeric and represent a monetary amount, and the summary statistics show a range of prices, indicating a quantitative measurement."
+            }
+          }
+        ]
+      }
+    }
+  },
+  "semantic_meta_features": {
+    "probable_domain": null,
+    "domain_confidence": null,
+    "row_entity": "used car listing",
+    "row_entity_confidence": 0.75,
+    "dataset_description_present": false,
+    "column_count": 8,
+    "mean_column_confidence": 0.95,
+    "distributions": {
+      "semantic_type": {
+        "categorical": 2,
+        "numeric_measurement": 4,
+        "location": 2
+      },
+      "value_function": {
+        "classification": 2,
+        "measurement": 4,
+        "unknown": 2
+      },
+      "numeric_meaning": {
+        "unknown": 3,
+        "magnitude": 4,
+        "nominal_code": 1
+      },
+      "semantic_role": {
+        "unknown": 8
+      }
+    },
+    "warning_count": 0
+  }
+}

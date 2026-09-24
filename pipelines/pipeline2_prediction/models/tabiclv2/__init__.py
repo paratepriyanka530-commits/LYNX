@@ -5,6 +5,10 @@ from tabicl import TabICLClassifier, TabICLRegressor
 from ..pytabkit_candidate import PytabkitCandidate
 
 
+class TabICLProvisioningError(RuntimeError):
+    """The official TabICLv2 checkpoint is unavailable."""
+
+
 def get_model_info():
     return {
         "name": "tabiclv2",
@@ -23,6 +27,7 @@ def get_model_info():
             "official tabicl v2 classifier/regressor checkpoint, downloaded and "
             "cached by the upstream package"
         ),
+        "authentication_requirement": "none; checkpoints are public on Hugging Face",
     }
 
 
@@ -34,11 +39,24 @@ def build_model(task_type, random_state=42, **config_overrides):
 
 
 def train_model(model, X_train, y_train):
-    return model.fit(X_train, y_train)
+    try:
+        return model.fit(X_train, y_train)
+    except OSError as exc:
+        raise TabICLProvisioningError(
+            "TabICLv2 requires its official classification or regression "
+            "checkpoint. Provide a populated Hugging Face cache or permit the "
+            "public jingang/TabICL download; no authentication is required."
+        ) from exc
 
 
 def predict_model(model, X_test):
     return model.predict(X_test)
 
 
-__all__ = ["get_model_info", "build_model", "train_model", "predict_model"]
+__all__ = [
+    "TabICLProvisioningError",
+    "get_model_info",
+    "build_model",
+    "train_model",
+    "predict_model",
+]

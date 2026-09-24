@@ -1,0 +1,1057 @@
+{
+  "pipeline_version": "pipeline1_architecture_b_v001",
+  "run_id": "20260913T235450-1d8928a4",
+  "status": "success",
+  "original_dataset": {
+    "valid": true,
+    "file_name": "Bank_Customer_Churn.csv",
+    "file_format": ".csv",
+    "file_size_bytes": 491243,
+    "rows": 10000,
+    "columns": 11,
+    "duplicate_columns": [],
+    "absolute_path": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\datasets\\Bank_Customer_Churn.csv",
+    "source_path": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\datasets\\Bank_Customer_Churn.csv",
+    "raw_dataset_overwritten": false
+  },
+  "before_profile": {
+    "shape": {
+      "rows": 10000,
+      "columns": 11
+    },
+    "column_names": [
+      "credit_score",
+      "country",
+      "gender",
+      "age",
+      "tenure",
+      "balance",
+      "products_number",
+      "credit_card",
+      "active_member",
+      "estimated_salary",
+      "churn"
+    ],
+    "dtype_distribution": {
+      "int64": 6,
+      "object": 3,
+      "float64": 2
+    },
+    "missingness": {
+      "total_missing_cells": 0,
+      "overall_missing_percentage": 0.0
+    },
+    "duplicates": {
+      "exact_duplicate_rows": 0,
+      "percentage": 0.0
+    },
+    "column_profiles": [
+      {
+        "column_name": "credit_score",
+        "physical_dtype": "int64",
+        "row_count": 10000,
+        "non_null_count": 10000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 460,
+          "unique_ratio": 0.046
+        },
+        "repetition": {
+          "repeated_unique_count": 437,
+          "repeated_occurrences": 9977,
+          "repetition_rate": 0.9977
+        },
+        "sample_values": [
+          596,
+          623,
+          601,
+          506,
+          560
+        ],
+        "numeric_statistics": {
+          "min": 350,
+          "max": 850,
+          "mean": 650.5288,
+          "median": 652.0,
+          "std": 96.65329873613035,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "country",
+        "physical_dtype": "object",
+        "row_count": 10000,
+        "non_null_count": 10000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 3,
+          "unique_ratio": 0.0003
+        },
+        "repetition": {
+          "repeated_unique_count": 3,
+          "repeated_occurrences": 10000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Germany",
+          "France",
+          "Spain"
+        ]
+      },
+      {
+        "column_name": "gender",
+        "physical_dtype": "object",
+        "row_count": 10000,
+        "non_null_count": 10000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.0002
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 10000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "Male",
+          "Female"
+        ]
+      },
+      {
+        "column_name": "age",
+        "physical_dtype": "int64",
+        "row_count": 10000,
+        "non_null_count": 10000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 70,
+          "unique_ratio": 0.007
+        },
+        "repetition": {
+          "repeated_unique_count": 66,
+          "repeated_occurrences": 9996,
+          "repetition_rate": 0.9996
+        },
+        "sample_values": [
+          32,
+          43,
+          44,
+          59,
+          27
+        ],
+        "numeric_statistics": {
+          "min": 18,
+          "max": 92,
+          "mean": 38.9218,
+          "median": 37.0,
+          "std": 10.487806451704609,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "tenure",
+        "physical_dtype": "int64",
+        "row_count": 10000,
+        "non_null_count": 10000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 11,
+          "unique_ratio": 0.0011
+        },
+        "repetition": {
+          "repeated_unique_count": 11,
+          "repeated_occurrences": 10000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          3,
+          1,
+          4,
+          8,
+          7
+        ],
+        "numeric_statistics": {
+          "min": 0,
+          "max": 10,
+          "mean": 5.0128,
+          "median": 5.0,
+          "std": 2.8921743770496837,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "balance",
+        "physical_dtype": "float64",
+        "row_count": 10000,
+        "non_null_count": 10000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 6382,
+          "unique_ratio": 0.6382
+        },
+        "repetition": {
+          "repeated_unique_count": 3,
+          "repeated_occurrences": 3621,
+          "repetition_rate": 0.3621
+        },
+        "sample_values": [
+          96709.07,
+          0.0,
+          119152.1,
+          124995.98,
+          138901.61
+        ],
+        "numeric_statistics": {
+          "min": 0.0,
+          "max": 250898.09,
+          "mean": 76485.889288,
+          "median": 97198.54000000001,
+          "std": 62397.405202385955,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "products_number",
+        "physical_dtype": "int64",
+        "row_count": 10000,
+        "non_null_count": 10000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 4,
+          "unique_ratio": 0.0004
+        },
+        "repetition": {
+          "repeated_unique_count": 4,
+          "repeated_occurrences": 10000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          2,
+          1,
+          3,
+          4
+        ],
+        "numeric_statistics": {
+          "min": 1,
+          "max": 4,
+          "mean": 1.5302,
+          "median": 1.0,
+          "std": 0.5816543579989907,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "credit_card",
+        "physical_dtype": "int64",
+        "row_count": 10000,
+        "non_null_count": 10000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.0002
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 10000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          0,
+          1
+        ],
+        "numeric_statistics": {
+          "min": 0,
+          "max": 1,
+          "mean": 0.7055,
+          "median": 1.0,
+          "std": 0.4558404644751334,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "active_member",
+        "physical_dtype": "int64",
+        "row_count": 10000,
+        "non_null_count": 10000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.0002
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 10000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          0,
+          1
+        ],
+        "numeric_statistics": {
+          "min": 0,
+          "max": 1,
+          "mean": 0.5151,
+          "median": 1.0,
+          "std": 0.49979692845891893,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "estimated_salary",
+        "physical_dtype": "float64",
+        "row_count": 10000,
+        "non_null_count": 10000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 9999,
+          "unique_ratio": 0.9999
+        },
+        "repetition": {
+          "repeated_unique_count": 1,
+          "repeated_occurrences": 2,
+          "repetition_rate": 0.0002
+        },
+        "sample_values": [
+          41788.37,
+          146379.3,
+          58561.31,
+          170679.74,
+          114669.79
+        ],
+        "numeric_statistics": {
+          "min": 11.58,
+          "max": 199992.48,
+          "mean": 100090.239881,
+          "median": 100193.915,
+          "std": 57510.49281769816,
+          "infinity_count": 0
+        }
+      },
+      {
+        "column_name": "churn",
+        "physical_dtype": "object",
+        "row_count": 10000,
+        "non_null_count": 10000,
+        "missing": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "uniqueness": {
+          "unique_count": 2,
+          "unique_ratio": 0.0002
+        },
+        "repetition": {
+          "repeated_unique_count": 2,
+          "repeated_occurrences": 10000,
+          "repetition_rate": 1.0
+        },
+        "sample_values": [
+          "No",
+          "Yes"
+        ]
+      }
+    ]
+  },
+  "issues": [],
+  "quality_summary": {
+    "total_issues_detected": 0,
+    "issues_by_type": {},
+    "issues_by_status": {},
+    "affected_columns": [],
+    "dataset_level_issue_count": 0
+  },
+  "semantic_profile": {
+    "architecture": "architecture_b_batched",
+    "dataset_context": {
+      "row_entity": "customer",
+      "row_entity_confidence": 0.5,
+      "probable_domain": null,
+      "domain_confidence": null,
+      "dataset_description": null
+    },
+    "columns": [
+      {
+        "column_name": "credit_score",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Quantitative measure of a customer's creditworthiness or likelihood of defaulting on a loan or credit card debt, typically ranging from 350 to 850 in the dataset context.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column name 'credit_score' and the numeric summary (min: 350, max: 850, mean: 650.5288) strongly indicate that this column represents a quantitative measurement of creditworthiness, with arithmetic differences and central tendency representing meaningful quantitative values."
+      },
+      {
+        "column_name": "country",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "unknown",
+        "concept_description": "A country or region where the customer is located, represented as a categorical value with limited possible categories (Germany, France, Spain).",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column name 'country' and the bounded and discrete nature of the sample values (Germany, France, Spain) indicate that this column represents a categorical classification of the customer's location."
+      },
+      {
+        "column_name": "gender",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "unknown",
+        "concept_description": "The gender of the customer, represented as a categorical value with limited possible categories (Male, Female).",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column name 'gender' and the bounded and discrete nature of the sample values (Male, Female) indicate that this column represents a categorical classification of the customer's gender."
+      },
+      {
+        "column_name": "age",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The age of the customer, represented as a numeric value with a range from 18 to 92.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column name 'age' and the numeric summary (min: 18, max: 92, mean: 38.9218) indicate that this column represents a quantitative measurement of the customer's age, with arithmetic differences and central tendency representing meaningful quantitative values."
+      },
+      {
+        "column_name": "tenure",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The tenure or duration of the customer's relationship with the service provider, represented as a numeric value with a range from 0 to 10.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column name 'tenure' and the numeric summary (min: 0, max: 10, mean: 5.0128) indicate that this column represents a quantitative measurement of the customer's relationship duration, with arithmetic differences and central tendency representing meaningful quantitative values."
+      },
+      {
+        "column_name": "balance",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The financial balance of the customer, represented as a numeric value with a range from 0 to 250,898.09.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column name 'balance' and the numeric summary (min: 0.0, max: 250898.09, mean: 76485.889288) indicate that this column represents a quantitative measurement of the customer's financial balance, with arithmetic differences and central tendency representing meaningful quantitative values."
+      },
+      {
+        "column_name": "products_number",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The number of products the customer has with the service provider, represented as a numeric value with a range from 1 to 4.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column name 'products_number' and the numeric summary (min: 1, max: 4, mean: 1.5302) indicate that this column represents a quantitative measurement of the number of products the customer has, with arithmetic differences and central tendency representing meaningful quantitative values."
+      },
+      {
+        "column_name": "credit_card",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Whether the customer has a credit card with the service provider, represented as a numeric value of 0 (no) or 1 (yes).",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column name 'credit_card' and the numeric summary (min: 0, max: 1, mean: 0.7055) indicate that this column represents a quantitative measurement of whether the customer has a credit card, with arithmetic differences and central tendency representing meaningful quantitative values."
+      },
+      {
+        "column_name": "active_member",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "Whether the customer is an active member of the service provider, represented as a numeric value of 0 (no) or 1 (yes).",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column name 'active_member' and the numeric summary (min: 0, max: 1, mean: 0.5151) indicate that this column represents a quantitative measurement of whether the customer is an active member, with arithmetic differences and central tendency representing meaningful quantitative values."
+      },
+      {
+        "column_name": "estimated_salary",
+        "semantic_type": "numeric_measurement",
+        "value_function": "measurement",
+        "numeric_meaning": "magnitude",
+        "concept_description": "The estimated salary of the customer, represented as a numeric value with a range from 11.58 to 100,193.915.",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column name 'estimated_salary' and the numeric summary (min: 0.0, max: 100193.915, mean: 100193.915) indicate that this column represents a quantitative measurement of the customer's estimated salary, with arithmetic differences and central tendency representing meaningful quantitative values."
+      },
+      {
+        "column_name": "churn",
+        "semantic_type": "categorical",
+        "value_function": "classification",
+        "numeric_meaning": "unknown",
+        "concept_description": "Whether the customer has churned (left the service provider) or not, represented as a numeric value of 0 (No) or 1 (Yes).",
+        "semantic_role": "unknown",
+        "confidence": 1.0,
+        "reasoning_summary": "The column name 'churn' and the numeric summary (min: 0, max: 1, mean: 0.5000) indicate that this column represents a quantitative measurement of whether the customer has churned, with arithmetic differences and central tendency representing meaningful quantitative values."
+      }
+    ],
+    "warnings": [],
+    "telemetry": {
+      "dataset_llm_calls": 1,
+      "column_batch_llm_calls": 1,
+      "total_llm_calls": 2,
+      "batch_sizes": [
+        11
+      ],
+      "dataset_semantic_runtime_seconds": 3.554495,
+      "batch_runtime_seconds": [
+        57.052997
+      ],
+      "rag_runtime_seconds": 0.12691,
+      "batch_failures": 0,
+      "batch_retries": 0,
+      "llm_calls": [
+        {
+          "stage": "dataset_context",
+          "api_wall_duration_seconds": 3.499226,
+          "prompt_eval_count": 1488,
+          "prompt_eval_duration": 708614000,
+          "eval_count": 23,
+          "eval_duration": 550724000,
+          "total_duration": 1428096800,
+          "load_duration": 9442800,
+          "done_reason": "stop"
+        },
+        {
+          "stage": "column_batch",
+          "batch_index": 1,
+          "attempt": 1,
+          "api_wall_duration_seconds": 57.05277,
+          "prompt_eval_count": 2686,
+          "prompt_eval_duration": 1159113000,
+          "eval_count": 1677,
+          "eval_duration": 53642456000,
+          "total_duration": 54973696100,
+          "load_duration": 9166600,
+          "done_reason": "stop"
+        }
+      ],
+      "total_semantic_runtime_seconds": 60.679748,
+      "semantic_contradiction_guard": {
+        "guard_version": "semantic_contradiction_guard_v001",
+        "deterministic": true,
+        "evaluated_column_count": 11,
+        "correction_count": 0,
+        "ambiguous_shape_overrides_enabled": false,
+        "entries": [
+          {
+            "column_name": "credit_score",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "credit_score",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Quantitative measure of a customer's creditworthiness or likelihood of defaulting on a loan or credit card debt, typically ranging from 350 to 850 in the dataset context.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'credit_score' and the numeric summary (min: 350, max: 850, mean: 650.5288) strongly indicate that this column represents a quantitative measurement of creditworthiness, with arithmetic differences and central tendency representing meaningful quantitative values."
+            },
+            "effective_semantic_result": {
+              "column_name": "credit_score",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Quantitative measure of a customer's creditworthiness or likelihood of defaulting on a loan or credit card debt, typically ranging from 350 to 850 in the dataset context.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'credit_score' and the numeric summary (min: 350, max: 850, mean: 650.5288) strongly indicate that this column represents a quantitative measurement of creditworthiness, with arithmetic differences and central tendency representing meaningful quantitative values."
+            }
+          },
+          {
+            "column_name": "country",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "country",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "A country or region where the customer is located, represented as a categorical value with limited possible categories (Germany, France, Spain).",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'country' and the bounded and discrete nature of the sample values (Germany, France, Spain) indicate that this column represents a categorical classification of the customer's location."
+            },
+            "effective_semantic_result": {
+              "column_name": "country",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "A country or region where the customer is located, represented as a categorical value with limited possible categories (Germany, France, Spain).",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'country' and the bounded and discrete nature of the sample values (Germany, France, Spain) indicate that this column represents a categorical classification of the customer's location."
+            }
+          },
+          {
+            "column_name": "gender",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "gender",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "The gender of the customer, represented as a categorical value with limited possible categories (Male, Female).",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'gender' and the bounded and discrete nature of the sample values (Male, Female) indicate that this column represents a categorical classification of the customer's gender."
+            },
+            "effective_semantic_result": {
+              "column_name": "gender",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "The gender of the customer, represented as a categorical value with limited possible categories (Male, Female).",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'gender' and the bounded and discrete nature of the sample values (Male, Female) indicate that this column represents a categorical classification of the customer's gender."
+            }
+          },
+          {
+            "column_name": "age",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "age",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The age of the customer, represented as a numeric value with a range from 18 to 92.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'age' and the numeric summary (min: 18, max: 92, mean: 38.9218) indicate that this column represents a quantitative measurement of the customer's age, with arithmetic differences and central tendency representing meaningful quantitative values."
+            },
+            "effective_semantic_result": {
+              "column_name": "age",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The age of the customer, represented as a numeric value with a range from 18 to 92.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'age' and the numeric summary (min: 18, max: 92, mean: 38.9218) indicate that this column represents a quantitative measurement of the customer's age, with arithmetic differences and central tendency representing meaningful quantitative values."
+            }
+          },
+          {
+            "column_name": "tenure",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "tenure",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The tenure or duration of the customer's relationship with the service provider, represented as a numeric value with a range from 0 to 10.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'tenure' and the numeric summary (min: 0, max: 10, mean: 5.0128) indicate that this column represents a quantitative measurement of the customer's relationship duration, with arithmetic differences and central tendency representing meaningful quantitative values."
+            },
+            "effective_semantic_result": {
+              "column_name": "tenure",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The tenure or duration of the customer's relationship with the service provider, represented as a numeric value with a range from 0 to 10.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'tenure' and the numeric summary (min: 0, max: 10, mean: 5.0128) indicate that this column represents a quantitative measurement of the customer's relationship duration, with arithmetic differences and central tendency representing meaningful quantitative values."
+            }
+          },
+          {
+            "column_name": "balance",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "balance",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The financial balance of the customer, represented as a numeric value with a range from 0 to 250,898.09.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'balance' and the numeric summary (min: 0.0, max: 250898.09, mean: 76485.889288) indicate that this column represents a quantitative measurement of the customer's financial balance, with arithmetic differences and central tendency representing meaningful quantitative values."
+            },
+            "effective_semantic_result": {
+              "column_name": "balance",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The financial balance of the customer, represented as a numeric value with a range from 0 to 250,898.09.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'balance' and the numeric summary (min: 0.0, max: 250898.09, mean: 76485.889288) indicate that this column represents a quantitative measurement of the customer's financial balance, with arithmetic differences and central tendency representing meaningful quantitative values."
+            }
+          },
+          {
+            "column_name": "products_number",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "products_number",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The number of products the customer has with the service provider, represented as a numeric value with a range from 1 to 4.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'products_number' and the numeric summary (min: 1, max: 4, mean: 1.5302) indicate that this column represents a quantitative measurement of the number of products the customer has, with arithmetic differences and central tendency representing meaningful quantitative values."
+            },
+            "effective_semantic_result": {
+              "column_name": "products_number",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The number of products the customer has with the service provider, represented as a numeric value with a range from 1 to 4.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'products_number' and the numeric summary (min: 1, max: 4, mean: 1.5302) indicate that this column represents a quantitative measurement of the number of products the customer has, with arithmetic differences and central tendency representing meaningful quantitative values."
+            }
+          },
+          {
+            "column_name": "credit_card",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "credit_card",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Whether the customer has a credit card with the service provider, represented as a numeric value of 0 (no) or 1 (yes).",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'credit_card' and the numeric summary (min: 0, max: 1, mean: 0.7055) indicate that this column represents a quantitative measurement of whether the customer has a credit card, with arithmetic differences and central tendency representing meaningful quantitative values."
+            },
+            "effective_semantic_result": {
+              "column_name": "credit_card",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Whether the customer has a credit card with the service provider, represented as a numeric value of 0 (no) or 1 (yes).",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'credit_card' and the numeric summary (min: 0, max: 1, mean: 0.7055) indicate that this column represents a quantitative measurement of whether the customer has a credit card, with arithmetic differences and central tendency representing meaningful quantitative values."
+            }
+          },
+          {
+            "column_name": "active_member",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "active_member",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Whether the customer is an active member of the service provider, represented as a numeric value of 0 (no) or 1 (yes).",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'active_member' and the numeric summary (min: 0, max: 1, mean: 0.5151) indicate that this column represents a quantitative measurement of whether the customer is an active member, with arithmetic differences and central tendency representing meaningful quantitative values."
+            },
+            "effective_semantic_result": {
+              "column_name": "active_member",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "Whether the customer is an active member of the service provider, represented as a numeric value of 0 (no) or 1 (yes).",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'active_member' and the numeric summary (min: 0, max: 1, mean: 0.5151) indicate that this column represents a quantitative measurement of whether the customer is an active member, with arithmetic differences and central tendency representing meaningful quantitative values."
+            }
+          },
+          {
+            "column_name": "estimated_salary",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "estimated_salary",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The estimated salary of the customer, represented as a numeric value with a range from 11.58 to 100,193.915.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'estimated_salary' and the numeric summary (min: 0.0, max: 100193.915, mean: 100193.915) indicate that this column represents a quantitative measurement of the customer's estimated salary, with arithmetic differences and central tendency representing meaningful quantitative values."
+            },
+            "effective_semantic_result": {
+              "column_name": "estimated_salary",
+              "semantic_type": "numeric_measurement",
+              "value_function": "measurement",
+              "numeric_meaning": "magnitude",
+              "concept_description": "The estimated salary of the customer, represented as a numeric value with a range from 11.58 to 100,193.915.",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'estimated_salary' and the numeric summary (min: 0.0, max: 100193.915, mean: 100193.915) indicate that this column represents a quantitative measurement of the customer's estimated salary, with arithmetic differences and central tendency representing meaningful quantitative values."
+            }
+          },
+          {
+            "column_name": "churn",
+            "contradiction_detected": false,
+            "contradiction_code": null,
+            "evidence": null,
+            "original_llm_result": {
+              "column_name": "churn",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Whether the customer has churned (left the service provider) or not, represented as a numeric value of 0 (No) or 1 (Yes).",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'churn' and the numeric summary (min: 0, max: 1, mean: 0.5000) indicate that this column represents a quantitative measurement of whether the customer has churned, with arithmetic differences and central tendency representing meaningful quantitative values."
+            },
+            "effective_semantic_result": {
+              "column_name": "churn",
+              "semantic_type": "categorical",
+              "value_function": "classification",
+              "numeric_meaning": "unknown",
+              "concept_description": "Whether the customer has churned (left the service provider) or not, represented as a numeric value of 0 (No) or 1 (Yes).",
+              "semantic_role": "unknown",
+              "confidence": 1.0,
+              "reasoning_summary": "The column name 'churn' and the numeric summary (min: 0, max: 1, mean: 0.5000) indicate that this column represents a quantitative measurement of whether the customer has churned, with arithmetic differences and central tendency representing meaningful quantitative values."
+            }
+          }
+        ]
+      }
+    }
+  },
+  "decision_summary": {
+    "total_decisions": 0,
+    "by_decision_type": {},
+    "by_proposed_action": {},
+    "tier1_decisions": 0,
+    "tier2_decisions": 0,
+    "fallback_decisions": 0,
+    "deterministic_runtime_seconds": 0.0,
+    "tier2_issue_count": 0,
+    "tier2_batch_sizes": [],
+    "tier2_batch_kinds": [],
+    "llm_decision_calls": 0,
+    "llm_runtime_seconds": 0.0,
+    "intended_llm_decision_calls": 0,
+    "retries": 0,
+    "successful_batches": 0,
+    "batch_failures": 0,
+    "fallback_issue_count": 0,
+    "tier2_recovery_audit": [],
+    "llm_calls": [],
+    "total_runtime_seconds": 3.3e-05,
+    "execution_routing": {
+      "detected_issue_count": 0,
+      "decision_count": 0,
+      "proposed_action_count": 0,
+      "compiled_instruction_count": 1,
+      "executed_action_count": 1,
+      "executed_trim_whitespace_count": 0,
+      "executed_normalize_categorical_labels_count": 0,
+      "skipped_action_count": 0,
+      "skipped_actions": [],
+      "parse_date_assessments": [],
+      "numeric_coercion_assessments": [],
+      "missing_value_assessments": [],
+      "impute_missing_proposal_count": 0,
+      "median_imputation_authorization_assessments": [],
+      "executed_impute_missing_count": 0,
+      "executed_coerce_dtype_count": 0,
+      "executed_parse_dates_count": 0
+    },
+    "privacy_actions": {
+      "reason": "masked for privacy",
+      "privacy_stage_completed": true,
+      "privacy_clearance_passed": true,
+      "excluded_from_quality_fix_metrics": true,
+      "pii_candidate_count": 0,
+      "pii_candidate_columns": [],
+      "masked_column_count": 0,
+      "masked_columns": [],
+      "masked_cell_count": 0,
+      "by_subtype": {},
+      "cleaned_dataset_sha256": "89dfd78745b909e788ccc57cbb044696a346f372efb6a5e15e0ea27535dc1768"
+    }
+  },
+  "decisions": [],
+  "instructions": [
+    {
+      "instruction_id": "instruction-decision-execution-safety-no-op",
+      "source_decision_id": "decision-execution-safety-no-op",
+      "source_issue_ids": [
+        "no-detected-issues"
+      ],
+      "action_id": "no_op",
+      "target_columns": [],
+      "parameters": {}
+    }
+  ],
+  "executions": [
+    {
+      "instruction_id": "instruction-decision-execution-safety-no-op",
+      "source_decision_id": "decision-execution-safety-no-op",
+      "source_issue_ids": [
+        "no-detected-issues"
+      ],
+      "action_id": "no_op",
+      "target_columns": [],
+      "status": "success",
+      "changed": false,
+      "changed_cell_count": 0,
+      "change_examples": [],
+      "rows_before": 10000,
+      "rows_after": 10000,
+      "columns_before": 11,
+      "columns_after": 11,
+      "message": "No changes were requested or applied.",
+      "error": null,
+      "audit_metadata": {}
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "no_unexpected_changes": true,
+    "dataframe_equal": true,
+    "row_count_equal": true,
+    "column_count_equal": true,
+    "missingness_equal": true,
+    "duplicate_row_count_equal": true,
+    "physical_dtypes_equal": true,
+    "cardinality_equal": true,
+    "unrelated_columns_equal": true,
+    "targeted_whitespace_improved": true,
+    "targeted_case_variants_improved": true,
+    "only_approved_value_changes": true,
+    "no_unexpected_categories": true,
+    "targeted_date_formats_improved": true,
+    "only_approved_date_changes": true,
+    "expected_dtype_changes_only": true,
+    "only_approved_numeric_changes": true,
+    "only_approved_privacy_changes": true,
+    "null_positions_equal": true,
+    "targeted_mixed_numeric_improved": true,
+    "only_approved_imputation_changes": true,
+    "expected_missingness_changes_only": true,
+    "imputed_cell_count": 0,
+    "imputation_audit": [],
+    "newly_introduced_null_count": 0,
+    "changed_cell_count": 0,
+    "before_issue_counts": {
+      "by_type": {},
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {},
+      "date_format_affected_cells_by_column": {},
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "after_issue_counts": {
+      "by_type": {},
+      "whitespace_affected_cells_by_column": {},
+      "case_variant_affected_cells_by_column": {},
+      "date_format_affected_cells_by_column": {},
+      "mixed_numeric_affected_cells_by_column": {}
+    },
+    "before_summary": {
+      "row_count": 10000,
+      "column_count": 11,
+      "total_missing_cells": 0,
+      "duplicate_row_count": 0,
+      "physical_dtypes": {
+        "credit_score": "int64",
+        "country": "object",
+        "gender": "object",
+        "age": "int64",
+        "tenure": "int64",
+        "balance": "float64",
+        "products_number": "int64",
+        "credit_card": "int64",
+        "active_member": "int64",
+        "estimated_salary": "float64",
+        "churn": "object"
+      },
+      "cardinality": {
+        "credit_score": 460,
+        "country": 3,
+        "gender": 2,
+        "age": 70,
+        "tenure": 11,
+        "balance": 6382,
+        "products_number": 4,
+        "credit_card": 2,
+        "active_member": 2,
+        "estimated_salary": 9999,
+        "churn": 2
+      }
+    },
+    "after_summary": {
+      "row_count": 10000,
+      "column_count": 11,
+      "total_missing_cells": 0,
+      "duplicate_row_count": 0,
+      "physical_dtypes": {
+        "credit_score": "int64",
+        "country": "object",
+        "gender": "object",
+        "age": "int64",
+        "tenure": "int64",
+        "balance": "float64",
+        "products_number": "int64",
+        "credit_card": "int64",
+        "active_member": "int64",
+        "estimated_salary": "float64",
+        "churn": "object"
+      },
+      "cardinality": {
+        "credit_score": 460,
+        "country": 3,
+        "gender": 2,
+        "age": 70,
+        "tenure": 11,
+        "balance": 6382,
+        "products_number": 4,
+        "credit_card": 2,
+        "active_member": 2,
+        "estimated_salary": 9999,
+        "churn": 2
+      }
+    },
+    "warnings": []
+  },
+  "warnings": [],
+  "output_artifacts": {
+    "cleaned_dataset": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\pipeline1_outputs\\363619\\cleaned_dataset.csv",
+    "cleaning_report": "G:\\My Drive\\GitHub\\LYNX\\benchmarks\\tabarena\\pipeline1_outputs\\363619\\cleaning_report.json",
+    "cleaned_dataset_format": "csv"
+  }
+}

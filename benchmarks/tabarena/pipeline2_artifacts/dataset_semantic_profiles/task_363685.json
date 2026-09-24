@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "363685",
+  "dataset_name": "maternal_health_risk",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "generated_at": "2026-09-13T22:26:07+00:00",
+  "status": "complete",
+  "evidence": {
+    "dataset_name": "maternal_health_risk",
+    "task_type": "classification",
+    "target_column": "RiskLevel",
+    "row_count": 1014,
+    "feature_count": 6,
+    "feature_type_counts": {
+      "numeric": 6,
+      "categorical": 0,
+      "boolean": 0,
+      "datetime": 0,
+      "other": 0
+    },
+    "representative_feature_names": [
+      "Age",
+      "SystolicBP",
+      "DiastolicBP",
+      "BS",
+      "BodyTemp",
+      "HeartRate"
+    ],
+    "representative_feature_name_count": 6,
+    "representative_sampling": "all_predictors_in_source_order"
+  },
+  "semantic_profile": {
+    "probable_domain": "healthcare",
+    "subdomain": "maternal health",
+    "dataset_purpose": "classification",
+    "row_entity": "patient",
+    "target_concept": "maternal health risk level",
+    "feature_context": [
+      "vital signs",
+      "biological measurements"
+    ],
+    "semantic_summary": "A dataset for classifying maternal health risk based on vital signs and biological measurements.",
+    "domain_confidence": 0.9
+  },
+  "telemetry": {
+    "llm_generation_requests": 1,
+    "total_runtime_seconds": 25.119709,
+    "ollama": {
+      "model": "qwen2.5:7b",
+      "created_at": "2026-09-13T22:26:07.4257616Z",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 23058138900,
+      "load_duration": 5861800,
+      "prompt_eval_count": 434,
+      "prompt_eval_duration": 574652000,
+      "eval_count": 101,
+      "eval_duration": 22434216000
+    }
+  }
+}

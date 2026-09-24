@@ -16,3 +16,22 @@ benchmarks/tabarena/datasets/
 
 # Large TabPFN weights are provisioned through TabPFN's local model cache.
 /pipelines/pipeline2_prediction/reference_artifacts/tabpfn/*.pkl
+
+# Test runner cache
+.pytest_cache/
+
+# Temporary files
+*.tmp
+
+# Accidental root-level duplicate selector test output
+/external_selector_test_01.json
+
+# Accidental root-level publication figures
+/fig2_model_winner_distribution.png
+/fig2_model_winner_distribution.pdf
+
+# Local scratch workspace
+scratch/
+
+# Run-scoped application uploads, Pipeline 1 outputs, and durable job state
+/runtime/

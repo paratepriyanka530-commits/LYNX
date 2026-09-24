@@ -1,0 +1,311 @@
+{
+  "updated_at": "2026-09-13T22:34:45+00:00",
+  "model": "qwen2.5:7b",
+  "llm_timeout_seconds": 600.0,
+  "records": [
+    {
+      "dataset_id": "363612",
+      "status": "complete",
+      "duration_seconds": 26.615327,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363613",
+      "status": "complete",
+      "duration_seconds": 25.830491,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363614",
+      "status": "complete",
+      "duration_seconds": 25.901492,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363615",
+      "status": "complete",
+      "duration_seconds": 26.51368,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363616",
+      "status": "complete",
+      "duration_seconds": 26.779237,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363618",
+      "status": "complete",
+      "duration_seconds": 27.462033,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363619",
+      "status": "complete",
+      "duration_seconds": 24.137553,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363620",
+      "status": "already_complete"
+    },
+    {
+      "dataset_id": "363621",
+      "status": "complete",
+      "duration_seconds": 27.524298,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363623",
+      "status": "complete",
+      "duration_seconds": 25.034411,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363624",
+      "status": "complete",
+      "duration_seconds": 28.630199,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363625",
+      "status": "complete",
+      "duration_seconds": 24.748127,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363626",
+      "status": "complete",
+      "duration_seconds": 26.459846,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363627",
+      "status": "complete",
+      "duration_seconds": 27.245783,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363628",
+      "status": "complete",
+      "duration_seconds": 28.85857,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363629",
+      "status": "complete",
+      "duration_seconds": 27.550007,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363630",
+      "status": "complete",
+      "duration_seconds": 30.201566,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363631",
+      "status": "complete",
+      "duration_seconds": 26.071792,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363632",
+      "status": "complete",
+      "duration_seconds": 32.106025,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363671",
+      "status": "complete",
+      "duration_seconds": 26.643086,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363672",
+      "status": "complete",
+      "duration_seconds": 29.028545,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363673",
+      "status": "complete",
+      "duration_seconds": 27.770322,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363674",
+      "status": "complete",
+      "duration_seconds": 27.592361,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363675",
+      "status": "complete",
+      "duration_seconds": 25.894971,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363676",
+      "status": "complete",
+      "duration_seconds": 26.608269,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363677",
+      "status": "complete",
+      "duration_seconds": 24.615148,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363678",
+      "status": "complete",
+      "duration_seconds": 28.137356,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363679",
+      "status": "complete",
+      "duration_seconds": 28.261018,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363681",
+      "status": "complete",
+      "duration_seconds": 28.203336,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363682",
+      "status": "complete",
+      "duration_seconds": 28.082857,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363683",
+      "status": "complete",
+      "duration_seconds": 30.847883,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363684",
+      "status": "complete",
+      "duration_seconds": 29.495822,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363685",
+      "status": "complete",
+      "duration_seconds": 25.119709,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363686",
+      "status": "complete",
+      "duration_seconds": 31.191348,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363689",
+      "status": "complete",
+      "duration_seconds": 26.358646,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363691",
+      "status": "complete",
+      "duration_seconds": 30.561024,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363693",
+      "status": "complete",
+      "duration_seconds": 28.555206,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363694",
+      "status": "complete",
+      "duration_seconds": 26.902467,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363696",
+      "status": "complete",
+      "duration_seconds": 27.32109,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363697",
+      "status": "complete",
+      "duration_seconds": 31.505729,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363698",
+      "status": "complete",
+      "duration_seconds": 26.783095,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363699",
+      "status": "complete",
+      "duration_seconds": 28.88775,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363700",
+      "status": "complete",
+      "duration_seconds": 27.313677,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363702",
+      "status": "complete",
+      "duration_seconds": 25.330345,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363704",
+      "status": "complete",
+      "duration_seconds": 33.462816,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363705",
+      "status": "complete",
+      "duration_seconds": 32.564044,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363706",
+      "status": "complete",
+      "duration_seconds": 31.210659,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363707",
+      "status": "complete",
+      "duration_seconds": 24.971791,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363708",
+      "status": "complete",
+      "duration_seconds": 27.297107,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363711",
+      "status": "complete",
+      "duration_seconds": 29.616717,
+      "llm_generation_requests": 1
+    },
+    {
+      "dataset_id": "363712",
+      "status": "complete",
+      "duration_seconds": 25.981144,
+      "llm_generation_requests": 1
+    }
+  ]
+}

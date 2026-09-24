@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "result": "PASS",
+  "policy": "Only INFERENCE_AVAILABLE fields may enter the selector feature vector.",
+  "INFERENCE_AVAILABLE": {
+    "dataset_metadata": [
+      "n_rows",
+      "n_features",
+      "numeric_feature_count",
+      "categorical_feature_count",
+      "boolean_feature_count",
+      "datetime_feature_count",
+      "other_feature_count",
+      "numeric_feature_ratio",
+      "categorical_feature_ratio",
+      "boolean_feature_ratio",
+      "datetime_feature_ratio",
+      "other_feature_ratio",
+      "overall_missing_pct",
+      "features_with_missing_count",
+      "features_with_missing_ratio",
+      "rows_with_missing_ratio",
+      "mean_feature_cardinality",
+      "median_feature_cardinality",
+      "mean_unique_ratio",
+      "high_cardinality_feature_ratio"
+    ],
+    "dataset_semantics": [
+      "probable_domain",
+      "subdomain",
+      "dataset_purpose",
+      "row_entity",
+      "target_concept",
+      "feature_context",
+      "semantic_summary",
+      "domain_confidence"
+    ],
+    "dataset_target_registry": [
+      "task_type",
+      "classification_type",
+      "n_classes",
+      "class_distribution",
+      "minority_class_ratio",
+      "target_missing_count",
+      "target_missing_pct",
+      "imbalance_category",
+      "cb_chl_eligible"
+    ],
+    "model_capabilities": [
+      "model_family",
+      "supported_task_types",
+      "hard_limits",
+      "capabilities",
+      "runtime_and_provisioning",
+      "empirical_guidance"
+    ],
+    "rationale": "Available from the supplied labeled training dataset and registered model before benchmark execution."
+  },
+  "EXCLUDED_RAW_EVIDENCE": [
+    "representative feature names",
+    "dataset-level prompt evidence",
+    "old per-column semantic profiles and aggregates"
+  ],
+  "JOIN_OR_PROVENANCE_ONLY": [
+    "dataset_id",
+    "dataset_name",
+    "dataset_file",
+    "openml_dataset_id",
+    "model_id",
+    "source_csv_sha256",
+    "evidence",
+    "provenance"
+  ],
+  "TRAINING_OUTCOME_ONLY": [
+    "held-out accuracy",
+    "held-out balanced_accuracy",
+    "held-out RMSE",
+    "Brier score",
+    "ECE",
+    "ROC-AUC",
+    "log-loss",
+    "MCC",
+    "confusion matrix",
+    "benchmark train/inference runtime",
+    "resource usage",
+    "OOB outcome",
+    "baseline-relative score",
+    "oracle rank",
+    "run status",
+    "failure information"
+  ],
+  "validation": {
+    "benchmark_outcome_fields_present_in_dataset_inputs": false,
+    "performance_template_used_as_inference_input": false
+  }
+}
