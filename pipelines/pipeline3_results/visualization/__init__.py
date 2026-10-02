@@ -56,8 +56,10 @@ from pipelines.pipeline3_results.visualization.schemas import (
     STAGE4_MAX_HISTOGRAM_BINS,
     STAGE4_MAX_LINE_POINTS,
     STAGE4_MAX_SCATTER_POINTS,
+    STAGE4_MAX_PIE_CATEGORIES,
     AggregationMethod,
     ChartData,
+    ChartPresentationVariant,
     ChartPoint,
     ColumnClassification,
     ColumnRole,
@@ -102,12 +104,14 @@ __all__ = [
     "build_chart_data",
     "AggregationMethod",
     "ChartData",
+    "ChartPresentationVariant",
     "ChartPoint",
     "HistogramBin",
     "STAGE4_MAX_CATEGORY_POINTS",
     "STAGE4_MAX_LINE_POINTS",
     "STAGE4_MAX_SCATTER_POINTS",
     "STAGE4_MAX_HISTOGRAM_BINS",
+    "STAGE4_MAX_PIE_CATEGORIES",
     # Stage 5
     "build_visualization_result",
     "VisualizationItem",
@@ -134,4 +138,3 @@ __all__ = [
     "build_visualization_results",
     "SUPPORTED_MODES",
 ]
-

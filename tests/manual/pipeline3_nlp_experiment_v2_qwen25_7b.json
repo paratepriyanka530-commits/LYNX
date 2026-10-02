@@ -1,0 +1,3926 @@
+{
+  "experiment": "pipeline3_pretrained_language_interpreter_v2",
+  "model": "qwen2.5:7b",
+  "scope": "language_understanding_only_no_grounding",
+  "correctness_labels": "manual_unscored",
+  "results": [
+    {
+      "query": "Which category made us the most money?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which category made us the most money?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "most money"
+        },
+        "measures": {
+          "value": [
+            "revenue"
+          ],
+          "source": "INFERRED",
+          "evidence": "made us the most money"
+        },
+        "dimensions": {
+          "value": [
+            "category"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "category"
+        },
+        "aggregation": {
+          "value": "SUM",
+          "source": "INFERRED",
+          "evidence": "made us the most money"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "most"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [],
+        "missing_slots": [],
+        "requires_clarification": false,
+        "clarification_question": null,
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks categories by inferred revenue; no chart or limit was requested."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 91.33222690003458,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T18:50:16.8951307Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 89206588500,
+        "load_duration": 50361700,
+        "prompt_eval_count": 1150,
+        "prompt_eval_duration": 2803778000,
+        "eval_count": 391,
+        "eval_duration": 85261730000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "What sells the most?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "What sells the most?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "sells the most"
+        },
+        "measures": {
+          "value": [
+            "sales volume"
+          ],
+          "source": "INFERRED",
+          "evidence": "sells the most"
+        },
+        "dimensions": {
+          "value": [
+            "product"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "sells"
+        },
+        "aggregation": {
+          "value": "COUNT",
+          "source": "INFERRED",
+          "evidence": "sells the most"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "most"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "sales volume",
+            "reason": "The user did not specify a precise measure, and 'sales volume' is a reasonable interpretation of 'sells'."
+          }
+        ],
+        "missing_slots": [],
+        "requires_clarification": false,
+        "clarification_question": null,
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks products by inferred sales volume; no chart or limit was requested."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 100.52750059997197,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T18:52:34.4740319Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 98465400700,
+        "load_duration": 6616600,
+        "prompt_eval_count": 1147,
+        "prompt_eval_duration": 1780517000,
+        "eval_count": 440,
+        "eval_duration": 96659839000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "What is the least selling category?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "What is the least selling category?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "least selling"
+        },
+        "measures": {
+          "value": [
+            "sales volume"
+          ],
+          "source": "INFERRED",
+          "evidence": "selling category"
+        },
+        "dimensions": {
+          "value": [
+            "category"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "category"
+        },
+        "aggregation": {
+          "value": "COUNT",
+          "source": "INFERRED",
+          "evidence": "least selling"
+        },
+        "comparison": {
+          "value": "LOWEST",
+          "source": "INFERRED",
+          "evidence": "least"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [],
+        "missing_slots": [],
+        "requires_clarification": false,
+        "clarification_question": null,
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks categories by inferred sales volume; no chart or limit was requested."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 87.6648717999924,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T18:54:02.134594Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 85613416800,
+        "load_duration": 8570500,
+        "prompt_eval_count": 1149,
+        "prompt_eval_duration": 746449000,
+        "eval_count": 384,
+        "eval_duration": 84840957000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which pizza size brings in the most revenue?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which pizza size brings in the most revenue?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "most revenue"
+        },
+        "measures": {
+          "value": [
+            "revenue"
+          ],
+          "source": "INFERRED",
+          "evidence": "most revenue"
+        },
+        "dimensions": {
+          "value": [
+            "pizza size"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "pizza size"
+        },
+        "aggregation": {
+          "value": "SUM",
+          "source": "INFERRED",
+          "evidence": "most revenue"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "most revenue"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [],
+        "missing_slots": [],
+        "requires_clarification": false,
+        "clarification_question": null,
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks pizza sizes by inferred revenue; no chart or limit was requested."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 89.23106889997143,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T18:55:31.3647233Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 87163903900,
+        "load_duration": 6924300,
+        "prompt_eval_count": 1151,
+        "prompt_eval_duration": 870562000,
+        "eval_count": 390,
+        "eval_duration": 86267110000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which category performs best?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which category performs best?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "best"
+        },
+        "measures": {
+          "value": [
+            "performance"
+          ],
+          "source": "INFERRED",
+          "evidence": "performs best"
+        },
+        "dimensions": {
+          "value": [
+            "category"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "category"
+        },
+        "aggregation": {
+          "value": "NONE",
+          "source": "INFERRED",
+          "evidence": "best"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "best"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "performance",
+            "reason": "The term 'performance' is broad and could refer to various metrics."
+          }
+        ],
+        "missing_slots": [],
+        "requires_clarification": true,
+        "clarification_question": "Could you please specify what aspect of performance you are interested in, such as sales volume, revenue, or customer satisfaction?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks categories by inferred performance; no chart or limit was requested, and the concept of performance is ambiguous."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 105.84228509990498,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T18:57:17.2024953Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 103775265300,
+        "load_duration": 8633600,
+        "prompt_eval_count": 1147,
+        "prompt_eval_duration": 662230000,
+        "eval_count": 453,
+        "eval_duration": 103084433000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "What is the most popular pizza?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "What is the most popular pizza?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "most popular"
+        },
+        "measures": {
+          "value": [
+            "popularity"
+          ],
+          "source": "INFERRED",
+          "evidence": "most popular"
+        },
+        "dimensions": {
+          "value": [
+            "pizza"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "pizza"
+        },
+        "aggregation": {
+          "value": "COUNT",
+          "source": "INFERRED",
+          "evidence": "most popular"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "most popular"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "popularity",
+            "reason": "The term 'popular' is broad and could refer to frequency of orders, customer ratings, or other metrics."
+          }
+        ],
+        "missing_slots": [],
+        "requires_clarification": true,
+        "clarification_question": "Are you interested in the pizza with the highest number of orders, the one with the highest customer ratings, or another measure of popularity?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks pizzas by inferred popularity; the specific measure of popularity is ambiguous."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 109.4008067001123,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T18:59:06.6012364Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 107352685600,
+        "load_duration": 6924300,
+        "prompt_eval_count": 1149,
+        "prompt_eval_duration": 787447000,
+        "eval_count": 460,
+        "eval_duration": 106538649000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which pizza gets ordered most often?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which pizza gets ordered most often?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "most often"
+        },
+        "measures": {
+          "value": [
+            "order frequency"
+          ],
+          "source": "INFERRED",
+          "evidence": "gets ordered most often"
+        },
+        "dimensions": {
+          "value": [
+            "pizza"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "pizza"
+        },
+        "aggregation": {
+          "value": "COUNT",
+          "source": "INFERRED",
+          "evidence": "most often"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "most often"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "order frequency",
+            "reason": "The term 'gets ordered most often' is broad and could be interpreted as frequency of orders."
+          }
+        ],
+        "missing_slots": [],
+        "requires_clarification": true,
+        "clarification_question": "Are you interested in the frequency of orders for each pizza type over a specific time period, or do you want to know the overall most ordered pizza?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks pizza types by inferred order frequency; no chart or limit was requested, and the measure is ambiguous."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 111.37917470000684,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:00:57.9716602Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 109320956400,
+        "load_duration": 9632100,
+        "prompt_eval_count": 1149,
+        "prompt_eval_duration": 790315000,
+        "eval_count": 469,
+        "eval_duration": 108499816000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "What makes up most of our revenue?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "What makes up most of our revenue?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "most of our revenue"
+        },
+        "measures": {
+          "value": [
+            "revenue"
+          ],
+          "source": "INFERRED",
+          "evidence": "revenue"
+        },
+        "dimensions": {
+          "value": [
+            "what makes up revenue"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "What makes up most of our revenue?"
+        },
+        "aggregation": {
+          "value": "SUM",
+          "source": "INFERRED",
+          "evidence": "revenue"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "most"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "dimension",
+            "concept": "what makes up revenue",
+            "reason": "The phrase 'what makes up most of our revenue' is broad and could refer to various aspects such as product, service, or customer type."
+          }
+        ],
+        "missing_slots": [],
+        "requires_clarification": true,
+        "clarification_question": "Are you interested in which product, service, or customer type makes up the most of our revenue?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks groups by inferred revenue; the dimension is ambiguous and requires clarification."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 113.91138980002142,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:02:51.884415Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 111866181700,
+        "load_duration": 6067800,
+        "prompt_eval_count": 1150,
+        "prompt_eval_duration": 828038000,
+        "eval_count": 473,
+        "eval_duration": 111008246000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which category has the highest value?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which category has the highest value?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "highest value"
+        },
+        "measures": {
+          "value": [
+            "value"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "highest value"
+        },
+        "dimensions": {
+          "value": [
+            "category"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "category"
+        },
+        "aggregation": {
+          "value": "NONE",
+          "source": "INFERRED",
+          "evidence": "value"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "highest"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "value",
+            "reason": "The term 'value' is broad and could refer to multiple metrics."
+          }
+        ],
+        "missing_slots": [],
+        "requires_clarification": true,
+        "clarification_question": "Could you please specify which metric you would like to consider as 'value' for ranking categories?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks categories by an unspecified 'value'; requires clarification on the specific metric to be used."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 102.5349662998924,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:04:34.4195353Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 100453814500,
+        "load_duration": 9257500,
+        "prompt_eval_count": 1149,
+        "prompt_eval_duration": 1025653000,
+        "eval_count": 443,
+        "eval_duration": 99351805000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Show revenue by pizza category.",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "EXPLICIT",
+          "evidence": "Show revenue by pizza category."
+        },
+        "analytical_goal": {
+          "value": "GROUP_COMPARISON",
+          "source": "EXPLICIT",
+          "evidence": "by pizza category"
+        },
+        "measures": {
+          "value": [
+            "revenue"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "revenue"
+        },
+        "dimensions": {
+          "value": [
+            "pizza category"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "pizza category"
+        },
+        "aggregation": {
+          "value": "SUM",
+          "source": "INFERRED",
+          "evidence": "revenue by pizza category"
+        },
+        "comparison": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": "BAR",
+          "source": "INFERRED",
+          "evidence": "Show [measure] by [dimension]"
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [],
+        "missing_slots": [],
+        "requires_clarification": false,
+        "clarification_question": null,
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Groups revenue by pizza category using a bar chart."
+      },
+      "schema_validation_passed": false,
+      "structural_validation_passed": false,
+      "latency_seconds": 98.47824209998362,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T20:05:12.0692651Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 96426352000,
+        "load_duration": 11199118300,
+        "prompt_eval_count": 1148,
+        "prompt_eval_duration": 1646036000,
+        "eval_count": 388,
+        "eval_duration": 83554743000
+      },
+      "error": "RuntimeError: Ollama returned a response that does not satisfy the semantic schema.\nRaw response:\n{\n  \"intent\": {\n    \"value\": \"INSIGHT\",\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"Show revenue by pizza category.\"\n  },\n  \"analytical_goal\": {\n    \"value\": \"GROUP_COMPARISON\",\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"by pizza category\"\n  },\n  \"measures\": {\n    \"value\": [\"revenue\"],\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"revenue\"\n  },\n  \"dimensions\": {\n    \"value\": [\"pizza category\"],\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"pizza category\"\n  },\n  \"aggregation\": {\n    \"value\": \"SUM\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"revenue by pizza category\"\n  },\n  \"comparison\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"limit\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"requested_chart\": {\n    \"value\": \"BAR\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"Show [measure] by [dimension]\"\n  },\n  \"filters\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"time_expression\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"ambiguities\": [],\n  \"missing_slots\": [],\n  \"requires_clarification\": false,\n  \"clarification_question\": null,\n  \"unsupported\": false,\n  \"unsupported_reason\": null,\n  \"interpretation_summary\": \"Groups revenue by pizza category using a bar chart.\"\n}",
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Show total sales by pizza category as a doughnut chart.",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "EXPLICIT",
+          "evidence": "Show total sales"
+        },
+        "analytical_goal": {
+          "value": "GROUP_COMPARISON",
+          "source": "EXPLICIT",
+          "evidence": "total sales by pizza category"
+        },
+        "measures": {
+          "value": [
+            "sales"
+          ],
+          "source": "INFERRED",
+          "evidence": "total sales"
+        },
+        "dimensions": {
+          "value": [
+            "pizza category"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "pizza category"
+        },
+        "aggregation": {
+          "value": "SUM",
+          "source": "INFERRED",
+          "evidence": "total sales"
+        },
+        "comparison": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": "DOUGHNUT",
+          "source": "EXPLICIT",
+          "evidence": "doughnut chart"
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [],
+        "missing_slots": [],
+        "requires_clarification": false,
+        "clarification_question": null,
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Shows total sales by pizza category in a doughnut chart."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 91.47922630002722,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:07:33.4152008Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 89425746900,
+        "load_duration": 9520600,
+        "prompt_eval_count": 1154,
+        "prompt_eval_duration": 1246839000,
+        "eval_count": 385,
+        "eval_duration": 88123683000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "How have sales changed over time?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "How have sales changed over time?"
+        },
+        "analytical_goal": {
+          "value": "TREND",
+          "source": "INFERRED",
+          "evidence": "changed over time"
+        },
+        "measures": {
+          "value": [
+            "sales"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "sales"
+        },
+        "dimensions": {
+          "value": [
+            "time"
+          ],
+          "source": "INFERRED",
+          "evidence": "over time"
+        },
+        "aggregation": {
+          "value": "NONE",
+          "source": "INFERRED",
+          "evidence": null
+        },
+        "comparison": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [],
+        "missing_slots": [],
+        "requires_clarification": false,
+        "clarification_question": null,
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Analyzes the trend of sales over time without specifying a chart type or limit."
+      },
+      "schema_validation_passed": false,
+      "structural_validation_passed": false,
+      "latency_seconds": 87.12848020007368,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:09:00.54718Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 85032295400,
+        "load_duration": 11943300,
+        "prompt_eval_count": 1149,
+        "prompt_eval_duration": 1004254000,
+        "eval_count": 379,
+        "eval_duration": 83970404000
+      },
+      "error": "RuntimeError: Ollama returned a response that does not satisfy the semantic schema.\nRaw response:\n{\n  \"intent\": {\n    \"value\": \"INSIGHT\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"How have sales changed over time?\"\n  },\n  \"analytical_goal\": {\n    \"value\": \"TREND\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"changed over time\"\n  },\n  \"measures\": {\n    \"value\": [\"sales\"],\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"sales\"\n  },\n  \"dimensions\": {\n    \"value\": [\"time\"],\n    \"source\": \"INFERRED\",\n    \"evidence\": \"over time\"\n  },\n  \"aggregation\": {\n    \"value\": \"NONE\",\n    \"source\": \"INFERRED\",\n    \"evidence\": null\n  },\n  \"comparison\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"limit\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"requested_chart\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"filters\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"time_expression\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"ambiguities\": [],\n  \"missing_slots\": [],\n  \"requires_clarification\": false,\n  \"clarification_question\": null,\n  \"unsupported\": false,\n  \"unsupported_reason\": null,\n  \"interpretation_summary\": \"Analyzes the trend of sales over time without specifying a chart type or limit.\"\n}",
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which month was strongest?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which month was strongest?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "strongest"
+        },
+        "measures": {
+          "value": [],
+          "source": "MISSING",
+          "evidence": null
+        },
+        "dimensions": {
+          "value": [
+            "month"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "month"
+        },
+        "aggregation": {
+          "value": null,
+          "source": "INFERRED",
+          "evidence": "strongest"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "strongest"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "strength",
+            "reason": "The term 'strongest' is broad and could refer to various metrics."
+          }
+        ],
+        "missing_slots": [
+          {
+            "slot": "measure",
+            "reason": "The specific metric defining 'strongest' is not provided."
+          }
+        ],
+        "requires_clarification": true,
+        "clarification_question": "Could you please specify which metric you want to use to determine the 'strongest' month, such as sales volume, revenue, or any other relevant measure?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks months based on an inferred metric; the specific metric is missing and requires clarification."
+      },
+      "schema_validation_passed": false,
+      "structural_validation_passed": false,
+      "latency_seconds": 111.47403909999412,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:10:52.0248305Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 109417320500,
+        "load_duration": 11619100,
+        "prompt_eval_count": 1147,
+        "prompt_eval_duration": 891721000,
+        "eval_count": 481,
+        "eval_duration": 108464850000
+      },
+      "error": "RuntimeError: Ollama returned a response that does not satisfy the semantic schema.\nRaw response:\n{\n  \"intent\": {\n    \"value\": \"INSIGHT\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"Which month was strongest?\"\n  },\n  \"analytical_goal\": {\n    \"value\": \"RANK_GROUPS\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"strongest\"\n  },\n  \"measures\": {\n    \"value\": [],\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"dimensions\": {\n    \"value\": [\"month\"],\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"month\"\n  },\n  \"aggregation\": {\n    \"value\": null,\n    \"source\": \"INFERRED\",\n    \"evidence\": \"strongest\"\n  },\n  \"comparison\": {\n    \"value\": \"HIGHEST\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"strongest\"\n  },\n  \"limit\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"requested_chart\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"filters\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"time_expression\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"ambiguities\": [\n    {\n      \"slot\": \"measure\",\n      \"concept\": \"strength\",\n      \"reason\": \"The term 'strongest' is broad and could refer to various metrics.\"\n    }\n  ],\n  \"missing_slots\": [\n    {\n      \"slot\": \"measure\",\n      \"reason\": \"The specific metric defining 'strongest' is not provided.\"\n    }\n  ],\n  \"requires_clarification\": true,\n  \"clarification_question\": \"Could you please specify which metric you want to use to determine the 'strongest' month, such as sales volume, revenue, or any other relevant measure?\",\n  \"unsupported\": false,\n  \"unsupported_reason\": null,\n  \"interpretation_summary\": \"Ranks months based on an inferred metric; the specific metric is missing and requires clarification.\"\n}",
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which category did badly?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which category did badly?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "did badly"
+        },
+        "measures": {
+          "value": [
+            "performance"
+          ],
+          "source": "INFERRED",
+          "evidence": "did badly"
+        },
+        "dimensions": {
+          "value": [
+            "category"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "category"
+        },
+        "aggregation": {
+          "value": "SUM",
+          "source": "INFERRED",
+          "evidence": "did badly"
+        },
+        "comparison": {
+          "value": "LOWEST",
+          "source": "INFERRED",
+          "evidence": "did badly"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "performance",
+            "reason": "The term 'did badly' is broad and could refer to various metrics such as sales, profit, or customer satisfaction."
+          }
+        ],
+        "missing_slots": [],
+        "requires_clarification": true,
+        "clarification_question": "Could you please specify the metric you want to use to determine which category performed poorly, such as 'sales', 'profit', or 'customer satisfaction'?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks categories by inferred performance; no chart or limit was requested, and the measure is ambiguous."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 108.63231969997287,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:12:40.6573438Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 106537589300,
+        "load_duration": 12667600,
+        "prompt_eval_count": 1147,
+        "prompt_eval_duration": 888861000,
+        "eval_count": 466,
+        "eval_duration": 105591290000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "What are the top five pizzas by revenue?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "What are the top five pizzas by revenue?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "EXPLICIT",
+          "evidence": "top five pizzas"
+        },
+        "measures": {
+          "value": [
+            "revenue"
+          ],
+          "source": "INFERRED",
+          "evidence": "by revenue"
+        },
+        "dimensions": {
+          "value": [
+            "pizza"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "pizzas"
+        },
+        "aggregation": {
+          "value": "SUM",
+          "source": "INFERRED",
+          "evidence": "revenue"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "top five"
+        },
+        "limit": {
+          "value": 5,
+          "source": "EXPLICIT",
+          "evidence": "top five"
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [],
+        "missing_slots": [],
+        "requires_clarification": false,
+        "clarification_question": null,
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks pizzas by inferred revenue; top 5 are requested but no chart is specified."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 91.33252720010933,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:14:11.9754075Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 89245380300,
+        "load_duration": 13377200,
+        "prompt_eval_count": 1151,
+        "prompt_eval_duration": 1103169000,
+        "eval_count": 395,
+        "eval_duration": 88082557000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which pizza sold the fewest units?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which pizza sold the fewest units?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "fewest units"
+        },
+        "measures": {
+          "value": [
+            "units sold"
+          ],
+          "source": "INFERRED",
+          "evidence": "sold the fewest units"
+        },
+        "dimensions": {
+          "value": [
+            "pizza"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "pizza"
+        },
+        "aggregation": {
+          "value": "COUNT",
+          "source": "INFERRED",
+          "evidence": "units sold"
+        },
+        "comparison": {
+          "value": "LOWEST",
+          "source": "INFERRED",
+          "evidence": "fewest"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [],
+        "missing_slots": [],
+        "requires_clarification": false,
+        "clarification_question": null,
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks pizzas by the lowest number of units sold; no chart or limit was requested."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": false,
+      "latency_seconds": 88.66443720005918,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T20:06:40.738845Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 86593392100,
+        "load_duration": 13000900,
+        "prompt_eval_count": 1150,
+        "prompt_eval_duration": 745363000,
+        "eval_count": 393,
+        "eval_duration": 85813105000
+      },
+      "error": "StructuralInterpretationError: aggregation evidence must be an exact phrase from the user query",
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "What stands out in this dataset?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "EXPLICIT",
+          "evidence": "What stands out"
+        },
+        "analytical_goal": {
+          "value": "EXPLORATORY",
+          "source": "EXPLICIT",
+          "evidence": "What stands out"
+        },
+        "measures": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "dimensions": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "aggregation": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "comparison": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "broad concept of interesting patterns or anomalies in the data",
+            "reason": "The user is asking for an exploratory analysis, which does not require specific measures or dimensions."
+          }
+        ],
+        "missing_slots": [],
+        "requires_clarification": false,
+        "clarification_question": null,
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Performs an exploratory analysis to identify interesting patterns or anomalies in the dataset without specifying measures or dimensions."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 101.42268319998402,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:17:24.3138269Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 99346046500,
+        "load_duration": 7094200,
+        "prompt_eval_count": 1149,
+        "prompt_eval_duration": 992053000,
+        "eval_count": 429,
+        "eval_duration": 98307617000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Is anything unusual?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Is anything unusual?"
+        },
+        "analytical_goal": {
+          "value": "EXPLORATORY",
+          "source": "EXPLICIT",
+          "evidence": "Is anything unusual?"
+        },
+        "measures": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "dimensions": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "aggregation": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "comparison": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "unusual",
+            "reason": "The term 'unusual' is broad and could refer to various metrics or patterns."
+          }
+        ],
+        "missing_slots": [],
+        "requires_clarification": true,
+        "clarification_question": "Are you looking for unusual trends, patterns, or specific metrics in the data?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "An exploratory analysis is requested to identify unusual aspects in the data, but the specific measures or dimensions are not provided."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 96.31737950001843,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:19:00.6290478Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 94281203100,
+        "load_duration": 15704300,
+        "prompt_eval_count": 1146,
+        "prompt_eval_duration": 565652000,
+        "eval_count": 437,
+        "eval_duration": 93675569000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Show me where the money is coming from.",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "EXPLICIT",
+          "evidence": "Show me where the money is coming from."
+        },
+        "analytical_goal": {
+          "value": "EXPLORATORY",
+          "source": "EXPLICIT",
+          "evidence": "Show me where the money is coming from."
+        },
+        "measures": {
+          "value": [
+            "revenue"
+          ],
+          "source": "INFERRED",
+          "evidence": "where the money is coming from"
+        },
+        "dimensions": {
+          "value": [],
+          "source": "MISSING",
+          "evidence": null
+        },
+        "aggregation": {
+          "value": "SUM",
+          "source": "INFERRED",
+          "evidence": "where the money is coming from"
+        },
+        "comparison": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "dimension",
+            "concept": "source of revenue",
+            "reason": "The user did not specify a particular dimension."
+          }
+        ],
+        "missing_slots": [
+          {
+            "slot": "dimension",
+            "reason": "The user did not specify a particular dimension."
+          }
+        ],
+        "requires_clarification": true,
+        "clarification_question": "From which dimension would you like to explore the sources of revenue? For example, by product, by region, or by time period?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Exploring sources of revenue without specifying a particular dimension; requires clarification on the dimension to analyze."
+      },
+      "schema_validation_passed": false,
+      "structural_validation_passed": false,
+      "latency_seconds": 111.19508480001241,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:20:51.8251166Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 109143701300,
+        "load_duration": 9813600,
+        "prompt_eval_count": 1151,
+        "prompt_eval_duration": 816309000,
+        "eval_count": 485,
+        "eval_duration": 108296413000
+      },
+      "error": "RuntimeError: Ollama returned a response that does not satisfy the semantic schema.\nRaw response:\n{\n  \"intent\": {\n    \"value\": \"INSIGHT\",\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"Show me where the money is coming from.\"\n  },\n  \"analytical_goal\": {\n    \"value\": \"EXPLORATORY\",\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"Show me where the money is coming from.\"\n  },\n  \"measures\": {\n    \"value\": [\"revenue\"],\n    \"source\": \"INFERRED\",\n    \"evidence\": \"where the money is coming from\"\n  },\n  \"dimensions\": {\n    \"value\": [],\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"aggregation\": {\n    \"value\": \"SUM\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"where the money is coming from\"\n  },\n  \"comparison\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"limit\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"requested_chart\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"filters\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"time_expression\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"ambiguities\": [\n    {\n      \"slot\": \"dimension\",\n      \"concept\": \"source of revenue\",\n      \"reason\": \"The user did not specify a particular dimension.\"\n    }\n  ],\n  \"missing_slots\": [\n    {\n      \"slot\": \"dimension\",\n      \"reason\": \"The user did not specify a particular dimension.\"\n    }\n  ],\n  \"requires_clarification\": true,\n  \"clarification_question\": \"From which dimension would you like to explore the sources of revenue? For example, by product, by region, or by time period?\",\n  \"unsupported\": false,\n  \"unsupported_reason\": null,\n  \"interpretation_summary\": \"Exploring sources of revenue without specifying a particular dimension; requires clarification on the dimension to analyze.\"\n}",
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Compare price and quantity.",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "compare price and quantity"
+        },
+        "analytical_goal": {
+          "value": "RELATIONSHIP",
+          "source": "INFERRED",
+          "evidence": "compare"
+        },
+        "measures": {
+          "value": [
+            "price",
+            "quantity"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "price and quantity"
+        },
+        "dimensions": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "aggregation": {
+          "value": null,
+          "source": "INFERRED",
+          "evidence": "compare"
+        },
+        "comparison": {
+          "value": null,
+          "source": "INFERRED",
+          "evidence": "compare"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "dimension",
+            "concept": "The user is comparing price and quantity, but no specific dimension is provided. This could refer to comparing price and quantity across different products, time periods, or other categories.",
+            "reason": "The user did not specify a dimension to compare price and quantity."
+          }
+        ],
+        "missing_slots": [
+          {
+            "slot": "dimension",
+            "reason": "The user did not specify a dimension to compare price and quantity."
+          }
+        ],
+        "requires_clarification": true,
+        "clarification_question": "Are you comparing price and quantity across different products, time periods, or another category?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Compares price and quantity; requires clarification on the dimension to compare across."
+      },
+      "schema_validation_passed": false,
+      "structural_validation_passed": false,
+      "latency_seconds": 114.57590369996615,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:22:46.4015338Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 112542380300,
+        "load_duration": 10196500,
+        "prompt_eval_count": 1147,
+        "prompt_eval_duration": 706339000,
+        "eval_count": 494,
+        "eval_duration": 111802488000
+      },
+      "error": "RuntimeError: Ollama returned a response that does not satisfy the semantic schema.\nRaw response:\n{\n  \"intent\": {\n    \"value\": \"INSIGHT\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"compare price and quantity\"\n  },\n  \"analytical_goal\": {\n    \"value\": \"RELATIONSHIP\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"compare\"\n  },\n  \"measures\": {\n    \"value\": [\"price\", \"quantity\"],\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"price and quantity\"\n  },\n  \"dimensions\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"aggregation\": {\n    \"value\": null,\n    \"source\": \"INFERRED\",\n    \"evidence\": \"compare\"\n  },\n  \"comparison\": {\n    \"value\": null,\n    \"source\": \"INFERRED\",\n    \"evidence\": \"compare\"\n  },\n  \"limit\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"requested_chart\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"filters\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"time_expression\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"ambiguities\": [\n    {\n      \"slot\": \"dimension\",\n      \"concept\": \"The user is comparing price and quantity, but no specific dimension is provided. This could refer to comparing price and quantity across different products, time periods, or other categories.\",\n      \"reason\": \"The user did not specify a dimension to compare price and quantity.\"\n    }\n  ],\n  \"missing_slots\": [\n    {\n      \"slot\": \"dimension\",\n      \"reason\": \"The user did not specify a dimension to compare price and quantity.\"\n    }\n  ],\n  \"requires_clarification\": true,\n  \"clarification_question\": \"Are you comparing price and quantity across different products, time periods, or another category?\",\n  \"unsupported\": false,\n  \"unsupported_reason\": null,\n  \"interpretation_summary\": \"Compares price and quantity; requires clarification on the dimension to compare across.\"\n}",
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which department has the highest employee compensation?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which department has the highest employee compensation?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "highest employee compensation"
+        },
+        "measures": {
+          "value": [
+            "employee compensation"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "employee compensation"
+        },
+        "dimensions": {
+          "value": [
+            "department"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "department"
+        },
+        "aggregation": {
+          "value": "SUM",
+          "source": "INFERRED",
+          "evidence": "highest employee compensation"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "highest"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [],
+        "missing_slots": [],
+        "requires_clarification": false,
+        "clarification_question": null,
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks departments by the sum of employee compensation; no chart or limit was requested."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 89.96180369996,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:24:16.3654858Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 87913013800,
+        "load_duration": 11871100,
+        "prompt_eval_count": 1150,
+        "prompt_eval_duration": 755566000,
+        "eval_count": 389,
+        "eval_duration": 87123199000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which hospital treated the most patients?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which hospital treated the most patients?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "most patients"
+        },
+        "measures": {
+          "value": [
+            "number of patients treated"
+          ],
+          "source": "INFERRED",
+          "evidence": "treated the most patients"
+        },
+        "dimensions": {
+          "value": [
+            "hospital"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "hospital"
+        },
+        "aggregation": {
+          "value": "COUNT",
+          "source": "INFERRED",
+          "evidence": "treated the most patients"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "most patients"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [],
+        "missing_slots": [],
+        "requires_clarification": false,
+        "clarification_question": null,
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks hospitals by the number of patients treated; no chart or limit was requested."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 91.20548220002092,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:25:47.5746984Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 89147544600,
+        "load_duration": 10838300,
+        "prompt_eval_count": 1149,
+        "prompt_eval_duration": 720759000,
+        "eval_count": 396,
+        "eval_duration": 88387353000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which account type has the highest average balance?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which account type has the highest average balance?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "highest average balance"
+        },
+        "measures": {
+          "value": [
+            "average balance"
+          ],
+          "source": "INFERRED",
+          "evidence": "highest average balance"
+        },
+        "dimensions": {
+          "value": [
+            "account type"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "account type"
+        },
+        "aggregation": {
+          "value": "MEAN",
+          "source": "INFERRED",
+          "evidence": "average balance"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "highest"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [],
+        "missing_slots": [],
+        "requires_clarification": false,
+        "clarification_question": null,
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks account types by inferred average balance; no chart or limit was requested."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 90.77696789999027,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:27:18.3511458Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 88746878800,
+        "load_duration": 13036200,
+        "prompt_eval_count": 1151,
+        "prompt_eval_duration": 808069000,
+        "eval_count": 393,
+        "eval_duration": 87900343000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which sensor recorded the greatest temperature variation?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which sensor recorded the greatest temperature variation?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "greatest temperature variation"
+        },
+        "measures": {
+          "value": [
+            "temperature variation"
+          ],
+          "source": "INFERRED",
+          "evidence": "greatest temperature variation"
+        },
+        "dimensions": {
+          "value": [
+            "sensor"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "sensor"
+        },
+        "aggregation": {
+          "value": "NONE",
+          "source": "INFERRED",
+          "evidence": "greatest temperature variation"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "greatest"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "temperature variation",
+            "reason": "The term 'temperature variation' is broad and could refer to the difference between the highest and lowest temperatures recorded, or the range of temperatures over a period."
+          }
+        ],
+        "missing_slots": [],
+        "requires_clarification": true,
+        "clarification_question": "Are you asking for the sensor that recorded the greatest difference between the highest and lowest temperatures, or the sensor with the largest range of temperatures over a specific period?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks sensors by the greatest temperature variation; no chart or limit was requested, and the concept of 'temperature variation' is ambiguous."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 113.70110159995966,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:29:12.0530864Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 111626536900,
+        "load_duration": 10722900,
+        "prompt_eval_count": 1150,
+        "prompt_eval_duration": 736986000,
+        "eval_count": 493,
+        "eval_duration": 110850478000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which student group performed best?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which student group performed best?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "best"
+        },
+        "measures": {
+          "value": [
+            "performance"
+          ],
+          "source": "INFERRED",
+          "evidence": "performed best"
+        },
+        "dimensions": {
+          "value": [
+            "student group"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "student group"
+        },
+        "aggregation": {
+          "value": "NONE",
+          "source": "INFERRED",
+          "evidence": "performed best"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "best"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "performance",
+            "reason": "The term 'performance' is broad and could refer to various metrics such as grades, attendance, or participation."
+          }
+        ],
+        "missing_slots": [],
+        "requires_clarification": true,
+        "clarification_question": "What specific measure of performance are you interested in, such as grades, attendance, or participation?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks student groups by an inferred performance metric; no chart or limit was requested, and the performance metric is ambiguous."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 105.8272412000224,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:30:57.883098Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 103790410200,
+        "load_duration": 12642500,
+        "prompt_eval_count": 1148,
+        "prompt_eval_duration": 663899000,
+        "eval_count": 460,
+        "eval_duration": 103087150000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which machine had the most downtime?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which machine had the most downtime?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "most downtime"
+        },
+        "measures": {
+          "value": [
+            "downtime"
+          ],
+          "source": "INFERRED",
+          "evidence": "most downtime"
+        },
+        "dimensions": {
+          "value": [
+            "machine"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "machine"
+        },
+        "aggregation": {
+          "value": "SUM",
+          "source": "INFERRED",
+          "evidence": "most downtime"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "most"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [],
+        "missing_slots": [],
+        "requires_clarification": false,
+        "clarification_question": null,
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks machines by inferred downtime; no chart or limit was requested."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 88.42923849995714,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:32:26.3122567Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 86374799600,
+        "load_duration": 11791800,
+        "prompt_eval_count": 1149,
+        "prompt_eval_duration": 702785000,
+        "eval_count": 385,
+        "eval_duration": 85637781000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which attack type occurred most frequently?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which attack type occurred most frequently?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "most frequently"
+        },
+        "measures": {
+          "value": [
+            "frequency"
+          ],
+          "source": "INFERRED",
+          "evidence": "occurred most frequently"
+        },
+        "dimensions": {
+          "value": [
+            "attack type"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "attack type"
+        },
+        "aggregation": {
+          "value": "COUNT",
+          "source": "INFERRED",
+          "evidence": "most frequently"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "most frequently"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [],
+        "missing_slots": [],
+        "requires_clarification": false,
+        "clarification_question": null,
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks attack types by their frequency; no chart or limit was requested."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 89.98490220005624,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:33:56.3001597Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 87939989900,
+        "load_duration": 11591900,
+        "prompt_eval_count": 1149,
+        "prompt_eval_duration": 696878000,
+        "eval_count": 389,
+        "eval_duration": 87205806000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which survey response category was least common?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "What stands out?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "least common"
+        },
+        "measures": {
+          "value": [
+            "frequency"
+          ],
+          "source": "INFERRED",
+          "evidence": "least common"
+        },
+        "dimensions": {
+          "value": [
+            "survey response category"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "survey response category"
+        },
+        "aggregation": {
+          "value": "COUNT",
+          "source": "INFERRED",
+          "evidence": "least common"
+        },
+        "comparison": {
+          "value": "LOWEST",
+          "source": "INFERRED",
+          "evidence": "least common"
+        },
+        "limit": {
+          "value": 1,
+          "source": "INFERRED",
+          "evidence": "least common"
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "frequency",
+            "reason": "The user did not specify a metric, but 'least common' implies a count."
+          }
+        ],
+        "missing_slots": [],
+        "requires_clarification": false,
+        "clarification_question": null,
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks survey response categories by their frequency; the least common category is sought."
+      },
+      "schema_validation_passed": false,
+      "structural_validation_passed": false,
+      "latency_seconds": 101.76581110002007,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:35:38.0674229Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 99714356000,
+        "load_duration": 11458600,
+        "prompt_eval_count": 1150,
+        "prompt_eval_duration": 759847000,
+        "eval_count": 432,
+        "eval_duration": 98915152000
+      },
+      "error": "RuntimeError: Ollama returned a response that does not satisfy the semantic schema.\nRaw response:\n{\n  \"intent\": {\n    \"value\": \"INSIGHT\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"What stands out?\"\n  },\n  \"analytical_goal\": {\n    \"value\": \"RANK_GROUPS\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"least common\"\n  },\n  \"measures\": {\n    \"value\": [\"frequency\"],\n    \"source\": \"INFERRED\",\n    \"evidence\": \"least common\"\n  },\n  \"dimensions\": {\n    \"value\": [\"survey response category\"],\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"survey response category\"\n  },\n  \"aggregation\": {\n    \"value\": \"COUNT\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"least common\"\n  },\n  \"comparison\": {\n    \"value\": \"LOWEST\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"least common\"\n  },\n  \"limit\": {\n    \"value\": 1,\n    \"source\": \"INFERRED\",\n    \"evidence\": \"least common\"\n  },\n  \"requested_chart\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"filters\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"time_expression\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"ambiguities\": [\n    {\n      \"slot\": \"measure\",\n      \"concept\": \"frequency\",\n      \"reason\": \"The user did not specify a metric, but 'least common' implies a count.\"\n    }\n  ],\n  \"missing_slots\": [],\n  \"requires_clarification\": false,\n  \"clarification_question\": null,\n  \"unsupported\": false,\n  \"unsupported_reason\": null,\n  \"interpretation_summary\": \"Ranks survey response categories by their frequency; the least common category is sought.\"\n}",
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which product segment generated the highest margin?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which product segment generated the highest margin?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "highest margin"
+        },
+        "measures": {
+          "value": [
+            "margin"
+          ],
+          "source": "INFERRED",
+          "evidence": "highest margin"
+        },
+        "dimensions": {
+          "value": [
+            "product segment"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "product segment"
+        },
+        "aggregation": {
+          "value": "NONE",
+          "source": "INFERRED",
+          "evidence": "margin"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "highest"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "margin",
+            "reason": "Margin can be interpreted as the difference between revenue and cost, or as a percentage. The user did not specify if it is the gross margin or net margin."
+          }
+        ],
+        "missing_slots": [],
+        "requires_clarification": true,
+        "clarification_question": "Is the margin you are referring to the gross margin or the net margin?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks product segments by inferred margin; no chart or limit was requested, and the type of margin is ambiguous."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 107.23282070003916,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:37:25.3075903Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 105190885400,
+        "load_duration": 12758900,
+        "prompt_eval_count": 1150,
+        "prompt_eval_duration": 739953000,
+        "eval_count": 465,
+        "eval_duration": 104414281000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "How did energy usage change throughout the year?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "How did energy usage change throughout the year?"
+        },
+        "analytical_goal": {
+          "value": "TREND",
+          "source": "EXPLICIT",
+          "evidence": "change"
+        },
+        "measures": {
+          "value": [
+            "energy usage"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "energy usage"
+        },
+        "dimensions": {
+          "value": [
+            "year"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "throughout the year"
+        },
+        "aggregation": {
+          "value": "NONE",
+          "source": "INFERRED",
+          "evidence": null
+        },
+        "comparison": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "energy usage",
+            "reason": "The term 'energy usage' is broad and could refer to various metrics."
+          }
+        ],
+        "missing_slots": [],
+        "requires_clarification": true,
+        "clarification_question": "Would you like to analyze the trend of total energy consumption or the trend of energy consumption per unit?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Analyzes the trend of energy usage over the year; the specific measure is ambiguous."
+      },
+      "schema_validation_passed": false,
+      "structural_validation_passed": false,
+      "latency_seconds": 101.90368119999766,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:39:07.21292Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 99871236200,
+        "load_duration": 10174500,
+        "prompt_eval_count": 1151,
+        "prompt_eval_duration": 813495000,
+        "eval_count": 442,
+        "eval_duration": 99023611000
+      },
+      "error": "RuntimeError: Ollama returned a response that does not satisfy the semantic schema.\nRaw response:\n{\n  \"intent\": {\n    \"value\": \"INSIGHT\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"How did energy usage change throughout the year?\"\n  },\n  \"analytical_goal\": {\n    \"value\": \"TREND\",\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"change\"\n  },\n  \"measures\": {\n    \"value\": [\"energy usage\"],\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"energy usage\"\n  },\n  \"dimensions\": {\n    \"value\": [\"year\"],\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"throughout the year\"\n  },\n  \"aggregation\": {\n    \"value\": \"NONE\",\n    \"source\": \"INFERRED\",\n    \"evidence\": null\n  },\n  \"comparison\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"limit\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"requested_chart\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"filters\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"time_expression\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"ambiguities\": [\n    {\n      \"slot\": \"measure\",\n      \"concept\": \"energy usage\",\n      \"reason\": \"The term 'energy usage' is broad and could refer to various metrics.\"\n    }\n  ],\n  \"missing_slots\": [],\n  \"requires_clarification\": true,\n  \"clarification_question\": \"Would you like to analyze the trend of total energy consumption or the trend of energy consumption per unit?\",\n  \"unsupported\": false,\n  \"unsupported_reason\": null,\n  \"interpretation_summary\": \"Analyzes the trend of energy usage over the year; the specific measure is ambiguous.\"\n}",
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Who is doing the worst?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Who is doing the worst?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "worst"
+        },
+        "measures": {
+          "value": [],
+          "source": "MISSING",
+          "evidence": null
+        },
+        "dimensions": {
+          "value": [],
+          "source": "MISSING",
+          "evidence": null
+        },
+        "aggregation": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "comparison": {
+          "value": "LOWEST",
+          "source": "INFERRED",
+          "evidence": "worst"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "performance metric",
+            "reason": "The user did not specify a metric."
+          }
+        ],
+        "missing_slots": [
+          {
+            "slot": "measure",
+            "reason": "The user did not specify a metric."
+          }
+        ],
+        "requires_clarification": true,
+        "clarification_question": "Could you please specify the performance metric you want to use for ranking, such as sales, profit, or customer satisfaction?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks groups by an unspecified metric; the metric and limit are missing, and a clarification is required."
+      },
+      "schema_validation_passed": false,
+      "structural_validation_passed": false,
+      "latency_seconds": 107.75437380000949,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:40:54.970148Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 105715584000,
+        "load_duration": 11593900,
+        "prompt_eval_count": 1148,
+        "prompt_eval_duration": 690582000,
+        "eval_count": 460,
+        "eval_duration": 104987172000
+      },
+      "error": "RuntimeError: Ollama returned a response that does not satisfy the semantic schema.\nRaw response:\n{\n  \"intent\": {\n    \"value\": \"INSIGHT\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"Who is doing the worst?\"\n  },\n  \"analytical_goal\": {\n    \"value\": \"RANK_GROUPS\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"worst\"\n  },\n  \"measures\": {\n    \"value\": [],\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"dimensions\": {\n    \"value\": [],\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"aggregation\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"comparison\": {\n    \"value\": \"LOWEST\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"worst\"\n  },\n  \"limit\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"requested_chart\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"filters\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"time_expression\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"ambiguities\": [\n    {\n      \"slot\": \"measure\",\n      \"concept\": \"performance metric\",\n      \"reason\": \"The user did not specify a metric.\"\n    }\n  ],\n  \"missing_slots\": [\n    {\n      \"slot\": \"measure\",\n      \"reason\": \"The user did not specify a metric.\"\n    }\n  ],\n  \"requires_clarification\": true,\n  \"clarification_question\": \"Could you please specify the performance metric you want to use for ranking, such as sales, profit, or customer satisfaction?\",\n  \"unsupported\": false,\n  \"unsupported_reason\": null,\n  \"interpretation_summary\": \"Ranks groups by an unspecified metric; the metric and limit are missing, and a clarification is required.\"\n}",
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Where are we losing money?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Where are we losing money?"
+        },
+        "analytical_goal": {
+          "value": "EXPLORATORY",
+          "source": "EXPLICIT",
+          "evidence": "Where are we losing money?"
+        },
+        "measures": {
+          "value": [
+            "money"
+          ],
+          "source": "INFERRED",
+          "evidence": "losing money"
+        },
+        "dimensions": {
+          "value": [
+            "location"
+          ],
+          "source": "INFERRED",
+          "evidence": "Where"
+        },
+        "aggregation": {
+          "value": "SUM",
+          "source": "INFERRED",
+          "evidence": "losing money"
+        },
+        "comparison": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "money",
+            "reason": "Could refer to revenue, expenses, or net income."
+          }
+        ],
+        "missing_slots": [
+          {
+            "slot": "comparison",
+            "reason": "No specific comparison was requested."
+          },
+          {
+            "slot": "dimension",
+            "reason": "No specific location was mentioned."
+          }
+        ],
+        "requires_clarification": true,
+        "clarification_question": "Are you asking about revenue, expenses, or net income, and are you interested in a specific location or a general overview?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Exploring the areas where money is being lost; clarification is needed on the specific measure and location."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": false,
+      "latency_seconds": 115.14554579998367,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T20:08:35.8932798Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 113125015400,
+        "load_duration": 15020200,
+        "prompt_eval_count": 1148,
+        "prompt_eval_duration": 679810000,
+        "eval_count": 493,
+        "eval_duration": 112407974000
+      },
+      "error": "StructuralInterpretationError: missing slot 'dimension' is not marked MISSING",
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "What changed the most?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "What changed the most?"
+        },
+        "analytical_goal": {
+          "value": "EXPLORATORY",
+          "source": "EXPLICIT",
+          "evidence": "What changed the most?"
+        },
+        "measures": {
+          "value": [
+            "change"
+          ],
+          "source": "INFERRED",
+          "evidence": "changed the most"
+        },
+        "dimensions": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "aggregation": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "comparison": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "dimension",
+            "concept": "The concept of 'change' is broad and can apply to various dimensions such as time, product, location, etc.",
+            "reason": "The user did not specify which dimension the change is related to."
+          }
+        ],
+        "missing_slots": [
+          {
+            "slot": "dimension",
+            "reason": "The dimension is required to specify what is changing."
+          }
+        ],
+        "requires_clarification": true,
+        "clarification_question": "What dimension are you interested in exploring for changes?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "The user is seeking an exploratory analysis of the most significant change, but the specific dimension is missing."
+      },
+      "schema_validation_passed": false,
+      "structural_validation_passed": false,
+      "latency_seconds": 112.13680560002103,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:44:42.3831746Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 110089266200,
+        "load_duration": 13096900,
+        "prompt_eval_count": 1147,
+        "prompt_eval_duration": 667274000,
+        "eval_count": 479,
+        "eval_duration": 109383519000
+      },
+      "error": "RuntimeError: Ollama returned a response that does not satisfy the semantic schema.\nRaw response:\n{\n  \"intent\": {\n    \"value\": \"INSIGHT\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"What changed the most?\"\n  },\n  \"analytical_goal\": {\n    \"value\": \"EXPLORATORY\",\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"What changed the most?\"\n  },\n  \"measures\": {\n    \"value\": [\"change\"],\n    \"source\": \"INFERRED\",\n    \"evidence\": \"changed the most\"\n  },\n  \"dimensions\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"aggregation\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"comparison\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"limit\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"requested_chart\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"filters\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"time_expression\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"ambiguities\": [\n    {\n      \"slot\": \"dimension\",\n      \"concept\": \"The concept of 'change' is broad and can apply to various dimensions such as time, product, location, etc.\",\n      \"reason\": \"The user did not specify which dimension the change is related to.\"\n    }\n  ],\n  \"missing_slots\": [\n    {\n      \"slot\": \"dimension\",\n      \"reason\": \"The dimension is required to specify what is changing.\"\n    }\n  ],\n  \"requires_clarification\": true,\n  \"clarification_question\": \"What dimension are you interested in exploring for changes?\",\n  \"unsupported\": false,\n  \"unsupported_reason\": null,\n  \"interpretation_summary\": \"The user is seeking an exploratory analysis of the most significant change, but the specific dimension is missing.\"\n}",
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which group is ahead?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which group is ahead?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "ahead"
+        },
+        "measures": {
+          "value": [
+            "lead"
+          ],
+          "source": "INFERRED",
+          "evidence": "ahead"
+        },
+        "dimensions": {
+          "value": [
+            "group"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "group"
+        },
+        "aggregation": {
+          "value": "NONE",
+          "source": "INFERRED",
+          "evidence": "ahead"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "ahead"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "lead",
+            "reason": "The term 'ahead' is ambiguous and could refer to a lead or a position in a ranking."
+          }
+        ],
+        "missing_slots": [],
+        "requires_clarification": true,
+        "clarification_question": "Is 'ahead' referring to the group with the highest lead or the group that is leading in a specific metric?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks groups by an inferred lead; the specific measure is ambiguous and requires clarification."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 104.75721619999968,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:46:27.1473043Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 102709358200,
+        "load_duration": 11812400,
+        "prompt_eval_count": 1147,
+        "prompt_eval_duration": 663417000,
+        "eval_count": 448,
+        "eval_duration": 102007508000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "What is driving the numbers?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "EXPLICIT",
+          "evidence": "What is driving the numbers?"
+        },
+        "analytical_goal": {
+          "value": "EXPLORATORY",
+          "source": "INFERRED",
+          "evidence": "What is driving the numbers?"
+        },
+        "measures": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "dimensions": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "aggregation": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "comparison": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "numbers",
+            "reason": "The term 'numbers' is broad and could refer to any metric."
+          }
+        ],
+        "missing_slots": [
+          {
+            "slot": "measure",
+            "reason": "The specific metric driving the numbers is not provided."
+          }
+        ],
+        "requires_clarification": true,
+        "clarification_question": "Could you please specify which numbers you are referring to, such as sales, revenue, or any other metric?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Exploring the factors driving unspecified numbers; requires clarification on the specific metric."
+      },
+      "schema_validation_passed": false,
+      "structural_validation_passed": false,
+      "latency_seconds": 107.92512289993465,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:48:15.0745135Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 105884719000,
+        "load_duration": 18932600,
+        "prompt_eval_count": 1148,
+        "prompt_eval_duration": 690597000,
+        "eval_count": 465,
+        "eval_duration": 105150635000
+      },
+      "error": "RuntimeError: Ollama returned a response that does not satisfy the semantic schema.\nRaw response:\n{\n  \"intent\": {\n    \"value\": \"INSIGHT\",\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"What is driving the numbers?\"\n  },\n  \"analytical_goal\": {\n    \"value\": \"EXPLORATORY\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"What is driving the numbers?\"\n  },\n  \"measures\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"dimensions\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"aggregation\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"comparison\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"limit\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"requested_chart\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"filters\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"time_expression\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"ambiguities\": [\n    {\n      \"slot\": \"measure\",\n      \"concept\": \"numbers\",\n      \"reason\": \"The term 'numbers' is broad and could refer to any metric.\"\n    }\n  ],\n  \"missing_slots\": [\n    {\n      \"slot\": \"measure\",\n      \"reason\": \"The specific metric driving the numbers is not provided.\"\n    }\n  ],\n  \"requires_clarification\": true,\n  \"clarification_question\": \"Could you please specify which numbers you are referring to, such as sales, revenue, or any other metric?\",\n  \"unsupported\": false,\n  \"unsupported_reason\": null,\n  \"interpretation_summary\": \"Exploring the factors driving unspecified numbers; requires clarification on the specific metric.\"\n}",
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which one is underperforming?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which one is underperforming?"
+        },
+        "analytical_goal": {
+          "value": "EXPLORATORY",
+          "source": "EXPLICIT",
+          "evidence": "Which one is underperforming?"
+        },
+        "measures": {
+          "value": [
+            "underperformance"
+          ],
+          "source": "INFERRED",
+          "evidence": "underperforming"
+        },
+        "dimensions": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "aggregation": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "comparison": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "dimension",
+            "concept": "The concept of 'underperforming' is broad and could refer to various entities or groups such as products, employees, or departments. No specific dimension was provided by the user.",
+            "reason": "The term 'underperforming' is not specific to a particular dimension."
+          }
+        ],
+        "missing_slots": [
+          {
+            "slot": "dimension",
+            "reason": "The user did not specify which dimension to analyze for underperformance."
+          }
+        ],
+        "requires_clarification": true,
+        "clarification_question": "Which specific dimension (e.g., product, employee, department) should be analyzed for underperformance?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "The user is seeking an exploratory analysis of underperformance, but the specific dimension to analyze is missing."
+      },
+      "schema_validation_passed": false,
+      "structural_validation_passed": false,
+      "latency_seconds": 119.73882730002515,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:50:14.8160181Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 117671530300,
+        "load_duration": 13821700,
+        "prompt_eval_count": 1149,
+        "prompt_eval_duration": 741615000,
+        "eval_count": 511,
+        "eval_duration": 116892339000
+      },
+      "error": "RuntimeError: Ollama returned a response that does not satisfy the semantic schema.\nRaw response:\n{\n  \"intent\": {\n    \"value\": \"INSIGHT\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"Which one is underperforming?\"\n  },\n  \"analytical_goal\": {\n    \"value\": \"EXPLORATORY\",\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"Which one is underperforming?\"\n  },\n  \"measures\": {\n    \"value\": [\"underperformance\"],\n    \"source\": \"INFERRED\",\n    \"evidence\": \"underperforming\"\n  },\n  \"dimensions\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"aggregation\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"comparison\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"limit\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"requested_chart\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"filters\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"time_expression\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"ambiguities\": [\n    {\n      \"slot\": \"dimension\",\n      \"concept\": \"The concept of 'underperforming' is broad and could refer to various entities or groups such as products, employees, or departments. No specific dimension was provided by the user.\",\n      \"reason\": \"The term 'underperforming' is not specific to a particular dimension.\"\n    }\n  ],\n  \"missing_slots\": [\n    {\n      \"slot\": \"dimension\",\n      \"reason\": \"The user did not specify which dimension to analyze for underperformance.\"\n    }\n  ],\n  \"requires_clarification\": true,\n  \"clarification_question\": \"Which specific dimension (e.g., product, employee, department) should be analyzed for underperformance?\",\n  \"unsupported\": false,\n  \"unsupported_reason\": null,\n  \"interpretation_summary\": \"The user is seeking an exploratory analysis of underperformance, but the specific dimension to analyze is missing.\"\n}",
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "What happened last year?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "What happened last year?"
+        },
+        "analytical_goal": {
+          "value": "EXPLORATORY",
+          "source": "EXPLICIT",
+          "evidence": "What happened last year?"
+        },
+        "measures": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "dimensions": {
+          "value": [
+            "year"
+          ],
+          "source": "INFERRED",
+          "evidence": "last year"
+        },
+        "aggregation": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "comparison": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "INFERRED",
+          "evidence": "last year"
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "What happened",
+            "reason": "The phrase 'What happened' is broad and could refer to various metrics."
+          }
+        ],
+        "missing_slots": [
+          {
+            "slot": "measure",
+            "reason": "The specific metric is not provided."
+          }
+        ],
+        "requires_clarification": true,
+        "clarification_question": "Could you please specify which metric you would like to explore for last year?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "An exploratory analysis is requested for last year, but the specific metric is missing."
+      },
+      "schema_validation_passed": false,
+      "structural_validation_passed": false,
+      "latency_seconds": 106.17549709999003,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:52:00.9974834Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 104130335000,
+        "load_duration": 10269600,
+        "prompt_eval_count": 1147,
+        "prompt_eval_duration": 672692000,
+        "eval_count": 458,
+        "eval_duration": 103425859000
+      },
+      "error": "RuntimeError: Ollama returned a response that does not satisfy the semantic schema.\nRaw response:\n{\n  \"intent\": {\n    \"value\": \"INSIGHT\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"What happened last year?\"\n  },\n  \"analytical_goal\": {\n    \"value\": \"EXPLORATORY\",\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"What happened last year?\"\n  },\n  \"measures\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"dimensions\": {\n    \"value\": [\"year\"],\n    \"source\": \"INFERRED\",\n    \"evidence\": \"last year\"\n  },\n  \"aggregation\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"comparison\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"limit\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"requested_chart\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"filters\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"time_expression\": {\n    \"value\": null,\n    \"source\": \"INFERRED\",\n    \"evidence\": \"last year\"\n  },\n  \"ambiguities\": [\n    {\n      \"slot\": \"measure\",\n      \"concept\": \"What happened\",\n      \"reason\": \"The phrase 'What happened' is broad and could refer to various metrics.\"\n    }\n  ],\n  \"missing_slots\": [\n    {\n      \"slot\": \"measure\",\n      \"reason\": \"The specific metric is not provided.\"\n    }\n  ],\n  \"requires_clarification\": true,\n  \"clarification_question\": \"Could you please specify which metric you would like to explore for last year?\",\n  \"unsupported\": false,\n  \"unsupported_reason\": null,\n  \"interpretation_summary\": \"An exploratory analysis is requested for last year, but the specific metric is missing.\"\n}",
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Are sales getting better?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Are sales getting better?"
+        },
+        "analytical_goal": {
+          "value": "TREND",
+          "source": "INFERRED",
+          "evidence": "getting better"
+        },
+        "measures": {
+          "value": [
+            "sales"
+          ],
+          "source": "INFERRED",
+          "evidence": "sales"
+        },
+        "dimensions": {
+          "value": [
+            "time"
+          ],
+          "source": "INFERRED",
+          "evidence": "getting better"
+        },
+        "aggregation": {
+          "value": "SUM",
+          "source": "INFERRED",
+          "evidence": "sales"
+        },
+        "comparison": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "time_expression",
+            "concept": "time",
+            "reason": "The user did not specify a particular time range."
+          }
+        ],
+        "missing_slots": [
+          {
+            "slot": "comparison",
+            "reason": "The user did not specify a comparison."
+          },
+          {
+            "slot": "time_expression",
+            "reason": "The user did not specify a particular time range."
+          },
+          {
+            "slot": "aggregation",
+            "reason": "The user did not specify an aggregation method."
+          }
+        ],
+        "requires_clarification": true,
+        "clarification_question": "Over what time period would you like to analyze the sales trend?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Trends sales over time; requires clarification on the time period."
+      },
+      "schema_validation_passed": false,
+      "structural_validation_passed": false,
+      "latency_seconds": 115.83383129991125,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:53:56.8353944Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 113798167200,
+        "load_duration": 8050100,
+        "prompt_eval_count": 1147,
+        "prompt_eval_duration": 667177000,
+        "eval_count": 502,
+        "eval_duration": 113099550000
+      },
+      "error": "RuntimeError: Ollama returned a response that does not satisfy the semantic schema.\nRaw response:\n{\n  \"intent\": {\n    \"value\": \"INSIGHT\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"Are sales getting better?\"\n  },\n  \"analytical_goal\": {\n    \"value\": \"TREND\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"getting better\"\n  },\n  \"measures\": {\n    \"value\": [\"sales\"],\n    \"source\": \"INFERRED\",\n    \"evidence\": \"sales\"\n  },\n  \"dimensions\": {\n    \"value\": [\"time\"],\n    \"source\": \"INFERRED\",\n    \"evidence\": \"getting better\"\n  },\n  \"aggregation\": {\n    \"value\": \"SUM\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"sales\"\n  },\n  \"comparison\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"limit\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"requested_chart\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"filters\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"time_expression\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"ambiguities\": [\n    {\n      \"slot\": \"time_expression\",\n      \"concept\": \"time\",\n      \"reason\": \"The user did not specify a particular time range.\"\n    }\n  ],\n  \"missing_slots\": [\n    {\n      \"slot\": \"comparison\",\n      \"reason\": \"The user did not specify a comparison.\"\n    },\n    {\n      \"slot\": \"time_expression\",\n      \"reason\": \"The user did not specify a particular time range.\"\n    },\n    {\n      \"slot\": \"aggregation\",\n      \"reason\": \"The user did not specify an aggregation method.\"\n    }\n  ],\n  \"requires_clarification\": true,\n  \"clarification_question\": \"Over what time period would you like to analyze the sales trend?\",\n  \"unsupported\": false,\n  \"unsupported_reason\": null,\n  \"interpretation_summary\": \"Trends sales over time; requires clarification on the time period.\"\n}",
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "What should I be worried about?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "What should I be worried about?"
+        },
+        "analytical_goal": {
+          "value": "EXPLORATORY",
+          "source": "EXPLICIT",
+          "evidence": "What should I be worried about?"
+        },
+        "measures": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "dimensions": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "aggregation": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "comparison": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "What should I be worried about?",
+            "reason": "The phrase is broad and could refer to various metrics or dimensions."
+          }
+        ],
+        "missing_slots": [
+          {
+            "slot": "measure",
+            "reason": "The specific metric or dimension is not provided."
+          }
+        ],
+        "requires_clarification": true,
+        "clarification_question": "Could you specify what metric or dimension you are concerned about, such as sales, profits, customer feedback, or any other relevant aspect?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "An exploratory analysis is requested to identify potential concerns, but the specific metric or dimension is missing."
+      },
+      "schema_validation_passed": false,
+      "structural_validation_passed": false,
+      "latency_seconds": 110.90136999997776,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:55:47.7446525Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 108877218600,
+        "load_duration": 11747900,
+        "prompt_eval_count": 1149,
+        "prompt_eval_duration": 739989000,
+        "eval_count": 480,
+        "eval_duration": 108100295000
+      },
+      "error": "RuntimeError: Ollama returned a response that does not satisfy the semantic schema.\nRaw response:\n{\n  \"intent\": {\n    \"value\": \"INSIGHT\",\n    \"source\": \"INFERRED\",\n    \"evidence\": \"What should I be worried about?\"\n  },\n  \"analytical_goal\": {\n    \"value\": \"EXPLORATORY\",\n    \"source\": \"EXPLICIT\",\n    \"evidence\": \"What should I be worried about?\"\n  },\n  \"measures\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"dimensions\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"aggregation\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"comparison\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"limit\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"requested_chart\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"filters\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"time_expression\": {\n    \"value\": null,\n    \"source\": \"MISSING\",\n    \"evidence\": null\n  },\n  \"ambiguities\": [\n    {\n      \"slot\": \"measure\",\n      \"concept\": \"What should I be worried about?\",\n      \"reason\": \"The phrase is broad and could refer to various metrics or dimensions.\"\n    }\n  ],\n  \"missing_slots\": [\n    {\n      \"slot\": \"measure\",\n      \"reason\": \"The specific metric or dimension is not provided.\"\n    }\n  ],\n  \"requires_clarification\": true,\n  \"clarification_question\": \"Could you specify what metric or dimension you are concerned about, such as sales, profits, customer feedback, or any other relevant aspect?\",\n  \"unsupported\": false,\n  \"unsupported_reason\": null,\n  \"interpretation_summary\": \"An exploratory analysis is requested to identify potential concerns, but the specific metric or dimension is missing.\"\n}",
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    },
+    {
+      "query": "Which area contributes the most?",
+      "model_output": {
+        "intent": {
+          "value": "INSIGHT",
+          "source": "INFERRED",
+          "evidence": "Which area contributes the most?"
+        },
+        "analytical_goal": {
+          "value": "RANK_GROUPS",
+          "source": "INFERRED",
+          "evidence": "most"
+        },
+        "measures": {
+          "value": [
+            "contribution"
+          ],
+          "source": "INFERRED",
+          "evidence": "contributes the most"
+        },
+        "dimensions": {
+          "value": [
+            "area"
+          ],
+          "source": "EXPLICIT",
+          "evidence": "area"
+        },
+        "aggregation": {
+          "value": "SUM",
+          "source": "INFERRED",
+          "evidence": "contributes the most"
+        },
+        "comparison": {
+          "value": "HIGHEST",
+          "source": "INFERRED",
+          "evidence": "most"
+        },
+        "limit": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "requested_chart": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "filters": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "time_expression": {
+          "value": null,
+          "source": "MISSING",
+          "evidence": null
+        },
+        "ambiguities": [
+          {
+            "slot": "measure",
+            "concept": "contribution",
+            "reason": "The term 'contribution' is broad and could refer to various metrics."
+          }
+        ],
+        "missing_slots": [],
+        "requires_clarification": true,
+        "clarification_question": "Could you please specify the exact metric you want to measure, such as sales, profit, or any other relevant measure of contribution?",
+        "unsupported": false,
+        "unsupported_reason": null,
+        "interpretation_summary": "Ranks areas by inferred contribution; no chart or limit was requested, and the measure is ambiguous."
+      },
+      "schema_validation_passed": true,
+      "structural_validation_passed": true,
+      "latency_seconds": 106.51725560007617,
+      "provider_metadata": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-09-27T19:57:34.2651936Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 104474113800,
+        "load_duration": 11468500,
+        "prompt_eval_count": 1148,
+        "prompt_eval_duration": 724448000,
+        "eval_count": 458,
+        "eval_duration": 103713178000
+      },
+      "error": null,
+      "manual_evaluation": {
+        "INTENT_CORRECT": null,
+        "GOAL_CORRECT": null,
+        "MEASURE_CORRECT": null,
+        "DIMENSION_CORRECT": null,
+        "AGGREGATION_CORRECT": null,
+        "COMPARISON_CORRECT": null,
+        "MISSING_INFO_CORRECT": null,
+        "NO_INVENTION": null,
+        "CLARIFICATION_CORRECT": null
+      }
+    }
+  ]
+}

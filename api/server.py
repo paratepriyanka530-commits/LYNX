@@ -11,8 +11,12 @@ from fastapi.responses import JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.datastructures import UploadFile
 
+from intelligence.llm.provider import LLMProvider
 from api.run_service import ApplicationRunService, ServiceError
 from api.prediction_service import PredictionJobService
+from api.routes.conversations import router as conversations_router
+from api.routes.insights import router as insights_router
+from api.routes.visualization import router as visualization_router
 from api.schemas import (
     CreateRunResponse,
     FrontendPredictionResult,
@@ -24,6 +28,9 @@ from api.schemas import (
     RunStatusResponse,
 )
 from app.config import ApplicationSettings
+from pipelines.pipeline3_results.conversation.orchestrator import (
+    ConversationOrchestrator,
+)
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -35,6 +42,7 @@ def create_app(
     settings: ApplicationSettings | None = None,
     service: ApplicationRunService | None = None,
     prediction_service: PredictionJobService | None = None,
+    semantic_llm_provider: LLMProvider | None = None,
 ) -> FastAPI:
     run_service = service or ApplicationRunService(settings)
     prediction_jobs = prediction_service or PredictionJobService(run_service)
@@ -56,6 +64,10 @@ def create_app(
     application = FastAPI(title="LYNX Application API", version="0.1.0", lifespan=lifespan)
     application.state.run_service = run_service
     application.state.prediction_service = prediction_jobs
+    application.state.semantic_llm_provider = semantic_llm_provider
+    application.state.conversation_orchestrator = ConversationOrchestrator(
+        llm_provider=semantic_llm_provider
+    )
 
     @application.exception_handler(ServiceError)
     async def controlled_error(_request: Request, exc: ServiceError):
@@ -66,6 +78,8 @@ def create_app(
 
     @application.exception_handler(RequestValidationError)
     async def controlled_validation_error(_request: Request, exc: RequestValidationError):
+        insight_request_error = _request.url.path.startswith("/api/insights/")
+        conversation_request_error = _request.url.path.startswith("/api/conversations/")
         pagination_error = any(
             tuple(error.get("loc", ()))[:1] == ("query",)
             and tuple(error.get("loc", ()))[-1:] in {("offset",), ("limit",)}
@@ -76,10 +90,20 @@ def create_app(
             content={
                 "error": {
                     "code": (
-                        "invalid_pagination" if pagination_error else "invalid_target"
+                        "invalid_conversation_request"
+                        if conversation_request_error
+                        else "invalid_insight_request"
+                        if insight_request_error
+                        else "invalid_pagination"
+                        if pagination_error
+                        else "invalid_target"
                     ),
                     "message": (
-                        "Prediction row pagination parameters are invalid."
+                        "Conversation requests require valid JSON with a non-empty string field named 'message'."
+                        if conversation_request_error
+                        else "Insights requests require valid JSON with a non-empty string field named 'request_text'."
+                        if insight_request_error
+                        else "Prediction row pagination parameters are invalid."
                         if pagination_error
                         else "Target column must be a non-empty string."
                     ),
@@ -172,6 +196,11 @@ def create_app(
                 "X-Content-Type-Options": "nosniff",
             },
         )
+
+    # Visualization routes -- Pipeline 3 Integration
+    application.include_router(visualization_router)
+    application.include_router(insights_router)
+    application.include_router(conversations_router)
 
     # Keep the browser and API on one origin. API routes are registered first
     # so this catch-all static mount cannot shadow them.

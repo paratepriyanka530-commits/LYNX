@@ -844,6 +844,25 @@ class TestPayloadSizeLimits(unittest.TestCase):
 # ---------------------------------------------------------------------------
 
 class TestNoFabricatedValues(unittest.TestCase):
+    def test_pie_points_reuse_deterministic_grouped_measure_data(self) -> None:
+        df = pd.DataFrame({
+            "category": ["A", "A", "B", "B"],
+            "revenue": [10.0, 20.0, 5.0, 15.0],
+        })
+        clf = _make_classification([
+            ("category", "CATEGORY"), ("revenue", "MEASURE")
+        ])
+        result = build_chart_data(
+            df, clf, _make_candidate("PIE", "category", "revenue")
+        )
+
+        self.assertEqual(result.chart_type, "PIE")
+        self.assertTrue(result.has_data)
+        self.assertEqual({point.x: point.y for point in result.points}, {
+            "A": 30.0, "B": 20.0,
+        })
+        self.assertTrue(any("part-to-whole" in signal for signal in result.signals))
+
     def test_bar_sum_matches_manual_calculation(self) -> None:
         df = pd.DataFrame({
             "region": ["East", "West", "East", "West"],

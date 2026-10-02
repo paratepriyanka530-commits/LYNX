@@ -115,6 +115,7 @@ VisualizationType = Literal[
     "SCATTER",
     "HISTOGRAM",
     "COUNT_BAR",
+    "PIE",
 ]
 
 ALL_VIZ_TYPES: tuple[VisualizationType, ...] = (
@@ -123,7 +124,10 @@ ALL_VIZ_TYPES: tuple[VisualizationType, ...] = (
     "SCATTER",
     "HISTOGRAM",
     "COUNT_BAR",
+    "PIE",
 )
+
+ChartPresentationVariant = Literal["DOUGHNUT"]
 
 
 class VisualizationCandidate(BaseModel):
@@ -186,6 +190,7 @@ CHART_TYPE_PRIORITY: dict[str, int] = {
     "SCATTER": 2,
     "HISTOGRAM": 3,
     "COUNT_BAR": 4,
+    "PIE": 5,
 }
 
 
@@ -265,6 +270,7 @@ STAGE4_MAX_CATEGORY_POINTS: int = 50   # BAR / COUNT_BAR: max distinct category 
 STAGE4_MAX_LINE_POINTS: int = 500      # LINE: max chronological data points
 STAGE4_MAX_SCATTER_POINTS: int = 2000  # SCATTER: max row-wise pairs
 STAGE4_MAX_HISTOGRAM_BINS: int = 50    # HISTOGRAM: max bins
+STAGE4_MAX_PIE_CATEGORIES: int = 12     # PIE: readability / part-to-whole cap
 
 
 class ChartPoint(BaseModel):
@@ -321,6 +327,7 @@ class ChartData(BaseModel):
     model_config = ConfigDict(frozen=True)
 
     chart_type: VisualizationType
+    presentation_variant: ChartPresentationVariant | None = None
     x_column: str
     y_column: str | None = None
     aggregation: AggregationMethod = None
@@ -346,6 +353,7 @@ class VisualizationItem(BaseModel):
 
     rank: int
     chart_type: VisualizationType
+    presentation_variant: ChartPresentationVariant | None = None
     x_column: str
     y_column: str | None = None
     score: float
@@ -409,6 +417,7 @@ class VisualizationRequest(BaseModel):
 
     raw_request: str
     requested_chart_type: VisualizationType | None = None
+    presentation_variant: ChartPresentationVariant | None = None
     is_explicit_chart_type: bool = False
     x_column: str | None = None
     y_column: str | None = None
@@ -428,6 +437,7 @@ class ValidatedVisualizationRequest(BaseModel):
 
     status: VisualizationRequestStatus
     chart_type: VisualizationType | None = None
+    presentation_variant: ChartPresentationVariant | None = None
     x_column: str | None = None
     y_column: str | None = None
     aggregation: RequestAggregation | None = None
@@ -442,6 +452,7 @@ class ValidatedVisualizationRequest(BaseModel):
         return {
             "status": str(self.status),
             "chart_type": str(self.chart_type) if self.chart_type is not None else None,
+            "presentation_variant": self.presentation_variant,
             "x_column": str(self.x_column) if self.x_column is not None else None,
             "y_column": str(self.y_column) if self.y_column is not None else None,
             "aggregation": str(self.aggregation) if self.aggregation is not None else None,
@@ -451,5 +462,4 @@ class ValidatedVisualizationRequest(BaseModel):
             "errors": [str(e) for e in self.errors],
             "clarification_options": [str(opt) for opt in self.clarification_options],
         }
-
 

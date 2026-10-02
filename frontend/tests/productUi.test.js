@@ -136,9 +136,12 @@ test("all requested viewport widths map to intentional responsive layouts", () =
   assert.match(css, /\.workspace-tabs[\s\S]*overflow-x: auto/);
 });
 
-test("empty states and unsupported future features are explicit", () => {
-  assert.match(html, /Deeper insights are not available yet/);
-  assert.match(html, /Custom chart controls are not connected yet/);
+test("Insights and Visualizations expose real Pipeline 3 interaction surfaces", () => {
+  assert.match(html, /Ask about this dataset/);
+  assert.match(html, /data-viz-mode="recommended"/);
+  assert.match(html, /data-viz-mode="ask"/);
+  assert.match(html, /id="insights-form"/);
+  assert.match(html, /id="visualization-form"/);
   assert.match(html, /Export is not available yet/);
 });
 

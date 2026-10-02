@@ -140,6 +140,61 @@
     );
   }
 
+  function validText(value, message) {
+    if (!value || typeof value !== "string" || !value.trim()) {
+      throw new LynxApiError(message, { code: "invalid_request" });
+    }
+    return value.trim();
+  }
+
+  function createConversation(datasetId, message, options = {}) {
+    let dataset;
+    let text;
+    try {
+      dataset = validText(datasetId, "Dataset identifier is required.");
+      text = validText(message, "Conversation message must be a non-empty string.");
+    } catch (error) { return Promise.reject(error); }
+    return requestJson(`/api/conversations/${encodeURIComponent(dataset)}`, {
+      ...options,
+      request: {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text }),
+        signal: options.signal,
+      },
+    });
+  }
+
+  function sendConversationMessage(datasetId, conversationId, message, options = {}) {
+    let dataset;
+    let conversation;
+    let text;
+    try {
+      dataset = validText(datasetId, "Dataset identifier is required.");
+      conversation = validText(conversationId, "Conversation identifier is required.");
+      text = validText(message, "Conversation message must be a non-empty string.");
+    } catch (error) { return Promise.reject(error); }
+    return requestJson(`/api/conversations/${encodeURIComponent(dataset)}/${encodeURIComponent(conversation)}`, {
+      ...options,
+      request: {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text }),
+        signal: options.signal,
+      },
+    });
+  }
+
+  function getAutomaticVisualizations(datasetId, options = {}) {
+    let dataset;
+    try { dataset = validText(datasetId, "Dataset identifier is required."); }
+    catch (error) { return Promise.reject(error); }
+    return requestJson(`/api/visualizations/${encodeURIComponent(dataset)}`, {
+      ...options,
+      request: { method: "GET", signal: options.signal },
+    });
+  }
+
   return {
     LynxApiError,
     requestJson,
@@ -150,5 +205,8 @@
     getPredictionStatus,
     getPredictionResult,
     getPredictionRows,
+    createConversation,
+    sendConversationMessage,
+    getAutomaticVisualizations,
   };
 });

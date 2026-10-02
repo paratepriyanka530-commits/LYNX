@@ -35,3 +35,8 @@ scratch/
 
 # Run-scoped application uploads, Pipeline 1 outputs, and durable job state
 /runtime/
+
+# Domain datasets copied from tests/datasets/valid/ for production use.
+# Regenerate with: Copy-Item tests/datasets/valid/*.csv storage/domain_datasets/
+# (Excluded from git: same files as test fixtures, ~43 MB, trivially regenerated.)
+/storage/domain_datasets/

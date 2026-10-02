@@ -5,7 +5,8 @@ visualization intelligence.
 
 Combines:
 - Stage 6: Automatic visualization orchestration & contract
-- Stage 7: Natural-language request parser & validator
+- Shared NLP: interpretation, evidence-aware resolution, and ambiguity handling
+- Stage 7: Visualization compatibility adapter & request validator
 - Stage 8: Requested visualization resolution
 - Stage 9: Deterministic factual visualization explanations & XAI evidence
 
@@ -13,10 +14,11 @@ Execution Modes:
 - Mode A (Automatic): When request_text is None or empty. Calls Stage 6 to
   generate candidate visualizations, enriches each with Stage 9 factual
   explanations, and returns a unified automatic payload.
-- Mode B (Requested): When request_text is provided. Runs Stage 7 parser and
-  validator. If VALID, calls Stage 8 resolver and enriches the resolved chart
-  with Stage 9 explanation. If NEEDS_CLARIFICATION or INVALID, returns
-  structured signals/options/errors without chart generation.
+- Mode B (Requested): When request_text is provided. Runs shared NLP, adapts a
+  resolved interpretation to the existing request contract, and validates it.
+  If VALID, calls Stage 8 resolver and enriches the resolved chart with Stage 9
+  explanation. If clarification or invalidity is detected, returns structured
+  signals/options/errors without chart generation.
 
 Invariants:
 - Preserves Stage 6 candidate ranking and scores for automatic mode.
@@ -32,6 +34,8 @@ from typing import Any, Mapping, Sequence
 
 import pandas as pd
 
+from intelligence.llm.provider import LLMProvider
+
 from pipelines.pipeline3_results.visualization.column_classifier import (
     classify_dataframe,
 )
@@ -44,9 +48,6 @@ from pipelines.pipeline3_results.visualization.feasibility import (
 from pipelines.pipeline3_results.visualization.integration import (
     _to_json_safe,
     build_visualization_payload,
-)
-from pipelines.pipeline3_results.visualization.request_parser import (
-    parse_visualization_request,
 )
 from pipelines.pipeline3_results.visualization.request_resolver import (
     resolve_visualization_request,
@@ -87,6 +88,7 @@ def build_visualization_results(
     pipeline1_report: Mapping[str, Any] | None = None,
     dataset_name: str | None = None,
     max_visualizations: int = 5,
+    llm_provider: LLMProvider | None = None,
 ) -> dict[str, Any]:
     """Build unified Pipeline 3 visualization results.
 
@@ -209,18 +211,75 @@ def build_visualization_results(
         classification=classification,
     )
 
-    # Step 3: Parse Request
-    parsed = parse_visualization_request(
-        request_text=clean_request_text,
-        dataframe=dataframe,
-        classification=classification,
+    # Step 3: Shared NLP interpretation and visualization adaptation.  The
+    # legacy request_parser remains available, but is no longer primary here.
+    # Imports are intentionally local: the shared resolver reuses the existing
+    # visualization evidence extractor, while visualization.__init__ exports
+    # this service.  Local composition avoids an eager package-import cycle.
+    from pipelines.pipeline3_results.nlp.orchestrator import interpret_query
+    from pipelines.pipeline3_results.nlp.llm.semantic_interpreter import (
+        interpret_query_with_fallback,
     )
+    from pipelines.pipeline3_results.visualization.nlp_adapter import (
+        adapt_query_interpretation,
+    )
+
+    deterministic = interpret_query(
+        raw_text=clean_request_text,
+        dataframe=dataframe,
+        pipeline1_report=pipeline1_report,
+        classification=classification,
+        context="visualization",
+    )
+    interpretation = interpret_query_with_fallback(
+        clean_request_text,
+        dataframe,
+        pipeline1_report=pipeline1_report,
+        classification=classification,
+        context="visualization",
+        provider=llm_provider,
+        deterministic=deterministic,
+    )
+    adaptation = adapt_query_interpretation(interpretation, classification)
+
+    if adaptation.status == "NEEDS_CLARIFICATION":
+        return _to_json_safe({
+            "mode": "requested",
+            "request_text": clean_request_text,
+            "status": "NEEDS_CLARIFICATION",
+            "failure_code": adaptation.failure_code,
+            "dataset_name": clean_dataset_name,
+            "visualization_count": 0,
+            "visualizations": [],
+            "message": adaptation.message,
+            "ambiguous_terms": [str(term) for term in adaptation.ambiguous_terms],
+            "clarification_options": [
+                str(option) for option in adaptation.clarification_options
+            ],
+            "signals": [str(signal) for signal in adaptation.signals],
+        })
+
+    if adaptation.status == "INVALID":
+        return _to_json_safe({
+            "mode": "requested",
+            "request_text": clean_request_text,
+            "status": "INVALID",
+            "failure_code": adaptation.failure_code,
+            "dataset_name": clean_dataset_name,
+            "visualization_count": 0,
+            "visualizations": [],
+            "message": adaptation.message,
+            "errors": [str(error) for error in adaptation.errors],
+            "signals": [str(signal) for signal in adaptation.signals],
+        })
+
+    assert adaptation.request is not None
 
     # Step 4: Validate Request
     validated = validate_visualization_request(
         dataframe=dataframe,
         classification=classification,
-        request=parsed,
+        request=adaptation.request,
         feasibility=feasibility,
     )
 
@@ -230,6 +289,11 @@ def build_visualization_results(
             "mode": "requested",
             "request_text": clean_request_text,
             "status": "NEEDS_CLARIFICATION",
+            "failure_code": (
+                "AMBIGUOUS_CONCEPT"
+                if validated.clarification_options
+                else "INVALID_COMBINATION"
+            ),
             "dataset_name": clean_dataset_name,
             "visualization_count": 0,
             "visualizations": [],
@@ -243,9 +307,15 @@ def build_visualization_results(
             "mode": "requested",
             "request_text": clean_request_text,
             "status": "INVALID",
+            "failure_code": "INVALID_COMBINATION",
             "dataset_name": clean_dataset_name,
             "visualization_count": 0,
             "visualizations": [],
+            "message": (
+                str(validated.errors[0])
+                if validated.errors
+                else "The requested chart and fields are not compatible."
+            ),
             "errors": [str(e) for e in validated.errors],
             "signals": [str(s) for s in validated.signals],
         }
@@ -308,9 +378,13 @@ def build_visualization_results(
         "mode": "requested",
         "request_text": clean_request_text,
         "status": "INVALID",
+        "failure_code": str(resolved.get("failure_code", "INVALID_COMBINATION")),
         "dataset_name": clean_dataset_name,
         "visualization_count": 0,
         "visualizations": [],
+        "message": str(
+            resolved.get("errors", ["Visualization request could not be resolved."])[0]
+        ),
         "errors": [str(e) for e in resolved.get("errors", ["Visualization request could not be resolved."])],
         "signals": resolved_signals,
     }

@@ -628,6 +628,22 @@ def resolve_visualization_request(
                 ],
             })
 
+    elif chart_type == "PIE":
+        if agg not in ("SUM", "COUNT"):
+            return _to_json_safe({
+                "status": "INVALID",
+                "dataset_name": dataset_name,
+                "visualization_count": 0,
+                "visualizations": [],
+                "errors": [
+                    f"PIE chart does not support aggregation '{agg}'. "
+                    "Supported aggregations: SUM and COUNT."
+                ],
+                "signals": list(validated_request.signals) + [
+                    f"rejected: PIE does not support aggregation '{agg}'"
+                ],
+            })
+
     elif chart_type == "BAR":
         if agg is not None and agg not in ("SUM", "MEAN", "MEDIAN", "MIN", "MAX", "COUNT"):
             return _to_json_safe({
@@ -689,6 +705,30 @@ def resolve_visualization_request(
 
     elif chart_type == "SCATTER":
         chart_data = _build_scatter(dataframe, candidate)
+
+    elif chart_type == "PIE":
+        if y_col is None:
+            base_chart_data = _build_count_bar(dataframe, candidate)
+        else:
+            base_chart_data = _build_explicit_bar(
+                df=dataframe,
+                x_col=x_col,  # type: ignore[arg-type]
+                y_col=y_col,
+                agg_str=agg or "SUM",
+            )
+        chart_data = base_chart_data.model_copy(update={
+            "chart_type": "PIE",
+            "presentation_variant": validated_request.presentation_variant,
+            "signals": [
+                *base_chart_data.signals,
+                "PIE part-to-whole chart data prepared",
+                (
+                    f"PIE presentation variant: {validated_request.presentation_variant}"
+                    if validated_request.presentation_variant
+                    else "PIE standard presentation"
+                ),
+            ],
+        })
 
     elif chart_type == "BAR":
         if agg is None:
@@ -764,6 +804,7 @@ def resolve_visualization_request(
     visualization_item: dict[str, Any] = {
         "rank": 1,
         "chart_type": str(chart_data.chart_type),
+        "presentation_variant": chart_data.presentation_variant,
         "x_column": str(chart_data.x_column),
         "y_column": str(chart_data.y_column) if chart_data.y_column is not None else None,
         "score": None,  # Crucial: score must always be None for user-requested visualizations

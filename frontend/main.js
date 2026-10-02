@@ -28,6 +28,9 @@
   let predictionRowsOffset = 0;
   const PREDICTION_ROWS_LIMIT = 50;
   let predictionRowsTotal = 0;
+  let insightConversation = null;
+  let visualizationConversation = null;
+  let automaticVisualizationDataset = null;
 
   const byId = (id) => document.getElementById(id);
   const number = (value) => Number.isFinite(Number(value)) ? Number(value) : 0;
@@ -47,6 +50,7 @@
     setupGlobalActions();
     setupProfileControls();
     setupPredictionBoundary();
+    setupConversationalSurfaces();
     showState(STATES.UPLOAD);
   });
 
@@ -123,6 +127,10 @@
     currentPredictionTarget = null;
     predictionRowsOffset = 0;
     predictionRowsTotal = 0;
+    automaticVisualizationDataset = null;
+    if (insightConversation) insightConversation.reset();
+    if (visualizationConversation) visualizationConversation.reset();
+    clearAutomaticVisualizations();
     showPredictionSubView("target");
     setUploadBusy(false);
   }
@@ -233,6 +241,8 @@
         currentReport = response.pipeline1_report;
         const reportLocation = `/api/runs/${encodeURIComponent(response.run_id)}/pipeline1`;
         currentDataset = LYNXReportAdapter.adaptCleaningReport(response.pipeline1_report, { reportLocation });
+        insightConversation.setDataset(response.run_id);
+        visualizationConversation.setDataset(response.run_id);
         renderWorkspace();
         setTargetColumns(response.prepared_dataset.target_columns);
         showState(STATES.WORKSPACE);
@@ -352,8 +362,7 @@
     byId("workspace-dataset-meta").textContent = `${currentDataset.statusText} · ${rows.toLocaleString()} rows · ${columns.toLocaleString()} columns`;
     renderOverview();
     initializeDataProfile();
-    renderInsights();
-    renderVisualizations();
+    loadAutomaticVisualizations();
   }
 
   function renderOverview() {
@@ -902,25 +911,166 @@
     }
   }
 
-  function renderInsights() {
-    const context = ((currentReport.semantic_profile || {}).dataset_context) || {};
-    if (context.dataset_description) byId("insights-context").textContent = `${context.dataset_description} No model-backed explanations are available yet.`;
+  function setupConversationalSurfaces() {
+    insightConversation = LYNXConversationController.createConversationController({
+      apiClient: LYNXApiClient,
+      onChange: (state) => renderConversation("insights", state),
+    });
+    visualizationConversation = LYNXConversationController.createConversationController({
+      apiClient: LYNXApiClient,
+      onChange: (state) => renderConversation("visualization", state),
+    });
+    bindConversationSurface("insights", insightConversation);
+    bindConversationSurface("visualization", visualizationConversation);
+    document.querySelectorAll("[data-viz-mode]").forEach((button) => {
+      button.addEventListener("click", () => setVisualizationMode(button.dataset.vizMode));
+    });
+    byId("automatic-visualization-status").addEventListener("click", (event) => {
+      if (event.target.closest("[data-retry-visualizations]")) loadAutomaticVisualizations(true);
+    });
   }
 
-  function renderVisualizations() {
-    const breakdown = currentDataset.issueStatusBreakdown.filter((item) => item.count > 0);
-    const missing = (((currentReport.before_profile || {}).column_profiles) || [])
-      .map((profile) => ({ name: profile.column_name, value: number((profile.missing || {}).percentage) }))
-      .filter((item) => item.value > 0).sort((a, b) => b.value - a.value).slice(0, 8);
-    const panels = [];
-    if (breakdown.length) panels.push(chartPanel("Issue status", breakdown.map((item) => ({ name: item.label, value: item.count, display: item.count.toLocaleString() }))));
-    if (missing.length) panels.push(chartPanel("Highest missingness", missing.map((item) => ({ ...item, display: `${item.value.toFixed(2)}%` }))));
-    byId("visualization-grid").innerHTML = panels.length ? panels.join("") : `<p class="empty-inline">The report does not contain enough evidence for a supported visualization.</p>`;
+  function bindConversationSurface(prefix, conversation) {
+    const form = byId(`${prefix}-form`);
+    const input = byId(`${prefix}-input`);
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const text = input.value;
+      if (!text.trim()) return;
+      input.value = "";
+      conversation.submit(text);
+    });
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        form.requestSubmit();
+      }
+    });
+    byId(`${prefix}-messages`).addEventListener("click", (event) => {
+      const choice = event.target.closest("[data-conversation-choice], [data-prompt]");
+      if (!choice) return;
+      conversation.submit(choice.dataset.conversationChoice || choice.dataset.prompt);
+    });
   }
 
-  function chartPanel(title, items) {
-    const maximum = Math.max(...items.map((item) => item.value), 1);
-    return `<section class="chart-panel"><h3>${escapeHtml(title)}</h3><div class="bar-list">${items.map((item) => `<div><div class="bar-label"><span title="${escapeHtml(item.name)}">${escapeHtml(item.name)}</span><strong>${escapeHtml(item.display)}</strong></div><div class="bar-track"><div class="bar-fill" style="width:${Math.max(2, item.value / maximum * 100).toFixed(2)}%"></div></div></div>`).join("")}</div></section>`;
+  function setVisualizationMode(mode) {
+    const ask = mode === "ask";
+    document.querySelectorAll("[data-viz-mode]").forEach((button) => {
+      const active = button.dataset.vizMode === mode;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-selected", String(active));
+    });
+    byId("visualization-recommended").hidden = ask;
+    byId("visualization-recommended").classList.toggle("active", !ask);
+    byId("visualization-ask").hidden = !ask;
+    byId("visualization-ask").classList.toggle("active", ask);
+    if (ask) byId("visualization-input").focus();
+  }
+
+  function conversationStartMarkup(prefix) {
+    const insight = prefix === "insights";
+    const prompts = insight
+      ? ["Which category has the highest value?", "What is the average value?", "How many records are represented?"]
+      : ["Show a metric by category", "Plot a metric over time", "Compare two numeric fields"];
+    return `<div class="conversation-start"><strong>${insight ? "Questions you can ask" : "Ask LYNX to create a specific view"}</strong><div class="prompt-suggestions">${prompts.map((prompt) => `<button type="button" data-prompt="${escapeHtml(prompt)}">${escapeHtml(prompt)}</button>`).join("")}</div></div>`;
+  }
+
+  function renderConversation(prefix, state) {
+    const feed = byId(`${prefix}-messages`);
+    if (!feed) return;
+    feed.innerHTML = state.messages.length
+      ? state.messages.map(conversationMessageMarkup).join("")
+      : conversationStartMarkup(prefix);
+    const status = byId(`${prefix}-status`);
+    status.classList.toggle("is-error", Boolean(state.error));
+    status.textContent = state.loading
+      ? (prefix === "visualization" ? "Preparing visualization…" : "Computing insight…")
+      : state.error ? safeConversationError(state.error) : "";
+    const input = byId(`${prefix}-input`);
+    const submit = byId(`${prefix}-form`).querySelector("button[type=submit]");
+    input.disabled = state.loading || !state.datasetId;
+    submit.disabled = state.loading || !state.datasetId;
+    if (state.messages.length) feed.scrollTop = feed.scrollHeight;
+  }
+
+  function safeConversationError(error) {
+    if (["dataset_not_found", "conversation_not_found", "conversation_dataset_mismatch"].includes(error.code)) {
+      return error.message;
+    }
+    return "Unable to process this request right now. Please try again.";
+  }
+
+  function conversationMessageMarkup(message) {
+    if (message.role === "user") {
+      return `<article class="conversation-message user-message"><span class="message-author">You</span><p>${escapeHtml(message.text)}</p></article>`;
+    }
+    const content = message.intent === "VISUALIZATION"
+      ? visualizationResponseMarkup(message.visualization)
+      : message.intent === "INSIGHT" ? insightResponseMarkup(message.insight) : "";
+    const responseText = message.intent === "INSIGHT" && message.insight && message.insight.answer
+      ? "" : message.text;
+    const choices = message.clarificationOptions && message.clarificationOptions.length
+      ? `<div class="clarification-choices" aria-label="Clarification choices">${message.clarificationOptions.map((choice) => `<button type="button" data-conversation-choice="${escapeHtml(choice)}">${escapeHtml(choice)}</button>`).join("")}</div>` : "";
+    return `<article class="conversation-message assistant-message" data-intent="${escapeHtml(message.intent)}" data-status="${escapeHtml(message.status)}"><span class="message-author">LYNX</span>${responseText ? `<p>${escapeHtml(responseText)}</p>` : ""}${content}${choices}</article>`;
+  }
+
+  function insightResponseMarkup(payload) {
+    if (!payload) return "";
+    const answer = payload.answer || payload.message;
+    const evidence = payload.evidence || (payload.result && payload.result.evidence);
+    return `${answer ? `<p class="insight-answer">${escapeHtml(answer)}</p>` : ""}${evidence ? insightEvidenceMarkup(payload.result || {}, evidence) : ""}`;
+  }
+
+  function insightEvidenceMarkup(result, evidence) {
+    const rows = Array.isArray(evidence.grouped_values) ? evidence.grouped_values.slice(0, 5) : [];
+    const details = [
+      ["Aggregation", result.aggregation], ["Measure", result.measure_column],
+      ["Grouped by", result.dimension_column],
+      ["Usable rows", `${number(evidence.usable_rows).toLocaleString()} / ${number(evidence.total_rows).toLocaleString()}`],
+    ].filter((item) => item[1] !== null && item[1] !== undefined && item[1] !== "");
+    return `<details class="calculation-details"><summary>View calculation details</summary><dl>${details.map(([term, value]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(humanize(value))}</dd></div>`).join("")}</dl>${rows.length ? `<div class="evidence-results"><strong>Leading results</strong>${rows.map((row) => `<span><b>${escapeHtml(row.group)}</b>${escapeHtml(number(row.value).toLocaleString(undefined, { maximumFractionDigits: 2 }))}</span>`).join("")}</div>` : ""}</details>`;
+  }
+
+  function visualizationResponseMarkup(payload) {
+    if (!payload) return "";
+    const visualizations = Array.isArray(payload.visualizations) ? payload.visualizations : [];
+    return visualizations.map((item) => visualizationCardMarkup(item, false)).join("");
+  }
+
+  function visualizationCardMarkup(item, ranked = true) {
+    const explanation = item.explanation || {};
+    const title = item.y_column
+      ? `${humanize(item.y_column)} by ${humanize(item.x_column)}` : humanize(item.x_column);
+    const evidence = Array.isArray(explanation.evidence) ? explanation.evidence.slice(0, 4) : [];
+    return `<section class="pipeline-chart-card"><div class="chart-card-heading"><div>${ranked && item.rank ? `<span class="chart-rank">#${escapeHtml(item.rank)}</span>` : ""}<h3>${escapeHtml(title)}</h3></div><span class="type-tag">${escapeHtml(item.chart_type)}</span></div>${LYNXChartRenderer.visualizationMarkup(item)}${explanation.what_it_shows || explanation.why_this_chart ? `<div class="chart-explanation"><strong>What it shows</strong><p>${escapeHtml(explanation.what_it_shows || explanation.why_this_chart)}</p>${explanation.why_this_chart && explanation.what_it_shows ? `<details><summary>Why this chart</summary><p>${escapeHtml(explanation.why_this_chart)}</p>${evidence.length ? `<ul>${evidence.map((value) => `<li>${escapeHtml(value)}</li>`).join("")}</ul>` : ""}</details>` : ""}</div>` : ""}</section>`;
+  }
+
+  function clearAutomaticVisualizations() {
+    const grid = byId("visualization-grid");
+    const status = byId("automatic-visualization-status");
+    if (grid) grid.innerHTML = "";
+    if (status) status.textContent = "";
+  }
+
+  async function loadAutomaticVisualizations(force = false) {
+    if (!currentRunId || (!force && automaticVisualizationDataset === currentRunId)) return;
+    const requestedDataset = currentRunId;
+    automaticVisualizationDataset = requestedDataset;
+    const status = byId("automatic-visualization-status");
+    const grid = byId("visualization-grid");
+    status.textContent = "Loading recommended visualizations…";
+    grid.innerHTML = "";
+    try {
+      const payload = await LYNXApiClient.getAutomaticVisualizations(requestedDataset);
+      if (currentRunId !== requestedDataset) return;
+      const visualizations = Array.isArray(payload.visualizations) ? payload.visualizations : [];
+      status.textContent = visualizations.length ? "" : (payload.message || "No meaningful visualization is supported by this dataset.");
+      grid.innerHTML = visualizations.map((item) => visualizationCardMarkup(item, true)).join("");
+    } catch (_error) {
+      if (currentRunId !== requestedDataset) return;
+      automaticVisualizationDataset = null;
+      status.innerHTML = `Recommended visualizations could not be loaded. <button class="text-button" type="button" data-retry-visualizations>Try again</button>`;
+    }
   }
 
   window.LYNX = {
@@ -942,5 +1092,7 @@
     getCurrentPredictionId: () => currentPredictionId,
     getCurrentPredictionResult: () => currentPredictionResult,
     getPredictionController: () => predictionController,
+    getInsightConversation: () => insightConversation,
+    getVisualizationConversation: () => visualizationConversation,
   };
 })();

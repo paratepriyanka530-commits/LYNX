@@ -425,10 +425,17 @@ def build_visualization_explanation(
     # -----------------------------------------------------------------------
     # 2. Section 2: Chart Rationale (why_this_chart)
     # -----------------------------------------------------------------------
+    presentation_variant = chart_data.get("presentation_variant")
+
     if chart_type == "COUNT_BAR":
         why_this_chart = f"Shows the distribution of observations across categories of '{x_col}'."
     elif chart_type == "BAR":
         why_this_chart = f"Shows a comparison of '{y_col}' across the categories of '{x_col}'."
+    elif chart_type == "PIE":
+        style = "doughnut" if presentation_variant == "DOUGHNUT" else "pie"
+        why_this_chart = (
+            f"Shows how the categories of '{x_col}' contribute to the whole as a {style} chart."
+        )
     elif chart_type == "LINE":
         why_this_chart = f"Shows how '{y_col}' changes over the temporal dimension '{x_col}'."
     elif chart_type == "SCATTER":
@@ -443,7 +450,7 @@ def build_visualization_explanation(
     # -----------------------------------------------------------------------
     if chart_type == "COUNT_BAR":
         what_it_shows = f"Displays {len(points)} categories using observation counts."
-    elif chart_type == "BAR":
+    elif chart_type in ("BAR", "PIE"):
         if raw_agg is not None and str(raw_agg).lower() not in ("none", ""):
             agg_name = str(raw_agg).strip().upper()
             what_it_shows = f"Displays {len(points)} categories using {agg_name} aggregation."
@@ -474,7 +481,7 @@ def build_visualization_explanation(
     # -----------------------------------------------------------------------
     # 5. Section 5: Data Coverage
     # -----------------------------------------------------------------------
-    if chart_type in ("BAR", "COUNT_BAR"):
+    if chart_type in ("BAR", "COUNT_BAR", "PIE"):
         if usable_rows > 0:
             coverage = f"{len(points)} displayed categories from {usable_rows:,} usable rows."
         else:
@@ -506,7 +513,7 @@ def build_visualization_explanation(
     # -----------------------------------------------------------------------
     # 6. Section 6: Evidence
     # -----------------------------------------------------------------------
-    if chart_type in ("BAR", "COUNT_BAR"):
+    if chart_type in ("BAR", "COUNT_BAR", "PIE"):
         evidence = _build_bar_evidence(points)
         item_signal = f"Evidence derived from {len(points)} displayed categories."
     elif chart_type == "LINE":

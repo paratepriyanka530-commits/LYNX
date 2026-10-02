@@ -68,6 +68,20 @@ class PredictionCreateRequest(BaseModel):
         return value
 
 
+class InsightQueryRequest(BaseModel):
+    """Minimal public request contract for deterministic Insights."""
+
+    request_text: str
+
+    @field_validator("request_text")
+    @classmethod
+    def request_text_must_be_non_empty(cls, value: str) -> str:
+        stripped = value.strip()
+        if not stripped:
+            raise ValueError("request_text must be a non-empty string")
+        return stripped
+
+
 class PredictionCreateResponse(BaseModel):
     run_id: str
     prediction_id: str
@@ -138,6 +152,7 @@ __all__ = [
     "ControlledError",
     "CreateRunResponse",
     "FrontendPredictionResult",
+    "InsightQueryRequest",
     "Pipeline1ResultResponse",
     "PredictionCreateRequest",
     "PredictionCreateResponse",

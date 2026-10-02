@@ -87,6 +87,7 @@ class TestReadyPayload(unittest.TestCase):
         expected_chart_data_keys = {
             "chart_type", "x_column", "y_column", "aggregation",
             "points", "bins", "signals", "usable_row_count", "sampled", "has_data",
+            "presentation_variant",
         }
 
         for item in payload["visualizations"]:
@@ -307,4 +308,3 @@ class TestDeterministicExecution(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

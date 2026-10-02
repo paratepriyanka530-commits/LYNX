@@ -33,6 +33,7 @@ from pipelines.pipeline3_results.visualization.schemas import (
     VisualizationRequest,
     VisualizationRequestStatus,
     VisualizationType,
+    STAGE4_MAX_PIE_CATEGORIES,
 )
 
 
@@ -80,9 +81,22 @@ def validate_visualization_request(
     x_col_name = request.x_column
     y_col_name = request.y_column
     chart_type = request.requested_chart_type
+    presentation_variant = request.presentation_variant
     aggregation = request.aggregation
     intent = request.intent
     requested_cols = list(request.requested_columns)
+
+    if presentation_variant is not None and chart_type != "PIE":
+        errors.append(
+            f"Presentation variant '{presentation_variant}' is only valid for PIE charts."
+        )
+
+    if chart_type == "PIE":
+        if y_col_name is None:
+            aggregation = "COUNT"
+        elif aggregation is None:
+            aggregation = "SUM"
+            signals.append("PIE measure defaults to SUM for part-to-whole semantics")
 
     # -----------------------------------------------------------------------
     # 1. Ambiguity & Missing Information Checks (NEEDS_CLARIFICATION)
@@ -393,6 +407,44 @@ def validate_visualization_request(
             if not errors:
                 signals.append(f"BAR chart validated: dimension='{x_col_name}', measure='{y_col_name}'")
 
+    elif chart_type == "PIE":
+        if not x_col_name:
+            errors.append("PIE chart requires a CATEGORY or BOOLEAN dimension.")
+        elif x_role not in ("CATEGORY", "BOOLEAN"):
+            errors.append(
+                f"PIE chart dimension '{x_col_name}' must be CATEGORY or BOOLEAN, got {x_role}."
+            )
+        else:
+            limit = 2 if x_role == "BOOLEAN" else STAGE4_MAX_PIE_CATEGORIES
+            ok, reason = _is_category_usable(
+                dataframe, x_col_class, high_cardinality_limit=limit
+            )
+            if not ok:
+                errors.append(f"PIE chart dimension '{x_col_name}' is unsuitable: {reason}.")
+
+        if aggregation not in {"SUM", "COUNT"}:
+            errors.append(
+                "PIE charts support only SUM or COUNT because slices must represent a part-to-whole total."
+            )
+        if y_col_name is not None:
+            if y_role != "MEASURE":
+                errors.append(
+                    f"PIE chart measure '{y_col_name}' must be MEASURE, got {y_role}."
+                )
+            else:
+                ok, reason = _is_measure_usable(dataframe, y_col_class)
+                if not ok:
+                    errors.append(f"PIE chart measure '{y_col_name}' is unusable: {reason}.")
+                numeric = pd.to_numeric(dataframe[y_col_name], errors="coerce").dropna()
+                if not numeric.empty and bool((numeric < 0).any()):
+                    errors.append(
+                        f"PIE chart measure '{y_col_name}' contains negative values and cannot represent parts of a whole."
+                    )
+        if not errors:
+            signals.append(
+                f"PIE chart validated: dimension='{x_col_name}', measure='{y_col_name}', aggregation='{aggregation}'"
+            )
+
     elif chart_type == "LINE":
         if not classification.temporals:
             errors.append("No suitable temporal column was found for a time-series visualization.")
@@ -443,6 +495,7 @@ def validate_visualization_request(
     return ValidatedVisualizationRequest(
         status=final_status,
         chart_type=chart_type,
+        presentation_variant=presentation_variant,
         x_column=x_col_name,
         y_column=y_col_name,
         aggregation=aggregation,

@@ -688,5 +688,15 @@ def build_chart_data(
         return _build_scatter(dataframe, candidate)
     if ct == "HISTOGRAM":
         return _build_histogram(dataframe, candidate)
+    if ct == "PIE":
+        base = (
+            _build_bar(dataframe, candidate, classification)
+            if candidate.y_column is not None
+            else _build_count_bar(dataframe, candidate)
+        )
+        return base.model_copy(update={
+            "chart_type": "PIE",
+            "signals": [*base.signals, "PIE part-to-whole chart data prepared"],
+        })
 
     return _no_data(candidate, f"unsupported chart type: {ct!r}")

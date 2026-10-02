@@ -89,3 +89,40 @@ test("prediction status, result, and rows calls use encoded same-origin paths an
     "/api/runs/run%2F1/predictions/pred%2F1/rows?offset=10&limit=25",
   ]);
 });
+
+test("createConversation sends the exact first-turn payload", async () => {
+  let request;
+  await api.createConversation("run/id", "  show sales by region  ", {
+    fetchImpl: async (url, options) => {
+      request = { url, options };
+      return response({ conversation_id: "conv-1", turn_id: "turn-1" });
+    },
+  });
+  assert.equal(request.url, "/api/conversations/run%2Fid");
+  assert.equal(request.options.method, "POST");
+  assert.deepEqual(JSON.parse(request.options.body), { message: "show sales by region" });
+});
+
+test("sendConversationMessage uses the dataset-scoped continuation endpoint", async () => {
+  let request;
+  await api.sendConversationMessage("dataset 1", "conversation/1", "use total instead", {
+    fetchImpl: async (url, options) => {
+      request = { url, options };
+      return response({ conversation_id: "conversation/1", turn_id: "turn-2" });
+    },
+  });
+  assert.equal(request.url, "/api/conversations/dataset%201/conversation%2F1");
+  assert.deepEqual(JSON.parse(request.options.body), { message: "use total instead" });
+});
+
+test("automatic visualizations use an independent GET endpoint", async () => {
+  let request;
+  await api.getAutomaticVisualizations("run/id", {
+    fetchImpl: async (url, options) => {
+      request = { url, options };
+      return response({ mode: "automatic", visualizations: [] });
+    },
+  });
+  assert.equal(request.url, "/api/visualizations/run%2Fid");
+  assert.equal(request.options.method, "GET");
+});
