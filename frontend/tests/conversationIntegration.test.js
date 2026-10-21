@@ -145,7 +145,7 @@ test("renderer supports every Pipeline 3 chart type", () => {
 test("automatic recommendations and Ask LYNX have independent containers", () => {
   assert.match(html, /id="visualization-grid"/);
   assert.match(html, /id="visualization-messages"/);
-  assert.match(main, /getAutomaticVisualizations\(requestedDataset\)/);
+  assert.match(main, /getAutomaticVisualizations\(requestedDataset, \{ maxVisualizations: 4 \}\)/);
   assert.doesNotMatch(main, /visualization-messages[\s\S]{0,100}innerHTML = visualizations/);
 });
 
@@ -154,6 +154,24 @@ test("composer keyboard contract sends on Enter and preserves Shift+Enter", () =
   assert.match(main, /form\.requestSubmit\(\)/);
   assert.match(html, /<textarea id="insights-input"/);
   assert.match(html, /<textarea id="visualization-input"/);
+});
+
+test("Insights is a text-only analytical workspace with a sticky composer", () => {
+  assert.match(html, /class="tab-panel insights-panel"/);
+  assert.match(html, /Ask questions and receive dataset-grounded answers in plain language/);
+  assert.match(html, /class="insights-report-card insights-summary"/);
+  assert.match(html, /class="insights-report-card insights-suggestions"/);
+  assert.match(html, /class="insights-composer-dock"/);
+  assert.match(html, /placeholder="Ask LYNX about this dataset\.\.\."/);
+  assert.doesNotMatch(html.match(/id="panel-insights"[\s\S]*?<\/section>\s*<section class="tab-panel" id="panel-visualizations"/)?.[0] || "", /<canvas|<table/);
+  assert.doesNotMatch(main, /insightResponseMarkup[\s\S]{0,300}insightEvidenceMarkup/);
+});
+
+test("Insights composer disables empty submissions and landing failures remain retryable", () => {
+  assert.match(main, /submit\.disabled = state\.loading \|\| !state\.datasetId \|\| !input\.value\.trim\(\)/);
+  assert.match(main, /btn-retry-insights-landing/);
+  assert.match(main, /You can still ask LYNX a question below/);
+  assert.match(main, /insights-suggested-questions"\)\.addEventListener\("click", submitChoice\)/);
 });
 
 test("conversation state is not persisted in browser storage", () => {

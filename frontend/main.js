@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const STATES = { UPLOAD: "upload", ANALYSIS: "analysis", WORKSPACE: "workspace" };
+  const STATES = { UPLOAD: "upload", ANALYSIS: "analysis", WORKSPACE: "workspace", DATASET: "dataset", EXPORT: "export", SETTINGS: "settings" };
   const TABS = ["overview", "data-profile", "prediction", "insights", "visualizations"];
   const ALLOWED_EXTENSIONS = [".csv", ".xlsx", ".xls"];
 
@@ -15,8 +15,13 @@
   let controller = null;
   let elapsedStartedAt = null;
   let elapsedTimer = null;
+  let currentUploadStartedAt = null;
   let profileColumns = [];
   let selectedProfileColumn = null;
+  let selectedProfileIndex = null;
+  let profilingManifest = null;
+  let profilePage = 1;
+  const PROFILE_PAGE_SIZE = 10;
   let targetColumns = [];
   let predictionEligible = false;
   let predictionController = null;
@@ -28,12 +33,30 @@
   let predictionRowsOffset = 0;
   const PREDICTION_ROWS_LIMIT = 50;
   let predictionRowsTotal = 0;
+  let predictionResolutionToken = 0;
+  let currentTaskResolution = null;
   let insightConversation = null;
+  let insightsLanding = null;
+  let insightsLandingDataset = null;
   let visualizationConversation = null;
   let automaticVisualizationDataset = null;
+  let visualizationRenderer = null;
+  let datasetRequestToken = 0;
+  let datasetSearchTimer = null;
+  let exportAvailability = null;
+  const SETTINGS_DEFAULTS = { theme: "system", density: "comfortable", animations: true, confirmReplace: true, postUpload: "overview", showSuggestions: true };
+  const settingKeys = { theme: "lynx-theme", density: "lynx-density", animations: "lynx-animations", confirmReplace: "lynx-confirm-replace", postUpload: "lynx-post-upload", showSuggestions: "lynx-show-suggestions" };
+  let settingsPreferences = loadSettingsPreferences();
+  let applicationInfo = null;
+  const datasetExplorer = {
+    version: "cleaned", offset: 0, limit: 20, search: "",
+    sortColumn: "", sortDirection: "asc", filterColumn: "", filterValue: "",
+    payload: null,
+  };
 
   const byId = (id) => document.getElementById(id);
   const number = (value) => Number.isFinite(Number(value)) ? Number(value) : 0;
+  const finiteNumber = (value) => value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value)) ? Number(value) : null;
   const escapeHtml = (value) => String(value == null ? "" : value)
     .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;").replace(/'/g, "&#039;");
@@ -43,7 +66,12 @@
   };
 
   document.addEventListener("DOMContentLoaded", () => {
+    visualizationRenderer = LYNXVisualizationController.createVisualizationController({
+      adapter: LYNXEChartsAdapter,
+      legacyRenderer: LYNXChartRenderer,
+    });
     setupTheme();
+    setupSettingsWorkspace();
     setupRunController();
     setupUpload();
     setupWorkspaceNavigation();
@@ -51,12 +79,15 @@
     setupProfileControls();
     setupPredictionBoundary();
     setupConversationalSurfaces();
+    setupDatasetExplorer();
+    setupExportWorkspace();
     showState(STATES.UPLOAD);
   });
 
   function showState(state) {
     if (!Object.values(STATES).includes(state)) return;
     currentState = state;
+    document.body.dataset.appState = state;
     document.querySelectorAll(".app-view").forEach((view) => {
       const active = view.id === `view-${state}`;
       view.classList.toggle("active", active);
@@ -65,11 +96,58 @@
     const actions = byId("global-actions");
     const workspaceOnlyActions = [byId("btn-new-dataset"), byId("btn-export"), byId("more-new"), byId("more-export")];
     if (actions) actions.hidden = false;
-    workspaceOnlyActions.forEach((action) => { if (action) action.hidden = state !== STATES.WORKSPACE; });
+    workspaceOnlyActions.forEach((action) => { if (action) action.hidden = ![STATES.WORKSPACE, STATES.DATASET, STATES.EXPORT].includes(state); });
     const moreMenu = byId("more-menu");
     const moreButton = byId("btn-more");
     if (moreMenu) moreMenu.hidden = true;
     if (moreButton) moreButton.setAttribute("aria-expanded", "false");
+    const homeActive = state === STATES.UPLOAD;
+    const analysisActive = state === STATES.ANALYSIS || state === STATES.WORKSPACE;
+    const homeNav = byId("nav-home");
+    const analysisNav = byId("nav-analysis");
+    const datasetNav = byId("nav-datasets");
+    const exportNav = byId("nav-export");
+    const settingsNav = byId("nav-setting");
+    if (homeNav) {
+      homeNav.classList.toggle("active", homeActive);
+      if (homeActive) homeNav.setAttribute("aria-current", "page");
+      else homeNav.removeAttribute("aria-current");
+    }
+    if (analysisNav) {
+      analysisNav.classList.toggle("active", analysisActive);
+      analysisNav.setAttribute("aria-disabled", String(!currentReport && state !== STATES.ANALYSIS));
+      analysisNav.title = !currentReport && state !== STATES.ANALYSIS ? "Upload and analyze a dataset first" : "Open dataset analysis";
+      if (analysisActive) analysisNav.setAttribute("aria-current", "page");
+      else analysisNav.removeAttribute("aria-current");
+    }
+    if (datasetNav) {
+      const active = state === STATES.DATASET;
+      datasetNav.disabled = !currentReport;
+      datasetNav.title = currentReport ? "Explore original and cleaned dataset rows" : "Upload and analyze a dataset first";
+      datasetNav.classList.toggle("active", active);
+      if (active) datasetNav.setAttribute("aria-current", "page");
+      else datasetNav.removeAttribute("aria-current");
+    }
+    if (exportNav) {
+      const active = state === STATES.EXPORT;
+      exportNav.disabled = !currentReport;
+      exportNav.classList.toggle("sidebar-link-unavailable", !currentReport);
+      exportNav.title = currentReport ? "Download prepared data and analysis reports" : "Export is available from completed results";
+      exportNav.classList.toggle("active", active);
+      if (active) exportNav.setAttribute("aria-current", "page");
+      else exportNav.removeAttribute("aria-current");
+    }
+    if (settingsNav) {
+      const active = state === STATES.SETTINGS;
+      settingsNav.classList.toggle("active", active);
+      if (active) settingsNav.setAttribute("aria-current", "page");
+      else settingsNav.removeAttribute("aria-current");
+    }
+    [byId("btn-export"), byId("more-export")].forEach((button) => {
+      if (!button) return;
+      button.disabled = !currentReport;
+      button.title = currentReport ? "Open Export Workspace" : "Export is available from completed results";
+    });
     window.scrollTo({ top: 0, behavior: "auto" });
   }
 
@@ -96,9 +174,13 @@
   function setUploadBusy(busy) {
     const run = byId("btn-run-analysis");
     const replace = byId("btn-replace-file");
+    const choose = byId("btn-choose-file");
+    const dropzone = byId("upload-dropzone");
     const input = byId("dataset-file-input");
     if (run) run.disabled = busy || !selectedFile;
     if (replace) replace.disabled = busy;
+    if (choose) choose.disabled = busy;
+    if (dropzone) dropzone.setAttribute("aria-busy", String(busy));
     if (input) input.disabled = busy;
   }
 
@@ -118,8 +200,14 @@
     pipeline1Result = null;
     currentReport = null;
     currentDataset = null;
+    currentUploadStartedAt = null;
+    const recentList = byId("sidebar-recents-list");
+    if (recentList) recentList.innerHTML = '<p class="sidebar-recents-empty">Your recent datasets will appear here.</p>';
     profileColumns = [];
     selectedProfileColumn = null;
+    selectedProfileIndex = null;
+    profilingManifest = null;
+    profilePage = 1;
     targetColumns = [];
     predictionEligible = false;
     currentPredictionId = null;
@@ -128,6 +216,26 @@
     predictionRowsOffset = 0;
     predictionRowsTotal = 0;
     automaticVisualizationDataset = null;
+    datasetRequestToken += 1;
+    datasetExplorer.version = "cleaned";
+    datasetExplorer.offset = 0;
+    datasetExplorer.limit = 20;
+    datasetExplorer.search = "";
+    datasetExplorer.sortColumn = "";
+    datasetExplorer.sortDirection = "asc";
+    datasetExplorer.filterColumn = "";
+    datasetExplorer.filterValue = "";
+    datasetExplorer.payload = null;
+    exportAvailability = null;
+    if (byId("dataset-search")) byId("dataset-search").value = "";
+    if (byId("dataset-filter-value")) byId("dataset-filter-value").value = "";
+    if (byId("dataset-page-size")) byId("dataset-page-size").value = "20";
+    if (byId("dataset-grid-head")) byId("dataset-grid-head").innerHTML = "";
+    if (byId("dataset-grid-body")) byId("dataset-grid-body").innerHTML = "";
+    if (byId("dataset-row-range")) byId("dataset-row-range").textContent = "Rows 0–0 of 0";
+    if (byId("dataset-change-toggle")) updateDatasetVersionControls();
+    insightsLanding = null;
+    insightsLandingDataset = null;
     if (insightConversation) insightConversation.reset();
     if (visualizationConversation) visualizationConversation.reset();
     clearAutomaticVisualizations();
@@ -168,6 +276,7 @@
   function setupUpload() {
     const dropzone = byId("upload-dropzone");
     const input = byId("dataset-file-input");
+    const choose = byId("btn-choose-file");
     ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
       dropzone.addEventListener(eventName, (event) => event.preventDefault());
     });
@@ -178,10 +287,8 @@
       dropzone.classList.remove("dragover");
       if (event.dataTransfer && event.dataTransfer.files.length) selectFile(event.dataTransfer.files[0]);
     });
-    dropzone.addEventListener("click", () => input.click());
-    dropzone.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") { event.preventDefault(); input.click(); }
-    });
+    dropzone.addEventListener("click", (event) => { if (!event.target.closest("button")) input.click(); });
+    choose.addEventListener("click", () => input.click());
     input.addEventListener("change", () => { if (input.files.length) selectFile(input.files[0]); });
     byId("btn-replace-file").addEventListener("click", () => input.click());
     byId("btn-run-analysis").addEventListener("click", beginAnalysis);
@@ -235,18 +342,7 @@
         byId("analysis-status-message").textContent = friendlyStatus(status);
       },
       onResult(response) {
-        stopElapsed();
-        setUploadBusy(false);
-        pipeline1Result = response;
-        currentReport = response.pipeline1_report;
-        const reportLocation = `/api/runs/${encodeURIComponent(response.run_id)}/pipeline1`;
-        currentDataset = LYNXReportAdapter.adaptCleaningReport(response.pipeline1_report, { reportLocation });
-        insightConversation.setDataset(response.run_id);
-        visualizationConversation.setDataset(response.run_id);
-        renderWorkspace();
-        setTargetColumns(response.prepared_dataset.target_columns);
-        showState(STATES.WORKSPACE);
-        activateTab("overview");
+        showCompletedAnalysis(response);
       },
       onFailure(error, context) {
         stopElapsed();
@@ -265,7 +361,36 @@
     if (!selectedFile || !controller) return;
     hideUploadError();
     setUploadBusy(true);
+    currentUploadStartedAt = new Date();
     controller.start(selectedFile);
+  }
+
+  function showCompletedAnalysis(response) {
+    if (!response || !response.pipeline1_report || !response.prepared_dataset) {
+      throw new TypeError("A completed analysis response is required.");
+    }
+    stopElapsed();
+    setUploadBusy(false);
+    pipeline1Result = response;
+    currentReport = response.pipeline1_report;
+    currentRunId = response.run_id;
+    currentRunStatus = { ...(currentRunStatus || {}), ...response };
+    const reportLocation = `/api/runs/${encodeURIComponent(response.run_id)}/pipeline1`;
+    currentDataset = LYNXReportAdapter.adaptCleaningReport(response.pipeline1_report, { reportLocation });
+    if (response.profiling_manifest && response.profiling_manifest.dataset_name) {
+      currentDataset.name = String(response.profiling_manifest.dataset_name);
+    }
+    if (insightConversation) insightConversation.setDataset(response.run_id);
+    if (visualizationConversation) visualizationConversation.setDataset(response.run_id);
+    renderWorkspace();
+    setTargetColumns(response.prepared_dataset.target_columns);
+    if (settingsPreferences.postUpload === "dataset") {
+      showState(STATES.DATASET);
+      loadDatasetPage();
+    } else {
+      showState(STATES.WORKSPACE);
+      activateTab("overview");
+    }
   }
 
   function setupWorkspaceNavigation() {
@@ -286,17 +411,38 @@
       panel.classList.toggle("active", active);
       panel.hidden = !active;
     });
+    if (tab === "visualizations" && visualizationRenderer) {
+      requestAnimationFrame(() => visualizationRenderer.resizeWithin(byId("panel-visualizations")));
+    }
   }
 
   function setupGlobalActions() {
-    byId("btn-new-dataset").addEventListener("click", startNewDataset);
-    byId("brand-home").addEventListener("click", () => currentState === STATES.WORKSPACE ? activateTab("overview") : showState(STATES.UPLOAD));
-    byId("mobile-brand-home").addEventListener("click", () => currentState === STATES.WORKSPACE ? activateTab("overview") : showState(STATES.UPLOAD));
-    byId("nav-datasets").addEventListener("click", () => currentState === STATES.WORKSPACE ? activateTab("overview") : showState(STATES.UPLOAD));
-    byId("btn-settings").addEventListener("click", () => byId("settings-dialog").showModal());
+    byId("btn-new-dataset").addEventListener("click", requestNewDataset);
+    byId("brand-home").addEventListener("click", () => showState(STATES.UPLOAD));
+    byId("mobile-brand-home").addEventListener("click", () => showState(STATES.UPLOAD));
+    byId("nav-home").addEventListener("click", () => showState(STATES.UPLOAD));
+    byId("nav-analysis").addEventListener("click", () => {
+      if (currentState === STATES.ANALYSIS) return;
+      if (currentReport) showState(STATES.WORKSPACE);
+    });
+    byId("nav-datasets").addEventListener("click", () => {
+      if (!currentReport) return;
+      showState(STATES.DATASET);
+      loadDatasetPage();
+    });
+    const openExport = () => {
+      if (!currentReport) return;
+      showState(STATES.EXPORT);
+      loadExportAvailability();
+    };
+    byId("nav-export").addEventListener("click", openExport);
+    byId("btn-export").addEventListener("click", openExport);
+    const openSettings = () => { showState(STATES.SETTINGS); loadApplicationInfo(); };
+    byId("btn-settings").addEventListener("click", openSettings);
+    byId("nav-setting").addEventListener("click", openSettings);
     byId("btn-help").addEventListener("click", () => byId("help-dialog").showModal());
     document.querySelectorAll("[data-shell-action]").forEach((button) => {
-      button.addEventListener("click", () => byId(`${button.dataset.shellAction}-dialog`).showModal());
+      if (button.dataset.shellAction !== "settings") button.addEventListener("click", () => byId(`${button.dataset.shellAction}-dialog`).showModal());
     });
     const moreButton = byId("btn-more");
     const menu = byId("more-menu");
@@ -306,9 +452,10 @@
     });
     menu.addEventListener("click", (event) => {
       const action = event.target.dataset.moreAction;
-      if (action === "settings") byId("settings-dialog").showModal();
+      if (action === "settings") openSettings();
       if (action === "help") byId("help-dialog").showModal();
-      if (action === "new") startNewDataset();
+      if (action === "new") requestNewDataset();
+      if (action === "export") openExport();
       if (action === "theme") toggleTheme();
       menu.hidden = true;
       moreButton.setAttribute("aria-expanded", "false");
@@ -318,15 +465,23 @@
     });
   }
 
+  function requestNewDataset() {
+    if (settingsPreferences.confirmReplace && currentReport && !window.confirm("Replace the active dataset and clear this browser workspace?")) return;
+    startNewDataset();
+  }
+
   function currentTheme() {
     return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
   }
 
   function applyTheme(theme, persist = true) {
-    const next = theme === "dark" ? "dark" : "light";
+    const mode = ["light", "dark", "system"].includes(theme) ? theme : "system";
+    const next = mode === "system" ? (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : mode;
     document.documentElement.dataset.theme = next;
+    document.documentElement.dataset.themeMode = mode;
+    settingsPreferences.theme = mode;
     if (persist) {
-      try { window.localStorage.setItem("lynx-theme", next); } catch (_error) { /* storage may be unavailable */ }
+      saveSetting("theme", mode);
     }
     const toggle = byId("btn-theme");
     const label = byId("theme-label");
@@ -335,21 +490,143 @@
       toggle.setAttribute("aria-label", `Switch to ${next === "dark" ? "light" : "dark"} theme`);
     }
     if (label) label.textContent = next === "dark" ? "Light" : "Dark";
-    document.querySelectorAll("[data-theme-choice]").forEach((choice) => {
-      const selected = choice.dataset.themeChoice === next;
-      choice.classList.toggle("active", selected);
-      choice.setAttribute("aria-pressed", String(selected));
-    });
+    document.querySelectorAll('input[name="settings-theme"]').forEach((choice) => { choice.checked = choice.value === mode; });
   }
 
   function toggleTheme() { applyTheme(currentTheme() === "dark" ? "light" : "dark"); }
 
   function setupTheme() {
-    applyTheme(currentTheme(), false);
+    applyTheme(settingsPreferences.theme, false);
     byId("btn-theme").addEventListener("click", toggleTheme);
-    document.querySelectorAll("[data-theme-choice]").forEach((choice) => {
-      choice.addEventListener("click", () => applyTheme(choice.dataset.themeChoice));
+    if (window.matchMedia) window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { if (settingsPreferences.theme === "system") applyTheme("system", false); });
+  }
+
+  function storedSetting(name, fallback) {
+    try {
+      const value = window.localStorage.getItem(settingKeys[name]);
+      if (value === null) return fallback;
+      if (typeof fallback === "boolean") return value !== "false";
+      return value;
+    } catch (_error) { return fallback; }
+  }
+
+  function loadSettingsPreferences() {
+    const preferences = {
+      theme: storedSetting("theme", SETTINGS_DEFAULTS.theme),
+      density: storedSetting("density", SETTINGS_DEFAULTS.density),
+      animations: storedSetting("animations", SETTINGS_DEFAULTS.animations),
+      confirmReplace: storedSetting("confirmReplace", SETTINGS_DEFAULTS.confirmReplace),
+      postUpload: storedSetting("postUpload", SETTINGS_DEFAULTS.postUpload),
+      showSuggestions: storedSetting("showSuggestions", SETTINGS_DEFAULTS.showSuggestions),
+    };
+    if (!["light", "dark", "system"].includes(preferences.theme)) preferences.theme = SETTINGS_DEFAULTS.theme;
+    if (!["comfortable", "compact"].includes(preferences.density)) preferences.density = SETTINGS_DEFAULTS.density;
+    if (!["overview", "dataset"].includes(preferences.postUpload)) preferences.postUpload = SETTINGS_DEFAULTS.postUpload;
+    return preferences;
+  }
+
+  function saveSetting(name, value) {
+    settingsPreferences[name] = value;
+    try {
+      window.localStorage.setItem(settingKeys[name], String(value));
+      const status = byId("settings-save-status");
+      if (status) status.textContent = "Preference saved.";
+    } catch (_error) {
+      const status = byId("settings-save-status");
+      if (status) status.textContent = "This preference could not be saved in this browser.";
+    }
+  }
+
+  function applySettingsPreferences() {
+    document.documentElement.dataset.density = settingsPreferences.density;
+    document.documentElement.dataset.animations = settingsPreferences.animations ? "on" : "off";
+    document.querySelectorAll('input[name="settings-density"]').forEach((input) => { input.checked = input.value === settingsPreferences.density; });
+    byId("setting-animations").checked = settingsPreferences.animations;
+    byId("setting-confirm-replace").checked = settingsPreferences.confirmReplace;
+    byId("setting-post-upload").value = settingsPreferences.postUpload;
+    byId("setting-suggestions").checked = settingsPreferences.showSuggestions;
+    applySuggestionVisibility();
+  }
+
+  function applySuggestionVisibility() {
+    const card = document.querySelector(".insights-suggestions");
+    if (card) card.hidden = !settingsPreferences.showSuggestions;
+  }
+
+  function showSettingsCategory(category) {
+    document.querySelectorAll("[data-settings-category]").forEach((button) => {
+      const active = button.dataset.settingsCategory === category;
+      button.classList.toggle("active", active);
+      if (active) button.setAttribute("aria-current", "page"); else button.removeAttribute("aria-current");
     });
+    document.querySelectorAll("[data-settings-panel]").forEach((panel) => {
+      const active = panel.dataset.settingsPanel === category;
+      panel.classList.toggle("active", active);
+      panel.hidden = !active;
+    });
+  }
+
+  function setupSettingsWorkspace() {
+    applySettingsPreferences();
+    document.querySelectorAll("[data-settings-category]").forEach((button) => button.addEventListener("click", () => showSettingsCategory(button.dataset.settingsCategory)));
+    document.querySelectorAll('input[name="settings-theme"]').forEach((input) => input.addEventListener("change", () => applyTheme(input.value)));
+    document.querySelectorAll('input[name="settings-density"]').forEach((input) => input.addEventListener("change", () => {
+      document.documentElement.dataset.density = input.value;
+      saveSetting("density", input.value);
+    }));
+    byId("setting-animations").addEventListener("change", (event) => {
+      document.documentElement.dataset.animations = event.target.checked ? "on" : "off";
+      saveSetting("animations", event.target.checked);
+    });
+    byId("setting-confirm-replace").addEventListener("change", (event) => saveSetting("confirmReplace", event.target.checked));
+    byId("setting-post-upload").addEventListener("change", (event) => saveSetting("postUpload", event.target.value));
+    byId("setting-suggestions").addEventListener("change", (event) => { saveSetting("showSuggestions", event.target.checked); applySuggestionVisibility(); });
+    byId("btn-reset-appearance").addEventListener("click", () => {
+      applyTheme(SETTINGS_DEFAULTS.theme);
+      saveSetting("density", SETTINGS_DEFAULTS.density);
+      saveSetting("animations", SETTINGS_DEFAULTS.animations);
+      applySettingsPreferences();
+      byId("settings-save-status").textContent = "Appearance preferences reset.";
+    });
+    byId("btn-clear-workspace").addEventListener("click", () => {
+      if (!currentReport) { byId("settings-save-status").textContent = "There is no active browser workspace to clear."; return; }
+      if (!window.confirm("Clear the active browser workspace? Server artifacts remain subject to the configured retention policy.")) return;
+      resetAnalysisState();
+      selectedFile = null;
+      const input = byId("dataset-file-input");
+      if (input) input.value = "";
+      byId("selected-file-card").hidden = true;
+      showState(STATES.SETTINGS);
+      byId("settings-save-status").textContent = "Active browser workspace cleared.";
+    });
+  }
+
+  function formatRetention(seconds) {
+    const value = Number(seconds);
+    if (!Number.isFinite(value) || value <= 0) return "Not reported";
+    if (value % 86400 === 0) return `${value / 86400} day${value === 86400 ? "" : "s"}`;
+    if (value % 3600 === 0) return `${value / 3600} hour${value === 3600 ? "" : "s"}`;
+    return `${value} seconds`;
+  }
+
+  async function loadApplicationInfo() {
+    if (applicationInfo) return;
+    try {
+      applicationInfo = await LYNXApiClient.getApplicationInfo();
+      const ai = applicationInfo.ai || {};
+      const data = applicationInfo.data || {};
+      byId("settings-ai-provider").textContent = ai.provider || "Not configured";
+      byId("settings-ai-model").textContent = ai.model || "Not reported";
+      byId("settings-ai-status").textContent = ai.status === "configured" ? "Configured" : "Not configured";
+      byId("settings-ai-status").classList.toggle("required", ai.status === "configured");
+      byId("settings-data-storage").textContent = data.storage || "Runtime-managed storage";
+      byId("settings-retention").textContent = formatRetention(data.retention_seconds);
+      byId("settings-app-version").textContent = applicationInfo.application && applicationInfo.application.version ? applicationInfo.application.version : "Not reported";
+    } catch (_error) {
+      ["settings-ai-provider", "settings-ai-model", "settings-retention", "settings-app-version"].forEach((id) => { byId(id).textContent = "Temporarily unavailable"; });
+      byId("settings-ai-status").textContent = "Unavailable";
+      byId("settings-save-status").textContent = "Application information could not be loaded. Preferences remain available.";
+    }
   }
 
   function renderWorkspace() {
@@ -357,11 +634,20 @@
     const columns = number(pipeline1Result.prepared_dataset.columns);
     byId("workspace-dataset-name").textContent = currentDataset.name;
     byId("workspace-dataset-name").title = currentDataset.name;
+    byId("prediction-dataset-name").textContent = currentDataset.name;
+    byId("insights-dataset-name").textContent = currentDataset.name;
+    byId("insights-dataset-name").title = currentDataset.name;
+    byId("visualization-dataset-name").textContent = currentDataset.name;
+    byId("visualization-dataset-name").title = currentDataset.name;
+    byId("dataset-page-name").textContent = currentDataset.name;
+    byId("dataset-page-name").title = currentDataset.name;
     const extension = String(currentDataset.name || "").split(".").pop();
     byId("workspace-file-type").textContent = extension && extension !== currentDataset.name ? extension.toUpperCase() : "DATA";
-    byId("workspace-dataset-meta").textContent = `${currentDataset.statusText} · ${rows.toLocaleString()} rows · ${columns.toLocaleString()} columns`;
+    byId("workspace-dataset-meta").textContent = "Uploaded dataset overview";
+    renderSidebarCurrentDataset();
     renderOverview();
     initializeDataProfile();
+    loadInsightsLanding();
     loadAutomaticVisualizations();
   }
 
@@ -369,101 +655,492 @@
     const report = currentReport;
     const metrics = currentDataset.metrics;
     const validation = report.validation || {};
-    const context = (report.semantic_profile && report.semantic_profile.dataset_context) || {};
     byId("overview-summary").textContent = currentDataset.summary || "Analysis completed using the evidence available in the dataset.";
-    const status = validation.passed ? "Prepared and validated" : humanize(report.status);
-    byId("overview-metrics").innerHTML = [
-      ["Rows", metrics.rows.toLocaleString(), ""], ["Columns", metrics.columns.toLocaleString(), ""],
-      ["Detected issues", metrics.issuesCount.toLocaleString(), ""], ["Status", status, "status-value"],
-    ].map(([label, value, cls]) => `<div class="metric-item"><span>${escapeHtml(label)}</span><strong class="${cls}">${escapeHtml(value)}</strong></div>`).join("");
+    const after = validation.after_summary || {};
+    const datasetOverview = pipeline1Result.dataset_overview || {};
+    const totalMissing = finiteNumber(after.total_missing_cells);
+    const cellCount = metrics.rows * metrics.columns;
+    const missingPercentage = totalMissing !== null && cellCount > 0 ? (totalMissing / cellCount) * 100 : null;
+    const completeness = missingPercentage === null ? null : Math.max(0, 100 - missingPercentage);
+    const uploadTimestamp = (currentRunStatus && (currentRunStatus.created_at || currentRunStatus.submitted_at || currentRunStatus.started_at)) || currentUploadStartedAt;
+    byId("overview-uploaded-at").querySelector("span").textContent = uploadTimestamp
+      ? `Uploaded on ${formatOverviewDate(uploadTimestamp)}`
+      : "Upload time unavailable";
 
-    const issues = currentDataset.allIssues.slice(0, 6);
-    byId("overview-quality").innerHTML = issues.length ? `<ul class="issue-list">${issues.map((issue) => `<li class="issue-row"><div><strong>${escapeHtml(issue.name)}</strong><small>${issue.affectedCount.toLocaleString()} affected · ${issue.percentage.toFixed(2)}%</small></div><span class="severity">${escapeHtml(issue.riskHint)}</span></li>`).join("")}</ul>` : `<p class="empty-inline">No quality issues were detected.</p>`;
+    const memoryBytes = finiteNumber(datasetOverview.memory_footprint_bytes);
+    const kpis = [
+      { tone: "purple", icon: "database", label: "Total Rows", value: metrics.rows.toLocaleString(), help: "Rows in dataset" },
+      { tone: "blue", icon: "table", label: "Total Columns", value: metrics.columns.toLocaleString(), help: "Columns in dataset" },
+      { tone: "green", icon: "file", label: "Memory Footprint", value: memoryBytes === null ? "Unavailable" : formatBytes(memoryBytes), help: memoryBytes === null ? "Measurement unavailable" : "Original ingestion DataFrame" },
+      { tone: "orange", icon: "percent", label: "Missing Value Percentage", value: missingPercentage === null ? "Unavailable" : `${missingPercentage.toFixed(1)}%`, help: "Cells with missing values" },
+    ];
+    byId("overview-metrics").innerHTML = kpis.map((item) => `<article class="overview-kpi"><span class="kpi-icon ${item.tone}">${overviewIcon(item.icon)}</span><div><span>${escapeHtml(item.label)}</span><strong>${escapeHtml(item.value)}</strong><small>${escapeHtml(item.help)}</small></div></article>`).join("");
 
-    const findings = [];
-    if (context.probable_domain) findings.push(`Probable domain: ${context.probable_domain}`);
-    if (context.row_entity && context.row_entity !== "unknown") findings.push(`Each row represents: ${context.row_entity}`);
-    if (context.dataset_description) findings.push(context.dataset_description);
-    (Array.isArray(report.warnings) ? report.warnings : []).slice(0, 3).forEach((warning) => findings.push(typeof warning === "string" ? warning : warning.message));
-    byId("overview-findings").innerHTML = findings.filter(Boolean).length ? `<ul class="plain-list">${findings.filter(Boolean).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : `<p class="empty-inline">No additional dataset-level findings were available.</p>`;
+    const completionText = completeness === null ? "—" : `${completeness.toFixed(1)}%`;
+    const missingText = missingPercentage === null ? "—" : `${missingPercentage.toFixed(1)}%`;
+    const issueText = `${number(metrics.issuesCount).toLocaleString()} recorded`;
+    const donutValue = completeness === null ? 0 : completeness;
+    byId("overview-quality").innerHTML = `<div class="quality-overview"><div class="quality-ring${completeness === null ? " unavailable" : ""}" style="--quality-value:${donutValue.toFixed(2)}"><div><strong>${escapeHtml(completionText)}</strong><span>Observed completeness</span></div></div><dl class="quality-legend"><div><dt><span class="legend-dot valid"></span>Complete cells</dt><dd>${escapeHtml(completionText)}</dd></div><div><dt><span class="legend-dot missing"></span>Missing cells</dt><dd>${escapeHtml(missingText)}</dd></div><div><dt><span class="legend-dot findings"></span>Quality findings</dt><dd>${escapeHtml(issueText)}</dd></div></dl></div>`;
 
-    const changed = (Array.isArray(report.executions) ? report.executions : []).filter((execution) => execution.status === "success" && execution.changed);
-    const changedCells = number(validation.changed_cell_count);
-    const preparation = changed.slice(0, 6).map((execution) => `${humanize(execution.action_id)}${execution.target_columns && execution.target_columns.length ? ` in ${execution.target_columns.join(", ")}` : ""}`);
-    if (changedCells) preparation.unshift(`${changedCells.toLocaleString()} values changed by approved actions`);
-    byId("overview-preparation").innerHTML = preparation.length ? `<ul class="plain-list">${preparation.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : `<p class="empty-inline">No automatic value changes were required.</p>`;
-
+    const passed = validation.passed === true;
     const privacyPassed = pipeline1Result.privacy_clearance_passed === true;
-    byId("overview-privacy").innerHTML = `<div class="status-line"><span class="status-dot ${privacyPassed ? "" : "warning"}"></span><span>${privacyPassed ? "Privacy clearance passed for the prepared dataset." : "Privacy clearance did not pass. Prediction remains unavailable."}</span></div>`;
+    const checks = [
+      [validation.row_count_equal, "Row count preserved"],
+      [validation.column_count_equal, "Column count preserved"],
+      [validation.only_approved_value_changes, "Only approved value changes"],
+      [validation.missingness_equal || validation.expected_missingness_changes_only, "Missingness checks completed"],
+      [privacyPassed, "Privacy clearance passed"],
+      [passed && report.status === "success", "Ready for analysis"],
+    ];
+    byId("overview-health").innerHTML = `<div class="health-summary"><span class="health-icon ${passed ? "pass" : "review"}" aria-hidden="true">${passed ? "✓" : "!"}</span><div><div class="health-title-line"><strong>${passed ? "Validation Passed" : "Review Required"}</strong><span class="health-badge ${passed ? "pass" : "review"}">${passed ? "Pass" : "Review"}</span></div><p>${passed ? "The prepared dataset passed the available validation checks." : "One or more validation checks require review."}</p></div></div><ul class="health-checks">${checks.map(([ok, label]) => `<li class="${ok ? "pass" : "unavailable"}"><span aria-hidden="true">${ok ? "✓" : "—"}</span>${escapeHtml(label)}</li>`).join("")}</ul>`;
+
+    renderRawDataPreview(datasetOverview.raw_data_preview);
   }
 
-  function reportColumnNames() {
-    const before = currentReport.before_profile || {};
-    if (Array.isArray(before.column_names) && before.column_names.length) return before.column_names.map(String);
-    return (before.column_profiles || []).map((column) => String(column.column_name));
+  function renderRawDataPreview(preview) {
+    const target = byId("overview-raw-preview");
+    const description = byId("overview-preview-description");
+    if (!preview || preview.available !== true) {
+      const privacyBlocked = preview && preview.unavailable_reason === "privacy_clearance_not_passed";
+      description.textContent = privacyBlocked
+        ? "Preview is withheld because privacy clearance did not pass."
+        : "Original row preview is unavailable for this analysis.";
+      target.innerHTML = `<div class="preview-unavailable"><strong>Preview unavailable</strong><span>${privacyBlocked ? "Raw values are never exposed without privacy clearance." : "The original ingestion data could not be safely prepared for display."}</span></div>`;
+      return;
+    }
+    const columns = Array.isArray(preview.columns) ? preview.columns : [];
+    const rows = Array.isArray(preview.rows) ? preview.rows : [];
+    const redacted = Array.isArray(preview.privacy_redacted_columns) ? preview.privacy_redacted_columns : [];
+    const boundedNote = preview.columns_truncated ? ` The preview is limited to the first ${columns.length} columns.` : "";
+    const privacyNote = redacted.length ? ` Privacy-protected values are redacted in ${redacted.length} column${redacted.length === 1 ? "" : "s"}.` : "";
+    description.textContent = `Showing ${rows.length} of ${number(preview.total_row_count).toLocaleString()} original rows.${boundedNote}${privacyNote}`;
+    if (!columns.length) {
+      target.innerHTML = `<div class="preview-unavailable"><strong>Dataset is empty</strong><span>No columns are available to preview.</span></div>`;
+      return;
+    }
+    const body = rows.length
+      ? rows.map((row, rowIndex) => `<tr><td>${rowIndex + 1}</td>${columns.map((_column, columnIndex) => previewCellMarkup(Array.isArray(row) ? row[columnIndex] : null)).join("")}</tr>`).join("")
+      : `<tr><td colspan="${columns.length + 1}"><div class="preview-unavailable"><strong>No data rows</strong><span>The ingested dataset contains columns but no rows.</span></div></td></tr>`;
+    target.innerHTML = `<div class="preview-scroll"><table><caption class="sr-only">First ${rows.length} original dataset rows</caption><thead><tr><th>#</th>${columns.map((name) => `<th>${escapeHtml(name)}</th>`).join("")}</tr></thead><tbody>${body}</tbody></table></div>`;
+  }
+
+  function previewCellMarkup(value) {
+    if (value === null || value === undefined) return '<td class="preview-missing" aria-label="Missing value">—</td>';
+    const text = typeof value === "object" ? JSON.stringify(value) : String(value);
+    const protectedValue = text === "[REDACTED]";
+    return `<td${protectedValue ? ' class="preview-redacted"' : ""} title="${escapeHtml(text)}">${escapeHtml(text)}</td>`;
+  }
+
+  function formatOverviewDate(value) {
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return "time unavailable";
+    return date.toLocaleString(undefined, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  }
+
+  function overviewIcon(name) {
+    const icons = {
+      database: '<svg aria-hidden="true" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v6c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 11v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg>',
+      table: '<svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18M15 3v18M3 15h18"/></svg>',
+      file: '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 13h6M9 17h6"/></svg>',
+      percent: '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 19 14-14"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/></svg>',
+    };
+    return icons[name] || "";
+  }
+
+  function renderSidebarCurrentDataset() {
+    const list = byId("sidebar-recents-list");
+    if (!list || !currentDataset) return;
+    list.innerHTML = `<button class="sidebar-recent-item active" type="button" aria-current="page" title="${escapeHtml(currentDataset.name)}"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v5h4"/></svg><span>${escapeHtml(currentDataset.name)}</span></button>`;
+    list.querySelector("button").addEventListener("click", () => { showState(STATES.WORKSPACE); activateTab("overview"); });
+  }
+
+  function setupDatasetExplorer() {
+    document.querySelectorAll("[data-dataset-version]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const version = button.dataset.datasetVersion;
+        if (version === datasetExplorer.version) return;
+        datasetExplorer.version = version;
+        datasetExplorer.offset = 0;
+        datasetExplorer.sortColumn = "";
+        datasetExplorer.sortDirection = "asc";
+        datasetExplorer.filterColumn = "";
+        datasetExplorer.filterValue = "";
+        byId("dataset-filter-value").value = "";
+        updateDatasetVersionControls();
+        loadDatasetPage();
+      });
+    });
+    byId("dataset-search").addEventListener("input", (event) => {
+      datasetExplorer.search = event.target.value;
+      datasetExplorer.offset = 0;
+      queueDatasetLoad();
+    });
+    byId("dataset-filter-column").addEventListener("change", (event) => {
+      datasetExplorer.filterColumn = event.target.value;
+      datasetExplorer.offset = 0;
+      const input = byId("dataset-filter-value");
+      input.disabled = !datasetExplorer.filterColumn;
+      if (!datasetExplorer.filterColumn) {
+        input.value = "";
+        datasetExplorer.filterValue = "";
+      }
+      loadDatasetPage();
+    });
+    byId("dataset-filter-value").addEventListener("input", (event) => {
+      datasetExplorer.filterValue = event.target.value;
+      datasetExplorer.offset = 0;
+      queueDatasetLoad();
+    });
+    byId("dataset-sort-column").addEventListener("change", (event) => {
+      datasetExplorer.sortColumn = event.target.value;
+      datasetExplorer.offset = 0;
+      byId("dataset-sort-direction").disabled = !datasetExplorer.sortColumn;
+      loadDatasetPage();
+    });
+    byId("dataset-sort-direction").addEventListener("click", () => {
+      datasetExplorer.sortDirection = datasetExplorer.sortDirection === "asc" ? "desc" : "asc";
+      datasetExplorer.offset = 0;
+      updateDatasetSortDirection();
+      loadDatasetPage();
+    });
+    byId("dataset-page-size").addEventListener("change", (event) => {
+      datasetExplorer.limit = Number(event.target.value);
+      datasetExplorer.offset = 0;
+      loadDatasetPage();
+    });
+    byId("dataset-prev-page").addEventListener("click", () => {
+      datasetExplorer.offset = Math.max(0, datasetExplorer.offset - datasetExplorer.limit);
+      loadDatasetPage();
+    });
+    byId("dataset-next-page").addEventListener("click", () => {
+      const total = datasetExplorer.payload ? number(datasetExplorer.payload.filtered_rows) : 0;
+      if (datasetExplorer.offset + datasetExplorer.limit < total) {
+        datasetExplorer.offset += datasetExplorer.limit;
+        loadDatasetPage();
+      }
+    });
+    byId("dataset-page-buttons").addEventListener("click", (event) => {
+      const button = event.target.closest("[data-dataset-page]");
+      if (!button) return;
+      datasetExplorer.offset = (Number(button.dataset.datasetPage) - 1) * datasetExplorer.limit;
+      loadDatasetPage();
+    });
+    byId("dataset-grid-head").addEventListener("click", (event) => {
+      const button = event.target.closest("[data-sort-dataset-column]");
+      if (!button) return;
+      if (datasetExplorer.sortColumn === button.dataset.sortDatasetColumn) {
+        datasetExplorer.sortDirection = datasetExplorer.sortDirection === "asc" ? "desc" : "asc";
+      } else {
+        datasetExplorer.sortColumn = button.dataset.sortDatasetColumn;
+        datasetExplorer.sortDirection = "asc";
+      }
+      datasetExplorer.offset = 0;
+      updateDatasetSortDirection();
+      loadDatasetPage();
+    });
+    updateDatasetVersionControls();
+  }
+
+  function queueDatasetLoad() {
+    if (datasetSearchTimer !== null) window.clearTimeout(datasetSearchTimer);
+    datasetSearchTimer = window.setTimeout(loadDatasetPage, 250);
+  }
+
+  function updateDatasetVersionControls() {
+    document.querySelectorAll("[data-dataset-version]").forEach((button) => {
+      const active = button.dataset.datasetVersion === datasetExplorer.version;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+    const toggle = byId("dataset-change-toggle");
+    toggle.hidden = datasetExplorer.version === "original";
+    byId("dataset-highlight-changes").checked = false;
+  }
+
+  function updateDatasetSortDirection() {
+    const button = byId("dataset-sort-direction");
+    const descending = datasetExplorer.sortDirection === "desc";
+    button.textContent = descending ? "↓" : "↑";
+    button.setAttribute("aria-label", descending ? "Sort descending" : "Sort ascending");
+    button.setAttribute("aria-pressed", String(descending));
+  }
+
+  async function loadDatasetPage() {
+    if (!currentRunId) return;
+    const token = ++datasetRequestToken;
+    const state = byId("dataset-state");
+    state.className = "dataset-state loading";
+    state.textContent = `Loading ${datasetExplorer.version} dataset…`;
+    try {
+      const payload = await LYNXApiClient.getDatasetPage(currentRunId, {
+        version: datasetExplorer.version,
+        offset: datasetExplorer.offset,
+        limit: datasetExplorer.limit,
+        search: datasetExplorer.search,
+        sort_column: datasetExplorer.sortColumn,
+        sort_direction: datasetExplorer.sortDirection,
+        filter_column: datasetExplorer.filterColumn,
+        filter_value: datasetExplorer.filterValue,
+      });
+      if (token !== datasetRequestToken || currentState !== STATES.DATASET) return;
+      datasetExplorer.payload = payload;
+      renderDatasetPage(payload);
+    } catch (error) {
+      if (token !== datasetRequestToken || currentState !== STATES.DATASET) return;
+      datasetExplorer.payload = null;
+      byId("dataset-grid-head").innerHTML = "";
+      byId("dataset-grid-body").innerHTML = "";
+      state.className = "dataset-state error";
+      state.textContent = error && error.message ? error.message : "Dataset rows could not be retrieved.";
+      renderDatasetPagination(0);
+    }
+  }
+
+  function renderDatasetPage(payload) {
+    const columns = Array.isArray(payload.columns) ? payload.columns : [];
+    const rows = Array.isArray(payload.rows) ? payload.rows : [];
+    const rowNumbers = Array.isArray(payload.row_numbers) ? payload.row_numbers : [];
+    populateDatasetColumnSelect(byId("dataset-filter-column"), "Filter column", columns, datasetExplorer.filterColumn);
+    populateDatasetColumnSelect(byId("dataset-sort-column"), "Sort column", columns, datasetExplorer.sortColumn);
+    byId("dataset-filter-value").disabled = !datasetExplorer.filterColumn;
+    byId("dataset-sort-direction").disabled = !datasetExplorer.sortColumn;
+    updateDatasetSortDirection();
+    const state = byId("dataset-state");
+    const empty = rows.length === 0;
+    state.className = "dataset-state";
+    state.textContent = empty
+      ? ((datasetExplorer.search || datasetExplorer.filterValue) ? "No rows match the current search or filter." : "This dataset version contains no rows.")
+      : "";
+    const sortIndicator = (column) => datasetExplorer.sortColumn === column
+      ? `<span aria-hidden="true">${datasetExplorer.sortDirection === "desc" ? "↓" : "↑"}</span>` : '<span aria-hidden="true">↕</span>';
+    byId("dataset-grid-head").innerHTML = columns.length
+      ? `<tr><th scope="col" class="dataset-row-number">#</th>${columns.map((column) => `<th scope="col"><button type="button" data-sort-dataset-column="${escapeHtml(column)}">${escapeHtml(column)}${sortIndicator(column)}</button></th>`).join("")}</tr>` : "";
+    byId("dataset-grid-body").innerHTML = rows.map((row, rowIndex) => `<tr><th scope="row" class="dataset-row-number">${escapeHtml(rowNumbers[rowIndex] || datasetExplorer.offset + rowIndex + 1)}</th>${columns.map((_column, columnIndex) => datasetCellMarkup(row[columnIndex])).join("")}</tr>`).join("");
+    renderDatasetPagination(number(payload.filtered_rows));
+    const changeToggle = byId("dataset-change-toggle");
+    changeToggle.title = payload.change_highlighting_reason || "Highlight verified cleaning changes";
+    byId("dataset-highlight-changes").disabled = !payload.change_highlighting_available;
+  }
+
+  function datasetCellMarkup(value) {
+    if (value === null || value === undefined || value === "") return '<td class="dataset-missing"><span aria-label="Missing value">—</span></td>';
+    const display = typeof value === "object" ? JSON.stringify(value) : String(value);
+    return `<td title="${escapeHtml(display)}">${escapeHtml(display)}</td>`;
+  }
+
+  function populateDatasetColumnSelect(select, label, columns, selected) {
+    select.innerHTML = `<option value="">${label}</option>${columns.map((column) => `<option value="${escapeHtml(column)}">${escapeHtml(column)}</option>`).join("")}`;
+    select.value = columns.includes(selected) ? selected : "";
+    if (!select.value && selected) {
+      if (select.id === "dataset-filter-column") datasetExplorer.filterColumn = "";
+      if (select.id === "dataset-sort-column") datasetExplorer.sortColumn = "";
+    }
+  }
+
+  function renderDatasetPagination(total) {
+    const from = total ? datasetExplorer.offset + 1 : 0;
+    const to = Math.min(datasetExplorer.offset + datasetExplorer.limit, total);
+    byId("dataset-row-range").textContent = `Rows ${from.toLocaleString()}–${to.toLocaleString()} of ${total.toLocaleString()}`;
+    const pageCount = Math.max(1, Math.ceil(total / datasetExplorer.limit));
+    const currentPage = Math.min(pageCount, Math.floor(datasetExplorer.offset / datasetExplorer.limit) + 1);
+    const start = Math.max(1, Math.min(currentPage - 2, pageCount - 4));
+    const end = Math.min(pageCount, start + 4);
+    const pages = [];
+    for (let page = start; page <= end; page += 1) pages.push(page);
+    byId("dataset-page-buttons").innerHTML = pages.map((page) => `<button type="button" data-dataset-page="${page}"${page === currentPage ? ' class="active" aria-current="page"' : ""}>${page}</button>`).join("");
+    byId("dataset-prev-page").disabled = currentPage <= 1;
+    byId("dataset-next-page").disabled = currentPage >= pageCount || total === 0;
+  }
+
+  function isResolvedSemantic(value) {
+    return value != null && !["", "unknown", "unresolved", "not_available"].includes(String(value).trim().toLocaleLowerCase());
+  }
+
+  function semanticLabel(value) {
+    return isResolvedSemantic(value) ? humanize(value) : "Unknown";
+  }
+
+  function actionLabel(actionId) {
+    const labels = {
+      no_op: "No action required", trim_whitespace: "Trim whitespace",
+      normalize_categorical_labels: "Normalize categorical labels", parse_dates: "Parse dates",
+      coerce_dtype: "Coerce data type", impute_missing: "Impute missing values",
+      mask_column: "Mask for privacy", add_missing_indicator: "Add missing indicator",
+      drop_duplicate_rows: "Remove duplicate rows", flag_rows: "Flag for review",
+    };
+    return labels[actionId] || humanize(actionId || "No action required");
+  }
+
+  function profileStatusLabel(status) {
+    const labels = {
+      completed: "Completed", partial: "Partial", unavailable: "Unavailable", failed: "Failed",
+      proposed: "Proposed", applied: "Applied", skipped: "Skipped", not_required: "Not Required",
+      requires_review: "Requires Review",
+    };
+    return labels[status] || humanize(status);
+  }
+
+  function legacyProfilingManifest(report) {
+    const profiles = Array.isArray((report.before_profile || {}).column_profiles) ? report.before_profile.column_profiles : [];
+    const semantics = Array.isArray((report.semantic_profile || {}).columns) ? report.semantic_profile.columns : [];
+    const semanticByName = new Map(semantics.map((item) => [String(item.column_name), item]));
+    return {
+      dataset_name: currentDataset ? currentDataset.name : "Dataset",
+      profiled_at: null,
+      profile_status: profiles.length ? "partial" : "unavailable",
+      total_columns: profiles.length,
+      semantic_roles_detected: [],
+      semantic_role_count: 0,
+      columns_requiring_cleaning: 0,
+      columns: profiles.map((profile, columnIndex) => {
+        const semantic = semanticByName.get(String(profile.column_name)) || {};
+        const missing = profile.missing || {};
+        const unique = profile.uniqueness || {};
+        return {
+          column_index: columnIndex, column_name: String(profile.column_name),
+          physical_dtype: profile.physical_dtype || null, semantic_role: semantic.semantic_role || null,
+          semantic_type: semantic.semantic_type || null, meaning: semantic.concept_description || null,
+          semantic_confidence: finiteNumber(semantic.confidence), non_null_count: number(profile.non_null_count),
+          missing_count: number(missing.count), missing_percentage: number(missing.percentage),
+          unique_count: number(unique.unique_count), primary_action: null, actions: [], status: "unavailable",
+          decision_explanation: semantic.reasoning_summary || semantic.concept_description || null,
+          explanation_source: semantic.reasoning_summary ? "semantic_reasoning" : semantic.concept_description ? "semantic_description" : "unavailable",
+          observed_examples: [], privacy_restricted: true,
+        };
+      }),
+    };
   }
 
   function initializeDataProfile() {
-    profileColumns = reportColumnNames();
-    selectedProfileColumn = profileColumns[0] || null;
-    const select = byId("profile-column-select");
-    select.innerHTML = profileColumns.map((column) => `<option value="${escapeHtml(column)}">${escapeHtml(column)}</option>`).join("");
-    renderColumnList(profileColumns);
-    renderSelectedColumn();
+    profilingManifest = pipeline1Result.profiling_manifest || legacyProfilingManifest(currentReport);
+    profileColumns = Array.isArray(profilingManifest.columns) ? profilingManifest.columns : [];
+    selectedProfileIndex = profileColumns.length ? number(profileColumns[0].column_index) : null;
+    selectedProfileColumn = profileColumns.length ? profileColumns[0].column_name : null;
+    profilePage = 1;
+    byId("column-search").value = "";
+    const roleFilter = byId("semantic-role-filter");
+    const roleValues = [...new Set(profileColumns.map((column) => isResolvedSemantic(column.semantic_role) ? String(column.semantic_role) : "__unknown__"))];
+    roleFilter.innerHTML = `<option value="">All roles</option>${roleValues.sort((a, b) => semanticLabel(a).localeCompare(semanticLabel(b))).map((role) => `<option value="${escapeHtml(role)}">${escapeHtml(role === "__unknown__" ? "Unknown" : semanticLabel(role))}</option>`).join("")}`;
+    roleFilter.value = "";
+    renderProfilingSummary();
+    renderProfilingWorkspace();
   }
 
   function setupProfileControls() {
-    byId("column-search").addEventListener("input", (event) => {
-      const query = event.target.value.trim().toLocaleLowerCase();
-      renderColumnList(profileColumns.filter((column) => column.toLocaleLowerCase().includes(query)));
+    byId("column-search").addEventListener("input", () => { profilePage = 1; renderProfilingWorkspace(); });
+    byId("semantic-role-filter").addEventListener("change", () => { profilePage = 1; renderProfilingWorkspace(); });
+    byId("semantic-manifest-body").addEventListener("click", (event) => {
+      const row = event.target.closest("tr[data-column-index]");
+      if (row) selectProfileColumn(Number(row.dataset.columnIndex));
     });
-    byId("profile-column-select").addEventListener("change", (event) => selectProfileColumn(event.target.value));
+    byId("semantic-manifest-body").addEventListener("keydown", (event) => {
+      const row = event.target.closest("tr[data-column-index]");
+      if (row && ["Enter", " "].includes(event.key)) {
+        event.preventDefault();
+        selectProfileColumn(Number(row.dataset.columnIndex));
+      }
+    });
+    byId("manifest-page-prev").addEventListener("click", () => { if (profilePage > 1) { profilePage -= 1; renderProfilingWorkspace(); } });
+    byId("manifest-page-next").addEventListener("click", () => {
+      const pages = Math.max(1, Math.ceil(filteredProfileColumns().length / PROFILE_PAGE_SIZE));
+      if (profilePage < pages) { profilePage += 1; renderProfilingWorkspace(); }
+    });
+    byId("manifest-page-buttons").addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-page]");
+      if (button) { profilePage = Number(button.dataset.page); renderProfilingWorkspace(); }
+    });
   }
 
-  function renderColumnList(columns) {
-    byId("column-count").textContent = `${columns.length.toLocaleString()} of ${profileColumns.length.toLocaleString()} columns`;
-    byId("column-list").innerHTML = columns.length ? columns.map((column) => `<button class="column-option ${column === selectedProfileColumn ? "active" : ""}" type="button" role="option" aria-selected="${column === selectedProfileColumn}" data-column="${escapeHtml(column)}" title="${escapeHtml(column)}">${escapeHtml(column)}</button>`).join("") : `<p class="empty-inline">No matching columns.</p>`;
-    byId("column-list").querySelectorAll(".column-option").forEach((button) => button.addEventListener("click", () => selectProfileColumn(button.dataset.column)));
+  function filteredProfileColumns() {
+    const query = byId("column-search").value.trim().toLocaleLowerCase();
+    const role = byId("semantic-role-filter").value;
+    return profileColumns.filter((column) => {
+      const matchesName = String(column.column_name).toLocaleLowerCase().includes(query);
+      const normalizedRole = isResolvedSemantic(column.semantic_role) ? String(column.semantic_role) : "__unknown__";
+      return matchesName && (!role || normalizedRole === role);
+    });
   }
 
-  function selectProfileColumn(column) {
-    if (!profileColumns.includes(column)) return;
-    selectedProfileColumn = column;
-    byId("profile-column-select").value = column;
-    renderColumnList(profileColumns.filter((name) => name.toLocaleLowerCase().includes(byId("column-search").value.trim().toLocaleLowerCase())));
+  function formatProfileTimestamp(value) {
+    if (!value) return "Profiling time unavailable";
+    const parsed = new Date(value);
+    if (Number.isNaN(parsed.getTime())) return "Profiling time unavailable";
+    return `Profiled on ${parsed.toLocaleString(undefined, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}`;
+  }
+
+  function renderProfilingSummary() {
+    const manifest = profilingManifest || {};
+    byId("profiling-dataset-name").textContent = manifest.dataset_name || (currentDataset && currentDataset.name) || "Dataset";
+    byId("profiling-dataset-name").title = byId("profiling-dataset-name").textContent;
+    byId("profiling-timestamp").querySelector("span").textContent = formatProfileTimestamp(manifest.profiled_at);
+    const status = manifest.profile_status || "unavailable";
+    byId("profiling-summary").innerHTML = `
+      <article class="overview-kpi"><span class="kpi-icon purple" aria-hidden="true">${overviewIcon("table")}</span><div><span>Total Columns</span><strong>${number(manifest.total_columns).toLocaleString()}</strong><small>Analyzed in dataset</small></div></article>
+      <article class="overview-kpi"><span class="kpi-icon purple" aria-hidden="true">${overviewIcon("database")}</span><div><span>Semantic Roles Detected</span><strong>${number(manifest.semantic_role_count).toLocaleString()}</strong><small>Resolved roles only</small></div></article>
+      <article class="overview-kpi"><span class="kpi-icon orange" aria-hidden="true">${overviewIcon("percent")}</span><div><span>Columns Requiring Cleaning</span><strong>${number(manifest.columns_requiring_cleaning).toLocaleString()}</strong><small>Need attention</small></div></article>
+      <article class="overview-kpi"><span class="kpi-icon ${status === "completed" ? "green" : status === "failed" ? "red" : "orange"}" aria-hidden="true">${status === "completed" ? "✓" : status === "failed" ? "×" : "!"}</span><div><span>Profile Status</span><strong class="profile-status-value">${escapeHtml(profileStatusLabel(status))}</strong><small>${status === "completed" ? "All columns analyzed" : status === "partial" ? "Some evidence is incomplete" : "Profiling evidence unavailable"}</small></div></article>`;
+  }
+
+  function renderProfilingWorkspace() {
+    const columns = filteredProfileColumns();
+    const pageCount = Math.max(1, Math.ceil(columns.length / PROFILE_PAGE_SIZE));
+    profilePage = Math.min(Math.max(1, profilePage), pageCount);
+    const start = (profilePage - 1) * PROFILE_PAGE_SIZE;
+    const pageRows = columns.slice(start, start + PROFILE_PAGE_SIZE);
+    if (columns.length && !columns.some((column) => number(column.column_index) === selectedProfileIndex)) {
+      selectedProfileIndex = number(columns[0].column_index);
+      selectedProfileColumn = columns[0].column_name;
+    }
+    const body = byId("semantic-manifest-body");
+    body.innerHTML = pageRows.map((column) => {
+      const selected = number(column.column_index) === selectedProfileIndex;
+      const action = column.primary_action ? actionLabel(column.primary_action.action_id) : "No action required";
+      return `<tr class="${selected ? "selected" : ""}" tabindex="0" aria-selected="${selected}" data-column-index="${number(column.column_index)}"><td>${number(column.column_index) + 1}</td><td class="manifest-column-name" title="${escapeHtml(column.column_name)}">${escapeHtml(column.column_name)}</td><td>${escapeHtml(column.physical_dtype || "Unknown")}</td><td>${escapeHtml(semanticLabel(column.semantic_role))}</td><td>${escapeHtml(semanticLabel(column.semantic_type))}</td><td class="manifest-action" title="${escapeHtml(action)}">${escapeHtml(action)}</td><td><span class="profile-status ${escapeHtml(column.status || "unavailable")}">${escapeHtml(profileStatusLabel(column.status || "unavailable"))}</span></td></tr>`;
+    }).join("");
+    byId("semantic-manifest-empty").hidden = columns.length !== 0;
+    body.closest("table").hidden = columns.length === 0;
+    const end = Math.min(start + pageRows.length, columns.length);
+    byId("column-count").textContent = columns.length ? `Showing ${start + 1}–${end} of ${columns.length.toLocaleString()} columns` : "No matching columns";
+    byId("manifest-page-prev").disabled = profilePage <= 1;
+    byId("manifest-page-next").disabled = profilePage >= pageCount;
+    const firstPage = Math.max(1, Math.min(profilePage - 2, pageCount - 4));
+    const lastPage = Math.min(pageCount, firstPage + 4);
+    byId("manifest-page-buttons").innerHTML = Array.from({ length: lastPage - firstPage + 1 }, (_, offset) => firstPage + offset).map((page) => `<button type="button" class="${page === profilePage ? "active" : ""}" data-page="${page}" aria-current="${page === profilePage ? "page" : "false"}">${page}</button>`).join("");
     renderSelectedColumn();
   }
 
+  function selectProfileColumn(columnIndex) {
+    const column = profileColumns.find((item) => number(item.column_index) === number(columnIndex));
+    if (!column) return;
+    selectedProfileIndex = number(column.column_index);
+    selectedProfileColumn = column.column_name;
+    renderProfilingWorkspace();
+  }
+
   function renderSelectedColumn() {
-    if (!selectedProfileColumn) {
-      byId("column-profile").innerHTML = `<p class="empty-inline">No columns are available.</p>`;
-      byId("column-findings").innerHTML = `<p class="empty-inline">No findings are available.</p>`;
+    const profile = profileColumns.find((item) => number(item.column_index) === selectedProfileIndex);
+    if (!profile) {
+      byId("column-profile").innerHTML = `<p class="empty-inline">No column profile is available for the current filter.</p>`;
       return;
     }
-    const profiles = ((currentReport.before_profile || {}).column_profiles) || [];
-    const semantics = ((currentReport.semantic_profile || {}).columns) || [];
-    const profile = profiles.find((item) => item.column_name === selectedProfileColumn) || {};
-    const semantic = semantics.find((item) => item.column_name === selectedProfileColumn) || {};
-    const missing = profile.missing || {};
-    const unique = profile.uniqueness || {};
-    const stats = profile.numeric_statistics || profile.statistics || {};
-    const scalarStats = Object.entries(stats).filter(([, value]) => ["string", "number", "boolean"].includes(typeof value)).slice(0, 6);
-    const statItems = [
-      ["Physical type", profile.physical_dtype || "Not available"], ["Semantic type", semantic.semantic_type || "Not available"],
-      ["Semantic role", semantic.semantic_role || "Not available"], ["Non-null values", number(profile.non_null_count).toLocaleString()],
-      ["Missing", `${number(missing.count).toLocaleString()} (${number(missing.percentage).toFixed(2)}%)`], ["Unique values", number(unique.unique_count).toLocaleString()],
-      ...scalarStats.map(([key, value]) => [humanize(key), String(value)]),
-    ];
-    const samples = Array.isArray(profile.sample_values) ? profile.sample_values.slice(0, 8) : [];
-    byId("column-profile").innerHTML = `<div class="column-title-row"><div><p class="eyebrow">Selected column</p><h2 title="${escapeHtml(selectedProfileColumn)}">${escapeHtml(selectedProfileColumn)}</h2></div><span class="type-tag">${escapeHtml(profile.physical_dtype || "Unknown type")}</span></div><div class="profile-definition"><h3>Meaning</h3><p>${escapeHtml(semantic.concept_description || "No semantic description was available for this column.")}</p></div><div class="profile-stats">${statItems.map(([label, value]) => `<div class="profile-stat"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`).join("")}</div>${samples.length ? `<div class="sample-block"><h3>Observed examples</h3><div class="sample-values">${samples.map((value) => `<code title="${escapeHtml(value)}">${escapeHtml(value)}</code>`).join("")}</div></div>` : ""}`;
-
-    const issues = (currentReport.issues || []).filter((item) => Array.isArray(item.target_columns) && item.target_columns.includes(selectedProfileColumn));
-    const decisions = (currentReport.decisions || []).filter((item) => Array.isArray(item.target_columns) && item.target_columns.includes(selectedProfileColumn));
-    const findings = [
-      ...issues.map((issue) => ({ title: humanize(issue.issue_type), detail: `${number(issue.affected_count).toLocaleString()} affected (${number(issue.affected_percentage).toFixed(2)}%)` })),
-      ...decisions.map((decision) => ({ title: humanize(decision.proposed_action || decision.decision_type), detail: decision.rationale || "Preparation decision recorded." })),
-    ];
-    byId("column-findings").innerHTML = findings.length ? findings.slice(0, 12).map((finding) => `<div class="finding"><strong>${escapeHtml(finding.title)}</strong><span>${escapeHtml(finding.detail)}</span></div>`).join("") : `<p class="empty-inline">No column-specific issues or changes were recorded.</p>`;
+    const total = number(profile.non_null_count) + number(profile.missing_count);
+    const nonNullPercentage = total ? (number(profile.non_null_count) / total) * 100 : 0;
+    const action = profile.primary_action;
+    const actionText = action ? actionLabel(action.action_id) : "No action required";
+    const explanation = profile.decision_explanation || "Explanation unavailable";
+    const examples = Array.isArray(profile.observed_examples) ? profile.observed_examples : [];
+    const privacyMessage = profile.privacy_restricted && !examples.length
+      ? "Observed examples are withheld by the privacy policy."
+      : "No safe observed examples are available.";
+    const actionHistory = Array.isArray(profile.actions) && profile.actions.length > 1
+      ? `<details class="action-history"><summary>View all ${profile.actions.length} decisions</summary>${profile.actions.map((item) => `<div><span>${escapeHtml(actionLabel(item.action_id))}</span><span class="profile-status ${escapeHtml(item.status)}">${escapeHtml(profileStatusLabel(item.status))}</span>${item.rationale ? `<p>${escapeHtml(item.rationale)}</p>` : ""}</div>`).join("")}</details>` : "";
+    byId("column-profile").innerHTML = `
+      <div class="column-title-row"><div><p class="eyebrow">Selected column</p><h2 title="${escapeHtml(profile.column_name)}">${escapeHtml(profile.column_name)}</h2></div><span class="type-tag">${escapeHtml(profile.physical_dtype || "Unknown")}</span></div>
+      <div class="profile-definition"><h3>Meaning</h3><p>${escapeHtml(profile.meaning || "No semantic description was available for this column.")}</p></div>
+      <div class="profile-stats"><div class="profile-stat"><span>Physical type</span><strong>${escapeHtml(profile.physical_dtype || "Unknown")}</strong></div><div class="profile-stat"><span>Semantic role</span><strong>${escapeHtml(semanticLabel(profile.semantic_role))}</strong></div><div class="profile-stat"><span>Semantic type</span><strong>${escapeHtml(semanticLabel(profile.semantic_type))}</strong></div><div class="profile-stat"><span>Non-null values</span><strong>${number(profile.non_null_count).toLocaleString()} (${nonNullPercentage.toFixed(1)}%)</strong></div><div class="profile-stat"><span>Missing values</span><strong>${number(profile.missing_count).toLocaleString()} (${number(profile.missing_percentage).toFixed(1)}%)</strong></div><div class="profile-stat"><span>Unique values</span><strong>${number(profile.unique_count).toLocaleString()}</strong></div><div class="profile-stat assigned-action"><span>Assigned action</span><strong>${escapeHtml(actionText)}</strong><span class="profile-status ${escapeHtml(profile.status || "unavailable")}">${escapeHtml(profileStatusLabel(profile.status || "unavailable"))}</span></div></div>
+      ${actionHistory}
+      <section class="decision-explanation"><h3>Decision Explanation</h3><p>${escapeHtml(explanation)}</p><small>Evidence source: ${escapeHtml(humanize(profile.explanation_source || "unavailable"))}</small></section>
+      <section class="sample-block"><h3>Observed Examples</h3>${examples.length ? `<div class="sample-values">${examples.map((value) => `<code title="${escapeHtml(value)}">${escapeHtml(value == null ? "Missing" : value)}</code>`).join("")}</div>` : `<p class="profile-empty-copy">${escapeHtml(privacyMessage)}</p>`}</section>`;
   }
 
   function setTargetColumns(columns) {
@@ -480,7 +1157,102 @@
     byId("btn-run-prediction").title = availability.enabled
       ? "Select a target column to run prediction."
       : availability.message;
+    currentTaskResolution = null;
+    updatePredictionSetup("initial");
     showPredictionSubView("target");
+  }
+
+  function predictionTaskLabel(resolution) {
+    if (!resolution || resolution.status !== "resolved") return "Not detected";
+    if (resolution.task_type === "classification") {
+      if (resolution.classification_type === "binary") return "Binary Classification";
+      if (resolution.classification_type === "multiclass") return "Multiclass Classification";
+      return "Classification";
+    }
+    return resolution.task_type === "regression" ? "Regression" : "Unsupported";
+  }
+
+  function updatePredictionSetup(state, message = "") {
+    const status = byId("prediction-status-label");
+    const help = byId("prediction-status-help");
+    const task = byId("prediction-task-type");
+    const taskHelp = byId("prediction-task-help");
+    const run = byId("btn-run-prediction");
+    const label = byId("prediction-run-label");
+    const selected = Boolean(byId("prediction-target").value);
+    const states = {
+      initial: ["Not Started", "Choose a target to begin"],
+      resolving: ["Not Started", "Detecting the target task"],
+      ready: ["Ready", "Target is valid for prediction"],
+      running: ["Running", "Model training and evaluation in progress"],
+      completed: ["Completed", "Model trained and evaluated"],
+      failed: ["Failed", message || "Prediction could not be completed"],
+      unsupported: ["Unsupported", message || "This target cannot be predicted safely"],
+    };
+    const content = states[state] || states.initial;
+    status.textContent = content[0];
+    help.textContent = content[1];
+    task.textContent = state === "resolving" ? "Detecting…" : predictionTaskLabel(currentTaskResolution);
+    taskHelp.textContent = currentTaskResolution && currentTaskResolution.explanation
+      ? currentTaskResolution.explanation
+      : (selected ? "Task detection uses the prepared target" : "Select a target to detect its task");
+    run.disabled = !predictionEligible || !selected || !currentTaskResolution || currentTaskResolution.status !== "resolved" || state === "running" || state === "resolving";
+    label.textContent = state === "completed" ? "Run Again" : "Run Prediction";
+  }
+
+  async function resolveSelectedPredictionTarget(target) {
+    const token = ++predictionResolutionToken;
+    updatePredictionSetup("resolving");
+    try {
+      if (!globalThis.LYNXApiClient || typeof globalThis.LYNXApiClient.resolvePredictionTarget !== "function") {
+        const integrationError = new Error("Prediction target validation is temporarily unavailable. Refresh the page and try again.");
+        integrationError.code = "prediction_client_incompatible";
+        throw integrationError;
+      }
+      const resolution = await globalThis.LYNXApiClient.resolvePredictionTarget(currentRunId, target);
+      if (token !== predictionResolutionToken || byId("prediction-target").value !== target) return;
+      currentTaskResolution = resolution;
+      if (resolution.status === "resolved") {
+        byId("prediction-eligibility").textContent = "Target selected. Ready to run prediction.";
+        updatePredictionSetup("ready");
+      } else {
+        const explanation = resolution.explanation || "This target does not support a reliable prediction task.";
+        byId("prediction-eligibility").textContent = explanation;
+        updatePredictionSetup("unsupported", explanation);
+      }
+    } catch (error) {
+      if (token !== predictionResolutionToken) return;
+      currentTaskResolution = null;
+      const failure = predictionTargetResolutionFailure(error);
+      byId("prediction-eligibility").textContent = failure.message;
+      updatePredictionSetup(failure.state, failure.message);
+    }
+  }
+
+  function predictionTargetResolutionFailure(error) {
+    const code = error && typeof error.code === "string" ? error.code : "prediction_client_error";
+    const unsupportedCodes = new Set([
+      "invalid_target", "target_not_found", "task_type_unresolved",
+      "target_unresolved", "prediction_not_eligible",
+    ]);
+    if (unsupportedCodes.has(code)) {
+      return {
+        state: "unsupported",
+        message: error && error.message ? error.message : "This target cannot be used for prediction.",
+      };
+    }
+    if (code === "network_error" || code === "network_unavailable") {
+      return {
+        state: "failed",
+        message: error.message || "The LYNX service could not be reached. Check your connection and try again.",
+      };
+    }
+    return {
+      state: "failed",
+      message: code === "prediction_client_incompatible"
+        ? "Prediction target validation is temporarily unavailable. Refresh the page and try again."
+        : "Target validation could not be completed. Please try again.",
+    };
   }
 
   function setupPredictionBoundary() {
@@ -491,35 +1263,34 @@
 
     select.addEventListener("change", () => {
       const selected = select.value;
+      predictionResolutionToken += 1;
+      if (predictionController) predictionController.cancel();
       currentPredictionTarget = selected;
+      currentPredictionId = null;
+      currentPredictionResult = null;
+      currentTaskResolution = null;
+      byId("prediction-last-run").hidden = true;
+      showPredictionSubView("target");
       if (!selected) {
-        runBtn.disabled = true;
         byId("prediction-eligibility").textContent = predictionEligible
           ? "Select a target column to predict."
           : LYNXPipeline1Controller.eligibilityMessage(pipeline1Result).message;
+        updatePredictionSetup("initial");
       } else if (!predictionEligible) {
-        runBtn.disabled = true;
         byId("prediction-eligibility").textContent = LYNXPipeline1Controller.eligibilityMessage(pipeline1Result).message;
+        updatePredictionSetup("unsupported", byId("prediction-eligibility").textContent);
       } else {
-        runBtn.disabled = false;
-        byId("prediction-eligibility").textContent = "Target selected. Ready to run prediction.";
+        resolveSelectedPredictionTarget(selected);
       }
     });
 
     runBtn.addEventListener("click", (event) => event.preventDefault());
     runBtn.addEventListener("click", beginPrediction);
 
-    const runAnotherBtn = byId("btn-prediction-run-another");
-    if (runAnotherBtn) {
-      runAnotherBtn.addEventListener("click", () => {
-        showPredictionSubView("target");
-      });
-    }
-
     const retryBtn = byId("btn-prediction-retry");
     if (retryBtn) {
       retryBtn.addEventListener("click", () => {
-        showPredictionSubView("target");
+        beginPrediction();
       });
     }
 
@@ -542,11 +1313,12 @@
 
   function beginPrediction() {
     const target = byId("prediction-target").value;
-    if (!target || !predictionEligible || !currentRunId || !predictionController) return;
+    if (!target || !predictionEligible || !currentRunId || !predictionController || !currentTaskResolution || currentTaskResolution.status !== "resolved") return;
     currentPredictionTarget = target;
     byId("prediction-waiting-target-name").textContent = target;
     byId("prediction-target").disabled = true;
     byId("btn-run-prediction").disabled = true;
+    updatePredictionSetup("running");
     showPredictionSubView("waiting");
     predictionController.start(currentRunId, target);
   }
@@ -561,7 +1333,7 @@
         showPredictionSubView("waiting");
       },
       onStatus() {
-        // Minimal neutral presentation maintained
+        updatePredictionSetup("running");
       },
       onResult(result, initialRows) {
         stopPredictionElapsed();
@@ -569,6 +1341,7 @@
         const targetSelect = byId("prediction-target");
         if (targetSelect) targetSelect.disabled = false;
         renderPredictionResults(result, initialRows);
+        updatePredictionSetup("completed");
         showPredictionSubView("results");
       },
       onFailure(error) {
@@ -577,18 +1350,19 @@
         if (targetSelect) targetSelect.disabled = false;
         const message = error && error.message ? error.message : "Prediction could not be completed.";
         byId("prediction-error-text").textContent = message;
+        updatePredictionSetup("failed", message);
         showPredictionSubView("error");
       },
     });
   }
 
   function showPredictionSubView(view) {
-    const targetSection = byId("prediction-target-section");
+    const emptySection = byId("prediction-empty-section");
     const waitingSection = byId("prediction-waiting-section");
     const resultsSection = byId("prediction-results-section");
     const errorSection = byId("prediction-error-section");
 
-    if (targetSection) targetSection.hidden = view !== "target";
+    if (emptySection) emptySection.hidden = view !== "target";
     if (waitingSection) waitingSection.hidden = view !== "waiting";
     if (resultsSection) resultsSection.hidden = view !== "results";
     if (errorSection) errorSection.hidden = view !== "error";
@@ -663,7 +1437,17 @@
 
   function renderPredictionResults(result, initialRows) {
     byId("pred-summary-target").textContent = result.target || currentPredictionTarget || "—";
-    byId("pred-summary-task").textContent = humanize(result.task_type);
+    byId("pred-summary-task").textContent = predictionTaskLabel({
+      status: "resolved", task_type: result.task_type,
+      classification_type: result.classification_type,
+    });
+    if (result.completed_at) {
+      const date = new Date(result.completed_at);
+      if (!Number.isNaN(date.getTime())) {
+        byId("prediction-last-run").hidden = false;
+        byId("prediction-last-run").querySelector("span").textContent = `Last predicted ${date.toLocaleString(undefined, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}`;
+      }
+    }
 
     const testRowsCount = result.predictions && Number.isFinite(result.predictions.row_count)
       ? result.predictions.row_count
@@ -682,15 +1466,16 @@
       const calibration = (result.metrics && result.metrics.calibration) || {};
 
       metricsContainer.innerHTML = [
-        ["Balanced Accuracy", formatPercent(primary.balanced_accuracy)],
-        ["F1 Score", formatPercent(primary.f1_macro)],
-        ["ROC AUC", formatPercent(primary.roc_auc)],
-        ["Accuracy", formatPercent(primary.accuracy)],
-      ].map(([label, val]) => `
-        <div class="metric-card">
+        ["Accuracy", formatPercent(primary.accuracy), "▥"],
+        ["F1 Score", formatPercent(primary.f1_macro), "▤"],
+        ["ROC AUC", formatPercent(primary.roc_auc), "⌁"],
+        ["Balanced Accuracy", formatPercent(primary.balanced_accuracy), "⚖"],
+      ].map(([label, val, icon]) => `
+        <article class="metric-card"><span class="metric-icon" aria-hidden="true">${icon}</span><div>
           <span class="metric-card-label">${escapeHtml(label)}</span>
           <strong class="metric-card-value">${escapeHtml(val)}</strong>
-        </div>
+          ${label === "F1 Score" ? "<small>Macro average</small>" : ""}
+        </div></article>
       `).join("");
 
       const secondaryItems = [];
@@ -723,24 +1508,25 @@
       const vizSection = byId("prediction-viz-section");
       const vizContainer = byId("prediction-viz-container");
       if (Array.isArray(confusion) && confusion.length && Array.isArray(confusion[0])) {
-        byId("prediction-viz-title").textContent = "Confusion matrix";
+        byId("prediction-viz-title").textContent = "Confusion Matrix";
+        byId("prediction-viz-subtitle").textContent = "Rows: Actual, Columns: Predicted";
         vizSection.hidden = false;
-        vizContainer.innerHTML = renderConfusionMatrix(confusion);
+        vizContainer.innerHTML = renderConfusionMatrix(confusion, result.class_labels);
       } else {
         vizSection.hidden = true;
       }
     } else {
       const metrics = result.metrics || {};
       metricsContainer.innerHTML = [
-        ["R²", formatDecimal(metrics.r2, 4)],
-        ["RMSE", formatAdaptiveNumber(metrics.rmse)],
-        ["MAE", formatAdaptiveNumber(metrics.mae)],
-        ["NRMSE", formatAdaptiveNumber(metrics.nrmse)],
-      ].map(([label, val]) => `
-        <div class="metric-card">
+        ["R²", formatDecimal(metrics.r2, 4), "R²"],
+        ["RMSE", formatAdaptiveNumber(metrics.rmse), "⌁"],
+        ["MAE", formatAdaptiveNumber(metrics.mae), "±"],
+        ["NRMSE", formatAdaptiveNumber(metrics.nrmse), "%"],
+      ].map(([label, val, icon]) => `
+        <article class="metric-card"><span class="metric-icon" aria-hidden="true">${icon}</span><div>
           <span class="metric-card-label">${escapeHtml(label)}</span>
           <strong class="metric-card-value">${escapeHtml(val)}</strong>
-        </div>
+        </div></article>
       `).join("");
       secondaryWrapper.innerHTML = "";
 
@@ -748,7 +1534,8 @@
       const vizContainer = byId("prediction-viz-container");
       const rows = initialRows && Array.isArray(initialRows.rows) ? initialRows.rows : [];
       if (rows.length) {
-        byId("prediction-viz-title").textContent = "Actual vs. predicted";
+        byId("prediction-viz-title").textContent = "Actual vs. Predicted";
+        byId("prediction-viz-subtitle").textContent = "Held-out values on the original target scale";
         vizSection.hidden = false;
         vizContainer.innerHTML = renderRegressionScatterPlot(rows);
       } else {
@@ -756,22 +1543,40 @@
       }
     }
 
+    renderFeatureImportance(result.feature_importance);
     renderPredictionTable(isClassification, initialRows);
   }
 
-  function renderConfusionMatrix(matrix) {
+  function renderFeatureImportance(importance) {
+    const target = byId("prediction-feature-importance");
+    if (!importance || importance.available !== true || !Array.isArray(importance.features) || !importance.features.length) {
+      const reason = importance && importance.reason ? importance.reason : "Reliable feature importance is unavailable for this model.";
+      target.innerHTML = `<div class="prediction-unavailable"><strong>Feature importance unavailable</strong><p>${escapeHtml(reason)}</p></div>`;
+      return;
+    }
+    const values = importance.features.filter((item) => Number.isFinite(Number(item.importance)));
+    const max = Math.max(...values.map((item) => Math.max(0, Number(item.importance))), 0);
+    target.innerHTML = `<div class="feature-bars">${values.map((item) => {
+      const value = Number(item.importance);
+      const width = max > 0 ? Math.max(2, Math.max(0, value) / max * 100) : 2;
+      return `<div class="feature-bar-row"><span title="${escapeHtml(item.feature)}">${escapeHtml(item.feature)}</span><div class="feature-bar-track"><i style="width:${width.toFixed(2)}%"></i></div><strong>${escapeHtml(formatAdaptiveNumber(value))}</strong></div>`;
+    }).join("")}</div><p class="feature-method"><strong>Method:</strong> ${escapeHtml(importance.interpretation || humanize(importance.method))} Based on ${number(importance.sample_rows).toLocaleString()} held-out rows and ${number(importance.repeats)} permutations per feature.</p>`;
+  }
+
+  function renderConfusionMatrix(matrix, labels) {
     const numRows = matrix.length;
     const numCols = matrix[0].length;
     let html = `<div class="confusion-matrix-wrapper"><table class="confusion-matrix-table">`;
     html += `<caption>Confusion Matrix (Rows: Actual, Columns: Predicted)</caption>`;
     html += `<thead><tr><th scope="col">Actual \\ Predicted</th>`;
+    const classLabels = Array.isArray(labels) && labels.length === numCols ? labels : Array.from({ length: numCols }, (_item, index) => index);
     for (let c = 0; c < numCols; c++) {
-      html += `<th scope="col">Predicted ${c}</th>`;
+      html += `<th scope="col">${escapeHtml(classLabels[c])}</th>`;
     }
     html += `</tr></thead><tbody>`;
 
     for (let r = 0; r < numRows; r++) {
-      html += `<tr><th scope="row">Actual ${r}</th>`;
+      html += `<tr><th scope="row">${escapeHtml(classLabels[r] != null ? classLabels[r] : r)}</th>`;
       for (let c = 0; c < numCols; c++) {
         const cell = matrix[r][c];
         const isDiag = r === c;
@@ -922,9 +1727,7 @@
     });
     bindConversationSurface("insights", insightConversation);
     bindConversationSurface("visualization", visualizationConversation);
-    document.querySelectorAll("[data-viz-mode]").forEach((button) => {
-      button.addEventListener("click", () => setVisualizationMode(button.dataset.vizMode));
-    });
+    byId("btn-retry-insights-landing").addEventListener("click", () => loadInsightsLanding(true));
     byId("automatic-visualization-status").addEventListener("click", (event) => {
       if (event.target.closest("[data-retry-visualizations]")) loadAutomaticVisualizations(true);
     });
@@ -939,58 +1742,109 @@
       if (!text.trim()) return;
       input.value = "";
       conversation.submit(text);
+      updateConversationComposer(prefix, conversation.getState());
     });
+    input.addEventListener("input", () => updateConversationComposer(prefix, conversation.getState()));
     input.addEventListener("keydown", (event) => {
       if (event.key === "Enter" && !event.shiftKey) {
         event.preventDefault();
         form.requestSubmit();
       }
     });
-    byId(`${prefix}-messages`).addEventListener("click", (event) => {
+    const submitChoice = (event) => {
       const choice = event.target.closest("[data-conversation-choice], [data-prompt]");
       if (!choice) return;
       conversation.submit(choice.dataset.conversationChoice || choice.dataset.prompt);
-    });
-  }
-
-  function setVisualizationMode(mode) {
-    const ask = mode === "ask";
-    document.querySelectorAll("[data-viz-mode]").forEach((button) => {
-      const active = button.dataset.vizMode === mode;
-      button.classList.toggle("active", active);
-      button.setAttribute("aria-selected", String(active));
-    });
-    byId("visualization-recommended").hidden = ask;
-    byId("visualization-recommended").classList.toggle("active", !ask);
-    byId("visualization-ask").hidden = !ask;
-    byId("visualization-ask").classList.toggle("active", ask);
-    if (ask) byId("visualization-input").focus();
+    };
+    byId(`${prefix}-messages`).addEventListener("click", submitChoice);
+    if (prefix === "insights") byId("insights-suggested-questions").addEventListener("click", submitChoice);
   }
 
   function conversationStartMarkup(prefix) {
     const insight = prefix === "insights";
-    const prompts = insight
-      ? ["Which category has the highest value?", "What is the average value?", "How many records are represented?"]
-      : ["Show a metric by category", "Plot a metric over time", "Compare two numeric fields"];
-    return `<div class="conversation-start"><strong>${insight ? "Questions you can ask" : "Ask LYNX to create a specific view"}</strong><div class="prompt-suggestions">${prompts.map((prompt) => `<button type="button" data-prompt="${escapeHtml(prompt)}">${escapeHtml(prompt)}</button>`).join("")}</div></div>`;
+    if (insight) return `<div class="insights-empty-conversation"><strong>Ask LYNX about this dataset</strong><p>Choose a suggested question or enter your own factual question below.</p></div>`;
+    return `<div class="custom-visualization-empty"><strong>No custom charts yet</strong><p>Describe a supported comparison, trend, relationship, or distribution.</p></div>`;
+  }
+
+  async function loadInsightsLanding(force = false) {
+    if (!currentRunId || (!force && insightsLandingDataset === currentRunId)) return;
+    const requestedDataset = currentRunId;
+    insightsLandingDataset = requestedDataset;
+    renderInsightsLanding("loading");
+    try {
+      const payload = await LYNXApiClient.getInsightsLanding(requestedDataset);
+      if (currentRunId !== requestedDataset) return;
+      insightsLanding = payload;
+      renderInsightsLanding("ready");
+    } catch (_error) {
+      if (currentRunId === requestedDataset) {
+        insightsLandingDataset = null;
+        insightsLanding = null;
+        renderInsightsLanding("error");
+      }
+    }
+  }
+
+  function renderInsightsLanding(state) {
+    const summary = byId("insights-summary-copy");
+    const suggestions = byId("insights-suggested-questions");
+    const retry = byId("btn-retry-insights-landing");
+    if (!summary || !suggestions || !retry) return;
+    applySuggestionVisibility();
+    retry.hidden = state !== "error";
+    if (state === "loading") {
+      summary.innerHTML = "<p>Preparing a grounded summary of this dataset…</p>";
+      suggestions.innerHTML = '<span class="insights-loading-copy">Preparing questions supported by this dataset…</span>';
+      return;
+    }
+    if (state === "error" || !insightsLanding) {
+      summary.innerHTML = "<p>The dataset summary is temporarily unavailable. You can still ask LYNX a question below.</p>";
+      suggestions.innerHTML = '<span class="insights-loading-copy">Suggested questions are temporarily unavailable.</span>';
+      return;
+    }
+    const paragraphs = String(insightsLanding.summary_text || "")
+      .split(/\n\s*\n/).map((item) => item.trim()).filter(Boolean).slice(0, 2);
+    summary.innerHTML = paragraphs.length
+      ? paragraphs.map((item) => `<p>${escapeHtml(item)}</p>`).join("")
+      : "<p>No verified summary is available for this dataset.</p>";
+    const prompts = Array.isArray(insightsLanding.suggested_questions)
+      ? insightsLanding.suggested_questions.map((item) => item && item.text).filter(Boolean).slice(0, 5) : [];
+    suggestions.innerHTML = prompts.length
+      ? prompts.map((prompt) => `<button type="button" data-prompt="${escapeHtml(prompt)}"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg><span>${escapeHtml(prompt)}</span></button>`).join("")
+      : '<span class="insights-loading-copy">No supported suggested questions are available for this dataset.</span>';
   }
 
   function renderConversation(prefix, state) {
     const feed = byId(`${prefix}-messages`);
     if (!feed) return;
+    if (prefix === "visualization" && visualizationRenderer) visualizationRenderer.disposeWithin(feed);
     feed.innerHTML = state.messages.length
-      ? state.messages.map(conversationMessageMarkup).join("")
+      ? state.messages.map((message) => conversationMessageMarkup(message, prefix)).join("")
       : conversationStartMarkup(prefix);
+    if (prefix === "visualization" && visualizationRenderer) {
+      const visuals = state.messages
+        .filter((message) => message.role === "assistant" && message.visualization)
+        .flatMap((message) => Array.isArray(message.visualization.visualizations) ? message.visualization.visualizations : []);
+      visualizationRenderer.renderAll(feed, visuals);
+    }
     const status = byId(`${prefix}-status`);
     status.classList.toggle("is-error", Boolean(state.error));
     status.textContent = state.loading
-      ? (prefix === "visualization" ? "Preparing visualization…" : "Computing insight…")
+      ? (prefix === "visualization" ? "Generating a verified visualization…" : "Computing insight…")
       : state.error ? safeConversationError(state.error) : "";
+    updateConversationComposer(prefix, state);
+    if (prefix === "insights") {
+      document.querySelectorAll("#insights-suggested-questions button").forEach((button) => { button.disabled = state.loading; });
+    }
+    if (state.messages.length) feed.scrollTop = feed.scrollHeight;
+  }
+
+  function updateConversationComposer(prefix, state) {
     const input = byId(`${prefix}-input`);
     const submit = byId(`${prefix}-form`).querySelector("button[type=submit]");
+    if (!input || !submit) return;
     input.disabled = state.loading || !state.datasetId;
-    submit.disabled = state.loading || !state.datasetId;
-    if (state.messages.length) feed.scrollTop = feed.scrollHeight;
+    submit.disabled = state.loading || !state.datasetId || !input.value.trim();
   }
 
   function safeConversationError(error) {
@@ -1000,55 +1854,80 @@
     return "Unable to process this request right now. Please try again.";
   }
 
-  function conversationMessageMarkup(message) {
+  function conversationMessageMarkup(message, prefix) {
+    if (prefix === "insights") return insightsMessageMarkup(message);
+    return visualizationMessageMarkup(message);
+  }
+
+  function insightsMessageMarkup(message) {
+    const time = formatConversationTime(message.createdAt);
     if (message.role === "user") {
-      return `<article class="conversation-message user-message"><span class="message-author">You</span><p>${escapeHtml(message.text)}</p></article>`;
+      return `<article class="insights-message insights-user-message"><span class="insights-avatar user-avatar" aria-hidden="true">Y</span><div class="insights-message-body"><header><strong>You</strong>${time ? `<time>${escapeHtml(time)}</time>` : ""}</header><p>${escapeHtml(message.text)}</p></div></article>`;
     }
-    const content = message.intent === "VISUALIZATION"
-      ? visualizationResponseMarkup(message.visualization)
-      : message.intent === "INSIGHT" ? insightResponseMarkup(message.insight) : "";
-    const responseText = message.intent === "INSIGHT" && message.insight && message.insight.answer
-      ? "" : message.text;
+    const answer = message.intent === "INSIGHT" && message.insight
+      ? (message.insight.answer || message.insight.message || message.text) : message.text;
     const choices = message.clarificationOptions && message.clarificationOptions.length
       ? `<div class="clarification-choices" aria-label="Clarification choices">${message.clarificationOptions.map((choice) => `<button type="button" data-conversation-choice="${escapeHtml(choice)}">${escapeHtml(choice)}</button>`).join("")}</div>` : "";
-    return `<article class="conversation-message assistant-message" data-intent="${escapeHtml(message.intent)}" data-status="${escapeHtml(message.status)}"><span class="message-author">LYNX</span>${responseText ? `<p>${escapeHtml(responseText)}</p>` : ""}${content}${choices}</article>`;
+    return `<article class="insights-message insights-lynx-message assistant-message" data-intent="${escapeHtml(message.intent)}" data-status="${escapeHtml(message.status)}"><span class="insights-avatar lynx-avatar" aria-hidden="true"><svg viewBox="0 0 42 42"><path d="M8 30 15 24l6 2 6-10 7-5"/><circle cx="8" cy="30" r="2"/><circle cx="15" cy="24" r="2"/><circle cx="21" cy="26" r="2"/><circle cx="27" cy="16" r="2"/><circle cx="34" cy="11" r="2"/></svg></span><div class="insights-message-body"><header><strong>LYNX</strong>${time ? `<time>${escapeHtml(time)}</time>` : ""}</header>${answer ? `<p class="insight-answer">${escapeHtml(answer)}</p>` : ""}${choices}</div></article>`;
   }
 
-  function insightResponseMarkup(payload) {
-    if (!payload) return "";
-    const answer = payload.answer || payload.message;
-    const evidence = payload.evidence || (payload.result && payload.result.evidence);
-    return `${answer ? `<p class="insight-answer">${escapeHtml(answer)}</p>` : ""}${evidence ? insightEvidenceMarkup(payload.result || {}, evidence) : ""}`;
+  function formatConversationTime(value) {
+    if (!value) return "";
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return "";
+    return new Intl.DateTimeFormat(undefined, { hour: "numeric", minute: "2-digit" }).format(date);
   }
 
-  function insightEvidenceMarkup(result, evidence) {
-    const rows = Array.isArray(evidence.grouped_values) ? evidence.grouped_values.slice(0, 5) : [];
-    const details = [
-      ["Aggregation", result.aggregation], ["Measure", result.measure_column],
-      ["Grouped by", result.dimension_column],
-      ["Usable rows", `${number(evidence.usable_rows).toLocaleString()} / ${number(evidence.total_rows).toLocaleString()}`],
-    ].filter((item) => item[1] !== null && item[1] !== undefined && item[1] !== "");
-    return `<details class="calculation-details"><summary>View calculation details</summary><dl>${details.map(([term, value]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(humanize(value))}</dd></div>`).join("")}</dl>${rows.length ? `<div class="evidence-results"><strong>Leading results</strong>${rows.map((row) => `<span><b>${escapeHtml(row.group)}</b>${escapeHtml(number(row.value).toLocaleString(undefined, { maximumFractionDigits: 2 }))}</span>`).join("")}</div>` : ""}</details>`;
+  function visualizationMessageMarkup(message) {
+    const time = formatConversationTime(message.createdAt);
+    if (message.role === "user") {
+      return `<article class="custom-viz-request-row"><span class="insights-avatar user-avatar" aria-hidden="true">Y</span><div><header><strong>You</strong>${time ? `<time>${escapeHtml(time)}</time>` : ""}</header><p>${escapeHtml(message.text)}</p></div></article>`;
+    }
+    const visuals = message.intent === "VISUALIZATION" && message.visualization && Array.isArray(message.visualization.visualizations)
+      ? message.visualization.visualizations : [];
+    if (visuals.length) {
+      return `<div class="custom-visualization-response" data-status="${escapeHtml(message.status)}">${visuals.map((item, index) => visualizationCardMarkup(item, false, index, true)).join("")}</div>`;
+    }
+    const choices = message.clarificationOptions && message.clarificationOptions.length
+      ? `<div class="clarification-choices" aria-label="Clarification choices">${message.clarificationOptions.map((choice) => `<button type="button" data-conversation-choice="${escapeHtml(choice)}">${escapeHtml(choice)}</button>`).join("")}</div>` : "";
+    return `<article class="custom-viz-notice assistant-message" data-status="${escapeHtml(message.status)}"><span class="insights-avatar lynx-avatar" aria-hidden="true"><svg viewBox="0 0 42 42"><path d="M8 30 15 24l6 2 6-10 7-5"/><circle cx="8" cy="30" r="2"/><circle cx="15" cy="24" r="2"/><circle cx="21" cy="26" r="2"/><circle cx="27" cy="16" r="2"/><circle cx="34" cy="11" r="2"/></svg></span><div><strong>LYNX</strong><p>${escapeHtml(message.text || "This visualization request could not be completed.")}</p>${choices}</div></article>`;
   }
 
-  function visualizationResponseMarkup(payload) {
-    if (!payload) return "";
-    const visualizations = Array.isArray(payload.visualizations) ? payload.visualizations : [];
-    return visualizations.map((item) => visualizationCardMarkup(item, false)).join("");
-  }
-
-  function visualizationCardMarkup(item, ranked = true) {
+  function visualizationCardMarkup(item, ranked = true, index = 0, requested = false) {
     const explanation = item.explanation || {};
-    const title = item.y_column
-      ? `${humanize(item.y_column)} by ${humanize(item.x_column)}` : humanize(item.x_column);
-    const evidence = Array.isArray(explanation.evidence) ? explanation.evidence.slice(0, 4) : [];
-    return `<section class="pipeline-chart-card"><div class="chart-card-heading"><div>${ranked && item.rank ? `<span class="chart-rank">#${escapeHtml(item.rank)}</span>` : ""}<h3>${escapeHtml(title)}</h3></div><span class="type-tag">${escapeHtml(item.chart_type)}</span></div>${LYNXChartRenderer.visualizationMarkup(item)}${explanation.what_it_shows || explanation.why_this_chart ? `<div class="chart-explanation"><strong>What it shows</strong><p>${escapeHtml(explanation.what_it_shows || explanation.why_this_chart)}</p>${explanation.why_this_chart && explanation.what_it_shows ? `<details><summary>Why this chart</summary><p>${escapeHtml(explanation.why_this_chart)}</p>${evidence.length ? `<ul>${evidence.map((value) => `<li>${escapeHtml(value)}</li>`).join("")}</ul>` : ""}</details>` : ""}</div>` : ""}</section>`;
+    const xai = item.xai || explanation;
+    const title = item.title || (item.chart_spec && item.chart_spec.title) || (item.y_column
+      ? `${humanize(item.y_column)} by ${humanize(item.x_column)}` : humanize(item.x_column));
+    const source = item.source === "USER_REQUESTED" || requested ? "User-requested visual" : "Recommended visual";
+    const limitations = Array.isArray(xai.limitations) ? xai.limitations.filter(Boolean).slice(0, 2) : [];
+    const whatItShows = xai.what_it_shows || explanation.what_it_shows || "The chart displays the verified analytical result for this view.";
+    const whyThisChart = xai.why_this_chart || explanation.why_this_chart || "This chart type matches the grounded analytical structure of the result.";
+    const alternating = index % 2 ? " explanation-first" : " chart-first";
+    return `<article class="visualization-story${alternating}" data-visualization-source="${escapeHtml(source)}"><section class="visualization-chart-pane"><div class="chart-card-heading"><div>${ranked && item.rank ? `<span class="chart-rank">${escapeHtml(item.rank)}</span>` : ""}<h3>${escapeHtml(title)}</h3></div><span class="type-tag">${escapeHtml(item.presentation_variant || item.chart_type)}</span></div><div class="echarts-host" data-echarts-host role="img" aria-label="${escapeHtml(title)}"></div></section><aside class="visualization-explanation"><span class="visual-source-label">${escapeHtml(source)}</span><h3>Explanation</h3><p>${escapeHtml(whatItShows)}</p><p>${escapeHtml(whyThisChart)}</p>${limitations.length ? `<p class="visualization-limit"><strong>Limitation:</strong> ${escapeHtml(limitations.join(" "))}</p>` : ""}</aside></article>`;
+  }
+
+  function renderVisualizationKpis(kpis) {
+    const container = byId("visualization-kpis");
+    if (!container) return;
+    const items = Array.isArray(kpis) ? kpis.slice(0, 4) : [];
+    container.innerHTML = items.map((item) => `<article class="visualization-kpi"><span class="visualization-kpi-icon" aria-hidden="true">${visualizationKpiIcon(item.expression && item.expression.kind)}</span><div><span>${escapeHtml(item.label)}</span><strong>${escapeHtml(LYNXChartFormatter.formatValue(item.value, item.format_hint, { compact: true }))}</strong></div></article>`).join("");
+    container.hidden = !items.length;
+  }
+
+  function visualizationKpiIcon(kind) {
+    if (kind === "COUNT_ROWS" || kind === "COUNT_DISTINCT") return '<svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>';
+    if (kind === "RANK_COUNT") return '<svg viewBox="0 0 24 24"><path d="M5 19V12h3v7M11 19V8h3v11M17 19V4h3v15"/></svg>';
+    return '<svg viewBox="0 0 24 24"><path d="M4 18 9 12l4 3 7-9"/><path d="M16 6h4v4"/></svg>';
   }
 
   function clearAutomaticVisualizations() {
     const grid = byId("visualization-grid");
     const status = byId("automatic-visualization-status");
-    if (grid) grid.innerHTML = "";
+    if (grid) {
+      if (visualizationRenderer) visualizationRenderer.disposeWithin(grid);
+      grid.innerHTML = "";
+    }
+    renderVisualizationKpis([]);
     if (status) status.textContent = "";
   }
 
@@ -1059,13 +1938,16 @@
     const status = byId("automatic-visualization-status");
     const grid = byId("visualization-grid");
     status.textContent = "Loading recommended visualizations…";
+    if (visualizationRenderer) visualizationRenderer.disposeWithin(grid);
     grid.innerHTML = "";
     try {
-      const payload = await LYNXApiClient.getAutomaticVisualizations(requestedDataset);
+      const payload = await LYNXApiClient.getAutomaticVisualizations(requestedDataset, { maxVisualizations: 4 });
       if (currentRunId !== requestedDataset) return;
       const visualizations = Array.isArray(payload.visualizations) ? payload.visualizations : [];
       status.textContent = visualizations.length ? "" : (payload.message || "No meaningful visualization is supported by this dataset.");
-      grid.innerHTML = visualizations.map((item) => visualizationCardMarkup(item, true)).join("");
+      renderVisualizationKpis(payload.kpis);
+      grid.innerHTML = visualizations.map((item, index) => visualizationCardMarkup(item, true, index, false)).join("");
+      if (visualizationRenderer) visualizationRenderer.renderAll(grid, visualizations);
     } catch (_error) {
       if (currentRunId !== requestedDataset) return;
       automaticVisualizationDataset = null;
@@ -1073,9 +1955,132 @@
     }
   }
 
+  function setupExportWorkspace() {
+    const selectAll = byId("export-select-all");
+    const sectionInputs = () => [...document.querySelectorAll("[data-export-section]")];
+    selectAll.addEventListener("change", () => {
+      sectionInputs().forEach((input) => { if (!input.disabled) input.checked = selectAll.checked; });
+      renderExportPreview();
+    });
+    sectionInputs().forEach((input) => input.addEventListener("change", renderExportPreview));
+    byId("btn-export-dataset").addEventListener("click", exportCleanedDataset);
+    byId("btn-generate-report").addEventListener("click", exportAnalysisReport);
+    renderExportPreview();
+  }
+
+  function exportContext() {
+    const insightState = insightConversation ? insightConversation.getState() : {};
+    const visualizationState = visualizationConversation ? visualizationConversation.getState() : {};
+    return {
+      prediction_id: currentPredictionId || undefined,
+      insights_conversation_id: insightState.conversationId || undefined,
+      visualization_conversation_id: visualizationState.conversationId || undefined,
+    };
+  }
+
+  async function loadExportAvailability() {
+    if (!currentRunId) return;
+    const status = byId("report-export-status");
+    status.textContent = "Checking available analysis sections…";
+    try {
+      const payload = await LYNXApiClient.getExportAvailability(currentRunId, exportContext());
+      if (currentState !== STATES.EXPORT) return;
+      const firstLoad = !exportAvailability;
+      exportAvailability = payload;
+      if (firstLoad) {
+        const available = new Set(payload.sections.filter((item) => item.status === "available").map((item) => item.key));
+        document.querySelectorAll("[data-export-section]").forEach((input) => { input.checked = available.has(input.dataset.exportSection); });
+      }
+      status.textContent = "";
+      renderExportPreview();
+    } catch (error) {
+      exportAvailability = null;
+      status.textContent = error && error.message ? error.message : "Export availability could not be loaded.";
+      renderExportPreview();
+    }
+  }
+
+  const exportDescriptions = {
+    overview: "Dataset summary, quality, health, structural metrics",
+    profiling: "Semantic manifest, column details, cleaning decisions",
+    prediction: "Target, model performance, evaluation figures, feature importance",
+    insights: "Summary and completed question-answer interactions",
+    visualization: "Auto-generated and requested charts with explanations",
+  };
+
+  function renderExportPreview() {
+    const statuses = new Map((exportAvailability && exportAvailability.sections || []).map((item) => [item.key, item.status]));
+    const inputs = [...document.querySelectorAll("[data-export-section]")];
+    inputs.forEach((input) => {
+      const known = statuses.has(input.dataset.exportSection);
+      const unavailable = known && statuses.get(input.dataset.exportSection) !== "available";
+      input.disabled = unavailable;
+      if (unavailable) input.checked = false;
+    });
+    const selected = inputs.filter((input) => input.checked && !input.disabled);
+    const selectable = inputs.filter((input) => !input.disabled);
+    const all = byId("export-select-all");
+    all.checked = selectable.length > 0 && selected.length === selectable.length;
+    all.indeterminate = selected.length > 0 && selected.length < selectable.length;
+    byId("export-selection-count").textContent = `${selected.length} of ${selectable.length} available sections selected`;
+    byId("btn-generate-report").disabled = !exportAvailability || !selected.length;
+    const list = byId("export-preview-list");
+    list.innerHTML = inputs.map((input) => {
+      const key = input.dataset.exportSection;
+      const available = !input.disabled;
+      const included = available && input.checked;
+      const state = !available ? "Unavailable" : included ? "Included" : "Excluded";
+      return `<div class="export-preview-row"><span class="export-preview-symbol" aria-hidden="true">${key === "visualization" ? "▥" : key === "prediction" ? "⌁" : key === "insights" ? "◉" : key === "profiling" ? "▤" : "▥"}</span><strong>${escapeHtml(humanize(key))}</strong><span>${escapeHtml(exportDescriptions[key])}</span><em class="export-preview-status ${state.toLowerCase()}">${state}</em></div>`;
+    }).join("");
+  }
+
+  function saveDownload(download) {
+    const url = URL.createObjectURL(download.blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = download.filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 0);
+  }
+
+  async function exportCleanedDataset() {
+    const button = byId("btn-export-dataset");
+    const status = byId("dataset-export-status");
+    const format = document.querySelector('input[name="dataset-export-format"]:checked').value;
+    button.disabled = true; button.setAttribute("aria-busy", "true"); status.textContent = "Preparing download…";
+    try {
+      saveDownload(await LYNXApiClient.downloadCleanedDataset(currentRunId, format));
+      status.textContent = "Dataset download started.";
+    } catch (error) {
+      status.textContent = error && error.message ? error.message : "Dataset export failed.";
+    } finally {
+      button.disabled = false; button.removeAttribute("aria-busy");
+    }
+  }
+
+  async function exportAnalysisReport() {
+    const button = byId("btn-generate-report");
+    const status = byId("report-export-status");
+    const sections = [...document.querySelectorAll("[data-export-section]:checked:not(:disabled)")].map((input) => input.dataset.exportSection);
+    const format = document.querySelector('input[name="report-export-format"]:checked').value;
+    if (!sections.length) return;
+    button.disabled = true; button.setAttribute("aria-busy", "true"); status.textContent = "Generating report…";
+    try {
+      saveDownload(await LYNXApiClient.generateAnalysisReport(currentRunId, { format, sections, ...exportContext() }));
+      status.textContent = "Report download started.";
+    } catch (error) {
+      status.textContent = error && error.message ? error.message : "Report generation failed.";
+    } finally {
+      button.removeAttribute("aria-busy"); renderExportPreview();
+    }
+  }
+
   window.LYNX = {
     STATES,
     showState,
+    showCompletedAnalysis,
     activateTab,
     setTargetColumns,
     validateDatasetFile: fileValidation,

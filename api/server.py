@@ -14,23 +14,28 @@ from starlette.datastructures import UploadFile
 from intelligence.llm.provider import LLMProvider
 from api.run_service import ApplicationRunService, ServiceError
 from api.prediction_service import PredictionJobService
+from api.export_service import ExportArtifactStore, ExportService
 from api.routes.conversations import router as conversations_router
+from api.routes.exports import router as exports_router
 from api.routes.insights import router as insights_router
 from api.routes.visualization import router as visualization_router
 from api.schemas import (
     CreateRunResponse,
+    DatasetPageResponse,
     FrontendPredictionResult,
     Pipeline1ResultResponse,
     PredictionCreateRequest,
     PredictionCreateResponse,
     PredictionRowsResponse,
     PredictionStatusResponse,
+    PredictionTargetResolutionResponse,
     RunStatusResponse,
 )
 from app.config import ApplicationSettings
 from pipelines.pipeline3_results.conversation.orchestrator import (
     ConversationOrchestrator,
 )
+from pipelines.pipeline3_results.insights.landing.service import InsightsLandingService
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -65,8 +70,18 @@ def create_app(
     application.state.run_service = run_service
     application.state.prediction_service = prediction_jobs
     application.state.semantic_llm_provider = semantic_llm_provider
+    application.state.insights_landing_service = InsightsLandingService(
+        semantic_llm_provider
+    )
     application.state.conversation_orchestrator = ConversationOrchestrator(
         llm_provider=semantic_llm_provider
+    )
+    application.state.export_artifacts = ExportArtifactStore()
+    application.state.export_service = ExportService(
+        run_service,
+        prediction_jobs,
+        application.state.conversation_orchestrator,
+        application.state.export_artifacts,
     )
 
     @application.exception_handler(ServiceError)
@@ -80,6 +95,7 @@ def create_app(
     async def controlled_validation_error(_request: Request, exc: RequestValidationError):
         insight_request_error = _request.url.path.startswith("/api/insights/")
         conversation_request_error = _request.url.path.startswith("/api/conversations/")
+        export_request_error = "/exports/" in _request.url.path
         pagination_error = any(
             tuple(error.get("loc", ()))[:1] == ("query",)
             and tuple(error.get("loc", ()))[-1:] in {("offset",), ("limit",)}
@@ -92,6 +108,8 @@ def create_app(
                     "code": (
                         "invalid_conversation_request"
                         if conversation_request_error
+                        else "invalid_export_request"
+                        if export_request_error
                         else "invalid_insight_request"
                         if insight_request_error
                         else "invalid_pagination"
@@ -101,6 +119,8 @@ def create_app(
                     "message": (
                         "Conversation requests require valid JSON with a non-empty string field named 'message'."
                         if conversation_request_error
+                        else "Export requests require a supported format and at least one valid report section."
+                        if export_request_error
                         else "Insights requests require valid JSON with a non-empty string field named 'request_text'."
                         if insight_request_error
                         else "Prediction row pagination parameters are invalid."
@@ -142,11 +162,67 @@ def create_app(
     def run_status(run_id: str):
         return run_service.status(run_id)
 
+    @application.get("/api/application-info")
+    def application_info():
+        """Return non-sensitive metadata used by the read-only Settings panels."""
+        provider = application.state.semantic_llm_provider
+        provider_name = None
+        model_name = None
+        if provider is not None:
+            provider_name = provider.__class__.__name__.removesuffix("Provider") or "Configured provider"
+            configured_model = getattr(provider, "model", None)
+            if isinstance(configured_model, str) and configured_model.strip():
+                model_name = configured_model.strip()
+        return {
+            "application": {
+                "name": "LYNX",
+                "version": application.version,
+                "description": "Intelligent tabular-data cleaning, analysis, prediction, insights, and visualization workspace.",
+            },
+            "ai": {
+                "provider": provider_name,
+                "model": model_name,
+                "status": "configured" if provider is not None else "not_configured",
+                "runtime_switching_supported": False,
+            },
+            "data": {
+                "storage": "Local runtime workspace",
+                "retention_seconds": run_service.settings.run_retention_seconds,
+                "privacy_masking_required": True,
+            },
+        }
+
     @application.get(
         "/api/runs/{run_id}/pipeline1", response_model=Pipeline1ResultResponse,
     )
     def pipeline1_result(run_id: str):
         return run_service.pipeline1_result(run_id)
+
+    @application.get(
+        "/api/runs/{run_id}/dataset", response_model=DatasetPageResponse,
+    )
+    def dataset_page(
+        run_id: str,
+        version: str = Query(default="cleaned", pattern="^(original|cleaned)$"),
+        offset: int = Query(default=0, ge=0),
+        limit: int = Query(default=20, ge=1, le=100),
+        search: str | None = Query(default=None, max_length=200),
+        sort_column: str | None = Query(default=None, max_length=255),
+        sort_direction: str = Query(default="asc", pattern="^(asc|desc)$"),
+        filter_column: str | None = Query(default=None, max_length=255),
+        filter_value: str | None = Query(default=None, max_length=200),
+    ):
+        return run_service.dataset_page(
+            run_id,
+            version=version,
+            offset=offset,
+            limit=limit,
+            search=search,
+            sort_column=sort_column,
+            sort_direction=sort_direction,
+            filter_column=filter_column,
+            filter_value=filter_value,
+        )
 
     @application.post(
         "/api/runs/{run_id}/predictions",
@@ -155,6 +231,13 @@ def create_app(
     )
     def create_prediction(run_id: str, request: PredictionCreateRequest):
         return prediction_jobs.create(run_id, request.target_column)
+
+    @application.post(
+        "/api/runs/{run_id}/prediction-target-resolution",
+        response_model=PredictionTargetResolutionResponse,
+    )
+    def resolve_prediction_target(run_id: str, request: PredictionCreateRequest):
+        return prediction_jobs.resolve_target(run_id, request.target_column)
 
     @application.get(
         "/api/runs/{run_id}/predictions/{prediction_id}",
@@ -201,6 +284,7 @@ def create_app(
     application.include_router(visualization_router)
     application.include_router(insights_router)
     application.include_router(conversations_router)
+    application.include_router(exports_router)
 
     # Keep the browser and API on one origin. API routes are registered first
     # so this catch-all static mount cannot shadow them.

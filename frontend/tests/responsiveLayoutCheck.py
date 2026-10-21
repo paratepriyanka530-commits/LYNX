@@ -35,6 +35,64 @@ class ResponsiveLayoutCheck(unittest.TestCase):
         )
         self.assertLessEqual(dimensions["scroll"], dimensions["client"], f"{context} at {width}px")
 
+    def test_approved_home_geometry_at_1672_by_941(self):
+        self.driver.execute_cdp_cmd(
+            "Emulation.setDeviceMetricsOverride",
+            {"width": 1672, "height": 941, "deviceScaleFactor": 1, "mobile": False},
+        )
+        try:
+            self.driver.get(self.url)
+            self.driver.execute_script("localStorage.setItem('lynx-theme', 'light'); location.reload();")
+            WebDriverWait(self.driver, 10).until(
+                lambda browser: browser.execute_script("return Boolean(window.LYNX)")
+            )
+            measured = self.driver.execute_script(
+                """
+                const rect = selector => {
+                  const value = document.querySelector(selector).getBoundingClientRect();
+                  return {left: value.left, top: value.top, width: value.width, height: value.height, right: value.right};
+                };
+                const style = selector => getComputedStyle(document.querySelector(selector));
+                return {
+                  viewport: [innerWidth, innerHeight],
+                  page: [document.documentElement.scrollWidth, document.documentElement.scrollHeight],
+                  sidebar: rect('.app-sidebar'),
+                  heading: {...rect('#upload-title'), fontSize: style('#upload-title').fontSize},
+                  panel: rect('.upload-panel'),
+                  dropDirection: style('.dropzone').flexDirection,
+                  illustration: rect('.upload-illustration'),
+                  steps: rect('.product-steps'),
+                  recents: rect('.home-recents'),
+                  wave: {fill: style('.home-decoration path').fill, stroke: style('.home-decoration path').stroke},
+                  document: {fill: style('.document-sheet path:first-child').fill, stroke: style('.document-sheet path:first-child').stroke},
+                  tile: {fill: style('.data-tile-chart path').fill, stroke: style('.data-tile-chart path').stroke}
+                };
+                """
+            )
+            self.assertEqual(measured["viewport"], [1672, 941])
+            self.assertEqual(measured["page"], [1672, 941])
+            self.assertAlmostEqual(measured["sidebar"]["width"], 260, delta=1)
+            self.assertAlmostEqual(measured["heading"]["top"], 115, delta=1)
+            self.assertEqual(measured["heading"]["fontSize"], "45.5px")
+            self.assertAlmostEqual(measured["panel"]["left"], 746, delta=1)
+            self.assertAlmostEqual(measured["panel"]["top"], 236, delta=1)
+            self.assertAlmostEqual(measured["panel"]["width"], 370, delta=1)
+            self.assertAlmostEqual(measured["panel"]["height"], 380, delta=1)
+            self.assertEqual(measured["dropDirection"], "column")
+            self.assertAlmostEqual(measured["illustration"]["width"], 276, delta=1)
+            self.assertAlmostEqual(measured["steps"]["left"], 501, delta=1)
+            self.assertAlmostEqual(measured["steps"]["top"], 638, delta=1)
+            self.assertAlmostEqual(measured["steps"]["width"], 940, delta=1)
+            self.assertAlmostEqual(measured["recents"]["left"], 294, delta=1)
+            self.assertAlmostEqual(measured["recents"]["width"], 1348, delta=2)
+            self.assertEqual(measured["wave"], {"fill": "none", "stroke": "url(\"#home-wave-fade\")"})
+            self.assertEqual(measured["document"]["fill"], "rgb(254, 254, 255)")
+            self.assertNotEqual(measured["document"]["stroke"], "rgb(0, 0, 0)")
+            self.assertEqual(measured["tile"]["fill"], "none")
+            self.assertEqual(measured["tile"]["stroke"], "rgb(71, 1, 255)")
+        finally:
+            self.driver.execute_cdp_cmd("Emulation.clearDeviceMetricsOverride", {})
+
     def test_required_viewports(self):
         for width in self.WIDTHS:
             with self.subTest(width=width):
@@ -48,28 +106,34 @@ class ResponsiveLayoutCheck(unittest.TestCase):
                     """
                     const header = document.querySelector('.app-header').getBoundingClientRect();
                     const heading = document.getElementById('upload-title').getBoundingClientRect();
-                    const logoElement = Array.from(document.querySelectorAll('.brand-logo')).find(
-                      (item) => item.getBoundingClientRect().width > 0
-                    );
-                    const logo = logoElement.getBoundingClientRect();
+                    const mobileLogo = document.querySelector('.mobile-brand .brand-logo');
+                    const sidebarBrand = document.getElementById('brand-home');
+                    const logo = mobileLogo.getBoundingClientRect();
                     return {
                       headerBottom: header.bottom,
                       headingTop: heading.top,
                       headerBackground: getComputedStyle(document.querySelector('.app-header')).backgroundColor,
+                      headerVisible: getComputedStyle(document.querySelector('.app-header')).display !== 'none',
+                      sidebarBrandVisible: sidebarBrand.getBoundingClientRect().width > 0,
+                      sidebarBrandText: sidebarBrand.textContent.trim(),
                       logoWidth: logo.width,
                       logoHeight: logo.height,
-                      logoLoaded: logoElement.complete && logoElement.naturalWidth > 0
+                      logoLoaded: mobileLogo.complete && mobileLogo.naturalWidth > 0
                     };
                     """
                 )
                 self.assertGreaterEqual(presentation["headingTop"], presentation["headerBottom"])
                 self.assertEqual(presentation["headerBackground"], "rgb(255, 255, 255)")
-                self.assertGreater(presentation["logoWidth"], 0)
-                self.assertGreater(presentation["logoHeight"], 0)
                 self.assertTrue(presentation["logoLoaded"])
+                self.assertEqual(presentation["headerVisible"], width <= 768)
+                self.assertEqual(presentation["sidebarBrandVisible"], width > 768)
+                self.assertEqual(presentation["sidebarBrandText"], "LYNX")
+                if width <= 768:
+                    self.assertGreater(presentation["logoWidth"], 0)
+                    self.assertGreater(presentation["logoHeight"], 0)
                 self.assertEqual(self.driver.find_element(By.ID, "btn-more").is_displayed(), width <= 680)
-                self.assertEqual(self.driver.find_element(By.ID, "btn-settings").is_displayed(), width > 680)
-                self.assertEqual(self.driver.find_element(By.ID, "btn-help").is_displayed(), width > 680)
+                self.assertEqual(self.driver.find_element(By.ID, "btn-settings").is_displayed(), 680 < width <= 768)
+                self.assertEqual(self.driver.find_element(By.ID, "btn-help").is_displayed(), 680 < width <= 768)
                 if width <= 680:
                     self.driver.find_element(By.ID, "btn-more").click()
                     self.assertTrue(self.driver.find_element(By.ID, "more-menu").is_displayed())
@@ -106,7 +170,7 @@ class ResponsiveLayoutCheck(unittest.TestCase):
                 self.assertEqual(analysis_presentation["transform"], "none")
                 self.assertGreaterEqual(analysis_presentation["headingTop"], analysis_presentation["headerBottom"])
                 self.assertEqual(self.driver.find_element(By.ID, "btn-more").is_displayed(), width <= 680)
-                self.assertEqual(self.driver.find_element(By.ID, "btn-settings").is_displayed(), width > 680)
+                self.assertEqual(self.driver.find_element(By.ID, "btn-settings").is_displayed(), 680 < width <= 768)
                 self.assertFalse(self.driver.find_element(By.ID, "btn-new-dataset").is_displayed())
                 self.assertFalse(self.driver.find_element(By.ID, "btn-export").is_displayed())
                 self.assert_no_page_overflow(width, "analysis")
@@ -130,9 +194,9 @@ class ResponsiveLayoutCheck(unittest.TestCase):
                 more_visible = self.driver.find_element(By.ID, "btn-more").is_displayed()
                 secondary_visible = self.driver.find_element(By.ID, "btn-settings").is_displayed()
                 self.assertEqual(more_visible, width <= 680)
-                self.assertEqual(secondary_visible, width > 680)
-                self.assertTrue(self.driver.find_element(By.ID, "btn-new-dataset").is_displayed())
-                self.assertEqual(self.driver.find_element(By.ID, "btn-export").is_displayed(), width > 680)
+                self.assertEqual(secondary_visible, 680 < width <= 768)
+                self.assertEqual(self.driver.find_element(By.ID, "btn-new-dataset").is_displayed(), width <= 768)
+                self.assertEqual(self.driver.find_element(By.ID, "btn-export").is_displayed(), 680 < width <= 768)
                 workspace_heading = self.driver.execute_script(
                     """
                     const header = document.querySelector('.app-header').getBoundingClientRect();
@@ -146,22 +210,26 @@ class ResponsiveLayoutCheck(unittest.TestCase):
                 if width <= 680:
                     tab_scroll = self.driver.execute_script(
                         """
-                        const tabs = document.querySelector('.workspace-tabs');
+                        const tabs = document.querySelector('#view-workspace .workspace-tabs');
                         const before = tabs.scrollLeft;
                         tabs.scrollLeft = 40;
-                        return {before, after: tabs.scrollLeft, scrollbarWidth: getComputedStyle(tabs).scrollbarWidth};
+                        return {before, after: tabs.scrollLeft, scrollWidth: tabs.scrollWidth, clientWidth: tabs.clientWidth, scrollbarWidth: getComputedStyle(tabs).scrollbarWidth};
                         """
                     )
-                    self.assertGreater(tab_scroll["after"], tab_scroll["before"])
+                    if tab_scroll["scrollWidth"] > tab_scroll["clientWidth"]:
+                        self.assertGreater(tab_scroll["after"], tab_scroll["before"])
+                    else:
+                        self.assertEqual(tab_scroll["after"], tab_scroll["before"])
                     self.assertEqual(tab_scroll["scrollbarWidth"], "none")
 
                 self.driver.execute_script(
                     """
                     window.LYNX.activateTab('data-profile');
-                    const list = document.getElementById('column-list');
-                    list.innerHTML = Array.from({length: 120}, (_, index) => {
+                    const body = document.getElementById('semantic-manifest-body');
+                    body.closest('table').hidden = false;
+                    body.innerHTML = Array.from({length: 10}, (_, index) => {
                       const name = `very_long_observed_column_name_${String(index + 1).padStart(3, '0')}_with_context`;
-                      return `<button class="column-option" title="${name}">${name}</button>`;
+                      return `<tr><td>${index + 1}</td><td class="manifest-column-name" title="${name}">${name}</td><td>object</td><td>Unknown</td><td>Unknown</td><td>No action required</td><td><span class="profile-status not_required">Not Required</span></td></tr>`;
                     }).join('');
                     document.getElementById('column-profile').innerHTML = '<div class="column-title-row"><div><p class="eyebrow">Selected column</p><h2>very_long_observed_column_name_001_with_context</h2></div><span class="type-tag">string</span></div>';
                     """
@@ -224,7 +292,7 @@ class ResponsiveLayoutCheck(unittest.TestCase):
 
     def test_both_themes_at_representative_viewports(self):
         expected = {
-            "light": {"body": "rgb(248, 247, 242)", "header": "rgb(255, 255, 255)"},
+            "light": {"body": "rgb(248, 249, 251)", "header": "rgb(255, 255, 255)"},
             "dark": {"body": "rgb(17, 16, 21)", "header": "rgb(21, 20, 25)"},
         }
         for width in (375, 768, 1440):
@@ -262,7 +330,9 @@ class ResponsiveLayoutCheck(unittest.TestCase):
             lambda browser: browser.execute_script("return Boolean(window.LYNX)")
         )
         initial = self.driver.execute_script("return document.documentElement.dataset.theme")
-        self.driver.find_element(By.ID, "btn-theme").click()
+        self.driver.execute_script("document.getElementById('settings-dialog').showModal()")
+        desired = "light" if initial == "dark" else "dark"
+        self.driver.find_element(By.CSS_SELECTOR, f'[data-theme-choice="{desired}"]').click()
         updated = self.driver.execute_script("return document.documentElement.dataset.theme")
         self.assertNotEqual(initial, updated)
         self.driver.refresh()
@@ -272,6 +342,49 @@ class ResponsiveLayoutCheck(unittest.TestCase):
         self.assertEqual(
             self.driver.execute_script("return document.documentElement.dataset.theme"), updated
         )
+
+    def test_home_upload_interactions(self):
+        self.driver.set_window_rect(width=1440, height=1100)
+        self.driver.get(self.url)
+        WebDriverWait(self.driver, 10).until(
+            lambda browser: browser.execute_script("return Boolean(window.LYNX)")
+        )
+        choose = self.driver.find_element(By.ID, "btn-choose-file")
+        self.assertEqual(choose.tag_name, "button")
+        self.assertTrue(choose.is_enabled())
+
+        self.driver.execute_script(
+            """
+            const zone = document.getElementById('upload-dropzone');
+            zone.dispatchEvent(new DragEvent('dragenter', {bubbles: true, cancelable: true}));
+            """
+        )
+        self.assertIn("dragover", self.driver.find_element(By.ID, "upload-dropzone").get_attribute("class"))
+
+        self.driver.execute_script(
+            """
+            const transfer = new DataTransfer();
+            transfer.items.add(new File(['a,b\\n1,2'], 'keyboard-check.csv', {type: 'text/csv'}));
+            document.getElementById('upload-dropzone').dispatchEvent(
+              new DragEvent('drop', {bubbles: true, cancelable: true, dataTransfer: transfer})
+            );
+            """
+        )
+        self.assertTrue(self.driver.find_element(By.ID, "selected-file-card").is_displayed())
+        self.assertEqual(self.driver.find_element(By.ID, "selected-file-name").text, "keyboard-check.csv")
+        self.assertTrue(self.driver.find_element(By.ID, "btn-run-analysis").is_enabled())
+
+        self.driver.execute_script(
+            """
+            const transfer = new DataTransfer();
+            transfer.items.add(new File(['not a dataset'], 'unsupported.txt', {type: 'text/plain'}));
+            document.getElementById('upload-dropzone').dispatchEvent(
+              new DragEvent('drop', {bubbles: true, cancelable: true, dataTransfer: transfer})
+            );
+            """
+        )
+        self.assertTrue(self.driver.find_element(By.ID, "upload-error-box").is_displayed())
+        self.assertIn("CSV, XLSX, and XLS", self.driver.find_element(By.ID, "upload-error-text").text)
 
 
 if __name__ == "__main__":

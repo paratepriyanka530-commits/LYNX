@@ -1,0 +1,116 @@
+{
+  "datasets": {
+    "retail": {
+      "row_entity": "transaction",
+      "columns": [
+        ["total_price", "float64", "numeric_measurement", "measurement", "Total revenue recorded for the transaction"],
+        ["quantity", "int64", "numeric_measurement", "measurement", "Number of items sold in the transaction"],
+        ["unit_price", "float64", "currency", "measurement", "Price for one item"],
+        ["pizza_category", "object", "categorical", "category", "Product category assigned to the item"],
+        ["region", "object", "location", "category", "Geographic sales region"],
+        ["order_id", "object", "identifier", "transaction_identifier", "Identifier for the transaction"],
+        ["order_date", "datetime64[ns]", "date", "timestamp", "Date on which the order occurred"]
+      ]
+    },
+    "retail_products": {
+      "row_entity": "transaction line",
+      "columns": [
+        ["total_price", "float64", "currency", "measurement", "Total revenue recorded for the transaction line"],
+        ["product_name", "object", "categorical", "category", "Name of the product sold"],
+        ["order_date", "datetime64[ns]", "date", "timestamp", "Date on which the order occurred"]
+      ]
+    },
+    "retail_ambiguous": {
+      "row_entity": "transaction",
+      "columns": [
+        ["gross_sales", "float64", "currency", "measurement", "Gross revenue before deductions"],
+        ["net_sales", "float64", "currency", "measurement", "Net revenue after deductions"],
+        ["order_date", "datetime64[ns]", "date", "timestamp", "Date on which the order occurred"],
+        ["created_at", "datetime64[ns]", "datetime", "timestamp", "Time when the transaction record was created"]
+      ]
+    },
+    "hr": {
+      "row_entity": "employee",
+      "columns": [
+        ["annual_salary", "float64", "currency", "measurement", "Annual employee compensation amount"],
+        ["pay_currency", "object", "categorical", "category", "Currency code used to denominate employee compensation"],
+        ["department", "object", "categorical", "category", "Department that employs the worker"]
+      ]
+    },
+    "healthcare": {
+      "row_entity": "patient encounter",
+      "columns": [
+        ["patient_id", "object", "identifier", "primary_identifier", "Identifier for a patient entity"],
+        ["hospital", "object", "categorical", "category", "Hospital handling the patient encounter"],
+        ["length_of_stay", "float64", "numeric_measurement", "measurement", "Duration of a patient stay"]
+      ]
+    },
+    "banking": {
+      "row_entity": "account snapshot",
+      "columns": [
+        ["account_balance", "float64", "currency", "measurement", "Current monetary balance of the account"],
+        ["customer_id", "object", "identifier", "foreign_identifier", "Identifier referencing the customer entity"],
+        ["account_type", "object", "categorical", "category", "Classification of the account"]
+      ]
+    },
+    "iot": {
+      "row_entity": "sensor reading",
+      "columns": [
+        ["power_consumption_kw", "float64", "numeric_measurement", "measurement", "Electrical energy usage measured in kilowatts"],
+        ["temperature_celsius", "float64", "numeric_measurement", "measurement", "Temperature measured by the sensor"],
+        ["sensor_id", "object", "identifier", "primary_identifier", "Identifier for a sensor"],
+        ["recorded_at", "datetime64[ns]", "datetime", "timestamp", "Time when the sensor reading was recorded"]
+      ]
+    },
+    "cybersecurity": {
+      "row_entity": "security event",
+      "columns": [
+        ["attack_type", "object", "categorical", "category", "Classification of the detected attack"],
+        ["severity_score", "float64", "numeric_measurement", "measurement", "Numeric severity of the security event"],
+        ["detected_at", "datetime64[ns]", "datetime", "timestamp", "Time when the attack was detected"]
+      ]
+    },
+    "manufacturing": {
+      "row_entity": "machine event",
+      "columns": [
+        ["downtime_minutes", "float64", "numeric_measurement", "measurement", "Duration of machine downtime in minutes"],
+        ["downtime_reason", "object", "categorical", "category", "Reason assigned to the downtime event"],
+        ["machine_id", "object", "identifier", "foreign_identifier", "Identifier referencing a machine"]
+      ]
+    },
+    "generic_values": {
+      "row_entity": "observation",
+      "columns": [
+        ["first_value", "float64", "numeric_measurement", "measurement", "First measured value"],
+        ["second_value", "float64", "numeric_measurement", "measurement", "Second measured value"],
+        ["category_code", "int64", "categorical", "category", "Numeric code representing the observation category"],
+        ["label", "object", "categorical", "category", "Category label for the observation"],
+        ["observation_id", "object", "identifier", "primary_identifier", "Identifier for the observation"]
+      ]
+    }
+  },
+  "cases": [
+    {"id": "retail_revenue", "dataset": "retail", "intent": {"analytical_goal": "SIMPLE_AGGREGATION", "measure_concepts": ["revenue"], "aggregation": "SUM"}, "status": "RESOLVED", "measure": ["AGGREGATION", "SUM", "total_price"]},
+    {"id": "retail_sales_volume", "dataset": "retail", "intent": {"analytical_goal": "SIMPLE_AGGREGATION", "measure_concepts": ["items sold"], "aggregation": "SUM"}, "status": "RESOLVED", "measure": ["AGGREGATION", "SUM", "quantity"]},
+    {"id": "retail_category", "dataset": "retail", "intent": {"analytical_goal": "GROUP_COMPARISON", "measure_concepts": ["revenue"], "dimension_concepts": ["product category"], "aggregation": "SUM"}, "status": "RESOLVED", "dimension": ["COLUMN", null, "pizza_category"]},
+    {"id": "hr_compensation", "dataset": "hr", "intent": {"analytical_goal": "SIMPLE_AGGREGATION", "measure_concepts": ["employee compensation"], "aggregation": "MEAN"}, "status": "RESOLVED", "measure": ["AGGREGATION", "MEAN", "annual_salary"]},
+    {"id": "hr_role_gate", "dataset": "hr", "intent": {"analytical_goal": "SIMPLE_AGGREGATION", "measure_concepts": ["employee compensation"], "aggregation": "SUM"}, "status": "RESOLVED", "measure": ["AGGREGATION", "SUM", "annual_salary"], "excluded_measure": "pay_currency"},
+    {"id": "healthcare_patient_count", "dataset": "healthcare", "intent": {"analytical_goal": "COUNT_ENTITIES", "measure_concepts": ["patients"], "aggregation": "COUNT"}, "status": "RESOLVED", "measure": ["COUNT_DISTINCT", "COUNT_DISTINCT", "patient_id"]},
+    {"id": "generic_record_count", "dataset": "generic_values", "intent": {"analytical_goal": "COUNT_ENTITIES", "measure_concepts": ["records"], "aggregation": "COUNT"}, "status": "RESOLVED", "measure": ["COUNT_ROWS", null, null]},
+    {"id": "banking_customer_count", "dataset": "banking", "intent": {"analytical_goal": "COUNT_ENTITIES", "measure_concepts": ["customers"], "aggregation": "COUNT"}, "status": "RESOLVED", "measure": ["COUNT_DISTINCT", "COUNT_DISTINCT", "customer_id"]},
+    {"id": "cyber_attack_frequency", "dataset": "cybersecurity", "intent": {"analytical_goal": "COUNT_ENTITIES", "measure_concepts": ["attack frequency"], "dimension_concepts": ["attack type"], "aggregation": "COUNT"}, "status": "RESOLVED", "measure": ["COUNT_ROWS", null, null]},
+    {"id": "iot_energy_usage", "dataset": "iot", "intent": {"analytical_goal": "SIMPLE_AGGREGATION", "measure_concepts": ["energy usage"], "aggregation": "MEAN"}, "status": "RESOLVED", "measure": ["AGGREGATION", "MEAN", "power_consumption_kw"]},
+    {"id": "manufacturing_downtime", "dataset": "manufacturing", "intent": {"analytical_goal": "SIMPLE_AGGREGATION", "measure_concepts": ["machine downtime"], "aggregation": "SUM"}, "status": "RESOLVED", "measure": ["AGGREGATION", "SUM", "downtime_minutes"], "excluded_measure": "downtime_reason"},
+    {"id": "banking_average_balance", "dataset": "banking", "intent": {"analytical_goal": "SIMPLE_AGGREGATION", "measure_concepts": ["account balance"], "aggregation": "MEAN"}, "status": "RESOLVED", "measure": ["AGGREGATION", "MEAN", "account_balance"]},
+    {"id": "retail_revenue_ambiguity", "dataset": "retail_ambiguous", "intent": {"analytical_goal": "SIMPLE_AGGREGATION", "measure_concepts": ["revenue"], "aggregation": "SUM"}, "status": "AMBIGUOUS", "candidate_columns": ["gross_sales", "net_sales"]},
+    {"id": "declared_value_ambiguity", "dataset": "generic_values", "intent": {"analytical_goal": "SIMPLE_AGGREGATION", "measure_concepts": ["value"], "aggregation": "SUM", "ambiguities": [{"slot": "measure", "concept": "value", "reason": "More than one measured value is possible."}], "needs_clarification": true, "clarification_question": "Which measured value?"}, "status": "AMBIGUOUS", "candidate_columns": ["first_value", "second_value"]},
+    {"id": "measure_gate_excludes_non_measures", "dataset": "retail", "intent": {"analytical_goal": "SIMPLE_AGGREGATION", "measure_concepts": ["order"], "aggregation": "SUM"}, "status": "UNRESOLVED", "excluded_measure": "order_id"},
+    {"id": "temporal_ambiguity", "dataset": "retail_ambiguous", "intent": {"analytical_goal": "TREND", "measure_concepts": ["gross revenue"], "aggregation": "SUM", "time_expression": "over time"}, "status": "AMBIGUOUS", "candidate_columns": ["created_at", "order_date"]},
+    {"id": "monthly_revenue", "dataset": "retail", "intent": {"analytical_goal": "TREND", "measure_concepts": ["revenue"], "aggregation": "SUM", "time_expression": "monthly"}, "status": "RESOLVED", "temporal": ["TIME_BUCKET", null, "order_date", "MONTH"]},
+    {"id": "iot_variation_ambiguity", "dataset": "iot", "intent": {"analytical_goal": "DISTRIBUTION", "measure_concepts": ["temperature variation"], "aggregation": "NONE"}, "status": "AMBIGUOUS", "candidate_operations": ["RANGE", "STDDEV"]},
+    {"id": "iot_explicit_standard_deviation", "dataset": "iot", "intent": {"analytical_goal": "DISTRIBUTION", "measure_concepts": ["temperature standard deviation"], "aggregation": "NONE"}, "status": "RESOLVED", "measure": ["STATISTIC", "STDDEV", "temperature_celsius"]},
+    {"id": "unknown_concept", "dataset": "manufacturing", "intent": {"analytical_goal": "SIMPLE_AGGREGATION", "measure_concepts": ["astronomical brightness"], "aggregation": "MEAN"}, "status": "UNRESOLVED"},
+    {"id": "non_null_value_count", "dataset": "generic_values", "intent": {"analytical_goal": "COUNT_ENTITIES", "measure_concepts": ["non-null first value"], "aggregation": "COUNT"}, "status": "RESOLVED", "measure": ["COUNT_NON_NULL", null, "first_value"]},
+    {"id": "numeric_encoded_category", "dataset": "generic_values", "intent": {"analytical_goal": "GROUP_COMPARISON", "measure_concepts": ["first value"], "dimension_concepts": ["category code"], "aggregation": "MEAN"}, "status": "RESOLVED", "dimension": ["COLUMN", null, "category_code"], "excluded_measure": "category_code"}
+  ]
+}

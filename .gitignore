@@ -1,7 +1,9 @@
-*.pyc
 __pycache__/
+*.py[cod]
+*$py.class
 /catboost_info/
 .env
+.env.local
 venv/
 .venv/
 benchmarks/tabarena/datasets/
@@ -19,9 +21,32 @@ benchmarks/tabarena/datasets/
 
 # Test runner cache
 .pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Frontend dependency and test-runner output
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+playwright-report/
+test-results/
+frontend/*-ui-actual.png
+frontend/tests/*-screenshot.png
+frontend/tests/screenshots/
+frontend/tests/videos/
+frontend/tests/traces/
 
 # Temporary files
 *.tmp
+*.log
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db
 
 # Accidental root-level duplicate selector test output
 /external_selector_test_01.json

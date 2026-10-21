@@ -9,26 +9,33 @@
     (function () {
       try {
         var saved = localStorage.getItem("lynx-theme");
+        var mode = saved === "dark" || saved === "light" || saved === "system" ? saved : "system";
         var preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        document.documentElement.dataset.theme = saved === "dark" || saved === "light" ? saved : preferred;
+        document.documentElement.dataset.themeMode = mode;
+        document.documentElement.dataset.theme = mode === "system" ? preferred : mode;
+        document.documentElement.dataset.density = localStorage.getItem("lynx-density") === "compact" ? "compact" : "comfortable";
+        document.documentElement.dataset.animations = localStorage.getItem("lynx-animations") === "off" ? "off" : "on";
       } catch (_error) {
         document.documentElement.dataset.theme = "light";
       }
     }());
   </script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20261018-settings">
 </head>
-<body>
+<body data-app-state="upload">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <aside class="app-sidebar" aria-label="Primary navigation">
-    <button class="sidebar-brand" id="brand-home" type="button" aria-label="LYNX datasets home"><img class="brand-logo" src="assets/ChatGPT%20Image%20Sep%207,%202026,%2001_16_53%20PM.png" alt=""><span>LYNX</span></button>
+    <button class="sidebar-brand" id="brand-home" type="button" aria-label="LYNX home"><span>LYNX</span></button>
     <nav class="sidebar-nav" aria-label="Workspace">
-      <button class="sidebar-link active" id="nav-datasets" type="button" aria-current="page"><svg aria-hidden="true" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v6c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 11v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg><span>Datasets</span></button>
+      <button class="sidebar-link active" id="nav-home" type="button" aria-current="page"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10H4V10"/><path d="M9 20v-7h6v7"/></svg><span>Home</span></button>
+      <button class="sidebar-link" id="nav-analysis" type="button" aria-disabled="true" title="Upload and analyze a dataset first"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20V10h4v10M10 20V4h4v16M16 20v-7h4v7"/></svg><span>Analysis</span></button>
+      <button class="sidebar-link" id="nav-datasets" type="button" disabled title="Upload and analyze a dataset first"><svg aria-hidden="true" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v6c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 11v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg><span>Dataset</span></button>
+      <button class="sidebar-link sidebar-link-unavailable" id="nav-export" type="button" disabled title="Export is available from completed results"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 15V3m0 0 4 4m-4-4L8 7M5 13v7h14v-7"/></svg><span>Export</span></button>
+      <button class="sidebar-link" id="nav-setting" type="button" data-shell-action="settings"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6-1Z"/></svg><span>Setting</span></button>
+      <button class="sidebar-link" id="nav-help" type="button" data-shell-action="help"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 1 1 3.7 2c-1 .7-1.5 1.2-1.5 2.3M12 17h.01"/></svg><span>Help</span></button>
     </nav>
-    <nav class="sidebar-nav sidebar-nav-lower" aria-label="Support">
-      <button class="sidebar-link" type="button" data-shell-action="settings"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"/></svg><span>Settings</span></button>
-      <button class="sidebar-link" type="button" data-shell-action="help"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 1 1 3.7 2c-1 .7-1.5 1.2-1.5 2.3M12 17h.01"/></svg><span>Help</span></button>
-    </nav>
+    <section class="sidebar-recents" aria-labelledby="sidebar-recents-title"><h2 id="sidebar-recents-title">Recent Datasets</h2><div id="sidebar-recents-list"><p class="sidebar-recents-empty">Your recent datasets will appear here.</p></div></section>
+    <div class="sidebar-profile" aria-label="Current workspace profile"><span class="profile-avatar" aria-hidden="true">L</span><span><strong>Local workspace</strong><small>No account connected</small></span></div>
   </aside>
   <header class="app-header" aria-label="Application header">
     <div class="header-inner">
@@ -47,17 +54,37 @@
 
   <main id="main-content">
     <section class="app-view upload-view active" id="view-upload" aria-labelledby="upload-title">
-      <div class="upload-intro"><p class="eyebrow">Datasets</p><h1 id="upload-title">Data workspace</h1><p>Upload tabular data to review its structure, quality, meaning, and preparation before prediction.</p></div>
+      <div class="home-decoration" aria-hidden="true"><svg viewBox="0 0 1440 330" preserveAspectRatio="none"><defs><linearGradient id="home-wave-fade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#EEEAFD" stop-opacity=".32"/><stop offset=".18" stop-color="#DCD6FA" stop-opacity=".72"/><stop offset=".38" stop-color="#E7E3FC" stop-opacity=".56"/><stop offset=".58" stop-color="#F2F0FE" stop-opacity=".30"/><stop offset=".76" stop-color="#E4DFFB" stop-opacity=".52"/><stop offset="1" stop-color="#F5F3FE" stop-opacity=".24"/></linearGradient><filter id="home-wave-soft" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur stdDeviation="6"/></filter></defs><path fill="none" stroke="url(#home-wave-fade)" filter="url(#home-wave-soft)" d="M-80 190 C 120 80, 250 66, 420 168 S 750 292, 920 164 S 1220 28, 1520 136"/></svg></div>
+      <div class="upload-intro"><h1 id="upload-title">Start with your dataset</h1><p>Upload a CSV or spreadsheet to begin analysis in LYNX.</p></div>
       <div class="upload-panel">
-        <div class="upload-panel-heading"><div><h2>Upload a dataset</h2><p>CSV, XLSX, or XLS · up to 50 MB by default</p></div><span class="format-badge">Tabular data</span></div>
-        <div class="dropzone" id="upload-dropzone" tabindex="0" role="button" aria-label="Choose or drop a dataset file"><input type="file" id="dataset-file-input" accept=".csv,.xlsx,.xls" hidden><svg class="upload-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 16V4m0 0-4 4m4-4 4 4M5 15v4h14v-4"/></svg><div><strong>Drop a dataset here</strong><span> or <span class="text-link">browse files</span></span><small>Supported formats: CSV, XLSX, XLS</small></div></div>
+        <input type="file" id="dataset-file-input" accept=".csv,.xlsx,.xls" hidden>
+        <div class="dropzone" id="upload-dropzone" role="group" aria-label="Dataset upload area">
+          <div class="upload-illustration" aria-hidden="true">
+            <span class="data-tile data-tile-table"><svg viewBox="0 0 24 24" fill="none" stroke="#532BFF"><rect x="4" y="4" width="16" height="16" rx="2"/><path fill="none" d="M4 9h16M9 4v16M15 4v16M4 14h16"/></svg></span>
+            <span class="document-stack document-stack-back"></span><span class="document-stack document-stack-middle"></span>
+            <span class="document-sheet"><svg viewBox="0 0 68 80"><path fill="#FAF9FF" stroke="#D8CFFF" d="M8 3h35l17 17v54a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Z"/><path fill="none" stroke="#D8CFFF" d="M43 3v17h17"/><path class="document-line" fill="none" stroke="#8B63FF" d="M18 37h24M18 48h31M18 59h20"/></svg></span>
+            <span class="data-tile data-tile-chart"><svg viewBox="0 0 24 24" fill="none" stroke="#532BFF"><path fill="none" d="M5 19V11h3v8M11 19V5h3v14M17 19v-6h3v6"/></svg></span>
+          </div>
+          <h2>Upload dataset</h2><p class="upload-formats">CSV, XLSX, or XLS · up to 50 MB</p>
+          <button class="button button-primary choose-file-button" id="btn-choose-file" type="button">Choose file</button>
+          <div class="upload-or" aria-hidden="true"><span></span><small>or</small><span></span></div>
+          <p class="upload-drop-copy">You can also drag and drop your file here</p>
+        </div>
         <div class="notice notice-error" id="upload-error-box" role="alert" hidden><strong>We couldn’t use that file.</strong><span id="upload-error-text"></span></div>
-        <div class="selected-file" id="selected-file-card" hidden><div class="file-identity"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v5h4"/></svg><div><strong id="selected-file-name" title=""></strong><span><span id="selected-file-format"></span> · <span id="selected-file-size"></span></span></div></div><div class="file-actions"><button class="button button-secondary" id="btn-replace-file" type="button">Replace</button><button class="button button-primary" id="btn-run-analysis" type="button" disabled>Analyze dataset</button></div></div>
+        <div class="selected-file" id="selected-file-card" aria-live="polite" hidden><div class="file-identity"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v5h4"/></svg><div><strong id="selected-file-name" title=""></strong><span><span id="selected-file-format"></span> · <span id="selected-file-size"></span></span></div></div><div class="file-actions"><button class="button button-secondary" id="btn-replace-file" type="button">Replace</button><button class="button button-primary" id="btn-run-analysis" type="button" disabled>Analyze dataset</button></div></div>
       </div>
-      <ol class="product-steps" aria-label="How LYNX works"><li><span>1</span><div><strong>Upload</strong><small>Select a supported tabular file.</small></div></li><li><span>2</span><div><strong>Analyze</strong><small>LYNX checks structure, quality, and meaning.</small></div></li><li><span>3</span><div><strong>Explore</strong><small>Review the prepared dataset workspace.</small></div></li></ol>
+      <ol class="product-steps" aria-label="How LYNX works"><li><span>1</span><div><strong>Upload</strong><small>Add your dataset</small></div></li><li><span>2</span><div><strong>Analyze</strong><small>LYNX processes and examines it</small></div></li><li><span>3</span><div><strong>Explore</strong><small>View insights and visualizations</small></div></li></ol>
+      <section class="home-recents" aria-labelledby="home-recents-title"><div class="home-section-heading"><h2 id="home-recents-title">Recent Datasets</h2></div><div class="recent-dataset-grid"><div class="home-recents-empty"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#532BFF"><path fill="none" d="M6 3h8l4 4v14H6zM14 3v5h4"/></svg><div><strong>No recent datasets yet</strong><p>Datasets you open will appear here for quick access.</p></div></div></div></section>
     </section>
 
     <section class="app-view analysis-view" id="view-analysis" aria-labelledby="analysis-title" aria-live="polite">
+      <nav class="workspace-tabs analysis-tabs processing-tabs" aria-label="Analysis sections">
+        <button class="workspace-tab" type="button" role="tab" aria-selected="false" disabled>Overview</button>
+        <button class="workspace-tab" type="button" role="tab" aria-selected="false" disabled>Profiling</button>
+        <button class="workspace-tab" type="button" role="tab" aria-selected="false" disabled>Prediction</button>
+        <button class="workspace-tab" type="button" role="tab" aria-selected="false" disabled>Insights</button>
+        <button class="workspace-tab" type="button" role="tab" aria-selected="false" disabled>Visualization</button>
+      </nav>
       <div class="analysis-content">
         <svg class="constellation" viewBox="0 0 124 140" role="img" aria-label="LYNX constellation analysis indicator">
           <title>Lynx constellation path</title>
@@ -70,47 +97,211 @@
             <g class="active-stars"><circle class="star s1" cx="10" cy="132" r="2.7"/><circle class="star s2" cx="14" cy="119" r="2.8"/><circle class="star s3" cx="26" cy="113" r="2.3"/><circle class="star s4" cx="33" cy="97" r="3.2"/><circle class="star s5" cx="64" cy="92" r="2.8"/><circle class="star s6" cx="104" cy="59" r="3.1"/><circle class="star s7" cx="113" cy="12" r="3.1"/><circle class="star s8" cx="118" cy="5" r="2.8"/></g>
           </g>
         </svg>
-        <p class="eyebrow">Dataset analysis</p><h1 id="analysis-title">Analyzing your dataset</h1><p class="analysis-file" id="analysis-filename" title=""></p><p class="analysis-message" id="analysis-status-message">This may take a few minutes.</p><strong class="elapsed" id="analysis-elapsed">00:00 elapsed</strong>
+        <h1 id="analysis-title">Preparing your dataset</h1><p class="analysis-message">LYNX is reviewing structure, quality, and semantics.</p><p class="analysis-file" id="analysis-filename" title=""></p><p class="analysis-status-message" id="analysis-status-message">This may take a few minutes.</p><strong class="elapsed" id="analysis-elapsed">00:00 elapsed</strong>
         <div class="notice notice-error analysis-error" id="analysis-error" role="alert" hidden><strong>Analysis could not be completed.</strong><span id="analysis-error-text"></span><div><button class="button button-secondary" id="btn-analysis-retry" type="button">Try again</button></div></div><button class="button button-quiet" id="btn-analysis-cancel" type="button">Choose another dataset</button>
       </div>
     </section>
 
+    <section class="app-view dataset-view" id="view-dataset" aria-labelledby="dataset-page-name">
+      <header class="dataset-page-header"><h1 id="dataset-page-name">Dataset</h1><p>Explore your original and cleaned data</p></header>
+      <div class="dataset-version-row">
+        <div class="dataset-version-switch" role="group" aria-label="Dataset version"><button type="button" data-dataset-version="original">Original Dataset</button><button class="active" type="button" data-dataset-version="cleaned" aria-pressed="true">Cleaned Dataset</button></div>
+        <label class="dataset-change-toggle" id="dataset-change-toggle" title="Cell-level cleaning lineage is not available for this dataset."><span>Highlight changes</span><input id="dataset-highlight-changes" type="checkbox" disabled><span class="toggle-track" aria-hidden="true"></span></label>
+      </div>
+      <section class="dataset-explorer" aria-label="Dataset rows">
+        <div class="dataset-toolbar">
+          <label class="dataset-search" for="dataset-search"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg><input id="dataset-search" type="search" placeholder="Search in dataset..." autocomplete="off"></label>
+          <div class="dataset-toolbar-actions">
+            <label><span>Filter</span><select id="dataset-filter-column" aria-label="Filter column"><option value="">Filter column</option></select></label>
+            <label class="dataset-filter-value"><span class="sr-only">Filter value</span><input id="dataset-filter-value" type="search" placeholder="Filter value" autocomplete="off" disabled></label>
+            <label><span>Sort</span><select id="dataset-sort-column" aria-label="Sort column"><option value="">Sort column</option></select></label>
+            <button class="dataset-sort-direction" id="dataset-sort-direction" type="button" aria-label="Sort ascending" aria-pressed="false" disabled>↑</button>
+          </div>
+        </div>
+        <p class="dataset-state" id="dataset-state" role="status" aria-live="polite">Choose Dataset after an analysis completes.</p>
+        <div class="dataset-grid-scroll" id="dataset-grid-scroll"><table class="dataset-grid"><caption class="sr-only">Dataset records</caption><thead id="dataset-grid-head"></thead><tbody id="dataset-grid-body"></tbody></table></div>
+        <footer class="dataset-pagination">
+          <p id="dataset-row-range">Rows 0–0 of 0</p>
+          <div class="dataset-page-controls"><button id="dataset-prev-page" type="button" aria-label="Previous page" disabled>‹</button><div id="dataset-page-buttons" aria-label="Dataset pages"></div><button id="dataset-next-page" type="button" aria-label="Next page" disabled>›</button><label><span class="sr-only">Rows per page</span><select id="dataset-page-size"><option value="10">10 / page</option><option value="20" selected>20 / page</option><option value="50">50 / page</option><option value="100">100 / page</option></select></label></div>
+        </footer>
+      </section>
+    </section>
+
     <section class="app-view workspace-view" id="view-workspace" aria-labelledby="workspace-dataset-name">
-      <div class="workspace-header"><div class="dataset-heading"><p class="eyebrow">Dataset workspace</p><div class="dataset-title-line"><h1 id="workspace-dataset-name" title="">Dataset</h1><span class="format-badge" id="workspace-file-type">DATA</span></div><p id="workspace-dataset-meta">Analysis complete</p></div></div>
-      <nav class="workspace-tabs" aria-label="Dataset workspace sections"><button class="workspace-tab active" id="tab-overview" type="button" role="tab" aria-selected="true" data-tab="overview">Overview</button><button class="workspace-tab" id="tab-data-profile" type="button" role="tab" aria-selected="false" data-tab="data-profile">Data Profile</button><button class="workspace-tab" id="tab-prediction" type="button" role="tab" aria-selected="false" data-tab="prediction">Prediction</button><button class="workspace-tab" id="tab-insights" type="button" role="tab" aria-selected="false" data-tab="insights">Insights</button><button class="workspace-tab" id="tab-visualizations" type="button" role="tab" aria-selected="false" data-tab="visualizations">Visualizations</button></nav>
+      <nav class="workspace-tabs analysis-tabs" aria-label="Dataset workspace sections"><button class="workspace-tab active" id="tab-overview" type="button" role="tab" aria-selected="true" data-tab="overview">Overview</button><button class="workspace-tab" id="tab-data-profile" type="button" role="tab" aria-selected="false" data-tab="data-profile">Profiling</button><button class="workspace-tab" id="tab-prediction" type="button" role="tab" aria-selected="false" data-tab="prediction">Prediction</button><button class="workspace-tab" id="tab-insights" type="button" role="tab" aria-selected="false" data-tab="insights">Insights</button><button class="workspace-tab" id="tab-visualizations" type="button" role="tab" aria-selected="false" data-tab="visualizations">Visualization</button></nav>
       <div class="workspace-content">
-        <section class="tab-panel active" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview"><div class="section-heading"><div><p class="eyebrow">Overview</p><h2>What happened to your dataset</h2></div><p id="overview-summary"></p></div><div class="metric-strip" id="overview-metrics"></div><div class="overview-layout"><section class="content-section quality-section" aria-labelledby="quality-title"><h3 id="quality-title">Data quality</h3><div id="overview-quality"></div></section><section class="content-section" aria-labelledby="findings-title"><h3 id="findings-title">Key findings</h3><div id="overview-findings"></div></section><section class="content-section" aria-labelledby="preparation-title"><h3 id="preparation-title">Preparation summary</h3><div id="overview-preparation"></div></section><section class="content-section" aria-labelledby="privacy-title"><h3 id="privacy-title">Privacy status</h3><div id="overview-privacy"></div></section></div></section>
-        <section class="tab-panel" id="panel-data-profile" role="tabpanel" hidden><div class="section-heading"><div><p class="eyebrow">Data Profile</p><h2>Explore columns</h2></div><p>Review observed structure, semantics, quality, and preparation evidence.</p></div><div class="profile-mobile-picker"><label for="profile-column-select">Column</label><select id="profile-column-select"></select></div><div class="profile-layout"><aside class="column-browser" aria-label="Dataset columns"><label for="column-search">Columns</label><div class="search-field"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg><input id="column-search" type="search" placeholder="Search columns" autocomplete="off"></div><div class="column-count" id="column-count"></div><div class="column-list" id="column-list" role="listbox" aria-label="Columns"></div></aside><article class="column-profile" id="column-profile" aria-live="polite"></article><aside class="column-findings" aria-labelledby="column-findings-title"><h3 id="column-findings-title">Findings</h3><div id="column-findings"></div></aside></div></section>
-        <section class="tab-panel" id="panel-prediction" role="tabpanel" hidden><div class="narrow-panel" id="prediction-target-section"><p class="eyebrow">Prediction</p><h2>What would you like to predict?</h2><p>Choose a target from the prepared dataset to generate predictions.</p><label for="prediction-target">Target column</label><select id="prediction-target"><option value="">Select a target column</option></select><p class="field-help" id="prediction-eligibility" aria-live="polite"></p><button class="button button-primary" id="btn-run-prediction" type="button" disabled>Run prediction</button></div><div class="prediction-waiting" id="prediction-waiting-section" role="status" aria-live="polite" hidden><div class="prediction-constellation-holder" id="prediction-constellation-holder"></div><p class="eyebrow">Prediction</p><h2>Preparing prediction</h2><p class="prediction-waiting-target">Target: <strong id="prediction-waiting-target-name">—</strong></p><p class="prediction-waiting-message">LYNX is analysing the prepared dataset and generating predictions.</p><strong class="elapsed" id="prediction-elapsed">00:00 elapsed</strong></div><div class="prediction-results" id="prediction-results-section" hidden><div class="prediction-header-bar"><div class="prediction-header-info"><p class="eyebrow">Prediction Results</p><div class="prediction-header-meta"><div class="meta-item"><span>Target</span><strong id="pred-summary-target">—</strong></div><div class="meta-item"><span>Task</span><strong id="pred-summary-task">—</strong></div><div class="meta-item"><span>Evaluated rows</span><strong id="pred-summary-rows">—</strong></div></div></div><button class="button button-secondary" id="btn-prediction-run-another" type="button">Run another prediction</button></div><div class="prediction-section"><h3 class="prediction-section-title">Model evaluation</h3><div class="prediction-metrics-grid" id="prediction-primary-metrics"></div><div id="prediction-secondary-metrics-wrapper"></div></div><div class="prediction-section" id="prediction-viz-section"><h3 class="prediction-section-title" id="prediction-viz-title">Visualization</h3><div class="prediction-viz-container" id="prediction-viz-container"></div></div><div class="prediction-section"><h3 class="prediction-section-title">Prediction rows</h3><div class="table-scroll-container"><table class="prediction-table" id="prediction-rows-table"><caption class="sr-only">Evaluated prediction rows</caption><thead id="prediction-table-head"></thead><tbody id="prediction-table-body"></tbody></table></div><div class="prediction-pagination" id="prediction-pagination"><button class="button button-secondary" id="btn-pred-prev-page" type="button" disabled>Previous</button><span class="pagination-info" id="pred-page-info">Showing 0–0 of 0</span><button class="button button-secondary" id="btn-pred-next-page" type="button" disabled>Next</button></div></div></div><div class="prediction-error" id="prediction-error-section" role="alert" hidden><div class="notice notice-error"><strong>Prediction could not be completed.</strong><span id="prediction-error-text"></span><div class="notice-actions"><button class="button button-secondary" id="btn-prediction-retry" type="button">Try again</button></div></div></div></section>
-        <section class="tab-panel" id="panel-insights" role="tabpanel" aria-labelledby="tab-insights" hidden>
-          <div class="section-heading"><div><p class="eyebrow">Insights</p><h2>Ask about this dataset</h2></div><p>Get deterministic factual answers from the prepared data and continue with follow-up questions.</p></div>
-          <div class="conversation-panel" id="insights-conversation" data-conversation="insights">
-            <div class="conversation-feed" id="insights-messages" role="log" aria-live="polite" aria-label="Insights conversation">
-              <div class="conversation-start"><strong>Questions you can ask</strong><div class="prompt-suggestions"><button type="button" data-prompt="Which category has the highest value?">Which category has the highest value?</button><button type="button" data-prompt="What is the average value?">What is the average value?</button><button type="button" data-prompt="How many records are represented?">How many records are represented?</button></div></div>
+        <section class="tab-panel active overview-panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+          <header class="overview-page-header"><div class="dataset-heading"><div class="dataset-title-line"><h1 id="workspace-dataset-name" title="">Dataset</h1><span class="sr-only" id="workspace-file-type">DATA</span></div><p id="workspace-dataset-meta">Uploaded dataset overview</p></div><p class="overview-uploaded-at" id="overview-uploaded-at"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><span>Upload time unavailable</span></p></header>
+          <p class="sr-only" id="overview-summary"></p>
+          <div class="overview-kpi-grid" id="overview-metrics"></div>
+          <div class="overview-dashboard-grid">
+            <section class="overview-card quality-card" aria-labelledby="quality-title"><h2 id="quality-title">Data Quality Overview</h2><div id="overview-quality"></div></section>
+            <section class="overview-card health-card" aria-labelledby="health-title"><h2 id="health-title">Dataset Health</h2><div id="overview-health"></div></section>
+          </div>
+          <section class="overview-card preview-card" aria-labelledby="preview-title"><div class="preview-heading"><div><h2 id="preview-title">Raw Data Preview</h2><p id="overview-preview-description">Showing up to the first 10 rows from the original ingestion stage.</p></div><button class="button button-secondary" type="button" disabled title="Full dataset viewing is not available in the current frontend API">View Full Dataset</button></div><div class="overview-preview" id="overview-raw-preview"></div></section>
+        </section>
+        <section class="tab-panel" id="panel-data-profile" role="tabpanel" hidden>
+          <div class="profiling-page">
+            <header class="overview-page-header profiling-page-header">
+              <div class="dataset-heading"><h2 id="profiling-dataset-name">Dataset</h2><p>Column semantics and decision audit</p></div>
+              <p class="overview-uploaded-at" id="profiling-timestamp"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg><span>Profiling time unavailable</span></p>
+            </header>
+            <div class="overview-kpi-grid profiling-kpi-grid" id="profiling-summary" aria-label="Profiling summary"></div>
+            <div class="profiling-workspace">
+              <section class="profiling-card manifest-card" aria-labelledby="semantic-manifest-title">
+                <div class="manifest-heading"><div><h2 id="semantic-manifest-title">Semantic Manifest</h2><p>How LYNX interpreted each column and what action it assigned.</p></div><div class="manifest-controls"><label class="manifest-search" for="column-search"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg><input id="column-search" type="search" placeholder="Search columns…" autocomplete="off"></label><label class="sr-only" for="semantic-role-filter">Filter by semantic role</label><select id="semantic-role-filter"><option value="">All roles</option></select></div></div>
+                <div class="manifest-table-scroll"><table class="manifest-table"><thead><tr><th scope="col">#</th><th scope="col">Column Name</th><th scope="col">Physical Type</th><th scope="col">Semantic Role</th><th scope="col">Semantic Type</th><th scope="col">Cleaning Action</th><th scope="col">Status</th></tr></thead><tbody id="semantic-manifest-body"></tbody></table><div class="manifest-empty" id="semantic-manifest-empty" hidden>No matching columns.</div></div>
+                <div class="manifest-footer"><p id="column-count">No columns available</p><nav class="manifest-pagination" aria-label="Semantic manifest pages"><button type="button" id="manifest-page-prev" aria-label="Previous page">‹</button><div id="manifest-page-buttons"></div><button type="button" id="manifest-page-next" aria-label="Next page">›</button></nav></div>
+              </section>
+              <article class="profiling-card column-profile" id="column-profile" aria-live="polite"><p class="empty-inline">No column profile is available.</p></article>
             </div>
-            <p class="conversation-status" id="insights-status" role="status" aria-live="polite"></p>
-            <form class="conversation-composer" id="insights-form"><label class="sr-only" for="insights-input">Ask LYNX for an insight</label><textarea id="insights-input" rows="2" placeholder="Ask a factual question about this dataset"></textarea><button class="button button-primary" type="submit">Send</button></form>
           </div>
         </section>
-        <section class="tab-panel" id="panel-visualizations" role="tabpanel" aria-labelledby="tab-visualizations" hidden>
-          <div class="section-heading"><div><p class="eyebrow">Visualizations</p><h2>Explore this dataset visually</h2></div><p>Review automatically recommended views or ask LYNX for a specific supported chart.</p></div>
-          <div class="mode-switch" role="tablist" aria-label="Visualization mode"><button class="mode-button active" id="viz-mode-recommended" type="button" role="tab" aria-controls="visualization-recommended" aria-selected="true" data-viz-mode="recommended">Recommended</button><button class="mode-button" id="viz-mode-ask" type="button" role="tab" aria-controls="visualization-ask" aria-selected="false" data-viz-mode="ask">Ask LYNX</button></div>
-          <section class="visualization-mode active" id="visualization-recommended" role="tabpanel" aria-labelledby="viz-mode-recommended"><div class="automatic-state" id="automatic-visualization-status" role="status" aria-live="polite">Loading recommended visualizations…</div><div class="visualization-grid" id="visualization-grid"></div></section>
-          <section class="visualization-mode" id="visualization-ask" role="tabpanel" aria-labelledby="viz-mode-ask" hidden>
-            <div class="conversation-panel" id="visualization-conversation" data-conversation="visualization">
-              <div class="conversation-feed" id="visualization-messages" role="log" aria-live="polite" aria-label="Visualization conversation"><div class="conversation-start"><strong>Ask LYNX to create a specific view</strong><div class="prompt-suggestions"><button type="button" data-prompt="Show a metric by category">Show a metric by category</button><button type="button" data-prompt="Plot a metric over time">Plot a metric over time</button><button type="button" data-prompt="Compare two numeric fields">Compare two numeric fields</button></div></div></div>
-              <p class="conversation-status" id="visualization-status" role="status" aria-live="polite"></p>
-              <form class="conversation-composer" id="visualization-form"><label class="sr-only" for="visualization-input">Ask LYNX for a visualization</label><textarea id="visualization-input" rows="2" placeholder="Describe the view you need"></textarea><button class="button button-primary" type="submit">Send</button></form>
+        <section class="tab-panel prediction-panel" id="panel-prediction" role="tabpanel" aria-labelledby="tab-prediction" hidden>
+          <header class="overview-page-header prediction-page-header"><div class="dataset-heading"><h2 id="prediction-dataset-name">Dataset</h2><p>Prediction workspace for target-based machine learning</p></div><p class="overview-uploaded-at" id="prediction-last-run" hidden><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><span></span></p></header>
+          <section class="prediction-setup-card" id="prediction-target-section" aria-labelledby="prediction-setup-title">
+            <h3 id="prediction-setup-title">Prediction Setup</h3>
+            <div class="prediction-setup-grid">
+              <div class="prediction-target-control"><label for="prediction-target">Target Column</label><select id="prediction-target"><option value="">Select a target column</option></select><p class="field-help" id="prediction-eligibility" aria-live="polite"></p></div>
+              <div class="prediction-setup-state"><span class="prediction-state-icon" aria-hidden="true">⌘</span><div><span>Task Type</span><strong id="prediction-task-type">Not detected</strong><small id="prediction-task-help">Select a target to detect its task</small></div></div>
+              <div class="prediction-setup-state"><span class="prediction-state-icon status" aria-hidden="true">✓</span><div><span>Prediction Status</span><strong id="prediction-status-label">Not Started</strong><small id="prediction-status-help">Choose a target to begin</small></div></div>
+              <button class="button button-primary prediction-run-button" id="btn-run-prediction" type="button" disabled><span aria-hidden="true">▶</span><span id="prediction-run-label">Run Prediction</span></button>
+            </div>
+          </section>
+          <div class="prediction-empty" id="prediction-empty-section"><span class="prediction-empty-icon" aria-hidden="true">◎</span><h3>Select a target to begin</h3><p>Choose the column you want LYNX to predict. Task detection and model selection will follow your choice.</p></div>
+          <div class="prediction-waiting prediction-state-card" id="prediction-waiting-section" role="status" aria-live="polite" hidden><div class="prediction-constellation-holder" id="prediction-constellation-holder"></div><div><h3>Preparing prediction</h3><p>LYNX is training and evaluating a model for <strong id="prediction-waiting-target-name">—</strong>.</p><strong class="elapsed" id="prediction-elapsed">00:00 elapsed</strong></div></div>
+          <div class="prediction-results" id="prediction-results-section" hidden>
+            <div class="prediction-summary-grid"><article class="prediction-summary-card"><span class="summary-icon">◎</span><div><span>Target</span><strong id="pred-summary-target">—</strong><small>Selected target column</small></div></article><article class="prediction-summary-card"><span class="summary-icon">▦</span><div><span>Task</span><strong id="pred-summary-task">—</strong><small>Backend-detected task type</small></div></article><article class="prediction-summary-card"><span class="summary-icon">▤</span><div><span>Evaluated Rows</span><strong id="pred-summary-rows">—</strong><small>Rows used for evaluation</small></div></article><article class="prediction-summary-card"><span class="summary-icon success">✓</span><div><span>Prediction Status</span><strong>Completed</strong><small>Model trained and evaluated</small></div></article></div>
+            <div class="prediction-metrics-grid" id="prediction-primary-metrics"></div><div id="prediction-secondary-metrics-wrapper"></div>
+            <div class="prediction-analysis-grid"><section class="prediction-section feature-importance-section"><div class="prediction-card-heading"><div><h3>Feature Importance</h3><p>Measured contribution to this model's held-out performance</p></div></div><div id="prediction-feature-importance"></div></section><section class="prediction-section" id="prediction-viz-section"><div class="prediction-card-heading"><div><h3 id="prediction-viz-title">Evaluation</h3><p id="prediction-viz-subtitle"></p></div></div><div class="prediction-viz-container" id="prediction-viz-container"></div></section></div>
+            <section class="prediction-section prediction-rows-section"><div class="prediction-card-heading inline"><h3>Prediction Rows</h3><p>Evaluated prediction rows</p></div><div class="table-scroll-container"><table class="prediction-table" id="prediction-rows-table"><caption class="sr-only">Evaluated prediction rows</caption><thead id="prediction-table-head"></thead><tbody id="prediction-table-body"></tbody></table></div><div class="prediction-pagination" id="prediction-pagination"><button class="button button-secondary" id="btn-pred-prev-page" type="button" disabled>Previous</button><span class="pagination-info" id="pred-page-info">Showing 0–0 of 0</span><button class="button button-secondary" id="btn-pred-next-page" type="button" disabled>Next</button></div></section>
+          </div>
+          <div class="prediction-error" id="prediction-error-section" role="alert" hidden><div class="notice notice-error"><strong>Prediction could not be completed.</strong><span id="prediction-error-text"></span><div class="notice-actions"><button class="button button-secondary" id="btn-prediction-retry" type="button">Try again</button></div></div></div>
+        </section>
+        <section class="tab-panel insights-panel" id="panel-insights" role="tabpanel" aria-labelledby="tab-insights" hidden>
+          <header class="overview-page-header insights-page-header">
+            <div class="dataset-heading"><h2 id="insights-dataset-name">Dataset</h2><p>Ask questions and receive dataset-grounded answers in plain language</p></div>
+            <p class="insights-source-note"><svg aria-hidden="true" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v6c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 11v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg><span>Insights generated from prepared dataset</span></p>
+          </header>
+          <section class="insights-report-card insights-summary" aria-labelledby="insights-summary-title">
+            <h3 id="insights-summary-title">Summary</h3>
+            <div class="insights-summary-copy" id="insights-summary-copy" role="status" aria-live="polite"><p>Preparing a grounded summary of this dataset…</p></div>
+            <button class="text-button" id="btn-retry-insights-landing" type="button" hidden>Retry summary</button>
+          </section>
+          <section class="insights-report-card insights-suggestions" aria-labelledby="insights-suggestions-title">
+            <h3 id="insights-suggestions-title">Suggested questions</h3>
+            <div class="prompt-suggestions insights-prompt-suggestions" id="insights-suggested-questions" aria-live="polite"><span class="insights-loading-copy">Preparing questions supported by this dataset…</span></div>
+          </section>
+          <section class="insights-conversation-card conversation-panel" id="insights-conversation" data-conversation="insights" aria-label="Ask LYNX">
+            <div class="conversation-feed insights-conversation-feed" id="insights-messages" role="log" aria-live="polite" aria-label="Insights conversation"><div class="insights-empty-conversation"><strong>Ask LYNX about this dataset</strong><p>Choose a suggested question or enter your own factual question below.</p></div></div>
+            <p class="conversation-status" id="insights-status" role="status" aria-live="polite"></p>
+            <div class="insights-composer-dock">
+              <form class="conversation-composer insights-composer" id="insights-form"><label class="sr-only" for="insights-input">Ask LYNX about this dataset</label><span class="composer-search-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></span><textarea id="insights-input" rows="1" placeholder="Ask LYNX about this dataset..."></textarea><button class="button button-primary" type="submit" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 3-8.4 18-2.2-7.4L3 11.4 21 3Z"/><path d="m10.4 13.6 4.2-4.2"/></svg><span>Send</span></button></form>
+              <p class="insights-composer-help">Enter to send · Shift+Enter for a new line</p>
             </div>
           </section>
         </section>
+        <section class="tab-panel visualization-panel" id="panel-visualizations" role="tabpanel" aria-labelledby="tab-visualizations" hidden>
+          <header class="overview-page-header visualization-page-header"><div class="dataset-heading"><h2 id="visualization-dataset-name">Dataset</h2><p>Auto-generated visual analysis powered by the clean prepared dataset</p></div><p class="visualization-source-note"><svg aria-hidden="true" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v6c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 11v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg><span>Visuals generated from prepared data</span></p></header>
+          <section class="visualization-dashboard" id="visualization-recommended" aria-label="Recommended visual analysis">
+            <div class="visualization-kpis" id="visualization-kpis" aria-label="Dataset key metrics"></div>
+            <div class="automatic-state visualization-loading-state" id="automatic-visualization-status" role="status" aria-live="polite">Preparing verified visual recommendations…</div>
+            <div class="visualization-grid visualization-story-list" id="visualization-grid"></div>
+          </section>
+          <section class="custom-visualization-section" id="visualization-ask" aria-labelledby="custom-visualization-title">
+            <header class="custom-visualization-heading"><div><p class="eyebrow">Custom visualization</p><h3 id="custom-visualization-title">Create a chart from a question</h3></div><p>Requests use the same grounded analytical workflow as the recommended visuals.</p></header>
+            <div class="custom-visualization-workspace conversation-panel" id="visualization-conversation" data-conversation="visualization">
+              <div class="custom-visualization-feed" id="visualization-messages" role="log" aria-live="polite" aria-label="Requested visualizations"><div class="custom-visualization-empty"><strong>No custom charts yet</strong><p>Describe a supported comparison, trend, relationship, or distribution.</p></div></div>
+              <p class="conversation-status" id="visualization-status" role="status" aria-live="polite"></p>
+            </div>
+          </section>
+          <div class="visualization-composer-dock">
+            <form class="conversation-composer visualization-composer" id="visualization-form"><label class="sr-only" for="visualization-input">Ask LYNX to generate a chart from this dataset</label><span class="composer-search-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></span><textarea id="visualization-input" rows="1" placeholder="Ask LYNX to generate a chart from this dataset..."></textarea><button class="button button-primary" type="submit" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 19V9M10 19V4M16 19v-7M22 19H2"/></svg><span>Generate</span></button></form>
+            <p class="visualization-composer-help">Enter to generate · Shift+Enter for a new line</p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="app-view export-view" id="view-export" aria-labelledby="export-title">
+      <header class="export-page-header"><div><h1 id="export-title">Export Workspace</h1><p>Download your prepared data and generate reports from your analysis.</p></div><p class="export-ready"><span aria-hidden="true"></span>Ready to export</p></header>
+
+      <section class="export-card export-dataset-card" aria-labelledby="export-dataset-title">
+        <div class="export-card-intro"><span class="export-icon" aria-hidden="true">▤</span><div><h2 id="export-dataset-title">Cleaned Dataset</h2><p>Download the cleaned, visualization-ready dataset.</p></div></div>
+        <fieldset class="export-options"><legend>File format</legend><div class="export-choice-row"><label class="export-choice"><input type="radio" name="dataset-export-format" value="csv"><span>CSV (.csv)</span></label><label class="export-choice"><input type="radio" name="dataset-export-format" value="xlsx" checked><span>Excel (.xlsx)</span></label></div><small>Uses the cleaned dataset only.</small></fieldset>
+        <div class="export-action"><button class="button button-primary" id="btn-export-dataset" type="button"><span aria-hidden="true">⇩</span><span>Export Dataset</span></button><p class="export-action-status" id="dataset-export-status" role="status" aria-live="polite"></p></div>
+      </section>
+
+      <section class="export-card export-report-card" aria-labelledby="export-report-title">
+        <div class="export-card-intro"><span class="export-icon" aria-hidden="true">▧</span><div><h2 id="export-report-title">Analysis Report</h2><p>Choose which analysis sections to include in your report.</p></div></div>
+        <fieldset class="export-sections"><legend>Include sections</legend><label><input type="checkbox" id="export-select-all" checked><span>Select all</span></label><div class="export-section-grid"><label><input type="checkbox" data-export-section="overview" checked><span>Overview</span></label><label><input type="checkbox" data-export-section="prediction"><span>Prediction</span></label><label><input type="checkbox" data-export-section="profiling"><span>Profiling</span></label><label><input type="checkbox" data-export-section="insights"><span>Insights</span></label><label><input type="checkbox" data-export-section="visualization"><span>Visualization</span></label></div><small>Insights and Visualization include completed questions, requests, and generated results.</small></fieldset>
+        <fieldset class="export-report-format"><legend>Report format</legend><label class="export-choice"><input type="radio" name="report-export-format" value="pdf" checked><span>PDF (.pdf)</span></label><label class="export-choice"><input type="radio" name="report-export-format" value="docx"><span>Word (.docx)</span></label><small id="export-selection-count">0 sections selected</small><button class="button button-primary" id="btn-generate-report" type="button"><span aria-hidden="true">▧</span><span>Generate Report</span></button><p class="export-action-status" id="report-export-status" role="status" aria-live="polite"></p></fieldset>
+      </section>
+
+      <section class="export-card export-preview-card" aria-labelledby="export-preview-title">
+        <div class="export-card-intro"><span class="export-icon" aria-hidden="true">▧</span><div><h2 id="export-preview-title">Report Contents Preview</h2><p>Review what will be included before generating your report.</p></div></div>
+        <div class="export-preview-wrap"><div class="export-preview-list" id="export-preview-list"></div><p class="export-preview-note">ⓘ Only available sections are exported. Unavailable sections cannot be selected.</p></div>
+      </section>
+    </section>
+
+    <section class="app-view settings-view" id="view-settings" aria-labelledby="settings-page-title">
+      <header class="settings-page-header"><h1 id="settings-page-title">Settings</h1><p>Manage your workspace preferences and application behavior.</p></header>
+      <div class="settings-workspace">
+        <nav class="settings-navigation" aria-label="Settings categories">
+          <button class="settings-category active" type="button" data-settings-category="appearance" aria-current="page"><span class="settings-category-icon" aria-hidden="true">◌</span><span><strong>Appearance</strong><small>Theme and display preferences</small></span></button>
+          <button class="settings-category" type="button" data-settings-category="dataset"><span class="settings-category-icon" aria-hidden="true">▤</span><span><strong>Dataset &amp; Processing</strong><small>Upload and workspace preferences</small></span></button>
+          <button class="settings-category" type="button" data-settings-category="ai"><span class="settings-category-icon" aria-hidden="true">◎</span><span><strong>AI &amp; Insights</strong><small>AI configuration and response preferences</small></span></button>
+          <button class="settings-category" type="button" data-settings-category="privacy"><span class="settings-category-icon" aria-hidden="true">◇</span><span><strong>Privacy &amp; Data</strong><small>Data handling and privacy controls</small></span></button>
+          <button class="settings-category" type="button" data-settings-category="about"><span class="settings-category-icon" aria-hidden="true">ⓘ</span><span><strong>About LYNX</strong><small>Version and application information</small></span></button>
+        </nav>
+
+        <div class="settings-content">
+          <p class="settings-save-status" id="settings-save-status" role="status" aria-live="polite"></p>
+          <section class="settings-panel active" id="settings-panel-appearance" data-settings-panel="appearance" aria-labelledby="settings-appearance-title">
+            <header class="settings-panel-header"><span class="settings-panel-icon" aria-hidden="true">◌</span><div><h2 id="settings-appearance-title">Appearance</h2><p>Customize how LYNX looks and feels.</p></div></header>
+            <div class="settings-row settings-row-choice"><div><h3>Theme</h3><p>Choose the color theme for the interface.</p></div><div class="settings-choice-group settings-theme-group" role="radiogroup" aria-label="Theme"><label class="settings-choice-card"><input type="radio" name="settings-theme" value="light"><span aria-hidden="true">☼</span><strong>Light</strong></label><label class="settings-choice-card"><input type="radio" name="settings-theme" value="dark"><span aria-hidden="true">☾</span><strong>Dark</strong></label><label class="settings-choice-card"><input type="radio" name="settings-theme" value="system"><span aria-hidden="true">▣</span><strong>System</strong></label></div></div>
+            <div class="settings-row settings-row-choice"><div><h3>Interface density</h3><p>Adjust the spacing and density of UI elements.</p></div><div class="settings-choice-group settings-density-group" role="radiogroup" aria-label="Interface density"><label class="settings-choice-card wide"><input type="radio" name="settings-density" value="comfortable"><span aria-hidden="true">☷</span><strong>Comfortable</strong></label><label class="settings-choice-card wide"><input type="radio" name="settings-density" value="compact"><span aria-hidden="true">☷</span><strong>Compact</strong></label></div></div>
+            <div class="settings-row"><div><h3>Language</h3><p>LYNX currently supports one interface language.</p></div><div class="settings-readonly-control"><span aria-hidden="true">◎</span><strong>English (US)</strong><small>Only supported language</small></div></div>
+            <div class="settings-row"><div><h3>Animations</h3><p>Show or hide nonessential interface animations.</p></div><label class="settings-switch"><input id="setting-animations" type="checkbox"><span aria-hidden="true"></span><strong>Enable animations</strong></label></div>
+            <div class="settings-row"><div><h3>Reset appearance</h3><p>Restore default appearance settings only.</p></div><button class="button button-secondary" id="btn-reset-appearance" type="button">↶&nbsp; Reset to default</button></div>
+          </section>
+
+          <section class="settings-panel" id="settings-panel-dataset" data-settings-panel="dataset" aria-labelledby="settings-dataset-title" hidden>
+            <header class="settings-panel-header"><span class="settings-panel-icon" aria-hidden="true">▤</span><div><h2 id="settings-dataset-title">Dataset &amp; Processing</h2><p>Manage supported upload and workspace behavior.</p></div></header>
+            <div class="settings-row"><div><h3>Replace confirmation</h3><p>Ask before leaving an active dataset to start another.</p></div><label class="settings-switch"><input id="setting-confirm-replace" type="checkbox"><span aria-hidden="true"></span><strong>Confirm replacement</strong></label></div>
+            <div class="settings-row"><div><h3>After successful upload</h3><p>Choose the first workspace shown after preparation completes.</p></div><label class="settings-select"><span class="sr-only">Default page after upload</span><select id="setting-post-upload"><option value="overview">Open Overview</option><option value="dataset">Open Cleaned Dataset</option></select></label></div>
+            <div class="settings-row settings-information-row"><div><h3>Required safeguards</h3><p>File validation, cleaning validation, and privacy protections are always enforced.</p></div><span class="settings-status-pill required">Always enabled</span></div>
+          </section>
+
+          <section class="settings-panel" id="settings-panel-ai" data-settings-panel="ai" aria-labelledby="settings-ai-title" hidden>
+            <header class="settings-panel-header"><span class="settings-panel-icon" aria-hidden="true">◎</span><div><h2 id="settings-ai-title">AI &amp; Insights</h2><p>Review AI configuration and supported response preferences.</p></div></header>
+            <div class="settings-row"><div><h3>AI provider</h3><p>Provider used by the interactive semantic response boundary.</p></div><div class="settings-value"><strong id="settings-ai-provider">Checking configuration…</strong><span class="settings-status-pill" id="settings-ai-status">Checking</span></div></div>
+            <div class="settings-row"><div><h3>Model</h3><p>Model selection is managed by the current runtime configuration.</p></div><div class="settings-value"><strong id="settings-ai-model">Checking configuration…</strong><small>Runtime switching is not supported</small></div></div>
+            <div class="settings-row"><div><h3>Suggested questions</h3><p>Show grounded question suggestions on the Insights page.</p></div><label class="settings-switch"><input id="setting-suggestions" type="checkbox"><span aria-hidden="true"></span><strong>Show suggestions</strong></label></div>
+            <div class="settings-row settings-information-row"><div><h3>Analytical verification</h3><p>Deterministic validation and verified-result requirements cannot be disabled.</p></div><span class="settings-status-pill required">Always enabled</span></div>
+          </section>
+
+          <section class="settings-panel" id="settings-panel-privacy" data-settings-panel="privacy" aria-labelledby="settings-privacy-title" hidden>
+            <header class="settings-panel-header"><span class="settings-panel-icon" aria-hidden="true">◇</span><div><h2 id="settings-privacy-title">Privacy &amp; Data</h2><p>Understand how this workspace stores and protects data.</p></div></header>
+            <div class="settings-row"><div><h3>Dataset storage</h3><p>Uploaded and generated artifacts use the configured application runtime.</p></div><div class="settings-value"><strong id="settings-data-storage">Local runtime workspace</strong><small>Server-managed storage</small></div></div>
+            <div class="settings-row"><div><h3>Privacy and masking</h3><p>Privacy clearance and approved masking are mandatory before data is exposed.</p></div><span class="settings-status-pill required">Required</span></div>
+            <div class="settings-row"><div><h3>Run retention</h3><p>Configured cleanup window for completed runtime artifacts.</p></div><div class="settings-value"><strong id="settings-retention">Checking configuration…</strong><small>Enforced by server cleanup</small></div></div>
+            <div class="settings-row"><div><h3>Active browser workspace</h3><p>Clear the current browser view. This does not claim immediate deletion of server artifacts.</p></div><button class="button button-secondary danger-outline" id="btn-clear-workspace" type="button">Clear active workspace</button></div>
+          </section>
+
+          <section class="settings-panel" id="settings-panel-about" data-settings-panel="about" aria-labelledby="settings-about-title" hidden>
+            <header class="settings-panel-header"><span class="settings-panel-icon" aria-hidden="true">ⓘ</span><div><h2 id="settings-about-title">About LYNX</h2><p>Application and runtime information.</p></div></header>
+            <div class="settings-about-brand"><strong>LYNX</strong><p>Intelligent tabular-data cleaning, analysis, prediction, insights, and visualization workspace.</p></div>
+            <div class="settings-row"><div><h3>Application version</h3><p>Version reported by the running LYNX API.</p></div><div class="settings-value"><strong id="settings-app-version">Checking configuration…</strong></div></div>
+            <div class="settings-row"><div><h3>Application architecture</h3><p>Local-first web workspace with validated analytical pipelines and provider-neutral AI boundaries.</p></div><span class="settings-status-pill neutral">Information</span></div>
+          </section>
+        </div>
       </div>
     </section>
   </main>
 
-  <dialog class="product-dialog" id="settings-dialog" aria-labelledby="settings-title"><form method="dialog"><div class="dialog-heading"><div><p class="eyebrow">Settings</p><h2 id="settings-title">Application settings</h2></div><button class="icon-button" value="cancel" aria-label="Close settings">×</button></div><section><h3>Appearance</h3><p>Choose the interface theme used on this device.</p><div class="theme-options" role="group" aria-label="Appearance"><button class="theme-choice" type="button" data-theme-choice="light">Light</button><button class="theme-choice" type="button" data-theme-choice="dark">Dark</button></div></section><section><h3>Data & privacy</h3><p>Privacy checks and approved masking actions run during dataset preparation.</p></section><section><h3>About</h3><p>LYNX analyzes tabular datasets and prepares them for prediction workflows.</p></section><button class="button button-secondary" value="cancel">Close</button></form></dialog>
   <dialog class="product-dialog" id="help-dialog" aria-labelledby="help-title"><form method="dialog"><div class="dialog-heading"><div><p class="eyebrow">Help</p><h2 id="help-title">Using LYNX</h2></div><button class="icon-button" value="cancel" aria-label="Close help">×</button></div><section><h3>Supported files</h3><p>Upload CSV, XLSX, or legacy XLS datasets.</p></section><section><h3>Data Profile</h3><p>Explore observed column types, meanings, statistics, issues, and preparation decisions.</p></section><section><h3>Prediction</h3><p>Select an eligible target to run a prediction and review real evaluation metrics and prediction rows.</p></section><section><h3>Privacy</h3><p>LYNX reports whether the prepared dataset passed its privacy clearance checks.</p></section><button class="button button-secondary" value="cancel">Close</button></form></dialog>
 
-  <script src="reportAdapter.js"></script><script src="apiClient.js"></script><script src="pipeline1Controller.js"></script><script src="predictionController.js"></script><script src="chartRenderer.js"></script><script src="conversationController.js"></script><script src="main.js"></script>
+  <script src="reportAdapter.js"></script><script src="apiClient.js?v=20261018-settings"></script><script src="pipeline1Controller.js"></script><script src="predictionController.js"></script><script src="https://cdn.jsdelivr.net/npm/echarts@6.1.0/dist/echarts.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="visualization/chartFormatter.js?v=20261017-phase8"></script><script src="visualization/chartTheme.js?v=20261017-phase8"></script><script src="visualization/echartsAdapter.js?v=20261017-visualization"></script><script src="chartRenderer.js"></script><script src="visualization/visualizationController.js?v=20261017-phase8"></script><script src="conversationController.js"></script><script src="main.js?v=20261018-settings"></script>
 </body>
 </html>

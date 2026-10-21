@@ -15,7 +15,6 @@ from api.run_service import ApplicationRunService
 from api.server import create_app
 from app.config import ApplicationSettings
 from intelligence.llm.provider import LLMProvider
-from pipelines.pipeline3_results.nlp.llm.schemas import LLMFollowupInterpretation
 from tests.api.test_application_flow import _write_successful_pipeline1_artifacts
 
 
@@ -25,20 +24,24 @@ class APIProvider(LLMProvider):
 
     def generate_structured(self, prompt: str, response_model: Type[BaseModel]):
         self.calls += 1
-        if response_model is LLMFollowupInterpretation:
-            return {
-                "supported": True, "modification": "REPLACE_MEASURE",
-                "replace_measure_term": "salary", "replace_dimension_term": None,
-                "aggregation": None, "comparison": None, "requested_chart": None,
-                "limit": None, "filter": None, "temporal_terms": [],
-                "unsupported_reason": None,
-            }
+        measure = "sales" if "show sales by department" in prompt else "salary"
         return {
-            "supported": True, "unsupported_reason": None,
-            "intent": "VISUALIZATION", "measure_terms": ["salary"],
-            "dimension_terms": ["department"], "aggregation": "MEAN",
-            "comparison": "NONE", "requested_chart": None,
-            "filters": [], "time_terms": [], "limit": None,
+            "intent": "VISUALIZATION",
+            "analytical_goal": "GROUP_COMPARISON",
+            "measure_concepts": [measure],
+            "dimension_concepts": ["department"],
+            "aggregation": "MEAN" if measure == "salary" else "SUM",
+            "comparison": "NONE",
+            "limit": None,
+            "requested_chart": None,
+            "filters": [],
+            "time_expression": None,
+            "missing_slots": [],
+            "ambiguities": [],
+            "needs_clarification": False,
+            "clarification_question": None,
+            "unsupported": False,
+            "unsupported_reason": None,
         }
 
 
@@ -88,6 +91,6 @@ def test_injected_provider_reaches_single_turn_and_conversation_api(tmp_path) ->
             assert followup.status_code == 200
             assert followup.json()["status"] == "READY"
             assert followup.json()["visualization"]["visualizations"][0]["y_column"] == "salary"
-        assert provider.calls == 2
+        assert provider.calls == 3
     finally:
         service.shutdown(wait=True)

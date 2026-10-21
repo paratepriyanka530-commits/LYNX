@@ -34,6 +34,19 @@ test("status and result calls use encoded same-origin API paths", async () => {
   assert.deepEqual(calls, ["/api/runs/run%2Fid", "/api/runs/run%2Fid/pipeline1"]);
 });
 
+test("application metadata uses the dedicated read-only endpoint", async () => {
+  let request;
+  const result = await api.getApplicationInfo({
+    fetchImpl: async (url, options) => {
+      request = { url, options };
+      return response({ application: { version: "0.1.0" } });
+    },
+  });
+  assert.equal(request.url, "/api/application-info");
+  assert.equal(request.options.method, "GET");
+  assert.equal(result.application.version, "0.1.0");
+});
+
 test("controlled backend errors expose only the safe message", async () => {
   await assert.rejects(
     api.getRunStatus("bad", {
@@ -74,6 +87,19 @@ test("createPrediction sends correct target_column JSON body and headers", async
   assert.equal(result.prediction_id, "pred-456");
 });
 
+test("target resolution detects the user-selected target without creating a prediction", async () => {
+  let request;
+  await api.resolvePredictionTarget("run/1", "target_col", {
+    fetchImpl: async (url, options) => {
+      request = { url, options };
+      return response({ target_column: "target_col", status: "resolved", task_type: "classification" });
+    },
+  });
+  assert.equal(request.url, "/api/runs/run%2F1/prediction-target-resolution");
+  assert.equal(request.options.method, "POST");
+  assert.deepEqual(JSON.parse(request.options.body), { target_column: "target_col" });
+});
+
 test("prediction status, result, and rows calls use encoded same-origin paths and query params", async () => {
   const calls = [];
   const fetchImpl = async (url) => {
@@ -88,6 +114,29 @@ test("prediction status, result, and rows calls use encoded same-origin paths an
     "/api/runs/run%2F1/predictions/pred%2F1/result",
     "/api/runs/run%2F1/predictions/pred%2F1/rows?offset=10&limit=25",
   ]);
+});
+
+test("dataset pages use bounded run-scoped query parameters", async () => {
+  let request;
+  await api.getDatasetPage("run/1", {
+    version: "original", offset: 20, limit: 20, search: "east",
+    sort_column: "Sales", sort_direction: "desc",
+    filter_column: "Region", filter_value: "East",
+  }, {
+    fetchImpl: async (url, options) => {
+      request = { url, options };
+      return response({ version: "original", rows: [] });
+    },
+  });
+  const [path, queryString] = request.url.split("?");
+  const query = new URLSearchParams(queryString);
+  assert.equal(path, "/api/runs/run%2F1/dataset");
+  assert.deepEqual(Object.fromEntries(query), {
+    version: "original", offset: "20", limit: "20", search: "east",
+    sort_column: "Sales", sort_direction: "desc",
+    filter_column: "Region", filter_value: "East",
+  });
+  assert.equal(request.options.method, "GET");
 });
 
 test("createConversation sends the exact first-turn payload", async () => {
@@ -125,4 +174,60 @@ test("automatic visualizations use an independent GET endpoint", async () => {
   });
   assert.equal(request.url, "/api/visualizations/run%2Fid");
   assert.equal(request.options.method, "GET");
+});
+
+test("automatic visualization limit is passed through the existing endpoint", async () => {
+  let request;
+  await api.getAutomaticVisualizations("run/id", {
+    maxVisualizations: 4,
+    fetchImpl: async (url, options) => {
+      request = { url, options };
+      return response({ mode: "automatic", visualizations: [] });
+    },
+  });
+  assert.equal(request.url, "/api/visualizations/run%2Fid?max_visualizations=4");
+  assert.equal(request.options.method, "GET");
+});
+
+test("Insights landing uses the dataset-scoped cached endpoint", async () => {
+  const calls = [];
+  await api.getInsightsLanding("dataset 1", {
+    fetchImpl: async (url, options) => {
+      calls.push({ url, options });
+      return response({ status: "READY", summary_text: "Summary", suggested_questions: [] });
+    },
+  });
+  assert.equal(calls[0].url, "/api/insights/dataset%201/landing");
+  assert.equal(calls[0].options.method, "GET");
+});
+
+test("Export availability carries active artifact identifiers", async () => {
+  let request;
+  await api.getExportAvailability("run/id", {
+    prediction_id: "pred/1", insights_conversation_id: "insight 1",
+  }, {
+    fetchImpl: async (url, options) => {
+      request = { url, options };
+      return response({ ready: true, sections: [] });
+    },
+  });
+  assert.equal(request.url, "/api/runs/run%2Fid/exports/availability?prediction_id=pred%2F1&insights_conversation_id=insight+1");
+  assert.equal(request.options.method, "GET");
+});
+
+test("Dataset and report exports use real download responses", async () => {
+  const calls = [];
+  const downloadResponse = {
+    ok: true, status: 200,
+    headers: { get: () => 'attachment; filename="lynx-report.pdf"' },
+    blob: async () => new Blob(["payload"]),
+  };
+  const fetchImpl = async (url, options) => { calls.push({ url, options }); return downloadResponse; };
+  const dataset = await api.downloadCleanedDataset("run/id", "xlsx", { fetchImpl });
+  const report = await api.generateAnalysisReport("run/id", { format: "pdf", sections: ["overview"] }, { fetchImpl });
+  assert.equal(calls[0].url, "/api/runs/run%2Fid/exports/dataset?format=xlsx");
+  assert.equal(calls[1].url, "/api/runs/run%2Fid/exports/report");
+  assert.deepEqual(JSON.parse(calls[1].options.body), { format: "pdf", sections: ["overview"] });
+  assert.equal(dataset.filename, "lynx-report.pdf");
+  assert.equal(report.blob.size, 7);
 });

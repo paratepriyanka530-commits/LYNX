@@ -41,19 +41,32 @@ def _resolved(dataset_id: str, request: Request):
     )
 
 
+def _remember(request: Request, dataset_id: str, user_text: str, result: ConversationResult) -> None:
+    snapshots = getattr(request.app.state, "export_artifacts", None)
+    if snapshots is not None:
+        snapshots.add_conversation_result(
+            dataset_id,
+            result.conversation_id,
+            user_text,
+            result.model_dump(mode="json"),
+        )
+
+
 @router.post("/{dataset_id}", response_model=ConversationResult)
 def create_conversation(
     dataset_id: str, body: ConversationRequest, request: Request
 ) -> ConversationResult:
     try:
         dataset = _resolved(dataset_id, request)
-        return _orchestrator(request).start(
+        result = _orchestrator(request).start(
             dataset_id,
             dataset.dataframe,
             body.message,
             pipeline1_report=dataset.pipeline1_report,
             dataset_name=dataset.dataset_name,
         )
+        _remember(request, dataset_id, body.message, result)
+        return result
     except ServiceError:
         raise
     except Exception as exc:
@@ -73,7 +86,7 @@ def continue_conversation(
         # Check ownership before loading a potentially unrelated dataset.
         _orchestrator(request).store.get(dataset_id, conversation_id)
         dataset = _resolved(dataset_id, request)
-        return _orchestrator(request).continue_conversation(
+        result = _orchestrator(request).continue_conversation(
             dataset_id,
             conversation_id,
             dataset.dataframe,
@@ -81,6 +94,8 @@ def continue_conversation(
             pipeline1_report=dataset.pipeline1_report,
             dataset_name=dataset.dataset_name,
         )
+        _remember(request, dataset_id, body.message, result)
+        return result
     except ConversationNotFoundError as exc:
         raise ServiceError(
             404, "conversation_not_found", "The conversation does not exist."

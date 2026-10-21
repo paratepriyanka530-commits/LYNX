@@ -22,6 +22,17 @@ from pipelines.pipeline3_results.nlp.orchestrator import (
     interpret_query,
     orchestrate_query,
 )
+from pipelines.pipeline3_results.nlp.semantic_intent import (
+    MissingSlot,
+    SemanticAmbiguity,
+    SemanticFilter,
+    SemanticIntent,
+    SemanticInterpretationResult,
+)
+from pipelines.pipeline3_results.nlp.semantic_interpreter import (
+    SemanticInterpreter,
+    interpret_query_pretrained_first,
+)
 from pipelines.pipeline3_results.nlp.schemas import (
     ALL_AGGREGATIONS,
     ALL_COMPARISON_OPERATIONS,
@@ -46,6 +57,16 @@ from pipelines.pipeline3_results.nlp.schemas import (
     TermKind,
     TermResolution,
 )
+
+
+def __getattr__(name: str):
+    if name == "adapt_semantic_intent":
+        from pipelines.pipeline3_results.nlp.compatibility_adapter import (
+            adapt_semantic_intent,
+        )
+
+        return adapt_semantic_intent
+    raise AttributeError(name)
 
 __all__ = [
     "ALL_AGGREGATIONS",
@@ -84,4 +105,12 @@ __all__ = [
     "orchestrate_query",
     "resolve_column_terms",
     "resolve_columns",
+    "MissingSlot",
+    "SemanticAmbiguity",
+    "SemanticFilter",
+    "SemanticIntent",
+    "SemanticInterpretationResult",
+    "SemanticInterpreter",
+    "adapt_semantic_intent",
+    "interpret_query_pretrained_first",
 ]

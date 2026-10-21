@@ -20,12 +20,12 @@ test("1. Target list comes from Pipeline 1 prepared target columns", () => {
 // 2. Run button disabled without target
 test("2. Run button disabled without target", () => {
   assert.match(html, /id="btn-run-prediction"[^>]*disabled/);
-  assert.match(mainSource, /if \(!selected\)[\s\S]*runBtn\.disabled = true/);
+  assert.match(mainSource, /run\.disabled = !predictionEligible \|\| !selected/);
 });
 
 // 3. Run button disabled when prediction ineligible
 test("3. Run button disabled when prediction ineligible", () => {
-  assert.match(mainSource, /else if \(!predictionEligible\)[\s\S]*runBtn\.disabled = true/);
+  assert.match(mainSource, /run\.disabled = !predictionEligible/);
   assert.match(mainSource, /predictionEligible = availability\.enabled/);
 });
 
@@ -250,16 +250,12 @@ test("19. Unresolved target controlled failure", () => {
   assert.match(controllerSource, /task_type_unresolved|target_unresolved/);
 });
 
-// 20. Run another prediction does not rerun Pipeline 1
-test("20. Run another prediction does not rerun Pipeline 1", () => {
-  assert.match(mainSource, /btn-prediction-run-another/);
-  assert.match(mainSource, /showPredictionSubView\("target"\)/);
-  // Verify clicking "Run another prediction" does not call beginAnalysis or pipeline1Controller.start
-  const runAnotherSection = mainSource.substring(
-    mainSource.indexOf("btn-prediction-run-another"),
-    mainSource.indexOf("btn-prediction-run-another") + 300
-  );
-  assert.doesNotMatch(runAnotherSection, /beginAnalysis|pipeline1Controller\.start/);
+// 20. Run Again reuses the selected target and prediction boundary
+test("20. Run Again does not rerun Pipeline 1", () => {
+  assert.match(mainSource, /label\.textContent = state === "completed" \? "Run Again" : "Run Prediction"/);
+  assert.match(mainSource, /runBtn\.addEventListener\("click", beginPrediction\)/);
+  const beginPrediction = mainSource.match(/function beginPrediction\(\) \{([\s\S]*?)\n  \}/)[1];
+  assert.doesNotMatch(beginPrediction, /beginAnalysis|pipeline1Controller\.start/);
 });
 
 // 21. Existing frontend tests remain passing
@@ -327,7 +323,7 @@ test("24. Controller recognizes exact backend failed state", async () => {
 // 25. Confusion matrix does not fabricate percentages
 test("25. Confusion matrix renders raw counts only and never fabricates percentages", () => {
   // Inspect renderConfusionMatrix in main.js
-  const matrixFnMatch = mainSource.match(/function renderConfusionMatrix\(matrix\) \{([\s\S]*?)\n  \}/);
+  const matrixFnMatch = mainSource.match(/function renderConfusionMatrix\(matrix, labels\) \{([\s\S]*?)\n  \}/);
   assert.ok(matrixFnMatch, "renderConfusionMatrix must exist in main.js");
   const matrixFnBody = matrixFnMatch[1];
   // Verify cells render strictly raw count without % or dividing by total
@@ -340,5 +336,19 @@ test("25. Confusion matrix renders raw counts only and never fabricates percenta
 // 26. Prediction table sequence index `#` increments from offset + 1
 test("26. Prediction table sequence index # increments from offset + 1", () => {
   assert.match(mainSource, /<td>\$\{offset \+ i \+ 1\}<\/td>/);
+});
+
+test("27. Missing target-resolution client is a retryable integration failure", () => {
+  assert.match(mainSource, /typeof globalThis\.LYNXApiClient\.resolvePredictionTarget !== "function"/);
+  assert.match(mainSource, /integrationError\.code = "prediction_client_incompatible"/);
+  assert.match(mainSource, /code === "prediction_client_incompatible"[\s\S]*Prediction target validation is temporarily unavailable/);
+  assert.match(mainSource, /state: "failed"/);
+  assert.equal(typeof api.resolvePredictionTarget, "function");
+});
+
+test("28. Network and validation failures remain distinct", () => {
+  assert.match(mainSource, /unsupportedCodes = new Set/);
+  assert.match(mainSource, /"invalid_target", "target_not_found", "task_type_unresolved"/);
+  assert.match(mainSource, /code === "network_error" \|\| code === "network_unavailable"/);
 });
 

@@ -10,13 +10,16 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, JsonValue
 
+from pipelines.pipeline3_results.nlp.chart_types import RequestedChart
+
 
 QueryIntent = Literal["VISUALIZATION", "INSIGHT", "UNKNOWN"]
 IntentConfidence = Literal["HIGH", "MEDIUM", "LOW"]
 Aggregation = Literal["SUM", "MEAN", "COUNT", "MIN", "MAX", "MEDIAN", "NONE"]
 ComparisonOperation = Literal["HIGHEST", "LOWEST", "TOP_N", "BOTTOM_N", "NONE"]
 InterpretationStatus = Literal["RESOLVED", "NEEDS_CLARIFICATION", "INVALID"]
-SharedChartType = Literal["BAR", "LINE", "SCATTER", "HISTOGRAM", "COUNT_BAR", "PIE"]
+# Backward-compatible name for the one canonical production chart vocabulary.
+SharedChartType = RequestedChart
 SharedChartVariant = Literal["DOUGHNUT"]
 FilterOperator = Literal[
     "EQUALS", "NOT_EQUALS", "GREATER_THAN", "GREATER_THAN_OR_EQUAL",
@@ -45,7 +48,7 @@ ALL_INTERPRETATION_STATUSES: tuple[InterpretationStatus, ...] = (
     "RESOLVED", "NEEDS_CLARIFICATION", "INVALID",
 )
 ALL_SHARED_CHART_TYPES: tuple[SharedChartType, ...] = (
-    "BAR", "LINE", "SCATTER", "HISTOGRAM", "COUNT_BAR", "PIE",
+    "BAR", "LINE", "SCATTER", "HISTOGRAM", "COUNT_BAR", "PIE", "DOUGHNUT",
 )
 
 
@@ -181,6 +184,7 @@ class QueryInterpretation(BaseModel):
     choices: list[str] = Field(default_factory=list)
     signals: list[str] = Field(default_factory=list)
     confidence: float | None = Field(default=None, ge=0.0, le=1.0)
+    analytical_plan: dict[str, JsonValue] | None = None
 
 
 __all__ = [
@@ -203,6 +207,7 @@ __all__ = [
     "QueryFilter",
     "QueryIntent",
     "QueryInterpretation",
+    "RequestedChart",
     "SharedChartType",
     "SharedChartVariant",
     "StructuredQuery",

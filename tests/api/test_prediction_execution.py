@@ -79,7 +79,22 @@ def _orchestration(task_type="classification", *, fallback=False, metric=0.75):
         },
         "execution": {"status": "success", "selected_model": selected_model, "selected_rank": selected_rank, "fallback_used": fallback, "attempts": attempts},
         "predictions": predictions,
-        "evaluation": {"predictive_metrics": predictive_metrics, "calibration_metrics": {}, "probability_metadata": {}},
+        "evaluation": {
+            "predictive_metrics": predictive_metrics,
+            "calibration_metrics": {},
+            "probability_metadata": {},
+            "feature_importance": {
+                "available": True,
+                "method": "held_out_permutation_importance",
+                "metric": "balanced_accuracy_decrease" if task_type == "classification" else "rmse_increase",
+                "interpretation": "Measured on held-out rows.",
+                "evaluation_scope": "held_out_test_split",
+                "repeats": 2,
+                "sample_rows": 2,
+                "random_state": 42,
+                "features": [{"feature": "feature", "importance": 0.25}],
+            },
+        },
         "artifacts": {"model_artifact": None, "model_reference": "fixture.Model", "preprocessor_artifact": None, "preprocessor_reference": "fixture.Preprocessor", "target_encoder_artifact": None, "target_encoder_reference": None, "transformed_feature_names": ["feature"]},
         "warnings": [], "errors": [],
     }
@@ -190,6 +205,25 @@ class PredictionExecutionTests(unittest.TestCase):
             self.assertEqual(calls[0]["task_type"], task_type)
             self.assertFalse(calls[0]["generate_semantic_profile"])
 
+    def test_target_resolution_is_user_initiated_and_does_not_create_a_job(self):
+        run_id = self.completed_run()
+        service = self.service(
+            resolver=lambda frame, target, report: _resolution("classification")
+        )
+        resolution = service.resolve_target(run_id, "target")
+        self.assertEqual(resolution["target_column"], "target")
+        self.assertEqual(resolution["task_type"], "classification")
+        self.assertEqual(resolution["classification_type"], "binary")
+        prediction_root = self.run_service.store.run_directory(run_id) / "predictions"
+        self.assertFalse(prediction_root.exists())
+        client = TestClient(create_app(service=self.run_service, prediction_service=service))
+        response = client.post(
+            f"/api/runs/{run_id}/prediction-target-resolution",
+            json={"target_column": "target"},
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()["task_type"], "classification")
+
     def test_unresolved_fails_without_orchestrator(self):
         run_id = self.completed_run()
         calls = []
@@ -270,6 +304,10 @@ class PredictionExecutionTests(unittest.TestCase):
         self.assertTrue(internal["selection"]["fallback_used"])
         result = service.result(run_id, prediction_id)
         self.assertNotIn("selection", result)
+        self.assertTrue(result["feature_importance"]["available"])
+        self.assertEqual(result["feature_importance"]["method"], "held_out_permutation_importance")
+        self.assertEqual(result["feature_importance"]["random_state"], 42)
+        self.assertEqual(result["feature_importance"]["features"][0]["feature"], "feature")
         serialized = json.dumps(internal)
         self.assertNotIn("SECRET", serialized)
         self.assertNotIn("artifact_path", serialized)

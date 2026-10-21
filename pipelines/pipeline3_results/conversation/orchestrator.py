@@ -27,12 +27,10 @@ from pipelines.pipeline3_results.conversation.schemas import (
 from pipelines.pipeline3_results.insights.results_service import build_insight_results
 from pipelines.pipeline3_results.nlp.normalizer import normalize_text
 from pipelines.pipeline3_results.nlp.llm.schemas import LLMFollowupInterpretation
-from pipelines.pipeline3_results.nlp.llm.semantic_interpreter import (
-    fallback_reason,
-    interpret_followup_with_llm,
-    interpret_query_with_fallback,
-)
 from pipelines.pipeline3_results.nlp.orchestrator import interpret_query
+from pipelines.pipeline3_results.nlp.semantic_interpreter import (
+    interpret_query_pretrained_first,
+)
 from pipelines.pipeline3_results.nlp.schemas import QueryFilter, QueryInterpretation
 from pipelines.pipeline3_results.visualization.column_classifier import (
     classify_dataframe,
@@ -49,9 +47,11 @@ class ConversationOrchestrator:
         self,
         store: InMemoryConversationStore | None = None,
         llm_provider: LLMProvider | None = None,
+        response_language: str = "en",
     ) -> None:
         self.store = store or InMemoryConversationStore()
         self.llm_provider = llm_provider
+        self.response_language = response_language
 
     def start(
         self,
@@ -126,52 +126,29 @@ class ConversationOrchestrator:
                 f"conversation:clarification_selected:{selected}",
             ]
         else:
-            # Interpret the actual turn before deciding whether it is independent
-            # or a controlled field-level modifier.
-            current_interpretation = interpret_query(
-                raw_text=user_text.strip(),
-                dataframe=dataframe,
-                pipeline1_report=pipeline1_report,
-                classification=classification,
-                context=previous_intent_context,
-            )
             followup = resolve_followup(user_text, context.active_query)
-            llm_followup_signals: list[str] = []
-            if (
-                not followup.is_followup
-                and context.active_query is not None
-                and self.llm_provider is not None
-                and fallback_reason(current_interpretation) is not None
-            ):
-                llm_followup, llm_followup_signals = interpret_followup_with_llm(
-                    user_text,
-                    context.active_query.model_dump(mode="json"),
-                    classification,
-                    pipeline1_report=pipeline1_report,
-                    provider=self.llm_provider,
-                )
-                if llm_followup is not None:
-                    followup = self._apply_llm_followup(
-                        context.active_query, llm_followup, llm_followup_signals
-                    )
             if followup.is_followup:
                 assert followup.query is not None
                 state = followup.query
                 request_text = compile_structured_request(state)
                 inherited_signals = list(followup.signals)
             else:
-                state = None
-                request_text = user_text.strip()
-                inherited_signals = ["conversation:new_request", *llm_followup_signals]
-                current_interpretation = interpret_query_with_fallback(
-                    request_text,
+                structured_context = (
+                    context.active_query.model_dump(mode="json")
+                    if context.active_query is not None else None
+                )
+                current_interpretation = interpret_query_pretrained_first(
+                    user_text.strip(),
                     dataframe,
                     pipeline1_report=pipeline1_report,
                     classification=classification,
                     context=previous_intent_context,
-                    provider=(None if llm_followup_signals else self.llm_provider),
-                    deterministic=current_interpretation,
+                    conversation_context=structured_context,
+                    provider=self.llm_provider,
                 )
+                state = None
+                request_text = user_text.strip()
+                inherited_signals = ["conversation:new_request"]
 
         intent_context = None
         if state is not None and state.intent in {"VISUALIZATION", "INSIGHT"}:
@@ -201,6 +178,10 @@ class ConversationOrchestrator:
         # Explicit complete wording may switch intent; short modifiers never reach here.
         if state is not None and interpretation.query.intent in {"VISUALIZATION", "INSIGHT"}:
             intent = interpretation.query.intent
+        if intent in {"VISUALIZATION", "INSIGHT"} and interpretation.query.intent != intent:
+            interpretation = interpretation.model_copy(update={
+                "query": interpretation.query.model_copy(update={"intent": intent})
+            })
 
         if intent == "VISUALIZATION":
             payload = build_visualization_results(
@@ -208,15 +189,29 @@ class ConversationOrchestrator:
                 request_text=request_text,
                 pipeline1_report=pipeline1_report,
                 dataset_name=dataset_name,
+                interpretation=interpretation,
             )
             visualization, insight = payload, None
         elif intent == "INSIGHT":
+            previous_result_id = None
+            if context.turns:
+                previous_result_id = context.turns[-1].result_metadata.get(
+                    "verified_result_id"
+                )
             payload = build_insight_results(
                 dataframe=dataframe,
                 question=request_text,
                 pipeline1_report=pipeline1_report,
                 dataset_name=dataset_name,
                 classification=classification,
+                interpretation=interpretation,
+                response_provider=self.llm_provider,
+                requested_language=self.response_language,
+                conversation_context={
+                    "conversation_id": context.conversation_id,
+                    "previous_verified_result_id": previous_result_id,
+                    "response_language": self.response_language,
+                },
             )
             visualization, insight = None, payload
         else:
@@ -401,6 +396,11 @@ class ConversationOrchestrator:
                 metadata["chart_type"] = visualizations[0].get("chart_type")
         elif isinstance(payload.get("result"), Mapping):
             metadata["query_type"] = payload["result"].get("query_type")
+        for signal in payload.get("signals", []):
+            if isinstance(signal, str) and signal.startswith("verified_result:"):
+                metadata["verified_result_id"] = signal.split(":", 1)[1]
+            if isinstance(signal, str) and signal.startswith("response_language:"):
+                metadata["response_language"] = signal.split(":", 1)[1]
         return metadata
 
     @staticmethod

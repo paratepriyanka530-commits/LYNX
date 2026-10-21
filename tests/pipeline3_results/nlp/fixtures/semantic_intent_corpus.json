@@ -1,0 +1,57 @@
+[
+  {
+    "domain": "retail",
+    "query": "Which category made the most revenue?",
+    "expected": {"analytical_goal": "RANK_GROUPS", "measure_concepts": ["revenue"], "dimension_concepts": ["category"], "comparison": "HIGHEST", "limit": null}
+  },
+  {
+    "domain": "hr",
+    "query": "Which department has the highest employee compensation?",
+    "expected": {"analytical_goal": "RANK_GROUPS", "measure_concepts": ["employee compensation"], "dimension_concepts": ["department"], "comparison": "HIGHEST"}
+  },
+  {
+    "domain": "healthcare",
+    "query": "Which hospital treated the most patients?",
+    "expected": {"analytical_goal": "RANK_GROUPS", "measure_concepts": ["patient volume"], "dimension_concepts": ["hospital"], "comparison": "HIGHEST", "limit": null}
+  },
+  {
+    "domain": "banking",
+    "query": "Which account type has the highest average balance?",
+    "expected": {"analytical_goal": "RANK_GROUPS", "measure_concepts": ["balance"], "dimension_concepts": ["account type"], "aggregation": "MEAN", "comparison": "HIGHEST"}
+  },
+  {
+    "domain": "iot",
+    "query": "Which sensor recorded the greatest temperature variation?",
+    "expected": {"analytical_goal": "RANK_GROUPS", "measure_concepts": ["temperature variation"], "dimension_concepts": ["sensor"], "comparison": "HIGHEST"}
+  },
+  {
+    "domain": "cybersecurity",
+    "query": "Which attack type occurred most frequently?",
+    "expected": {"analytical_goal": "RANK_GROUPS", "measure_concepts": ["attack frequency"], "dimension_concepts": ["attack type"], "aggregation": "COUNT", "comparison": "HIGHEST", "limit": null}
+  },
+  {
+    "domain": "iot",
+    "query": "How did energy usage change throughout the year?",
+    "expected": {"analytical_goal": "TREND", "measure_concepts": ["energy usage"], "time_expression": "throughout the year", "requested_chart": null}
+  },
+  {
+    "domain": "generic",
+    "query": "What stands out?",
+    "expected": {"analytical_goal": "EXPLORATORY", "needs_clarification": false}
+  },
+  {
+    "domain": "retail",
+    "query": "Which category has the highest value?",
+    "expected": {"measure_concepts": ["value"], "ambiguity_slot": "measure", "needs_clarification": true}
+  },
+  {
+    "domain": "retail",
+    "query": "What sells the most?",
+    "expected": {"measure_concepts": ["sales volume"], "missing_slot": "dimension", "comparison": "HIGHEST", "limit": null}
+  },
+  {
+    "domain": "generic",
+    "query": "Compare price and quantity",
+    "expected": {"analytical_goal": "RELATIONSHIP", "measure_concepts": ["price", "quantity"], "comparison": "NONE", "requested_chart": null}
+  }
+]

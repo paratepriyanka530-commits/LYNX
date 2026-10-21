@@ -76,6 +76,9 @@ async def get_automatic_visualizations(
             f"Failed to generate automatic visualizations: {exc}",
         ) from exc
 
+    snapshots = getattr(request.app.state, "export_artifacts", None)
+    if snapshots is not None:
+        snapshots.set_automatic(dataset_id, payload)
     return JSONResponse(status_code=200, content=payload)
 
 

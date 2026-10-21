@@ -48,6 +48,9 @@ class VisualizationApiTests(unittest.TestCase):
         self.assertEqual(data["dataset_name"], "tabarena_363612")
         self.assertGreater(data["visualization_count"], 0)
         self.assertEqual(len(data["visualizations"]), data["visualization_count"])
+        self.assertIn("kpis", data)
+        self.assertLessEqual(len(data["kpis"]), 4)
+        self.assertIn("dashboard", data)
 
         # Check required fields on each visualization item
         for viz in data["visualizations"]:
@@ -60,6 +63,10 @@ class VisualizationApiTests(unittest.TestCase):
             self.assertIn("chart_data", viz)
             self.assertIn("signals", viz)
             self.assertIn("explanation", viz)
+            self.assertIn("visualization_plan", viz)
+            self.assertIn("chart_spec", viz)
+            self.assertNotIn("xAxis", viz["chart_spec"])
+            self.assertNotIn("yAxis", viz["chart_spec"])
             expl = viz["explanation"]
             self.assertIn("why_this_chart", expl)
             self.assertIn("what_it_shows", expl)
@@ -111,6 +118,8 @@ class VisualizationApiTests(unittest.TestCase):
         self.assertEqual(viz["y_column"], "unit_price")
         self.assertEqual(viz["chart_data"]["aggregation"], "median")
         self.assertIn("explanation", viz)
+        self.assertEqual(viz["source"], "USER_REQUESTED")
+        self.assertEqual(viz["chart_spec"]["family"], "BAR")
         self.assertIn("user-requested", viz["explanation"]["aggregation"].lower())
 
     def test_requested_visualization_tabarena_scatter(self):

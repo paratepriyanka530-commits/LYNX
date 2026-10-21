@@ -18,6 +18,7 @@ InsightStatus = Literal["READY", "NEEDS_CLARIFICATION", "INVALID"]
 InsightValidationStatus = Literal["VALID", "NEEDS_CLARIFICATION", "INVALID"]
 InsightQueryType = Literal[
     "SIMPLE_AGGREGATION",
+    "GROUPED_AGGREGATION",
     "GROUPED_COMPARISON",
     "TOP_N",
     "BOTTOM_N",

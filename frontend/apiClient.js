@@ -52,6 +52,31 @@
     return payload;
   }
 
+  async function requestDownload(path, options = {}) {
+    const fetchImpl = options.fetchImpl || globalThis.fetch;
+    if (typeof fetchImpl !== "function") {
+      throw new LynxApiError("Network access is unavailable.", { code: "network_unavailable" });
+    }
+    let response;
+    try {
+      response = await fetchImpl(`${options.apiBase || ""}${path}`, options.request || {});
+    } catch (_error) {
+      throw new LynxApiError("The LYNX service could not be reached. Check your connection and try again.", { code: "network_error" });
+    }
+    if (!response.ok) {
+      let payload = null;
+      try { payload = await response.json(); } catch (_error) {}
+      const controlled = payload && payload.error;
+      throw new LynxApiError(
+        controlled && controlled.message ? controlled.message : `The LYNX service rejected the request (HTTP ${response.status}).`,
+        { code: controlled && controlled.code ? controlled.code : "http_error", status: response.status }
+      );
+    }
+    const disposition = response.headers && response.headers.get ? response.headers.get("Content-Disposition") : "";
+    const match = /filename="?([^";]+)"?/i.exec(disposition || "");
+    return { blob: await response.blob(), filename: match ? match[1] : "lynx-export" };
+  }
+
   function createRun(file, options = {}) {
     if (!file || typeof file !== "object") {
       return Promise.reject(new LynxApiError("Choose a valid dataset file first.", { code: "missing_file" }));
@@ -79,6 +104,13 @@
     });
   }
 
+  function getApplicationInfo(options = {}) {
+    return requestJson("/api/application-info", {
+      ...options,
+      request: { method: "GET", signal: options.signal },
+    });
+  }
+
   function createPrediction(runId, targetColumn, options = {}) {
     if (!runId || typeof runId !== "string") {
       return Promise.reject(new LynxApiError("Run identifier is required.", { code: "invalid_run_id" }));
@@ -87,6 +119,21 @@
       return Promise.reject(new LynxApiError("Target column must be a non-empty string.", { code: "invalid_target" }));
     }
     return requestJson(`/api/runs/${encodeURIComponent(runId)}/predictions`, {
+      ...options,
+      request: {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ target_column: targetColumn.trim() }),
+        signal: options.signal,
+      },
+    });
+  }
+
+  function resolvePredictionTarget(runId, targetColumn, options = {}) {
+    if (!runId || typeof runId !== "string" || !targetColumn || typeof targetColumn !== "string") {
+      return Promise.reject(new LynxApiError("Run identifier and target column are required.", { code: "invalid_target" }));
+    }
+    return requestJson(`/api/runs/${encodeURIComponent(runId)}/prediction-target-resolution`, {
       ...options,
       request: {
         method: "POST",
@@ -140,6 +187,25 @@
     );
   }
 
+  function getDatasetPage(runId, params = {}, options = {}) {
+    let run;
+    try { run = validText(runId, "Run identifier is required."); }
+    catch (error) { return Promise.reject(error); }
+    const query = new URLSearchParams({
+      version: params.version === "original" ? "original" : "cleaned",
+      offset: String(Number.isInteger(params.offset) && params.offset >= 0 ? params.offset : 0),
+      limit: String([10, 20, 50, 100].includes(params.limit) ? params.limit : 20),
+    });
+    ["search", "sort_column", "sort_direction", "filter_column", "filter_value"].forEach((key) => {
+      const value = params[key];
+      if (typeof value === "string" && value.trim()) query.set(key, value.trim());
+    });
+    return requestJson(`/api/runs/${encodeURIComponent(run)}/dataset?${query.toString()}`, {
+      ...options,
+      request: { method: "GET", signal: options.signal },
+    });
+  }
+
   function validText(value, message) {
     if (!value || typeof value !== "string" || !value.trim()) {
       throw new LynxApiError(message, { code: "invalid_request" });
@@ -189,9 +255,63 @@
     let dataset;
     try { dataset = validText(datasetId, "Dataset identifier is required."); }
     catch (error) { return Promise.reject(error); }
-    return requestJson(`/api/visualizations/${encodeURIComponent(dataset)}`, {
+    const requestedMaximum = Number(options.maxVisualizations);
+    const maximum = Number.isInteger(requestedMaximum) && requestedMaximum >= 1 && requestedMaximum <= 4
+      ? `?max_visualizations=${requestedMaximum}` : "";
+    return requestJson(`/api/visualizations/${encodeURIComponent(dataset)}${maximum}`, {
       ...options,
       request: { method: "GET", signal: options.signal },
+    });
+  }
+
+  function getInsightsLanding(datasetId, options = {}) {
+    let dataset;
+    try { dataset = validText(datasetId, "Dataset identifier is required."); }
+    catch (error) { return Promise.reject(error); }
+    return requestJson(`/api/insights/${encodeURIComponent(dataset)}/landing`, {
+      ...options,
+      request: { method: "GET", signal: options.signal },
+    });
+  }
+
+  function exportContext(params = {}) {
+    const query = new URLSearchParams();
+    ["prediction_id", "insights_conversation_id", "visualization_conversation_id"].forEach((key) => {
+      if (typeof params[key] === "string" && params[key]) query.set(key, params[key]);
+    });
+    return query;
+  }
+
+  function getExportAvailability(runId, params = {}, options = {}) {
+    let run;
+    try { run = validText(runId, "Run identifier is required."); }
+    catch (error) { return Promise.reject(error); }
+    const query = exportContext(params);
+    return requestJson(`/api/runs/${encodeURIComponent(run)}/exports/availability${query.size ? `?${query}` : ""}`, {
+      ...options, request: { method: "GET", signal: options.signal },
+    });
+  }
+
+  function downloadCleanedDataset(runId, format, options = {}) {
+    let run;
+    try { run = validText(runId, "Run identifier is required."); }
+    catch (error) { return Promise.reject(error); }
+    const selected = format === "csv" ? "csv" : "xlsx";
+    return requestDownload(`/api/runs/${encodeURIComponent(run)}/exports/dataset?format=${selected}`, {
+      ...options, request: { method: "GET", signal: options.signal },
+    });
+  }
+
+  function generateAnalysisReport(runId, payload, options = {}) {
+    let run;
+    try { run = validText(runId, "Run identifier is required."); }
+    catch (error) { return Promise.reject(error); }
+    return requestDownload(`/api/runs/${encodeURIComponent(run)}/exports/report`, {
+      ...options,
+      request: {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload), signal: options.signal,
+      },
     });
   }
 
@@ -201,12 +321,19 @@
     createRun,
     getRunStatus,
     getPipeline1Result,
+    getApplicationInfo,
+    resolvePredictionTarget,
     createPrediction,
     getPredictionStatus,
     getPredictionResult,
     getPredictionRows,
+    getDatasetPage,
     createConversation,
     sendConversationMessage,
+    getInsightsLanding,
     getAutomaticVisualizations,
+    getExportAvailability,
+    downloadCleanedDataset,
+    generateAnalysisReport,
   };
 });

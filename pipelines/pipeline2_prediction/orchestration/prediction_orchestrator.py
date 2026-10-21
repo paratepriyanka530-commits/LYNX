@@ -20,6 +20,7 @@ from uuid import uuid4
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import balanced_accuracy_score, mean_squared_error
 from sklearn.preprocessing import LabelEncoder
 
 from benchmarks.tabarena.evaluation_metrics import (
@@ -66,6 +67,76 @@ _EXTERNAL_PREPROCESSORS = {
     ),
 }
 _MAX_RETAINED_TRANSFORMED_CELLS = 1_000_000
+_PERMUTATION_MAX_FEATURES = 25
+_PERMUTATION_MAX_ROWS = 500
+_PERMUTATION_REPEATS = 2
+
+
+def _held_out_permutation_importance(
+    *, package: Any, model: Any, preprocessor: Any, task_type: str,
+    X_test: pd.DataFrame, y_test: np.ndarray, baseline_predictions: np.ndarray,
+    random_state: int,
+) -> dict[str, Any]:
+    """Measure source-column importance on held-out rows without target leakage."""
+    feature_names = [str(column) for column in X_test.columns]
+    if not feature_names:
+        return {"available": False, "reason": "No explanatory features are available."}
+    if len(feature_names) > _PERMUTATION_MAX_FEATURES:
+        return {
+            "available": False,
+            "reason": (
+                f"Permutation importance is limited to {_PERMUTATION_MAX_FEATURES} "
+                "source features for interactive prediction runs."
+            ),
+        }
+
+    sample_size = min(len(X_test), _PERMUTATION_MAX_ROWS)
+    if sample_size < 2:
+        return {"available": False, "reason": "Too few held-out rows are available."}
+    rng = np.random.default_rng(random_state)
+    positions = (
+        np.arange(len(X_test)) if sample_size == len(X_test)
+        else np.sort(rng.choice(len(X_test), size=sample_size, replace=False))
+    )
+    X_sample = X_test.iloc[positions].copy()
+    y_sample = np.asarray(y_test)[positions]
+    baseline_sample = np.asarray(baseline_predictions)[positions]
+
+    def score(actual: np.ndarray, predicted: np.ndarray) -> float:
+        if task_type == "classification":
+            return float(balanced_accuracy_score(actual, predicted))
+        return -float(mean_squared_error(actual, predicted) ** 0.5)
+
+    baseline_score = score(y_sample, baseline_sample)
+    records: list[dict[str, Any]] = []
+    for feature_name in feature_names:
+        decreases = []
+        original_values = X_sample[feature_name].to_numpy(copy=True)
+        for _repeat in range(_PERMUTATION_REPEATS):
+            permuted = X_sample.copy()
+            permuted[feature_name] = rng.permutation(original_values)
+            transformed = preprocessor.transform(permuted) if preprocessor is not None else permuted
+            permuted_predictions = _validate_predictions(
+                task_type, package.predict_model(model, transformed), y_sample
+            )
+            decreases.append(baseline_score - score(y_sample, permuted_predictions))
+        records.append({"feature": feature_name, "importance": float(np.mean(decreases))})
+    records.sort(key=lambda item: item["importance"], reverse=True)
+    return {
+        "available": True,
+        "method": "held_out_permutation_importance",
+        "metric": "balanced_accuracy_decrease" if task_type == "classification" else "rmse_increase",
+        "interpretation": (
+            "Mean held-out balanced-accuracy decrease after source-column permutation."
+            if task_type == "classification" else
+            "Mean held-out RMSE increase after source-column permutation, in target units."
+        ),
+        "evaluation_scope": "held_out_test_split",
+        "repeats": _PERMUTATION_REPEATS,
+        "sample_rows": sample_size,
+        "random_state": int(random_state),
+        "features": records[:10],
+    }
 
 
 @dataclass
@@ -448,6 +519,17 @@ def _execute_candidate(
             predictive, calibration, probability_metadata = regression_results(
                 y_test, predictions
             )
+        try:
+            feature_importance = _held_out_permutation_importance(
+                package=package, model=model, preprocessor=preprocessor,
+                task_type=task_type, X_test=X_test, y_test=y_test,
+                baseline_predictions=predictions, random_state=split_seed,
+            )
+        except Exception:
+            feature_importance = {
+                "available": False,
+                "reason": "Reliable held-out permutation importance could not be computed for this model.",
+            }
         inference_seconds = float(time.perf_counter() - inference_started)
 
         transformed_names = _transformed_feature_names(model_id, model, X_train_model)
@@ -456,6 +538,7 @@ def _execute_candidate(
             decoded = {
                 "y_true": target_encoder.inverse_transform(y_test).tolist(),
                 "y_pred": target_encoder.inverse_transform(predictions.astype(int)).tolist(),
+                "class_order": target_encoder.classes_.tolist(),
             }
         attempt = {
             "rank": rank,
@@ -479,6 +562,7 @@ def _execute_candidate(
                 "predictive_metrics": predictive,
                 "calibration_metrics": calibration,
                 "probability_metadata": probability_metadata,
+                "feature_importance": feature_importance,
             },
             "artifacts": {
                 "model_artifact": None,

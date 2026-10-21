@@ -22,10 +22,18 @@ import pandas as pd
 from starlette.datastructures import UploadFile
 
 from app.config import ApplicationSettings
+from api.dataset_overview import (
+    build_dataset_overview,
+    serialize_json_cell,
+    unavailable_dataset_overview,
+)
+from api.profiling_manifest import build_profiling_manifest
+from pipelines.pipeline1_cleaning.techniques.privacy_masking import REDACTION_VALUE
 from pipelines.pipeline1_cleaning.ingestion.file_validator import (
     ALLOWED_EXTENSIONS,
     validate_file,
 )
+from pipelines.pipeline1_cleaning.ingestion.dataset_loader import load_dataset
 
 
 Pipeline1Runner = Callable[[str | Path, str | Path], Any]
@@ -582,6 +590,32 @@ class ApplicationRunService:
         privacy = _as_mapping(
             _as_mapping(report.get("decision_summary")).get("privacy_actions")
         )
+        privacy_clearance_passed = bool(privacy.get("privacy_clearance_passed"))
+        pii_columns: list[str] = []
+        for field in ("pii_candidate_columns", "masked_columns"):
+            values = privacy.get(field)
+            if isinstance(values, (list, tuple, set)):
+                pii_columns.extend(str(value) for value in values)
+        protected_columns = tuple(dict.fromkeys(pii_columns))
+        profiling_manifest = build_profiling_manifest(
+            report,
+            dataset_name=str(state.get("original_filename") or "dataset"),
+            profiled_at=str(state.get("updated_at")) if state.get("updated_at") else None,
+            privacy_clearance_passed=privacy_clearance_passed,
+            pii_columns=protected_columns,
+        )
+        original_path = paths["upload"] / f"dataset{state['stored_extension']}"
+        try:
+            original_frame = load_dataset(str(original_path))["dataframe"]
+            dataset_overview = build_dataset_overview(
+                original_frame,
+                privacy_clearance_passed=privacy_clearance_passed,
+                pii_columns=protected_columns,
+            )
+        except (KeyError, OSError, RuntimeError, TypeError, ValueError):
+            dataset_overview = unavailable_dataset_overview(
+                "original_dataset_unavailable"
+            )
         return {
             "run_id": run_id,
             "state": "complete",
@@ -592,8 +626,144 @@ class ApplicationRunService:
                 "columns": int(len(columns)),
                 "target_columns": columns if columns_unique else [],
             },
-            "privacy_clearance_passed": bool(privacy.get("privacy_clearance_passed")),
+            "privacy_clearance_passed": privacy_clearance_passed,
             "prediction_eligibility": eligibility,
+            "dataset_overview": dataset_overview,
+            "profiling_manifest": profiling_manifest,
+        }
+
+    def dataset_page(
+        self,
+        run_id: str,
+        *,
+        version: str,
+        offset: int,
+        limit: int,
+        search: str | None = None,
+        sort_column: str | None = None,
+        sort_direction: str = "asc",
+        filter_column: str | None = None,
+        filter_value: str | None = None,
+    ) -> dict[str, Any]:
+        """Return one privacy-aware page from the original or cleaned run artifact."""
+        state = self.store.read(run_id)
+        if state["state"] in ACTIVE_STATES:
+            raise ServiceError(409, "pipeline1_not_complete", "Pipeline 1 is still running.")
+        if state["state"] == "failed":
+            raise ServiceError(409, "pipeline1_failed", "Pipeline 1 did not complete successfully.")
+
+        paths = self.store.paths(run_id)
+        report_path = paths["pipeline1"] / "cleaning_report.json"
+        try:
+            report = json.loads(report_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise ServiceError(
+                500, "pipeline1_artifacts_unavailable",
+                "Pipeline 1 result artifacts are unavailable or invalid.",
+            ) from exc
+
+        privacy = _as_mapping(
+            _as_mapping(report.get("decision_summary")).get("privacy_actions")
+        )
+        if not bool(privacy.get("privacy_clearance_passed")):
+            raise ServiceError(
+                403, "privacy_clearance_not_passed",
+                "Dataset rows are unavailable because privacy clearance did not pass.",
+            )
+        protected: set[str] = set()
+        for field in ("pii_candidate_columns", "masked_columns"):
+            values = privacy.get(field)
+            if isinstance(values, (list, tuple, set)):
+                protected.update(str(value) for value in values)
+
+        try:
+            if version == "original":
+                source = paths["upload"] / f"dataset{state['stored_extension']}"
+                frame = load_dataset(str(source))["dataframe"]
+            elif version == "cleaned":
+                frame = pd.read_csv(paths["pipeline1"] / "cleaned_dataset.csv", low_memory=False)
+            else:
+                raise ServiceError(422, "invalid_dataset_version", "Dataset version must be original or cleaned.")
+        except ServiceError:
+            raise
+        except (KeyError, OSError, RuntimeError, TypeError, ValueError, pd.errors.ParserError) as exc:
+            raise ServiceError(
+                404, "dataset_version_unavailable",
+                f"The {version} dataset is unavailable.",
+            ) from exc
+
+        frame = frame.reset_index(drop=True)
+        columns = [str(column) for column in frame.columns]
+        frame.columns = columns
+        if version == "original" and protected:
+            frame = frame.copy()
+            for column in columns:
+                if column in protected:
+                    frame[column] = frame[column].where(frame[column].isna(), REDACTION_VALUE)
+
+        total_rows = int(len(frame))
+        query = (search or "").strip()
+        if query:
+            matches = pd.Series(False, index=frame.index)
+            for position in range(len(columns)):
+                values = frame.iloc[:, position].astype("string")
+                matches |= values.str.contains(query, case=False, regex=False, na=False)
+            frame = frame.loc[matches]
+
+        filter_name = (filter_column or "").strip()
+        filter_text = (filter_value or "").strip()
+        if filter_text:
+            if not filter_name or filter_name not in columns:
+                raise ServiceError(422, "invalid_filter_column", "Filter column was not found in this dataset.")
+            if columns.count(filter_name) != 1:
+                raise ServiceError(422, "ambiguous_filter_column", "Filter column must be uniquely named.")
+            values = frame[filter_name].astype("string")
+            frame = frame.loc[values.str.contains(filter_text, case=False, regex=False, na=False)]
+
+        sort_name = (sort_column or "").strip()
+        if sort_name:
+            if sort_name not in columns:
+                raise ServiceError(422, "invalid_sort_column", "Sort column was not found in this dataset.")
+            if columns.count(sort_name) != 1:
+                raise ServiceError(422, "ambiguous_sort_column", "Sort column must be uniquely named.")
+            try:
+                frame = frame.sort_values(
+                    by=sort_name,
+                    ascending=sort_direction != "desc",
+                    kind="mergesort",
+                    na_position="last",
+                )
+            except (TypeError, ValueError) as exc:
+                raise ServiceError(
+                    422, "unsupported_sort_values",
+                    "This column contains values that cannot be sorted together.",
+                ) from exc
+
+        filtered_rows = int(len(frame))
+        page = frame.iloc[offset:offset + limit]
+        rows = [
+            [serialize_json_cell(value) for value in row]
+            for row in page.itertuples(index=False, name=None)
+        ]
+        return {
+            "run_id": run_id,
+            "dataset_name": str(state.get("original_filename") or "dataset"),
+            "version": version,
+            "columns": columns,
+            "rows": rows,
+            "row_numbers": [int(index) + 1 for index in page.index],
+            "offset": offset,
+            "limit": limit,
+            "total_rows": total_rows,
+            "filtered_rows": filtered_rows,
+            "privacy_redacted_columns": [
+                column for column in columns if version == "original" and column in protected
+            ],
+            "change_highlighting_available": False,
+            "change_highlighting_reason": (
+                "Cell-level cleaning lineage is not available for this dataset."
+                if version == "cleaned" else None
+            ),
         }
 
     def cleanup_expired_runs(self) -> list[str]:

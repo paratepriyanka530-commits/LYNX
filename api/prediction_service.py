@@ -135,6 +135,41 @@ def _metric(mapping: Mapping[str, Any], key: str) -> int | float | None:
     return value
 
 
+def _public_feature_importance(evaluation: Mapping[str, Any]) -> dict[str, Any]:
+    importance = _mapping(evaluation.get("feature_importance"))
+    if importance.get("available") is not True:
+        reason = importance.get("reason")
+        return {
+            "available": False,
+            "reason": reason if isinstance(reason, str) else "Feature importance is unavailable for this run.",
+        }
+    method = importance.get("method")
+    metric = importance.get("metric")
+    interpretation = importance.get("interpretation")
+    scope = importance.get("evaluation_scope")
+    if not all(isinstance(value, str) and value for value in (method, metric, interpretation, scope)):
+        raise ServiceError(500, "prediction_result_invalid", "Prediction result is invalid.")
+    features = []
+    for record in importance.get("features") or []:
+        item = _mapping(record)
+        name = item.get("feature")
+        score = _finite_number(item.get("importance"))
+        if not isinstance(name, str) or not name or score is None:
+            raise ServiceError(500, "prediction_result_invalid", "Prediction result is invalid.")
+        features.append({"feature": name, "importance": score})
+    return {
+        "available": True,
+        "method": method,
+        "metric": metric,
+        "interpretation": interpretation,
+        "evaluation_scope": scope,
+        "repeats": _integer(importance.get("repeats")),
+        "sample_rows": _integer(importance.get("sample_rows")),
+        "random_state": _integer(importance.get("random_state")),
+        "features": features,
+    }
+
+
 def project_frontend_result(internal: Mapping[str, Any]) -> dict[str, Any]:
     """Return the strict frontend whitelist for one successful internal result."""
     task_type = internal.get("task_type")
@@ -236,6 +271,11 @@ def project_frontend_result(internal: Mapping[str, Any]) -> dict[str, Any]:
         "prediction_id": prediction_id,
         "target": target,
         "task_type": task_type,
+        "classification_type": (
+            _mapping(_mapping(audit.get("selector")).get("target_info")).get("classification_type")
+            if task_type == "classification" else None
+        ),
+        "completed_at": internal.get("completed_at") if isinstance(internal.get("completed_at"), str) else None,
         "task_resolution": {
             "status": "resolved",
             "task_type": task_type,
@@ -250,6 +290,8 @@ def project_frontend_result(internal: Mapping[str, Any]) -> dict[str, Any]:
             "target_missing_count": _integer(evidence.get("missing_count")),
         },
         "metrics": metrics,
+        "feature_importance": _public_feature_importance(evaluation),
+        "class_labels": summary.get("class_labels") if isinstance(summary.get("class_labels"), list) else None,
         "predictions": {
             "available": row_count is not None,
             "row_count": row_count,
@@ -584,6 +626,41 @@ class PredictionJobService:
         self._schedule(run_id, state["prediction_id"])
         return {"run_id": run_id, "prediction_id": state["prediction_id"], "state": "queued", "status_url": f"/api/runs/{run_id}/predictions/{state['prediction_id']}"}
 
+    def resolve_target(self, run_id: str, target_column: str) -> dict[str, Any]:
+        """Resolve a user-selected target without starting model training."""
+        run_id = self.run_service.store.validate_run_id(run_id)
+        if not isinstance(target_column, str) or not target_column.strip():
+            raise ServiceError(422, "invalid_target", "Target column must be a non-empty string.")
+        context = self.run_service.prediction_context(run_id)
+        if not context["eligibility"]["eligible"]:
+            raise ServiceError(409, "prediction_not_eligible", "The prepared dataset is not eligible for prediction.")
+        if context["target_columns"].count(target_column) != 1:
+            raise ServiceError(422, "target_not_found", "Target column was not found exactly once in the prepared dataset.")
+        import pandas as pd
+        try:
+            dataframe = pd.read_csv(context["cleaned_path"], low_memory=False)
+        except (OSError, pd.errors.ParserError) as exc:
+            raise ServiceError(409, "cleaned_artifact_unreadable", "The prepared dataset could not be loaded.") from exc
+        resolution = self._resolution_dict(
+            self.resolver(dataframe, target_column, context["pipeline1_report"])
+        )
+        resolved = resolution.get("status") == "resolved" and resolution.get("task_type") in {"classification", "regression"}
+        evidence = _mapping(resolution.get("evidence"))
+        classification_type = evidence.get("classification_type")
+        if resolved and resolution.get("task_type") == "classification" and classification_type not in {"binary", "multiclass"}:
+            unique_count = _integer(evidence.get("unique_count"))
+            classification_type = "binary" if unique_count == 2 else "multiclass" if unique_count and unique_count > 2 else None
+        return {
+            "target_column": target_column,
+            "status": "resolved" if resolved else "unsupported",
+            "task_type": resolution.get("task_type") if resolved else None,
+            "classification_type": classification_type if resolved else None,
+            "explanation": resolution.get("reason") if isinstance(resolution.get("reason"), str) else (
+                "Task type detected from the prepared target." if resolved else
+                "LYNX could not determine a reliable prediction task for this target."
+            ),
+        }
+
     @staticmethod
     def _resolution_dict(resolution: Any) -> dict[str, Any]:
         converter = getattr(resolution, "to_dict", None)
@@ -693,6 +770,7 @@ class PredictionJobService:
         inference_seconds = sum(float(item.get("inference_runtime_seconds") or 0.0) for item in safe_attempts)
         result = {
             "schema_version": "1.0", "run_id": run_id, "prediction_id": prediction_id,
+            "completed_at": _utc_now(),
             "target_column": target, "task_type": task_resolution.get("task_type"),
             "task_resolution": task_resolution,
             "selection": {
@@ -704,6 +782,7 @@ class PredictionJobService:
             "prediction_summary": {
                 "row_count": len(rows), "probabilities_available": isinstance(probabilities, list),
                 "probability_class_order": predictions.get("probability_class_order"), "artifact": "predictions.csv",
+                "class_labels": decoded.get("class_order") if decoded else None,
             },
             "runtime": {"train_runtime_seconds": train_seconds, "inference_runtime_seconds": inference_seconds, "worker_runtime_seconds": float(worker_seconds)},
             "orchestrator_audit": {

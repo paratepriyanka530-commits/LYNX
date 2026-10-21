@@ -48,17 +48,23 @@ def _answer(result: InsightResult) -> str:
         )
 
     if result.query_type == "GROUPED_COMPARISON":
-        assert result.winner is not None and result.value is not None
+        assert result.value is not None and result.rows
         direction = "highest" if result.comparison == "HIGHEST" else "lowest"
         measure_phrase = (
             label
             if result.aggregation == "COUNT" and result.measure_column is None
             else f"{label} {result.measure_column}"
         )
-        return (
-            f"{result.winner} has the {direction} {measure_phrase} "
-            f"at {_format_value(result.value)}."
+        if len(result.rows) > 1:
+            groups = ", ".join(str(row.group) for row in result.rows)
+            return f"{groups} tie for the {direction} {measure_phrase} at {_format_value(result.value)}."
+        return f"{result.rows[0].group} has the {direction} {measure_phrase} at {_format_value(result.value)}."
+
+    if result.query_type == "GROUPED_AGGREGATION":
+        values = ", ".join(
+            f"{row.group} ({_format_value(row.value)})" for row in result.rows
         )
+        return f"The grouped {label} {result.measure_column} values are: {values}."
 
     direction = "top" if result.query_type == "TOP_N" else "bottom"
     values = ", ".join(

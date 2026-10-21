@@ -4,7 +4,12 @@ from typing import Any, Dict, Type
 import requests
 from pydantic import BaseModel
 
-from intelligence.llm.provider import LLMProvider
+from intelligence.llm.provider import (
+    LLMProvider,
+    LLMProviderError,
+    LLMProviderTimeoutError,
+    LLMProviderUnavailableError,
+)
 
 
 class OllamaProvider(LLMProvider):
@@ -55,10 +60,12 @@ class OllamaProvider(LLMProvider):
 
             response.raise_for_status()
 
+        except requests.Timeout as exc:
+            raise LLMProviderTimeoutError("Ollama request timed out.") from exc
+        except requests.ConnectionError as exc:
+            raise LLMProviderUnavailableError("Ollama is unavailable.") from exc
         except requests.RequestException as exc:
-            raise RuntimeError(
-                f"Failed to communicate with Ollama: {exc}"
-            ) from exc
+            raise LLMProviderError("Ollama request failed.") from exc
 
 
         data = response.json()

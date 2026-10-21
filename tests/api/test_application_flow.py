@@ -193,6 +193,7 @@ class RunStoreConcurrencyTests(unittest.TestCase):
 
 def _write_successful_pipeline1_artifacts(
     input_path, output_directory, *, duplicate_columns=False, privacy_clear=True,
+    pii_columns=(),
 ):
     output = Path(output_directory)
     output.mkdir(parents=True, exist_ok=True)
@@ -219,6 +220,7 @@ def _write_successful_pipeline1_artifacts(
             "privacy_stage_completed": True,
             "privacy_clearance_passed": privacy_clear,
             "cleaned_dataset_sha256": digest,
+            "pii_candidate_columns": list(pii_columns),
         }},
         "decisions": [],
         "instructions": [],
@@ -318,7 +320,8 @@ class ApplicationFlowTests(unittest.TestCase):
         frontend = self.client.get("/")
         self.assertEqual(frontend.status_code, 200)
         self.assertIn('id="view-upload"', frontend.text)
-        self.assertIn('src="apiClient.js"', frontend.text)
+        self.assertIn('id="view-export"', frontend.text)
+        self.assertIn('src="apiClient.js?v=20261018-settings"', frontend.text)
         self.assertEqual(self.client.get("/api/runs/not-a-uuid").status_code, 400)
 
     def test_unsupported_extension_is_rejected_without_run(self):
@@ -479,6 +482,64 @@ class ApplicationFlowTests(unittest.TestCase):
         self.assertEqual(payload["prepared_dataset"]["rows"], 3)
         self.assertTrue(payload["prediction_eligibility"]["eligible"])
         self.assertTrue(payload["prediction_eligibility"]["cleaned_dataset_sha256_verified"])
+        overview = payload["dataset_overview"]
+        original = pd.DataFrame({"feature": [1, 2, 3], "target": ["yes", "no", "yes"]})
+        self.assertEqual(
+            overview["memory_footprint_bytes"],
+            int(original.memory_usage(index=True, deep=True).sum()),
+        )
+        self.assertEqual(overview["memory_footprint_stage"], "original_ingestion")
+        self.assertEqual(overview["raw_data_preview"]["columns"], ["feature", "target"])
+        self.assertEqual(
+            overview["raw_data_preview"]["rows"],
+            [[1, "yes"], [2, "no"], [3, "yes"]],
+        )
+        manifest = payload["profiling_manifest"]
+        self.assertEqual(manifest["dataset_name"], "data.csv")
+        self.assertEqual(manifest["profile_status"], "unavailable")
+        self.assertEqual(manifest["total_columns"], 0)
+        self.assertEqual(manifest["columns"], [])
+        for existing_field in (
+            "run_id", "state", "pipeline1_internal_run_id", "pipeline1_report",
+            "prepared_dataset", "privacy_clearance_passed", "prediction_eligibility",
+        ):
+            self.assertIn(existing_field, payload)
+
+    def test_result_preview_redacts_pii_and_is_withheld_without_privacy_clearance(self):
+        content = b"contact_email,amount\nalice@example.com,10\nbob@example.com,20\n"
+        for privacy_clear in (True, False):
+            with self.subTest(privacy_clear=privacy_clear):
+                service = ApplicationRunService(
+                    self.settings,
+                    pipeline1_runner=lambda source, output, clear=privacy_clear: _write_successful_pipeline1_artifacts(
+                        source,
+                        output,
+                        privacy_clear=clear,
+                        pii_columns=("contact_email",),
+                    ),
+                )
+                client = TestClient(create_app(service=service))
+                try:
+                    response = client.post(
+                        "/api/runs",
+                        files={"dataset": ("contacts.csv", content, "text/csv")},
+                    )
+                    run_id = response.json()["run_id"]
+                    deadline = time.monotonic() + 3
+                    while client.get(f"/api/runs/{run_id}").json()["state"] != "complete":
+                        self.assertLess(time.monotonic(), deadline)
+                        time.sleep(0.01)
+                    preview = client.get(f"/api/runs/{run_id}/pipeline1").json()["dataset_overview"]["raw_data_preview"]
+                    if privacy_clear:
+                        self.assertTrue(preview["available"])
+                        self.assertEqual(preview["privacy_redacted_columns"], ["contact_email"])
+                        self.assertEqual(preview["rows"][0], ["[REDACTED]", 10])
+                    else:
+                        self.assertFalse(preview["available"])
+                        self.assertEqual(preview["unavailable_reason"], "privacy_clearance_not_passed")
+                        self.assertEqual(preview["rows"], [])
+                finally:
+                    service.shutdown(wait=True)
 
     def test_local_paths_are_absent_from_api_but_canonical_report_is_unchanged(self):
         run_id = self.upload().json()["run_id"]
